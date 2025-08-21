@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/settings.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/css/intlTelInput.css"/>
+
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.19/js/intlTelInput.min.js"></script>
+
+</head>
+
+<body>
+
+    <div class="top">
+
+        <div class="card">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li>
+                        <a href="#" title="Enterprise">Enterprise</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Company">Company</a>
+                    </li>
+                    <li>
+                        <span aria-current="page" title="Overview">Overview</span>
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="header-icons">
+            <!-- Static progress icon example (no logic) -->
+            <div class="demo-row" title="Profile Score">
+                <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+                    <div class="progress" style="--pct:72;"> <!-- change --pct value here to any number 0-100 -->
+                        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                            <circle class="bg" cx="18" cy="18" r="15.9155"></circle>
+                            <circle class="fg" cx="18" cy="18" r="15.9155"></circle>
+                        </svg>
+                        <div class="label">72%</div>
+                    </div>
+                </div>
+            </div>
+            <img src="images/announcement.png" alt="">
+            <img src="images/comments.png" alt="">
+            <img src="images/alarm.png" alt="">
+            <img src="images/bell.png" alt="">
+            <!-- <img src="images/apps.png" alt=""> -->
+            <div class="menu-container">
+                <div class="dots-grid">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+            </div>
+
+            <div class="dropdown-advanced">
+                <button class="dropdown-btn">
+                    <img src="images/user.png" alt="" class="account-img">
+                </button>
+
+                <div class="dropdown-menu">
+                    <div class="dropdown-section">
+                        <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
+                        <a href="#"><i class="fa-solid fa-building"></i> My Company</a>
+                        <a href="#"><i class="fa-solid fa-people-arrows"></i> Switch User</a>
+                    </div>
+                    <hr>
+                    <div class="dropdown-section">
+                        <a href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
+                        <a href="#"><i class="fa-solid fa-globe"></i> Language</a>
+                    </div>
+                    <hr>
+                    <div class="dropdown-section">
+                        <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="app-layout">
+        <!-- add or confirm this in the header -->
+        <button id="btn-open" class="hamburger mobile-only" aria-label="Open menu" type="button">≡</button>
+
+        <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+            <div class="combobox" id="combobox">
+                <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+                    <div class="selected-logo" id="selectedLogo">
+                        <!-- SVG placeholder -->
+                        <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+                    </div>
+                    <div class="selected-text">
+                        <div class="selected-title" id="selectedTitle">SAJMEP </div>
+                    </div>
+                    <div class="caret" id="caret">
+                        <svg width="18" height="18" viewBox="0 0 24 24">
+                            <path d="M6 9l6 6 6-6" fill="none" stroke="#374151" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                    </div>
+                </button>
+
+                <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company" hidden>
+                    <div class="search">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                            <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round"></path>
+                            <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+                        </svg>
+                        <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+                    </div>
+
+                    <div class="individual">
+                        <div class="individual-heading">
+                            <h2>Individual</h2>
+                            <button class="dropdown-btn individual-icon">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+
+                        <div class="section">
+                            <h4>Fazli</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+
+                        <div class="section">
+                            <h4>Muhammad</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+
+                        <div class="section">
+                            <h4>Ahmad</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="company">
+                        <div class="company-heading">
+                            <h2>Company</h2>
+                            <button class="dropdown-btn company-icon">
+                                <i class="fa-solid fa-chevron-down"></i>
+                            </button>
+                        </div>
+                        <div class="section">
+                            <h4>SAJMEP</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+
+                        <div class="section">
+                            <h4>Company A</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+
+                        <div class="section">
+                            <h4>Branch</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+
+                        <div class="section">
+                            <h4>Shop</h4>
+                            <span>ID - 123342 243</span>
+
+                        </div>
+                    </div>
+
+
+
+                    <a href="#" class="create-btn">+ Create Company</a>
+
+                </div>
+            </div>
+
+            <nav class="menu" aria-label="Company menu">
+                <ul>
+                    <li><a href="design.html"><i class="fa-solid fa-chart-pie fa-fw"></i> Overview</a></li>
+                    <li><a href="#"><i class="fa-solid fa-sitemap fa-fw"></i> Organization</a></li>
+                    <li><a href="#"><i class="fa-solid fa-th-large fa-fw"></i> Apps Hub</a></li>
+                    <li><a href="#"><i class="fa-solid fa-diagram-project fa-fw"></i> Business Model</a></li>
+                    <li><a href="#"><i class="fa-solid fa-clipboard-check fa-fw"></i> Audit</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-lines fa-fw"></i> Business Pages</a></li>
+                    <li><a href="#"><i class="fa-solid fa-address-book fa-fw"></i> Contacts</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gift fa-fw"></i> Rewards & Programs</a></li>
+                    <li><a href="#"><i class="fa-solid fa-users-gear fa-fw"></i> User & Permissions</a></li>
+                    <li><a href="#"><i class="fa-solid fa-box-archive fa-fw"></i> Assets</a></li>
+                    <li><a href="#"><i class="fa-solid fa-credit-card fa-fw"></i> Subscription</a></li>
+                    <li><a href="#"><i class="fa-solid fa-store fa-fw"></i> Marketplace</a></li>
+                    <li><a href="#"><i class="fa-solid fa-file-invoice fa-fw"></i> LOG</a></li>
+                    <li><a href="#"><i class="fa-solid fa-gear"></i> Setting</a></li>
+                </ul>
+            </nav>
+        </aside>
+        <div class="overlay" id="overlay" tabindex="-1"></div>
+        <main class="content setting-content">
+            <div class="content-body">
+                <div class="header">
+                    <h3>Manage Company Info</h3>
+                    <p>Update your company setup</p>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-line">
+                            <div class="progress-line-fill" id="progressFill"></div>
+                        </div>
+
+                        <div class="step" data-step="0">
+                            <div class="step-circle active">🏢</div>
+                            <div class="step-label active">Company Details</div>
+                        </div>
+
+                        <div class="step" data-step="1">
+                            <div class="step-circle">🏢</div>
+                            <div class="step-label">Business Info</div>
+                        </div>
+
+                        <div class="step" data-step="2">
+                            <div class="step-circle">📊</div>
+                            <div class="step-label">Financial</div>
+                        </div>
+
+                        <div class="step" data-step="3">
+                            <div class="step-circle">📊</div>
+                            <div class="step-label">Team & Resources</div>
+                        </div>
+
+                        <div class="step" data-step="4">
+                            <div class="step-circle">✅</div>
+                            <div class="step-label">
+                                Other Address</div>
+                        </div>
+
+                        <div class="step" data-step="5">
+                            <div class="step-circle">✅</div>
+                            <div class="step-label">Completed</div>
+                        </div>
+                    </div>
+
+                    <div class="tab-content">
+                        <!-- Start Tab -->
+                        <div class="tab-panel active" data-panel="0">
+                            <div class="form-section">
+                                <div class="section-title">
+                                    <span class="section-icon">🏢</span>
+                                    Company Details
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <!-- Company Name Box -->
+                                        <div class="collapsible-box" data-open="false">
+                                            <div class="collapsible-header" role="button" aria-expanded="true"
+                                                tabindex="0">
+                                                <span class="collapsible-title">Company name</span>
+                                                <button class="toggle-btn" aria-label="Collapse">
+                                                    <svg class="caret" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M6 8l4 4 4-4" stroke="#0f172a" stroke-width="1.6"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="collapsible-body">
+                                                <div class="field">
+                                                    <label for="nameEn">Name En</label>
+                                                    <input id="nameEn" type="text"
+                                                        placeholder="Update company name (English)">
+                                                </div>
+                                                <div class="field">
+                                                    <label for="nameAr">Name Ar</label>
+                                                    <input id="nameAr" type="text"
+                                                        placeholder="Update company name (Arabic)">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Image Box -->
+                                        <div class="collapsible-box" data-open="false">
+                                            <div class="collapsible-header" role="button" aria-expanded="false"
+                                                tabindex="0">
+                                                <span class="collapsible-title">Company Logo</span>
+                                                <button class="toggle-btn" aria-label="Expand">
+                                                    <svg class="caret" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M6 8l4 4 4-4" stroke="#0f172a" stroke-width="1.6"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="collapsible-body">
+                                                <div class="field">
+                                                    <label for="companyImage">Upload Logo</label>
+                                                    <input type="file" accept="image/*" class="image-input">
+                                                    <div class="image-preview">
+                                                        <img class="image-preview" alt="Preview"
+                                                            src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png">
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-col">
+                                        <!-- Company Name Box -->
+                                        <div class="collapsible-box" data-open="false">
+                                            <div class="collapsible-header" role="button" aria-expanded="true"
+                                                tabindex="0">
+                                                <span class="collapsible-title">Company Contact Details</span>
+                                                <button class="toggle-btn" aria-label="Collapse">
+                                                    <svg class="caret" viewBox="0 0 20 20" fill="none">
+                                                        <path d="M6 8l4 4 4-4" stroke="#0f172a" stroke-width="1.6"
+                                                            stroke-linecap="round" stroke-linejoin="round" />
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                            <div class="collapsible-body">
+                                                <div class="field">
+                                                    <label for="nameEn">Name En</label>
+                                                    <input id="phone" type="tel" />
+                                                </div>
+                                                <div class="field">
+                                                    <label for="nameAr">Name Ar</label>
+                                                    <input id="phone" type="tel" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Company Details Tab -->
+                        <div class="tab-panel" data-panel="1">
+                            <div class="form-section">
+                                <div class="section-title">
+                                    <span class="section-icon">🏢</span>
+                                    Business Profile
+                                </div>
+                                <div class="form-group">
+                                    <label for="companyName">Company Name</label>
+                                    <input type="text" id="companyName" placeholder="Enter your company name">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <label for="industry">Industry</label>
+                                        <select id="industry">
+                                            <option value="">Select industry</option>
+                                            <option value="contracting">Construction & Contracting</option>
+                                            <option value="technology">Technology</option>
+                                            <option value="healthcare">Healthcare</option>
+                                            <option value="finance">Finance</option>
+                                            <option value="retail">Retail</option>
+                                            <option value="other">Other</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-col">
+                                        <label for="companySize">Company Size</label>
+                                        <select id="companySize">
+                                            <option value="">Select size</option>
+                                            <option value="1-10">1-10 employees</option>
+                                            <option value="11-50">11-50 employees</option>
+                                            <option value="51-200">51-200 employees</option>
+                                            <option value="201-1000">201-1000 employees</option>
+                                            <option value="1000+">1000+ employees</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address">Business Address</label>
+                                    <textarea id="address"
+                                        placeholder="Enter your complete business address"></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <label for="website">Website</label>
+                                        <input type="url" id="website" placeholder="https://www.company.com">
+                                    </div>
+                                    <div class="form-col">
+                                        <label for="yearFounded">Year Founded</label>
+                                        <input type="number" id="yearFounded" placeholder="2020" min="1900" max="2024">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coverage Tab -->
+                        <div class="tab-panel" data-panel="2">
+                            <div class="form-section">
+                                <div class="section-title">
+                                    <span class="section-icon">📊</span>
+                                    Service Coverage & Preferences
+                                </div>
+                                <div class="form-group">
+                                    <label for="serviceAreas">Primary Service Areas</label>
+                                    <textarea id="serviceAreas"
+                                        placeholder="List the main areas or regions where you provide services"></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-col">
+                                        <label for="serviceType">Primary Service Type</label>
+                                        <select id="serviceType">
+                                            <option value="">Select service type</option>
+                                            <option value="residential">Residential</option>
+                                            <option value="commercial">Commercial</option>
+                                            <option value="industrial">Industrial</option>
+                                            <option value="mixed">Mixed Services</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-col">
+                                        <label for="projectSize">Typical Project Size</label>
+                                        <select id="projectSize">
+                                            <option value="">Select project size</option>
+                                            <option value="small">Small ($1K - $10K)</option>
+                                            <option value="medium">Medium ($10K - $100K)</option>
+                                            <option value="large">Large ($100K - $1M)</option>
+                                            <option value="enterprise">Enterprise ($1M+)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="specialties">Specialties & Certifications</label>
+                                    <textarea id="specialties"
+                                        placeholder="List any special certifications, licenses, or areas of expertise"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="goals">Business Goals</label>
+                                    <textarea id="goals"
+                                        placeholder="What are you hoping to achieve with our platform?"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Completed Tab -->
+                        <div class="tab-panel" data-panel="3">
+                            <div class="success-message">
+                                <div class="success-icon">❤️</div>
+                                <h2>Test!</h2>
+                                <p>Your company profile has been successfully created.</p>
+                                
+                            </div>
+                        </div>
+
+                        <!-- Completed Tab -->
+                        <div class="tab-panel" data-panel="4">
+                            <div class="success-message">
+                                <div class="success-icon">🙌</div>
+                                <h2>Test!</h2>
+                               
+                            </div>
+                        </div>
+
+                        <!-- Completed Tab -->
+                        <div class="tab-panel" data-panel="5">
+                            <div class="success-message">
+                                <div class="success-icon">🎉</div>
+                                <h2>Congratulations!</h2>
+                                <p>Your company profile has been successfully created.</p>
+                                <p>You can now start using all platform features.</p>
+                                <br>
+                                <button class="btn-primary" onclick="window.location.reload()">Start Over</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)"
+                        disabled>Previous</button>
+                    <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- CustomEase plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+
+    <script src="script/settings.js"></script>
+    <script src="script/script.js"></script>
+</body>
+
+</html>

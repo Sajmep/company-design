@@ -1,7 +1,7 @@
 :root {
   --bg: #F5F5F5;
   --panel: #111827;
-  --panel-2: #0b1220;
+  --sidebar-sidebar-panel-2: #0b1220;
   --text: #e5e7eb;
   --muted: #9ca3af;
   --primary: #22d3ee;
@@ -28,7 +28,7 @@ body {
 body {
   margin: 0;
   background: var(--bg);
-  font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  font-family: 'Inter', sans-serif;
 }
 
 .app {
@@ -570,7 +570,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .caret.open{transform:rotate(180deg)}
 
 /* Panel */
-.panel{position:absolute;top:calc(100% + 10px);left:0;width:334px;background:var(--card);border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.12);border:1px solid rgba(15,23,42,0.04);padding:12px;z-index:50}
+.sidebar-panel{position:absolute;top:calc(100% + 10px);left:0;width:334px;background:var(--card);border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.12);border:1px solid rgba(15,23,42,0.04);padding:12px;z-index:50}
 .search{display:flex;gap:8px;padding:6px;background:#f3f6f9;border-radius:8px;border:1px solid #eef3f9; align-items: center;}
 .search input{border:0;background:transparent;outline:none;padding:8px;font-size:14px;width:100%}
 
@@ -638,7 +638,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .items::-webkit-scrollbar-thumb{background:#e6eef8;border-radius:8px}
 
 
-@media (max-width:480px){.combobox{width:100%}.panel{left:0;right:0;width:100%}}
+@media (max-width:480px){.combobox{width:100%}.sidebar-panel{left:0;right:0;width:100%}}
 
 
 .card-main-header{
@@ -735,35 +735,3 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   background: #eab308;
 }
 
-
-/* Setting-page */
-
-.setting-card .setting-buttons{
-  background-color: #fff;
-  padding: 5px 0;
-}
-
-.setting-card .setting-buttons a{
-  text-decoration: none;
-  padding: 5px 0px;
-  font-size: 16px;
-  margin: 5px;
-}
-
-.card-main h2{
-margin:  11px 0;
-}
-
-.card-main h3{
-  margin:  11px 0;
-}
-
-.input-fields .field-heading{
-  font-weight: bold;
-  display: inline-block;
-}
-
-.input-fields input{
-  display: inline-block;
-  width: 40%;
-}
