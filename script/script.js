@@ -181,3 +181,43 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
+//modal functionality
+
+const modal = document.getElementById("myModal");
+    const openBtn = document.querySelector(".open-btn");
+    const closeBtn = document.getElementById("closeModal");
+
+    openBtn.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+
+    closeBtn.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        modal.style.display = "none";
+      }
+    });
+
+
+    
+
+// collaps script
+
+function toggleSection(titleElement) {
+  const checkboxGroup = titleElement.nextElementSibling;
+  const formRow = titleElement.nextElementSibling;
+  
+  if (checkboxGroup.classList.contains('collapsed')) {
+      formRow.classList.remove('collapsed');
+      checkboxGroup.classList.remove('collapsed');
+      titleElement.classList.remove('collapsed');
+  } else {
+      checkboxGroup.classList.add('collapsed');
+      formRow.classList.add('collapsed');
+      titleElement.classList.add('collapsed');
+  }
+}

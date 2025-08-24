@@ -21,6 +21,7 @@
   padding: 30px 20px;
   background: white;
   border-radius: 8px;
+  padding-bottom: 10px;
 }
 
 .progress-bar {
@@ -114,9 +115,10 @@
   background: #f8f9fa;
   border-radius: 8px;
   padding: 30px;
+  padding-bottom: 12px;
 }
 
-.section-title {
+.tab-title {
   font-size: 20px;
   font-weight: 600;
   color: #343a40;
@@ -151,9 +153,9 @@
 }
 
 .setting-content input, .setting-content textarea, .setting-content select {
-  width: 100%;
+  width: 98%;
   padding: 12px 16px;
-  border: 2px solid #e9ecef;
+  border: 1px solid #cccccc;
   border-radius: 6px;
   font-size: 16px;
   transition: border-color 0.2s ease;
@@ -299,12 +301,14 @@
   background-color: #fff;
   box-shadow: 0 1px 3px rgba(16,24,40,0.04);
   display: block;
+  
 }
 
 .form-row  .field {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
+  width: 100%;
 }
 .form-row .field label { font-size: 13px; color: #334155; }
 .form-row  .field input {
@@ -317,3 +321,77 @@
 /* start collapsed */
 .collapsible-box[data-open="false"] .collapsible-body { display: none; }
 .collapsible-box[data-open="false"] .caret { transform: rotate(-90deg); }
+
+
+.combo {
+  position: relative;
+  width: 280px;
+}
+
+
+.combo input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.combo-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border: 1px solid #ccc;
+  background: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  z-index: 99;
+}
+
+.combo-options input {
+  width: 95%;
+  margin: 5px;
+  padding: 6px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.combo-options div {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.combo-options div:hover {
+  background: #f0f0f0;
+}
+
+.fields-row{
+  display: flex;
+  justify-content: space-between;
+}
+
+.fields-row .field{
+  width: 50%;
+}
+
+
+.field button{
+  padding: 7px;
+  width: 98%;
+}
+
+.field select {
+  padding: 8px 10px;
+    border-radius: 6px;
+    border: 1px solid #cbd5e1;
+    font-size: 14px;
+}
+
+
+@media screen and (max-width: 900px) {
+  .fields-row {
+    flex-direction: column;
+  }
+}
+

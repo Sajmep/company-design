@@ -7,12 +7,19 @@
     <title>Document</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/settings.css">
+    <style>
+        .tab-panel {
+            height: 300px;
+            overflow: auto;
+        }
+    </style>
 </head>
 
 <body>
 
     <div class="top">
-        
+
         <div class="card">
             <nav class="breadcrumb" aria-label="Breadcrumb">
                 <ol>
@@ -123,27 +130,27 @@
                             <h2>Individual</h2>
                             <button class="dropdown-btn individual-icon">
                                 <i class="fa-solid fa-chevron-down"></i>
-                              </button>
+                            </button>
                         </div>
-                       
+
                         <div class="section">
                             <h4>Fazli</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
-    
+
                         <div class="section">
                             <h4>Muhammad</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
-    
+
                         <div class="section">
                             <h4>Ahmad</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
-    
+
                     </div>
 
                     <div class="company">
@@ -151,34 +158,34 @@
                             <h2>Company</h2>
                             <button class="dropdown-btn company-icon">
                                 <i class="fa-solid fa-chevron-down"></i>
-                              </button>
+                            </button>
                         </div>
                         <div class="section">
                             <h4>SAJMEP</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
-    
+
                         <div class="section">
                             <h4>Company A</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
-    
+
                         <div class="section">
                             <h4>Branch</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
-    
+
                         <div class="section">
                             <h4>Shop</h4>
                             <span>ID - 123342 243</span>
-                            
+
                         </div>
                     </div>
 
-                 
+
 
                     <a href="#" class="create-btn">+ Create Company</a>
 
@@ -187,7 +194,7 @@
 
             <nav class="menu" aria-label="Company menu">
                 <ul>
-                    <li><a href="#"><i class="fa-solid fa-chart-pie fa-fw"></i> Overview</a></li>
+                    <li><a href="index.html"><i class="fa-solid fa-chart-pie fa-fw"></i> Overview</a></li>
                     <li><a href="#"><i class="fa-solid fa-sitemap fa-fw"></i> Organization</a></li>
                     <li><a href="#"><i class="fa-solid fa-th-large fa-fw"></i> Apps Hub</a></li>
                     <li><a href="#"><i class="fa-solid fa-diagram-project fa-fw"></i> Business Model</a></li>
@@ -204,28 +211,541 @@
                 </ul>
             </nav>
         </aside>
-        <div class="overlay" id="overlay" tabindex="-1"></div>
-        <main class="content">
-            <div class="content-body">
-                <h3>Finish Your Company Setting up</h3>
-                <p>To publish and participate with your valuable team, enjoy the challengeable experience </p>
+        
+    <main class="content">
+        <div class="content-body">
+            <h3>Finish Your Company Setting up</h3>
+            <p>To publish and participate with your valuable team, enjoy the challengeable experience </p>
 
-                <div class="task">
-                    <span>Verify Your Company Informations</span>
-                    <button>Company Setup</button>
-                </div>
-
-                <div class="task">
-                    <span>Verify Your Company Profile</span>
-                    <button>Company Profile</button>
-                </div>
-
-                <div class="task">
-                    <span>Verify Your Company Prequalification</span>
-                    <button>Company Prequalification</button>
-                </div>
+            <div class="task">
+                <span>Verify Your Company Informations</span>
+                <button class="open-btn">Company Setup</button>
             </div>
-        </main>
+
+            <div class="task">
+                <span>Verify Your Company Profile</span>
+                <button>Company Profile</button>
+            </div>
+
+            <div class="task">
+                <span>Verify Your Company Prequalification</span>
+                <button>Company Prequalification</button>
+            </div>
+        </div>
+    </main>
+        <div class="overlay" id="overlay" tabindex="-1"></div>
+        <div class="modal" id="myModal">
+            <div class="modal-content">
+                <button class="close-btn" id="closeModal">&times;</button>
+                <main class="content setting-content home-modal">
+                    <div class="content-body modal-body">
+                        
+
+                        <div class="progress-container">
+                            <div class="progress-bar">
+                                <div class="progress-line">
+                                    <div class="progress-line-fill" id="progressFill"></div>
+                                </div>
+
+                                <div class="step" data-step="0">
+                                    <div class="step-circle active">🏢</div>
+                                    <div class="step-label active">Company Details</div>
+                                </div>
+
+                                <div class="step" data-step="1">
+                                    <div class="step-circle">🏢</div>
+                                    <div class="step-label">Business Info</div>
+                                </div>
+
+                                <div class="step" data-step="2">
+                                    <div class="step-circle">📊</div>
+                                    <div class="step-label">Financial</div>
+                                </div>
+
+                                <div class="step" data-step="3">
+                                    <div class="step-circle">📊</div>
+                                    <div class="step-label">Team & Resources</div>
+                                </div>
+
+                                <div class="step" data-step="4">
+                                    <div class="step-circle">✅</div>
+                                    <div class="step-label">
+                                        Other Address</div>
+                                </div>
+
+                                <div class="step" data-step="5">
+                                    <div class="step-circle">✅</div>
+                                    <div class="step-label">Completed</div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="tab-content">
+                                <div class="header">
+                                    <h3>Company Setup</h3>
+                                    <p>Setup your company</p>
+                                </div>
+                                <!-- Start Tab -->
+                                <div class="tab-panel active" data-panel="0">
+                                    <div class="form-section primary-focus">
+                                        <div class="tab-title" style="font-size: 20px;">
+                                            <span class="section-icon">📊</span>
+                                            Company Details
+                                        </div>
+                                        <div class="form-grid">
+                                            <div class="form-section">
+                                                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                                                    Company Name
+                                                </h2>
+
+                                                <!-- Company Name Box -->
+                                                <div class="checkbox-group collapsed ">
+                                                    <div class="field">
+                                                        <label for="nameEn">Name En</label>
+                                                        <input id="nameEn" type="text"
+                                                            placeholder="Update company name (English)">
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="nameAr">Name Ar</label>
+                                                        <input id="nameAr" type="text"
+                                                            placeholder="Update company name (Arabic)">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-section">
+                                                <!-- Image Box -->
+                                                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                                                    Company Logo
+                                                </h2>
+                                                <div class="checkbox-group collapsed ">
+                                                    <label for="companyImage">Upload Logo</label>
+                                                    <input type="file" accept="image/*" class="image-input">
+                                                    <div class="image-preview">
+                                                        <img class="image-preview" alt="Preview"
+                                                            src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-grid">
+                                            <div class="form-section">
+                                                <!-- Company Contact Box -->
+                                                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                                                    Company
+                                                    Contact Details
+                                                </h2>
+
+                                                <!-- Company Name Box -->
+                                                <div class="checkbox-group collapsed ">
+                                                    <div class="field">
+                                                        <label for="nameEn">Phone</label>
+                                                        <input id="phone" type="tel" placeholder="Phone Number" />
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="nameAr">Mobile</label>
+                                                        <input id="mobile" type="tel" placeholder="Mobile Number" />
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="nameAr">Unified Number</label>
+                                                        <input id="unified_no" type="tel"
+                                                            placeholder="Unified Number" />
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="nameAr">Email</label>
+                                                        <input type="text" placeholder="Email" />
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="nameAr">Website</label>
+                                                        <input type="text" placeholder="Website" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-section">
+                                                <!-- Image Box -->
+                                                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                                                    Company
+                                                    Address
+                                                </h2>
+                                                <div class="checkbox-group collapsed ">
+                                                    <div class="field">
+                                                        <label for="nameEn">Street</label>
+                                                        <input type="text" placeholder="Street" />
+                                                    </div>
+                                                    <div class="fields-row">
+                                                        <div class="field">
+                                                            <label for="nameEn">City</label>
+                                                            <input type="text" placeholder="City" />
+                                                        </div>
+                                                        <div class="field">
+                                                            <label for="nameEn">ZIP / Postal Code</label>
+                                                            <input type="text" placeholder="ZIP / Postal Code" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="fields-row">
+                                                        <div class="field">
+                                                            <label for="nameAr">Country</label>
+                                                            <div class="combo">
+                                                                <input type="text" id="countrySelected"
+                                                                    placeholder="Select country" readonly>
+                                                                <div class="combo-options" id="countryBox">
+                                                                    <input type="text" id="countrySearch"
+                                                                        placeholder="Search...">
+                                                                    <div class="option">Afghanistan</div>
+                                                                    <div class="option">Albania</div>
+                                                                    <div class="option">Argentina</div>
+                                                                    <div class="option">Australia</div>
+                                                                    <div class="option">Bangladesh</div>
+                                                                    <div class="option">Brazil</div>
+                                                                    <div class="option">Canada</div>
+                                                                    <div class="option">China</div>
+                                                                    <div class="option">Egypt</div>
+                                                                    <div class="option">France</div>
+                                                                    <div class="option">Germany</div>
+                                                                    <div class="option">India</div>
+                                                                    <div class="option">Indonesia</div>
+                                                                    <div class="option">Italy</div>
+                                                                    <div class="option">Japan</div>
+                                                                    <div class="option">Nepal</div>
+                                                                    <div class="option">Pakistan</div>
+                                                                    <div class="option">Qatar</div>
+                                                                    <div class="option">Russia</div>
+                                                                    <div class="option">Saudi Arabia</div>
+                                                                    <div class="option">Singapore</div>
+                                                                    <div class="option">South Africa</div>
+                                                                    <div class="option">Spain</div>
+                                                                    <div class="option">Sri Lanka</div>
+                                                                    <div class="option">Sweden</div>
+                                                                    <div class="option">Turkey</div>
+                                                                    <div class="option">UAE</div>
+                                                                    <div class="option">UK</div>
+                                                                    <div class="option">USA</div>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="field">
+                                                            <label for="nameEn">State</label>
+                                                            <div class="combo">
+                                                                <input type="text" id="stateSelected"
+                                                                    placeholder="Select state" readonly>
+                                                                <div class="combo-options" id="stateBox">
+                                                                    <input type="text" id="stateSearch"
+                                                                        placeholder="Search...">
+                                                                    <div class="option">Alabama</div>
+                                                                    <div class="option">Alaska</div>
+                                                                    <div class="option">Arizona</div>
+                                                                    <div class="option">Arkansas</div>
+                                                                    <div class="option">California</div>
+                                                                    <div class="option">Colorado</div>
+                                                                    <div class="option">Florida</div>
+                                                                    <div class="option">Georgia</div>
+                                                                    <div class="option">Illinois</div>
+                                                                    <div class="option">Kansas</div>
+                                                                    <div class="option">Kentucky</div>
+                                                                    <div class="option">Louisiana</div>
+                                                                    <div class="option">Michigan</div>
+                                                                    <div class="option">New Jersey</div>
+                                                                    <div class="option">New York</div>
+                                                                    <div class="option">Ohio</div>
+                                                                    <div class="option">Texas</div>
+                                                                    <div class="option">Virginia</div>
+                                                                    <div class="option">Washington</div>
+                                                                    <div class="option">Wisconsin</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                    <div class="field">
+                                                        <label for="nameEn">Pick and fill your Company address</label>
+                                                        <iframe
+                                                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d463878.29488595825!2d46.82252880000001!3d24.725191849999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f03890d489399%3A0xba974d1c98e79fd5!2sRiyadh!5e0!3m2!1sen!2ssa!4v1755929537154!5m2!1sen!2ssa"
+                                                            width="100%" style="border:0;" allowfullscreen=""
+                                                            loading="lazy"
+                                                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <!-- Company Details Tab -->
+                                <div class="tab-panel" data-panel="1">
+                                    <div class="form-section">
+                                        <div class="tab-title">
+                                            <span class="section-icon">🏢</span>
+                                            Business Information: Legal & Regulatory
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="form-col">
+                                                <!-- Company Information Box -->
+                                                <div class="collapsible-box" data-open="true">
+                                                    <div class="collapsible-header" role="button" aria-expanded="true"
+                                                        tabindex="0">
+                                                        <span class="collapsible-title">Company Information</span>
+                                                        <button class="toggle-btn" aria-label="Collapse">
+                                                            <svg class="caret" viewBox="0 0 20 20" fill="none">
+                                                                <path d="M6 8l4 4 4-4" stroke="#0f172a"
+                                                                    stroke-width="1.6" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <div class="collapsible-body">
+                                                        <div class="fields-row">
+                                                            <div class="field">
+                                                                <label for="nameEn">Categories</label>
+                                                                <button>Choose Category</button>
+                                                            </div>
+                                                            <div class="field">
+                                                                <label for="nameAr">Company size </label>
+                                                                <select id="companySize">
+                                                                    <option value="" disabled selected>Select size
+                                                                    </option>
+                                                                    <option value="1-10">1-10 employees</option>
+                                                                    <option value="11-50">11-50 employees</option>
+                                                                    <option value="51-200">51-200 employees</option>
+                                                                    <option value="201-1000">201-1000 employees</option>
+                                                                    <option value="1000+">1000+ employees</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label for="nameEn">Establishment Date</label>
+                                                            <input type="date">
+                                                        </div>
+                                                        <div class="fields-row">
+                                                            <div class="field">
+                                                                <label for="nameEn">Operating Years</label>
+                                                                <input type="text" placeholder="Operating Years">
+                                                            </div>
+                                                            <div class="field">
+                                                                <label for="nameAr">Annual Budget </label>
+                                                                <input type="number" placeholder="Enter Budget">
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-col">
+                                                <!-- Company lICENCE Box -->
+                                                <div class="collapsible-box" data-open="true">
+                                                    <div class="collapsible-header" role="button" aria-expanded="true"
+                                                        tabindex="0">
+                                                        <span class="collapsible-title">Company License - CR</span>
+                                                        <button class="toggle-btn" aria-label="Collapse">
+                                                            <svg class="caret" viewBox="0 0 20 20" fill="none">
+                                                                <path d="M6 8l4 4 4-4" stroke="#0f172a"
+                                                                    stroke-width="1.6" stroke-linecap="round"
+                                                                    stroke-linejoin="round" />
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+                                                    <div class="collapsible-body">
+
+                                                        <div class="fields-row">
+                                                            <div class="field">
+                                                                <label for="nameEn">CR</label>
+                                                                <input type="text" placeholder="Update Vat">
+                                                            </div>
+                                                            <div class="field">
+                                                                <label for="nameAr">Vat </label>
+                                                                <input type="number" placeholder="Update Vat">
+                                                            </div>
+                                                        </div>
+                                                        <div class="field">
+                                                            <label for="nameEn">National Address</label>
+                                                            <input type="text" placeholder="Update National Address">
+                                                        </div>
+                                                        <div class="field">
+                                                            <label for="nameAr">Company Classification (Grade
+                                                                1-5)</label>
+                                                            <select id="companySize">
+                                                                <option value="" disabled selected>Select Classification
+                                                                </option>
+                                                                <option value="Grade 1">Grade 1</option>
+                                                                <option value="Grade 2">Grade 2</option>
+                                                                <option value="Grade 3">Grade 3</option>
+                                                                <option value="Grade 4">Grade 4</option>
+                                                                <option value="Grade 5">Grade 5</option>
+
+                                                            </select>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <div class="form-row">
+                                            <!-- Company CERTIFICATES Box -->
+                                            <div class="collapsible-box" data-open="false">
+                                                <div class="collapsible-header" role="button" aria-expanded="true"
+                                                    tabindex="0">
+                                                    <span class="collapsible-title">Company Certificates</span>
+                                                    <button class="toggle-btn" aria-label="Collapse">
+                                                        <svg class="caret" viewBox="0 0 20 20" fill="none">
+                                                            <path d="M6 8l4 4 4-4" stroke="#0f172a" stroke-width="1.6"
+                                                                stroke-linecap="round" stroke-linejoin="round" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div class="collapsible-body">
+
+                                                    <div class="fields-row">
+                                                        <div class="field">
+                                                            <label for="nameEn">test</label>
+                                                            <input type="text" placeholder="Update Vat">
+                                                        </div>
+                                                        <div class="field">
+                                                            <label for="nameAr">test </label>
+                                                            <input type="number" placeholder="Update Vat">
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Coverage Tab -->
+                                <div class="tab-panel" data-panel="2">
+                                    <div class="form-section primary-focus">
+                                        <div class="tab-title" style="font-size: 20px;">
+                                            <span class="section-icon">📊</span>
+                                            Service Coverage & Preferences
+                                        </div>
+                                        <div class="form-grid">
+                                            <div class="form-section">
+                                                <h2 class="section-title collapsed " onclick="toggleSection(this)">Your
+                                                    Interest
+                                                </h2>
+                                                <div class="checkbox-group collapsed ">
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="tendering">
+                                                        <span class="checkbox-label">Tendering & Biddings</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="quotations">
+                                                        <span class="checkbox-label">Request for Quotations</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="auction">
+                                                        <span class="checkbox-label">Auction</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="projects">
+                                                        <span class="checkbox-label">Projects Management</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="directory">
+                                                        <span class="checkbox-label">Published in Directory</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="recruiting">
+                                                        <span class="checkbox-label">Job Recruiting</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="venture">
+                                                        <span class="checkbox-label">Joint Venture</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-section">
+                                                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                                                    Business
+                                                    Objectives</h2>
+                                                <div class="checkbox-group collapsed ">
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="leads">
+                                                        <span class="checkbox-label">Generate Leads (Ex. GIS)</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="sales">
+                                                        <span class="checkbox-label">Drive Sales</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="traffic">
+                                                        <span class="checkbox-label">More Traffic</span>
+                                                    </label>
+                                                    <label class="checkbox-item" onclick="toggleCheck(this)">
+                                                        <input type="checkbox" id="engagement">
+                                                        <span class="checkbox-label">More User Engagement</span>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="bottom-section">
+                                            <div class="single-option">
+                                                <div class="option-label">Coverage Area:</div>
+                                                <button class="custom-button" onclick="handleCoverage()">
+                                                    Choose Coverage
+                                                </button>
+                                            </div>
+
+                                            <div class="single-option">
+                                                <div class="option-label">Business Model:</div>
+                                                <button class="custom-button" onclick="handleBusinessModel()">
+                                                    Choose Business Model
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Completed Tab -->
+                            <div class="tab-panel" data-panel="3">
+                                <div class="success-message">
+                                    <div class="success-icon">❤️</div>
+                                    <h2>Test!</h2>
+                                    <p>Your company profile has been successfully created.</p>
+
+                                </div>
+                            </div>
+
+                            <!-- Completed Tab -->
+                            <div class="tab-panel" data-panel="4">
+                                <div class="success-message">
+                                    <div class="success-icon">🙌</div>
+                                    <h2>Test!</h2>
+
+                                </div>
+                            </div>
+
+                            <!-- Completed Tab -->
+                            <div class="tab-panel" data-panel="5">
+                                <div class="success-message">
+                                    <div class="success-icon">🎉</div>
+                                    <h2>Congratulations!</h2>
+                                    <p>Your company profile has been successfully created.</p>
+                                    <p>You can now start using all platform features.</p>
+                                    <br>
+                                    <button class="btn-primary" onclick="window.location.reload()">Start Over</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)"
+                            disabled>Previous</button>
+                        <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
+                    </div>
+            </div>
+            </main>
+        </div>
+    </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
@@ -233,6 +753,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 
     <script src="script/script.js"></script>
+    <script src="script/settings.js"></script>
 </body>
 
 </html>
