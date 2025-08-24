@@ -12,9 +12,9 @@
 
 .setting-content h3 {
   margin-top: 0;
-    font-size: 1.3rem;
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 .progress-container {
@@ -87,7 +87,7 @@
 
 .step-label {
   margin-top: 8px;
-  font-size: 14px;
+  font-size: 12px;
   color: #6c757d;
   font-weight: 500;
 }
@@ -119,7 +119,7 @@
 }
 
 .tab-title {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #343a40;
   margin-bottom: 5px;
@@ -150,14 +150,15 @@
   margin-bottom: 8px;
   font-weight: 500;
   color: #495057;
+  font-size: 12px;
 }
 
 .setting-content input, .setting-content textarea, .setting-content select {
   width: 98%;
-  padding: 12px 16px;
+  padding: 8px 10px;
   border: 1px solid #cccccc;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 12px;
   transition: border-color 0.2s ease;
 }
 
@@ -181,10 +182,10 @@
 }
 
 .setting-content button {
-  padding: 12px 24px;
+  padding: 8px 24px;
   border: none;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s ease;

@@ -221,3 +221,57 @@ function toggleSection(titleElement) {
       titleElement.classList.add('collapsed');
   }
 }
+
+
+// phone number fields for country code 
+
+const input_phone = document.querySelector("#phone");
+const input_mobile = document.querySelector("#mobile");
+const input_unified_no = document.querySelector("#unified_no");
+
+window.intlTelInput(input_phone, {
+  initialCountry: "sa", // Default: Saudi Arabia 🇸🇦
+  preferredCountries: ["sa", "us", "gb"], // Optional: show top countries first
+  separateDialCode: true, // Show country code separately
+});
+
+window.intlTelInput(input_mobile, {
+  initialCountry: "sa", // Default: Saudi Arabia 🇸🇦
+  preferredCountries: ["sa", "us", "gb"], // Optional: show top countries first
+  separateDialCode: true, // Show country code separately
+});
+
+window.intlTelInput(input_unified_no, {
+  initialCountry: "sa", // Default: Saudi Arabia 🇸🇦
+  preferredCountries: ["sa", "us", "gb"], // Optional: show top countries first
+  separateDialCode: true, // Show country code separately
+});
+
+
+let activePanel = null;
+
+document.querySelectorAll('.sidebar-item').forEach(item => {
+    const panel = item.querySelector('.submenu');
+    
+    if (panel) {
+        item.addEventListener('mouseenter', () => {
+            // Hide any currently active panel
+            if (activePanel && activePanel !== panel) {
+                activePanel.style.display = 'none';
+            }
+            // Show this panel
+            panel.style.display = 'block';
+            activePanel = panel;
+        });
+        
+        // Keep panel open when hovering over the panel itself
+        panel.addEventListener('mouseenter', () => {
+            panel.style.display = 'block';
+        });
+        
+        panel.addEventListener('mouseleave', () => {
+            panel.style.display = 'none';
+            activePanel = null;
+        });
+    }
+});

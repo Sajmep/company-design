@@ -117,28 +117,6 @@ showTab(currentTab);
 // })();
 
 
-const input_phone = document.querySelector("#phone");
-const input_mobile = document.querySelector("#mobile");
-const input_unified_no = document.querySelector("#unified_no");
-
-window.intlTelInput(input_phone, {
-  initialCountry: "sa", // Default: Saudi Arabia 🇸🇦
-  preferredCountries: ["sa", "us", "gb"], // Optional: show top countries first
-  separateDialCode: true, // Show country code separately
-});
-
-window.intlTelInput(input_mobile, {
-  initialCountry: "sa", // Default: Saudi Arabia 🇸🇦
-  preferredCountries: ["sa", "us", "gb"], // Optional: show top countries first
-  separateDialCode: true, // Show country code separately
-});
-
-window.intlTelInput(input_unified_no, {
-  initialCountry: "sa", // Default: Saudi Arabia 🇸🇦
-  preferredCountries: ["sa", "us", "gb"], // Optional: show top countries first
-  separateDialCode: true, // Show country code separately
-});
-
 
 // countries and state dropdown field
 
