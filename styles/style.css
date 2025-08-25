@@ -617,8 +617,13 @@ aside.sidebar.open{transform:translateX(0)}
   /* Main content */
   main.content {
     flex: 1;
-    padding: 20;
+    margin-top: 62px;
   }
+
+  .bottom-area{
+    width: 68px;
+  }
+
   .top{
     justify-content: flex-end;
   }
@@ -626,6 +631,10 @@ aside.sidebar.open{transform:translateX(0)}
   
   .content-body p{
     margin-bottom: 2px;
+  }
+
+  .sidebar{
+    height: auto;
   }
 }
 
@@ -772,7 +781,6 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .items::-webkit-scrollbar-thumb{background:#e6eef8;border-radius:8px}
 
 
-@media (max-width:480px){.combobox{width:100%}.sidebar-panel{left:0;right:0;width:100%}}
 
 
 .card-main-header{
@@ -904,8 +912,34 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
     display: none;
   }
 
+  
+.modal-content .content{
+  margin-top: 6px !important;
+}
+
   .row-settings{
     flex-direction: column;
+  }
+
+  .breadcrumb{
+    display: none;
+  }
+
+  .content-body{
+    padding: 0;
+  }
+  .fields-row .field{
+    width: 100% !important;
+    margin: 5px 0;
+  }
+  .submenu{
+    left: 66px;
+    top: 0;
+  }
+
+  .sidebar .menu{
+    height: 520px;
+    overflow-y: auto;
   }
   
 }
@@ -917,6 +951,29 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   }
   
 }
+
+@media screen and (max-width:390px){
+  .form-section-settings{
+    width: 93%;
+  }
+  
+}
+
+
+@media screen and (max-width:370px){
+  .form-section-settings{
+    width: 88%;
+  }
+  
+}
+
+@media screen and (max-width:330px){
+  .form-section-settings{
+    width: 76%;
+  }
+  
+}
+
 
 /* Close button */
 .close-btn {
@@ -1234,6 +1291,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   padding: 11px;
 }
 
+
 .modal-content .checkbox-item input[type="checkbox"]:checked::after{
   left: 4px;
   top: 0;
@@ -1288,4 +1346,43 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 
 .arrow-left, .arrow-right{
   cursor: pointer;
+}
+
+.step-indicator-popup{
+  font-weight: 100;
+  font-size: 12px;
+  padding: 5px;
+  position: absolute;
+  top: 140px;
+  right: 30px;
+}
+
+/* scrollbar style  */
+
+/* Width of scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px; /* for horizontal scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+/* Thin scrollbar */
+* {
+  scrollbar-width: thin;        /* auto | thin | none */
+  scrollbar-color: #888 #f1f1f1; /* thumb | track */
 }

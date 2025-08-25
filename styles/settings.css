@@ -394,7 +394,17 @@
   .fields-row {
     flex-direction: column;
   }
-}
+
+  .form-section{
+    padding: 12px;
+  }
+
+  .progress-bar {
+
+      margin-bottom: 15px;
+  } 
+
+  }
 
 .row-settings{
   display: flex;
@@ -407,4 +417,11 @@
 
 .col-image .setting-content label{
 margin: 0 !important;
+}
+
+.step-indicator{
+  font-weight: 100;
+  font-size: 12px;
+  padding: 5px;
+  border-left: 2px solid;
 }
