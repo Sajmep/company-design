@@ -247,31 +247,39 @@ window.intlTelInput(input_unified_no, {
   separateDialCode: true, // Show country code separately
 });
 
+ // Small JS to help on touch devices: tapping a menu item toggles .open.
+  // Also update aria-expanded.
+  (function(){
+    const parents = document.querySelectorAll('.has-submenu');
+    parents.forEach(p => {
+      const btn = p.querySelector('.menu-btn');
 
-let activePanel = null;
+      // toggle on click for touch devices
+      btn.addEventListener('click', (e)=>{
+        // if already open, let a click inside submenu not be blocked. If not open, open it and prevent default action.
+        if (!p.classList.contains('open')) {
+          e.preventDefault();
+          // close others
+          document.querySelectorAll('.has-submenu.open').forEach(x => {
+            if (x !== p) x.classList.remove('open');
+            const b = x.querySelector('.menu-btn');
+            if (b) b.setAttribute('aria-expanded','false');
+          });
+          p.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+        } else {
+          // if already open, clicking the button closes it
+          p.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
 
-document.querySelectorAll('.sidebar-item').forEach(item => {
-    const panel = item.querySelector('.submenu');
-    
-    if (panel) {
-        item.addEventListener('mouseenter', () => {
-            // Hide any currently active panel
-            if (activePanel && activePanel !== panel) {
-                activePanel.style.display = 'none';
-            }
-            // Show this panel
-            panel.style.display = 'block';
-            activePanel = panel;
-        });
-        
-        // Keep panel open when hovering over the panel itself
-        panel.addEventListener('mouseenter', () => {
-            panel.style.display = 'block';
-        });
-        
-        panel.addEventListener('mouseleave', () => {
-            panel.style.display = 'none';
-            activePanel = null;
-        });
-    }
-});
+      // close when clicking elsewhere
+      document.addEventListener('click', (ev)=>{
+        if (!p.contains(ev.target)) {
+          p.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+  })();

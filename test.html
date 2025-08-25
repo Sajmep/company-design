@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Sidebar + Full-height Submenu</title>
+<style>
+  :root{
+    --sidebar-width: 240px;
+    --submenu-width: 320px;
+    --bg: #0f1724;
+    --muted: #94a3b8;
+    --accent: #ef4444;
+  }
+
+  /* Reset */
+  * {box-sizing: border-box}
+  html,body {height:100%; margin:0; font-family: Inter, system-ui, Arial; background:#f7f9fc}
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: var(--sidebar-width);
+    height: 100vh;              /* full screen height */
+    background: linear-gradient(180deg,#061022,#0b1a2b);
+    color: #fff;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-right: 1px solid rgba(255,255,255,0.04);
+    z-index: 20;
+  }
+
+  .brand {
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:8px 6px;
+  }
+  .brand .logo {
+    width:36px;height:36px;border-radius:8px;background:var(--accent);
+  }
+  .brand h1 {font-size:14px;margin:0;font-weight:600}
+
+  /* Menu */
+  .menu { margin-top:10px; display:flex; flex-direction:column; gap:4px; overflow:auto; padding-right:6px; }
+  .menu-item {
+    position: relative; /* needed so :focus-within works; submenu will be fixed but this keeps semantics */
+  }
+
+  .menu-btn {
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 12px;
+    border-radius:8px;
+    background:transparent;
+    color:inherit;
+    border:0;
+    text-align:left;
+    cursor:pointer;
+    font-size:14px;
+  }
+  .menu-btn:hover, .menu-btn:focus {
+    background: rgba(255,255,255,0.04);
+    outline: none;
+  }
+
+  /* Indicator for items that have submenu */
+  .has-submenu .caret { margin-left:auto; opacity:.8; transform:rotate(0deg); transition:transform .18s; }
+  .has-submenu:focus-within .caret,
+  .has-submenu:hover .caret,
+  .has-submenu.open .caret {
+    transform:rotate(90deg);
+  }
+
+  /* SUBMENU (fixed, full height) */
+  .submenu {
+    position: fixed;              /* fixed so it remains top-to-bottom of viewport */
+    left: calc(var(--sidebar-width)); /* placed immediately to the right of sidebar */
+    top: 0;
+    height: 100vh;                /* full height */
+    width: var(--submenu-width);
+    background: linear-gradient(180deg,#ffffff,#f1f5f9);
+    box-shadow: 0 6px 24px rgba(2,6,23,.2);
+    transform: translateX(-6px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .18s ease, transform .18s ease;
+    z-index: 15;
+    display:flex;
+    flex-direction:column;
+    padding: 20px;
+    gap: 12px;
+    color: #0f1724;
+  }
+
+  /* Make submenu visible when its parent menu item is hovered, focused, or has explicit .open (toggled on touch) */
+  .has-submenu:hover .submenu,
+  .has-submenu:focus-within .submenu,
+  .has-submenu.open .submenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  /* Example submenu content: top area, list area, bottom CTA - covers full height visually */
+  .submenu .top {
+    display:flex; align-items:center; gap:12px;
+  }
+  .submenu h2 { margin:0; font-size:18px }
+  .submenu .list {
+    flex: 1 1 auto;          /* take remaining height */
+    overflow:auto;
+    padding-right:6px;
+  }
+  .submenu .list a {
+    display:block;
+    padding:10px 12px;
+    border-radius:8px;
+    text-decoration:none;
+    color: inherit;
+    margin-bottom:6px;
+  }
+  .submenu .list a:hover { background: rgba(2,6,23,.04) }
+  .submenu .bottom {
+    margin-top:auto;
+    padding-top:6px;
+  }
+
+  /* small responsive tweak */
+  @media (max-width:720px){
+    :root{ --sidebar-width:200px; --submenu-width:240px}
+  }
+
+  /* Page content placeholder */
+  .page {
+    margin-left: var(--sidebar-width);
+    padding: 28px;
+  }
+
+</style>
+</head>
+<body>
+
+  <aside class="sidebar" aria-label="Main Sidebar">
+    <div class="brand">
+      <div class="logo" aria-hidden></div>
+      <div>
+        <h1>My Company</h1>
+        <div style="font-size:12px;color:var(--muted)">Dashboard</div>
+      </div>
+    </div>
+
+    <nav class="menu" role="menu">
+      <div class="menu-item">
+        <button class="menu-btn" role="menuitem" tabindex="0">Home</button>
+      </div>
+
+      <!-- Has submenu example -->
+      <div class="menu-item has-submenu" id="productsItem">
+        <button class="menu-btn" aria-haspopup="true" aria-expanded="false">
+          Products
+          <span class="caret">▶</span>
+        </button>
+
+        <!-- Submenu is fixed and full height -->
+        <div class="submenu" role="menu" aria-label="Products submenu">
+          <div class="top">
+            <strong>Products</strong>
+            <small style="color:#64748b">— choose a category</small>
+          </div>
+
+          <div class="list">
+            <a href="#" role="menuitem">Cement & Concrete</a>
+            <a href="#" role="menuitem">Steel & Rebar</a>
+            <a href="#" role="menuitem">Bricks & Blocks</a>
+            <a href="#" role="menuitem">Timber & Boards</a>
+            <a href="#" role="menuitem">Insulation</a>
+            <a href="#" role="menuitem">Plumbing</a>
+            <a href="#" role="menuitem">Electrical</a>
+            <a href="#" role="menuitem">Finishes</a>
+            <a href="#" role="menuitem">Tools & Safety</a>
+            <!-- add more links to see scroll behavior -->
+          </div>
+
+          <div class="bottom">
+            <button style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer">
+              Contact Sales
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Another submenu -->
+      <div class="menu-item has-submenu" id="servicesItem">
+        <button class="menu-btn" aria-haspopup="true" aria-expanded="false">
+          Services
+          <span class="caret">▶</span>
+        </button>
+
+        <div class="submenu" role="menu" aria-label="Services submenu">
+          <div class="top">
+            <strong>Services</strong>
+            <small style="color:#64748b">— what we offer</small>
+          </div>
+
+          <div class="list">
+            <a href="#" role="menuitem">Consultation</a>
+            <a href="#" role="menuitem">Project Management</a>
+            <a href="#" role="menuitem">Logistics</a>
+            <a href="#" role="menuitem">Custom Fabrication</a>
+            <a href="#" role="menuitem">Installation</a>
+          </div>
+
+          <div class="bottom">
+            <a href="#" style="display:block;text-align:center;padding:10px;border-radius:8px;border:1px solid #e2e8f0;text-decoration:none;color:inherit">
+              Learn more
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-item">
+        <button class="menu-btn">About</button>
+      </div>
+
+      <div class="menu-item">
+        <button class="menu-btn">Contact</button>
+      </div>
+
+    </nav>
+  </aside>
+
+  <main class="page">
+    <h2>Page Area (placeholder)</h2>
+    <p>This is the page content — sidebar sits on the left, submenus appear to its right and span the full viewport height.</p>
+    <p>Hover "Products" or "Services" to see the submenu. On touch devices the JS below toggles the submenu state when tapping the parent item.</p>
+  </main>
+
+<script>
+  // Small JS to help on touch devices: tapping a menu item toggles .open.
+  // Also update aria-expanded.
+  (function(){
+    const parents = document.querySelectorAll('.has-submenu');
+    parents.forEach(p => {
+      const btn = p.querySelector('.menu-btn');
+
+      // toggle on click for touch devices
+      btn.addEventListener('click', (e)=>{
+        // if already open, let a click inside submenu not be blocked. If not open, open it and prevent default action.
+        if (!p.classList.contains('open')) {
+          e.preventDefault();
+          // close others
+          document.querySelectorAll('.has-submenu.open').forEach(x => {
+            if (x !== p) x.classList.remove('open');
+            const b = x.querySelector('.menu-btn');
+            if (b) b.setAttribute('aria-expanded','false');
+          });
+          p.classList.add('open');
+          btn.setAttribute('aria-expanded','true');
+        } else {
+          // if already open, clicking the button closes it
+          p.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+
+      // close when clicking elsewhere
+      document.addEventListener('click', (ev)=>{
+        if (!p.contains(ev.target)) {
+          p.classList.remove('open');
+          btn.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>

@@ -50,11 +50,21 @@ function showTab(n) {
     nextArrow.style.display = 'none';
   } else {
     nextArrow.style.display = 'block';
-    nextArrow.textContent = n === totalTabs - 2 ? 'Complete' : '➡️';
+    var rightarrow = "<i class='fas fa-arrow-right'></i>";
+    nextArrow.innerHTML  = n === totalTabs - 2 ? rightarrow : rightarrow;
   }
 }
 
 function changeTab(direction) {
+  currentTab += direction;
+
+  if (currentTab < 0) currentTab = 0;
+  if (currentTab >= totalTabs) currentTab = totalTabs - 1;
+
+  showTab(currentTab);
+}
+
+function changeTabs(direction) {
   currentTab += direction;
 
   if (currentTab < 0) currentTab = 0;
