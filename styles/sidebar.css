@@ -239,9 +239,11 @@ body.submenu-open main.page {
 } */
 
 /* this will be used for hover effect */
-.sidebar:hover ~ main.content {
-margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+.sidebar:has(.has-submenu:hover) ~ main.content,
+.sidebar:has(.has-submenu.open) ~ main.content {
+  margin-left: calc(var(--sidebar-width) + var(--submenu-width));
 }
+
 
 /* small responsive tweak */
 @media (max-width:640px) {

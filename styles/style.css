@@ -513,7 +513,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 
 /* Combobox wrapper */
 .combobox{position:relative; width: 100%;}
-.selector{width: 100%; display:flex;align-items:center;gap:5px;background:var(--card);padding:8px 10px;border: none;cursor:pointer;box-shadow:0 4px 14px rgba(16,24,40,0.06)}
+.selector{width: 100%; display:flex;align-items:center;gap:5px;background:#061321;padding:8px 10px;border: none;cursor:pointer;box-shadow:0 4px 14px rgba(16,24,40,0.06)}
 .selector:focus{outline:2px solid rgba(14,165,132,0.12)}
 .selected-logo{width:34px;height:34px;border-radius:6px;flex:0 0 34px;display:inline-grid;place-items:center;background:linear-gradient(135deg,#fff,#f3f4f6);border:1px solid #eee}
 .selected-text{display:flex;flex-direction:column;min-width:0}
