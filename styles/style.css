@@ -22,21 +22,6 @@
   --submenu-width: 340px;
 }
 
-* {
-  box-sizing: border-box
-}
-
-html,
-body {
-  height: 100%
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  font-family: 'Inter', sans-serif;
-  overflow: hidden;
-}
 
 .app {
   display: grid;
@@ -375,26 +360,6 @@ nav.breadcrumb {
 }
 
 
-
-/* Layout */
-.app-layout {
-  display: flex;
-  height: 100%;
-}
-
-  /* Sidebar */
-  .sidebar {
-    width: var(--sidebar-width);
-    height: 100vh;
-    background: linear-gradient(180deg,var(--sidebar-bg), #031018 120%);
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:6px;
-    border-right:1px solid rgba(255,255,255,0.03);
-    z-index:30;
-  }
-
   /* Logo + chevron area */
   .sidebar .top {
     width:100%;
@@ -420,161 +385,6 @@ nav.breadcrumb {
     color:var(--muted);
     margin-left:2px;
   }
-
-  /* Menu column (centered icons + labels stacked) */
-  .menu {
-    display:flex;
-    flex-direction:column;
-    gap:4px;
-    margin-top:6px;
-    width:100%;
-    align-items:center;
-  }
-
-  .item {
-    width:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-
-  .btn {
-    background:transparent;
-    border:0;
-    color:var(--item-color);
-    width:100%;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:6px;
-    padding:8px 6px;
-    cursor:pointer;
-    text-decoration:none;
-    border-radius:10px;
-    transition: background .12s, transform .06s;
-    outline: none;
-  }
-
-  .btn .icon {
-    width:26px; height:26px;
-    display:inline-flex; align-items:center; justify-content:center;
-    opacity:.95;
-  }
-  .btn .label {
-    display: -webkit-box;           
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;         
-    white-space: normal;           
-    overflow: hidden;              
-    text-overflow: ellipsis;      
-    word-break: break-word;        
-    hyphens: auto;                
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.1;
-    max-width: 100%;
-  }
-
-  /* Hover / active */
-  .btn:hover {transform:translateY(-1px); color: #fff;}
-  .btn.active {
-    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-    color: #fff;
-  }
-  .btn.active .label { color: #fff; font-weight:600; font-size:12px }
-
-  /* Bottom area - settings pinned */
-  .bottom-area {
-   
-    border-top:1px solid #ffffff3b;
-    width: 84px;
-    background: #0b1524ed;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  
-  }
-
-  .bottom-area:hover{
-    border-radius: 10px;
-  }
-
-  /* Submenu (fixed full height) - appears to the right of the sidebar */
-  .submenu {
-    position: fixed;
-    left: 80px;
-    top: 55px;
-    height: 100vh;
-    width: var(--submenu-width);
-    background: #ffffff;
-    box-shadow: 0 10px 30px rgba(2,6,23,0.12);
-    transform: translateX(-6px);
-    opacity: 0;
-    pointer-events: none;
-    transition: all .18s ease;
-    z-index:25;
-    display:flex;
-    flex-direction:column;
-    padding:20px;
-    gap:12px;
-    color:#072433;
-  }
-
-  /* show submenu when parent has .open or hovered/focus-within */
-  .has-submenu:hover .submenu,
-  .has-submenu:focus-within .submenu,
-  .has-submenu.open .submenu {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateX(0);
-  }
-
-  /* Submenu content scroll area to fill full height */
-  .submenu .list {
-    overflow:auto;
-    flex:1 1 auto;
-    padding-right:8px;
-  }
-
-  /* small responsive tweak */
-  @media (max-width:640px){
-    :root{ --sidebar-width:68px; --submenu-width:280px }
-  }
-
-  /* Page placeholder so we can see layout */
-  main.page {
-    margin-left: var(--sidebar-width);
-    padding:28px;
-    min-height:100vh;
-  }
-
-  /* Utility: center icons inside svg color */
-  svg { display:block }
-  .icon svg { width:80%; height:80%; fill:currentColor }
-
-.brand {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 18px
-}
-
-.logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, #0ea5e9, #06b6d4);
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-weight: 700
-}
-
-.brand .title {
-  font-weight: 700;
-  font-size: 15px
-}
-
 
 
 /* Main content */
@@ -1385,4 +1195,21 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 * {
   scrollbar-width: thin;        /* auto | thin | none */
   scrollbar-color: #888 #f1f1f1; /* thumb | track */
+}
+
+
+.login-btn {
+  background: #6c7ed6; /* your color */
+  color: #fff;
+  border: none;
+  padding: 8px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #5566c2; /* darker shade for hover */
 }

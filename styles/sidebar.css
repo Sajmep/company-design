@@ -1,0 +1,263 @@
+:root {
+  --sidebar-width: 84px;
+  /* sidebar narrow width */
+  --submenu-width: 340px;
+  /* width of submenu that will push content */
+  --sidebar-bg: #071424;
+  --item-color: #dfeaf2;
+  --muted: #9fb0c0;
+  --accent: #2ea0ff;
+}
+
+* {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  font-family: Inter, Segoe UI, system-ui, Arial;
+  background: #f5f7f9;
+  color: #071424
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 55px;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: linear-gradient(180deg, var(--sidebar-bg), #031018 120%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 6px;
+  gap: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.03);
+  z-index: 30;
+}
+
+.sidebar .top {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 4px;
+}
+
+.brand {
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fff, #f0f3f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .15);
+  overflow: hidden;
+}
+
+.brand img {
+  width: 36px;
+  height: 36px;
+  display: block
+}
+
+.chev {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  margin-left: 2px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+  width: 100%;
+  align-items: center;
+}
+
+.item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  border: 0;
+  color: var(--item-color);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 6px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background .12s, transform .06s;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.btn .icon {
+  width: 26px;
+  height: 26px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .95;
+}
+
+.btn .label {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.05;
+  max-width: 100%;
+  /* allow 2-line wrapping */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  white-space: normal;
+  overflow: hidden;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.btn:hover {
+  background: rgba(255, 255, 255, 0.02);
+  transform: translateY(-1px);
+}
+
+.btn.active,
+.btn.open {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  box-shadow: inset 1px 0 0 var(--accent);
+  color: #fff;
+}
+
+.btn.active .label,
+.btn.open .label {
+  color: #fff;
+}
+
+
+/* Bottom area - settings pinned */
+.bottom-area {
+
+  border-top: 1px solid #ffffff3b;
+  width: 84px;
+  background: #0b1524ed;
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+
+}
+
+.bottom-area:hover {
+  border-radius: 10px;
+}
+
+/* ---------- Submenu (visual panel) ---------- */
+.submenu {
+  position: fixed;
+  left: calc(var(--sidebar-width));
+  /* visually start at right edge of sidebar */
+  top: 55px;
+  height: 100vh;
+  width: var(--submenu-width);
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+  transform: translateX(-6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform .18s ease, opacity .18s ease;
+  z-index: 25;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 12px;
+  color: #072433;
+}
+
+/* visible state controlled by JS toggling .open on .has-submenu */
+/* .has-submenu.open .submenu {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+} */
+
+/* this will be used for hover effect */
+.has-submenu:hover .submenu,
+.has-submenu:focus-within .submenu {
+opacity: 1;
+pointer-events: auto;
+transform: translateX(0);
+}
+
+.submenu .list {
+  overflow: auto;
+  flex: 1 1 auto;
+  padding-right: 8px;
+}
+
+.submenu a {
+  display: block;
+  padding: 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 6px;
+}
+
+/* ---------- Pushing main content ---------- */
+main.page {
+  margin-left: var(--sidebar-width);
+  /* initial: only sidebar */
+  transition: margin-left 220ms ease;
+  padding: 28px;
+  min-height: 100vh;
+}
+
+/* when any submenu is open, body gets .submenu-open to expand margin-left
+body.submenu-open main.page {
+  margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+} */
+
+/* this will be used for hover effect */
+.sidebar:hover ~ main.content {
+margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+}
+
+/* small responsive tweak */
+@media (max-width:640px) {
+  :root {
+    --sidebar-width: 68px;
+    --submenu-width: 280px
+  }
+}
+
+/* utility */
+svg {
+  display: block
+}
+
+.icon svg {
+  width: 80%;
+  height: 80%;
+  fill: currentColor
+}

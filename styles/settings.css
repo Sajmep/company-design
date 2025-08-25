@@ -423,5 +423,7 @@ margin: 0 !important;
   font-weight: 100;
   font-size: 12px;
   padding: 5px;
-  border-left: 2px solid;
+  position: absolute;
+    top: 118px;
+    right: 34px;
 }
