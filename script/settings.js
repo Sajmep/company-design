@@ -35,6 +35,7 @@ function showTab(n) {
 
   // Update buttons
   document.getElementById('prevBtn').disabled = n === 0;
+  document.getElementById('prevArrow').disabled = n === 0;
 
   const nextBtn = document.getElementById('nextBtn');
   if (n === totalTabs - 1) {
@@ -42,6 +43,14 @@ function showTab(n) {
   } else {
     nextBtn.style.display = 'block';
     nextBtn.textContent = n === totalTabs - 2 ? 'Complete' : 'Next';
+  }
+
+  const nextArrow = document.getElementById('nextArrow');
+  if (n === totalTabs - 1) {
+    nextArrow.style.display = 'none';
+  } else {
+    nextArrow.style.display = 'block';
+    nextArrow.textContent = n === totalTabs - 2 ? 'Complete' : '➡️';
   }
 }
 

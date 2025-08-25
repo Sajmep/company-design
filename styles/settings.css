@@ -396,3 +396,15 @@
   }
 }
 
+.row-settings{
+  display: flex;
+}
+
+.row-settings .col1{
+  width: 78%;
+  margin: 0 9px;
+}
+
+.col-image .setting-content label{
+margin: 0 !important;
+}

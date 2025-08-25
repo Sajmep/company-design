@@ -546,10 +546,14 @@ aside.sidebar.open{transform:translateX(0)}
   main.content {
     flex: 1;
     padding: 20;
-    margin-top: 50px;
   }
   .top{
     justify-content: flex-end;
+  }
+
+  
+  .content-body p{
+    margin-bottom: 2px;
   }
 }
 
@@ -811,10 +815,35 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 /* Modal content */
 .modal-content {
   background: white;
-  width: 70%;
+  width: 35%;
   padding: 20px;
   border-radius: 8px;
   position: relative;
+  overflow: hidden;
+  height: 90vh;
+}
+
+@media screen and (max-width:900px){
+  .modal-content{
+    width: 90%;
+  }
+
+  .modal-body .progress-bar{
+    display: none;
+  }
+
+  .row-settings{
+    flex-direction: column;
+  }
+  
+}
+
+@media screen and (max-width:600px){
+  .modal-content .tab-title {
+    text-align: left !important;
+    position: unset !important;
+  }
+  
 }
 
 /* Close button */
@@ -1087,14 +1116,9 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   padding: 0 !important;
   padding-top: 10px;
   display: flex;
+  flex-direction: column;
 }
 
-.modal-body .progress-bar{
-  flex-direction: column;
-  margin: 0 25px;
-  margin-left: 0;
-  justify-content: flex-start;
-}
 
 .modal-body .step{
   text-align: center;
@@ -1102,11 +1126,22 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 }
 
 .modal-content .button-group{
-  position: absolute;
+  position: absolute !important;
   bottom: -10px;
   right: -4px;
   background: none !important;
   border: none !important;
+}
+
+
+.btn-primary {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 .modal-content .button-group button{
@@ -1130,4 +1165,35 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .modal-content .checkbox-item input[type="checkbox"]:checked::after{
   left: 4px;
   top: 0;
+}
+
+.modal-content .tab-content{
+  width: 100%;
+}
+
+.modal-content .form-grid{
+  grid-template-columns: none !important;
+}
+
+
+.modal-content .progress-arrows{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  margin-bottom: 26px;
+}
+
+
+
+.modal-content  .progress-bar{
+  display: none !important;
+}
+
+.modal-content .tab-title{
+  position: absolute;
+  top: 96px;
+  width: 58%;
+  left: 95px;
+  display: block;
+  text-align: center;
 }
