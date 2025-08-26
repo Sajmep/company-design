@@ -495,3 +495,10 @@ margin: 0 !important;
 .col{
   margin: 15px;
 }
+
+@media screen and (max-width: 390px) {
+  .form-section {
+      padding: 12px;
+      width: 94%;
+  }
+}
