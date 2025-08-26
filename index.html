@@ -400,10 +400,7 @@
     <div class="modal-content">
       <button class="close-btn" id="closeModal">&times;</button>
       <main class="content setting-content home-modal">
-        <div class="content-body modal-body">
 
-
-          <div class="progress-container">
             <div class="progress-bar">
               <div class="progress-line">
                 <div class="progress-line-fill" id="progressFill"></div>
@@ -441,7 +438,6 @@
               </div>
             </div>
 
-
             <div class="tab-content">
               <div class="header">
                 <h3>Company Setup</h3>
@@ -461,6 +457,7 @@
                 </div>
               </div>
             </div>
+
             <!-- Start Tab -->
             <div class="tab-panel active" data-panel="0">
               <span class="step-indicator-popup">1 of 5 Steps</span>
@@ -812,7 +809,6 @@
 
               </div>
             </div>
-          </div>
 
           <!-- Completed Tab -->
           <div class="tab-panel" data-panel="3">
@@ -844,12 +840,14 @@
               <button class="btn-primary" onclick="window.location.reload()">Start Over</button>
             </div>
           </div>
+
+          <div class="button-group">
+            <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)" disabled>Previous</button>
+            <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
+          </div>
         </div>
 
-        <div class="button-group">
-          <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)" disabled>Previous</button>
-          <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
-        </div>
+       
 
       </main>
     </div>

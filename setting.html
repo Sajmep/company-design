@@ -14,6 +14,13 @@
     .progress-container {
       position: relative;
     }
+
+    
+    .setting-content .tab-panel{
+      max-height: 40vh;
+      overflow-y: auto;
+    }
+
         
   </style>
 </head>
@@ -414,6 +421,7 @@
         </div>
 
         <div class="progress-container">
+          
             <div class="progress-bar">
                 <div class="progress-line">
                     <div class="progress-line-fill" id="progressFill"></div>
@@ -461,7 +469,7 @@
                         <div class="row-settings">
                             <div class="col1">
 
-                                <div class="form-grid" style="grid-template-columns: none">
+                                <div class="form-grid" style="grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));">
                                     <div class="form-section form-section-settings">
                                         <h2 class="section-title collapsed " onclick="toggleSection(this)">
                                             Company Name
@@ -744,8 +752,7 @@
                 <!-- Coverage Tab -->
                 <div class="tab-panel" data-panel="2">
                     <div class="form-section primary-focus">
-                        <div class="tab-title" style="font-size: 20px;">
-                            <span class="section-icon">📊</span>
+                        <div class="tab-title" style="font-size: 16px;">
                             <sapn>Service Coverage & Preferences </span> <span class="step-indicator">3 of 5
                                     Steps</span>
                         </div>

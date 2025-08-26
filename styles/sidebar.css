@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 8px 6px;
+  padding: 8px 0px;
   gap: 6px;
   border-right: 1px solid rgba(255, 255, 255, 0.03);
   z-index: 30;
@@ -80,7 +80,7 @@ body {
 .menu {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0px;
   margin-top: 6px;
   width: 100%;
   align-items: center;
@@ -201,12 +201,40 @@ body {
   pointer-events: auto;
 } */
 
-/* this will be used for hover effect */
-.has-submenu:hover .submenu,
-.has-submenu:focus-within .submenu {
-opacity: 1;
-pointer-events: auto;
-transform: translateX(0);
+/* when any submenu is open, body gets .submenu-open to expand margin-left
+body.submenu-open main.page {
+  margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+} */
+
+/* Mobile & tablet → CLICK version */
+@media (max-width: 991px) {
+  body.submenu-open main.page {
+    margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+  }
+
+  .has-submenu.open .submenu {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+
+/* Desktop → HOVER version */
+@media (min-width: 992px) {
+  .has-submenu:hover .submenu,
+  .has-submenu:focus-within .submenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateX(0);
+  }
+
+  .sidebar:has(.has-submenu:hover) ~ main.content,
+  .sidebar:has(.has-submenu.open) ~ main.content {
+    margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+  }
+
+  
 }
 
 .submenu .list {
@@ -233,16 +261,8 @@ main.page {
   min-height: 100vh;
 }
 
-/* when any submenu is open, body gets .submenu-open to expand margin-left
-body.submenu-open main.page {
-  margin-left: calc(var(--sidebar-width) + var(--submenu-width));
-} */
 
-/* this will be used for hover effect */
-.sidebar:has(.has-submenu:hover) ~ main.content,
-.sidebar:has(.has-submenu.open) ~ main.content {
-  margin-left: calc(var(--sidebar-width) + var(--submenu-width));
-}
+
 
 
 /* small responsive tweak */
@@ -250,6 +270,14 @@ body.submenu-open main.page {
   :root {
     --sidebar-width: 68px;
     --submenu-width: 280px
+  }
+
+  .bottom-area{
+    width: 68px;
+  }
+
+  .main.page {
+    padding: 15px;
   }
 }
 
