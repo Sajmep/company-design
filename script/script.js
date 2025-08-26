@@ -182,8 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-//modal functionality
-
+//modal functionality company setup
 const modal = document.getElementById("myModal");
     const openBtn = document.querySelector(".open-btn");
     const closeBtn = document.getElementById("closeModal");
@@ -199,6 +198,25 @@ const modal = document.getElementById("myModal");
     window.addEventListener("click", (e) => {
       if (e.target === modal) {
         modal.style.display = "none";
+      }
+    });
+
+//modal functionality company setup
+const profileSetupModal = document.getElementById("profileSetupModal");
+    const companyProfileBtn = document.querySelector(".company-profile-btn");
+    const closeProfileModal = document.getElementById("closeProfileModal");
+
+    companyProfileBtn.addEventListener("click", () => {
+      profileSetupModal.style.display = "flex";
+    });
+
+    closeProfileModal.addEventListener("click", () => {
+      profileSetupModal.style.display = "none";
+    });
+
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        profileSetupModal.style.display = "none";
       }
     });
 
