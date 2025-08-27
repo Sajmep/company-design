@@ -36,10 +36,9 @@
           </div>
         </div>
       </div>
-      <img src="images/announcement.png" alt="">
-      <img src="images/comments.png" alt="">
       <img src="images/alarm.png" alt="">
       <img src="images/bell.png" alt="">
+      
       <!-- <img src="images/apps.png" alt=""> -->
       <div class="menu-container">
         <div class="dots-grid">
@@ -56,12 +55,14 @@
       </div>
       <button class="login-btn">Login</button>
 
+   
+
       <div class="dropdown-advanced">
-        <button class="dropdown-btn">
+        <button class="dropdown-btn" aria-expanded="false">
           <img src="images/user.png" alt="" class="account-img">
         </button>
 
-        <div class="dropdown-menu">
+        <div class="dropdown-menu" role="menu">
           <div class="dropdown-section">
             <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
             <a href="#"><i class="fa-solid fa-building"></i> My Company</a>
@@ -84,10 +85,10 @@
 
 
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+
     <div class="combobox" id="combobox">
       <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
         <div class="selected-logo" id="selectedLogo">
-          <!-- SVG placeholder -->
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
@@ -143,62 +144,174 @@
     </div>
 
     <nav class="menu" role="menu" aria-label="Primary">
-      <div class="item">
-        <a href="index.html">
-          <button class="btn active" role="menuitem" tabindex="0">
-            <span class="icon" aria-hidden>
-              <!-- overview icon -->
-              <svg viewBox="0 0 24 24">
-                <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zM13 21h8V11h-8v10zm0-18v6h8V3h-8z" />
-              </svg>
-            </span>
-            <span class="label">Overview</span>
-          </button>
-        </a>
-      </div>
 
       <div class="item has-submenu" id="orgItem">
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
             <!-- organization icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zM13 21h8V11h-8v10z" />
-            </svg>
+            <img src="images/organization.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Organization</span>
         </button>
 
         <!-- Submenu (full-height) -->
         <div class="submenu" role="menu" aria-label="Organization submenu">
-          <div style="display:flex;align-items:center;gap:12px;">
+          <div class="submenu-top">
             <h3 style="margin:0;font-size:16px">Organization</h3>
-            <small style="color:#64748b">manage structure</small>
           </div>
 
-          <div class="list">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Teams</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Departments</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Locations</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Permissions</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Integrations</a>
-            <!-- long list to show scroll -->
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Billing</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Templates</a>
-            <a href="#" style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Audit
-              log</a>
+          <div class="form-grid">
+            
+            <div class="form-section submenu-uncollapsed">
+              <a href="index.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Overview
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/business-info-icon.png" alt="" width="28px">
+                Business Information
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Profile Page</a></li>
+                  <li><a href="#">Experiences</a></li>
+                  <li><a href="#">Policies</a></li>
+                  <li><a href="#">Documents</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/our-products-icon.png" alt="" width="28px">
+                Our Products
+              </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/marketing-icon.png" alt="" width="28px">
+                Marketing
+              </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/assets-icon.png" alt="" width="28px">
+                Assets
+              </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/financial-icon.png" alt="" width="28px">
+                Finance
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Bills & Invoices</a></li>
+                  <li><a href="#">Payment & Received</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/business-straegy-icon.png" alt="" width="28px">
+                Business & Strategy
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Business Model</a></li>
+                  <li><a href="#">SWOT analysis</a></li>
+                  <li><a href="#">Audit</a></li>
+                  <li><a href="#">Risk Management</a></li>
+                  <li><a href="#">RCA</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/hr-icon.png" alt="" width="28px">
+                HR & Workforce
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">HR Management</a></li>
+                  <li><a href="#">Payroll</a></li>
+                  <li><a href="#">Recruitments</a></li>
+                  <li><a href="#">Resource Allocation</a></li>
+                  <li><a href="#">Training</a></li>
+                  <li><a href="#">Compliance</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/crm-icon.png" alt="" width="28px">
+                CRM
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Leads</a></li>
+                  <li><a href="#">Opportunities</a></li>
+                  <li><a href="#">Visits</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/sales-icon.png" alt="" width="28px">
+                Sales
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Quotations</a></li>
+                  <li><a href="#">Sales Orders</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/procurement.png" alt="" width="28px">
+                Procurements
+              </h2>
+  
+              <!-- Company Name Box -->
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Purchase</a></li>
+                  <li><a href="#">Tenders</a></li>
+                </ul>
+              </div>
+            </div>
+
           </div>
 
           <div style="margin-top:auto">
             <button
-              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">New
-              Team</button>
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
           </div>
         </div>
       </div>
@@ -207,151 +320,131 @@
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
             <!-- apps icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M3 3h8v8H3zM13 3h8v8h-8zM3 13h8v8H3zM13 13h8v8h-8z" />
-            </svg>
+            <img src="images/myapps.png" alt="" class="sidebar-icons">
           </span>
-          <span class="label">Apps Hub</span>
+          <span class="label">Apps</span>
         </button>
 
         <div class="submenu" role="menu" aria-label="Apps submenu">
-          <div style="display:flex;align-items:center;gap:12px;">
+          <div class="submenu-top">
             <h3 style="margin:0;font-size:16px">Apps Hub</h3>
-            <small style="color:#64748b">installed & store</small>
           </div>
 
-          <div class="list">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Installed</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Marketplace</a>
-            <a href="#" style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">API
-              Keys</a>
-          </div>
-
-          <div style="margin-top:auto">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;border:1px solid #e6eef7;text-decoration:none;color:inherit;text-align:center">Browse
-              apps</a>
-          </div>
         </div>
       </div>
 
-      <div class="item has-submenu" id="appsItem">
+      <div class="item has-submenu" id="directoryItem">
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
-            <!-- business modal icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2L2 7v7c0 5 4 9 10 9s10-4 10-9V7L12 2z" />
-            </svg>
+            <!-- Directory icon -->
+            <img src="images/directory.png" alt="" class="sidebar-icons">
           </span>
-          <span class="label">Business Modal</span>
+          <span class="label">Directory</span>
         </button>
         <div class="submenu" role="menu" aria-label="Apps submenu">
-          <div style="display:flex;align-items:center;gap:12px;">
+          <div class="submenu-top">
             <h3 style="margin:0;font-size:16px">Apps Hub</h3>
-            <small style="color:#64748b">installed & store</small>
           </div>
 
-          <div class="list">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Installed</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Marketplace</a>
-            <a href="#" style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">API
-              Keys</a>
-          </div>
-
-          <div style="margin-top:auto">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;border:1px solid #e6eef7;text-decoration:none;color:inherit;text-align:center">Browse
-              apps</a>
-          </div>
         </div>
       </div>
 
-      <div class="item has-submenu" id="appsItem">
+      <div class="item has-submenu" id="quickLinksItem">
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
-            <!-- audit icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M9 11l3 3L22 4" />
-            </svg>
+            <img src="images/quick-link.png" alt="" class="sidebar-icons">
           </span>
-          <span class="label">Audit</span>
+          <span class="label">Quick Links</span>
         </button>
         <div class="submenu" role="menu" aria-label="Apps submenu">
-          <div style="display:flex;align-items:center;gap:12px;">
+          <div class="submenu-top">
             <h3 style="margin:0;font-size:16px">Apps Hub</h3>
-            <small style="color:#64748b">installed & store</small>
           </div>
 
-          <div class="list">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Installed</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Marketplace</a>
-            <a href="#" style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">API
-              Keys</a>
-          </div>
-
-          <div style="margin-top:auto">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;border:1px solid #e6eef7;text-decoration:none;color:inherit;text-align:center">Browse
-              apps</a>
-          </div>
         </div>
       </div>
-
-
-
-      <div class="item has-submenu" id="appsItem">
-        <button class="btn" aria-haspopup="true" aria-expanded="false">
-          <span class="icon" aria-hidden>
-            <!-- contacts icon -->
-            <svg viewBox="0 0 24 24">
-              <path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM4 20v-1a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v1" />
-            </svg>
-          </span>
-          <span class="label">Contacts</span>
-        </button>
-        <div class="submenu" role="menu" aria-label="Apps submenu">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
-            <small style="color:#64748b">installed & store</small>
-          </div>
-
-          <div class="list">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Installed</a>
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">Marketplace</a>
-            <a href="#" style="display:block;padding:10px;border-radius:8px;text-decoration:none;color:inherit">API
-              Keys</a>
-          </div>
-
-          <div style="margin-top:auto">
-            <a href="#"
-              style="display:block;padding:10px;border-radius:8px;border:1px solid #e6eef7;text-decoration:none;color:inherit;text-align:center">Browse
-              apps</a>
-          </div>
-        </div>
-      </div>
-
-
 
     </nav>
 
     <div class="bottom-area">
+      <div class="item has-submenu" id="supportItem">
+          <button class="btn" id="settingsBtn">
+            <span class="icon" aria-hidden>
+              <!-- settings icon -->
+              <img src="images/support.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Support</span>
+          </button>
+
+           <!-- Submenu (full-height) -->
+          <div class="submenu" role="menu" aria-label="Organization submenu">
+            <div class="submenu-top">
+              <h3 style="margin:0;font-size:16px">Support</h3>
+            </div>
+
+            <div class="form-grid">
+              
+              <div class="form-section submenu-uncollapsed">
+                <a href="index.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/live-chate-icon.png" alt="" width="28px">
+                    Live Chat
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/contact-support-icon.png" alt="" width="28px">
+                  Contact Support
+                </h2>
+    
+                <div class="checkbox-group collapsed ">
+                  <ul class="subsubmenu">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Submit Ticket</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="form-section">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/help-ceneter-icon.png" alt="" width="28px">
+                  Help Center
+                </h2>
+    
+                <div class="checkbox-group collapsed ">
+                  <ul class="subsubmenu">
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Guides</a></li>
+                    <li><a href="#">Video Tutorials</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/report-issue-icon.png" alt="" width="28px">
+                  Report Issue
+                </h2>
+                </a>
+              </div>
+
+            </div>
+
+            <div style="margin-top:auto">
+              <button
+                style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+            </div>
+          </div>
+      </div>
       <a href="setting.html">
         <div class="item">
           <button class="btn" id="settingsBtn">
             <span class="icon" aria-hidden>
               <!-- settings icon -->
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M19.4 13.5a7.9 7.9 0 0 0 0-3l2-1.6-2-3.4-2.3.6a8 8 0 0 0-2.3-1.3L14 2h-4l-.8 2.3a8 8 0 0 0-2.3 1.3L4.6 5.3 2.6 8.8l2 1.6a7.9 7.9 0 0 0 0 3l-2 1.6 2 3.4 2.3-.6c.7.5 1.6 1 2.3 1.3L10 22h4l.8-2.3c.8-.3 1.6-.7 2.3-1.3l2.3.6 2-3.4-2-1.6zM12 15.5A3.5 3.5 0 1 1 12 8.5a3.5 3.5 0 0 1 0 7z" />
-              </svg>
+              <img src="images/settings.png" alt="" class="sidebar-icons">
             </span>
             <span class="label">Settings</span>
           </button>
@@ -378,7 +471,7 @@
       </nav>
     </div>
     <!-- breadcrumb end -->
-     
+
     <div class="content-body">
       <h3>Finish Your Company Setting up</h3>
       <p>To publish and participate with your valuable team, enjoy the challengeable experience </p>
@@ -850,208 +943,212 @@
           <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)" disabled>Previous</button>
           <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
         </div>
-        
+
       </main>
     </div>
   </div>
 
-  
+
   <!-- modal compay profile -->
   <div class="modal" id="profileSetupModal">
     <div class="modal-content">
       <button class="close-btn" id="closeProfileModal">&times;</button>
       <main class="content setting-content home-modal">
 
-              <!-- Second Form -->
-              <div class="form-container form-2">
-                  <div class="header header-2">
-                      <h1>Partner Application</h1>
-                      <p>Join our partner network</p>
-                  </div>
+        <!-- Second Form -->
+        <div class="form-container form-2">
+          <div class="header header-2">
+            <h1>Partner Application</h1>
+            <p>Join our partner network</p>
+          </div>
 
-                  <div class="progress-container">
-                      <div class="progress-bar">
-                          <div class="progress-line">
-                              <div class="progress-line-fill" id="progressFill2"></div>
-                          </div>
-                          
-                          <div class="step" data-step="0">
-                              <div class="step-circle active">🤝</div>
-                              <div class="step-label active">Intro</div>
-                          </div>
-                          
-                          <div class="step" data-step="1">
-                              <div class="step-circle">🏪</div>
-                              <div class="step-label">Business</div>
-                          </div>
-                          
-                          <div class="step" data-step="2">
-                              <div class="step-circle">🤝</div>
-                              <div class="step-label">Partnership</div>
-                          </div>
-                          
-                          <div class="step" data-step="3">
-                              <div class="step-circle">🎯</div>
-                              <div class="step-label">Complete</div>
-                          </div>
-                      </div>
-
-                      <div class="tab-content">
-                          <!-- Intro Tab -->
-                          <div class="tab-panel active" data-panel="0">
-                              <div class="form-section">
-                                  <div class="section-title">
-                                      <span class="section-icon">🤝</span>
-                                      Partner Introduction
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="partnerName2">Partner Representative</label>
-                                      <input type="text" id="partnerName2" placeholder="Enter representative name">
-                                  </div>
-                                  <div class="form-row">
-                                      <div class="form-col">
-                                          <label for="partnerEmail2">Business Email</label>
-                                          <input type="email" id="partnerEmail2" placeholder="partner@company.com">
-                                      </div>
-                                      <div class="form-col">
-                                          <label for="partnerPhone2">Business Phone</label>
-                                          <input type="tel" id="partnerPhone2" placeholder="+1 (555) 987-6543">
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="title2">Job Title</label>
-                                      <select id="title2">
-                                          <option value="">Select title</option>
-                                          <option value="ceo">CEO</option>
-                                          <option value="vp">Vice President</option>
-                                          <option value="director">Director</option>
-                                          <option value="manager">Manager</option>
-                                          <option value="representative">Sales Representative</option>
-                                          <option value="other">Other</option>
-                                      </select>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <!-- Business Tab -->
-                          <div class="tab-panel" data-panel="1">
-                              <div class="form-section">
-                                  <div class="section-title">
-                                      <span class="section-icon">🏪</span>
-                                      Company Profile
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="companyTitle2">Company Name</label>
-                                      <input type="text" id="companyTitle2" placeholder="Enter company name">
-                                  </div>
-                                  <div class="form-row">
-                                      <div class="form-col">
-                                          <label for="sector2">Industry Sector</label>
-                                          <select id="sector2">
-                                              <option value="">Select sector</option>
-                                              <option value="technology">Technology</option>
-                                              <option value="manufacturing">Manufacturing</option>
-                                              <option value="services">Professional Services</option>
-                                              <option value="retail">Retail</option>
-                                              <option value="consulting">Consulting</option>
-                                              <option value="other">Other</option>
-                                          </select>
-                                      </div>
-                                      <div class="form-col">
-                                          <label for="teamSize2">Team Size</label>
-                                          <select id="teamSize2">
-                                              <option value="">Select size</option>
-                                              <option value="startup">Startup (1-10)</option>
-                                              <option value="small">Small (11-50)</option>
-                                              <option value="medium">Medium (51-200)</option>
-                                              <option value="large">Large (201-1000)</option>
-                                              <option value="enterprise">Enterprise (1000+)</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="headquarters2">Headquarters Address</label>
-                                      <textarea id="headquarters2" placeholder="Enter company headquarters address"></textarea>
-                                  </div>
-                                  <div class="form-row">
-                                      <div class="form-col">
-                                          <label for="companyWeb2">Company Website</label>
-                                          <input type="url" id="companyWeb2" placeholder="https://www.company.com">
-                                      </div>
-                                      <div class="form-col">
-                                          <label for="founded2">Founded Year</label>
-                                          <input type="number" id="founded2" placeholder="2018" min="1900" max="2025">
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <!-- Partnership Tab -->
-                          <div class="tab-panel" data-panel="2">
-                              <div class="form-section">
-                                  <div class="section-title">
-                                      <span class="section-icon">🤝</span>
-                                      Partnership Details
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="partnershipType2">Partnership Interest</label>
-                                      <textarea id="partnershipType2" placeholder="Describe what type of partnership you're seeking"></textarea>
-                                  </div>
-                                  <div class="form-row">
-                                      <div class="form-col">
-                                          <label for="partnerLevel2">Partnership Level</label>
-                                          <select id="partnerLevel2">
-                                              <option value="">Select level</option>
-                                              <option value="bronze">Bronze Partner</option>
-                                              <option value="silver">Silver Partner</option>
-                                              <option value="gold">Gold Partner</option>
-                                              <option value="platinum">Platinum Partner</option>
-                                          </select>
-                                      </div>
-                                      <div class="form-col">
-                                          <label for="revenue2">Annual Revenue Range</label>
-                                          <select id="revenue2">
-                                              <option value="">Select range</option>
-                                              <option value="under-100k">Under $100K</option>
-                                              <option value="100k-1m">$100K - $1M</option>
-                                              <option value="1m-10m">$1M - $10M</option>
-                                              <option value="over-10m">Over $10M</option>
-                                          </select>
-                                      </div>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="capabilities2">Key Capabilities</label>
-                                      <textarea id="capabilities2" placeholder="What unique capabilities do you bring to the partnership?"></textarea>
-                                  </div>
-                                  <div class="form-group">
-                                      <label for="expectations2">Partnership Expectations</label>
-                                      <textarea id="expectations2" placeholder="What are your expectations from this partnership?"></textarea>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <!-- Complete Tab -->
-                          <div class="tab-panel" data-panel="3">
-                              <div class="success-message">
-                                  <div class="success-icon">🎯</div>
-                                  <h2>Application Submitted!</h2>
-                                  <p>Your partnership application has been received.</p>
-                                  <p>We'll review and contact you soon!</p>
-                                  <br>
-                                  <button class="btn-primary" onclick="resetForm(2)">Submit Another</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
-                  <div class="button-group">
-                      <button type="button" class="btn-secondary" id="prevBtn2" onclick="navigateTab(-1, 2)" disabled>Previous</button>
-                      <button type="button" class="btn-primary" id="nextBtn2" onclick="navigateTab(1, 2)">Next</button>
-                  </div>
+          <div class="progress-container">
+            <div class="progress-bar">
+              <div class="progress-line">
+                <div class="progress-line-fill" id="progressFill2"></div>
               </div>
+
+              <div class="step" data-step="0">
+                <div class="step-circle active">🤝</div>
+                <div class="step-label active">Intro</div>
+              </div>
+
+              <div class="step" data-step="1">
+                <div class="step-circle">🏪</div>
+                <div class="step-label">Business</div>
+              </div>
+
+              <div class="step" data-step="2">
+                <div class="step-circle">🤝</div>
+                <div class="step-label">Partnership</div>
+              </div>
+
+              <div class="step" data-step="3">
+                <div class="step-circle">🎯</div>
+                <div class="step-label">Complete</div>
+              </div>
+            </div>
+
+            <div class="tab-content">
+              <!-- Intro Tab -->
+              <div class="tab-panel active" data-panel="0">
+                <div class="form-section">
+                  <div class="section-title">
+                    <span class="section-icon">🤝</span>
+                    Partner Introduction
+                  </div>
+                  <div class="form-group">
+                    <label for="partnerName2">Partner Representative</label>
+                    <input type="text" id="partnerName2" placeholder="Enter representative name">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-col">
+                      <label for="partnerEmail2">Business Email</label>
+                      <input type="email" id="partnerEmail2" placeholder="partner@company.com">
+                    </div>
+                    <div class="form-col">
+                      <label for="partnerPhone2">Business Phone</label>
+                      <input type="tel" id="partnerPhone2" placeholder="+1 (555) 987-6543">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="title2">Job Title</label>
+                    <select id="title2">
+                      <option value="">Select title</option>
+                      <option value="ceo">CEO</option>
+                      <option value="vp">Vice President</option>
+                      <option value="director">Director</option>
+                      <option value="manager">Manager</option>
+                      <option value="representative">Sales Representative</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Business Tab -->
+              <div class="tab-panel" data-panel="1">
+                <div class="form-section">
+                  <div class="section-title">
+                    <span class="section-icon">🏪</span>
+                    Company Profile
+                  </div>
+                  <div class="form-group">
+                    <label for="companyTitle2">Company Name</label>
+                    <input type="text" id="companyTitle2" placeholder="Enter company name">
+                  </div>
+                  <div class="form-row">
+                    <div class="form-col">
+                      <label for="sector2">Industry Sector</label>
+                      <select id="sector2">
+                        <option value="">Select sector</option>
+                        <option value="technology">Technology</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="services">Professional Services</option>
+                        <option value="retail">Retail</option>
+                        <option value="consulting">Consulting</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                    <div class="form-col">
+                      <label for="teamSize2">Team Size</label>
+                      <select id="teamSize2">
+                        <option value="">Select size</option>
+                        <option value="startup">Startup (1-10)</option>
+                        <option value="small">Small (11-50)</option>
+                        <option value="medium">Medium (51-200)</option>
+                        <option value="large">Large (201-1000)</option>
+                        <option value="enterprise">Enterprise (1000+)</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="headquarters2">Headquarters Address</label>
+                    <textarea id="headquarters2" placeholder="Enter company headquarters address"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-col">
+                      <label for="companyWeb2">Company Website</label>
+                      <input type="url" id="companyWeb2" placeholder="https://www.company.com">
+                    </div>
+                    <div class="form-col">
+                      <label for="founded2">Founded Year</label>
+                      <input type="number" id="founded2" placeholder="2018" min="1900" max="2025">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Partnership Tab -->
+              <div class="tab-panel" data-panel="2">
+                <div class="form-section">
+                  <div class="section-title">
+                    <span class="section-icon">🤝</span>
+                    Partnership Details
+                  </div>
+                  <div class="form-group">
+                    <label for="partnershipType2">Partnership Interest</label>
+                    <textarea id="partnershipType2"
+                      placeholder="Describe what type of partnership you're seeking"></textarea>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-col">
+                      <label for="partnerLevel2">Partnership Level</label>
+                      <select id="partnerLevel2">
+                        <option value="">Select level</option>
+                        <option value="bronze">Bronze Partner</option>
+                        <option value="silver">Silver Partner</option>
+                        <option value="gold">Gold Partner</option>
+                        <option value="platinum">Platinum Partner</option>
+                      </select>
+                    </div>
+                    <div class="form-col">
+                      <label for="revenue2">Annual Revenue Range</label>
+                      <select id="revenue2">
+                        <option value="">Select range</option>
+                        <option value="under-100k">Under $100K</option>
+                        <option value="100k-1m">$100K - $1M</option>
+                        <option value="1m-10m">$1M - $10M</option>
+                        <option value="over-10m">Over $10M</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="capabilities2">Key Capabilities</label>
+                    <textarea id="capabilities2"
+                      placeholder="What unique capabilities do you bring to the partnership?"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="expectations2">Partnership Expectations</label>
+                    <textarea id="expectations2"
+                      placeholder="What are your expectations from this partnership?"></textarea>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Complete Tab -->
+              <div class="tab-panel" data-panel="3">
+                <div class="success-message">
+                  <div class="success-icon">🎯</div>
+                  <h2>Application Submitted!</h2>
+                  <p>Your partnership application has been received.</p>
+                  <p>We'll review and contact you soon!</p>
+                  <br>
+                  <button class="btn-primary" onclick="resetForm(2)">Submit Another</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="button-group">
+            <button type="button" class="btn-secondary" id="prevBtn2" onclick="navigateTab(-1, 2)"
+              disabled>Previous</button>
+            <button type="button" class="btn-primary" id="nextBtn2" onclick="navigateTab(1, 2)">Next</button>
+          </div>
+        </div>
     </div>
-      </main>
-    </div>
+    </main>
+  </div>
   </div>
 
 
