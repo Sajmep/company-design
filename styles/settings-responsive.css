@@ -5,16 +5,13 @@
       flex-direction: column;
     }
 
-    .row-settings .col1 {
-      width: 76% !important;
+    .tab-content{
+      width: 100%;
     }
+    
 
     .content-body .header {
       padding: 0 12px;
-    }
-
-    .row-settings .col {
-      width: 76%;
     }
 
     .form-section {
@@ -74,6 +71,15 @@
       gap: 0;
     }
 
+    
+    .row-settings .col1 {
+      width: 90% !important;
+    }
+
+    .row-settings .col {
+      width: 90%;
+    }
+
     .step-label {
       font-size: 12px;
     }
@@ -81,6 +87,15 @@
     .progress-container {
       padding: 28px 10px;
     }
+  }
+
+/* max width 390px */
+  @media screen and (max-width: 450px) {
+    .form-section {
+        padding: 12px;
+        width: 94%;
+    }
+
   }
 
 /* max width 390px */
