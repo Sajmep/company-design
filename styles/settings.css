@@ -1,9 +1,10 @@
 @font-face {
-  font-family: 'MyFont'; /* give it a custom name */
+  font-family: 'MyFont';
+  /* give it a custom name */
   src: url('fonts/OpenSans-Light.ttf');
 }
 
-.setting-content{
+.setting-content {
   margin: 0 auto;
   border-radius: 12px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -12,9 +13,9 @@
 
 .setting-content h3 {
   margin-top: 0;
-    font-size: 18px;
-    font-weight: 600;
-    margin-bottom: 2px;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 2px;
 }
 
 .progress-container {
@@ -107,8 +108,15 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-section {
@@ -153,7 +161,9 @@
   font-size: 12px;
 }
 
-.setting-content input, .setting-content textarea, .setting-content select {
+.setting-content input,
+.setting-content textarea,
+.setting-content select {
   width: 98%;
   padding: 8px 10px;
   border: 1px solid #cccccc;
@@ -162,7 +172,9 @@
   transition: border-color 0.2s ease;
 }
 
-.setting-content input:focus, .setting-content textarea:focus, .setting-content select:focus {
+.setting-content input:focus,
+.setting-content textarea:focus,
+.setting-content select:focus {
   outline: none;
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
@@ -227,20 +239,6 @@
   margin-bottom: 20px;
 }
 
-@media (max-width: 768px) {
-  .form-row {
-      flex-direction: column;
-      gap: 0;
-  }
-  
-  .step-label {
-      font-size: 12px;
-  }
-  
-  .progress-container {
-      padding: 28px 10px;
-  }
-}
 
 .collapsible-box {
   border-radius: 8px;
@@ -259,7 +257,7 @@
   padding: 12px 14px;
   background-color: #fff;
   border-top-right-radius: 8px;
-  box-shadow: 0 1px 3px rgba(16,24,40,0.04);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
   border-top-left-radius: 8px;
   cursor: pointer;
   user-select: none;
@@ -284,7 +282,11 @@
   cursor: pointer;
   border-radius: 6px;
 }
-.toggle-btn:focus { outline: 2px solid #93c5fd; outline-offset: 2px; }
+
+.toggle-btn:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 2px;
+}
 
 /* caret rotation */
 .caret {
@@ -293,26 +295,36 @@
   height: 16px;
   display: block;
 }
-.collapsed .caret { transform: rotate(-90deg); } /* collapsed state rotates caret */
+
+.collapsed .caret {
+  transform: rotate(-90deg);
+}
+
+/* collapsed state rotates caret */
 
 .collapsible-body {
   padding: 12px 14px 16px;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   background-color: #fff;
-  box-shadow: 0 1px 3px rgba(16,24,40,0.04);
+  box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
   display: block;
-  
+
 }
 
-.form-row  .field {
+.form-row .field {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
   width: 100%;
 }
-.form-row .field label { font-size: 13px; color: #334155; }
-.form-row  .field input {
+
+.form-row .field label {
+  font-size: 13px;
+  color: #334155;
+}
+
+.form-row .field input {
   padding: 8px 10px;
   border-radius: 6px;
   border: 1px solid #cbd5e1;
@@ -320,8 +332,13 @@
 }
 
 /* start collapsed */
-.collapsible-box[data-open="false"] .collapsible-body { display: none; }
-.collapsible-box[data-open="false"] .caret { transform: rotate(-90deg); }
+.collapsible-box[data-open="false"] .collapsible-body {
+  display: none;
+}
+
+.collapsible-box[data-open="false"] .caret {
+  transform: rotate(-90deg);
+}
 
 
 .combo {
@@ -367,115 +384,50 @@
   background: #f0f0f0;
 }
 
-.fields-row{
+.fields-row {
   display: flex;
   justify-content: space-between;
 }
 
-.fields-row .field{
+.fields-row .field {
   width: 50%;
 }
 
 
-.field button{
+.field button {
   padding: 7px;
   width: 98%;
 }
 
 .field select {
   padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid #cbd5e1;
-    font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 14px;
 }
 
 
-@media screen and (max-width: 900px) {
-  .fields-row {
-    flex-direction: column;
-  }
 
-  .row-settings .col1{
-    width: 76% !important;
-  }
-
-  .content-body .header{
-    padding: 0 12px;
-  }
-
-  .row-settings .col{
-    width: 76%;
-  }
-
-  .form-section{
-    padding: 12px;
-    width: 100%;
-  }
-
-  .progress-bar {
-
-      margin-bottom: 15px;
-        flex-direction: column;
-    } 
-    .progress-container{
-      display: flex;
-      flex-direction: row;
-      height: 70vh;
-      border-radius: 0;
-      overflow-y: scroll;
-    }
-
-    main.page {
-      padding: 13px !important;
-      padding-left: 0 !important;
-      padding-right: 0 !important;
-    }
-
-    .setting-content .step-circle{
-      width: 20px;
-      height: 20px;
-    }
-  
-    .step-label{
-      text-align: center;
-      font-size: 11px;
-    }
-
-    .step-indicator {
-      top: 5px !important;
-      right: 8px !important;
-    }
-
-    .col{
-      margin: 0 !important;
-    }
-
-    .setting-content .tab-panel {
-      max-height: 64vh !important;
-    }
-
-  }
-
-.row-settings{
+.row-settings {
   display: flex;
 }
 
 
-.row-settings .col1{
+.row-settings .col1 {
   width: 100%;
 }
 
-.col-image .setting-content label{
-margin: 0 !important;
+.col-image .setting-content label {
+  margin: 0 !important;
 }
 
-.step-indicator{
+.step-indicator {
   font-weight: 100;
   font-size: 12px;
   padding: 5px;
   position: absolute;
-    top: 118px;
-    right: 34px;
+  top: 118px;
+  right: 34px;
 }
 
 
@@ -492,13 +444,6 @@ margin: 0 !important;
   padding: 0 20px;
 }
 
-.col{
+.col {
   margin: 15px;
-}
-
-@media screen and (max-width: 390px) {
-  .form-section {
-      padding: 12px;
-      width: 94%;
-  }
 }

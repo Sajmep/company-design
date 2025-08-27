@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles/settings.css">
   <link rel="stylesheet" href="styles/sidebar.css">
+  <link rel="stylesheet" href="styles/settings-responsive.css">
+  <link rel="stylesheet" href="styles/overview-responsive.css">
   <style>
     .tab-panel {
       height: 70vh;
@@ -21,21 +23,6 @@
 
   <div class="top">
 
-    <div class="card">
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li>
-            <a href="#" title="Enterprise">Enterprise</a>
-          </li>
-          <li>
-            <a href="#" title="Company">Company</a>
-          </li>
-          <li>
-            <span aria-current="page" title="Overview">Overview</span>
-          </li>
-        </ol>
-      </nav>
-    </div>
     <div class="header-icons">
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
@@ -374,6 +361,24 @@
   </aside>
 
   <main class="content page" id="page">
+    <!-- Breadcrumb -->
+    <div class="card">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li>
+            <a href="#" title="Enterprise">Enterprise</a>
+          </li>
+          <li>
+            <a href="#" title="Company">Company</a>
+          </li>
+          <li>
+            <span aria-current="page" title="Overview">Overview</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <!-- breadcrumb end -->
+     
     <div class="content-body">
       <h3>Finish Your Company Setting up</h3>
       <p>To publish and participate with your valuable team, enjoy the challengeable experience </p>
@@ -449,11 +454,11 @@
 
 
             <div class="arrow-left">
-              <a type="button" id="prevArrow" onclick="changeTabs(-1)" disabled><i class="fas fa-arrow-left"></i></a>
+              <a type="button" id="prevArrow" onclick="changeTabs(-1)" disabled><i class="fas fa-chevron-left"></i></a>
             </div>
             <div class="arrow-heading"></div>
             <div class="arrow-right">
-              <a type="button" id="nextArrow" onclick="changeTabs(1)"><i class="fas fa-chevron-left"></i></a>
+              <a type="button" id="nextArrow" onclick="changeTabs(1)"><i class="fas fa-chevron-right"></i></a>
             </div>
           </div>
         </div>

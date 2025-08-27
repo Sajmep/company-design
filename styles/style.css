@@ -71,7 +71,7 @@ nav.breadcrumb {
   align-items: center;
   padding: 0;
   margin: 0;
-  font-size: 15px;
+  font-size: 12px;
 }
 
 .breadcrumb li {
@@ -111,7 +111,7 @@ nav.breadcrumb {
 
 /* Current page */
 .breadcrumb [aria-current="page"] {
-  color: var(--text);
+  color: #ceced1;
   font-weight: 600;
 }
 
@@ -406,8 +406,6 @@ main.content {
 .mobile-only{display:none}
 .overlay{display:none}
 
-
-
 /* Breadcrumb */
 .card {
   flex: 1;
@@ -436,11 +434,6 @@ main.content {
     height: auto;
   }
 
-
-@media (min-width:901px){
-.hamburger.mobile-only{display:none}
-
-}
 
 .combobox .create-btn { display: block; margin: 8px; padding: 6px; text-align: center; background: #007bff; color: white; border-radius: 4px; text-decoration: none; }
 .combobox .create-btn:hover { background: #0056b3; }
@@ -486,25 +479,6 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 /* if you add an 'open' class when sidebar is open, you can animate it */
 .hamburger.open{ transform: rotate(90deg); }
 
-/* show only on mobile (matches your other media rules) */
-.mobile-only{ display:none; }
-@media (max-width:900px){
-  .mobile-only{ 
-    display: inline-flex;
-    position: absolute;
-    background: #0f172a;
-    border-radius: 0;
-    color: #fff;
-    top: 73px;
-   }
-   
-/* Breadcrumb */
-.card {
-  position: absolute;
-  top: 84px;
-  left: 39px;
-}
-}
 
 /* Combobox wrapper */
 .combobox{position:relative; width: 100%;}
@@ -712,80 +686,6 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .modal-content .form-grid{
   grid-template-columns: 1fr !important;
 }
-
-@media screen and (max-width:900px){
-  .modal-content{
-    width: 90%;
-  }
-
-  .modal-body .progress-bar{
-    display: none;
-  }
-
-  
-  .modal-content .form-grid{
-    grid-template-columns: 1fr !important;
-  }
-
-  
-.modal-content .content{
-  margin-top: 6px !important;
-}
-
-  .row-settings{
-    flex-direction: column;
-  }
-
-  .breadcrumb{
-    display: none;
-  }
-
-  .content-body{
-    padding: 0;
-  }
-  .fields-row .field{
-    width: 100% !important;
-    margin: 5px 0;
-  }
-  .submenu{
-    left: 66px;
-    top: 0;
-  }
-
-  .sidebar .menu{
-    height: 520px;
-    overflow-y: auto;
-  }
-
-  .content-body p, .content-body h3{
-    padding:  12px;
-  }
-
-  .content-body .header p, .content-body .header h3{
-    padding:  0px;
-  }
-  
-}
-
-@media screen and (max-width:600px){
-  .modal-content .tab-title {
-    text-align: left !important;
-    position: unset !important;
-  }
-  
-}
-
-@media screen and (max-width:450px){
-  .content-body .task{
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
-  }
-  
-}
-
-
-
 
 /* Close button */
 .close-btn {
@@ -1020,26 +920,6 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   transform: scale(1.2);
 }
 
-@media (max-width: 768px) {
-  .primary-focus .form-grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
-  }
-
-  .primary-focus  .bottom-section {
-      grid-template-columns: 1fr;
-      gap: 20px;
-  }
-
-  .primary-focus  .form-container {
-      padding: 30px 20px;
-      margin: 10px;
-  }
-
-  .primary-focus .form-title {
-      font-size: 2rem;
-  }
-}
 
 .iti {
   display: block !important;
