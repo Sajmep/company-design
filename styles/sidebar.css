@@ -29,7 +29,7 @@ body {
   left: 0;
   top: 55px;
   width: var(--sidebar-width);
-  height: 100vh;
+  height: calc(100vh - 55px);
   background: linear-gradient(180deg, var(--sidebar-bg), #031018 120%);
   display: flex;
   flex-direction: column;
@@ -208,7 +208,7 @@ body {
   width: 84px;
   background: #0b1524ed;
   position: absolute;
-  bottom: 110px;
+  bottom: 0;
   left: 0;
 
 }
@@ -223,7 +223,7 @@ body {
   left: calc(var(--sidebar-width));
   /* visually start at right edge of sidebar */
   top: 55px;
-  height: 93vh;
+  height: calc(100vh - 55px);
   width: var(--submenu-width);
   background: #ffffff;
   box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
@@ -417,7 +417,6 @@ main.page {
   /* initial: only sidebar */
   transition: margin-left 220ms ease;
   padding: 28px;
-  min-height: 100vh;
 }
 
 
