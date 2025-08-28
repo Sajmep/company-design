@@ -103,13 +103,14 @@ body {
   margin-left: 2px;
 }
 
-.menu {
+.sidebar .menu {
   display: flex;
   flex-direction: column;
   gap: 0px;
   margin-top: 6px;
   width: 100%;
   align-items: center;
+  height: 100vh;
 }
 
 .item {
@@ -209,7 +210,6 @@ body {
   width: 84px;
   background: #0b1524ed;
   position: absolute;
-  bottom: 0;
   left: 0;
 
 }
@@ -434,6 +434,7 @@ main.page {
 
   .bottom-area{
     width: 68px;
+    bottom: 55px;
   }
 
   .main.page {
