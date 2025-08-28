@@ -13,9 +13,13 @@
 
 .setting-content h3 {
   margin-top: 0;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 2px;
+}
+
+.setting-content p{
+  font-size: 12px;
 }
 
 .progress-container {
@@ -187,10 +191,11 @@
 
 .setting-content .button-group {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: flex-end;
+  padding: 8px 22px;
   border-top: 1px solid #e9ecef;
   background: #f8f9fa;
+    gap: 10px;
 }
 
 .setting-content button {
@@ -445,5 +450,5 @@
 }
 
 .col {
-  margin: 15px;
+  margin-left: 15px;
 }

@@ -462,6 +462,23 @@
 
 
   <main class="content page setting-content" id="page">
+     <!-- Breadcrumb -->
+     <div class="card">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <ol>
+          <li>
+            <a href="#" title="Enterprise">Enterprise</a>
+          </li>
+          <li>
+            <a href="#" title="Company">Company</a>
+          </li>
+          <li>
+            <span aria-current="page" title="Overview">Overview</span>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <!-- breadcrumb end -->
     <div class="content-body">
         <div class="header">
             <h3>Manage Company Info</h3>
@@ -882,46 +899,48 @@
 
                     </div>
                 </div>
-            </div>
-
+                
             <!-- Completed Tab -->
             <div class="tab-panel" data-panel="3">
-                <div class="success-message">
-                    <div class="success-icon">❤️</div>
-                    <h2>Test!</h2>
-                    <p>Your company profile has been successfully created.</p>
+              <div class="success-message">
+                  <div class="success-icon">❤️</div>
+                  <h2>Test!</h2>
+                  <p>Your company profile has been successfully created.</p>
 
-                </div>
+              </div>
+          </div>
+
+          <!-- Completed Tab -->
+          <div class="tab-panel" data-panel="4">
+              <div class="success-message">
+                  <div class="success-icon">🙌</div>
+                  <h2>Test!</h2>
+
+              </div>
+          </div>
+
+          <!-- Completed Tab -->
+          <div class="tab-panel" data-panel="5">
+              <div class="success-message">
+                  <div class="success-icon">🎉</div>
+                  <h2>Congratulations!</h2>
+                  <p>Your company profile has been successfully created.</p>
+                  <p>You can now start using all platform features.</p>
+                  <br>
+                  <button class="btn-primary" onclick="window.location.reload()">Start Over</button>
+              </div>
+          </div>
             </div>
 
-            <!-- Completed Tab -->
-            <div class="tab-panel" data-panel="4">
-                <div class="success-message">
-                    <div class="success-icon">🙌</div>
-                    <h2>Test!</h2>
-
-                </div>
-            </div>
-
-            <!-- Completed Tab -->
-            <div class="tab-panel" data-panel="5">
-                <div class="success-message">
-                    <div class="success-icon">🎉</div>
-                    <h2>Congratulations!</h2>
-                    <p>Your company profile has been successfully created.</p>
-                    <p>You can now start using all platform features.</p>
-                    <br>
-                    <button class="btn-primary" onclick="window.location.reload()">Start Over</button>
-                </div>
-            </div>
         </div>
+        <div class="button-group">
+          <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)"
+              disabled>Previous</button>
+          <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
+      </div>
     </div>
 
-    <div class="button-group">
-        <button type="button" class="btn-secondary" id="prevBtn" onclick="changeTab(-1)"
-            disabled>Previous</button>
-        <button type="button" class="btn-primary" id="nextBtn" onclick="changeTab(1)">Next</button>
-    </div>
+   
 </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>

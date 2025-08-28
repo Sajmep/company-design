@@ -1,3 +1,12 @@
+/* max width 1130px */
+
+  @media screen and (max-width: 1130px) {
+    .row-settings {
+      flex-direction: column;
+    }
+
+  }
+  
 /* max width 900px */
 
   @media screen and (max-width: 900px) {
@@ -5,10 +14,25 @@
       flex-direction: column;
     }
 
+    .setting-content h3{
+      margin-left: 15px;
+    }
+
+    .setting-content p{
+      margin-left: 15px;
+    }
+
+    .setting-content .button-group{
+      background-color: #fff;
+    }
+
     .tab-content{
       width: 100%;
     }
     
+    .card{
+      margin: 0 12px;
+    }
 
     .content-body .header {
       padding: 0 12px;
@@ -20,23 +44,24 @@
     }
 
     .progress-bar {
-
       margin-bottom: 15px;
       flex-direction: column;
+      justify-content: flex-start;
+      gap: 25px;
+      width: 65px;
     }
 
     .progress-container {
       display: flex;
       flex-direction: row;
-      height: 70vh;
       border-radius: 0;
-      overflow-y: scroll;
     }
 
     main.page {
       padding: 13px !important;
       padding-left: 0 !important;
       padding-right: 0 !important;
+      background-color: #fff;
     }
 
     .setting-content .step-circle {
@@ -71,21 +96,21 @@
       gap: 0;
     }
 
-    
-    .row-settings .col1 {
-      width: 90% !important;
-    }
-
-    .row-settings .col {
-      width: 90%;
-    }
-
     .step-label {
       font-size: 12px;
     }
 
     .progress-container {
       padding: 28px 10px;
+    }
+  }
+
+  /* max width 900px */
+
+  @media screen and (max-width: 470px) {
+
+    .tab-content{
+      width: 80%;
     }
   }
 
@@ -104,4 +129,18 @@
         padding: 12px;
         width: 94%;
     }
+  }
+
+/* max Heigt 750px */
+  @media screen and (max-height: 750px) {
+    main.page{
+      overflow-y: auto;
+    }
+  }
+
+/* max Heigt 500px */
+  @media screen and (max-height: 500px) {
+   body{
+    overflow-y: auto !important;
+   }
   }

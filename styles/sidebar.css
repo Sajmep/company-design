@@ -1,7 +1,7 @@
 :root {
   --sidebar-width: 84px;
   /* sidebar narrow width */
-  --submenu-width: 340px;
+  --submenu-width: 232px;
   /* width of submenu that will push content */
   --sidebar-bg: #071424;
   --item-color: #dfeaf2;
@@ -38,7 +38,7 @@ body {
   padding: 8px 0px;
   gap: 6px;
   border-right: 1px solid rgba(255, 255, 255, 0.03);
-  z-index: 30;
+  z-index: 9;
 }
 
 /* Combobox wrapper */
@@ -222,7 +222,7 @@ body {
 /* ---------- Submenu (visual panel) ---------- */
 .submenu {
   position: fixed;
-  left: calc(var(--sidebar-width));
+  left: 81px;
   /* visually start at right edge of sidebar */
   top: 55px;
   height: calc(100vh - 55px);
@@ -237,7 +237,7 @@ body {
   z-index: 25;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 10px;
   gap: 12px;
   color: #072433;
 }
@@ -372,7 +372,19 @@ body {
 @media (max-width: 991px) {
   body.submenu-open main.page {
     margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+    width: calc(100vw - 348px);
   }
+
+  body.submenu-open main.page .content-body .task {
+   flex-direction: column;
+   gap: 8px;
+   align-items: stretch;
+  }
+
+  body.submenu-open main.page .content-body .task span {
+   flex-direction: column;
+  }
+  
 
   .has-submenu.open .submenu {
     transform: translateX(0);
@@ -394,6 +406,7 @@ body {
   .sidebar:has(.has-submenu:hover) ~ main.content,
   .sidebar:has(.has-submenu.open) ~ main.content {
     margin-left: calc(var(--sidebar-width) + var(--submenu-width));
+    width: calc(100vw - 316px);
   }
 
   
@@ -431,6 +444,10 @@ main.page {
   :root {
     --sidebar-width: 68px;
     --submenu-width: 280px
+  }
+
+  .submenu{
+    left: 66px;
   }
 
   .bottom-area{
