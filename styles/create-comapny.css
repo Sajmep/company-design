@@ -1,0 +1,251 @@
+
+/* Create Company Modal Styles */
+.create-company-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.create-company-modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 0;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  animation: createCompanyModalSlideIn 0.3s ease-out;
+}
+
+@keyframes createCompanyModalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.create-company-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.create-company-modal-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.create-company-close {
+  color: #9ca3af;
+  font-size: 22px;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.create-company-close:hover {
+  color: #6b7280;
+}
+
+.create-company-modal-body {
+  padding: 24px;
+}
+
+.create-company-modal-body .create-company-form-group {
+  margin-bottom: 20px;
+}
+
+.create-company-modal-body .create-company-form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 12px;
+}
+
+.create-company-modal-body .create-company-form-group input,
+.create-company-modal-body .create-company-form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.create-company-modal-body .create-company-form-group input:focus,
+.create-company-modal-body .create-company-form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+}
+
+.create-company-modal-body .create-company-form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.create-company-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 32px;
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.create-company-modal-actions .create-company-btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.create-company-modal-actions .create-company-btn-secondary:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.create-company-modal-actions .create-company-btn-primary {
+  background: #0d2845;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+
+/* Autocomplete Styles */
+.autocomplete-container {
+  position: relative;
+}
+
+.autocomplete-dropdown {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+  max-height: 250px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  margin-top: -1px;
+}
+
+.autocomplete-dropdown.show {
+  display: block;
+  animation: autocompleteSlideDown 0.2s ease-out;
+}
+
+@keyframes autocompleteSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.autocomplete-item {
+  padding: 14px 16px;
+  cursor: pointer;
+  border-bottom: 1px solid #f3f4f6;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.autocomplete-item:hover {
+  background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+}
+
+.autocomplete-item.selected {
+  background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+  border-left: 3px solid var(--primary);
+}
+
+.autocomplete-item .company-icon {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.autocomplete-item .company-name {
+  flex: 1;
+  font-weight: 500;
+  color: #374151;
+  font-size: 12px;
+}
+
+.autocomplete-item .company-type {
+  font-size: 11px;
+  color: #6b7280;
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* Custom scrollbar for autocomplete */
+.autocomplete-dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.autocomplete-dropdown::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

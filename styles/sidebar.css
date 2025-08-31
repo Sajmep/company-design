@@ -54,7 +54,7 @@ body {
 
 /* Panel */
 .sidebar-panel{position:absolute;top:calc(100% + 10px);left:0;width:334px;background:var(--card);border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.12);border:1px solid rgba(15,23,42,0.04);padding:16px;z-index:50}
-.search{display:flex;gap:8px;padding:8px 12px;background:#f3f6f9;border-radius:8px;border:1px solid #eef3f9; align-items: center;margin-bottom:16px;}
+.search{display:flex;gap:8px;padding:5px 12px;background:#f3f6f9;border-radius:8px;border:1px solid #eef3f9; align-items: center;margin-bottom:16px;}
 .search input{border:0;background:transparent;outline:none;padding:8px;font-size:14px;width:100%}
 
 /* Form grid spacing */
@@ -66,6 +66,8 @@ body {
 
 .company {
   padding: 12px !important;
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .company-heading {
