@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/overview-responsive.css">
   <link rel="stylesheet" href="styles/app-dropdown.css">
   <link rel="stylesheet" href="styles/bell-dropdown.css">
+  <link rel="stylesheet" href="styles/create-dropdown.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <style>
     .tab-panel {
@@ -27,6 +28,7 @@
   <div class="top">
 
     <div class="header-icons">
+
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -40,14 +42,41 @@
         </div>
       </div>
 
-      <i class="fa-solid fa-clock-five fa-xl" style="color: #9885d1;" title="Activity"></i>
+      <!-- Create Dropdown -->
+      <div class="create-dropdown">
+          <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+
+        <div class="create-dropdown-menu" role="menu">
+          <!-- Category: Projects -->
+          <div class="create-category">
+            <button class="create-category-btn">Projects</button>
+            <ul class="create-category-list">
+              <li><a href="#">New Website</a></li>
+              <li><a href="#">Mobile App</a></li>
+              <li><a href="#">Dashboard</a></li>
+            </ul>
+          </div>
+
+          <!-- Category: Documents -->
+          <div class="create-category">
+            <button class="create-category-btn">Documents</button>
+            <ul class="create-category-list">
+              <li><a href="#">New Report</a></li>
+              <li><a href="#">Proposal</a></li>
+              <li><a href="#">Invoice</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <i class="fa-solid fa-clock-five fa-xl" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
 
       <!-- Bell dropdown -->
       <div class="bell-section">
         <details>
 
           <summary aria-haspopup="true" aria-label="Notifications" title="Notifications">
-            <i class="fa-thin fa-bell fa-xl" style="color: #9885d1;"></i>
+            <i class="fa-thin fa-bell fa-xl" style="color: #9885d1; cursor: pointer;"></i>
           </summary>
 
 
@@ -92,25 +121,22 @@
         </details>
       </div>
 
-      <!-- <img src="images/apps.png" alt=""> -->
-      <div class="menu-container">
-        <div class="dots-grid">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-        </div>
-      </div>
-      
       <!-- Apps Dropdown -->
       <div class="appsDropdown">
         <button class="appsDropdownBtn">
-          <img src="images/apps.png" alt="Apps" title="Apps">
+          <div class="menu-container">
+            <div class="dots-grid">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
         </button>
 
         <div class="apps-menu">
@@ -224,7 +250,7 @@
 
       <div class="dropdown-advanced">
         <button class="dropdown-btn" aria-expanded="false">
-          <img src="images/user.png" alt="" class="account-img">
+          <img src="images/user.png" alt="" class="account-img" style="cursor: pointer;">
         </button>
 
         <div class="dropdown-menu" role="menu">
@@ -257,7 +283,8 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa-solid fa-chevron-down" style="color: #ffffffd6;font-size: 12px; margin: 3px;"></i>
+          <i class="fa-solid fa-chevron-down"
+            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
 
@@ -271,39 +298,46 @@
           <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
         </div>
 
-        <div class="company">
-          <div class="company-heading">
-            <h2>Company</h2>
-            <button class="dropdown-btn company-icon">
-              <i class="fa-solid fa-chevron-down"></i>
-            </button>
-          </div>
-          <div class="section">
-            <h4>SAJMEP</h4>
-            <span>ID - 123342 243</span>
+        <div class="form-grid">
+
+          <div class="company form-section">
+            <div class="company-heading collapsed " onclick="toggleSection(this)">
+              <h2>Company</h2>
+              <button class="dropdown-btn company-icon">
+                <i class="fa-solid fa-chevron-down" style="cursor: pointer;"></i>
+              </button>
+            </div>
+
+            <div class="checkbox-group collapsed ">
+              <div class="section">
+                <h4>SAJMEP</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Company A</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Branch</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Shop</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+            </div>
 
           </div>
-
-          <div class="section">
-            <h4>Company A</h4>
-            <span>ID - 123342 243</span>
-
-          </div>
-
-          <div class="section">
-            <h4>Branch</h4>
-            <span>ID - 123342 243</span>
-
-          </div>
-
-          <div class="section">
-            <h4>Shop</h4>
-            <span>ID - 123342 243</span>
-
-          </div>
+          <a href="#" class="create-btn">+ Create Company</a>
         </div>
-
-        <a href="#" class="create-btn">+ Create Company</a>
 
       </div>
     </div>
@@ -1333,7 +1367,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
   <script src="script/app-dropdown.js"></script>
   <script src="script/bell-dropdown.js"></script>
-
+  <script src="script/create-dropdown.js"></script>
   <script src="script/script.js"></script>
   <script src="script/settings.js"></script>
   <script src="script/sidebar.js"></script>

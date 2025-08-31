@@ -11,16 +11,10 @@
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
   margin-top: 5px;
   border-radius: 8px;
   transition: all 0.3s ease;
   position: relative;
-}
-
-.appsDropdownBtn:hover {
-  background: rgba(0, 0, 0, 0.05);
-  transform: translateY(-1px);
 }
 
 .appsDropdownBtn:active {
@@ -40,12 +34,12 @@
 .apps-menu {
   display: none;
   position: absolute;
-  top: 45px;
+  top: 57px;
   right: 0;
   width: 320px;
   max-height: 517px;
   overflow-y: auto;
-  background: #ffffff;
+  background: #fff;
   border-radius: 14px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 25px rgba(0, 0, 0, 0.1);
   padding: 16px;
@@ -219,7 +213,7 @@
 
 /* Enhanced dropdown header */
 .apps-menu::before {
-  content: 'Quick Access';
+  content: 'Apps Hub';
   display: block;
   font-size: 16px;
   font-weight: 700;

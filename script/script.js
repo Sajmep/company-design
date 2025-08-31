@@ -269,7 +269,8 @@ const selector = document.getElementById('selector')
 const panel = document.getElementById('panel')
 const selectedTitle = document.getElementById('selectedTitle')
 
-selector.addEventListener('click', () => {
+selector.addEventListener('click', (e) => {
+  e.stopPropagation() // Prevent event from bubbling up
   const isOpen = panel.style.display === 'block'
   panel.style.display = isOpen ? 'none' : 'block'
   selector.setAttribute('aria-expanded', String(!isOpen))
@@ -285,6 +286,20 @@ document.querySelectorAll('.panel .item, .item').forEach(el => {
     selector.setAttribute('aria-expanded', 'false')
     panel.setAttribute('aria-hidden', 'true')
   })
+})
+
+// Close combobox when clicking outside
+document.addEventListener('click', (e) => {
+  if (!selector.contains(e.target) && !panel.contains(e.target)) {
+    panel.style.display = 'none'
+    selector.setAttribute('aria-expanded', 'false')
+    panel.setAttribute('aria-hidden', 'true')
+  }
+})
+
+// Prevent panel clicks from closing the combobox
+panel.addEventListener('click', (e) => {
+  e.stopPropagation()
 })
 
 // GSAP registration

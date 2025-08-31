@@ -53,9 +53,99 @@ body {
 .caret.open{transform:rotate(180deg)}
 
 /* Panel */
-.sidebar-panel{position:absolute;top:calc(100% + 10px);left:0;width:334px;background:var(--card);border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.12);border:1px solid rgba(15,23,42,0.04);padding:12px;z-index:50}
-.search{display:flex;gap:8px;padding:6px;background:#f3f6f9;border-radius:8px;border:1px solid #eef3f9; align-items: center;}
+.sidebar-panel{position:absolute;top:calc(100% + 10px);left:0;width:334px;background:var(--card);border-radius:10px;box-shadow:0 10px 30px rgba(2,6,23,0.12);border:1px solid rgba(15,23,42,0.04);padding:16px;z-index:50}
+.search{display:flex;gap:8px;padding:8px 12px;background:#f3f6f9;border-radius:8px;border:1px solid #eef3f9; align-items: center;margin-bottom:16px;}
 .search input{border:0;background:transparent;outline:none;padding:8px;font-size:14px;width:100%}
+
+/* Form grid spacing */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.company {
+  padding: 12px !important;
+}
+
+.company-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 12px 0;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.company-heading h2 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-btn:hover {
+  background-color: #f3f4f6;
+}
+
+/* Checkbox group spacing */
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 4px;
+}
+
+.checkbox-group .section {
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.checkbox-group .section:hover {
+  background-color: #f8fafc;
+}
+
+.checkbox-group .section h4 {
+  margin: 0 0 4px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.checkbox-group .section span {
+  margin: 0;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* Create button spacing */
+.create-btn {
+  display: block;
+  margin: 8px 0 0 0;
+  padding: 10px 12px;
+  text-align: center;
+  background: #007bff;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.create-btn:hover {
+  background: #0056b3;
+}
 
 
 .sidebar-icons{

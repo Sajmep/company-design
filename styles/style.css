@@ -160,7 +160,7 @@ nav.breadcrumb {
 
 
 /* Static circular progress icon */
-.progress { --pct:72; width:56px; height:56px; display:inline-grid; place-items:center; position:relative; }
+.progress { --pct:72; width:40px; height:40px; display:inline-grid; place-items:center; position:relative; }
 .progress svg { width:34px; height:34px; display:block; overflow: visible;}
 .progress circle.bg { fill:none; stroke:#eef2f7; stroke-width:5; }
 .progress circle.fg { fill:none; stroke:#10b981; stroke-width:5; stroke-linecap:round; stroke-dasharray:100; stroke-dashoffset: calc(100 - var(--pct)); transform: rotate(-90deg); transform-origin: 50% 50%; transition: stroke-dashoffset .4s ease; }
@@ -194,8 +194,8 @@ nav.breadcrumb {
 
 .dots-grid {
   position: relative;
-  width: 60px;
-  height: 60px;
+  width: 51px;
+  height: 51px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -210,24 +210,24 @@ nav.breadcrumb {
 }
 
 .dots-grid .dot:nth-child(1) {
-  top: 15px;
-  left: 15px;
+    top: 7px;
+  left: 7px;
 }
 
 .dots-grid .dot:nth-child(2) {
-  top: 15px;
+  top: 7px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .dots-grid .dot:nth-child(3) {
-  top: 15px;
-  right: 15px;
+  top: 7px;
+  right: 7px;
 }
 
 .dots-grid .dot:nth-child(4) {
   top: 50%;
-  left: 15px;
+  left: 7px;
   transform: translateY(-50%);
 }
 
@@ -239,24 +239,24 @@ nav.breadcrumb {
 
 .dots-grid .dot:nth-child(6) {
   top: 50%;
-  right: 15px;
+  right: 7px;
   transform: translateY(-50%);
 }
 
 .dots-grid .dot:nth-child(7) {
-  bottom: 15px;
-  left: 15px;
+  bottom: 7px;
+  left: 7px;
 }
 
 .dots-grid .dot:nth-child(8) {
-  bottom: 15px;
+  bottom: 7px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .dots-grid .dot:nth-child(9) {
-  bottom: 15px;
-  right: 15px;
+  bottom: 7px;
+  right: 7px;
 }
 
 
