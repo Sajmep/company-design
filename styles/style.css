@@ -662,7 +662,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  height: 90vh;
+  height: 69vh;
 }
 
   
@@ -964,7 +964,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 }
 
 .modal-content .field button{
-  padding: 11px;
+  padding: 10px;
 }
 
 
@@ -1004,7 +1004,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 
 .modal-content .tab-title{
   position: absolute;
-  top: 82px;
+  top: 100px;
   width: 58%;
   left: 87px;
   display: block;
@@ -1023,10 +1023,6 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .step-indicator-popup{
   font-weight: 100;
   font-size: 12px;
-  padding: 5px;
-  position: absolute;
-  top: 136px;
-  right: 40px;
 }
 
 /* scrollbar style  */

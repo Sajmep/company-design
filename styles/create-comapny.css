@@ -143,18 +143,17 @@
 /* Autocomplete Styles */
 .autocomplete-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
 .autocomplete-dropdown {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+  position: relative;
   background: white;
   border: 1px solid #e5e7eb;
   border-top: none;
-  border-radius: 0 0 12px 12px;
+  border-radius: 0 0 8px 8px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
   z-index: 1001;
   max-height: 250px;
@@ -222,6 +221,14 @@
   font-size: 12px;
 }
 
+.autocomplete-item .company-name .highlight-match {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  color: #92400e;
+  font-weight: 600;
+  padding: 1px 2px;
+  border-radius: 3px;
+}
+
 .autocomplete-item .company-type {
   font-size: 11px;
   color: #6b7280;
@@ -248,4 +255,70 @@
 
 .autocomplete-dropdown::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+.gsc-input-box {
+ border: none !important;
+}
+
+.gsc-input-box input {  
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  color: #374151 !important;
+  background: transparent !important;
+}
+
+/* Make Google search button text visible */
+.gsc-search-button.gsc-search-button-v2 {
+  font-size: 12px !important;
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  line-height: normal !important;
+}
+
+/* Add Google icon via CSS pseudo-element */
+.gsc-search-button.gsc-search-button-v2::before {
+  content: "G" !important;
+  font-family: "Font Awesome 7 Pro" !important;
+  font-weight: 900 !important;
+  position: absolute !important;
+  left: 8px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  color: #ffffff !important;
+  font-size: 14px !important;
+}
+
+/* Style the button */
+.gsc-search-button.gsc-search-button-v2 {
+  background: #9885d1 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px !important;
+  padding: 8px 25px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+  position: relative !important;
+  padding-left: 25px !important;
+}
+
+.gsc-search-button.gsc-search-button-v2:hover {
+  background: #8372b4 !important;
+}
+
+/* Add placeholder to Google search input */
+.gsc-input-box input::placeholder {
+  content: "Search companies..." !important;
+  color: #9ca3af !important;
+  font-style: italic !important;
+}
+
+.gsc-control-cse-en{
+  display: none;
 }

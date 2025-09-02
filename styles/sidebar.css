@@ -357,6 +357,7 @@ body {
   height: 100%;
   overflow-y: auto;
   padding-right: 6px;
+  gap: 0px;
 }
 
 .submenu-uncollapsed .section-title::after {

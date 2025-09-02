@@ -145,11 +145,12 @@
 @media (max-width: 768px) {
   .create-dropdown-menu {
     min-width: 260px;
-    right: -20px;
+    right: auto;
+    left: 0;
   }
-  
+
   .create-dropdown-menu::before {
-    right: 30px;
+   display: none;
   }
 }
 

@@ -16,9 +16,10 @@
   <link rel="stylesheet" href="styles/create-dropdown.css">
   <link rel="stylesheet" href="styles/create-comapny.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <style>
     .tab-panel {
-      height: 65vh;
+      height: 44vh;
       overflow: auto;
     }
   </style>
@@ -26,6 +27,7 @@
 
 <body>
 
+  <!-- Top Header -->
   <div class="top">
 
     <div class="header-icons">
@@ -274,8 +276,9 @@
 
     </div>
   </div>
-
-
+  <!-- Top Header End -->
+  
+  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
     <div class="combobox" id="combobox">
@@ -393,13 +396,22 @@
               </div>
             </div>
 
-            <div class="form-section submenu-uncollapsed">
-              <a href="#">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/our-products-icon.png" alt="" width="28px">
-                  Offering
-                </h2>
-              </a>
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/our-products-icon.png" alt="" width="28px">
+                Offering 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Supply</a></li>
+                  <li><a href="#">Installation</a></li>
+                  <li><a href="#">Maintenance</a></li>
+                  <li><a href="#">Commissioning</a></li>
+                  <li><a href="#">Turnkey EPC</a></li>
+                </ul>
+              </div>
             </div>
 
             <div class="form-section submenu-uncollapsed">
@@ -659,7 +671,9 @@
       </a>
     </div>
   </aside>
+  <!-- Sidebar End -->
 
+  <!-- Main Content -->
   <main class="content page" id="page">
     <!-- Breadcrumb -->
     <div class="card">
@@ -689,6 +703,7 @@
       </div>
     </div>
   </main>
+  <!-- Main Content End -->
 
   <!-- modal compay setup -->
   <div class="overlay" id="overlay" tabindex="-1"></div>
@@ -738,6 +753,7 @@
           <div class="header">
             <h3>Company Setup</h3>
             <p>Setup your company</p>
+            <span class="step-indicator-popup" id="modalStepIndicator">1 of 5 Steps</span>
           </div>
 
           <div class="progress-arrows">
@@ -755,7 +771,6 @@
 
         <!-- Start Tab -->
         <div class="tab-panel active" data-panel="0">
-          <span class="step-indicator-popup">1 of 5 Steps</span>
           <div class="form-section primary-focus">
             <div class="tab-title" style="font-size: 16px;">
               Company Details
@@ -922,7 +937,6 @@
 
         <!-- Company Details Tab -->
         <div class="tab-panel" data-panel="1">
-          <span class="step-indicator-popup">2 of 5 Steps</span>
           <div class="form-section primary-focus">
             <div class="tab-title" style="font-size: 16px;">
               Business Information: Legal & Regulatory
@@ -950,6 +964,51 @@
                         <option value="1000+">1000+ employees</option>
                       </select>
                     </div>
+                  </div>
+                  <div class="field">
+                    <label for="nameEn">Company Type</label>
+                    <select id="companySize">
+                      <option value="" disabled selected>Company type
+                      </option>
+                      <option value="Corporate">Corporate</option>
+                      <option value="Government">Government</option>
+                      <option value="NGO">NGO</option>
+                      <option value="NPO">NPO</option>
+                      <option value="Startup">Startup</option>
+                      <option value="Partnership">Partnership</option>
+                      <option value="Franchise">Franchise</option>
+                      <option value="Cooperative">Cooperative</option>
+                      <option value="Charity">Charity</option>
+                      <option value="Club">Club</option>
+                      <option value="Association">Association</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="nameEn">Presence</label>
+                    <select id="presence">
+                      <option value="" disabled selected>Presence
+                      </option>
+                      <option value="Real estate">Real estate</option>
+                      <option value="Shops">Shops</option>
+                      <option value="Showrooms">Showrooms</option>
+                      <option value="Warehouses">Warehouses</option>
+                      <option value="Factories">Factories</option>
+                      <option value="Farms">Farms</option>
+                      <option value="Hospitals">Hospitals</option>
+                      <option value="Hotels">Hotels</option>
+                      <option value="Restaurants">Restaurants</option>
+                      <option value="Sports clubs">Sports clubs</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="nameEn">Organizational structure</label>
+                    <select id="presence">
+                      <option value="" disabled selected>Organizational structure
+                      </option>
+                      <option value="Real estate">Head office</option>
+                      <option value="Shops">Branch</option>
+                    </select>
                   </div>
                   <div class="field">
                     <label for="nameEn">Establishment Date</label>
@@ -1019,7 +1078,6 @@
 
         <!-- Primary Focus Tab -->
         <div class="tab-panel" data-panel="2">
-          <span class="step-indicator-popup">3 of 5 Steps</span>
           <div class="form-section primary-focus">
             <div class="tab-title" style="font-size: 16px;">
               Primary Focus
@@ -1144,209 +1202,7 @@
       </main>
     </div>
   </div>
-
-
-  <!-- modal compay profile -->
-  <div class="modal" id="profileSetupModal">
-    <div class="modal-content">
-      <button class="close-btn" id="closeProfileModal">&times;</button>
-      <main class="content setting-content home-modal">
-
-        <!-- Second Form -->
-        <div class="form-container form-2">
-          <div class="header header-2">
-            <h1>Partner Application</h1>
-            <p>Join our partner network</p>
-          </div>
-
-          <div class="progress-container">
-            <div class="progress-bar">
-              <div class="progress-line">
-                <div class="progress-line-fill" id="progressFill2"></div>
-              </div>
-
-              <div class="step" data-step="0">
-                <div class="step-circle active">🤝</div>
-                <div class="step-label active">Intro</div>
-              </div>
-
-              <div class="step" data-step="1">
-                <div class="step-circle">🏪</div>
-                <div class="step-label">Business</div>
-              </div>
-
-              <div class="step" data-step="2">
-                <div class="step-circle">🤝</div>
-                <div class="step-label">Partnership</div>
-              </div>
-
-              <div class="step" data-step="3">
-                <div class="step-circle">🎯</div>
-                <div class="step-label">Complete</div>
-              </div>
-            </div>
-
-            <div class="tab-content">
-              <!-- Intro Tab -->
-              <div class="tab-panel active" data-panel="0">
-                <div class="form-section">
-                  <div class="section-title">
-                    <span class="section-icon">🤝</span>
-                    Partner Introduction
-                  </div>
-                  <div class="form-group">
-                    <label for="partnerName2">Partner Representative</label>
-                    <input type="text" id="partnerName2" placeholder="Enter representative name">
-                  </div>
-                  <div class="form-row">
-                    <div class="form-col">
-                      <label for="partnerEmail2">Business Email</label>
-                      <input type="email" id="partnerEmail2" placeholder="partner@company.com">
-                    </div>
-                    <div class="form-col">
-                      <label for="partnerPhone2">Business Phone</label>
-                      <input type="tel" id="partnerPhone2" placeholder="+1 (555) 987-6543">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="title2">Job Title</label>
-                    <select id="title2">
-                      <option value="">Select title</option>
-                      <option value="ceo">CEO</option>
-                      <option value="vp">Vice President</option>
-                      <option value="director">Director</option>
-                      <option value="manager">Manager</option>
-                      <option value="representative">Sales Representative</option>
-                      <option value="other">Other</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Business Tab -->
-              <div class="tab-panel" data-panel="1">
-                <div class="form-section">
-                  <div class="section-title">
-                    <span class="section-icon">🏪</span>
-                    Company Profile
-                  </div>
-                  <div class="form-group">
-                    <label for="companyTitle2">Company Name</label>
-                    <input type="text" id="companyTitle2" placeholder="Enter company name">
-                  </div>
-                  <div class="form-row">
-                    <div class="form-col">
-                      <label for="sector2">Industry Sector</label>
-                      <select id="sector2">
-                        <option value="">Select sector</option>
-                        <option value="technology">Technology</option>
-                        <option value="manufacturing">Manufacturing</option>
-                        <option value="services">Professional Services</option>
-                        <option value="retail">Retail</option>
-                        <option value="consulting">Consulting</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                    <div class="form-col">
-                      <label for="teamSize2">Team Size</label>
-                      <select id="teamSize2">
-                        <option value="">Select size</option>
-                        <option value="startup">Startup (1-10)</option>
-                        <option value="small">Small (11-50)</option>
-                        <option value="medium">Medium (51-200)</option>
-                        <option value="large">Large (201-1000)</option>
-                        <option value="enterprise">Enterprise (1000+)</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="headquarters2">Headquarters Address</label>
-                    <textarea id="headquarters2" placeholder="Enter company headquarters address"></textarea>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-col">
-                      <label for="companyWeb2">Company Website</label>
-                      <input type="url" id="companyWeb2" placeholder="https://www.company.com">
-                    </div>
-                    <div class="form-col">
-                      <label for="founded2">Founded Year</label>
-                      <input type="number" id="founded2" placeholder="2018" min="1900" max="2025">
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Partnership Tab -->
-              <div class="tab-panel" data-panel="2">
-                <div class="form-section">
-                  <div class="section-title">
-                    <span class="section-icon">🤝</span>
-                    Partnership Details
-                  </div>
-                  <div class="form-group">
-                    <label for="partnershipType2">Partnership Interest</label>
-                    <textarea id="partnershipType2"
-                      placeholder="Describe what type of partnership you're seeking"></textarea>
-                  </div>
-                  <div class="form-row">
-                    <div class="form-col">
-                      <label for="partnerLevel2">Partnership Level</label>
-                      <select id="partnerLevel2">
-                        <option value="">Select level</option>
-                        <option value="bronze">Bronze Partner</option>
-                        <option value="silver">Silver Partner</option>
-                        <option value="gold">Gold Partner</option>
-                        <option value="platinum">Platinum Partner</option>
-                      </select>
-                    </div>
-                    <div class="form-col">
-                      <label for="revenue2">Annual Revenue Range</label>
-                      <select id="revenue2">
-                        <option value="">Select range</option>
-                        <option value="under-100k">Under $100K</option>
-                        <option value="100k-1m">$100K - $1M</option>
-                        <option value="1m-10m">$1M - $10M</option>
-                        <option value="over-10m">Over $10M</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="capabilities2">Key Capabilities</label>
-                    <textarea id="capabilities2"
-                      placeholder="What unique capabilities do you bring to the partnership?"></textarea>
-                  </div>
-                  <div class="form-group">
-                    <label for="expectations2">Partnership Expectations</label>
-                    <textarea id="expectations2"
-                      placeholder="What are your expectations from this partnership?"></textarea>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Complete Tab -->
-              <div class="tab-panel" data-panel="3">
-                <div class="success-message">
-                  <div class="success-icon">🎯</div>
-                  <h2>Application Submitted!</h2>
-                  <p>Your partnership application has been received.</p>
-                  <p>We'll review and contact you soon!</p>
-                  <br>
-                  <button class="btn-primary" onclick="resetForm(2)">Submit Another</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="button-group">
-            <button type="button" class="btn-secondary" id="prevBtn2" onclick="navigateTab(-1, 2)"
-              disabled>Previous</button>
-            <button type="button" class="btn-primary" id="nextBtn2" onclick="navigateTab(1, 2)">Next</button>
-          </div>
-        </div>
-    </div>
-    </main>
-  </div>
-  </div>
+  <!-- modal compay setup end --> 
 
   <!-- Create Company Modal -->
   <div id="createCompanyModal" class="create-company-modal">
@@ -1362,6 +1218,8 @@
             <div class="autocomplete-container">
               <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required autocomplete="off">
               <div id="companySuggestions" class="autocomplete-dropdown"></div>
+              <!-- Google Search Container -->
+              <div class="gcse-search"></div>
             </div>
           </div>
           <div class="create-company-form-group">
@@ -1376,6 +1234,8 @@
       </div>
     </div>
   </div>
+  
+  <!-- Create Company Modal End -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 

@@ -164,3 +164,8 @@ summary::marker{content:none}
   height: auto !important;
   overflow: auto;
 }
+
+
+.bell-section .bell-section-menu{
+  right: -100px;
+}

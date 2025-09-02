@@ -48,7 +48,58 @@ window.closeCreateCompanyModal = function() {
     }
 };
 
-// Autocomplete functions
+// Fuzzy search function
+function fuzzySearch(query, text) {
+    if (!query || !text) return 0;
+    
+    const queryLower = query.toLowerCase();
+    const textLower = text.toLowerCase();
+    
+    // Exact match gets highest score
+    if (textLower === queryLower) return 100;
+    
+    // Starts with query gets high score
+    if (textLower.startsWith(queryLower)) return 90;
+    
+    // Contains query gets medium score
+    if (textLower.includes(queryLower)) return 70;
+    
+    // Fuzzy matching algorithm
+    let score = 0;
+    let queryIndex = 0;
+    let textIndex = 0;
+    let consecutiveMatches = 0;
+    
+    while (queryIndex < queryLower.length && textIndex < textLower.length) {
+        if (queryLower[queryIndex] === textLower[textIndex]) {
+            score += 10;
+            consecutiveMatches++;
+            queryIndex++;
+            textIndex++;
+            
+            // Bonus for consecutive matches
+            if (consecutiveMatches > 1) {
+                score += consecutiveMatches * 2;
+            }
+        } else {
+            consecutiveMatches = 0;
+            textIndex++;
+        }
+    }
+    
+    // Penalty for unmatched query characters
+    const unmatchedChars = queryLower.length - queryIndex;
+    score -= unmatchedChars * 5;
+    
+    // Bonus for shorter text (more precise matches)
+    if (textLower.length <= queryLower.length * 2) {
+        score += 5;
+    }
+    
+    return Math.max(0, score);
+}
+
+// Autocomplete functions with fuzzy search
 function showAutocomplete(query) {
     const dropdown = document.getElementById('companySuggestions');
     if (!dropdown) return;
@@ -58,9 +109,17 @@ function showAutocomplete(query) {
         return;
     }
 
-    const filteredCompanies = existingCompanies.filter(company => 
-        company.name.toLowerCase().includes(query.toLowerCase())
-    );
+    // Calculate fuzzy scores for all companies
+    const companiesWithScores = existingCompanies.map(company => ({
+        ...company,
+        score: fuzzySearch(query, company.name)
+    }));
+
+    // Filter out companies with score 0 and sort by score (highest first)
+    const filteredCompanies = companiesWithScores
+        .filter(company => company.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 8); // Limit to 8 results for better UX
 
     if (filteredCompanies.length === 0) {
         hideAutocomplete();
@@ -71,9 +130,13 @@ function showAutocomplete(query) {
     filteredCompanies.forEach(company => {
         const item = document.createElement('div');
         item.className = 'autocomplete-item';
+        
+        // Highlight matching characters
+        const highlightedName = highlightMatches(query, company.name);
+        
         item.innerHTML = `
             <div class="company-icon">${company.icon}</div>
-            <div class="company-name">${company.name}</div>
+            <div class="company-name">${highlightedName}</div>
             <div class="company-type">${company.type}</div>
         `;
         item.addEventListener('click', () => selectCompany(company.name));
@@ -81,6 +144,27 @@ function showAutocomplete(query) {
     });
 
     dropdown.classList.add('show');
+}
+
+// Function to highlight matching characters
+function highlightMatches(query, text) {
+    if (!query || !text) return text;
+    
+    const queryLower = query.toLowerCase();
+    const textLower = text.toLowerCase();
+    let result = '';
+    let queryIndex = 0;
+    
+    for (let i = 0; i < text.length; i++) {
+        if (queryIndex < queryLower.length && textLower[i] === queryLower[queryIndex]) {
+            result += `<span class="highlight-match">${text[i]}</span>`;
+            queryIndex++;
+        } else {
+            result += text[i];
+        }
+    }
+    
+    return result;
 }
 
 function hideAutocomplete() {
@@ -92,11 +176,21 @@ function hideAutocomplete() {
 
 function selectCompany(companyName) {
     const input = document.getElementById('companyName');
+    const searchbox = document.querySelector('.gsc-control-cse-en');
     if (input) {
         input.value = companyName;
         hideAutocomplete();
+        
+        // Hide Google search suggestions when user selects a company
+        const searchSuggestions = document.querySelector('.gssb_e');
+        if (searchSuggestions) {
+            searchSuggestions.style.display = 'none';
+            searchbox.style.display = 'none';
+        }
     }
 }
+
+
 
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
@@ -106,11 +200,21 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeBtn = document.querySelector('.create-company-close');
     const createCompanyForm = document.getElementById('createCompanyForm');
     const companyNameInput = document.getElementById('companyName');
+    const suggestionsContainer = document.getElementById('companySuggestions');
 
     // Add autocomplete functionality to company name input
     if (companyNameInput) {
         companyNameInput.addEventListener('input', function() {
-            showAutocomplete(this.value);
+            const inputValue = this.value.trim();
+            
+            // Sync with Google search input
+            syncGoogleSearchInput(inputValue);
+            
+            if (inputValue.length > 0) {
+                showAutocomplete(inputValue);
+            } else {
+                hideAutocomplete();
+            }
         });
 
         companyNameInput.addEventListener('focus', function() {
@@ -125,6 +229,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 hideAutocomplete();
             }
         });
+
+
 
         // Handle keyboard navigation
         companyNameInput.addEventListener('keydown', function(event) {
@@ -211,4 +317,41 @@ document.addEventListener('DOMContentLoaded', function() {
             alert('Company created successfully!');
         });
     }
+
+    // Function to sync company name input with Google search input
+    function syncGoogleSearchInput(value) {
+        // Find the Google search input field
+        const googleSearchInput = document.querySelector('.gsc-input-box input');
+        const googleSearchButton = document.querySelector('.gsc-search-button.gsc-search-button-v2');
+        const searchbox = document.querySelector('.gsc-control-cse-en');
+        const searchSuggestions = document.querySelector('.gssb_e');
+        
+        if (googleSearchInput) {
+            googleSearchInput.value = value;
+            
+            // Show/hide button based on whether there's a value
+            if (googleSearchButton) {
+                if (value && value.trim() !== '') {
+                    googleSearchButton.style.display = 'block';
+                    searchbox.style.display = 'block';
+                    searchSuggestions.style.display = 'block';
+                    // Trigger Google search by simulating user input
+                    googleSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+                    googleSearchInput.dispatchEvent(new Event('change', { bubbles: true }));
+                } else {
+                    googleSearchButton.style.display = 'none';
+                    searchbox.style.display = 'none';
+                    searchSuggestions.style.display = 'none';
+                }
+            }
+        }
+    }
+
+    // Change Google search button text
+    setTimeout(() => {
+        const button = document.querySelector('.gsc-search-button.gsc-search-button-v2');
+        if (button) {
+            button.innerHTML = 'Search on Google';
+        }
+    }, 1000);
 });

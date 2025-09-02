@@ -344,11 +344,18 @@
 @media (max-width: 480px) {
   .apps-menu {
     width: 280px;
-    right: -100px;
   }
   
   .apps-category-content {
     grid-template-columns: repeat(2, 1fr);
+  }
+  .apps-search .search-btn{
+    background-color: none;
+    box-shadow: none;
+  }
+  .apps-search .voice-btn{
+    background-color: none;
+    box-shadow: none;
   }
 }
 

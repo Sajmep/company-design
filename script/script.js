@@ -57,6 +57,15 @@ function showTab(n) {
   if (progressFill) {
       progressFill.style.width = progress + '%';
   }
+
+  // Update step indicator text in modal header
+  const stepIndicator = container.querySelector('#modalStepIndicator');
+  if (stepIndicator) {
+      // totalTabs includes Completed; display steps excluding Completed
+      const totalDisplaySteps = Math.max(totalTabs - 1, 1);
+      const currentDisplayStep = Math.min(n + 1, totalDisplaySteps);
+      stepIndicator.textContent = `${currentDisplayStep} of ${totalDisplaySteps} Steps`;
+  }
   
   // Update buttons
   const prevBtn = container.querySelector('#prevBtn');
