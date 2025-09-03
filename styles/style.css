@@ -534,12 +534,6 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
 .muted{color:var(--muted);font-size:13px}
 
 
-/* scroll styling */
-.items::-webkit-scrollbar{width:8px}
-.items::-webkit-scrollbar-thumb{background:#e6eef8;border-radius:8px}
-
-
-
 
 .card-main-header{
   display: flex;
@@ -1025,35 +1019,7 @@ hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}
   font-size: 12px;
 }
 
-/* scrollbar style  */
 
-/* Width of scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px; /* for horizontal scrollbar */
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-  border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 10px;
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
-/* Thin scrollbar */
-* {
-  scrollbar-width: thin;        /* auto | thin | none */
-  scrollbar-color: #888 #f1f1f1; /* thumb | track */
-}
 
 
 .login-btn {
