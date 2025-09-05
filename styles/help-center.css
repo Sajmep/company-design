@@ -1,7 +1,6 @@
 /* Help Center Styles */
 .help-center-container {
-  max-width: 1398px;
-  margin: 0 auto;
+  margin: 0;
   padding: 20px;
 }
 

@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="styles/bell-dropdown.css">
   <link rel="stylesheet" href="styles/create-dropdown.css">
   <link rel="stylesheet" href="styles/create-comapny.css">
+  <link rel="stylesheet" href="styles/filter-modal.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <style>
@@ -33,6 +34,10 @@
 
     <div class="header-icons">
 
+      <div class="filter-btn">
+        <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+      </div>
+      
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -620,6 +625,31 @@
                   Subscription
                 </h2>
               </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/competition.png" alt="" width="28px">
+                  Competitions 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/media-center.png" alt="" width="28px">
+                Media Center 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Blogs</a></li>
+                  <li><a href="#">e-Learning</a></li>
+                  <li><a href="#">Newsletters</a></li>
+                </ul>
+              </div>
             </div>
 
           </div>
@@ -1288,10 +1318,43 @@
   <script src="script/app-dropdown.js"></script>
   <script src="script/bell-dropdown.js"></script>
   <script src="script/create-dropdown.js"></script>
+  <!-- Filter Modal -->
+  <div id="filter-modal" class="filter-modal">
+    <div class="filter-modal-content">
+      <div class="filter-modal-header">
+        <h2 class="filter-modal-title">Filters</h2>
+        <div class="filter-modal-buttons">
+          <button class="filter-btn-save-favorite">Save as Favorite</button>
+          <button class="filter-btn-apply">Apply</button>
+          <button class="filter-btn-cancel">Cancel</button>
+        </div>
+      </div>
+      
+      <div class="filter-selected-section">
+        <h3 class="filter-selected-title">Selected Filters:</h3>
+        <div class="filter-selected-items">
+          <span class="filter-selected-item">Last 3 days</span>
+        </div>
+      </div>
+      
+      <hr class="filter-divider">
+      
+      <div class="filter-content">
+        <div class="filter-sidebar">
+          <!-- Sidebar content will be added later -->
+        </div>
+        <div class="filter-main-section">
+          <!-- Main filter content will be added later -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="script/script.js"></script>
   <script src="script/settings.js"></script>
   <script src="script/sidebar.js"></script>
   <script src="script/create-company.js"></script>
+  <script src="script/filter-modal.js"></script>
 
 </body>
 

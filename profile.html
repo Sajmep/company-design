@@ -275,7 +275,7 @@
     </div>
   </div>
 
-
+  <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
     <div class="combobox" id="combobox">
@@ -333,7 +333,7 @@
             </div>
 
           </div>
-          <a href="#" class="create-btn">+ Create Company</a>
+          <a href="#" class="create-btn" onclick="openCreateCompanyModal()">+ Create Company</a>
         </div>
 
       </div>
@@ -384,7 +384,7 @@
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
                   <li><a href="#">Company Profile & Details</a></li>
-                  <li><a href="#">Profile Page</a></li>
+                  <li><a href="profile.html">Profile Page</a></li>
                   <li><a href="#">Policies</a></li>
                   <li><a href="#">Experiences</a></li>
                   <li><a href="#">SOP</a></li>
@@ -393,13 +393,22 @@
               </div>
             </div>
 
-            <div class="form-section submenu-uncollapsed">
-              <a href="#">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/our-products-icon.png" alt="" width="28px">
-                  Offering
-                </h2>
-              </a>
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/our-products-icon.png" alt="" width="28px">
+                Offering 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Supply</a></li>
+                  <li><a href="#">Installation</a></li>
+                  <li><a href="#">Maintenance</a></li>
+                  <li><a href="#">Commissioning</a></li>
+                  <li><a href="#">Turnkey EPC</a></li>
+                </ul>
+              </div>
             </div>
 
             <div class="form-section submenu-uncollapsed">
@@ -578,6 +587,74 @@
         <button class="btn" id="settingsBtn">
           <span class="icon" aria-hidden>
             <!-- settings icon -->
+            <img src="images/bmh-club.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">BMH Club</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">BMH Club</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="index.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/membership.png" alt="" width="28px">
+                  Membership
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/subscription.png" alt="" width="28px">
+                  Subscription
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/competition.png" alt="" width="28px">
+                  Competitions 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/media-center.png" alt="" width="28px">
+                Media Center 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Blogs</a></li>
+                  <li><a href="#">e-Learning</a></li>
+                  <li><a href="#">Newsletters</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+      <div class="item has-submenu" id="supportItem">
+        <button class="btn" id="settingsBtn">
+          <span class="icon" aria-hidden>
+            <!-- settings icon -->
             <img src="images/support.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Support</span>
@@ -622,9 +699,9 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">Guides</a></li>
-                  <li><a href="#">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
+                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>
@@ -659,6 +736,7 @@
       </a>
     </div>
   </aside>
+  <!-- Sidebar End -->
 
   <main class="content page" id="page">
     <!-- Breadcrumb -->
