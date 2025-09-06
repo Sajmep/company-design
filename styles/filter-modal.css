@@ -521,7 +521,7 @@
   .filter-modal-content {
     margin: 5% auto;
     width: 95%;
-    height: 90vh;
+    height: 94vh;
   }
   
   .filter-modal-header {
@@ -542,6 +542,7 @@
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #e9ecef;
+    height: 50%;
   }
 
   .filter-option-group {
