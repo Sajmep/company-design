@@ -516,12 +516,16 @@
   border-radius: 2px;
 }
 
+.close-filter-modal-btn {
+  display: none;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .filter-modal-content {
     margin: 5% auto;
     width: 95%;
-    height: 90vh;
+    height: 88vh;
     position: relative;
   }
   
@@ -561,6 +565,7 @@
   }
 
   .close-filter-modal-btn {
+    display: block;
     position: absolute;
     top: 24px;
     right: 20px;
@@ -609,6 +614,23 @@
   .filter-date-separator {
     text-align: center;
     padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-main-section{
+    padding: 10px;
+  }
+
+  .filter-section{
+    padding: 10px;
+    background-color: #fff;
+  }
+
+  .filter-sub-section{
+    padding: 10px;
+    border: none;
+    box-shadow: none;
   }
 }
 
