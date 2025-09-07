@@ -33,9 +33,10 @@ class FilterModal {
   // ========================================
   init() {
     this.setupEventListeners();
-    this.initSidebarNavigation();
-    this.initFilterInteractions();
-  }
+      this.initSidebarNavigation();
+      this.initFilterInteractions();
+      this.detectCountry();
+    }
 
   setupEventListeners() {
     // Modal open/close events
@@ -673,6 +674,47 @@ class FilterModal {
     this.favoriteNameInput.value = '';
   }
 
+  // ========================================
+  // IP-BASED COUNTRY DETECTION
+  // ========================================
+  async detectCountry() {
+    const countrySelect = document.getElementById('country-filter');
+    if (!countrySelect) return;
+  
+    try {
+      console.log('Detecting country via IP...');
+      const response = await fetch('https://api.country.is/');
+      const data = await response.json();
+  
+      console.log('Service response:', data); // { country: "SA" }
+      const countryCode = data.country;
+  
+      // Map country codes to your dropdown values
+      const countryMapping = {
+        'SA': 'saudi-arabia',
+        'AE': 'uae',
+        'QA': 'qatar',
+        'KW': 'kuwait',
+        'BH': 'bahrain',
+        'OM': 'oman',
+        'PK': 'pakistan',
+        'IN': 'india',
+        'US': 'us'
+      };
+  
+      const mappedCountry = countryMapping[countryCode];
+      if (mappedCountry) {
+        countrySelect.value = mappedCountry;
+        console.log(`Country detected: ${countryCode} → ${mappedCountry}`);
+      } else {
+        console.log(`Country code ${countryCode} not in mapping`);
+      }
+  
+    } catch (err) {
+      console.log('IP detection failed:', err);
+    }
+  }
+
 }
 
 // ========================================
@@ -681,6 +723,4 @@ class FilterModal {
 document.addEventListener('DOMContentLoaded', () => {
   new FilterModal();
 });
-
-document.head.appendChild(style);
 

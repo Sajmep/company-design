@@ -625,15 +625,26 @@
   .filter-section{
     padding: 10px;
     background-color: #fff;
+    margin-bottom: 16px;
   }
 
   .filter-main-section {
    margin-bottom: 52px;
+  }
 
   .filter-sub-section{
     padding: 10px;
     border: none;
     box-shadow: none;
+    margin-bottom: 0px;
+  }
+
+  .filter-selected-item{
+    padding: 4px;
+  }
+
+  .filter-sidebar-nav {
+    padding: 10px;
   }
 }
 
