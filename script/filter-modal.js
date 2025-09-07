@@ -11,6 +11,7 @@ class FilterModal {
     // Get buttons
     this.cancelBtn = this.modal.querySelector('.filter-btn-cancel');
     this.applyBtn = this.modal.querySelector('.filter-btn-apply');
+    this.closeBtn = this.modal.querySelector('.close-filter-modal-btn');
     
     // Applied filters section
     this.appliedFiltersContainer = document.getElementById('appliedFilters');
@@ -41,6 +42,7 @@ class FilterModal {
     this.filterBtn?.addEventListener('click', () => this.openModal());
     this.cancelBtn?.addEventListener('click', () => this.closeModal());
     this.applyBtn?.addEventListener('click', () => this.applyFilters());
+    this.closeBtn?.addEventListener('click', () => this.closeModal());
 
     // Clear all filters button in modal
     const clearAllBtn = this.modal.querySelector('#clearAllFilters');

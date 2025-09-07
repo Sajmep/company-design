@@ -522,6 +522,7 @@
     margin: 5% auto;
     width: 95%;
     height: 94vh;
+    position: relative;
   }
   
   .filter-modal-header {
@@ -532,17 +533,56 @@
   
   .filter-modal-buttons {
     justify-content: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    padding: 10px;
+    border-top: 1px solid #e9ecef;
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .filter-clear-all-btn {
+    position: absolute;
+    top: 18px;
+    right: 43px;
+  }
+
+  .filter-selected-section {
+   max-height: 90px;
+   display: block !important;
+   overflow-y: auto;
+  }
+
+  .filter-main-section{
+    overflow-y: unset;
+  }
+
+  .close-filter-modal-btn {
+    position: absolute;
+    top: 24px;
+    right: 20px;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .filter-btn-apply, .filter-btn-cancel{
+    font-size: 10px;
+    padding: 7px 40px;
   }
   
   .filter-content {
     flex-direction: column;
+    overflow-y: auto;
   }
   
   .filter-sidebar {
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #e9ecef;
-    height: 50%;
+    overflow: unset !important;
   }
 
   .filter-option-group {
