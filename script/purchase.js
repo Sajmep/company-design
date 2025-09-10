@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize purchase tabs
     initPurchaseTabs();
     
-    // Initialize create dropdown
-    initPurchaseCreateDropdown();
 });
 
 function initPurchaseTabs() {
@@ -174,66 +172,8 @@ function switchPurchaseTab(tabName) {
 }
 
 // Create Dropdown Functionality
-function initPurchaseCreateDropdown() {
-    const createBtn = document.querySelector('.purchase-create-btn');
-    const createMenu = document.querySelector('.purchase-create-menu');
-    
-    if (createBtn && createMenu) {
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!createBtn.contains(e.target) && !createMenu.contains(e.target)) {
-                closePurchaseCreateDropdown();
-            }
-        });
-        
-        // Close dropdown on escape key
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closePurchaseCreateDropdown();
-            }
-        });
-    }
-}
-
-function togglePurchaseCreateDropdown() {
-    const createBtn = document.querySelector('.purchase-create-btn');
-    const createMenu = document.querySelector('.purchase-create-menu');
-    
-    if (createBtn && createMenu) {
-        const isOpen = createMenu.classList.contains('show');
-        
-        if (isOpen) {
-            closePurchaseCreateDropdown();
-        } else {
-            openPurchaseCreateDropdown();
-        }
-    }
-}
-
-function openPurchaseCreateDropdown() {
-    const createBtn = document.querySelector('.purchase-create-btn');
-    const createMenu = document.querySelector('.purchase-create-menu');
-    
-    if (createBtn && createMenu) {
-        createMenu.classList.add('show');
-        createBtn.classList.add('active');
-    }
-}
-
-function closePurchaseCreateDropdown() {
-    const createBtn = document.querySelector('.purchase-create-btn');
-    const createMenu = document.querySelector('.purchase-create-menu');
-    
-    if (createBtn && createMenu) {
-        createMenu.classList.remove('show');
-        createBtn.classList.remove('active');
-    }
-}
 
 function createPurchaseItem(type) {
-    // Close the dropdown
-    closePurchaseCreateDropdown();
-    
     // Switch to the appropriate tab
     switchPurchaseTab(type);
     
@@ -558,11 +498,161 @@ function addRFQItem() {
     closeRFQItemForm();
 }
 
+// File Display Function
+function displaySelectedFiles(input) {
+    const filesList = document.getElementById('prFilesList');
+    filesList.innerHTML = ''; // Clear existing files
+    
+    if (input.files && input.files.length > 0) {
+        Array.from(input.files).forEach((file, index) => {
+            const fileBox = document.createElement('div');
+            fileBox.className = 'purchase-file-box';
+            fileBox.innerHTML = `
+                <div class="purchase-file-info">
+                    <i class="purchase-file-icon fa-solid fa-file"></i>
+                    <span class="purchase-file-name">${file.name}</span>
+                </div>
+                <div class="purchase-file-actions">
+                    <div class="purchase-file-preview">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <button type="button" class="purchase-file-remove" onclick="removeFile(${index})" title="Remove">
+                        <i class="fa-solid fa-times"></i>
+                    </button>
+                </div>
+            `;
+            filesList.appendChild(fileBox);
+        });
+    }
+}
+
+function removeFile(index) {
+    const input = document.getElementById('prAttachments');
+    const dt = new DataTransfer();
+    
+    // Add all files except the one to be removed
+    Array.from(input.files).forEach((file, i) => {
+        if (i !== index) {
+            dt.items.add(file);
+        }
+    });
+    
+    input.files = dt.files;
+    displaySelectedFiles(input); // Refresh display
+}
+
+
+
+// Add Item Dropdown Functions
+function toggleAddItemDropdown() {
+    const dropdown = document.getElementById('addItemMenu');
+    const button = document.querySelector('.purchase-add-item-btn');
+    
+    if (dropdown && button) {
+        const isOpen = dropdown.classList.contains('show');
+        
+        if (isOpen) {
+            closeAddItemDropdown();
+        } else {
+            openAddItemDropdown();
+        }
+    }
+}
+
+function openAddItemDropdown() {
+    const dropdown = document.getElementById('addItemMenu');
+    const button = document.querySelector('.purchase-add-item-btn');
+    
+    if (dropdown && button) {
+        dropdown.classList.add('show');
+        button.classList.add('active');
+    }
+}
+
+function closeAddItemDropdown() {
+    const dropdown = document.getElementById('addItemMenu');
+    const button = document.querySelector('.purchase-add-item-btn');
+    
+    if (dropdown && button) {
+        dropdown.classList.remove('show');
+        button.classList.remove('active');
+    }
+}
+
+function selectExistingItem() {
+    closeAddItemDropdown();
+    alert('Random items: Office Chair, Laptop, Paper, Lamp, Printer Ink');
+}
+
+function createNewItem() {
+    closeAddItemDropdown();
+    const form = document.getElementById('createItemForm');
+    if (form) {
+        form.style.display = 'block';
+    }
+}
+
+function closeCreateItemForm() {
+    const form = document.getElementById('createItemForm');
+    if (form) {
+        form.style.display = 'none';
+        // Clear form fields
+        clearCreateItemForm();
+    }
+}
+
+function clearCreateItemForm() {
+    document.getElementById('itemName').value = '';
+    document.getElementById('itemDescription').value = '';
+    document.getElementById('itemCategory').value = '';
+    document.getElementById('itemUnit').value = '';
+    document.getElementById('itemUnitPrice').value = '';
+}
+
+function saveNewItem() {
+    const name = document.getElementById('itemName').value;
+    const description = document.getElementById('itemDescription').value;
+    const category = document.getElementById('itemCategory').value;
+    const unit = document.getElementById('itemUnit').value;
+    const unitPrice = document.getElementById('itemUnitPrice').value;
+    
+    if (!name || !description || !category || !unit) {
+        alert('Please fill in all required fields');
+        return;
+    }
+    
+    // TODO: Implement save functionality
+    console.log('Saving new item:', { name, description, category, unit, unitPrice });
+    alert('New item saved successfully!');
+    
+    closeCreateItemForm();
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    const dropdown = document.getElementById('addItemMenu');
+    const button = document.querySelector('.purchase-add-item-btn');
+    
+    if (dropdown && button && !button.contains(e.target) && !dropdown.contains(e.target)) {
+        closeAddItemDropdown();
+    }
+});
+
+// Close dropdown on escape key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeAddItemDropdown();
+    }
+});
 
 // Export functions for external use
 window.Purchase = {
     switchTab: switchPurchaseTab,
     init: initPurchaseTabs,
-    toggleCreateDropdown: togglePurchaseCreateDropdown,
-    createItem: createPurchaseItem
+    createItem: createPurchaseItem,
+    toggleAddItemDropdown: toggleAddItemDropdown,
+    selectExistingItem: selectExistingItem,
+    createNewItem: createNewItem,
+    closeCreateItemForm: closeCreateItemForm,
+    saveNewItem: saveNewItem
 };

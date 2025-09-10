@@ -772,39 +772,18 @@
           <button class="purchase-tab-btn active" data-tab="pr" role="tab" aria-selected="true">
             <i class="fa-solid fa-file-invoice purchase-tab-icon"></i>
             PR
+            <span class="purchase-tab-count">12</span>
           </button>
           <button class="purchase-tab-btn" data-tab="rfq" role="tab" aria-selected="false">
             <i class="fa-solid fa-question-circle purchase-tab-icon"></i>
             RFQ
+            <span class="purchase-tab-count">8</span>
           </button>
           <button class="purchase-tab-btn" data-tab="po" role="tab" aria-selected="false">
             <i class="fa-solid fa-receipt purchase-tab-icon"></i>
             PO
+            <span class="purchase-tab-count">25</span>
           </button>
-        </div>
-        
-        <!-- Create Dropdown -->
-        <div class="purchase-create-dropdown">
-          <button class="purchase-create-btn" onclick="togglePurchaseCreateDropdown()">
-            <i class="fa-solid fa-plus"></i>
-            Create
-            <i class="fa-solid fa-chevron-down purchase-create-arrow"></i>
-          </button>
-          
-          <div class="purchase-create-menu" id="purchaseCreateMenu">
-            <a href="#" class="purchase-create-item" onclick="createPurchaseItem('pr')">
-              <i class="fa-solid fa-file-invoice"></i>
-              <span>Create PR</span>
-            </a>
-            <a href="#" class="purchase-create-item" onclick="createPurchaseItem('rfq')">
-              <i class="fa-solid fa-question-circle"></i>
-              <span>Create RFQ</span>
-            </a>
-            <a href="#" class="purchase-create-item" onclick="createPurchaseItem('po')">
-              <i class="fa-solid fa-receipt"></i>
-              <span>Create PO</span>
-            </a>
-          </div>
         </div>
       </div>
 
@@ -813,8 +792,24 @@
         <!-- PR Tab -->
         <div class="purchase-tab-panel active" data-tab="pr" role="tabpanel" aria-labelledby="purchase-tab-pr">
           <div class="purchase-tab-header">
-            <h2>Purchase Request (PR)</h2>
-            <p>Create and manage purchase requests for your organization.</p>
+            <div class="purchase-tab-title-section">
+              <h2>Purchase Request (PR)</h2>
+              <p>Create and manage purchase requests for your organization.</p>
+            </div>
+            <div class="purchase-tab-controls">
+              <div class="purchase-search-container">
+                <input type="text" class="purchase-search-input" placeholder="Search PRs...">
+                <i class="fa-solid fa-search purchase-search-icon"></i>
+              </div>
+              <button class="purchase-filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
+              <button class="purchase-tab-create-btn" onclick="createPurchaseItem('pr')">
+                <i class="fa-solid fa-plus"></i>
+                PR
+              </button>
+            </div>
           </div>
           
           <!-- PR Content -->
@@ -868,56 +863,95 @@
               <div class="purchase-form-group">
                 <label>Item Description(s)</label>
                 <div class="purchase-rfq-items-section">
-                  <div class="purchase-rfq-items-import-section">
-                    <button type="button" class="purchase-rfq-add-item-btn">
+                  <!-- Add Item Dropdown -->
+                  <div class="purchase-add-item-dropdown">
+                    <button type="button" class="purchase-add-item-btn" onclick="toggleAddItemDropdown()">
                       <i class="fa-solid fa-plus"></i>
                       Add Item
+                      <i class="fa-solid fa-chevron-down purchase-add-item-arrow"></i>
                     </button>
+                    
+                    <div class="purchase-add-item-menu" id="addItemMenu">
+                      <div class="purchase-add-item-option" onclick="selectExistingItem()">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Select from existing</span>
+                      </div>
+                      <div class="purchase-add-item-option" onclick="createNewItem()">
+                        <i class="fa-solid fa-plus-circle"></i>
+                        <span>Create new item</span>
+                      </div>
+                    </div>
                   </div>
                   
                   <div class="purchase-rfq-items-list" id="prItemsList">
                     <!-- Items will be added here -->
                     
-                    <!-- PR Item Form -->
-                    <div class="purchase-rfq-item-form" id="prItemForm" style="display: none;">
-                      <div class="purchase-rfq-item-form-header">
-                        <h4>Add Item</h4>
-                        <button type="button" class="purchase-rfq-form-close" onclick="closePRItemForm()">
+                    <!-- Create New Item Table Form -->
+                    <div class="purchase-item-table-form" id="createItemForm" style="display: none;">
+                      <div class="purchase-item-table-header">
+                        <h4>Create New Item</h4>
+                        <button type="button" class="purchase-item-table-close" onclick="closeCreateItemForm()">
                           <i class="fa-solid fa-times"></i>
                         </button>
                       </div>
-                      <div class="purchase-rfq-item-form-body">
-                        <div class="purchase-rfq-form-row">
-                          <div class="purchase-rfq-form-group">
-                            <label for="itemDescription">Description</label>
-                            <textarea id="itemDescription" placeholder="Enter item description" rows="3"></textarea>
-                          </div>
-                        </div>
-                        <div class="purchase-rfq-form-row">
-                          <div class="purchase-rfq-form-group">
-                            <label for="itemQuantity">Quantity</label>
-                            <input type="number" id="itemQuantity" placeholder="Enter quantity" min="1" step="1">
-                          </div>
-                          <div class="purchase-rfq-form-group">
-                            <label for="itemUnit">Unit</label>
-                            <select id="itemUnit">
-                              <option value="">Select Unit</option>
-                              <option value="pcs">Pieces</option>
-                              <option value="kg">Kilograms</option>
-                              <option value="lbs">Pounds</option>
-                              <option value="m">Meters</option>
-                              <option value="ft">Feet</option>
-                              <option value="box">Box</option>
-                              <option value="set">Set</option>
-                              <option value="pair">Pair</option>
-                              <option value="dozen">Dozen</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="purchase-rfq-form-actions">
-                          <button type="button" class="purchase-btn-secondary" onclick="closePRItemForm()">Cancel</button>
-                          <button type="button" class="purchase-btn-primary" onclick="addPRItem()">Add Item</button>
-                        </div>
+                      
+                      <div class="purchase-item-table-container">
+                        <table class="purchase-item-table">
+                          <thead>
+                            <tr>
+                              <th>Item Name</th>
+                              <th>Description</th>
+                              <th>Category</th>
+                              <th>Unit</th>
+                              <th>Unit Price</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="purchase-item-table-row">
+                              <td>
+                                <input type="text" class="purchase-item-input" placeholder="Enter item name" id="itemName">
+                              </td>
+                              <td>
+                                <textarea class="purchase-item-textarea" placeholder="Enter description" id="itemDescription"></textarea>
+                              </td>
+                              <td>
+                                <select class="purchase-item-select" id="itemCategory">
+                                  <option value="">Select category</option>
+                                  <option value="office">Office Supplies</option>
+                                  <option value="it">IT Equipment</option>
+                                  <option value="furniture">Furniture</option>
+                                  <option value="maintenance">Maintenance</option>
+                                  <option value="other">Other</option>
+                                </select>
+                              </td>
+                              <td>
+                                <select class="purchase-item-select" id="itemUnit">
+                                  <option value="">Select unit</option>
+                                  <option value="pcs">Pieces</option>
+                                  <option value="kg">Kilograms</option>
+                                  <option value="m">Meters</option>
+                                  <option value="l">Liters</option>
+                                  <option value="box">Box</option>
+                                  <option value="set">Set</option>
+                                </select>
+                              </td>
+                              <td>
+                                <input type="number" class="purchase-item-input" placeholder="0.00" id="itemUnitPrice" step="0.01">
+                              </td>
+                              <td>
+                                <div class="purchase-item-actions">
+                                  <button type="button" class="purchase-item-save-btn" onclick="saveNewItem()">
+                                    <i class="fa-solid fa-check"></i>
+                                  </button>
+                                  <button type="button" class="purchase-item-cancel-btn" onclick="closeCreateItemForm()">
+                                    <i class="fa-solid fa-times"></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
@@ -930,14 +964,22 @@
                 <input type="date" id="prRequiredDate" name="requiredDate" required>
               </div>
               
-              <!-- Status -->
+              <!-- Attachments -->
               <div class="purchase-form-group">
-                <label for="prStatus">Status</label>
-                <select id="prStatus" name="status" required>
-                  <option value="draft" selected>Draft</option>
-                  <option value="submitted">Submitted</option>
-                  <option value="approved">Approved</option>
-                </select>
+                <label for="prAttachments">Attachments</label>
+                <div class="purchase-attachment-container">
+                  <input type="file" id="prAttachments" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt" style="display: none;" onchange="displaySelectedFiles(this)">
+                  <button type="button" class="purchase-upload-btn" onclick="document.getElementById('prAttachments').click()">
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Files
+                  </button>
+                  <div class="purchase-upload-popover">
+                    Images, or justification documents
+                  </div>
+                </div>
+                <div class="purchase-files-list" id="prFilesList">
+                  <!-- Selected files will be displayed here -->
+                </div>
               </div>
               
               <div class="purchase-form-actions">
@@ -951,8 +993,24 @@
         <!-- RFQ Tab -->
         <div class="purchase-tab-panel" data-tab="rfq" role="tabpanel" aria-labelledby="purchase-tab-rfq">
           <div class="purchase-tab-header">
-            <h2>Request for Quotation (RFQ)</h2>
-            <p>Send quotation requests to suppliers and compare offers.</p>
+            <div class="purchase-tab-title-section">
+              <h2>Request for Quotation (RFQ)</h2>
+              <p>Send quotation requests to suppliers and compare offers.</p>
+            </div>
+            <div class="purchase-tab-controls">
+              <div class="purchase-search-container">
+                <input type="text" class="purchase-search-input" placeholder="Search RFQs...">
+                <i class="fa-solid fa-search purchase-search-icon"></i>
+              </div>
+              <button class="purchase-filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
+              <button class="purchase-tab-create-btn" onclick="createPurchaseItem('rfq')">
+                <i class="fa-solid fa-plus"></i>
+                RFQ
+              </button>
+            </div>
           </div>
           
           <!-- RFQ Content -->
@@ -1019,61 +1077,95 @@
               <div class="purchase-form-group">
                 <label>Items</label>
                 <div class="purchase-rfq-items-section">
-                  <div class="purchase-rfq-items-import-section">
-                    <button type="button" class="purchase-rfq-import-pr-btn">
-                      <i class="fa-solid fa-download"></i>
-                      Import from PR
-                    </button>
-                    <span class="purchase-rfq-or-divider">or</span>
-                    <button type="button" class="purchase-rfq-add-item-btn">
+                  <!-- Add Item Dropdown -->
+                  <div class="purchase-add-item-dropdown">
+                    <button type="button" class="purchase-add-item-btn" onclick="toggleAddItemDropdown()">
                       <i class="fa-solid fa-plus"></i>
-                      Add Item Manually
+                      Add Item
+                      <i class="fa-solid fa-chevron-down purchase-add-item-arrow"></i>
                     </button>
+                    
+                    <div class="purchase-add-item-menu" id="addItemMenu">
+                      <div class="purchase-add-item-option" onclick="selectExistingItem()">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Select from existing</span>
+                      </div>
+                      <div class="purchase-add-item-option" onclick="createNewItem()">
+                        <i class="fa-solid fa-plus-circle"></i>
+                        <span>Create new item</span>
+                      </div>
+                    </div>
                   </div>
                   
                   <div class="purchase-rfq-items-list" id="itemsList">
                     <!-- Items will be added here -->
                     
-                    <!-- RFQ Item Form -->
-                    <div class="purchase-rfq-item-form" id="rfqItemForm" style="display: none;">
-                      <div class="purchase-rfq-item-form-header">
-                        <h4>Add Item</h4>
-                        <button type="button" class="purchase-rfq-form-close" onclick="closeRFQItemForm()">
+                    <!-- Create New Item Table Form -->
+                    <div class="purchase-item-table-form" id="createItemForm" style="display: none;">
+                      <div class="purchase-item-table-header">
+                        <h4>Create New Item</h4>
+                        <button type="button" class="purchase-item-table-close" onclick="closeCreateItemForm()">
                           <i class="fa-solid fa-times"></i>
                         </button>
                       </div>
-                      <div class="purchase-rfq-item-form-body">
-                        <div class="purchase-rfq-form-row">
-                          <div class="purchase-rfq-form-group">
-                            <label for="rfqItemDescription">Description</label>
-                            <textarea id="rfqItemDescription" placeholder="Enter item description" rows="3"></textarea>
-                          </div>
-                        </div>
-                        <div class="purchase-rfq-form-row">
-                          <div class="purchase-rfq-form-group">
-                            <label for="rfqItemQuantity">Quantity</label>
-                            <input type="number" id="rfqItemQuantity" placeholder="Enter quantity" min="1" step="1">
-                          </div>
-                          <div class="purchase-rfq-form-group">
-                            <label for="rfqItemUnit">Unit</label>
-                            <select id="rfqItemUnit">
-                              <option value="">Select Unit</option>
-                              <option value="pcs">Pieces</option>
-                              <option value="kg">Kilograms</option>
-                              <option value="lbs">Pounds</option>
-                              <option value="m">Meters</option>
-                              <option value="ft">Feet</option>
-                              <option value="box">Box</option>
-                              <option value="set">Set</option>
-                              <option value="pair">Pair</option>
-                              <option value="dozen">Dozen</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="purchase-rfq-form-actions">
-                          <button type="button" class="purchase-btn-secondary" onclick="closeRFQItemForm()">Cancel</button>
-                          <button type="button" class="purchase-btn-primary" onclick="addRFQItem()">Add Item</button>
-                        </div>
+                      
+                      <div class="purchase-item-table-container">
+                        <table class="purchase-item-table">
+                          <thead>
+                            <tr>
+                              <th>Item Name</th>
+                              <th>Description</th>
+                              <th>Category</th>
+                              <th>Unit</th>
+                              <th>Unit Price</th>
+                              <th>Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr class="purchase-item-table-row">
+                              <td>
+                                <input type="text" class="purchase-item-input" placeholder="Enter item name" id="itemName">
+                              </td>
+                              <td>
+                                <textarea class="purchase-item-textarea" placeholder="Enter description" id="itemDescription"></textarea>
+                              </td>
+                              <td>
+                                <select class="purchase-item-select" id="itemCategory">
+                                  <option value="">Select category</option>
+                                  <option value="office">Office Supplies</option>
+                                  <option value="it">IT Equipment</option>
+                                  <option value="furniture">Furniture</option>
+                                  <option value="maintenance">Maintenance</option>
+                                  <option value="other">Other</option>
+                                </select>
+                              </td>
+                              <td>
+                                <select class="purchase-item-select" id="itemUnit">
+                                  <option value="">Select unit</option>
+                                  <option value="pcs">Pieces</option>
+                                  <option value="kg">Kilograms</option>
+                                  <option value="m">Meters</option>
+                                  <option value="l">Liters</option>
+                                  <option value="box">Box</option>
+                                  <option value="set">Set</option>
+                                </select>
+                              </td>
+                              <td>
+                                <input type="number" class="purchase-item-input" placeholder="0.00" id="itemUnitPrice" step="0.01">
+                              </td>
+                              <td>
+                                <div class="purchase-item-actions">
+                                  <button type="button" class="purchase-item-save-btn" onclick="saveNewItem()">
+                                    <i class="fa-solid fa-check"></i>
+                                  </button>
+                                  <button type="button" class="purchase-item-cancel-btn" onclick="closeCreateItemForm()">
+                                    <i class="fa-solid fa-times"></i>
+                                  </button>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
@@ -1107,8 +1199,24 @@
         <!-- PO Tab -->
         <div class="purchase-tab-panel" data-tab="po" role="tabpanel" aria-labelledby="purchase-tab-po">
           <div class="purchase-tab-header">
-            <h2>Purchase Order (PO)</h2>
-            <p>Generate and track purchase orders for approved requests.</p>
+            <div class="purchase-tab-title-section">
+              <h2>Purchase Order (PO)</h2>
+              <p>Generate and track purchase orders for approved requests.</p>
+            </div>
+            <div class="purchase-tab-controls">
+              <div class="purchase-search-container">
+                <input type="text" class="purchase-search-input" placeholder="Search POs...">
+                <i class="fa-solid fa-search purchase-search-icon"></i>
+              </div>
+              <button class="purchase-filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
+              <button class="purchase-tab-create-btn" onclick="createPurchaseItem('po')">
+                <i class="fa-solid fa-plus"></i>
+                PO
+              </button>
+            </div>
           </div>
           
           <!-- PO Content -->
