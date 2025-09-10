@@ -2,6 +2,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize purchase tabs
     initPurchaseTabs();
+    
+    // Initialize create dropdown
+    initPurchaseCreateDropdown();
 });
 
 function initPurchaseTabs() {
@@ -170,8 +173,396 @@ function switchPurchaseTab(tabName) {
     }
 }
 
+// Create Dropdown Functionality
+function initPurchaseCreateDropdown() {
+    const createBtn = document.querySelector('.purchase-create-btn');
+    const createMenu = document.querySelector('.purchase-create-menu');
+    
+    if (createBtn && createMenu) {
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!createBtn.contains(e.target) && !createMenu.contains(e.target)) {
+                closePurchaseCreateDropdown();
+            }
+        });
+        
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closePurchaseCreateDropdown();
+            }
+        });
+    }
+}
+
+function togglePurchaseCreateDropdown() {
+    const createBtn = document.querySelector('.purchase-create-btn');
+    const createMenu = document.querySelector('.purchase-create-menu');
+    
+    if (createBtn && createMenu) {
+        const isOpen = createMenu.classList.contains('show');
+        
+        if (isOpen) {
+            closePurchaseCreateDropdown();
+        } else {
+            openPurchaseCreateDropdown();
+        }
+    }
+}
+
+function openPurchaseCreateDropdown() {
+    const createBtn = document.querySelector('.purchase-create-btn');
+    const createMenu = document.querySelector('.purchase-create-menu');
+    
+    if (createBtn && createMenu) {
+        createMenu.classList.add('show');
+        createBtn.classList.add('active');
+    }
+}
+
+function closePurchaseCreateDropdown() {
+    const createBtn = document.querySelector('.purchase-create-btn');
+    const createMenu = document.querySelector('.purchase-create-menu');
+    
+    if (createBtn && createMenu) {
+        createMenu.classList.remove('show');
+        createBtn.classList.remove('active');
+    }
+}
+
+function createPurchaseItem(type) {
+    // Close the dropdown
+    closePurchaseCreateDropdown();
+    
+    // Switch to the appropriate tab
+    switchPurchaseTab(type);
+    
+    // Open the form inside the tab
+    openPurchaseForm(type);
+}
+
+function openPurchaseForm(type) {
+    const content = document.getElementById(`${type}Content`);
+    const form = document.getElementById(`${type}Form`);
+    
+    if (content && form) {
+        // Hide the content placeholder
+        content.style.display = 'none';
+        
+        // Show the form
+        form.style.display = 'block';
+        
+        // Reset form
+        form.querySelector('form').reset();
+        
+        // Focus on first input
+        const firstInput = form.querySelector('input[required]');
+        if (firstInput) {
+            setTimeout(() => firstInput.focus(), 100);
+        }
+        
+        // Initialize RFQ vendor selection if it's an RFQ form
+        if (type === 'rfq') {
+            initRFQVendorSelection();
+            initRFQItemsActions();
+        }
+        
+        // Initialize PR items actions if it's a PR form
+        if (type === 'pr') {
+            initPRItemsActions();
+        }
+    }
+}
+
+function closePurchaseForm(type) {
+    const content = document.getElementById(`${type}Content`);
+    const form = document.getElementById(`${type}Form`);
+    
+    if (content && form) {
+        // Show the content placeholder
+        content.style.display = 'block';
+        
+        // Hide the form
+        form.style.display = 'none';
+        
+        // Reset form
+        form.querySelector('form').reset();
+    }
+}
+
+// Handle form submission
+document.addEventListener('DOMContentLoaded', function() {
+    // Handle all purchase forms
+    const forms = document.querySelectorAll('.purchase-form');
+    
+    forms.forEach(form => {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(form);
+            const type = form.getAttribute('data-type');
+            const data = Object.fromEntries(formData.entries());
+            
+            // Add type to data
+            data.type = type;
+            
+            // Here you can handle the form submission
+            console.log('Form submitted:', data);
+            
+            // You can add API call here
+            // submitPurchaseForm(data);
+            
+            // Show success message
+            alert(`${type.toUpperCase()} created successfully!`);
+            
+            // Close the form
+            closePurchaseForm(type);
+            
+            // You can also refresh the current tab content or add the new item to a list
+        });
+    });
+    
+    // Close form on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            // Find which form is currently visible and close it
+            const visibleForm = document.querySelector('.purchase-form-container[style*="block"]');
+            if (visibleForm) {
+                const formId = visibleForm.id;
+                const type = formId.replace('Form', '');
+                closePurchaseForm(type);
+            }
+        }
+    });
+});
+
+// Multiple RFQ Vendor Selection
+function initRFQVendorSelection() {
+    // Handle vendor category selection
+    const vendorCategorySelect = document.getElementById('rfqVendorCategories');
+    if (vendorCategorySelect) {
+        vendorCategorySelect.addEventListener('change', function() {
+            if (this.value) {
+                addSelectedValue('rfqVendorCategories', this.value, this.options[this.selectedIndex].text);
+                this.selectedIndex = 0; // Reset to placeholder
+            }
+        });
+    }
+    
+    // Handle vendor selection
+    const vendorSelect = document.getElementById('rfqVendors');
+    if (vendorSelect) {
+        vendorSelect.addEventListener('change', function() {
+            if (this.value) {
+                addSelectedValue('rfqVendors', this.value, this.options[this.selectedIndex].text);
+                this.selectedIndex = 0; // Reset to placeholder
+            }
+        });
+    }
+}
+
+function addSelectedValue(selectId, value, text) {
+    // Find or create the display container
+    let displayContainer = document.getElementById(`${selectId}Container`);
+    if (!displayContainer) {
+        const select = document.getElementById(selectId);
+        if (select) {
+            displayContainer = document.createElement('div');
+            displayContainer.id = `${selectId}Container`;
+            displayContainer.className = 'purchase-rfq-selected-container';
+            select.parentNode.appendChild(displayContainer);
+        }
+    }
+    
+    if (displayContainer) {
+        // Check if this value is already selected
+        if (displayContainer.querySelector(`[data-value="${value}"]`)) {
+            return; // Already selected
+        }
+        
+        // Create a new selected item
+        const selectedItem = document.createElement('div');
+        selectedItem.className = 'purchase-rfq-selected-item';
+        selectedItem.setAttribute('data-value', value);
+        selectedItem.innerHTML = `
+            <span class="purchase-rfq-selected-text">${text}</span>
+            <button type="button" class="purchase-rfq-remove-btn" onclick="removeSelectedValue('${selectId}', '${value}')">
+                <i class="fa-solid fa-times"></i>
+            </button>
+        `;
+        
+        displayContainer.appendChild(selectedItem);
+    }
+}
+
+function removeSelectedValue(selectId, value) {
+    const container = document.getElementById(`${selectId}Container`);
+    if (container) {
+        const item = container.querySelector(`[data-value="${value}"]`);
+        if (item) {
+            item.remove();
+        }
+    }
+}
+
+// RFQ Items Actions
+function initRFQItemsActions() {
+    // Handle Import from PR button
+    const importPRBtn = document.querySelector('.purchase-rfq-import-pr-btn');
+    if (importPRBtn) {
+        importPRBtn.addEventListener('click', function() {
+            showItemsAction('Import from PR', 'This will import items from existing Purchase Requests. Feature coming soon!');
+        });
+    }
+    
+    // Handle Add Item Manually button
+    const addItemBtn = document.querySelector('.purchase-rfq-add-item-btn');
+    if (addItemBtn) {
+        addItemBtn.addEventListener('click', function() {
+            showRFQItemForm();
+        });
+    }
+}
+
+function showItemsAction(action, message) {
+    // Create or find the action display area
+    let actionDisplay = document.getElementById('itemsActionDisplay');
+    if (!actionDisplay) {
+        const itemsSection = document.querySelector('.purchase-rfq-items-section');
+        if (itemsSection) {
+            actionDisplay = document.createElement('div');
+            actionDisplay.id = 'itemsActionDisplay';
+            actionDisplay.className = 'purchase-rfq-items-action-display';
+            itemsSection.appendChild(actionDisplay);
+        }
+    }
+    
+    if (actionDisplay) {
+        actionDisplay.innerHTML = `
+            <div class="purchase-rfq-action-item">
+                <span class="purchase-rfq-action-text">${action}: ${message}</span>
+                <button type="button" class="purchase-rfq-action-close" onclick="closeItemsAction()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+        `;
+        actionDisplay.style.display = 'block';
+    }
+}
+
+function closeItemsAction() {
+    const actionDisplay = document.getElementById('itemsActionDisplay');
+    if (actionDisplay) {
+        actionDisplay.style.display = 'none';
+    }
+}
+
+// PR Items Actions
+function initPRItemsActions() {
+    // Handle Add Item button for PR
+    const addItemBtn = document.querySelector('#prItemsList').parentNode.querySelector('.purchase-rfq-add-item-btn');
+    if (addItemBtn) {
+        addItemBtn.addEventListener('click', function() {
+            showPRItemForm();
+        });
+    }
+}
+
+function showPRItemsAction(action, message) {
+    // Create or find the action display area
+    let actionDisplay = document.getElementById('prItemsActionDisplay');
+    if (!actionDisplay) {
+        const itemsSection = document.querySelector('#prItemsList').parentNode;
+        if (itemsSection) {
+            actionDisplay = document.createElement('div');
+            actionDisplay.id = 'prItemsActionDisplay';
+            actionDisplay.className = 'purchase-rfq-items-action-display';
+            itemsSection.appendChild(actionDisplay);
+        }
+    }
+    
+    if (actionDisplay) {
+        actionDisplay.innerHTML = `
+            <div class="purchase-rfq-action-item">
+                <span class="purchase-rfq-action-text">${action}: ${message}</span>
+                <button type="button" class="purchase-rfq-action-close" onclick="closePRItemsAction()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+        `;
+        actionDisplay.style.display = 'block';
+    }
+}
+
+function closePRItemsAction() {
+    const actionDisplay = document.getElementById('prItemsActionDisplay');
+    if (actionDisplay) {
+        actionDisplay.style.display = 'none';
+    }
+}
+
+function showPRItemForm() {
+    const itemForm = document.getElementById('prItemForm');
+    if (itemForm) {
+        itemForm.style.display = 'block';
+        // Focus on first input
+        const firstInput = itemForm.querySelector('textarea');
+        if (firstInput) {
+            setTimeout(() => firstInput.focus(), 100);
+        }
+    }
+}
+
+function closePRItemForm() {
+    const itemForm = document.getElementById('prItemForm');
+    if (itemForm) {
+        itemForm.style.display = 'none';
+        // Clear form
+        itemForm.querySelector('#itemDescription').value = '';
+        itemForm.querySelector('#itemQuantity').value = '';
+        itemForm.querySelector('#itemUnit').selectedIndex = 0;
+    }
+}
+
+function addPRItem() {
+    // Just close the form - no actual item adding functionality
+    closePRItemForm();
+}
+
+// RFQ Item Form Functions
+function showRFQItemForm() {
+    const itemForm = document.getElementById('rfqItemForm');
+    if (itemForm) {
+        itemForm.style.display = 'block';
+        // Focus on first input
+        const firstInput = itemForm.querySelector('textarea');
+        if (firstInput) {
+            setTimeout(() => firstInput.focus(), 100);
+        }
+    }
+}
+
+function closeRFQItemForm() {
+    const itemForm = document.getElementById('rfqItemForm');
+    if (itemForm) {
+        itemForm.style.display = 'none';
+        // Clear form
+        itemForm.querySelector('#rfqItemDescription').value = '';
+        itemForm.querySelector('#rfqItemQuantity').value = '';
+        itemForm.querySelector('#rfqItemUnit').selectedIndex = 0;
+    }
+}
+
+function addRFQItem() {
+    // Just close the form - no actual item adding functionality
+    closeRFQItemForm();
+}
+
+
 // Export functions for external use
 window.Purchase = {
     switchTab: switchPurchaseTab,
-    init: initPurchaseTabs
+    init: initPurchaseTabs,
+    toggleCreateDropdown: togglePurchaseCreateDropdown,
+    createItem: createPurchaseItem
 };
