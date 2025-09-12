@@ -467,6 +467,140 @@
   overflow-y: auto;
 }
 
+/* Checkbox Styles */
+.purchase-list-checkbox {
+  width: 50px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.purchase-checkbox {
+  display: none;
+}
+
+.purchase-checkbox-label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.purchase-checkbox-label:hover {
+  border-color: #9885d1;
+}
+
+.purchase-checkbox:checked + .purchase-checkbox-label {
+  background: #9885d1;
+  border-color: #9885d1;
+}
+
+.purchase-checkbox:checked + .purchase-checkbox-label::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.purchase-checkbox-header {
+  margin-right: 8px;
+}
+
+.purchase-checkbox-header + .purchase-checkbox-label {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border: 2px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.purchase-checkbox-header + .purchase-checkbox-label:hover {
+  border-color: #9885d1;
+}
+
+.purchase-checkbox-header:checked + .purchase-checkbox-label {
+  background: #9885d1;
+  border-color: #9885d1;
+}
+
+.purchase-checkbox-header:checked + .purchase-checkbox-label::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 2px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.purchase-checkbox-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #6b7280;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+/* Drag Handle Styles */
+.purchase-drag-handle {
+  width: 30px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: grab;
+  color: #9ca3af;
+  transition: all 0.2s ease;
+  background: #f8f9fa;
+  border-radius: 4px;
+  margin: 2px;
+}
+
+.purchase-drag-handle:hover {
+  color: #9885d1;
+  background: #e8e5ff;
+  transform: scale(1.1);
+}
+
+.purchase-drag-handle:active {
+  cursor: grabbing;
+  transform: scale(0.95);
+}
+
+.purchase-drag-handle i {
+  font-size: 14px;
+}
+
+.purchase-drag-header {
+  width: 30px;
+}
+
+/* Clickable PR elements */
+.purchase-list-pr-number,
+.purchase-list-title {
+  transition: all 0.2s ease;
+}
+
+.purchase-list-pr-number:hover,
+.purchase-list-title:hover {
+  color: #7c3aed !important;
+  text-decoration: underline !important;
+  transform: scale(1.02);
+}
+
 .purchase-filter-btn {
   display: flex;
   align-items: center;
@@ -1580,6 +1714,7 @@
 
 .purchase-list-table-container {
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .purchase-list-table {

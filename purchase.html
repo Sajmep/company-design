@@ -830,17 +830,26 @@
                 <table class="purchase-list-table">
                   <thead>
                     <tr>
+                      <th>
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-header" id="selectAllPRs">
+                        <label for="selectAllPRs" class="purchase-checkbox-label"></label>
+                        <span class="purchase-checkbox-text"></span>
+                      </th>
+                      <th class="purchase-drag-header"></th>
                       <th>PR Number</th>
                       <th>Requester</th>
                       <th>Department</th>
                       <th>Title / Description</th>
                       <th>Status</th>
                       <th>Created Date</th>
-                      <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0012">
+                        <label for="pr-0012" class="purchase-checkbox-label"></label>
+                      </td>
                       <td class="purchase-list-pr-number">PR-2025-0012</td>
                       <td class="purchase-list-requester">John Smith</td>
                       <td class="purchase-list-department">IT</td>
@@ -849,19 +858,12 @@
                         <span class="purchase-status-badge purchase-status-approved">Approved</span>
                       </td>
                       <td class="purchase-list-date">2025-01-15</td>
-                      <td class="purchase-list-actions">
-                        <button class="purchase-action-btn purchase-action-view" title="View" onclick="openPROffcanvas()">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-edit" title="Edit">
-                          <i class="fa-solid fa-edit"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-more" title="More">
-                          <i class="fa-solid fa-ellipsis-v"></i>
-                        </button>
-                      </td>
                     </tr>
                     <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0011">
+                        <label for="pr-0011" class="purchase-checkbox-label"></label>
+                      </td>
                       <td class="purchase-list-pr-number">PR-2025-0011</td>
                       <td class="purchase-list-requester">Sarah Johnson</td>
                       <td class="purchase-list-department">HR</td>
@@ -870,19 +872,12 @@
                         <span class="purchase-status-badge purchase-status-submitted">Submitted</span>
                       </td>
                       <td class="purchase-list-date">2025-01-14</td>
-                      <td class="purchase-list-actions">
-                        <button class="purchase-action-btn purchase-action-view" title="View">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-edit" title="Edit">
-                          <i class="fa-solid fa-edit"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-more" title="More">
-                          <i class="fa-solid fa-ellipsis-v"></i>
-                        </button>
-                      </td>
                     </tr>
                     <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0010">
+                        <label for="pr-0010" class="purchase-checkbox-label"></label>
+                      </td>
                       <td class="purchase-list-pr-number">PR-2025-0010</td>
                       <td class="purchase-list-requester">Mike Wilson</td>
                       <td class="purchase-list-department">Finance</td>
@@ -891,19 +886,12 @@
                         <span class="purchase-status-badge purchase-status-draft">Draft</span>
                       </td>
                       <td class="purchase-list-date">2025-01-13</td>
-                      <td class="purchase-list-actions">
-                        <button class="purchase-action-btn purchase-action-view" title="View">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-edit" title="Edit">
-                          <i class="fa-solid fa-edit"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-more" title="More">
-                          <i class="fa-solid fa-ellipsis-v"></i>
-                        </button>
-                      </td>
                     </tr>
                     <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0009">
+                        <label for="pr-0009" class="purchase-checkbox-label"></label>
+                      </td>
                       <td class="purchase-list-pr-number">PR-2025-0009</td>
                       <td class="purchase-list-requester">Lisa Brown</td>
                       <td class="purchase-list-department">Marketing</td>
@@ -912,38 +900,6 @@
                         <span class="purchase-status-badge purchase-status-approved">Approved</span>
                       </td>
                       <td class="purchase-list-date">2025-01-12</td>
-                      <td class="purchase-list-actions">
-                        <button class="purchase-action-btn purchase-action-view" title="View">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-edit" title="Edit">
-                          <i class="fa-solid fa-edit"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-more" title="More">
-                          <i class="fa-solid fa-ellipsis-v"></i>
-                        </button>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="purchase-list-pr-number">PR-2025-0008</td>
-                      <td class="purchase-list-requester">David Lee</td>
-                      <td class="purchase-list-department">Operations</td>
-                      <td class="purchase-list-title">Equipment Maintenance</td>
-                      <td class="purchase-list-status">
-                        <span class="purchase-status-badge purchase-status-pending">Pending</span>
-                      </td>
-                      <td class="purchase-list-date">2025-01-11</td>
-                      <td class="purchase-list-actions">
-                        <button class="purchase-action-btn purchase-action-view" title="View">
-                          <i class="fa-solid fa-eye"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-edit" title="Edit">
-                          <i class="fa-solid fa-edit"></i>
-                        </button>
-                        <button class="purchase-action-btn purchase-action-more" title="More">
-                          <i class="fa-solid fa-ellipsis-v"></i>
-                        </button>
-                      </td>
                     </tr>
                   </tbody>
                 </table>

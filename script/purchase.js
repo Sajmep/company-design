@@ -1,6 +1,9 @@
 // Purchase Tab Functionality - Sidebar Version
 document.addEventListener('DOMContentLoaded', function() {
     initPurchaseTabs();
+    initSelectAll();
+    initDragReorder();
+    initClickableRows();
 });
 
 // Basic tab switching from sidebar
@@ -312,6 +315,158 @@ function closePROffcanvas() {
     setTimeout(() => {
         offcanvas.style.display = 'none';
     }, 300);
+}
+
+// Make PR number and title clickable
+function initClickableRows() {
+    const prNumbers = document.querySelectorAll('.purchase-list-pr-number');
+    const prTitles = document.querySelectorAll('.purchase-list-title');
+    
+    // Make PR numbers clickable
+    prNumbers.forEach(prNumber => {
+        prNumber.style.cursor = 'pointer';
+        prNumber.style.color = '#9885d1';
+        prNumber.addEventListener('click', function() {
+            openPROffcanvas();
+        });
+    });
+    
+    // Make PR titles clickable
+    prTitles.forEach(prTitle => {
+        prTitle.style.cursor = 'pointer';
+        prTitle.addEventListener('click', function() {
+            openPROffcanvas();
+        });
+    });
+}
+
+// Select All Functionality
+function initSelectAll() {
+    const selectAllCheckbox = document.getElementById('selectAllPRs');
+    const rowCheckboxes = document.querySelectorAll('.purchase-checkbox-row');
+    
+    if (selectAllCheckbox) {
+        selectAllCheckbox.addEventListener('change', function() {
+            rowCheckboxes.forEach(checkbox => {
+                checkbox.checked = this.checked;
+            });
+        });
+    }
+    
+    // Update select all when individual checkboxes change
+    rowCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const allChecked = Array.from(rowCheckboxes).every(cb => cb.checked);
+            const someChecked = Array.from(rowCheckboxes).some(cb => cb.checked);
+            
+            if (selectAllCheckbox) {
+                selectAllCheckbox.checked = allChecked;
+                selectAllCheckbox.indeterminate = someChecked && !allChecked;
+            }
+        });
+    });
+}
+
+// Drag Up/Down Functionality
+function initDragReorder() {
+    const tbody = document.querySelector('.purchase-list-table tbody');
+    if (!tbody) {
+        console.log('Table body not found');
+        return;
+    }
+    
+    let draggedRow = null;
+    
+    // Add drag handles to each row
+    const rows = tbody.querySelectorAll('tr');
+    console.log('Found rows:', rows.length);
+    
+    rows.forEach((row, index) => {
+        // Add drag handle cell
+        const dragCell = document.createElement('td');
+        dragCell.className = 'purchase-drag-handle';
+        dragCell.innerHTML = '<i class="fa-solid fa-grip-vertical"></i>';
+        dragCell.draggable = true;
+        dragCell.style.cursor = 'grab';
+        
+        // Insert drag handle as second cell (after checkbox)
+        const checkboxCell = row.querySelector('.purchase-list-checkbox');
+        if (checkboxCell) {
+            row.insertBefore(dragCell, checkboxCell.nextSibling);
+        } else {
+            row.insertBefore(dragCell, row.firstChild);
+        }
+        
+        // Make the entire row draggable
+        row.draggable = true;
+        row.style.cursor = 'grab';
+        
+        // Drag events on the row
+        row.addEventListener('dragstart', function(e) {
+            console.log('Drag started');
+            draggedRow = row;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', row.outerHTML);
+            
+            // Visual feedback
+            row.style.opacity = '0.5';
+            row.style.transform = 'rotate(1deg)';
+            row.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+            row.style.border = '2px dashed #9885d1';
+            row.style.backgroundColor = '#f8f7ff';
+        });
+        
+        row.addEventListener('dragend', function(e) {
+            console.log('Drag ended');
+            // Reset visual effects
+            row.style.opacity = '1';
+            row.style.transform = 'none';
+            row.style.boxShadow = 'none';
+            row.style.border = 'none';
+            row.style.backgroundColor = '';
+            draggedRow = null;
+        });
+        
+        row.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            // Highlight drop target
+            if (draggedRow && draggedRow !== row) {
+                row.style.backgroundColor = '#e0f2fe';
+                row.style.borderTop = '3px solid #9885d1';
+            }
+        });
+        
+        row.addEventListener('dragleave', function(e) {
+            // Remove drop target highlighting
+            row.style.backgroundColor = '';
+            row.style.borderTop = '';
+        });
+        
+        row.addEventListener('drop', function(e) {
+            e.preventDefault();
+            console.log('Drop event');
+            
+            if (draggedRow && draggedRow !== row) {
+                // Check if we're dropping on the last row
+                const isLastRow = row === tbody.lastElementChild;
+                
+                if (isLastRow) {
+                    // If dropping on last row, append after it
+                    tbody.appendChild(draggedRow);
+                } else {
+                    // Otherwise, insert before the target row
+                    tbody.insertBefore(draggedRow, row);
+                }
+                console.log('Row moved');
+            }
+            
+            // Remove drop target highlighting
+            row.style.backgroundColor = '';
+            row.style.borderTop = '';
+        });
+    });
 }
 
 // Export functions
