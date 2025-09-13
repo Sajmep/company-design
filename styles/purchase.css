@@ -590,12 +590,15 @@
 
 /* Clickable PR elements */
 .purchase-list-pr-number,
-.purchase-list-title {
+.purchase-list-title,
+.purchase-list-description {
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .purchase-list-pr-number:hover,
-.purchase-list-title:hover {
+.purchase-list-title:hover,
+.purchase-list-description:hover {
   color: #7c3aed !important;
   text-decoration: underline !important;
   transform: scale(1.02);
@@ -1947,4 +1950,502 @@
 .purchase-submenu-link.active .purchase-tab-count {
   background-color: #c7d2fe;
   color: #3730a3;
+}
+
+/* Action Dropdown Styles */
+.purchase-action-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.purchase-action-dropdown-btn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    background: #f8f9fa;
+    border: 1px solid #9885d1;
+    border-radius: 6px;
+    color: #495057;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.purchase-action-dropdown-btn:hover {
+    background: #e9ecef;
+    border-color: #dee2e6;
+}
+
+.purchase-action-dropdown-btn.active {
+    background: #9885d1;
+    border-color: #9885d1;
+    color: white;
+}
+
+.purchase-action-dropdown-btn i:first-child {
+    font-size: 14px;
+}
+
+.purchase-action-dropdown-btn i:last-child {
+    font-size: 12px;
+    transition: transform 0.2s ease;
+}
+
+.purchase-action-dropdown-btn.active i:last-child {
+    transform: rotate(180deg);
+}
+
+.purchase-action-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    min-width: 180px;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+}
+
+.purchase-action-dropdown.active .purchase-action-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.purchase-action-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #495057;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-size: 14px;
+}
+
+.purchase-action-item:hover {
+    background: #f8f9fa;
+}
+
+.purchase-action-item i {
+    width: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.purchase-action-item span {
+    flex: 1;
+}
+
+
+.purchase-action-divider {
+    height: 1px;
+    background: #e9ecef;
+    margin: 4px 0;
+}
+
+/* Import Button Styles */
+.purchase-import-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #f8f9fa;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #000000;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.purchase-import-btn:hover {
+    border-color: #afb2b7;
+    background: #ffffff;
+}
+
+.purchase-import-btn i {
+    font-size: 14px;
+}
+
+.purchase-action-danger {
+    color: #dc3545 !important;
+}
+
+.purchase-action-danger:hover {
+    background: #f8d7da !important;
+}
+
+/* Priority Badge Styles */
+.purchase-priority-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.purchase-priority-low {
+    background-color: #e3f2fd;
+    color: #1976d2;
+}
+
+.purchase-priority-medium {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.purchase-priority-high {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.purchase-priority-urgent {
+    background-color: #f3e5f5;
+    color: #7b1fa2;
+}
+
+/* New Table Column Styles */
+.purchase-list-priority {
+    text-align: center;
+    width: 80px;
+}
+
+.purchase-list-required-date {
+    text-align: center;
+    width: 100px;
+    font-size: 12px;
+    color: #666;
+}
+
+.purchase-list-description {
+    max-width: 300px;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #555;
+}
+
+.purchase-list-delivery-location {
+    max-width: 120px;
+    font-size: 12px;
+    color: #666;
+}
+
+.purchase-list-contact-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #333;
+}
+
+.purchase-list-contact-mobile {
+    font-size: 12px;
+    color: #666;
+    font-family: monospace;
+}
+
+.purchase-list-contact-email {
+    font-size: 12px;
+    color: #666;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.purchase-list-attachments {
+    text-align: center;
+    width: 80px;
+}
+
+.purchase-attachment-count {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: #666;
+    padding: 2px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+/* Delete Confirmation Modal Styles */
+.purchase-delete-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchase-delete-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.purchase-delete-modal-content {
+    position: relative;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 90%;
+    max-height: 90vh;
+    overflow: hidden;
+    animation: purchaseModalSlideIn 0.3s ease-out;
+}
+
+@keyframes purchaseModalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.purchase-delete-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.purchase-delete-modal-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e8e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.purchase-delete-modal-icon i {
+    color: white;
+    font-size: 16px;
+}
+
+.purchase-delete-modal-header h3 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-top: 3px;
+}
+
+.purchase-delete-modal-body {
+    padding: 15px;
+}
+
+.purchase-delete-modal-message {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    color: #4a5568;
+    line-height: 1.5;
+}
+
+.purchase-delete-count {
+    font-weight: 600;
+    color: #e53e3e;
+}
+
+.purchase-delete-modal-warning {
+    margin: 0;
+    font-size: 12px;
+    color: #718096;
+    font-style: italic;
+}
+
+.purchase-delete-modal-footer {
+    display: flex;
+    gap: 10px;
+    padding: 16px 24px 24px 24px;
+    justify-content: flex-end;
+}
+
+.purchase-delete-modal-cancel {
+    padding: 10px 20px;
+    background: #f7fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    color: #4a5568;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.purchase-delete-modal-cancel:hover {
+    background: #edf2f7;
+    border-color: #cbd5e0;
+}
+
+.purchase-delete-modal-delete {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #e53e3e, #fc8181);
+    border: 1px solid #e53e3e;
+    border-radius: 8px;
+    color: white;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.purchase-delete-modal-delete:hover {
+    background: linear-gradient(135deg, #c53030, #f56565);
+    border-color: #c53030;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(229, 62, 62, 0.3);
+}
+
+.purchase-delete-modal-delete i {
+    font-size: 14px;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+    .purchase-delete-modal-content {
+        margin: 20px;
+        width: calc(100% - 40px);
+    }
+    
+    .purchase-delete-modal-header {
+        padding: 20px 20px 16px 20px;
+    }
+    
+    .purchase-delete-modal-body {
+        padding: 16px 20px;
+    }
+    
+    .purchase-delete-modal-footer {
+        padding: 16px 20px 20px 20px;
+        flex-direction: column;
+    }
+    
+    .purchase-delete-modal-cancel,
+    .purchase-delete-modal-delete {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Group By Dropdown Styles */
+.group-by-container {
+    position: relative;
+    display: inline-block;
+}
+
+.group-by-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 500;
+    color: #374151;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.group-by-button:hover {
+    background: #e5e7eb;
+    border-color: #d1d5db;
+}
+
+.group-by-button i {
+    font-size: 10px;
+    transition: transform 0.2s ease;
+}
+
+.group-by-button.active i {
+    transform: rotate(180deg);
+}
+
+.group-by-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    margin-top: 4px;
+    min-width: 160px;
+}
+
+.group-by-dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    font-size: 12px;
+    color: #374151;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: #f8f9fa;
+}
+
+.dropdown-item i {
+    font-size: 11px;
+    color: #6b7280;
+    width: 14px;
+    text-align: center;
+}
+
+.dropdown-item.selected {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.dropdown-item.selected i {
+    color: #1d4ed8;
 }

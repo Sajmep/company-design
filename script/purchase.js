@@ -317,10 +317,11 @@ function closePROffcanvas() {
     }, 300);
 }
 
-// Make PR number and title clickable
+// Make PR number, title, and description clickable
 function initClickableRows() {
     const prNumbers = document.querySelectorAll('.purchase-list-pr-number');
     const prTitles = document.querySelectorAll('.purchase-list-title');
+    const prDescriptions = document.querySelectorAll('.purchase-list-description');
     
     // Make PR numbers clickable
     prNumbers.forEach(prNumber => {
@@ -338,6 +339,15 @@ function initClickableRows() {
             openPROffcanvas();
         });
     });
+    
+    // Make PR descriptions clickable
+    prDescriptions.forEach(prDescription => {
+        prDescription.style.cursor = 'pointer';
+        prDescription.style.color = '#9885d1';
+        prDescription.addEventListener('click', function() {
+            openPROffcanvas();
+        });
+    });
 }
 
 // Select All Functionality
@@ -350,6 +360,7 @@ function initSelectAll() {
             rowCheckboxes.forEach(checkbox => {
                 checkbox.checked = this.checked;
             });
+            updateActionDropdownVisibility();
         });
     }
     
@@ -363,6 +374,8 @@ function initSelectAll() {
                 selectAllCheckbox.checked = allChecked;
                 selectAllCheckbox.indeterminate = someChecked && !allChecked;
             }
+            
+            updateActionDropdownVisibility();
         });
     });
 }
@@ -449,14 +462,22 @@ function initDragReorder() {
             console.log('Drop event');
             
             if (draggedRow && draggedRow !== row) {
-                // Check if we're dropping on the last row
-                const isLastRow = row === tbody.lastElementChild;
+                // Get the position of dragged row and target row
+                const draggedIndex = Array.from(tbody.children).indexOf(draggedRow);
+                const targetIndex = Array.from(tbody.children).indexOf(row);
                 
-                if (isLastRow) {
-                    // If dropping on last row, append after it
-                    tbody.appendChild(draggedRow);
+                console.log('Dragged index:', draggedIndex, 'Target index:', targetIndex);
+                
+                // Determine the correct insertion point
+                if (draggedIndex < targetIndex) {
+                    // Dragging down: insert after the target row
+                    if (row.nextSibling) {
+                        tbody.insertBefore(draggedRow, row.nextSibling);
+                    } else {
+                        tbody.appendChild(draggedRow);
+                    }
                 } else {
-                    // Otherwise, insert before the target row
+                    // Dragging up: insert before the target row
                     tbody.insertBefore(draggedRow, row);
                 }
                 console.log('Row moved');
@@ -467,6 +488,56 @@ function initDragReorder() {
             row.style.borderTop = '';
         });
     });
+}
+
+// Action Dropdown Functionality
+function toggleActionDropdown(tabType) {
+    const dropdown = document.getElementById(`${tabType}ActionDropdown`);
+    const menu = document.getElementById(`${tabType}ActionMenu`);
+    const button = dropdown.querySelector('.purchase-action-dropdown-btn');
+    
+    if (dropdown.classList.contains('active')) {
+        dropdown.classList.remove('active');
+        button.classList.remove('active');
+    } else {
+        // Close other dropdowns first
+        document.querySelectorAll('.purchase-action-dropdown').forEach(dd => {
+            dd.classList.remove('active');
+            dd.querySelector('.purchase-action-dropdown-btn').classList.remove('active');
+        });
+        
+        dropdown.classList.add('active');
+        button.classList.add('active');
+    }
+}
+
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.purchase-action-dropdown')) {
+        document.querySelectorAll('.purchase-action-dropdown').forEach(dropdown => {
+            dropdown.classList.remove('active');
+            dropdown.querySelector('.purchase-action-dropdown-btn').classList.remove('active');
+        });
+    }
+});
+
+// Show action dropdown when rows are selected
+function updateActionDropdownVisibility() {
+    const selectedCheckboxes = document.querySelectorAll('.purchase-checkbox-row:checked');
+    const actionDropdowns = document.querySelectorAll('.purchase-action-dropdown');
+    
+    if (selectedCheckboxes.length > 0) {
+        actionDropdowns.forEach(dropdown => {
+            dropdown.style.display = 'inline-block';
+        });
+    } else {
+        actionDropdowns.forEach(dropdown => {
+            dropdown.style.display = 'none';
+            dropdown.classList.remove('active');
+            dropdown.querySelector('.purchase-action-dropdown-btn').classList.remove('active');
+        });
+    }
 }
 
 // Export functions
@@ -480,6 +551,27 @@ window.Purchase = {
     closeCreateItemForm: closeCreateItemForm,
     saveNewItem: saveNewItem
 };
+
+// Delete Modal Functions (Design Only)
+function deleteSelectedPRs() {
+    // Update the count in the modal
+    document.querySelector('.purchase-delete-count').textContent = '3';
+    
+    // Show the modal
+    document.getElementById('deleteModal').style.display = 'flex';
+}
+
+function closeDeleteModal() {
+    document.getElementById('deleteModal').style.display = 'none';
+}
+
+function confirmDelete() {
+    // Close the modal
+    closeDeleteModal();
+    
+    // Backend team will implement actual deletion logic here
+    console.log('Delete confirmed - Backend team to implement');
+}
 
 // Export offcanvas functions globally
 window.openPROffcanvas = openPROffcanvas;
