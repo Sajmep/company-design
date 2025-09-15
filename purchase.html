@@ -799,24 +799,25 @@
     </div>
     <!-- breadcrumb end -->
 
-    <div class="main-content">
-      <div class="purchase-container">
+  <div class="main-content">
+    <div class="purchase-container">
 
-        <!-- Tab Content -->
-        <div class="purchase-tab-content">
-          <!-- PR Tab -->
-          <div class="purchase-tab-panel active" data-tab="pr" role="tabpanel" aria-labelledby="purchase-tab-pr">
-            <div class="purchase-tab-header">
-              <div class="purchase-tab-title-section">
-                <h2>Purchase Request (PR)</h2>
-                <p>Create and manage purchase requests for your organization.</p>
+      <!-- Tab Content -->
+      <div class="purchase-tab-content">
+        <!-- PR Tab -->
+        <div class="purchase-tab-panel active" data-tab="pr" role="tabpanel" aria-labelledby="purchase-tab-pr">
+          <div class="purchase-tab-header">
+            <div class="purchase-tab-title-section">
+              <h2>Purchase Request (PR)</h2>
+              <p>Create and manage purchase requests for your organization.</p>
+            </div>
+            <div class="purchase-tab-controls">
+              <div class="purchase-search-container">
+                <input type="text" class="purchase-search-input" placeholder="Search PRs...">
+                <i class="fa-solid fa-search purchase-search-icon"></i>
               </div>
-              <div class="purchase-tab-controls">
-                <div class="purchase-search-container">
-                  <input type="text" class="purchase-search-input" placeholder="Search PRs...">
-                  <i class="fa-solid fa-search purchase-search-icon"></i>
-                </div>
 
+              <div class="action-buttons">
                 <div class="group-by-container">
                   <div class="group-by-button" onclick="toggleGroupByDropdown()">
                     <i class="fa-solid fa-chevron-down"></i>
@@ -837,7 +838,7 @@
                     </div>
                   </div>
                 </div>
-              
+  
                 <button class="purchase-filter-btn">
                   <i class="fa-solid fa-filter"></i>
                   Filter
@@ -888,207 +889,221 @@
                   <i class="fa-solid fa-plus"></i>
                   PR
                 </button>
+             
               </div>
+
+          </div>
+
+          </div>
+          
+          <!-- PR Content -->
+          <div class="purchase-tab-body" id="prContent">
+            <!-- View Toggle Buttons -->
+            <div class="purchase-view-toggle">
+              <button class="purchase-view-btn purchase-view-btn-active" title="List View">
+                <i class="fas fa-list"></i>
+              </button>
+              <button class="purchase-view-btn" title="Card View">
+                <i class="fas fa-th-large"></i>
+              </button>
             </div>
-            
-            <!-- PR Content -->
-            <div class="purchase-tab-body" id="prContent">
-              <!-- PR List Table -->
-              <div class="purchase-list-container">
-                <div class="purchase-list-table-container">
-                  <table class="purchase-list-table">
-                    <thead>
-                      <tr>
-                        <th>
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-header" id="selectAllPRs">
-                          <label for="selectAllPRs" class="purchase-checkbox-label"></label>
-                          <span class="purchase-checkbox-text"></span>
-                        </th>
+
+            <!-- PR List Table -->
+            <div class="purchase-list-container">
+              <div class="purchase-list-table-container">
+                <table class="purchase-list-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-header" id="selectAllPRs">
+                        <label for="selectAllPRs" class="purchase-checkbox-label"></label>
+                        <span class="purchase-checkbox-text"></span>
+                      </th>
                         <th class="purchase-drag-header">--</th>
-                        <th>PR No</th>
-                        <th>Dep</th>
-                        <th>Status</th>
-                        <th>Created By</th>
-                        <th>Created On</th>
-                        <th>Requested By</th>
-                        <th>Priority</th>
-                        <th>Required Date</th>
-                        <th>Delivery Location</th>
-                        <th>Attachments</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td class="purchase-list-checkbox">
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0012">
-                          <label for="pr-0012" class="purchase-checkbox-label"></label>
-                        </td>
-                        <td class="purchase-list-pr-number">PR-2025</td>
-                        <td class="purchase-list-department">IT</td>
-                        <td class="purchase-list-status">
-                          <span class="purchase-status-badge purchase-status-approved">Approved</span>
-                        </td>
-                        <td class="purchase-list-created-by">John Smith</td>
-                        <td class="purchase-list-created-on">2025-01-15</td>
-                        <td class="purchase-list-requester">John Smith</td>
-                        <td class="purchase-list-priority">
-                          <span class="purchase-priority-badge purchase-priority-medium">Medium</span>
-                        </td>
-                        <td class="purchase-list-required-date">2025-02-15</td>
-                        <td class="purchase-list-delivery-location">Main Office, Floor 3</td>
-                        <td class="purchase-list-attachments">
-                          <span class="purchase-attachment-count">3 files</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="purchase-list-checkbox">
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0011">
-                          <label for="pr-0011" class="purchase-checkbox-label"></label>
-                        </td>
-                        <td class="purchase-list-pr-number">PR-2025</td>
-                        <td class="purchase-list-department">HR</td>
-                        <td class="purchase-list-status">
-                          <span class="purchase-status-badge purchase-status-submitted">Submitted</span>
-                        </td>
-                        <td class="purchase-list-created-by">Sarah Johnson</td>
-                        <td class="purchase-list-created-on">2025-01-14</td>
-                        <td class="purchase-list-requester">Sarah Johnson</td>
-                        <td class="purchase-list-priority">
-                          <span class="purchase-priority-badge purchase-priority-high">High</span>
-                        </td>
-                        <td class="purchase-list-required-date">2025-02-01</td>
-                        <td class="purchase-list-delivery-location">Training Center, Building B</td>
-                        <td class="purchase-list-attachments">
-                          <span class="purchase-attachment-count">2 files</span>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td class="purchase-list-checkbox">
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0010">
-                          <label for="pr-0010" class="purchase-checkbox-label"></label>
-                        </td>
-                        <td class="purchase-list-pr-number">PR-2025</td>
-                        <td class="purchase-list-department">Finance</td>
-                        <td class="purchase-list-status">
-                          <span class="purchase-status-badge purchase-status-draft">Draft</span>
-                        </td>
-                        <td class="purchase-list-created-by">Mike Wilson</td>
-                        <td class="purchase-list-created-on">2025-01-13</td>
-                        <td class="purchase-list-requester">Mike Wilson</td>
-                        <td class="purchase-list-priority">
-                          <span class="purchase-priority-badge purchase-priority-low">Low</span>
-                        </td>
-                        <td class="purchase-list-required-date">2025-03-01</td>
-                        <td class="purchase-list-delivery-location">IT Department, Floor 2</td>
-                        <td class="purchase-list-attachments">
-                          <span class="purchase-attachment-count">1 file</span>
-                        </td>
-                      </tr>
-                    
-                    </tbody>
-                  </table>
-                </div>
+                      <th>PR No</th>
+                      <th>Dep</th>
+                      <th>Status</th>
+                      <th>Created By</th>
+                      <th>Created On</th>
+                      <th>Requested By</th>
+                      <th>Priority</th>
+                      <th>Required Date</th>
+                      <th>Delivery Location</th>
+                      <th>Attachments</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0012">
+                        <label for="pr-0012" class="purchase-checkbox-label"></label>
+                      </td>
+                      <td class="purchase-list-pr-number">PR-2025</td>
+                      <td class="purchase-list-department">IT</td>
+                      <td class="purchase-list-status">
+                        <span class="purchase-status-badge purchase-status-approved">Approved</span>
+                      </td>
+                      <td class="purchase-list-created-by">John Smith</td>
+                      <td class="purchase-list-created-on">2025-01-15</td>
+                      <td class="purchase-list-requester">John Smith</td>
+                      <td class="purchase-list-priority">
+                        <span class="purchase-priority-badge purchase-priority-medium">Medium</span>
+                      </td>
+                      <td class="purchase-list-required-date">2025-02-15</td>
+                      <td class="purchase-list-delivery-location">Main Office, Floor 3</td>
+                      <td class="purchase-list-attachments">
+                        <span class="purchase-attachment-count">3 files</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0011">
+                        <label for="pr-0011" class="purchase-checkbox-label"></label>
+                      </td>
+                      <td class="purchase-list-pr-number">PR-2025</td>
+                      <td class="purchase-list-department">HR</td>
+                      <td class="purchase-list-status">
+                        <span class="purchase-status-badge purchase-status-submitted">Submitted</span>
+                      </td>
+                      <td class="purchase-list-created-by">Sarah Johnson</td>
+                      <td class="purchase-list-created-on">2025-01-14</td>
+                      <td class="purchase-list-requester">Sarah Johnson</td>
+                      <td class="purchase-list-priority">
+                        <span class="purchase-priority-badge purchase-priority-high">High</span>
+                      </td>
+                      <td class="purchase-list-required-date">2025-02-01</td>
+                      <td class="purchase-list-delivery-location">Training Center, Building B</td>
+                      <td class="purchase-list-attachments">
+                        <span class="purchase-attachment-count">2 files</span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td class="purchase-list-checkbox">
+                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0010">
+                        <label for="pr-0010" class="purchase-checkbox-label"></label>
+                      </td>
+                      <td class="purchase-list-pr-number">PR-2025</td>
+                      <td class="purchase-list-department">Finance</td>
+                      <td class="purchase-list-status">
+                        <span class="purchase-status-badge purchase-status-draft">Draft</span>
+                      </td>
+                      <td class="purchase-list-created-by">Mike Wilson</td>
+                      <td class="purchase-list-created-on">2025-01-13</td>
+                      <td class="purchase-list-requester">Mike Wilson</td>
+                      <td class="purchase-list-priority">
+                        <span class="purchase-priority-badge purchase-priority-low">Low</span>
+                      </td>
+                      <td class="purchase-list-required-date">2025-03-01</td>
+                      <td class="purchase-list-delivery-location">IT Department, Floor 2</td>
+                      <td class="purchase-list-attachments">
+                        <span class="purchase-attachment-count">1 file</span>
+                      </td>
+                    </tr>
+                   
+                  </tbody>
+                </table>
               </div>
             </div>
+          </div>
+          
+          <!-- PR Form -->
+          <div class="purchase-form-container" id="prForm" style="display: none;">
+            <div class="purchase-form-header">
+              <h3>Create Purchase Request (PR)</h3>
+              <button class="purchase-form-close" onclick="closePurchaseForm('pr')">
+                <i class="fa-solid fa-times"></i>
+              </button>
+            </div>
             
-            <!-- PR Form -->
-            <div class="purchase-form-container" id="prForm" style="display: none;">
-              <div class="purchase-form-header">
-                <h3>Create Purchase Request (PR)</h3>
-                <button class="purchase-form-close" onclick="closePurchaseForm('pr')">
-                  <i class="fa-solid fa-times"></i>
-                </button>
-              </div>
-              
-              <form class="purchase-form" data-type="pr">
-                <!-- Row 1 -->
-                <div class="purchase-form-row">
-                  <div class="purchase-form-group">
-                    <label for="prNumber">PR Number</label>
-                    <input type="text" id="prNumber" name="prNumber" readonly value="PR-2024-001">
-                    <small class="purchase-rfq-help-text">Auto-generated</small>
-                  </div>
-                  <div class="purchase-form-group">
+            <form class="purchase-form" data-type="pr">
+              <!-- Row 1 -->
+              <div class="purchase-form-row">
+                <div class="purchase-form-group">
+                  <label for="prNumber">PR Number</label>
+                  <input type="text" id="prNumber" name="prNumber" readonly value="PR-2024-001">
+                  <small class="purchase-rfq-help-text">Auto-generated</small>
+                </div>
+                <div class="purchase-form-group">
                     <label for="prRequesterName">Requested By</label>
                     <input type="text" id="prRequesterName" name="requesterName" placeholder="Enter requested by" required>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prDepartment">Department</label>
-                    <select id="prDepartment" name="department" required>
-                      <option value="">Select Department</option>
-                      <option value="it">Information Technology</option>
-                      <option value="hr">Human Resources</option>
-                      <option value="finance">Finance</option>
-                      <option value="operations">Operations</option>
-                      <option value="marketing">Marketing</option>
-                      <option value="sales">Sales</option>
-                      <option value="procurement">Procurement</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prPriority">Priority</label>
-                    <select id="prPriority" name="priority" required>
-                      <option value="">Select Priority</option>
-                      <option value="low">Low</option>
-                      <option value="medium" selected>Medium</option>
-                      <option value="high">High</option>
-                      <option value="urgent">Urgent</option>
-                    </select>
-                  </div>
                 </div>
+                <div class="purchase-form-group">
+                  <label for="prDepartment">Department</label>
+                  <select id="prDepartment" name="department" required>
+                    <option value="">Select Department</option>
+                    <option value="it">Information Technology</option>
+                    <option value="hr">Human Resources</option>
+                    <option value="finance">Finance</option>
+                    <option value="operations">Operations</option>
+                    <option value="marketing">Marketing</option>
+                    <option value="sales">Sales</option>
+                    <option value="procurement">Procurement</option>
+                  </select>
+                </div>
+                <div class="purchase-form-group">
+                  <label for="prPriority">Priority</label>
+                  <select id="prPriority" name="priority" required>
+                    <option value="">Select Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                  </select>
+                </div>
+              </div>
 
-                <!-- Row 2 -->
-                <div class="purchase-form-row">
-                  <div class="purchase-form-group">
-                    <label for="prRequiredDate">Required Date</label>
-                    <input type="date" id="prRequiredDate" name="requiredDate" required>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prDeliveryLocation">Delivery Location</label>
-                    <input type="text" id="prDeliveryLocation" name="deliveryLocation" placeholder="Enter delivery location" required>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prContactName">Contact Name</label>
-                    <input type="text" id="prContactName" name="contactName" placeholder="Contact person name" required>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prContactMobile">Mobile Number</label>
-                    <input type="tel" id="prContactMobile" name="contactMobile" placeholder="Mobile number" required>
-                  </div>
+              <!-- Row 2 -->
+              <div class="purchase-form-row">
+                <div class="purchase-form-group">
+                  <label for="prRequiredDate">Required Date</label>
+                  <input type="date" id="prRequiredDate" name="requiredDate" required>
                 </div>
+                <div class="purchase-form-group">
+                  <label for="prDeliveryLocation">Delivery Location</label>
+                  <input type="text" id="prDeliveryLocation" name="deliveryLocation" placeholder="Enter delivery location" required>
+                </div>
+                <div class="purchase-form-group">
+                  <label for="prContactName">Contact Name</label>
+                  <input type="text" id="prContactName" name="contactName" placeholder="Contact person name" required>
+                </div>
+                <div class="purchase-form-group">
+                  <label for="prContactMobile">Mobile Number</label>
+                  <input type="tel" id="prContactMobile" name="contactMobile" placeholder="Mobile number" required>
+                </div>
+              </div>
 
-                <!-- Row 3 -->
-                <div class="purchase-form-row">
-                  <div class="purchase-form-group">
-                    <label for="prContactEmail">Email</label>
-                    <input type="email" id="prContactEmail" name="contactEmail" placeholder="Email address" required>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prAmount">Estimated Amount</label>
-                    <input type="number" id="prAmount" name="amount" placeholder="0.00" step="0.01">
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prCurrency">Currency</label>
-                    <select id="prCurrency" name="currency">
-                      <option value="USD">USD</option>
-                      <option value="EUR">EUR</option>
-                      <option value="SAR">SAR</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prCategory">Category</label>
-                    <select id="prCategory" name="category">
-                      <option value="">Select Category</option>
-                      <option value="office-supplies">Office Supplies</option>
-                      <option value="equipment">Equipment</option>
-                      <option value="services">Services</option>
-                      <option value="software">Software</option>
-                    </select>
-                  </div>
+              <!-- Row 3 -->
+              <div class="purchase-form-row">
+                <div class="purchase-form-group">
+                  <label for="prContactEmail">Email</label>
+                  <input type="email" id="prContactEmail" name="contactEmail" placeholder="Email address" required>
                 </div>
+                <div class="purchase-form-group">
+                  <label for="prAmount">Estimated Amount</label>
+                  <input type="number" id="prAmount" name="amount" placeholder="0.00" step="0.01">
+                </div>
+                <div class="purchase-form-group">
+                  <label for="prCurrency">Currency</label>
+                  <select id="prCurrency" name="currency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="SAR">SAR</option>
+                  </select>
+                </div>
+                <div class="purchase-form-group">
+                  <label for="prCategory">Category</label>
+                  <select id="prCategory" name="category">
+                    <option value="">Select Category</option>
+                    <option value="office-supplies">Office Supplies</option>
+                    <option value="equipment">Equipment</option>
+                    <option value="services">Services</option>
+                    <option value="software">Software</option>
+                  </select>
+                </div>
+              </div>
 
                 <!-- Items Table Section -->
-                <div class="purchase-form-group">
+              <div class="purchase-form-group">
                   <label>Items</label>
                   <div class="purchase-items-table-container">
                     <table class="purchase-items-table">
@@ -1123,8 +1138,8 @@
                       </tbody>
                     </table>
                   </div>
-                </div>
-
+              </div>
+              
                 <!-- Tabs Section -->
                 <div class="purchase-form-group">
                   <div class="purchase-tabs-section">
@@ -1160,20 +1175,20 @@
                       
                       <!-- Attachments Tab -->
                       <div class="purchase-tab-panel-content" id="attachmentsTab">
-                        <div class="purchase-form-group">
-                          <label for="prAttachments">Attachments</label>
-                          <div class="purchase-attachment-container">
-                            <input type="file" id="prAttachments" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt" style="display: none;" onchange="displaySelectedFiles(this)">
-                            <button type="button" class="purchase-upload-btn" onclick="document.getElementById('prAttachments').click()">
-                              <i class="fa-solid fa-upload"></i>
-                              Upload Files
-                            </button>
-                            <div class="purchase-upload-popover">
-                              Images, or justification documents
-                            </div>
-                          </div>
-                          <div class="purchase-files-list" id="prFilesList">
-                            <!-- Selected files will be displayed here -->
+              <div class="purchase-form-group">
+                <label for="prAttachments">Attachments</label>
+                <div class="purchase-attachment-container">
+                  <input type="file" id="prAttachments" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt" style="display: none;" onchange="displaySelectedFiles(this)">
+                  <button type="button" class="purchase-upload-btn" onclick="document.getElementById('prAttachments').click()">
+                    <i class="fa-solid fa-upload"></i>
+                    Upload Files
+                  </button>
+                  <div class="purchase-upload-popover">
+                    Images, or justification documents
+                  </div>
+                </div>
+                <div class="purchase-files-list" id="prFilesList">
+                  <!-- Selected files will be displayed here -->
                           </div>
                         </div>
                         
@@ -1194,340 +1209,340 @@
                         </div>
                       </div>
                     </div>
+                </div>
+              </div>
+              
+              <div class="purchase-form-actions">
+                <button type="button" class="purchase-btn-secondary" onclick="closePurchaseForm('pr')">Cancel</button>
+                <button type="submit" class="purchase-btn-primary">Create PR</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- RFQ Tab -->
+        <div class="purchase-tab-panel" data-tab="rfq" role="tabpanel" aria-labelledby="purchase-tab-rfq">
+          <div class="purchase-tab-header">
+            <div class="purchase-tab-title-section">
+              <h2>Request for Quotation (RFQ)</h2>
+              <p>Send quotation requests to suppliers and compare offers.</p>
+            </div>
+            <div class="purchase-tab-controls">
+              <div class="purchase-search-container">
+                <input type="text" class="purchase-search-input" placeholder="Search RFQs...">
+                <i class="fa-solid fa-search purchase-search-icon"></i>
+              </div>
+             
+              <button class="purchase-filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
+              
+              <!-- Import Button -->
+              <button class="purchase-import-btn" onclick="importRFQs()">
+                <i class="fa-solid fa-upload"></i>
+                Import
+              </button>
+              
+              <!-- Action Dropdown (hidden by default) -->
+              <div class="purchase-action-dropdown" id="rfqActionDropdown" style="display: none;">
+                <button class="purchase-action-dropdown-btn" onclick="toggleActionDropdown('rfq')">
+                  <i class="fa-solid fa-ellipsis-v"></i>
+                  Actions
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="purchase-action-menu" id="rfqActionMenu">
+                  <div class="purchase-action-item" onclick="importRFQs()">
+                    <i class="fa-solid fa-upload"></i>
+                    <span>Import</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="exportRFQs()">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Export</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="editSelectedRFQs()">
+                    <i class="fa-solid fa-edit"></i>
+                    <span>Edit</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="duplicateSelectedRFQs()">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>Duplicate</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="mergeSelectedRFQs()">
+                    <i class="fa-solid fa-compress-arrows-alt"></i>
+                    <span>Merge</span>
+                  </div>
+                  <div class="purchase-action-divider"></div>
+                  <div class="purchase-action-item purchase-action-danger" onclick="deleteSelectedRFQs()">
+                    <i class="fa-solid fa-trash"></i>
+                    <span>Delete</span>
                   </div>
                 </div>
-                
-                <div class="purchase-form-actions">
-                  <button type="button" class="purchase-btn-secondary" onclick="closePurchaseForm('pr')">Cancel</button>
-                  <button type="submit" class="purchase-btn-primary">Create PR</button>
-                </div>
-              </form>
+              </div>
+              <button class="purchase-tab-create-btn" onclick="createPurchaseItem('rfq')">
+                <i class="fa-solid fa-plus"></i>
+                RFQ
+              </button>
             </div>
           </div>
-
-          <!-- RFQ Tab -->
-          <div class="purchase-tab-panel" data-tab="rfq" role="tabpanel" aria-labelledby="purchase-tab-rfq">
-            <div class="purchase-tab-header">
-              <div class="purchase-tab-title-section">
-                <h2>Request for Quotation (RFQ)</h2>
-                <p>Send quotation requests to suppliers and compare offers.</p>
-              </div>
-              <div class="purchase-tab-controls">
-                <div class="purchase-search-container">
-                  <input type="text" class="purchase-search-input" placeholder="Search RFQs...">
-                  <i class="fa-solid fa-search purchase-search-icon"></i>
-                </div>
-              
-                <button class="purchase-filter-btn">
-                  <i class="fa-solid fa-filter"></i>
-                  Filter
-                </button>
-                
-                <!-- Import Button -->
-                <button class="purchase-import-btn" onclick="importRFQs()">
-                  <i class="fa-solid fa-upload"></i>
-                  Import
-                </button>
-                
-                <!-- Action Dropdown (hidden by default) -->
-                <div class="purchase-action-dropdown" id="rfqActionDropdown" style="display: none;">
-                  <button class="purchase-action-dropdown-btn" onclick="toggleActionDropdown('rfq')">
-                    <i class="fa-solid fa-ellipsis-v"></i>
-                    Actions
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="purchase-action-menu" id="rfqActionMenu">
-                    <div class="purchase-action-item" onclick="importRFQs()">
-                      <i class="fa-solid fa-upload"></i>
-                      <span>Import</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="exportRFQs()">
-                      <i class="fa-solid fa-download"></i>
-                      <span>Export</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="editSelectedRFQs()">
-                      <i class="fa-solid fa-edit"></i>
-                      <span>Edit</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="duplicateSelectedRFQs()">
-                      <i class="fa-solid fa-copy"></i>
-                      <span>Duplicate</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="mergeSelectedRFQs()">
-                      <i class="fa-solid fa-compress-arrows-alt"></i>
-                      <span>Merge</span>
-                    </div>
-                    <div class="purchase-action-divider"></div>
-                    <div class="purchase-action-item purchase-action-danger" onclick="deleteSelectedRFQs()">
-                      <i class="fa-solid fa-trash"></i>
-                      <span>Delete</span>
-                    </div>
-                  </div>
-                </div>
-                <button class="purchase-tab-create-btn" onclick="createPurchaseItem('rfq')">
-                  <i class="fa-solid fa-plus"></i>
-                  RFQ
-                </button>
-              </div>
-            </div>
-            
-            <!-- RFQ Content -->
-            <div class="purchase-tab-body" id="rfqContent">
-              <div class="purchase-list-placeholder">
-                <i class="fa-solid fa-question-circle"></i>
-                <h3>No RFQ Requests</h3>
-                <p>Click "Create RFQ" to add your first quotation request.</p>
-              </div>
-            </div>
-            
-            <!-- RFQ Form -->
-            <div class="purchase-form-container" id="rfqForm" style="display: none;">
-              <div class="purchase-form-header">
-                <h3>Create Request for Quotation (RFQ)</h3>
-                <button class="purchase-form-close" onclick="closePurchaseForm('rfq')">
-                  <i class="fa-solid fa-times"></i>
-                </button>
-              </div>
-              
-              <form class="purchase-form" data-type="rfq">
-                <!-- RFQ Number (Auto-generated) -->
-                <div class="purchase-form-group">
-                  <label for="rfqNumber">RFQ Number</label>
-                  <input type="text" id="rfqNumber" name="rfqNumber" readonly value="RFQ-2024-001">
-                  <small class="purchase-rfq-help-text">Auto-generated by system</small>
-                </div>
-                
-                <!-- Vendor Categories Selection -->
-                <div class="purchase-form-group">
-                  <label for="rfqVendorCategories">Vendor Categories</label>
-                  <div class="purchase-rfq-vendor-selection-container">
-                    <div class="purchase-rfq-vendor-input-group">
-                      <select id="rfqVendorCategories" class="purchase-rfq-vendor-select">
-                        <option value="">Select from vendor categories</option>
-                        <option value="b2b">B2B</option>
-                        <option value="b2c">B2C</option>
-                        <option value="b2b2c">B2B2C</option>
-                        <option value="b2b2b">B2B2B</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Vendors Selection -->
-                <div class="purchase-form-group">
-                  <label for="rfqVendors">Vendors</label>
-                  <div class="purchase-rfq-vendor-selection-container">
-                    <div class="purchase-rfq-vendor-input-group">
-                      <select id="rfqVendors" class="purchase-rfq-vendor-select">
-                        <option value="">Select vendor</option>
-                        <option value="vendor1">ABC Suppliers</option>
-                        <option value="vendor2">XYZ Trading</option>
-                        <option value="vendor3">Global Materials</option>
-                        <option value="vendor4">Tech Solutions</option>
-                      </select>
-                    </div>
-                    
-                  
-                  </div>
-                </div>
-                
-                <!-- Items Section -->
-                <div class="purchase-form-group">
-                  <label>Items</label>
-                  <div class="purchase-rfq-items-section">
-                    <!-- Add Item Dropdown -->
-                    <div class="purchase-add-item-dropdown">
-                      <button type="button" class="purchase-add-item-btn" onclick="toggleAddItemDropdown()">
-                        <i class="fa-solid fa-plus"></i>
-                        Add Item
-                        <i class="fa-solid fa-chevron-down purchase-add-item-arrow"></i>
-                      </button>
-                      
-                      <div class="purchase-add-item-menu" id="addItemMenu">
-                        <div class="purchase-add-item-option" onclick="selectExistingItem()">
-                          <i class="fa-solid fa-list"></i>
-                          <span>Select from existing</span>
-                        </div>
-                        <div class="purchase-add-item-option" onclick="createNewItem()">
-                          <i class="fa-solid fa-plus-circle"></i>
-                          <span>Create new item</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div class="purchase-rfq-items-list" id="itemsList">
-                      <!-- Items will be added here -->
-                      
-                    </div>
-                  </div>
-                </div>
-                
-                <!-- Requested Date / Deadline -->
-                <div class="purchase-form-group">
-                  <label for="rfqRequestedDate">Requested Date / Deadline</label>
-                  <input type="datetime-local" id="rfqRequestedDate" name="requestedDate" required>
-                  <small class="purchase-rfq-help-text">When vendors should respond</small>
-                </div>
-                
-                <!-- Status -->
-                <div class="purchase-form-group">
-                  <label for="rfqStatus">Status</label>
-                  <select id="rfqStatus" name="status" required>
-                    <option value="draft" selected>Draft</option>
-                    <option value="sent">Sent</option>
-                  </select>
-                </div>
-                
-                <div class="purchase-form-actions">
-                  <button type="button" class="purchase-btn-secondary" onclick="closePurchaseForm('rfq')">Cancel</button>
-                  <button type="submit" class="purchase-btn-primary">Create RFQ</button>
-                </div>
-              </form>
+          
+          <!-- RFQ Content -->
+          <div class="purchase-tab-body" id="rfqContent">
+            <div class="purchase-list-placeholder">
+              <i class="fa-solid fa-question-circle"></i>
+              <h3>No RFQ Requests</h3>
+              <p>Click "Create RFQ" to add your first quotation request.</p>
             </div>
           </div>
-
-          <!-- PO Tab -->
-          <div class="purchase-tab-panel" data-tab="po" role="tabpanel" aria-labelledby="purchase-tab-po">
-            <div class="purchase-tab-header">
-              <div class="purchase-tab-title-section">
-                <h2>Purchase Order (PO)</h2>
-                <p>Generate and track purchase orders for approved requests.</p>
-              </div>
-              <div class="purchase-tab-controls">
-                <div class="purchase-search-container">
-                  <input type="text" class="purchase-search-input" placeholder="Search POs...">
-                  <i class="fa-solid fa-search purchase-search-icon"></i>
-                </div>
-              
-                <button class="purchase-filter-btn">
-                  <i class="fa-solid fa-filter"></i>
-                  Filter
-                </button>
-                
-                <!-- Import Button -->
-                <button class="purchase-import-btn" onclick="importPOs()">
-                  <i class="fa-solid fa-upload"></i>
-                  Import
-                </button>
-                
-                <!-- Action Dropdown (hidden by default) -->
-                <div class="purchase-action-dropdown" id="poActionDropdown" style="display: none;">
-                  <button class="purchase-action-dropdown-btn" onclick="toggleActionDropdown('po')">
-                    <i class="fa-solid fa-ellipsis-v"></i>
-                    Actions
-                    <i class="fa-solid fa-chevron-down"></i>
-                  </button>
-                  <div class="purchase-action-menu" id="poActionMenu">
-                    <div class="purchase-action-item" onclick="importPOs()">
-                      <i class="fa-solid fa-upload"></i>
-                      <span>Import</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="exportPOs()">
-                      <i class="fa-solid fa-download"></i>
-                      <span>Export</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="editSelectedPOs()">
-                      <i class="fa-solid fa-edit"></i>
-                      <span>Edit</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="duplicateSelectedPOs()">
-                      <i class="fa-solid fa-copy"></i>
-                      <span>Duplicate</span>
-                    </div>
-                    <div class="purchase-action-item" onclick="mergeSelectedPOs()">
-                      <i class="fa-solid fa-compress-arrows-alt"></i>
-                      <span>Merge</span>
-                    </div>
-                    <div class="purchase-action-divider"></div>
-                    <div class="purchase-action-item purchase-action-danger" onclick="deleteSelectedPOs()">
-                      <i class="fa-solid fa-trash"></i>
-                      <span>Delete</span>
-                    </div>
-                  </div>
-                </div>
-                <button class="purchase-tab-create-btn" onclick="createPurchaseItem('po')">
-                  <i class="fa-solid fa-plus"></i>
-                  PO
-                </button>
-              </div>
+          
+          <!-- RFQ Form -->
+          <div class="purchase-form-container" id="rfqForm" style="display: none;">
+            <div class="purchase-form-header">
+              <h3>Create Request for Quotation (RFQ)</h3>
+              <button class="purchase-form-close" onclick="closePurchaseForm('rfq')">
+                <i class="fa-solid fa-times"></i>
+              </button>
             </div>
             
-            <!-- PO Content -->
-            <div class="purchase-tab-body" id="poContent">
-              <div class="purchase-list-placeholder">
-                <i class="fa-solid fa-receipt"></i>
-                <h3>No Purchase Orders</h3>
-                <p>Click "Create PO" to add your first purchase order.</p>
-              </div>
-            </div>
-            
-            <!-- PO Form -->
-            <div class="purchase-form-container" id="poForm" style="display: none;">
-              <div class="purchase-form-header">
-                <h3>Create Purchase Order (PO)</h3>
-                <button class="purchase-form-close" onclick="closePurchaseForm('po')">
-                  <i class="fa-solid fa-times"></i>
-                </button>
+            <form class="purchase-form" data-type="rfq">
+              <!-- RFQ Number (Auto-generated) -->
+              <div class="purchase-form-group">
+                <label for="rfqNumber">RFQ Number</label>
+                <input type="text" id="rfqNumber" name="rfqNumber" readonly value="RFQ-2024-001">
+                <small class="purchase-rfq-help-text">Auto-generated by system</small>
               </div>
               
-              <form class="purchase-form" data-type="po">
-                <div class="purchase-form-group">
-                  <label for="poTitle">Title</label>
-                  <input type="text" id="poTitle" name="title" required>
-                </div>
-                
-                <div class="purchase-form-group">
-                  <label for="poDescription">Description</label>
-                  <textarea id="poDescription" name="description" rows="4"></textarea>
-                </div>
-                
-                <div class="purchase-form-row">
-                  <div class="purchase-form-group">
-                    <label for="poAmount">Amount</label>
-                    <input type="number" id="poAmount" name="amount" step="0.01">
-                  </div>
-                  
-                  <div class="purchase-form-group">
-                    <label for="poCurrency">Currency</label>
-                    <select id="poCurrency" name="currency">
-                      <option value="USD">USD</option>
-                      <option value="EUR">EUR</option>
-                      <option value="GBP">GBP</option>
-                      <option value="SAR">SAR</option>
+              <!-- Vendor Categories Selection -->
+              <div class="purchase-form-group">
+                <label for="rfqVendorCategories">Vendor Categories</label>
+                <div class="purchase-rfq-vendor-selection-container">
+                  <div class="purchase-rfq-vendor-input-group">
+                    <select id="rfqVendorCategories" class="purchase-rfq-vendor-select">
+                      <option value="">Select from vendor categories</option>
+                      <option value="b2b">B2B</option>
+                      <option value="b2c">B2C</option>
+                      <option value="b2b2c">B2B2C</option>
+                      <option value="b2b2b">B2B2B</option>
                     </select>
                   </div>
                 </div>
-                
+              </div>
+              
+              <!-- Vendors Selection -->
+              <div class="purchase-form-group">
+                <label for="rfqVendors">Vendors</label>
+                <div class="purchase-rfq-vendor-selection-container">
+                  <div class="purchase-rfq-vendor-input-group">
+                    <select id="rfqVendors" class="purchase-rfq-vendor-select">
+                      <option value="">Select vendor</option>
+                      <option value="vendor1">ABC Suppliers</option>
+                      <option value="vendor2">XYZ Trading</option>
+                      <option value="vendor3">Global Materials</option>
+                      <option value="vendor4">Tech Solutions</option>
+                    </select>
+                  </div>
+                  
+                 
+                </div>
+              </div>
+              
+              <!-- Items Section -->
+              <div class="purchase-form-group">
+                <label>Items</label>
+                <div class="purchase-rfq-items-section">
+                  <!-- Add Item Dropdown -->
+                  <div class="purchase-add-item-dropdown">
+                    <button type="button" class="purchase-add-item-btn" onclick="toggleAddItemDropdown()">
+                      <i class="fa-solid fa-plus"></i>
+                      Add Item
+                      <i class="fa-solid fa-chevron-down purchase-add-item-arrow"></i>
+                    </button>
+                    
+                    <div class="purchase-add-item-menu" id="addItemMenu">
+                      <div class="purchase-add-item-option" onclick="selectExistingItem()">
+                        <i class="fa-solid fa-list"></i>
+                        <span>Select from existing</span>
+                      </div>
+                      <div class="purchase-add-item-option" onclick="createNewItem()">
+                        <i class="fa-solid fa-plus-circle"></i>
+                        <span>Create new item</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="purchase-rfq-items-list" id="itemsList">
+                    <!-- Items will be added here -->
+                    
+                      </div>
+                </div>
+              </div>
+              
+              <!-- Requested Date / Deadline -->
+              <div class="purchase-form-group">
+                <label for="rfqRequestedDate">Requested Date / Deadline</label>
+                <input type="datetime-local" id="rfqRequestedDate" name="requestedDate" required>
+                <small class="purchase-rfq-help-text">When vendors should respond</small>
+              </div>
+              
+              <!-- Status -->
+              <div class="purchase-form-group">
+                <label for="rfqStatus">Status</label>
+                <select id="rfqStatus" name="status" required>
+                  <option value="draft" selected>Draft</option>
+                  <option value="sent">Sent</option>
+                </select>
+              </div>
+              
+              <div class="purchase-form-actions">
+                <button type="button" class="purchase-btn-secondary" onclick="closePurchaseForm('rfq')">Cancel</button>
+                <button type="submit" class="purchase-btn-primary">Create RFQ</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- PO Tab -->
+        <div class="purchase-tab-panel" data-tab="po" role="tabpanel" aria-labelledby="purchase-tab-po">
+          <div class="purchase-tab-header">
+            <div class="purchase-tab-title-section">
+              <h2>Purchase Order (PO)</h2>
+              <p>Generate and track purchase orders for approved requests.</p>
+            </div>
+            <div class="purchase-tab-controls">
+              <div class="purchase-search-container">
+                <input type="text" class="purchase-search-input" placeholder="Search POs...">
+                <i class="fa-solid fa-search purchase-search-icon"></i>
+              </div>
+             
+              <button class="purchase-filter-btn">
+                <i class="fa-solid fa-filter"></i>
+                Filter
+              </button>
+              
+              <!-- Import Button -->
+              <button class="purchase-import-btn" onclick="importPOs()">
+                <i class="fa-solid fa-upload"></i>
+                Import
+              </button>
+              
+              <!-- Action Dropdown (hidden by default) -->
+              <div class="purchase-action-dropdown" id="poActionDropdown" style="display: none;">
+                <button class="purchase-action-dropdown-btn" onclick="toggleActionDropdown('po')">
+                  <i class="fa-solid fa-ellipsis-v"></i>
+                  Actions
+                  <i class="fa-solid fa-chevron-down"></i>
+                </button>
+                <div class="purchase-action-menu" id="poActionMenu">
+                  <div class="purchase-action-item" onclick="importPOs()">
+                    <i class="fa-solid fa-upload"></i>
+                    <span>Import</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="exportPOs()">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Export</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="editSelectedPOs()">
+                    <i class="fa-solid fa-edit"></i>
+                    <span>Edit</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="duplicateSelectedPOs()">
+                    <i class="fa-solid fa-copy"></i>
+                    <span>Duplicate</span>
+                  </div>
+                  <div class="purchase-action-item" onclick="mergeSelectedPOs()">
+                    <i class="fa-solid fa-compress-arrows-alt"></i>
+                    <span>Merge</span>
+                  </div>
+                  <div class="purchase-action-divider"></div>
+                  <div class="purchase-action-item purchase-action-danger" onclick="deleteSelectedPOs()">
+                    <i class="fa-solid fa-trash"></i>
+                    <span>Delete</span>
+                  </div>
+                </div>
+              </div>
+              <button class="purchase-tab-create-btn" onclick="createPurchaseItem('po')">
+                <i class="fa-solid fa-plus"></i>
+                PO
+              </button>
+            </div>
+          </div>
+          
+          <!-- PO Content -->
+          <div class="purchase-tab-body" id="poContent">
+            <div class="purchase-list-placeholder">
+              <i class="fa-solid fa-receipt"></i>
+              <h3>No Purchase Orders</h3>
+              <p>Click "Create PO" to add your first purchase order.</p>
+            </div>
+          </div>
+          
+          <!-- PO Form -->
+          <div class="purchase-form-container" id="poForm" style="display: none;">
+            <div class="purchase-form-header">
+              <h3>Create Purchase Order (PO)</h3>
+              <button class="purchase-form-close" onclick="closePurchaseForm('po')">
+                <i class="fa-solid fa-times"></i>
+              </button>
+            </div>
+            
+            <form class="purchase-form" data-type="po">
+              <div class="purchase-form-group">
+                <label for="poTitle">Title</label>
+                <input type="text" id="poTitle" name="title" required>
+              </div>
+              
+              <div class="purchase-form-group">
+                <label for="poDescription">Description</label>
+                <textarea id="poDescription" name="description" rows="4"></textarea>
+              </div>
+              
+              <div class="purchase-form-row">
                 <div class="purchase-form-group">
-                  <label for="poSupplier">Supplier</label>
-                  <input type="text" id="poSupplier" name="supplier">
+                  <label for="poAmount">Amount</label>
+                  <input type="number" id="poAmount" name="amount" step="0.01">
                 </div>
                 
                 <div class="purchase-form-group">
-                  <label for="poPriority">Priority</label>
-                  <select id="poPriority" name="priority">
-                    <option value="low">Low</option>
-                    <option value="medium" selected>Medium</option>
-                    <option value="high">High</option>
-                    <option value="urgent">Urgent</option>
+                  <label for="poCurrency">Currency</label>
+                  <select id="poCurrency" name="currency">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP">GBP</option>
+                    <option value="SAR">SAR</option>
                   </select>
                 </div>
-                
-                <div class="purchase-form-group">
-                  <label for="poDueDate">Delivery Date</label>
-                  <input type="date" id="poDueDate" name="dueDate">
-                </div>
-                
-                <div class="purchase-form-actions">
-                  <button type="button" class="purchase-btn-secondary" onclick="closePurchaseForm('po')">Cancel</button>
-                  <button type="submit" class="purchase-btn-primary">Create PO</button>
-                </div>
-              </form>
-            </div>
+              </div>
+              
+              <div class="purchase-form-group">
+                <label for="poSupplier">Supplier</label>
+                <input type="text" id="poSupplier" name="supplier">
+              </div>
+              
+              <div class="purchase-form-group">
+                <label for="poPriority">Priority</label>
+                <select id="poPriority" name="priority">
+                  <option value="low">Low</option>
+                  <option value="medium" selected>Medium</option>
+                  <option value="high">High</option>
+                  <option value="urgent">Urgent</option>
+                </select>
+              </div>
+              
+              <div class="purchase-form-group">
+                <label for="poDueDate">Delivery Date</label>
+                <input type="date" id="poDueDate" name="dueDate">
+              </div>
+              
+              <div class="purchase-form-actions">
+                <button type="button" class="purchase-btn-secondary" onclick="closePurchaseForm('po')">Cancel</button>
+                <button type="submit" class="purchase-btn-primary">Create PO</button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
   </main>
 
@@ -1670,11 +1685,12 @@
               </div>
             
               <!-- Items Table Section -->
-              <div class="pr-items-section">
-                <div class="pr-items-header">
+              <div class="pr-items-section collapsed">
+                <div class="pr-items-header" onclick="togglePRItems()">
                   <h4>Items requested</h4>
+                  <i class="fa-solid fa-chevron-down pr-items-toggle-icon"></i>
                 </div>
-                <div class="pr-items-table-container">
+                <div class="pr-items-table-container" id="prItemsContent">
                   <table class="pr-items-table">
                     <thead>
                       <tr>
@@ -1712,11 +1728,13 @@
             </div>
            
             <!-- pr description section -->
-            <div class="pr-description-section">
-              <div class="pr-description-header">
+            <div class="pr-description-section collapsed">
+              <div class="pr-description-header" onclick="togglePRDescription()">
                 <h4>Description</h4>
+                <i class="fa-solid fa-chevron-down pr-description-toggle-icon"></i>
               </div>
-               <p class="pr-description">This request includes essential office equipment and supplies:
+               <div class="pr-description-content" id="prDescriptionContent">
+                 <p class="pr-description">This request includes essential office equipment and supplies:
 
                 Laptop Computer (Dell Inspiron 15): For daily computing and productivity tasks.
                 
@@ -1725,28 +1743,35 @@
                 Printer Paper (A4 White 80gsm): Standard paper for printing and documentation needs.
                 
                 Projector (HD 1080p Wireless): For presentations, meetings, and training sessions.</p>
+               </div>
             </div>
             
               <!-- pr justification section -->
-              <div class="pr-description-section">
-                <div class="pr-description-header">
+              <div class="pr-description-section collapsed">
+                <div class="pr-description-header" onclick="togglePRJustification()">
                   <h4>Justification</h4>
+                  <i class="fa-solid fa-chevron-down pr-description-toggle-icon"></i>
                 </div>
-                <p class="pr-description">The requested items are necessary to support daily office operations and improve staff productivity. The laptop computer will be used for essential work tasks and project management. The ergonomic office chair is required to ensure employee comfort and reduce health risks during long working hours. The printer paper is needed for routine documentation and printing requirements. The HD projector will support presentations, meetings, and training sessions, enhancing collaboration and communication.</p>
+                <div class="pr-description-content" id="prJustificationContent">
+                  <p class="pr-description">The requested items are necessary to support daily office operations and improve staff productivity. The laptop computer will be used for essential work tasks and project management. The ergonomic office chair is required to ensure employee comfort and reduce health risks during long working hours. The printer paper is needed for routine documentation and printing requirements. The HD projector will support presentations, meetings, and training sessions, enhancing collaboration and communication.</p>
+                </div>
               </div>
 
               <!-- pr notes section -->
-              <div class="pr-description-section">
-                <div class="pr-description-header">
+              <div class="pr-description-section collapsed">
+                <div class="pr-description-header" onclick="togglePRNotes()">
                   <h4>Additional Notes</h4>
+                  <i class="fa-solid fa-chevron-down pr-description-toggle-icon"></i>
                 </div>
-                <p class="pr-description">All items are requested to enhance efficiency and maintain smooth office operations.
+                <div class="pr-description-content" id="prNotesContent">
+                  <p class="pr-description">All items are requested to enhance efficiency and maintain smooth office operations.
 
-                  Preference for durable, reliable brands to reduce maintenance costs.
-                  
-                  Delivery within the next two weeks is preferred to meet upcoming project deadlines.
-                  
-                  Warranty and after-sales support should be included where applicable.</p>
+                    Preference for durable, reliable brands to reduce maintenance costs.
+                    
+                    Delivery within the next two weeks is preferred to meet upcoming project deadlines.
+                    
+                    Warranty and after-sales support should be included where applicable.</p>
+                </div>
               </div>
 
           </div>

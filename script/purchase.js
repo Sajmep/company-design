@@ -762,11 +762,39 @@ function togglePROverview() {
     overviewSection.classList.toggle('collapsed');
 }
 
+// Toggle PR Items Section
+function togglePRItems() {
+    var itemsSection = document.querySelector('.pr-items-section');
+    itemsSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Description Section
+function togglePRDescription() {
+    var descriptionSection = document.querySelector('#prDescriptionContent').closest('.pr-description-section');
+    descriptionSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Justification Section
+function togglePRJustification() {
+    var justificationSection = document.querySelector('#prJustificationContent').closest('.pr-description-section');
+    justificationSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Notes Section
+function togglePRNotes() {
+    var notesSection = document.querySelector('#prNotesContent').closest('.pr-description-section');
+    notesSection.classList.toggle('collapsed');
+}
+
 // Export staging functions globally
 window.approvePR = approvePR;
 window.rejectPR = rejectPR;
 window.toggleOffcanvasWidth = toggleOffcanvasWidth;
 window.togglePROverview = togglePROverview;
+window.togglePRItems = togglePRItems;
+window.togglePRDescription = togglePRDescription;
+window.togglePRJustification = togglePRJustification;
+window.togglePRNotes = togglePRNotes;
 
 // Offcanvas Resize Function
 function toggleOffcanvasWidth() {
