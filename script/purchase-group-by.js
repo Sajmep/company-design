@@ -35,34 +35,3 @@ document.addEventListener('click', function(event) {
     }
 });
 
-// Toggle section expand/collapse
-function toggleSection(sectionName) {
-    const section = document.querySelector(`#${sectionName}-content`).closest('.dropdown-section');
-    const isExpanded = section.classList.contains('expanded');
-    
-    if (isExpanded) {
-        section.classList.remove('expanded');
-    } else {
-        section.classList.add('expanded');
-    }
-}
-
-// Handle sub-item selection
-document.addEventListener('click', function(event) {
-    if (event.target.closest('.sub-item')) {
-        const item = event.target.closest('.sub-item');
-        const value = item.getAttribute('data-value');
-        
-        // Remove previous selection
-        document.querySelectorAll('.sub-item').forEach(el => el.classList.remove('selected'));
-        
-        // Add selection to clicked item
-        item.classList.add('selected');
-        
-        // You can customize this based on your needs
-        console.log('Selected group by:', value);
-        
-        // Close dropdown
-        closeGroupByDropdown();
-    }
-});

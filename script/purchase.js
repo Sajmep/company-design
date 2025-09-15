@@ -573,6 +573,217 @@ function confirmDelete() {
     console.log('Delete confirmed - Backend team to implement');
 }
 
+// Tab switching function
+function switchTab(tabName) {
+    // Remove active class from all tabs and panels
+    document.querySelectorAll('.pr-tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.pr-tab-panel').forEach(panel => panel.classList.remove('active'));
+    
+    // Add active class to selected tab and panel
+    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
+    document.getElementById(`${tabName}-panel`).classList.add('active');
+}
+
 // Export offcanvas functions globally
 window.openPROffcanvas = openPROffcanvas;
 window.closePROffcanvas = closePROffcanvas;
+
+// Purchase Form Tabs Functions
+function switchPurchaseFormTab(tabName, event) {
+    // Prevent form submission
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+    
+    // Remove active class from all tab buttons and panels
+    document.querySelectorAll('.purchase-tab-nav-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.purchase-tab-panel-content').forEach(panel => panel.classList.remove('active'));
+    
+    // Add active class to selected tab button
+    const activeButton = document.querySelector(`.purchase-tab-nav-btn[data-tab="${tabName}"]`);
+    if (activeButton) {
+        activeButton.classList.add('active');
+    }
+    
+    // Add active class to selected tab panel
+    const activePanel = document.getElementById(`${tabName}Tab`);
+    if (activePanel) {
+        activePanel.classList.add('active');
+    }
+}
+
+// Links Management Functions
+function addLink() {
+    const linkInput = document.getElementById('prLinkInput');
+    const linksList = document.getElementById('prLinksList');
+    
+    if (!linkInput || !linksList) return;
+    
+    const url = linkInput.value.trim();
+    if (!url) {
+        alert('Please enter a valid URL');
+        return;
+    }
+    
+    // Basic URL validation
+    try {
+        new URL(url);
+    } catch (e) {
+        alert('Please enter a valid URL');
+        return;
+    }
+    
+    // Check if link already exists
+    const existingLinks = linksList.querySelectorAll('.purchase-link-url');
+    for (let link of existingLinks) {
+        if (link.href === url) {
+            alert('This link has already been added');
+            return;
+        }
+    }
+    
+    // Create link item
+    const linkItem = document.createElement('div');
+    linkItem.className = 'purchase-link-item';
+    linkItem.innerHTML = `
+        <div class="purchase-link-info">
+            <i class="purchase-link-icon fa-solid fa-link"></i>
+            <a href="${url}" target="_blank" class="purchase-link-url">${url}</a>
+        </div>
+        <button type="button" class="purchase-link-remove" onclick="removeLink(this)" title="Remove Link">
+            <i class="fa-solid fa-times"></i>
+        </button>
+    `;
+    
+    linksList.appendChild(linkItem);
+    linkInput.value = '';
+}
+
+function removeLink(button) {
+    const linkItem = button.closest('.purchase-link-item');
+    if (linkItem) {
+        linkItem.remove();
+    }
+}
+
+// Initialize form tabs when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize tabs
+    const firstTab = document.querySelector('.purchase-tab-nav-btn');
+    if (firstTab) {
+        firstTab.classList.add('active');
+    }
+    
+    const firstPanel = document.querySelector('.purchase-tab-panel-content');
+    if (firstPanel) {
+        firstPanel.classList.add('active');
+    }
+});
+
+// Export tab functions globally
+window.switchPurchaseFormTab = switchPurchaseFormTab;
+window.addLink = addLink;
+window.removeLink = removeLink;
+
+// PR Staging Functions
+function approvePR() {
+    // Update status
+    const statusValue = document.querySelector('.pr-status-value');
+    if (statusValue) {
+        statusValue.textContent = 'Approved';
+        statusValue.className = 'pr-status-value pr-status-approved';
+    }
+    
+    // Update progress
+    const progressFill = document.querySelector('.pr-progress-fill');
+    const progressText = document.querySelector('.pr-progress-text');
+    if (progressFill && progressText) {
+        progressFill.style.width = '100%';
+        progressText.textContent = '100% Complete';
+    }
+    
+    // Disable buttons
+    const approveBtn = document.querySelector('.pr-staging-approve');
+    const rejectBtn = document.querySelector('.pr-staging-reject');
+    if (approveBtn) {
+        approveBtn.disabled = true;
+        approveBtn.style.opacity = '0.5';
+        approveBtn.style.cursor = 'not-allowed';
+    }
+    if (rejectBtn) {
+        rejectBtn.disabled = true;
+        rejectBtn.style.opacity = '0.5';
+        rejectBtn.style.cursor = 'not-allowed';
+    }
+    
+    console.log('PR Approved');
+    alert('PR has been approved successfully!');
+}
+
+function rejectPR() {
+    // Update status
+    const statusValue = document.querySelector('.pr-status-value');
+    if (statusValue) {
+        statusValue.textContent = 'Rejected';
+        statusValue.className = 'pr-status-value pr-status-rejected';
+    }
+    
+    // Update progress
+    const progressFill = document.querySelector('.pr-progress-fill');
+    const progressText = document.querySelector('.pr-progress-text');
+    if (progressFill && progressText) {
+        progressFill.style.width = '0%';
+        progressFill.style.background = '#ef4444';
+        progressText.textContent = '0% Complete';
+    }
+    
+    // Disable buttons
+    const approveBtn = document.querySelector('.pr-staging-approve');
+    const rejectBtn = document.querySelector('.pr-staging-reject');
+    if (approveBtn) {
+        approveBtn.disabled = true;
+        approveBtn.style.opacity = '0.5';
+        approveBtn.style.cursor = 'not-allowed';
+    }
+    if (rejectBtn) {
+        rejectBtn.disabled = true;
+        rejectBtn.style.opacity = '0.5';
+        rejectBtn.style.cursor = 'not-allowed';
+    }
+    
+    console.log('PR Rejected');
+    alert('PR has been rejected.');
+}
+
+// Toggle PR Overview Section
+function togglePROverview() {
+    var overviewSection = document.querySelector('.pr-overview-section');
+    overviewSection.classList.toggle('collapsed');
+}
+
+// Export staging functions globally
+window.approvePR = approvePR;
+window.rejectPR = rejectPR;
+window.toggleOffcanvasWidth = toggleOffcanvasWidth;
+window.togglePROverview = togglePROverview;
+
+// Offcanvas Resize Function
+function toggleOffcanvasWidth() {
+    var offcanvas = document.querySelector('.purchase-offcanvas-content');
+    var resizeBtn = document.querySelector('.purchase-offcanvas-resize-btn');
+    var icon = resizeBtn.querySelector('.offcanvas-resize-icon');
+    
+    // Toggle the full width class
+    offcanvas.classList.toggle('purchase-offcanvas-content-full');
+    resizeBtn.classList.toggle('purchase-offcanvas-resize-btn-full');
+    
+    // Change arrow direction based on state
+    if (offcanvas.classList.contains('purchase-offcanvas-content-full')) {
+        // Expanded state - show right arrow
+        icon.className = 'fa-solid fa-chevron-right offcanvas-resize-icon';
+    } else {
+        // Collapsed state - show left arrow
+        icon.className = 'fa-solid fa-chevron-left offcanvas-resize-icon';
+    }
+}
