@@ -1584,11 +1584,11 @@
   background: #fff;
   border: 1px solid #e5e7eb;
   border-radius: 6px;
-  padding: 8px 12px;
+  padding: 6px 10px;
   cursor: pointer;
   transition: all 0.2s ease;
   color: #6b7280;
-  font-size: 14px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1612,6 +1612,176 @@
   background: #7c3aed;
   border-color: #7c3aed;
   color: #fff;
+}
+
+/* Card View Styles */
+.purchase-card-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.purchase-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.purchase-card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.purchase-card:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transform: translateY(-4px);
+  border-color: #9885d1;
+}
+
+.purchase-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 1px solid #e5e7eb;
+  position: relative;
+}
+
+.purchase-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #9885d1, #7c3aed);
+}
+
+.purchase-card-checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.purchase-card-pr-number {
+  font-weight: 700;
+  color: #007bff;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  flex: 1;
+  margin-left: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.purchase-card-pr-number:hover {
+  color: #7c3aed !important;
+  text-decoration: underline !important;
+  transform: scale(1.05);
+}
+
+.purchase-card-status {
+  display: flex;
+  align-items: center;
+}
+
+.purchase-card-body {
+  padding: 16px;
+}
+
+.purchase-card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 3px 0;
+}
+
+.purchase-card-row:last-child {
+  margin-bottom: 0;
+}
+
+.purchase-card-label {
+  font-weight: 600;
+  color: #6b7280;
+  font-size: 11px;
+  min-width: 80px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.purchase-card-value {
+  color: #374151;
+  font-size: 11px;
+  text-align: right;
+  flex: 1;
+  margin-left: 10px;
+  font-weight: 500;
+}
+
+.purchase-card-value .purchase-status-badge,
+.purchase-card-value .purchase-priority-badge,
+.purchase-card-value .purchase-attachment-count {
+  font-size: 10px;
+  padding: 2px 6px;
+}
+
+/* Responsive Card Grid */
+@media (max-width: 768px) {
+  .purchase-card-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .purchase-card {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .purchase-card-grid {
+    padding: 8px;
+    gap: 10px;
+  }
+  
+  .purchase-card-header {
+    padding: 10px 12px;
+  }
+  
+  .purchase-card-body {
+    padding: 12px;
+  }
+  
+  .purchase-card-row {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 6px;
+  }
+  
+  .purchase-card-label {
+    margin-bottom: 3px;
+    min-width: auto;
+    font-size: 10px;
+  }
+  
+  .purchase-card-value {
+    text-align: left;
+    margin-left: 0;
+    font-size: 10px;
+  }
+  
+  .purchase-card-pr-number {
+    font-size: 12px;
+  }
 }
 
 /* PR List Table Styles */
@@ -2848,6 +3018,12 @@
     color: #374151;
 }
 
+.action-buttons {
+ display: flex;
+ align-items: center;
+ gap: 8px;
+}
+
 /* Responsive Design for Tabs */
 @media (max-width: 768px) {
     .purchase-tabs-nav {
@@ -2907,67 +3083,79 @@
       width: 100%;
     }
 
-    .purchase-import-btn {
-      width: 100%;
-     display: block !important;
-    }
+      /* Hide text in action buttons on mobile, show only icons */
+  .action-buttons .btn-text {
+    display: none;
+  }   
 
-    .purchase-action-dropdown {
-      width: 100%;
-    }
+}
 
-    .purchase-action-dropdown-btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    
-    .purchase-filter-btn,
-    .purchase-tab-create-btn {
-      width: 100%;
-      justify-content: center;
-    }
-
-    /* Action buttons responsive */
+@media (max-width: 342px) {
   .action-buttons {
-    flex-direction: column;
-    align-items: stretch;
+    padding: 15px 5px !important;
+  }
+}
+
+@media (max-width: 630px) {
+ 
+  /* Action buttons fixed to bottom on mobile */
+  .action-buttons {
+    position: fixed;
+    bottom: 0;
+    left: 69px;
+    right: 0;
+    background: #fff;
+    padding: 15px 20px;
+    border-top: 1px solid #e5e7eb;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
     gap: 8px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
   }
   
-  .group-by-container {
+
+
+  .purchase-import-btn {
+    width: 100%;
+   display: block !important;
+  }
+
+  .purchase-action-dropdown {
     width: 100%;
   }
-  
-  .group-by-button {
+
+  .purchase-action-dropdown-btn {
     width: 100%;
     justify-content: center;
   }
+
+  
+.purchase-filter-btn,
+.purchase-tab-create-btn {
+  width: 100%;
+  justify-content: center;
+}
+  
+  .action-buttons .group-by-button,
+  .action-buttons .purchase-filter-btn,
+  .action-buttons .purchase-import-btn,
+  .action-buttons .purchase-action-dropdown-btn,
+  .action-buttons .purchase-tab-create-btn {
+    min-width: 40px;
+    justify-content: center;
+    padding: 8px;
+  }
+  
+  /* Group by dropdown opens upward on mobile */
+  .action-buttons .group-by-dropdown {
+    top: auto;
+    bottom: 100%;
+    margin-top: 0;
+    margin-bottom: 4px;
+  }
 }
 
-/* Action Buttons Container */
-.action-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 8px;
-}
-
-/* Medium screens - buttons wrap but stay in rows */
-@media (max-width: 1024px) and (min-width: 769px) {
-    .action-buttons {
-        gap: 6px;
-    }
-    
-    .group-by-button,
-    .purchase-filter-btn,
-    .purchase-import-btn,
-    .purchase-tab-create-btn {
-        flex-shrink: 0;
-        min-width: fit-content;
-    }
-
-}
 
 /* Group By Dropdown Styles */
 .group-by-container {

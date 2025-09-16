@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initSelectAll();
     initDragReorder();
     initClickableRows();
+    initViewToggle();
 });
 
 // Basic tab switching from sidebar
@@ -319,11 +320,11 @@ function closePROffcanvas() {
 
 // Make PR number, title, and description clickable
 function initClickableRows() {
-    const prNumbers = document.querySelectorAll('.purchase-list-pr-number');
+    const prNumbers = document.querySelectorAll('.purchase-list-pr-number, .purchase-card-pr-number');
     const prTitles = document.querySelectorAll('.purchase-list-title');
     const prDescriptions = document.querySelectorAll('.purchase-list-description');
     
-    // Make PR numbers clickable
+    // Make PR numbers clickable (both list and card view)
     prNumbers.forEach(prNumber => {
         prNumber.style.cursor = 'pointer';
         prNumber.style.color = '#9885d1';
@@ -813,5 +814,53 @@ function toggleOffcanvasWidth() {
     } else {
         // Collapsed state - show left arrow
         icon.className = 'fa-solid fa-chevron-left offcanvas-resize-icon';
+    }
+}
+
+// View Toggle Functionality
+function initViewToggle() {
+    const listViewBtn = document.querySelector('.purchase-view-btn[title="List View"]');
+    const cardViewBtn = document.querySelector('.purchase-view-btn[title="Card View"]');
+    const listView = document.getElementById('listView');
+    const cardView = document.getElementById('cardView');
+    
+    if (listViewBtn && cardViewBtn && listView && cardView) {
+        listViewBtn.addEventListener('click', function() {
+            showListView();
+        });
+        
+        cardViewBtn.addEventListener('click', function() {
+            showCardView();
+        });
+    }
+}
+
+function showListView() {
+    const listView = document.getElementById('listView');
+    const cardView = document.getElementById('cardView');
+    const listViewBtn = document.querySelector('.purchase-view-btn[title="List View"]');
+    const cardViewBtn = document.querySelector('.purchase-view-btn[title="Card View"]');
+    
+    if (listView && cardView && listViewBtn && cardViewBtn) {
+        listView.style.display = 'block';
+        cardView.style.display = 'none';
+        
+        listViewBtn.classList.add('purchase-view-btn-active');
+        cardViewBtn.classList.remove('purchase-view-btn-active');
+    }
+}
+
+function showCardView() {
+    const listView = document.getElementById('listView');
+    const cardView = document.getElementById('cardView');
+    const listViewBtn = document.querySelector('.purchase-view-btn[title="List View"]');
+    const cardViewBtn = document.querySelector('.purchase-view-btn[title="Card View"]');
+    
+    if (listView && cardView && listViewBtn && cardViewBtn) {
+        listView.style.display = 'none';
+        cardView.style.display = 'block';
+        
+        listViewBtn.classList.remove('purchase-view-btn-active');
+        cardViewBtn.classList.add('purchase-view-btn-active');
     }
 }
