@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PR Table Column Visibility Test</title>
+    <link rel="stylesheet" href="styles/purchase.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Column Visibility Button - Icon Only in Table Header */
+        .purchase-table-actions {
+            width: 50px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .purchase-columns-btn-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            background: #ffffff;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin: 0 auto;
+        }
+
+        .purchase-columns-btn-icon:hover {
+            background: #f9fafb;
+            border-color: #9ca3af;
+            color: #374151;
+        }
+
+        .purchase-columns-btn-icon i {
+            font-size: 14px;
+        }
+
+        .purchase-table-actions-cell {
+            width: 50px;
+            text-align: center;
+            padding: 8px;
+        }
+
+        /* Hidden column class */
+        .purchase-list-table .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="purchase-container">
+        <div class="purchase-tab-content">
+            <div class="purchase-tab-panel active" data-tab="pr">
+                <div class="purchase-tab-header">
+                    <div class="purchase-tab-title-section">
+                        <h2>Purchase Request (PR)</h2>
+                        <p>Create and manage purchase requests for your organization.</p>
+                    </div>
+                    <div class="purchase-tab-controls">
+                        <div class="purchase-search-container">
+                            <input type="text" class="purchase-search-input" placeholder="Search PRs...">
+                            <i class="fa-solid fa-search purchase-search-icon"></i>
+                        </div>
+
+                        <div class="action-buttons">
+                            <button class="purchase-filter-btn" title="Filter">
+                                <i class="fa-solid fa-filter"></i>
+                                <span class="btn-text">Filter</span>
+                            </button>
+
+                            <button class="purchase-tab-create-btn" title="Create PR">
+                                <i class="fa-solid fa-plus"></i>
+                                <span class="btn-text">PR</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PR List Table -->
+                <div class="purchase-tab-body">
+                    <div class="purchase-list-container">
+                        <div class="purchase-list-table-container">
+                            <table class="purchase-list-table">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            <input type="checkbox" class="purchase-checkbox purchase-checkbox-header" id="selectAllPRs">
+                                            <label for="selectAllPRs" class="purchase-checkbox-label"></label>
+                                        </th>
+                                        <th class="purchase-drag-header">--</th>
+                                        <th class="col-pr-number">PR No</th>
+                                        <th class="col-department">Dep</th>
+                                        <th class="col-status">Status</th>
+                                        <th class="col-created-by">Created By</th>
+                                        <th class="col-created-on">Created On</th>
+                                        <th class="col-requested-by">Requested By</th>
+                                        <th class="col-priority">Priority</th>
+                                        <th class="col-required-date">Required Date</th>
+                                        <th class="col-delivery-location">Delivery Location</th>
+                                        <th class="col-attachments">Attachments</th>
+                                        <th class="purchase-table-actions">
+                                            <button class="purchase-columns-btn-icon" onclick="openColumnModal()" title="Show/Hide Columns">
+                                                <i class="fa-solid fa-columns"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="purchase-list-checkbox">
+                                            <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0012">
+                                            <label for="pr-0012" class="purchase-checkbox-label"></label>
+                                        </td>
+                                        <td class="purchase-list-pr-number col-pr-number">PR-2025</td>
+                                        <td class="purchase-list-department col-department">IT</td>
+                                        <td class="purchase-list-status col-status">
+                                            <span class="purchase-status-badge purchase-status-approved">Approved</span>
+                                        </td>
+                                        <td class="purchase-list-created-by col-created-by">John Smith</td>
+                                        <td class="purchase-list-created-on col-created-on">2025-01-15</td>
+                                        <td class="purchase-list-requester col-requested-by">John Smith</td>
+                                        <td class="purchase-list-priority col-priority">
+                                            <span class="purchase-priority-badge purchase-priority-medium">Medium</span>
+                                        </td>
+                                        <td class="purchase-list-required-date col-required-date">2025-02-15</td>
+                                        <td class="purchase-list-delivery-location col-delivery-location">Main Office, Floor 3</td>
+                                        <td class="purchase-list-attachments col-attachments">
+                                            <span class="purchase-attachment-count">3 files</span>
+                                        </td>
+                                        <td class="purchase-table-actions-cell"></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="purchase-list-checkbox">
+                                            <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0011">
+                                            <label for="pr-0011" class="purchase-checkbox-label"></label>
+                                        </td>
+                                        <td class="purchase-list-pr-number col-pr-number">PR-2024</td>
+                                        <td class="purchase-list-department col-department">HR</td>
+                                        <td class="purchase-list-status col-status">
+                                            <span class="purchase-status-badge purchase-status-submitted">Submitted</span>
+                                        </td>
+                                        <td class="purchase-list-created-by col-created-by">Sarah Johnson</td>
+                                        <td class="purchase-list-created-on col-created-on">2025-01-14</td>
+                                        <td class="purchase-list-requester col-requested-by">Sarah Johnson</td>
+                                        <td class="purchase-list-priority col-priority">
+                                            <span class="purchase-priority-badge purchase-priority-high">High</span>
+                                        </td>
+                                        <td class="purchase-list-required-date col-required-date">2025-02-01</td>
+                                        <td class="purchase-list-delivery-location col-delivery-location">Training Center, Building B</td>
+                                        <td class="purchase-list-attachments col-attachments">
+                                            <span class="purchase-attachment-count">2 files</span>
+                                        </td>
+                                        <td class="purchase-table-actions-cell"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Column Visibility Modal -->
+    <div class="purchase-column-modal" id="columnModal" style="display: none;">
+        <div class="purchase-column-modal-overlay" onclick="closeColumnModal()"></div>
+        <div class="purchase-column-modal-content">
+            <div class="purchase-column-modal-header">
+                <h3>Select Columns</h3>
+                <button class="purchase-column-modal-close" onclick="closeColumnModal()">
+                    <i class="fa-solid fa-times"></i>
+                </button>
+            </div>
+            <div class="purchase-column-modal-body">
+                <div class="purchase-column-options">
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-pr-number" checked>
+                        <span class="purchase-column-label">PR No</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-department" checked>
+                        <span class="purchase-column-label">Department</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-status" checked>
+                        <span class="purchase-column-label">Status</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-created-by" checked>
+                        <span class="purchase-column-label">Created By</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-created-on" checked>
+                        <span class="purchase-column-label">Created On</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-requested-by" checked>
+                        <span class="purchase-column-label">Requested By</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-priority" checked>
+                        <span class="purchase-column-label">Priority</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-required-date" checked>
+                        <span class="purchase-column-label">Required Date</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-delivery-location" checked>
+                        <span class="purchase-column-label">Delivery Location</span>
+                    </label>
+                    <label class="purchase-column-option">
+                        <input type="checkbox" value="col-attachments" checked>
+                        <span class="purchase-column-label">Attachments</span>
+                    </label>
+                </div>
+            </div>
+            <div class="purchase-column-modal-footer">
+                <button class="purchase-btn purchase-btn-secondary" onclick="closeColumnModal()">
+                    Cancel
+                </button>
+                <button class="purchase-btn purchase-btn-primary" onclick="saveColumnVisibility()">
+                    Save
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Column Visibility Functions
+        function openColumnModal() {
+            const modal = document.getElementById('columnModal');
+            if (modal) {
+                modal.style.display = 'flex';
+                
+                // Sync checkbox state with column visibility
+                const checkboxes = document.querySelectorAll('#columnModal input[type="checkbox"]');
+                checkboxes.forEach(cb => {
+                    const columnClass = cb.value;
+                    const columnElements = document.querySelectorAll(`.${columnClass}`);
+                    if (columnElements.length > 0) {
+                        // Check if any column element is visible (not hidden)
+                        const isVisible = !columnElements[0].classList.contains('hidden');
+                        cb.checked = isVisible;
+                    }
+                });
+            }
+        }
+
+        function closeColumnModal() {
+            const modal = document.getElementById('columnModal');
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function saveColumnVisibility() {
+            const checkboxes = document.querySelectorAll('#columnModal input[type="checkbox"]');
+            
+            checkboxes.forEach(cb => {
+                const columnClass = cb.value;
+                const columnElements = document.querySelectorAll(`.${columnClass}`);
+                
+                if (cb.checked) {
+                    // Show columns
+                    columnElements.forEach(element => element.classList.remove('hidden'));
+                } else {
+                    // Hide columns
+                    columnElements.forEach(element => element.classList.add('hidden'));
+                }
+            });
+            
+            closeColumnModal();
+        }
+
+        // Initialize column visibility on page load
+        function initColumnVisibility() {
+            // Set up event listeners for modal
+            const modal = document.getElementById('columnModal');
+            if (modal) {
+                // Close modal when clicking outside
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) {
+                        closeColumnModal();
+                    }
+                });
+                
+                // Prevent modal content clicks from closing modal
+                const modalContent = modal.querySelector('.purchase-column-modal-content');
+                if (modalContent) {
+                    modalContent.addEventListener('click', function(e) {
+                        e.stopPropagation();
+                    });
+                }
+            }
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            initColumnVisibility();
+        });
+    </script>
+</body>
+</html>

@@ -683,6 +683,11 @@
   margin-bottom: 20px;
 }
 
+/* Hide create tab by default */
+.pr-tab-btn[data-tab="create"] {
+  display: none;
+}
+
 .pr-tabs {
   display: flex;
   gap: 0;

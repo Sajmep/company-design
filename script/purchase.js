@@ -30,8 +30,25 @@ function initPurchaseTabs() {
 
 // Create form functionality
 function createPurchaseItem(type) {
-    switchPurchaseTab(type);
-    openPurchaseForm(type);
+    if (type === 'pr') {
+        // Open offcanvas and switch to create tab
+        openPROffcanvas();
+        switchTab('create');
+        // Update header for create mode
+        updateOffcanvasHeader('Create PR');
+    } else {
+        // For other types, use the old behavior
+        switchPurchaseTab(type);
+        openPurchaseForm(type);
+    }
+}
+
+// Update offcanvas header
+function updateOffcanvasHeader(title) {
+    const header = document.querySelector('.purchase-offcanvas-header h3');
+    if (header) {
+        header.textContent = title;
+    }
 }
 
 function switchPurchaseTab(tabName) {
@@ -305,6 +322,16 @@ document.addEventListener('keydown', function(e) {
 function openPROffcanvas() {
     const offcanvas = document.getElementById('prOffcanvas');
     offcanvas.style.display = 'block';
+    
+    // Show all tabs except create when opening normally
+    document.querySelectorAll('.pr-tab-btn').forEach(tab => {
+        if (tab.dataset.tab === 'create') {
+            tab.style.display = 'none';
+        } else {
+            tab.style.display = 'flex';
+        }
+    });
+    
     setTimeout(() => {
         offcanvas.classList.add('show');
     }, 10);
@@ -321,9 +348,7 @@ function closePROffcanvas() {
 // Make PR number, title, and description clickable
 function initClickableRows() {
     const prNumbers = document.querySelectorAll('.purchase-list-pr-number, .purchase-card-pr-number');
-    const prTitles = document.querySelectorAll('.purchase-list-title');
-    const prDescriptions = document.querySelectorAll('.purchase-list-description');
-    
+
     // Make PR numbers clickable (both list and card view)
     prNumbers.forEach(prNumber => {
         prNumber.style.cursor = 'pointer';
@@ -331,24 +356,7 @@ function initClickableRows() {
         prNumber.addEventListener('click', function() {
             openPROffcanvas();
         });
-    });
-    
-    // Make PR titles clickable
-    prTitles.forEach(prTitle => {
-        prTitle.style.cursor = 'pointer';
-        prTitle.addEventListener('click', function() {
-            openPROffcanvas();
-        });
-    });
-    
-    // Make PR descriptions clickable
-    prDescriptions.forEach(prDescription => {
-        prDescription.style.cursor = 'pointer';
-        prDescription.style.color = '#9885d1';
-        prDescription.addEventListener('click', function() {
-            openPROffcanvas();
-        });
-    });
+    });    
 }
 
 // Select All Functionality
@@ -583,6 +591,24 @@ function switchTab(tabName) {
     // Add active class to selected tab and panel
     document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
     document.getElementById(`${tabName}-panel`).classList.add('active');
+    
+    // Hide/show other tabs based on current tab
+    const otherTabs = document.querySelectorAll('.pr-tab-btn:not([data-tab="create"])');
+    if (tabName === 'create') {
+        // Show create tab and hide others
+        document.querySelector('[data-tab="create"]').style.display = 'flex';
+        otherTabs.forEach(tab => tab.style.display = 'none');
+    } else {
+        // Show all tabs except create
+        otherTabs.forEach(tab => tab.style.display = 'flex');
+        document.querySelector('[data-tab="create"]').style.display = 'none';
+    }
+    
+    // Update header based on tab using data attribute
+    const activeTab = document.querySelector(`[data-tab="${tabName}"]`);
+    if (activeTab && activeTab.dataset.title) {
+        updateOffcanvasHeader(activeTab.dataset.title);
+    }
 }
 
 // Export offcanvas functions globally
@@ -862,5 +888,73 @@ function showCardView() {
         
         listViewBtn.classList.remove('purchase-view-btn-active');
         cardViewBtn.classList.add('purchase-view-btn-active');
+    }
+}
+
+// Column Visibility Functions
+function openColumnModal() {
+    const modal = document.getElementById('columnModal');
+    if (modal) {
+        modal.style.display = 'flex';
+        
+        // Sync checkbox state with column visibility
+        const checkboxes = document.querySelectorAll('#columnModal input[type="checkbox"]');
+        checkboxes.forEach(cb => {
+            const columnClass = cb.value;
+            const columnElements = document.querySelectorAll(`.${columnClass}`);
+            if (columnElements.length > 0) {
+                // Check if any column element is visible (not hidden)
+                const isVisible = !columnElements[0].classList.contains('hidden');
+                cb.checked = isVisible;
+            }
+        });
+    }
+}
+
+function closeColumnModal() {
+    const modal = document.getElementById('columnModal');
+    if (modal) {
+        modal.style.display = 'none';
+    }
+}
+
+function saveColumnVisibility() {
+    const checkboxes = document.querySelectorAll('#columnModal input[type="checkbox"]');
+    
+    checkboxes.forEach(cb => {
+        const columnClass = cb.value;
+        const columnElements = document.querySelectorAll(`.${columnClass}`);
+        
+        if (cb.checked) {
+            // Show columns
+            columnElements.forEach(element => element.classList.remove('hidden'));
+        } else {
+            // Hide columns
+            columnElements.forEach(element => element.classList.add('hidden'));
+        }
+    });
+    
+    closeColumnModal();
+}
+
+// Initialize column visibility on page load
+function initColumnVisibility() {
+    // Set up event listeners for modal
+    const modal = document.getElementById('columnModal');
+    if (modal) {
+        // Close modal when clicking outside
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                closeColumnModal();
+            }
+        });
+        
+        // Prevent modal content clicks from closing modal
+        const modalContent = modal.querySelector('.purchase-column-modal-content');
+        if (modalContent) {
+            modalContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
     }
 }

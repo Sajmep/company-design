@@ -1383,6 +1383,33 @@
   visibility: visible;
 }
 
+/* Upload Note Styling */
+.purchase-upload-note {
+  display: block;
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 8px;
+  padding: 0px 4px;
+  font-style: italic;
+  line-height: 1.4;
+  border-left: 3px solid #3b82f6;
+  transition: all 0.2s ease;
+}
+
+.purchase-upload-note:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+/* Responsive upload note */
+@media (max-width: 768px) {
+  .purchase-upload-note {
+    font-size: 10px;
+    padding: 6px 10px;
+    margin-top: 6px;
+  }
+}
+
 /* File List Display */
 .purchase-files-list {
   margin-top: 12px;
@@ -3251,4 +3278,217 @@
 
 .dropdown-item.selected i {
     color: #1d4ed8;
+}
+
+/* Column Visibility Button - Icon Only in Table Header */
+.purchase-table-actions {
+    width: 50px;
+    text-align: center;
+    padding: 8px;
+}
+
+.purchase-columns-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0 auto;
+}
+
+.purchase-columns-btn-icon:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+    color: #374151;
+}
+
+.purchase-columns-btn-icon i {
+    font-size: 14px;
+}
+
+.purchase-table-actions-cell {
+    width: 50px;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Legacy column button styles for other sections */
+.purchase-columns-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    color: #374151;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.purchase-columns-btn:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.purchase-columns-btn i {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Column Visibility Modal */
+.purchase-column-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchase-column-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+}
+
+.purchase-column-modal-content {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow: hidden;
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.purchase-column-modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.purchase-column-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.purchase-column-modal-close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    color: #6b7280;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.purchase-column-modal-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.purchase-column-modal-body {
+    padding: 24px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.purchase-column-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.purchase-column-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.purchase-column-option:hover {
+    background: #f9fafb;
+}
+
+.purchase-column-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #3b82f6;
+    cursor: pointer;
+}
+
+.purchase-column-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+}
+
+.purchase-column-modal-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    padding: 20px 24px;
+    border-top: 1px solid #e5e7eb;
+    background: #f9fafb;
+}
+
+/* Hidden column class */
+.purchase-list-table .hidden {
+    display: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .purchase-column-modal-content {
+        width: 95%;
+        margin: 20px;
+    }
+    
+    .purchase-column-modal-header,
+    .purchase-column-modal-body,
+    .purchase-column-modal-footer {
+        padding: 16px;
+    }
 }
