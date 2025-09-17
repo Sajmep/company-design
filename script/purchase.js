@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initDragReorder();
     initClickableRows();
     initViewToggle();
+    initColumnVisibility();
 });
 
 // Basic tab switching from sidebar
@@ -892,16 +893,70 @@ function showCardView() {
 }
 
 // Column Visibility Functions
-function openColumnModal() {
-    const modal = document.getElementById('columnModal');
-    if (modal) {
-        modal.style.display = 'flex';
+function toggleColumnDropdown() {
+    const dropdown = document.getElementById('columnDropdown');
+    const button = document.querySelector('.purchase-columns-btn-icon');
+    
+    if (dropdown && button) {
+        const isOpen = dropdown.classList.contains('show');
+        
+        if (isOpen) {
+            closeColumnDropdown();
+        } else {
+            openColumnDropdown();
+        }
+    }
+}
+
+function openColumnDropdown() {
+    const dropdown = document.getElementById('columnDropdown');
+    const button = document.querySelector('.purchase-columns-btn-icon');
+    
+    if (dropdown && button) {
+        // Close other dropdowns first
+        document.querySelectorAll('.purchase-columns-dropdown-content.show').forEach(dd => {
+            dd.classList.remove('show');
+        });
+        
+        // Calculate position for fixed dropdown
+        const buttonRect = button.getBoundingClientRect();
+        const dropdownWidth = 280; // min-width from CSS
+        const dropdownHeight = 300; // estimated height
+        
+        // Position dropdown below the button
+        dropdown.style.top = (buttonRect.bottom + 8) + 'px';
+        dropdown.style.left = (buttonRect.right - dropdownWidth) + 'px';
+        
+        // Check if dropdown would go off screen and adjust
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        
+        if (buttonRect.right - dropdownWidth < 0) {
+            // If dropdown would go off left side, align to left edge of button
+            dropdown.style.left = buttonRect.left + 'px';
+        }
+        
+        if (buttonRect.bottom + dropdownHeight > viewportHeight) {
+            // If dropdown would go off bottom, position above button
+            dropdown.style.top = (buttonRect.top - dropdownHeight - 8) + 'px';
+        }
+        
+        dropdown.classList.add('show');
+        button.classList.add('active');
         
         // Sync checkbox state with column visibility
-        const checkboxes = document.querySelectorAll('#columnModal input[type="checkbox"]');
+        const checkboxes = document.querySelectorAll('#columnDropdown input[type="checkbox"]');
         checkboxes.forEach(cb => {
             const columnClass = cb.value;
             const columnElements = document.querySelectorAll(`.${columnClass}`);
+            
+            // Skip fixed columns - they should always be checked and disabled
+            if (cb.hasAttribute('data-fixed')) {
+                cb.checked = true;
+                cb.disabled = true;
+                return;
+            }
+            
             if (columnElements.length > 0) {
                 // Check if any column element is visible (not hidden)
                 const isVisible = !columnElements[0].classList.contains('hidden');
@@ -911,17 +966,25 @@ function openColumnModal() {
     }
 }
 
-function closeColumnModal() {
-    const modal = document.getElementById('columnModal');
-    if (modal) {
-        modal.style.display = 'none';
+function closeColumnDropdown() {
+    const dropdown = document.getElementById('columnDropdown');
+    const button = document.querySelector('.purchase-columns-btn-icon');
+    
+    if (dropdown && button) {
+        dropdown.classList.remove('show');
+        button.classList.remove('active');
     }
 }
 
 function saveColumnVisibility() {
-    const checkboxes = document.querySelectorAll('#columnModal input[type="checkbox"]');
+    const checkboxes = document.querySelectorAll('#columnDropdown input[type="checkbox"]');
     
     checkboxes.forEach(cb => {
+        // Skip fixed columns - they should always remain visible
+        if (cb.hasAttribute('data-fixed')) {
+            return;
+        }
+        
         const columnClass = cb.value;
         const columnElements = document.querySelectorAll(`.${columnClass}`);
         
@@ -934,27 +997,65 @@ function saveColumnVisibility() {
         }
     });
     
-    closeColumnModal();
+    closeColumnDropdown();
 }
 
 // Initialize column visibility on page load
 function initColumnVisibility() {
-    // Set up event listeners for modal
-    const modal = document.getElementById('columnModal');
-    if (modal) {
-        // Close modal when clicking outside
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeColumnModal();
-            }
-        });
+    // Set default column visibility
+    setDefaultColumnVisibility();
+    
+    // Ensure fixed columns are always visible
+    ensureFixedColumnsVisible();
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        const dropdown = document.getElementById('columnDropdown');
+        const button = document.querySelector('.purchase-columns-btn-icon');
         
-        // Prevent modal content clicks from closing modal
-        const modalContent = modal.querySelector('.purchase-column-modal-content');
-        if (modalContent) {
-            modalContent.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
+        if (dropdown && button && !button.contains(e.target) && !dropdown.contains(e.target)) {
+            closeColumnDropdown();
         }
-    }
+    });
+    
+    // Close dropdown on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeColumnDropdown();
+        }
+    });
+    
+    // Reposition dropdown on window resize
+    window.addEventListener('resize', function() {
+        const dropdown = document.getElementById('columnDropdown');
+        if (dropdown && dropdown.classList.contains('show')) {
+            // Close and reopen to recalculate position
+            closeColumnDropdown();
+            setTimeout(() => {
+                openColumnDropdown();
+            }, 10);
+        }
+    });
+}
+
+// Set default column visibility
+function setDefaultColumnVisibility() {
+    // Define which columns should be hidden by default
+    const hiddenByDefault = ['col-delivery-location'];
+    
+    // Apply hidden class to all elements with these column classes
+    hiddenByDefault.forEach(columnClass => {
+        const columnElements = document.querySelectorAll(`.${columnClass}`);
+        columnElements.forEach(element => element.classList.add('hidden'));
+    });
+}
+
+// Ensure fixed columns are always visible
+function ensureFixedColumnsVisible() {
+    const fixedColumns = ['col-pr-number', 'col-status', 'col-created-by', 'col-requested-by', 'col-priority'];
+    
+    fixedColumns.forEach(columnClass => {
+        const columnElements = document.querySelectorAll(`.${columnClass}`);
+        columnElements.forEach(element => element.classList.remove('hidden'));
+    });
 }

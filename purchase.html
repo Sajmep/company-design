@@ -931,12 +931,81 @@
                         <th class="col-requested-by">Requested By</th>
                         <th class="col-priority">Priority</th>
                         <th class="col-required-date">Required Date</th>
-                        <th class="col-delivery-location">Delivery Location</th>
+                        <th class="col-delivery-location hidden">Delivery Location</th>
                         <th class="col-attachments">Attachments</th>
                         <th class="purchase-table-actions">
-                          <button class="purchase-columns-btn-icon" onclick="openColumnModal()" title="Show/Hide Columns">
-                            <i class="fa-solid fa-columns"></i>
-                          </button>
+                          <div class="purchase-columns-dropdown">
+                            <button class="purchase-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                              <img src="images/add-column.png" alt="Columns" width="20px">
+                            </button>
+                            <div class="purchase-columns-dropdown-content" id="columnDropdown">
+                              <div class="purchase-columns-dropdown-header">
+                                <h4>Select Columns</h4>
+                              </div>
+                              <div class="purchase-columns-dropdown-body">
+                                <div class="purchase-column-options">
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      PR No <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-department" checked>
+                                    <span class="purchase-column-label">Department</span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Status <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-created-on" checked>
+                                    <span class="purchase-column-label">Created On</span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Requested By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Priority <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="purchase-column-label">Required Date</span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-delivery-location">
+                                    <span class="purchase-column-label">Delivery Location</span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-attachments" checked>
+                                    <span class="purchase-column-label">Attachments</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="purchase-columns-dropdown-footer">
+                                <button class="purchase-btn purchase-btn-secondary" onclick="closeColumnDropdown()">
+                                  Cancel
+                                </button>
+                                <button class="purchase-btn purchase-btn-primary" onclick="saveColumnVisibility()">
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                          </div>
                         </th>
                       </tr>
                     </thead>
@@ -2004,70 +2073,6 @@
     </div>
   </div>
 
-  <!-- Column Visibility Modal -->
-  <div class="purchase-column-modal" id="columnModal" style="display: none;">
-    <div class="purchase-column-modal-overlay" onclick="closeColumnModal()"></div>
-    <div class="purchase-column-modal-content">
-      <div class="purchase-column-modal-header">
-        <h3>Select Columns</h3>
-        <button class="purchase-column-modal-close" onclick="closeColumnModal()">
-          <i class="fa-solid fa-times"></i>
-        </button>
-      </div>
-      <div class="purchase-column-modal-body">
-        <div class="purchase-column-options">
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-pr-number" checked>
-            <span class="purchase-column-label">PR No</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-department" checked>
-            <span class="purchase-column-label">Department</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-status" checked>
-            <span class="purchase-column-label">Status</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-created-by" checked>
-            <span class="purchase-column-label">Created By</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-created-on" checked>
-            <span class="purchase-column-label">Created On</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-requested-by" checked>
-            <span class="purchase-column-label">Requested By</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-priority" checked>
-            <span class="purchase-column-label">Priority</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-required-date" checked>
-            <span class="purchase-column-label">Required Date</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-delivery-location" checked>
-            <span class="purchase-column-label">Delivery Location</span>
-          </label>
-          <label class="purchase-column-option">
-            <input type="checkbox" value="col-attachments" checked>
-            <span class="purchase-column-label">Attachments</span>
-          </label>
-        </div>
-      </div>
-      <div class="purchase-column-modal-footer">
-        <button class="purchase-btn purchase-btn-secondary" onclick="closeColumnModal()">
-          Cancel
-        </button>
-        <button class="purchase-btn purchase-btn-primary" onclick="saveColumnVisibility()">
-          Save
-        </button>
-      </div>
-    </div>
-  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
