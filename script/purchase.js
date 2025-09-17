@@ -44,13 +44,6 @@ function createPurchaseItem(type) {
     }
 }
 
-// Update offcanvas header
-function updateOffcanvasHeader(title) {
-    const header = document.querySelector('.purchase-offcanvas-header h3');
-    if (header) {
-        header.textContent = title;
-    }
-}
 
 function switchPurchaseTab(tabName) {
     const tabPanels = document.querySelectorAll('.purchase-tab-panel');
@@ -319,32 +312,6 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// PR Offcanvas Functions
-function openPROffcanvas() {
-    const offcanvas = document.getElementById('prOffcanvas');
-    offcanvas.style.display = 'block';
-    
-    // Show all tabs except create when opening normally
-    document.querySelectorAll('.pr-tab-btn').forEach(tab => {
-        if (tab.dataset.tab === 'create') {
-            tab.style.display = 'none';
-        } else {
-            tab.style.display = 'flex';
-        }
-    });
-    
-    setTimeout(() => {
-        offcanvas.classList.add('show');
-    }, 10);
-}
-
-function closePROffcanvas() {
-    const offcanvas = document.getElementById('prOffcanvas');
-    offcanvas.classList.remove('show');
-    setTimeout(() => {
-        offcanvas.style.display = 'none';
-    }, 300);
-}
 
 // Make PR number, title, and description clickable
 function initClickableRows() {
@@ -550,6 +517,7 @@ function updateActionDropdownVisibility() {
     }
 }
 
+
 // Export functions
 window.Purchase = {
     switchTab: switchPurchaseTab,
@@ -583,38 +551,6 @@ function confirmDelete() {
     console.log('Delete confirmed - Backend team to implement');
 }
 
-// Tab switching function
-function switchTab(tabName) {
-    // Remove active class from all tabs and panels
-    document.querySelectorAll('.pr-tab-btn').forEach(btn => btn.classList.remove('active'));
-    document.querySelectorAll('.pr-tab-panel').forEach(panel => panel.classList.remove('active'));
-    
-    // Add active class to selected tab and panel
-    document.querySelector(`[data-tab="${tabName}"]`).classList.add('active');
-    document.getElementById(`${tabName}-panel`).classList.add('active');
-    
-    // Hide/show other tabs based on current tab
-    const otherTabs = document.querySelectorAll('.pr-tab-btn:not([data-tab="create"])');
-    if (tabName === 'create') {
-        // Show create tab and hide others
-        document.querySelector('[data-tab="create"]').style.display = 'flex';
-        otherTabs.forEach(tab => tab.style.display = 'none');
-    } else {
-        // Show all tabs except create
-        otherTabs.forEach(tab => tab.style.display = 'flex');
-        document.querySelector('[data-tab="create"]').style.display = 'none';
-    }
-    
-    // Update header based on tab using data attribute
-    const activeTab = document.querySelector(`[data-tab="${tabName}"]`);
-    if (activeTab && activeTab.dataset.title) {
-        updateOffcanvasHeader(activeTab.dataset.title);
-    }
-}
-
-// Export offcanvas functions globally
-window.openPROffcanvas = openPROffcanvas;
-window.closePROffcanvas = closePROffcanvas;
 
 // Purchase Form Tabs Functions
 function switchPurchaseFormTab(tabName, event) {
@@ -714,135 +650,7 @@ window.switchPurchaseFormTab = switchPurchaseFormTab;
 window.addLink = addLink;
 window.removeLink = removeLink;
 
-// PR Staging Functions
-function approvePR() {
-    // Update status
-    const statusValue = document.querySelector('.pr-status-value');
-    if (statusValue) {
-        statusValue.textContent = 'Approved';
-        statusValue.className = 'pr-status-value pr-status-approved';
-    }
-    
-    // Update progress
-    const progressFill = document.querySelector('.pr-progress-fill');
-    const progressText = document.querySelector('.pr-progress-text');
-    if (progressFill && progressText) {
-        progressFill.style.width = '100%';
-        progressText.textContent = '100% Complete';
-    }
-    
-    // Disable buttons
-    const approveBtn = document.querySelector('.pr-staging-approve');
-    const rejectBtn = document.querySelector('.pr-staging-reject');
-    if (approveBtn) {
-        approveBtn.disabled = true;
-        approveBtn.style.opacity = '0.5';
-        approveBtn.style.cursor = 'not-allowed';
-    }
-    if (rejectBtn) {
-        rejectBtn.disabled = true;
-        rejectBtn.style.opacity = '0.5';
-        rejectBtn.style.cursor = 'not-allowed';
-    }
-    
-    console.log('PR Approved');
-    alert('PR has been approved successfully!');
-}
 
-function rejectPR() {
-    // Update status
-    const statusValue = document.querySelector('.pr-status-value');
-    if (statusValue) {
-        statusValue.textContent = 'Rejected';
-        statusValue.className = 'pr-status-value pr-status-rejected';
-    }
-    
-    // Update progress
-    const progressFill = document.querySelector('.pr-progress-fill');
-    const progressText = document.querySelector('.pr-progress-text');
-    if (progressFill && progressText) {
-        progressFill.style.width = '0%';
-        progressFill.style.background = '#ef4444';
-        progressText.textContent = '0% Complete';
-    }
-    
-    // Disable buttons
-    const approveBtn = document.querySelector('.pr-staging-approve');
-    const rejectBtn = document.querySelector('.pr-staging-reject');
-    if (approveBtn) {
-        approveBtn.disabled = true;
-        approveBtn.style.opacity = '0.5';
-        approveBtn.style.cursor = 'not-allowed';
-    }
-    if (rejectBtn) {
-        rejectBtn.disabled = true;
-        rejectBtn.style.opacity = '0.5';
-        rejectBtn.style.cursor = 'not-allowed';
-    }
-    
-    console.log('PR Rejected');
-    alert('PR has been rejected.');
-}
-
-// Toggle PR Overview Section
-function togglePROverview() {
-    var overviewSection = document.querySelector('.pr-overview-section');
-    overviewSection.classList.toggle('collapsed');
-}
-
-// Toggle PR Items Section
-function togglePRItems() {
-    var itemsSection = document.querySelector('.pr-items-section');
-    itemsSection.classList.toggle('collapsed');
-}
-
-// Toggle PR Description Section
-function togglePRDescription() {
-    var descriptionSection = document.querySelector('#prDescriptionContent').closest('.pr-description-section');
-    descriptionSection.classList.toggle('collapsed');
-}
-
-// Toggle PR Justification Section
-function togglePRJustification() {
-    var justificationSection = document.querySelector('#prJustificationContent').closest('.pr-description-section');
-    justificationSection.classList.toggle('collapsed');
-}
-
-// Toggle PR Notes Section
-function togglePRNotes() {
-    var notesSection = document.querySelector('#prNotesContent').closest('.pr-description-section');
-    notesSection.classList.toggle('collapsed');
-}
-
-// Export staging functions globally
-window.approvePR = approvePR;
-window.rejectPR = rejectPR;
-window.toggleOffcanvasWidth = toggleOffcanvasWidth;
-window.togglePROverview = togglePROverview;
-window.togglePRItems = togglePRItems;
-window.togglePRDescription = togglePRDescription;
-window.togglePRJustification = togglePRJustification;
-window.togglePRNotes = togglePRNotes;
-
-// Offcanvas Resize Function
-function toggleOffcanvasWidth() {
-    var offcanvas = document.querySelector('.purchase-offcanvas-content');
-    var resizeBtn = document.querySelector('.purchase-offcanvas-resize-btn');
-    var icon = resizeBtn.querySelector('.offcanvas-resize-icon');
-    
-    // Toggle the full width class
-    offcanvas.classList.toggle('purchase-offcanvas-content-full');
-    resizeBtn.classList.toggle('purchase-offcanvas-resize-btn-full');
-    
-    // Change arrow direction based on state
-    if (offcanvas.classList.contains('purchase-offcanvas-content-full')) {
-        // Expanded state - show right arrow
-        icon.className = 'fa-solid fa-chevron-right offcanvas-resize-icon';
-    } else {
-        // Collapsed state - show left arrow
-        icon.className = 'fa-solid fa-chevron-left offcanvas-resize-icon';
-    }
-}
 
 // View Toggle Functionality
 function initViewToggle() {
@@ -918,31 +726,19 @@ function openColumnDropdown() {
             dd.classList.remove('show');
         });
         
-        // Calculate position for fixed dropdown
+        // Position dropdown relative to button
         const buttonRect = button.getBoundingClientRect();
-        const dropdownWidth = 280; // min-width from CSS
-        const dropdownHeight = 300; // estimated height
+        const dropdownWidth = 500; // min-width from CSS
         
-        // Position dropdown below the button
+        // Position dropdown below and aligned to the right of the button
         dropdown.style.top = (buttonRect.bottom + 8) + 'px';
         dropdown.style.left = (buttonRect.right - dropdownWidth) + 'px';
         
-        // Check if dropdown would go off screen and adjust
-        const viewportWidth = window.innerWidth;
-        const viewportHeight = window.innerHeight;
-        
-        if (buttonRect.right - dropdownWidth < 0) {
-            // If dropdown would go off left side, align to left edge of button
-            dropdown.style.left = buttonRect.left + 'px';
-        }
-        
-        if (buttonRect.bottom + dropdownHeight > viewportHeight) {
-            // If dropdown would go off bottom, position above button
-            dropdown.style.top = (buttonRect.top - dropdownHeight - 8) + 'px';
-        }
-        
         dropdown.classList.add('show');
         button.classList.add('active');
+        
+        // Initialize drag and drop
+        initializeColumnDragDrop();
         
         // Sync checkbox state with column visibility
         const checkboxes = document.querySelectorAll('#columnDropdown input[type="checkbox"]');
@@ -1058,4 +854,121 @@ function ensureFixedColumnsVisible() {
         const columnElements = document.querySelectorAll(`.${columnClass}`);
         columnElements.forEach(element => element.classList.remove('hidden'));
     });
+}
+
+// Initialize drag and drop for column management
+function initializeColumnDragDrop() {
+    const hiddenColumns = document.getElementById('hiddenColumns');
+    const visibleColumns = document.getElementById('visibleColumns');
+    
+    // Add event listeners to all draggable column options
+    const draggableOptions = document.querySelectorAll('.purchase-column-option[draggable="true"]');
+    
+    draggableOptions.forEach(option => {
+        option.addEventListener('dragstart', handleDragStart);
+        option.addEventListener('dragend', handleDragEnd);
+    });
+    
+    // Add drop zone event listeners
+    [hiddenColumns, visibleColumns].forEach(dropZone => {
+        dropZone.addEventListener('dragover', handleDragOver);
+        dropZone.addEventListener('drop', handleDrop);
+        dropZone.addEventListener('dragenter', handleDragEnter);
+        dropZone.addEventListener('dragleave', handleDragLeave);
+    });
+}
+
+let draggedElement = null;
+
+function handleDragStart(e) {
+    draggedElement = e.target;
+    e.target.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+    e.dataTransfer.setData('text/html', e.target.outerHTML);
+}
+
+function handleDragEnd(e) {
+    e.target.classList.remove('dragging');
+    draggedElement = null;
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+}
+
+function handleDragEnter(e) {
+    e.preventDefault();
+    e.target.closest('.purchase-columns-list').classList.add('drag-over');
+}
+
+function handleDragLeave(e) {
+    const dropZone = e.target.closest('.purchase-columns-list');
+    if (!dropZone.contains(e.relatedTarget)) {
+        dropZone.classList.remove('drag-over');
+    }
+}
+
+function handleDrop(e) {
+    e.preventDefault();
+    const dropZone = e.target.closest('.purchase-columns-list');
+    dropZone.classList.remove('drag-over');
+    
+    if (!draggedElement) return;
+    
+    const columnClass = draggedElement.dataset.column;
+    const isFixed = draggedElement.classList.contains('fixed-column');
+    
+    // Don't allow moving fixed columns
+    if (isFixed) {
+        return;
+    }
+    
+    // Determine target section
+    const isTargetHidden = dropZone.id === 'hiddenColumns';
+    const isSourceHidden = draggedElement.closest('#hiddenColumns') !== null;
+    
+    // Don't drop on the same section
+    if (isTargetHidden === isSourceHidden) {
+        return;
+    }
+    
+    // Move the element
+    dropZone.appendChild(draggedElement);
+    
+    // Update checkbox state
+    const checkbox = draggedElement.querySelector('input[type="checkbox"]');
+    if (checkbox) {
+        checkbox.checked = !isTargetHidden;
+    }
+    
+    // Update column visibility in the table
+    updateColumnVisibility(columnClass, !isTargetHidden);
+    
+    // Update counts
+    updateColumnCounts();
+}
+
+function updateColumnVisibility(columnClass, isVisible) {
+    const columnElements = document.querySelectorAll(`.${columnClass}`);
+    columnElements.forEach(element => {
+        if (isVisible) {
+            element.classList.remove('hidden');
+        } else {
+            element.classList.add('hidden');
+        }
+    });
+}
+
+function updateColumnCounts() {
+    const hiddenCount = document.getElementById('hiddenCount');
+    const visibleCount = document.getElementById('visibleCount');
+    
+    if (hiddenCount && visibleCount) {
+        const hiddenElements = document.getElementById('hiddenColumns').children.length;
+        const visibleElements = document.getElementById('visibleColumns').children.length;
+        
+        hiddenCount.textContent = hiddenElements;
+        visibleCount.textContent = visibleElements;
+    }
 }
