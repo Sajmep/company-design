@@ -785,11 +785,7 @@
 
   <!-- Main Content Purchase -->
   <main class="content page" id="page">
-
-
-
     <div class="main-content">
-
       <div class="purchase-tab-header">
         <!-- Breadcrumb -->
         <div class="card">
@@ -859,10 +855,6 @@
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
               <div class="purchase-action-menu" id="prActionMenu">
-                <div class="purchase-action-item" onclick="importPRs()">
-                  <i class="fa-solid fa-upload"></i>
-                  <span>Import</span>
-                </div>
                 <div class="purchase-action-item" onclick="exportPRs()">
                   <i class="fa-solid fa-download"></i>
                   <span>Export</span>
@@ -899,10 +891,9 @@
 
         <!-- Tab Content -->
         <div class="purchase-tab-content">
+
           <!-- PR Tab -->
           <div class="purchase-tab-panel active" data-tab="pr" role="tabpanel" aria-labelledby="purchase-tab-pr">
-
-
             <!-- PR Content -->
             <div class="purchase-tab-body" id="prContent">
               <!-- View Toggle Buttons -->
@@ -946,92 +937,59 @@
                             <div class="purchase-columns-dropdown-content" id="columnDropdown">
                               <div class="purchase-columns-dropdown-header">
                                 <h4>Select Columns</h4>
-                                <div class="purchase-columns-search">
-                                  <i class="fa-solid fa-search"></i>
-                                  <input type="text" placeholder="Search columns..." id="columnSearch">
-                                </div>
                               </div>
                               <div class="purchase-columns-dropdown-body">
-                                <div class="purchase-columns-sections">
-                                  <!-- Hidden Columns Section -->
-                                  <div class="purchase-columns-section">
-                                    <div class="purchase-columns-section-header">
-                                      <h5>Hidden Columns</h5>
-                                      <span class="purchase-columns-count" id="hiddenCount">0</span>
-                                    </div>
-                                    <div class="purchase-columns-list hidden-columns" id="hiddenColumns">
-                                      <div class="purchase-column-option" draggable="true" data-column="col-delivery-location">
-                                        <input type="checkbox" value="col-delivery-location">
-                                        <span class="purchase-column-label">Delivery Location</span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle"></i>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  
-                                  <!-- Visible Columns Section -->
-                                  <div class="purchase-columns-section">
-                                    <div class="purchase-columns-section-header">
-                                      <h5>Visible Columns</h5>
-                                      <span class="purchase-columns-count" id="visibleCount">0</span>
-                                    </div>
-                                    <div class="purchase-columns-list visible-columns" id="visibleColumns">
-                                      <div class="purchase-column-option fixed-column" draggable="false" data-column="col-pr-number">
-                                        <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
-                                        <span class="purchase-column-label">
-                                          PR No <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle disabled"></i>
-                                      </div>
-                                      <div class="purchase-column-option" draggable="true" data-column="col-department">
-                                        <input type="checkbox" value="col-department" checked>
-                                        <span class="purchase-column-label">Department</span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle"></i>
-                                      </div>
-                                      <div class="purchase-column-option fixed-column" draggable="false" data-column="col-status">
-                                        <input type="checkbox" value="col-status" checked disabled data-fixed="true">
-                                        <span class="purchase-column-label">
-                                          Status <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle disabled"></i>
-                                      </div>
-                                      <div class="purchase-column-option fixed-column" draggable="false" data-column="col-created-by">
-                                        <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
-                                        <span class="purchase-column-label">
-                                          Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle disabled"></i>
-                                      </div>
-                                      <div class="purchase-column-option" draggable="true" data-column="col-created-on">
-                                        <input type="checkbox" value="col-created-on" checked>
-                                        <span class="purchase-column-label">Created On</span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle"></i>
-                                      </div>
-                                      <div class="purchase-column-option fixed-column" draggable="false" data-column="col-requested-by">
-                                        <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
-                                        <span class="purchase-column-label">
-                                          Requested By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle disabled"></i>
-                                      </div>
-                                      <div class="purchase-column-option fixed-column" draggable="false" data-column="col-priority">
-                                        <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
-                                        <span class="purchase-column-label">
-                                          Priority <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle disabled"></i>
-                                      </div>
-                                      <div class="purchase-column-option" draggable="true" data-column="col-required-date">
-                                        <input type="checkbox" value="col-required-date" checked>
-                                        <span class="purchase-column-label">Required Date</span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle"></i>
-                                      </div>
-                                      <div class="purchase-column-option" draggable="true" data-column="col-attachments">
-                                        <input type="checkbox" value="col-attachments" checked>
-                                        <span class="purchase-column-label">Attachments</span>
-                                        <i class="fa-solid fa-grip-vertical drag-handle"></i>
-                                      </div>
-                                    </div>
-                                  </div>
+                                <div class="purchase-column-options">
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      PR No <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-department" checked>
+                                    <span class="purchase-column-label">Department</span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Status <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-created-on" checked>
+                                    <span class="purchase-column-label">Created On</span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Requested By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option fixed-column">
+                                    <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                    <span class="purchase-column-label">
+                                      Priority <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="purchase-column-label">Required Date</span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-delivery-location">
+                                    <span class="purchase-column-label">Delivery Location</span>
+                                  </label>
+                                  <label class="purchase-column-option">
+                                    <input type="checkbox" value="col-attachments" checked>
+                                    <span class="purchase-column-label">Attachments</span>
+                                  </label>
                                 </div>
                               </div>
                               <div class="purchase-columns-dropdown-footer">
@@ -1039,7 +997,7 @@
                                   Cancel
                                 </button>
                                 <button class="purchase-btn purchase-btn-primary" onclick="saveColumnVisibility()">
-                                  Save Changes
+                                  Save
                                 </button>
                               </div>
                             </div>
@@ -1284,8 +1242,15 @@
                 </div>
               </div>
             </div>
-
           </div>
+          <!--pr end-->
+
+          <!--rfq start-->
+          <!--rfq end-->
+
+          <!--po start-->
+          <!--po end-->
+
         </div>
       </div>
 
