@@ -253,7 +253,8 @@
   transition: transform 0.2s ease;
 }
 
-.attachments-dropdown-btn:hover i:last-child {
+.attachments-dropdown-btn:hover i:last-child,
+.attachments-dropdown-btn.active i:last-child {
   transform: rotate(180deg);
 }
 
@@ -275,7 +276,17 @@
   width: 134px;
 }
 
-.attachments-dropdown:hover .attachments-dropdown-menu {
+/* Desktop hover behavior */
+@media (hover: hover) {
+  .attachments-dropdown:hover .attachments-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile and click behavior */
+.attachments-dropdown-menu.show {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

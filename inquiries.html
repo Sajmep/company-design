@@ -1327,19 +1327,19 @@
                   <div class="purchase-form-row">
                     <div class="purchase-form-group">
                       <label for="prRequiredDate">Description</label>
-                      <textarea name="description" required placeholder="Enter description" style="margin-bottom: 0px;"></textarea>
+                      <textarea name="description" required placeholder="Enter description..." style="margin-bottom: 0px;"></textarea>
                     </div>
                   </div>
 
                   <div class="purchase-form-row">
                     <label>Attachments</label>
                     <div class="attachments-dropdown">
-                      <button type="button" class="attachments-dropdown-btn">
+                      <button type="button" class="attachments-dropdown-btn" onclick="toggleAttachmentsDropdown()">
                         <i class="fa-solid fa-paperclip"></i>
                         <span>Attachment</span>
                         <i class="fa-solid fa-chevron-down"></i>
                       </button>
-                      <div class="attachments-dropdown-menu">
+                      <div class="attachments-dropdown-menu" id="attachmentsDropdownMenu">
                         <label class="attachments-dropdown-item" for="file-upload">
                           <i class="fa-solid fa-upload"></i>
                           Upload File

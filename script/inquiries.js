@@ -102,6 +102,21 @@ function confirmDelete() {
       }
     }
 
+    // Toggle attachments dropdown
+    function toggleAttachmentsDropdown() {
+      const dropdown = document.getElementById('attachmentsDropdownMenu');
+      const button = document.querySelector('.attachments-dropdown-btn');
+      const isVisible = dropdown.classList.contains('show');
+      
+      if (isVisible) {
+        dropdown.classList.remove('show');
+        button.classList.remove('active');
+      } else {
+        dropdown.classList.add('show');
+        button.classList.add('active');
+      }
+    }
+
 // Group by dropdown functionality
 function toggleGroupByDropdown() {
   const dropdown = document.getElementById('groupByDropdown');
