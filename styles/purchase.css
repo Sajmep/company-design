@@ -1,3 +1,6 @@
+/* Import Common Table Components */
+@import url('common-table.css');
+
 /* Purchase Styles */
 .purchase-container {
   margin: 0;
@@ -1723,7 +1726,7 @@
   align-items: center;
 }
 
-.purchase-card-pr-number {
+.data-card-item-number {
   font-weight: 700;
   color: #007bff;
   font-family: 'Courier New', monospace;
@@ -1735,7 +1738,7 @@
   letter-spacing: 0.5px;
 }
 
-.purchase-card-pr-number:hover {
+.data-card-item-number:hover {
   color: #7c3aed !important;
   text-decoration: underline !important;
   transform: scale(1.05);
@@ -1782,6 +1785,7 @@
 
 .purchase-card-value .purchase-status-badge,
 .purchase-card-value .purchase-priority-badge,
+.purchase-card-value .purchase-pr-type-badge,
 .purchase-card-value .purchase-attachment-count {
   font-size: 10px;
   padding: 2px 6px;
@@ -1832,64 +1836,23 @@
     font-size: 10px;
   }
   
-  .purchase-card-pr-number {
+  .data-card-item-number {
     font-size: 12px;
   }
 }
 
-/* PR List Table Styles */
-.purchase-list-container {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.purchase-list-table-container {
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
-.purchase-list-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.purchase-list-table thead {
-  background: #f8f9fa;
-  border-bottom: 2px solid #e9ecef;
-}
-
-.purchase-list-table th {
-  padding: 12px 16px;
-  text-align: left;
-  font-weight: 600;
-  color: #495057;
-  border-bottom: 1px solid #e9ecef;
-  white-space: nowrap;
-  font-size: 12px;
-}
-
-.purchase-list-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid #f1f3f4;
-  vertical-align: middle;
-  font-size: 12px;
-}
-
-.purchase-list-table tbody tr:hover {
-  background-color: #f8f9fa;
-}
-
-.purchase-list-table tbody tr:last-child td {
-  border-bottom: none;
-}
+/* PR List Table Styles - Now using common-table.css */
 
 /* PR Number */
-.purchase-list-pr-number {
+.data-item-number {
   font-weight: 600;
   color: #007bff;
   font-family: 'Courier New', monospace;
+}
+
+.purchase-list-pr-type {
+  text-align: center;
+  width: 120px;
 }
 
 /* Requester */
@@ -1914,14 +1877,14 @@
 }
 
 /* Clickable PR elements */
-.purchase-list-pr-number,
+.data-item-number,
 .purchase-list-title,
 .purchase-list-description {
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
-.purchase-list-pr-number:hover,
+.data-item-number:hover,
 .purchase-list-title:hover,
 .purchase-list-description:hover {
   color: #7c3aed !important;
@@ -1929,36 +1892,7 @@
   transform: scale(1.02);
 }
 
-/* Status Badges */
-.purchase-status-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.purchase-status-draft {
-  background-color: #e9ecef;
-  color: #6c757d;
-}
-
-.purchase-status-submitted {
-  background-color: #fff3cd;
-  color: #856404;
-}
-
-.purchase-status-approved {
-  background-color: #d4edda;
-  color: #155724;
-}
-
-.purchase-status-pending {
-  background-color: #cce5ff;
-  color: #004085;
-}
+/* Status and Type Badges - Now using common-table.css */
 
 /* Description */
 .purchase-list-description {
@@ -2331,35 +2265,7 @@
     background: #f8d7da !important;
 }
 
-/* Priority Badge Styles */
-.purchase-priority-badge {
-    display: inline-block;
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.purchase-priority-low {
-    background-color: #e3f2fd;
-    color: #1976d2;
-}
-
-.purchase-priority-medium {
-    background-color: #fff3e0;
-    color: #f57c00;
-}
-
-.purchase-priority-high {
-    background-color: #ffebee;
-    color: #d32f2f;
-}
-
-.purchase-priority-urgent {
-    background-color: #f3e5f5;
-    color: #7b1fa2;
-}
+/* Priority Badge Styles - Now using common-table.css */
 
 
 /* Delete Confirmation Modal Styles */

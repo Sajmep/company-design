@@ -809,9 +809,9 @@
           <p>Create and manage purchase requests for your organization.</p>
         </div>
         <div class="purchase-tab-controls">
-          <div class="purchase-search-container">
-            <input type="text" class="purchase-search-input" placeholder="Search PRs...">
-            <i class="fa-solid fa-search purchase-search-icon"></i>
+          <div class="data-search-container">
+            <input type="text" class="data-search-input" placeholder="Search PRs...">
+            <i class="fa-solid fa-search data-search-icon"></i>
           </div>
 
           <div class="action-buttons">
@@ -833,10 +833,14 @@
                   <i class="fa-solid fa-exclamation-triangle"></i>
                   Priority
                 </div>
+                <div class="dropdown-item" data-value="pr-type">
+                  <i class="fa-solid fa-tags"></i>
+                  PR Type
+                </div>
               </div>
             </div>
 
-            <button class="purchase-filter-btn" title="Filter">
+            <button class="data-filter-btn" title="Filter">
               <i class="fa-solid fa-filter"></i>
               <span class="btn-text">Filter</span>
             </button>
@@ -848,37 +852,37 @@
             </button>
 
             <!-- Action Dropdown (hidden by default) -->
-            <div class="purchase-action-dropdown" id="prActionDropdown" style="display: none;">
-              <button class="purchase-action-dropdown-btn" onclick="toggleActionDropdown('pr')" title="Actions">
+            <div class="data-action-dropdown" id="prActionDropdown" style="display: none;">
+              <button class="data-action-dropdown-btn" onclick="toggleActionDropdown('pr')" title="Actions">
                 <i class="fa-solid fa-ellipsis-v"></i>
                 <span class="btn-text">Actions</span>
                 <i class="fa-solid fa-chevron-down"></i>
               </button>
-              <div class="purchase-action-menu" id="prActionMenu">
-                <div class="purchase-action-item" onclick="exportPRs()">
+              <div class="data-action-menu" id="prActionMenu">
+                <div class="data-action-item" onclick="exportPRs()">
                   <i class="fa-solid fa-download"></i>
                   <span>Export</span>
                 </div>
-                <div class="purchase-action-item" onclick="editSelectedPRs()">
+                <div class="data-action-item" onclick="editSelectedPRs()">
                   <i class="fa-solid fa-edit"></i>
                   <span>Edit</span>
                 </div>
-                <div class="purchase-action-item" onclick="duplicateSelectedPRs()">
+                <div class="data-action-item" onclick="duplicateSelectedPRs()">
                   <i class="fa-solid fa-copy"></i>
                   <span>Duplicate</span>
                 </div>
-                <div class="purchase-action-item" onclick="mergeSelectedPRs()">
+                <div class="data-action-item" onclick="mergeSelectedPRs()">
                   <i class="fa-solid fa-compress-arrows-alt"></i>
                   <span>Merge</span>
                 </div>
-                <div class="purchase-action-divider"></div>
-                <div class="purchase-action-item purchase-action-danger" onclick="deleteSelectedPRs()">
+                <div class="data-action-divider"></div>
+                <div class="data-action-item data-action-danger" onclick="deleteSelectedPRs()">
                   <i class="fa-solid fa-trash"></i>
                   <span>Delete</span>
                 </div>
               </div>
             </div>
-            <button class="purchase-tab-create-btn" onclick="createPurchaseItem('pr')" title="Create PR">
+            <button class="data-btn data-btn-primary" onclick="createPurchaseItem('pr')" title="Create PR">
               <i class="fa-solid fa-plus"></i>
               <span class="btn-text">PR</span>
             </button>
@@ -896,29 +900,33 @@
           <div class="purchase-tab-panel active" data-tab="pr" role="tabpanel" aria-labelledby="purchase-tab-pr">
             <!-- PR Content -->
             <div class="purchase-tab-body" id="prContent">
+
+              <div class="data-table-container">
+
               <!-- View Toggle Buttons -->
-              <div class="purchase-view-toggle">
-                <button class="purchase-view-btn purchase-view-btn-active" title="List View">
+                <div class="data-view-toggle">
+                  <button class="data-view-btn data-view-btn-active" title="List View">
                   <i class="fas fa-list"></i>
                 </button>
-                <button class="purchase-view-btn" title="Card View">
+                  <button class="data-view-btn" title="Card View">
                   <i class="fas fa-th-large"></i>
                 </button>
               </div>
 
               <!-- PR List Table -->
-              <div class="purchase-list-container" id="listView">
-                <div class="purchase-list-table-container">
-                  <table class="purchase-list-table">
+                <div class="data-table-container" id="listView">
+                  <div class="data-table-wrapper">
+                    <table class="data-table">
                     <thead>
                       <tr>
                         <th>
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-header" id="selectAllPRs">
-                          <label for="selectAllPRs" class="purchase-checkbox-label"></label>
-                          <span class="purchase-checkbox-text"></span>
+                            <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                            <label for="selectAllPRs" class="data-checkbox-label"></label>
+                            <span class="data-checkbox-text"></span>
                         </th>
-                        <th class="purchase-drag-header">--</th>
+                          <th class="data-drag-header">--</th>
                         <th class="col-pr-number">PR No</th>
+                        <th class="col-pr-type">PR Type</th>
                         <th class="col-department">Dep</th>
                         <th class="col-status">Status</th>
                         <th class="col-created-by">Created By</th>
@@ -928,75 +936,79 @@
                         <th class="col-required-date">Required Date</th>
                         <th class="col-delivery-location hidden">Delivery Location</th>
                         <th class="col-attachments">Attachments</th>
-                        <th class="purchase-table-actions">
-                          <div class="purchase-columns-dropdown">
-                            <button class="purchase-columns-btn-icon" onclick="toggleColumnDropdown()"
+                          <th class="data-table-actions">
+                            <div class="data-columns-dropdown">
+                              <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
                               title="Show/Hide Columns">
                               <img src="images/add-column.png" alt="Columns" width="20px">
                             </button>
-                            <div class="purchase-columns-dropdown-content" id="columnDropdown">
-                              <div class="purchase-columns-dropdown-header">
+                              <div class="data-columns-dropdown-content" id="columnDropdown">
+                                <div class="data-columns-dropdown-header">
                                 <h4>Select Columns</h4>
                               </div>
-                              <div class="purchase-columns-dropdown-body">
-                                <div class="purchase-column-options">
-                                  <label class="purchase-column-option fixed-column">
+                                <div class="data-columns-dropdown-body">
+                                  <div class="data-column-options">
+                                    <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
-                                    <span class="purchase-column-label">
+                                      <span class="data-column-label">
                                       PR No <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
-                                  <label class="purchase-column-option">
-                                    <input type="checkbox" value="col-department" checked>
-                                    <span class="purchase-column-label">Department</span>
+                                    <label class="data-column-option">
+                                    <input type="checkbox" value="col-pr-type" checked>
+                                      <span class="data-column-label">PR Type</span>
                                   </label>
-                                  <label class="purchase-column-option fixed-column">
+                                    <label class="data-column-option">
+                                    <input type="checkbox" value="col-department" checked>
+                                      <span class="data-column-label">Department</span>
+                                  </label>
+                                    <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-status" checked disabled data-fixed="true">
-                                    <span class="purchase-column-label">
+                                      <span class="data-column-label">
                                       Status <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
-                                  <label class="purchase-column-option fixed-column">
+                                    <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
-                                    <span class="purchase-column-label">
+                                      <span class="data-column-label">
                                       Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
-                                  <label class="purchase-column-option">
+                                    <label class="data-column-option">
                                     <input type="checkbox" value="col-created-on" checked>
-                                    <span class="purchase-column-label">Created On</span>
+                                      <span class="data-column-label">Created On</span>
                                   </label>
-                                  <label class="purchase-column-option fixed-column">
+                                    <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
-                                    <span class="purchase-column-label">
+                                      <span class="data-column-label">
                                       Requested By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
-                                  <label class="purchase-column-option fixed-column">
+                                    <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
-                                    <span class="purchase-column-label">
+                                      <span class="data-column-label">
                                       Priority <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
-                                  <label class="purchase-column-option">
+                                    <label class="data-column-option">
                                     <input type="checkbox" value="col-required-date" checked>
-                                    <span class="purchase-column-label">Required Date</span>
+                                      <span class="data-column-label">Required Date</span>
                                   </label>
-                                  <label class="purchase-column-option">
+                                    <label class="data-column-option">
                                     <input type="checkbox" value="col-delivery-location">
-                                    <span class="purchase-column-label">Delivery Location</span>
+                                      <span class="data-column-label">Delivery Location</span>
                                   </label>
-                                  <label class="purchase-column-option">
+                                    <label class="data-column-option">
                                     <input type="checkbox" value="col-attachments" checked>
-                                    <span class="purchase-column-label">Attachments</span>
+                                      <span class="data-column-label">Attachments</span>
                                   </label>
                                 </div>
                               </div>
-                              <div class="purchase-columns-dropdown-footer">
-                                <button class="purchase-btn purchase-btn-secondary" onclick="closeColumnDropdown()">
+                                <div class="data-columns-dropdown-footer">
+                                  <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
                                   Cancel
                                 </button>
-                                <button class="purchase-btn purchase-btn-primary" onclick="saveColumnVisibility()">
+                                  <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
                                   Save
                                 </button>
                               </div>
@@ -1008,42 +1020,48 @@
                     <tbody>
                       <tr>
                         <td class="purchase-list-checkbox">
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0012">
-                          <label for="pr-0012" class="purchase-checkbox-label"></label>
+                            <input type="checkbox" class="data-checkbox data-checkbox-row" id="pr-0012">
+                            <label for="pr-0012" class="data-checkbox-label"></label>
                         </td>
-                        <td class="purchase-list-pr-number col-pr-number">PR-2025</td>
+                          <td class="data-item-number col-pr-number">PR-2025</td>
+                        <td class="purchase-list-pr-type col-pr-type">
+                            <span class="data-type-badge data-type-equipment">Equipment</span>
+                        </td>
                         <td class="purchase-list-department col-department">IT</td>
                         <td class="purchase-list-status col-status">
-                          <span class="purchase-status-badge purchase-status-approved">Approved</span>
+                            <span class="data-status-badge data-status-approved">Approved</span>
                         </td>
                         <td class="purchase-list-created-by col-created-by">John Smith</td>
                         <td class="purchase-list-created-on col-created-on">2025-01-15</td>
                         <td class="purchase-list-requester col-requested-by">John Smith</td>
                         <td class="purchase-list-priority col-priority">
-                          <span class="purchase-priority-badge purchase-priority-medium">Medium</span>
+                            <span class="data-priority-badge data-priority-medium">Medium</span>
                         </td>
                         <td class="purchase-list-required-date col-required-date">2025-02-15</td>
                         <td class="purchase-list-delivery-location col-delivery-location">Main Office, Floor 3</td>
                         <td class="purchase-list-attachments col-attachments">
                           <span class="purchase-attachment-count">3 files</span>
                         </td>
-                        <td class="purchase-table-actions-cell"></td>
+                          <td class="data-table-actions-cell"></td>
                       </tr>
                       <tr>
                         <td class="purchase-list-checkbox">
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0011">
-                          <label for="pr-0011" class="purchase-checkbox-label"></label>
+                            <input type="checkbox" class="data-checkbox data-checkbox-row" id="pr-0011">
+                            <label for="pr-0011" class="data-checkbox-label"></label>
                         </td>
-                        <td class="purchase-list-pr-number col-pr-number">PR-2025</td>
+                          <td class="data-item-number col-pr-number">PR-2025</td>
+                        <td class="purchase-list-pr-type col-pr-type">
+                            <span class="data-type-badge data-type-stationary">Stationary</span>
+                        </td>
                         <td class="purchase-list-department col-department">HR</td>
                         <td class="purchase-list-status col-status">
-                          <span class="purchase-status-badge purchase-status-submitted">Submitted</span>
+                            <span class="data-status-badge data-status-submitted">Submitted</span>
                         </td>
                         <td class="purchase-list-created-by col-created-by">Sarah Johnson</td>
                         <td class="purchase-list-created-on col-created-on">2025-01-14</td>
                         <td class="purchase-list-requester col-requested-by">Sarah Johnson</td>
                         <td class="purchase-list-priority col-priority">
-                          <span class="purchase-priority-badge purchase-priority-high">High</span>
+                            <span class="data-priority-badge data-priority-high">High</span>
                         </td>
                         <td class="purchase-list-required-date col-required-date">2025-02-01</td>
                         <td class="purchase-list-delivery-location col-delivery-location">Training Center, Building B
@@ -1051,30 +1069,33 @@
                         <td class="purchase-list-attachments col-attachments">
                           <span class="purchase-attachment-count">2 files</span>
                         </td>
-                        <td class="purchase-table-actions-cell"></td>
+                          <td class="data-table-actions-cell"></td>
                       </tr>
                       <tr>
                         <td class="purchase-list-checkbox">
-                          <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="pr-0010">
-                          <label for="pr-0010" class="purchase-checkbox-label"></label>
+                            <input type="checkbox" class="data-checkbox data-checkbox-row" id="pr-0010">
+                            <label for="pr-0010" class="data-checkbox-label"></label>
                         </td>
-                        <td class="purchase-list-pr-number col-pr-number">PR-2025</td>
+                          <td class="data-item-number col-pr-number">PR-2025</td>
+                        <td class="purchase-list-pr-type col-pr-type">
+                            <span class="data-type-badge data-type-building-materials">Building Materials</span>
+                        </td>
                         <td class="purchase-list-department col-department">Finance</td>
                         <td class="purchase-list-status col-status">
-                          <span class="purchase-status-badge purchase-status-draft">Draft</span>
+                            <span class="data-status-badge data-status-draft">Draft</span>
                         </td>
                         <td class="purchase-list-created-by col-created-by">Mike Wilson</td>
                         <td class="purchase-list-created-on col-created-on">2025-01-13</td>
                         <td class="purchase-list-requester col-requested-by">Mike Wilson</td>
                         <td class="purchase-list-priority col-priority">
-                          <span class="purchase-priority-badge purchase-priority-low">Low</span>
+                            <span class="data-priority-badge data-priority-low">Low</span>
                         </td>
                         <td class="purchase-list-required-date col-required-date">2025-03-01</td>
                         <td class="purchase-list-delivery-location col-delivery-location">IT Department, Floor 2</td>
                         <td class="purchase-list-attachments col-attachments">
                           <span class="purchase-attachment-count">1 file</span>
                         </td>
-                        <td class="purchase-table-actions-cell"></td>
+                          <td class="data-table-actions-cell"></td>
                       </tr>
                     </tbody>
                   </table>
@@ -1082,54 +1103,60 @@
               </div>
 
               <!-- PR Card View -->
-              <div class="purchase-card-container" id="cardView" style="display: none;">
-                <div class="purchase-card-grid">
+                <div class="data-card-container" id="cardView" style="display: none;">
+                  <div class="data-card-grid">
                   <!-- Card 1 -->
-                  <div class="purchase-card">
-                    <div class="purchase-card-header">
+                    <div class="data-card">
+                      <div class="data-card-header">
                       <div class="purchase-card-checkbox">
-                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="card-pr-0012">
-                        <label for="card-pr-0012" class="purchase-checkbox-label"></label>
+                          <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-pr-0012">
+                          <label for="card-pr-0012" class="data-checkbox-label"></label>
                       </div>
-                      <div class="purchase-card-pr-number">PR-2025</div>
+                        <div class="data-card-item-number">PR-2025</div>
                       <div class="purchase-card-status">
-                        <span class="purchase-status-badge purchase-status-approved">Approved</span>
+                          <span class="data-status-badge data-status-approved">Approved</span>
                       </div>
                     </div>
-                    <div class="purchase-card-body">
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Department:</span>
-                        <span class="purchase-card-value">IT</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Created By:</span>
-                        <span class="purchase-card-value">John Smith</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Created On:</span>
-                        <span class="purchase-card-value">2025-01-15</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Requested By:</span>
-                        <span class="purchase-card-value">John Smith</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Priority:</span>
-                        <span class="purchase-card-value">
-                          <span class="purchase-priority-badge purchase-priority-medium">Medium</span>
+                      <div class="data-card-body">
+                        <div class="data-card-row">
+                          <span class="data-card-label">PR Type:</span>
+                          <span class="data-card-value">
+                            <span class="data-type-badge data-type-equipment">Equipment</span>
                         </span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Required Date:</span>
-                        <span class="purchase-card-value">2025-02-15</span>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Department:</span>
+                          <span class="data-card-value">IT</span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Delivery Location:</span>
-                        <span class="purchase-card-value">Main Office, Floor 3</span>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Created By:</span>
+                          <span class="data-card-value">John Smith</span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Attachments:</span>
-                        <span class="purchase-card-value">
+                        <div class="data-card-row">
+                          <span class="data-card-label">Created On:</span>
+                          <span class="data-card-value">2025-01-15</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Requested By:</span>
+                          <span class="data-card-value">John Smith</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Priority:</span>
+                          <span class="data-card-value">
+                            <span class="data-priority-badge data-priority-medium">Medium</span>
+                        </span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Required Date:</span>
+                          <span class="data-card-value">2025-02-15</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Delivery Location:</span>
+                          <span class="data-card-value">Main Office, Floor 3</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Attachments:</span>
+                          <span class="data-card-value">
                           <span class="purchase-attachment-count">3 files</span>
                         </span>
                       </div>
@@ -1137,51 +1164,57 @@
                   </div>
 
                   <!-- Card 2 -->
-                  <div class="purchase-card">
-                    <div class="purchase-card-header">
+                    <div class="data-card">
+                      <div class="data-card-header">
                       <div class="purchase-card-checkbox">
-                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="card-pr-0011">
-                        <label for="card-pr-0011" class="purchase-checkbox-label"></label>
+                          <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-pr-0011">
+                          <label for="card-pr-0011" class="data-checkbox-label"></label>
                       </div>
-                      <div class="purchase-card-pr-number">PR-2025</div>
+                        <div class="data-card-item-number">PR-2025</div>
                       <div class="purchase-card-status">
-                        <span class="purchase-status-badge purchase-status-submitted">Submitted</span>
+                          <span class="data-status-badge data-status-submitted">Submitted</span>
                       </div>
                     </div>
-                    <div class="purchase-card-body">
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Department:</span>
-                        <span class="purchase-card-value">HR</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Created By:</span>
-                        <span class="purchase-card-value">Sarah Johnson</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Created On:</span>
-                        <span class="purchase-card-value">2025-01-14</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Requested By:</span>
-                        <span class="purchase-card-value">Sarah Johnson</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Priority:</span>
-                        <span class="purchase-card-value">
-                          <span class="purchase-priority-badge purchase-priority-high">High</span>
+                      <div class="data-card-body">
+                        <div class="data-card-row">
+                          <span class="data-card-label">PR Type:</span>
+                          <span class="data-card-value">
+                            <span class="data-type-badge data-type-stationary">Stationary</span>
                         </span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Required Date:</span>
-                        <span class="purchase-card-value">2025-02-01</span>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Department:</span>
+                          <span class="data-card-value">HR</span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Delivery Location:</span>
-                        <span class="purchase-card-value">Training Center, Building B</span>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Created By:</span>
+                          <span class="data-card-value">Sarah Johnson</span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Attachments:</span>
-                        <span class="purchase-card-value">
+                        <div class="data-card-row">
+                          <span class="data-card-label">Created On:</span>
+                          <span class="data-card-value">2025-01-14</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Requested By:</span>
+                          <span class="data-card-value">Sarah Johnson</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Priority:</span>
+                          <span class="data-card-value">
+                            <span class="data-priority-badge data-priority-high">High</span>
+                        </span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Required Date:</span>
+                          <span class="data-card-value">2025-02-01</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Delivery Location:</span>
+                          <span class="data-card-value">Training Center, Building B</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Attachments:</span>
+                          <span class="data-card-value">
                           <span class="purchase-attachment-count">2 files</span>
                         </span>
                       </div>
@@ -1189,51 +1222,57 @@
                   </div>
 
                   <!-- Card 3 -->
-                  <div class="purchase-card">
-                    <div class="purchase-card-header">
+                    <div class="data-card">
+                      <div class="data-card-header">
                       <div class="purchase-card-checkbox">
-                        <input type="checkbox" class="purchase-checkbox purchase-checkbox-row" id="card-pr-0010">
-                        <label for="card-pr-0010" class="purchase-checkbox-label"></label>
+                          <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-pr-0010">
+                          <label for="card-pr-0010" class="data-checkbox-label"></label>
                       </div>
-                      <div class="purchase-card-pr-number">PR-2025</div>
+                        <div class="data-card-item-number">PR-2025</div>
                       <div class="purchase-card-status">
-                        <span class="purchase-status-badge purchase-status-draft">Draft</span>
+                          <span class="data-status-badge data-status-draft">Draft</span>
                       </div>
                     </div>
-                    <div class="purchase-card-body">
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Department:</span>
-                        <span class="purchase-card-value">Finance</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Created By:</span>
-                        <span class="purchase-card-value">Mike Wilson</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Created On:</span>
-                        <span class="purchase-card-value">2025-01-13</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Requested By:</span>
-                        <span class="purchase-card-value">Mike Wilson</span>
-                      </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Priority:</span>
-                        <span class="purchase-card-value">
-                          <span class="purchase-priority-badge purchase-priority-low">Low</span>
+                      <div class="data-card-body">
+                        <div class="data-card-row">
+                          <span class="data-card-label">PR Type:</span>
+                          <span class="data-card-value">
+                            <span class="data-type-badge data-type-building-materials">Building Materials</span>
                         </span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Required Date:</span>
-                        <span class="purchase-card-value">2025-03-01</span>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Department:</span>
+                          <span class="data-card-value">Finance</span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Delivery Location:</span>
-                        <span class="purchase-card-value">IT Department, Floor 2</span>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Created By:</span>
+                          <span class="data-card-value">Mike Wilson</span>
                       </div>
-                      <div class="purchase-card-row">
-                        <span class="purchase-card-label">Attachments:</span>
-                        <span class="purchase-card-value">
+                        <div class="data-card-row">
+                          <span class="data-card-label">Created On:</span>
+                          <span class="data-card-value">2025-01-13</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Requested By:</span>
+                          <span class="data-card-value">Mike Wilson</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Priority:</span>
+                          <span class="data-card-value">
+                            <span class="data-priority-badge data-priority-low">Low</span>
+                        </span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Required Date:</span>
+                          <span class="data-card-value">2025-03-01</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Delivery Location:</span>
+                          <span class="data-card-value">IT Department, Floor 2</span>
+                      </div>
+                        <div class="data-card-row">
+                          <span class="data-card-label">Attachments:</span>
+                          <span class="data-card-value">
                           <span class="purchase-attachment-count">1 file</span>
                         </span>
                       </div>
@@ -1241,6 +1280,9 @@
                   </div>
                 </div>
               </div>
+
+              </div>
+
             </div>
           </div>
           <!--pr end-->
@@ -1250,7 +1292,6 @@
 
           <!--po start-->
           <!--po end-->
-
         </div>
       </div>
 
@@ -1272,6 +1313,34 @@
         <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
           <i class="fa-solid fa-times"></i>
         </button>
+          <!-- Staging Section -->
+          <div class="pr-staging-section">
+            <div class="pr-staging-arrow">
+              <div class="pr-stage pr-stage-active">
+                <div class="pr-stage-content">
+                  <div class="pr-stage-label">Draft</div>
+                </div>
+              </div>
+              <div class="pr-arrow-connector"></div>
+              <div class="pr-stage">
+                <div class="pr-stage-content">
+                  <div class="pr-stage-label">Submit</div>
+                </div>
+              </div>
+              <div class="pr-arrow-connector"></div>
+              <div class="pr-stage">
+                <div class="pr-stage-content">
+                  <div class="pr-stage-label">Approve</div>
+                </div>
+              </div>
+              <div class="pr-arrow-connector"></div>
+              <div class="pr-stage">
+                <div class="pr-stage-content">
+                  <div class="pr-stage-label">Done</div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
       <div class="purchase-offcanvas-body">
 
@@ -1300,35 +1369,6 @@
         <!-- Tab Content -->
         <div class="pr-tab-content">
           <div class="pr-tab-panel active" id="pr-panel">
-            <!-- Staging Section -->
-            <div class="pr-staging-section">
-              <div class="pr-staging-arrow">
-                <div class="pr-stage pr-stage-active">
-                  <div class="pr-stage-content">
-                    <div class="pr-stage-label">Draft</div>
-                  </div>
-                </div>
-                <div class="pr-arrow-connector"></div>
-                <div class="pr-stage">
-                  <div class="pr-stage-content">
-                    <div class="pr-stage-label">Submit</div>
-                  </div>
-                </div>
-                <div class="pr-arrow-connector"></div>
-                <div class="pr-stage">
-                  <div class="pr-stage-content">
-                    <div class="pr-stage-label">Approve</div>
-                  </div>
-                </div>
-                <div class="pr-arrow-connector"></div>
-                <div class="pr-stage">
-                  <div class="pr-stage-content">
-                    <div class="pr-stage-label">Done</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
             <!-- PR Action Buttons -->
             <div class="pr-action-buttons">
               <div class="pr-action-buttons-group">
@@ -1382,6 +1422,12 @@
                       <div class="pr-overview-label">Requested By</div>
                       <div class="pr-overview-value">Sarah Johnson</div>
                     </div>
+                    <div class="pr-overview-item">
+                      <div class="pr-overview-label">PR Type</div>
+                      <div class="pr-overview-value pr-type-equipment">Equipment</div>
+                    </div>
+                  </div>
+                  <div class="pr-overview-row">
                     <div class="pr-overview-item">
                       <div class="pr-overview-label">Department</div>
                       <div class="pr-overview-value">Procurement</div>
@@ -1639,10 +1685,17 @@
                     </select>
                   </div>
                   <div class="purchase-form-group">
-                    <label for="prCategory">Category</label>
-                    <select id="prCategory" name="category">
-                      <option value="">Select Category</option>
-                      <option value="office-supplies">Office Supplies</option>
+                    <label for="prType">PR Type</label>
+                    <select id="prType" name="prType" required>
+                      <option value="">Select PR Type</option>
+                      <option value="grocery">Grocery</option>
+                      <option value="stationary">Stationary</option>
+                      <option value="building-materials">Building Materials</option>
+                      <option value="consumables">Consumables</option>
+                      <option value="booking">Booking</option>
+                      <option value="rental">Rental</option>
+                      <option value="furniture">Furniture</option>
+                      <option value="contractor">Contractor</option>
                       <option value="equipment">Equipment</option>
                       <option value="services">Services</option>
                       <option value="software">Software</option>
@@ -1829,8 +1882,9 @@
   <script src="script/settings.js"></script>
   <script src="script/sidebar.js"></script>
   <script src="script/help-center.js"></script>
+  <script src="script/common-table.js"></script>
+  <script src="script/common-offcanvas.js"></script>
   <script src="script/purchase.js"></script>
-  <script src="script/purchase-offcanvas.js"></script>
   <script src="script/purchase-group-by.js"></script>
 
 </body>

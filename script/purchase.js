@@ -1,11 +1,9 @@
 // Purchase Tab Functionality - Sidebar Version
 document.addEventListener('DOMContentLoaded', function() {
     initPurchaseTabs();
-    initSelectAll();
-    initDragReorder();
-    initClickableRows();
-    initViewToggle();
-    initColumnVisibility();
+    
+    // Note: Common table functionality is now auto-initialized by common-table.js
+    // The auto-initialization will handle drag & drop, select all, column visibility, etc.
 });
 
 // Basic tab switching from sidebar
@@ -313,208 +311,22 @@ document.addEventListener('keydown', function(e) {
 });
 
 
-// Make PR number, title, and description clickable
-function initClickableRows() {
-    const prNumbers = document.querySelectorAll('.purchase-list-pr-number, .purchase-card-pr-number');
+// Note: initClickableRows and initSelectAll are now handled by common-table.js
 
-    // Make PR numbers clickable (both list and card view)
-    prNumbers.forEach(prNumber => {
-        prNumber.style.cursor = 'pointer';
-        prNumber.style.color = '#9885d1';
-        prNumber.addEventListener('click', function() {
-            openPROffcanvas();
-        });
-    });    
-}
+// Note: initDragReorder is now handled by common-table.js
 
-// Select All Functionality
-function initSelectAll() {
-    const selectAllCheckbox = document.getElementById('selectAllPRs');
-    const rowCheckboxes = document.querySelectorAll('.purchase-checkbox-row');
-    
-    if (selectAllCheckbox) {
-        selectAllCheckbox.addEventListener('change', function() {
-            rowCheckboxes.forEach(checkbox => {
-                checkbox.checked = this.checked;
-            });
-            updateActionDropdownVisibility();
-        });
-    }
-    
-    // Update select all when individual checkboxes change
-    rowCheckboxes.forEach(checkbox => {
-        checkbox.addEventListener('change', function() {
-            const allChecked = Array.from(rowCheckboxes).every(cb => cb.checked);
-            const someChecked = Array.from(rowCheckboxes).some(cb => cb.checked);
-            
-            if (selectAllCheckbox) {
-                selectAllCheckbox.checked = allChecked;
-                selectAllCheckbox.indeterminate = someChecked && !allChecked;
-            }
-            
-            updateActionDropdownVisibility();
-        });
-    });
-}
-
-// Drag Up/Down Functionality
-function initDragReorder() {
-    const tbody = document.querySelector('.purchase-list-table tbody');
-    if (!tbody) {
-        console.log('Table body not found');
-        return;
-    }
-    
-    let draggedRow = null;
-    
-    // Add drag handles to each row
-    const rows = tbody.querySelectorAll('tr');
-    console.log('Found rows:', rows.length);
-    
-    rows.forEach((row, index) => {
-        // Add drag handle cell
-        const dragCell = document.createElement('td');
-        dragCell.className = 'purchase-drag-handle';
-        dragCell.innerHTML = '<i class="fa-solid fa-grip-vertical"></i>';
-        dragCell.draggable = true;
-        dragCell.style.cursor = 'grab';
-        
-        // Insert drag handle as second cell (after checkbox)
-        const checkboxCell = row.querySelector('.purchase-list-checkbox');
-        if (checkboxCell) {
-            row.insertBefore(dragCell, checkboxCell.nextSibling);
-        } else {
-            row.insertBefore(dragCell, row.firstChild);
-        }
-        
-        // Make the entire row draggable
-        row.draggable = true;
-        row.style.cursor = 'grab';
-        
-        // Drag events on the row
-        row.addEventListener('dragstart', function(e) {
-            console.log('Drag started');
-            draggedRow = row;
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', row.outerHTML);
-            
-            // Visual feedback
-            row.style.opacity = '0.5';
-            row.style.transform = 'rotate(1deg)';
-            row.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
-            row.style.border = '2px dashed #9885d1';
-            row.style.backgroundColor = '#f8f7ff';
-        });
-        
-        row.addEventListener('dragend', function(e) {
-            console.log('Drag ended');
-            // Reset visual effects
-            row.style.opacity = '1';
-            row.style.transform = 'none';
-            row.style.boxShadow = 'none';
-            row.style.border = 'none';
-            row.style.backgroundColor = '';
-            draggedRow = null;
-        });
-        
-        row.addEventListener('dragover', function(e) {
-            e.preventDefault();
-            e.dataTransfer.dropEffect = 'move';
-            
-            // Highlight drop target
-            if (draggedRow && draggedRow !== row) {
-                row.style.backgroundColor = '#e0f2fe';
-                row.style.borderTop = '3px solid #9885d1';
-            }
-        });
-        
-        row.addEventListener('dragleave', function(e) {
-            // Remove drop target highlighting
-            row.style.backgroundColor = '';
-            row.style.borderTop = '';
-        });
-        
-        row.addEventListener('drop', function(e) {
-            e.preventDefault();
-            console.log('Drop event');
-            
-            if (draggedRow && draggedRow !== row) {
-                // Get the position of dragged row and target row
-                const draggedIndex = Array.from(tbody.children).indexOf(draggedRow);
-                const targetIndex = Array.from(tbody.children).indexOf(row);
-                
-                console.log('Dragged index:', draggedIndex, 'Target index:', targetIndex);
-                
-                // Determine the correct insertion point
-                if (draggedIndex < targetIndex) {
-                    // Dragging down: insert after the target row
-                    if (row.nextSibling) {
-                        tbody.insertBefore(draggedRow, row.nextSibling);
-                    } else {
-                        tbody.appendChild(draggedRow);
-                    }
-                } else {
-                    // Dragging up: insert before the target row
-                    tbody.insertBefore(draggedRow, row);
-                }
-                console.log('Row moved');
-            }
-            
-            // Remove drop target highlighting
-            row.style.backgroundColor = '';
-            row.style.borderTop = '';
-        });
-    });
-}
-
-// Action Dropdown Functionality
+// Note: Action dropdown functionality is now handled by common-table.js
+// Keeping purchase-specific toggleActionDropdown for backward compatibility
 function toggleActionDropdown(tabType) {
     const dropdown = document.getElementById(`${tabType}ActionDropdown`);
-    const menu = document.getElementById(`${tabType}ActionMenu`);
-    const button = dropdown.querySelector('.purchase-action-dropdown-btn');
-    
-    if (dropdown.classList.contains('active')) {
-        dropdown.classList.remove('active');
-        button.classList.remove('active');
-    } else {
-        // Close other dropdowns first
-        document.querySelectorAll('.purchase-action-dropdown').forEach(dd => {
-            dd.classList.remove('active');
-            dd.querySelector('.purchase-action-dropdown-btn').classList.remove('active');
-        });
-        
-        dropdown.classList.add('active');
-        button.classList.add('active');
+    if (dropdown) {
+        CommonTable.toggleActionDropdown(dropdown.id);
     }
 }
 
-
-// Close dropdowns when clicking outside
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('.purchase-action-dropdown')) {
-        document.querySelectorAll('.purchase-action-dropdown').forEach(dropdown => {
-            dropdown.classList.remove('active');
-            dropdown.querySelector('.purchase-action-dropdown-btn').classList.remove('active');
-        });
-    }
-});
-
-// Show action dropdown when rows are selected
+// Purchase-specific action dropdown visibility update
 function updateActionDropdownVisibility() {
-    const selectedCheckboxes = document.querySelectorAll('.purchase-checkbox-row:checked');
-    const actionDropdowns = document.querySelectorAll('.purchase-action-dropdown');
-    
-    if (selectedCheckboxes.length > 0) {
-        actionDropdowns.forEach(dropdown => {
-            dropdown.style.display = 'inline-block';
-        });
-    } else {
-        actionDropdowns.forEach(dropdown => {
-            dropdown.style.display = 'none';
-            dropdown.classList.remove('active');
-            dropdown.querySelector('.purchase-action-dropdown-btn').classList.remove('active');
-        });
-    }
+    CommonTable.updateActionDropdownVisibility('.data-checkbox-row:checked', '.data-action-dropdown');
 }
 
 
@@ -652,205 +464,324 @@ window.removeLink = removeLink;
 
 
 
-// View Toggle Functionality
-function initViewToggle() {
-    const listViewBtn = document.querySelector('.purchase-view-btn[title="List View"]');
-    const cardViewBtn = document.querySelector('.purchase-view-btn[title="Card View"]');
-    const listView = document.getElementById('listView');
-    const cardView = document.getElementById('cardView');
-    
-    if (listViewBtn && cardViewBtn && listView && cardView) {
-        listViewBtn.addEventListener('click', function() {
-            showListView();
-        });
-        
-        cardViewBtn.addEventListener('click', function() {
-            showCardView();
-        });
-    }
-}
+// Note: View toggle functionality is now handled by common-table.js
 
-function showListView() {
-    const listView = document.getElementById('listView');
-    const cardView = document.getElementById('cardView');
-    const listViewBtn = document.querySelector('.purchase-view-btn[title="List View"]');
-    const cardViewBtn = document.querySelector('.purchase-view-btn[title="Card View"]');
-    
-    if (listView && cardView && listViewBtn && cardViewBtn) {
-        listView.style.display = 'block';
-        cardView.style.display = 'none';
-        
-        listViewBtn.classList.add('purchase-view-btn-active');
-        cardViewBtn.classList.remove('purchase-view-btn-active');
-    }
-}
-
-function showCardView() {
-    const listView = document.getElementById('listView');
-    const cardView = document.getElementById('cardView');
-    const listViewBtn = document.querySelector('.purchase-view-btn[title="List View"]');
-    const cardViewBtn = document.querySelector('.purchase-view-btn[title="Card View"]');
-    
-    if (listView && cardView && listViewBtn && cardViewBtn) {
-        listView.style.display = 'none';
-        cardView.style.display = 'block';
-        
-        listViewBtn.classList.remove('purchase-view-btn-active');
-        cardViewBtn.classList.add('purchase-view-btn-active');
-    }
-}
-
-// Column Visibility Functions
+// Note: Column visibility functionality is now handled by common-table.js
+// Keeping purchase-specific functions for backward compatibility
 function toggleColumnDropdown() {
-    const dropdown = document.getElementById('columnDropdown');
-    const button = document.querySelector('.purchase-columns-btn-icon');
-    
-    if (dropdown && button) {
-        const isOpen = dropdown.classList.contains('show');
-        
-        if (isOpen) {
-            closeColumnDropdown();
-        } else {
-            openColumnDropdown();
-        }
-    }
+    CommonTable.toggleColumnDropdown('columnDropdown');
 }
 
 function openColumnDropdown() {
-    const dropdown = document.getElementById('columnDropdown');
-    const button = document.querySelector('.purchase-columns-btn-icon');
-    
-    if (dropdown && button) {
-        // Close other dropdowns first
-        document.querySelectorAll('.purchase-columns-dropdown-content.show').forEach(dd => {
-            dd.classList.remove('show');
-        });
-        
-        // Position dropdown relative to button
-        const buttonRect = button.getBoundingClientRect();
-        const dropdownWidth = 500; // min-width from CSS
-        
-        // Position dropdown below and aligned to the right of the button
-        dropdown.style.top = (buttonRect.bottom + 8) + 'px';
-        dropdown.style.left = (buttonRect.right - dropdownWidth) + 'px';
-        
-        dropdown.classList.add('show');
-        button.classList.add('active');
-        
-        
-        // Sync checkbox state with column visibility
-        const checkboxes = document.querySelectorAll('#columnDropdown input[type="checkbox"]');
-        checkboxes.forEach(cb => {
-            const columnClass = cb.value;
-            const columnElements = document.querySelectorAll(`.${columnClass}`);
-            
-            // Skip fixed columns - they should always be checked and disabled
-            if (cb.hasAttribute('data-fixed')) {
-                cb.checked = true;
-                cb.disabled = true;
-                return;
-            }
-            
-            if (columnElements.length > 0) {
-                // Check if any column element is visible (not hidden)
-                const isVisible = !columnElements[0].classList.contains('hidden');
-                cb.checked = isVisible;
-            }
-        });
-    }
+    CommonTable.openColumnDropdown('columnDropdown');
 }
 
 function closeColumnDropdown() {
-    const dropdown = document.getElementById('columnDropdown');
-    const button = document.querySelector('.purchase-columns-btn-icon');
-    
-    if (dropdown && button) {
-        dropdown.classList.remove('show');
-        button.classList.remove('active');
-    }
+    CommonTable.closeColumnDropdown('columnDropdown');
 }
 
 function saveColumnVisibility() {
-    const checkboxes = document.querySelectorAll('#columnDropdown input[type="checkbox"]');
-    
-    checkboxes.forEach(cb => {
-        // Skip fixed columns - they should always remain visible
-        if (cb.hasAttribute('data-fixed')) {
-            return;
-        }
-        
-        const columnClass = cb.value;
-        const columnElements = document.querySelectorAll(`.${columnClass}`);
-        
-        if (cb.checked) {
-            // Show columns
-            columnElements.forEach(element => element.classList.remove('hidden'));
-        } else {
-            // Hide columns
-            columnElements.forEach(element => element.classList.add('hidden'));
-        }
-    });
-    
-    closeColumnDropdown();
+    CommonTable.saveColumnVisibility('columnDropdown');
 }
 
-// Initialize column visibility on page load
 function initColumnVisibility() {
-    // Set default column visibility
-    setDefaultColumnVisibility();
-    
-    // Ensure fixed columns are always visible
-    ensureFixedColumnsVisible();
-    
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function(e) {
-        const dropdown = document.getElementById('columnDropdown');
-        const button = document.querySelector('.purchase-columns-btn-icon');
-        
-        if (dropdown && button && !button.contains(e.target) && !dropdown.contains(e.target)) {
-            closeColumnDropdown();
-        }
-    });
-    
-    // Close dropdown on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            closeColumnDropdown();
-        }
-    });
-    
-    // Reposition dropdown on window resize
-    window.addEventListener('resize', function() {
-        const dropdown = document.getElementById('columnDropdown');
-        if (dropdown && dropdown.classList.contains('show')) {
-            // Close and reopen to recalculate position
-            closeColumnDropdown();
-            setTimeout(() => {
-                openColumnDropdown();
-            }, 10);
-        }
-    });
+    CommonTable.initColumnVisibility('columnDropdown', '.data-columns-btn-icon');
 }
 
-// Set default column visibility
 function setDefaultColumnVisibility() {
-    // Define which columns should be hidden by default
-    const hiddenByDefault = ['col-delivery-location'];
-    
-    // Apply hidden class to all elements with these column classes
-    hiddenByDefault.forEach(columnClass => {
-        const columnElements = document.querySelectorAll(`.${columnClass}`);
-        columnElements.forEach(element => element.classList.add('hidden'));
-    });
+    CommonTable.setDefaultColumnVisibility(['col-delivery-location']);
 }
 
-// Ensure fixed columns are always visible
 function ensureFixedColumnsVisible() {
-    const fixedColumns = ['col-pr-number', 'col-status', 'col-created-by', 'col-requested-by', 'col-priority'];
+    CommonTable.ensureFixedColumnsVisible(['col-pr-number', 'col-status', 'col-created-by', 'col-requested-by', 'col-priority']);
+}
+
+
+// Toggle PR Overview Section
+function togglePROverview() {
+    var overviewSection = document.querySelector('.pr-overview-section');
+    overviewSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Items Section
+function togglePRItems() {
+    var itemsSection = document.querySelector('.pr-items-section');
+    itemsSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Description Section
+function togglePRDescription() {
+    var descriptionSection = document.querySelector('#prDescriptionContent').closest('.pr-description-section');
+    descriptionSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Justification Section
+function togglePRJustification() {
+    var justificationSection = document.querySelector('#prJustificationContent').closest('.pr-description-section');
+    justificationSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Notes Section
+function togglePRNotes() {
+    var notesSection = document.querySelector('#prNotesContent').closest('.pr-description-section');
+    notesSection.classList.toggle('collapsed');
+}
+
+// Initialize drag and drop for PR items table
+function initializePRItemsDragDrop() {
+    const tbody = document.querySelector('.pr-items-table tbody');
+    if (!tbody) return;
     
-    fixedColumns.forEach(columnClass => {
-        const columnElements = document.querySelectorAll(`.${columnClass}`);
-        columnElements.forEach(element => element.classList.remove('hidden'));
+    let draggedRow = null;
+    
+    // Add drag handles to each row
+    const rows = tbody.querySelectorAll('tr');
+    console.log('Found PR items rows:', rows.length);
+    
+    rows.forEach((row, index) => {
+        // Make the entire row draggable
+        row.draggable = true;
+        row.style.cursor = 'grab';
+        
+        // Drag events on the row
+        row.addEventListener('dragstart', function(e) {
+            console.log('PR Items drag started');
+            draggedRow = row;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', row.outerHTML);
+            
+            // Visual feedback
+            row.style.opacity = '0.5';
+            row.style.transform = 'rotate(2deg)';
+            row.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        });
+        
+        row.addEventListener('dragend', function(e) {
+            console.log('PR Items drag ended');
+            // Reset visual effects
+            row.style.opacity = '1';
+            row.style.transform = 'none';
+            row.style.boxShadow = 'none';
+            
+            // Reset all rows
+            tbody.querySelectorAll('tr').forEach(r => {
+                r.style.backgroundColor = '';
+                r.style.borderTop = '';
+            });
+            
+            draggedRow = null;
+        });
+        
+        row.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            // Highlight drop target
+            if (draggedRow && draggedRow !== row) {
+                row.style.backgroundColor = '#e0f2fe';
+                row.style.borderTop = '3px solid #9885d1';
+            }
+        });
+        
+        row.addEventListener('dragleave', function(e) {
+            // Remove drop target highlighting
+            row.style.backgroundColor = '';
+            row.style.borderTop = '';
+        });
+        
+        row.addEventListener('drop', function(e) {
+            e.preventDefault();
+            console.log('PR Items drop event');
+            
+            if (draggedRow && draggedRow !== row) {
+                // Get the position of dragged row and target row
+                const draggedIndex = Array.from(tbody.children).indexOf(draggedRow);
+                const targetIndex = Array.from(tbody.children).indexOf(row);
+                
+                console.log('PR Items dragged index:', draggedIndex, 'Target index:', targetIndex);
+                
+                // Determine the correct insertion point
+                if (draggedIndex < targetIndex) {
+                    // Dragging down: insert after the target row
+                    if (row.nextSibling) {
+                        tbody.insertBefore(draggedRow, row.nextSibling);
+                    } else {
+                        tbody.appendChild(draggedRow);
+                    }
+                } else {
+                    // Dragging up: insert before the target row
+                    tbody.insertBefore(draggedRow, row);
+                }
+                console.log('PR Items row moved');
+            }
+            
+            // Remove drop target highlighting
+            row.style.backgroundColor = '';
+            row.style.borderTop = '';
+        });
     });
 }
 
+
+
+// Toggle PR Overview Section
+function togglePROverview() {
+    var overviewSection = document.querySelector('.pr-overview-section');
+    overviewSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Items Section
+function togglePRItems() {
+    var itemsSection = document.querySelector('.pr-items-section');
+    itemsSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Description Section
+function togglePRDescription() {
+    var descriptionSection = document.querySelector('#prDescriptionContent').closest('.pr-description-section');
+    descriptionSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Justification Section
+function togglePRJustification() {
+    var justificationSection = document.querySelector('#prJustificationContent').closest('.pr-description-section');
+    justificationSection.classList.toggle('collapsed');
+}
+
+// Toggle PR Notes Section
+function togglePRNotes() {
+    var notesSection = document.querySelector('#prNotesContent').closest('.pr-description-section');
+    notesSection.classList.toggle('collapsed');
+}
+
+// Initialize drag and drop for PR items table
+function initializePRItemsDragDrop() {
+    const tbody = document.querySelector('.pr-items-table tbody');
+    if (!tbody) return;
+    
+    let draggedRow = null;
+    
+    // Add drag handles to each row
+    const rows = tbody.querySelectorAll('tr');
+    console.log('Found PR items rows:', rows.length);
+    
+    rows.forEach((row, index) => {
+        // Make the entire row draggable
+        row.draggable = true;
+        row.style.cursor = 'grab';
+        
+        // Drag events on the row
+        row.addEventListener('dragstart', function(e) {
+            console.log('PR Items drag started');
+            draggedRow = row;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', row.outerHTML);
+            
+            // Visual feedback
+            row.style.opacity = '0.5';
+            row.style.transform = 'rotate(2deg)';
+            row.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        });
+        
+        row.addEventListener('dragend', function(e) {
+            console.log('PR Items drag ended');
+            // Reset visual effects
+            row.style.opacity = '1';
+            row.style.transform = 'none';
+            row.style.boxShadow = 'none';
+            
+            // Reset all rows
+            tbody.querySelectorAll('tr').forEach(r => {
+                r.style.backgroundColor = '';
+                r.style.borderTop = '';
+            });
+            
+            draggedRow = null;
+        });
+        
+        row.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            // Highlight drop target
+            if (draggedRow && draggedRow !== row) {
+                row.style.backgroundColor = '#e0f2fe';
+                row.style.borderTop = '3px solid #9885d1';
+            }
+        });
+        
+        row.addEventListener('dragleave', function(e) {
+            // Remove drop target highlighting
+            row.style.backgroundColor = '';
+            row.style.borderTop = '';
+        });
+        
+        row.addEventListener('drop', function(e) {
+            e.preventDefault();
+            console.log('PR Items drop event');
+            
+            if (draggedRow && draggedRow !== row) {
+                // Get the position of dragged row and target row
+                const draggedIndex = Array.from(tbody.children).indexOf(draggedRow);
+                const targetIndex = Array.from(tbody.children).indexOf(row);
+                
+                console.log('PR Items dragged index:', draggedIndex, 'Target index:', targetIndex);
+                
+                // Determine the correct insertion point
+                if (draggedIndex < targetIndex) {
+                    // Dragging down: insert after the target row
+                    if (row.nextSibling) {
+                        tbody.insertBefore(draggedRow, row.nextSibling);
+                    } else {
+                        tbody.appendChild(draggedRow);
+                    }
+                } else {
+                    // Dragging up: insert before the target row
+                    tbody.insertBefore(draggedRow, row);
+                }
+                console.log('PR Items row moved');
+            }
+            
+            // Remove drop target highlighting
+            row.style.backgroundColor = '';
+            row.style.borderTop = '';
+        });
+    });
+}
+
+// Initialize offcanvas functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializePRItemsDragDrop();
+});
+
+// Export PR-specific functions globally
+window.openPROffcanvas = openPROffcanvas;
+window.closePROffcanvas = closePROffcanvas;
+window.switchTab = switchTab;
+window.toggleOffcanvasWidth = toggleOffcanvasWidth;
+window.togglePROverview = togglePROverview;
+window.togglePRItems = togglePRItems;
+window.togglePRDescription = togglePRDescription;
+window.togglePRJustification = togglePRJustification;
+window.togglePRNotes = togglePRNotes;
+window.initializePRItemsDragDrop = initializePRItemsDragDrop;
+
+
+// Initialize offcanvas functionality when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    initializePRItemsDragDrop();
+});
+
+// Export PR-specific functions globally
+window.openPROffcanvas = openPROffcanvas;
+window.closePROffcanvas = closePROffcanvas;
+window.switchTab = switchTab;
+window.togglePROffcanvasWidth = togglePROffcanvasWidth;
+window.approvePR = approvePR;
+window.rejectPR = rejectPR;
+window.togglePROverview = togglePROverview;
+window.togglePRItems = togglePRItems;
+window.togglePRDescription = togglePRDescription;
+window.togglePRJustification = togglePRJustification;
+window.togglePRNotes = togglePRNotes;
+window.initializePRItemsDragDrop = initializePRItemsDragDrop;

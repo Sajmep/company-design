@@ -10,15 +10,12 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/purchase.css">
+  <link rel="stylesheet" href="styles/purchase-offcanvas.css">
   <link rel="stylesheet" href="styles/inquiries.css">
+  <link rel="stylesheet" href="styles/common-table.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
-  <style>
-    .tab-panel {
-      height: 41vh;
-      overflow: auto;
-    }
-  </style>
 </head>
 
 <body>
@@ -32,9 +29,9 @@
         <a href="filter-modal.html">
           <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
         </a>
-       
+
       </div>
-      
+
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -50,7 +47,8 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-          <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+        <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false"
+          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
 
         <div class="create-dropdown-menu" role="menu">
           <!-- Category: Projects -->
@@ -280,7 +278,7 @@
     </div>
   </div>
   <!-- Top Header End -->
-  
+
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
@@ -308,9 +306,9 @@
           <h2>Company</h2>
         </div>
         <div class="form-grid">
-          
+
           <div class="company form-section">
-      
+
             <div class="checkbox-group ">
               <div class="section">
                 <h4>SAJMEP</h4>
@@ -402,7 +400,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/our-products-icon.png" alt="" width="28px">
-                Offering 
+                Offering
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -534,21 +532,24 @@
                       Purchase
                     </a>
                     <ul class="purchase-submenu">
-                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
-                        <i class="fa-solid fa-file-invoice"></i>
-                        PR
-                        <span class="purchase-tab-count">12</span>
-                      </a></li>
-                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
-                        <i class="fa-solid fa-question-circle"></i>
-                        RFQ
-                        <span class="purchase-tab-count">8</span>
-                      </a></li>
-                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
-                        <i class="fa-solid fa-receipt"></i>
-                        PO
-                        <span class="purchase-tab-count">25</span>
-                      </a></li>
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')"
+                          class="purchase-submenu-link active" data-tab="pr">
+                          <i class="fa-solid fa-file-invoice"></i>
+                          PR
+                          <span class="purchase-tab-count">12</span>
+                        </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link"
+                          data-tab="rfq">
+                          <i class="fa-solid fa-question-circle"></i>
+                          RFQ
+                          <span class="purchase-tab-count">8</span>
+                        </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link"
+                          data-tab="po">
+                          <i class="fa-solid fa-receipt"></i>
+                          PO
+                          <span class="purchase-tab-count">25</span>
+                        </a></li>
                     </ul>
                   </li>
                   <li><a href="#">Tenders</a></li>
@@ -618,12 +619,12 @@
 
       <div class="item has-submenu" id="quickLinksItem">
         <a href="inquiries.html">
-        <button class="btn" aria-haspopup="true" aria-expanded="false">
-          <span class="icon" aria-hidden>
-            <img src="images/quick-link.png" alt="" class="sidebar-icons">
-          </span>
-          <span class="label">Inquiries</span>
-        </button>
+          <button class="btn" aria-haspopup="true" aria-expanded="false">
+            <span class="icon" aria-hidden>
+              <img src="images/quick-link.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Inquiries</span>
+          </button>
         </a>
       </div>
 
@@ -669,7 +670,7 @@
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
                   <img src="images/competition.png" alt="" width="28px">
-                  Competitions 
+                  Competitions
                 </h2>
               </a>
             </div>
@@ -677,7 +678,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/media-center.png" alt="" width="28px">
-                Media Center 
+                Media Center
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -746,9 +747,12 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
-                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
-                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a>
+                  </li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a>
+                  </li>
+                  <li><a href="help-center.html#video-tutorials"
+                      onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>
@@ -787,121 +791,617 @@
 
   <!-- Main Content -->
   <main class="content page" id="page">
-    <div class="inquiries-container">
-      <!-- Left Column - Text Content -->
-      <div class="inquiries-text-column">
-        <div class="text-content">
-          <h1>Create an Inquiry</h1>
-          <p class="subtitle">Share your needs with the BMH community and connect directly with suppliers, contractors, designers, and service providers.</p>
-          
-          <div class="info-section">
-            <h3>Examples of inquiries you can make:</h3>
-            <ul class="info-list">
-              <li>Looking for a reliable supplier of glass panels in Riyadh.</li>
-              <li>Searching for an interior designer specialized in modern villas.</li>
-              <li>Need quotations for HVAC installation with budget details.</li>
-              <li>Posting a job opening for a site engineer.</li>
-            </ul>
+    <div class="main-content">
+      <div class="purchase-tab-header">
+        <!-- Breadcrumb -->
+        <div class="card">
+          <nav class="breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              <li>
+                <a href="#" title="Enterprise">Enterprise</a>
+              </li>
+              <li>
+                <a href="#" title="Company">Company</a>
+              </li>
+              <li>
+                <span aria-current="page" title="Overview">Overview</span>
+              </li>
+            </ol>
+          </nav>
+        </div>
+        <!-- breadcrumb end -->
+        <div class="purchase-tab-title-section">
+          <h2>Inquiries</h2>
+          <p>Create and manage inquiries for your organization.</p>
+        </div>
+        <div class="purchase-tab-controls">
+          <div class="data-search-container">
+            <input type="text" class="data-search-input" placeholder="Search Inquiries...">
+            <i class="fa-solid fa-search data-search-icon"></i>
+          </div>
+
+          <div class="action-buttons">
+            <div class="group-by-container">
+              <div class="group-by-button" onclick="toggleGroupByDropdown()" title="Group By">
+                <i class="fa-solid fa-chevron-down"></i>
+                <span class="btn-text" style="width: 54px;">Group By</span>
+              </div>
+              <div class="group-by-dropdown" id="groupByDropdown">
+                <div class="dropdown-item" data-value="status">
+                  <i class="fa-solid fa-flag"></i>
+                  Status
+                </div>
+                <div class="dropdown-item" data-value="project">
+                  <i class="fa-solid fa-building"></i>
+                  Project
+                </div>
+                <div class="dropdown-item" data-value="category">
+                  <i class="fa-solid fa-exclamation-triangle"></i>
+                  Category
+                </div>
+              </div>
+            </div>
+
+            <button class="data-filter-btn" title="Filter">
+              <i class="fa-solid fa-filter"></i>
+              <span class="btn-text">Filter</span>
+            </button>
+
+            <!-- Import Button -->
+            <button class="inquiries-import-btn" onclick="importInquiries()" title="Import">
+              <i class="fa-solid fa-upload"></i>
+              <span class="btn-text">Import</span>
+            </button>
+
+            <!-- Action Dropdown (hidden by default) -->
+            <div class="data-action-dropdown" id="inqActionDropdown" style="display: none;">
+              <button class="data-action-dropdown-btn" onclick="toggleActionDropdown('inqActionDropdown')"
+                title="Actions">
+                <i class="fa-solid fa-ellipsis-v"></i>
+                <span class="btn-text">Actions</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </button>
+              <div class="data-action-menu" id="inqActionMenu">
+                <div class="data-action-item" onclick="exportInquiries()">
+                  <i class="fa-solid fa-download"></i>
+                  <span>Export</span>
+                </div>
+                <div class="data-action-item" onclick="editSelectedInquiries()">
+                  <i class="fa-solid fa-edit"></i>
+                  <span>Edit</span>
+                </div>
+                <div class="data-action-item" onclick="duplicateSelectedInquiries()">
+                  <i class="fa-solid fa-copy"></i>
+                  <span>Duplicate</span>
+                </div>
+                <div class="data-action-item" onclick="mergeSelectedInquiries()">
+                  <i class="fa-solid fa-compress-arrows-alt"></i>
+                  <span>Merge</span>
+                </div>
+                <div class="data-action-divider"></div>
+                <div class="data-action-item data-action-danger" onclick="deleteSelectedInquiries()">
+                  <i class="fa-solid fa-trash"></i>
+                  <span>Delete</span>
+                </div>
+              </div>
+            </div>
+            <button class="data-btn data-btn-primary" onclick="createInquiryItem('inq')" title="Create Inquiry">
+              <i class="fa-solid fa-plus"></i>
+              <span class="btn-text">Inquiry</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+      
+      <!-- Inquiry Content -->
+      <div class="data-table-container">
+
+        <!-- View Toggle Buttons -->
+        <div class="data-view-toggle">
+          <button class="data-view-btn data-view-btn-active" title="List View">
+            <i class="fas fa-list"></i>
+          </button>
+          <button class="data-view-btn" title="Card View">
+            <i class="fas fa-th-large"></i>
+          </button>
+        </div>
+
+        <!-- Inquiry List Table -->
+      <div class="data-table-container" id="listView">
+        <div class="data-table-wrapper">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>
+                  <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                  <label for="selectAllPRs" class="data-checkbox-label"></label>
+                  <span class="data-checkbox-text"></span>
+                </th>
+                <th class="data-drag-header">--</th>
+                  <th class="col-pr-number">Inquiry ID</th>
+                  <th class="col-pr-type">Project</th>
+                  <th class="col-department">Title</th>
+                <th class="col-status">Status</th>
+                  <th class="col-created-by">Visibility</th>
+                  <th class="col-created-on">Category</th>
+                  <th class="col-requested-by">Created By</th>
+                  <th class="col-priority">Created On</th>
+                <th class="col-attachments">Attachments</th>
+                <th class="data-table-actions">
+                  <div class="data-columns-dropdown">
+                    <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                      <img src="images/add-column.png" alt="Columns" width="20px">
+                    </button>
+                    <div class="data-columns-dropdown-content" id="columnDropdown">
+                      <div class="data-columns-dropdown-header">
+                        <h4>Select Columns</h4>
+                      </div>
+                      <div class="data-columns-dropdown-body">
+                        <div class="data-column-options">
+                          <label class="data-column-option fixed-column">
+                            <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                            <span class="data-column-label">
+                                Inquiry ID <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                            </span>
+                          </label>
+                          <label class="data-column-option">
+                            <input type="checkbox" value="col-pr-type" checked>
+                              <span class="data-column-label">Project</span>
+                          </label>
+                          <label class="data-column-option">
+                            <input type="checkbox" value="col-department" checked>
+                              <span class="data-column-label">Title</span>
+                          </label>
+                          <label class="data-column-option fixed-column">
+                            <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                            <span class="data-column-label">
+                                Category <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                            </span>
+                          </label>
+                          <label class="data-column-option fixed-column">
+                            <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                            <span class="data-column-label">
+                                Visibility <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                            </span>
+                          </label>
+                          <label class="data-column-option">
+                            <input type="checkbox" value="col-created-on" checked>
+                              <span class="data-column-label">Status</span>
+                          </label>
+                          <label class="data-column-option fixed-column">
+                            <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                            <span class="data-column-label">
+                                Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                            </span>
+                          </label>
+                          <label class="data-column-option fixed-column">
+                            <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                            <span class="data-column-label">
+                                Created On <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                            </span>
+                          </label>
+                          <label class="data-column-option">
+                            <input type="checkbox" value="col-required-date" checked>
+                            <span class="data-column-label">Attachments</span>
+                          </label>
+                        </div>
+                      </div>
+                      <div class="data-columns-dropdown-footer">
+                        <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                          Cancel
+                        </button>
+                        <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                          Save
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                  <td class="data-checkbox-cell">
+                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-001">
+                    <label for="inq-001" class="data-checkbox-label"></label>
+                </td>
+                  <td class="data-item-number col-pr-number">INQ-2025</td>
+                  <td class="data-item-type col-pr-type">
+                    <span class="data-type-badge data-type-equipment">Office Renovation</span>
+                </td>
+                  <td class="data-title col-department">Need office chairs</td>
+                  <td class="data-status col-status">
+                    <span class="data-status-badge data-status-approved">Open</span>
+                </td>
+                  <td class="data-visibility col-created-by">Public</td>
+                  <td class="data-category col-created-on">Furniture → Chairs</td>
+                  <td class="data-created-by col-requested-by">Sarah Khan</td>
+                  <td class="data-created-on col-priority">10/09/2025</td>
+                  <td class="data-attachments col-attachments">
+                    <span class="data-attachment-count">3 files</span>
+                </td>
+                <td class="data-table-actions-cell"></td>
+              </tr>
+              <tr>
+                  <td class="data-checkbox-cell">
+                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-002">
+                    <label for="inq-002" class="data-checkbox-label"></label>
+                </td>
+                  <td class="data-item-number col-pr-number">INQ-2025-001</td>
+                  <td class="data-item-type col-pr-type">
+                    <span class="data-type-badge data-type-equipment">Healthcare</span>
+                </td>
+                  <td class="data-title col-department">Need healthcare equipment</td>
+                  <td class="data-status col-status">
+                    <span class="data-status-badge data-status-draft">Closed</span>
+                </td>
+                  <td class="data-visibility col-created-by">Public</td>
+                  <td class="data-category col-created-on">Healthcare → Equipment</td>
+                  <td class="data-created-by col-requested-by">Sarah Khan</td>
+                  <td class="data-created-on col-priority">10/09/2025</td>
+                  <td class="data-attachments col-attachments">
+                    <span class="data-attachment-count">3 files</span>
+                </td>
+                <td class="data-table-actions-cell"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+        <!-- PR Card View -->
+        <div class="data-card-container" id="cardView" style="display: none;">
+          <div class="data-card-grid">
+            <!-- Card 1 -->
+            <div class="data-card">
+              <div class="data-card-header">
+                <div class="data-card-checkbox">
+                  <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
+                  <label for="card-inq-001" class="data-checkbox-label"></label>
+                </div>
+                <div class="data-card-item-number">INQ-2025</div>
+                <div class="data-card-status">
+                  <span class="data-status-badge data-status-approved">Open</span>
+                </div>
+              </div>
+              <div class="data-card-body">
+                <div class="data-card-row">
+                  <span class="data-card-label">Project:</span>
+                  <span class="data-card-value">
+                    <span class="data-type-badge data-type-equipment">Office Renovation</span>
+                  </span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Title:</span>
+                  <span class="data-card-value">Need office chairs</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Visibility:</span>
+                  <span class="data-card-value">Public</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Category:</span>
+                  <span class="data-card-value">Furniture → Chairs</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Created By:</span>
+                  <span class="data-card-value">Sarah Khan</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Created On:</span>
+                  <span class="data-card-value">10/09/2025</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Attachments:</span>
+                  <span class="data-card-value">
+                    <span class="data-attachment-count">3 files</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="data-card">
+              <div class="data-card-header">
+                <div class="data-card-checkbox">
+                  <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
+                  <label for="card-inq-002" class="data-checkbox-label"></label>
+                </div>
+                <div class="data-card-item-number">INQ-2025-001</div>
+                <div class="data-card-status">
+                  <span class="data-status-badge data-status-draft">Closed</span>
+                </div>
+              </div>
+              <div class="data-card-body">
+                <div class="data-card-row">
+                  <span class="data-card-label">Project:</span>
+                  <span class="data-card-value">
+                    <span class="data-type-badge data-type-equipment">Healthcare</span>
+                  </span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Title:</span>
+                  <span class="data-card-value">Need healthcare equipment</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Visibility:</span>
+                  <span class="data-card-value">Public</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Category:</span>
+                  <span class="data-card-value">Healthcare → Equipment</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Created By:</span>
+                  <span class="data-card-value">Sarah Khan</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Created On:</span>
+                  <span class="data-card-value">10/09/2025</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Attachments:</span>
+                  <span class="data-card-value">
+                    <span class="data-attachment-count">3 files</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
 
-      <!-- Right Column - Inquiry Form -->
-      <div class="inquiries-form-column">
-        <div class="form-container">
-          <h2>Inquiry Form</h2>
-          
-          <form class="inquiry-form" id="inquiryForm">
-            <!-- Select Project -->
-            <div class="form-group">
-              <label for="projectSelect" class="form-label">
-                Select Project <span class="required">*</span>
-              </label>
-              <select id="projectSelect" name="project" class="form-select" required>
-                <option value="">Choose a project...</option>
-                <option value="project1">Project Alpha - Construction</option>
-                <option value="project2">Project Beta - Infrastructure</option>
-                <option value="project3">Project Gamma - Maintenance</option>
-                <option value="project4">Project Delta - Renovation</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <!-- Type Your Inquiry -->
-            <div class="form-group">
-              <label for="inquiryText" class="form-label">
-                Type Your Inquiry <span class="required">*</span>
-              </label>
-              <textarea 
-                id="inquiryText" 
-                name="inquiry" 
-                class="form-textarea" 
-                placeholder="Please describe your inquiry in detail..."
-                rows="6"
-                required
-              ></textarea>
-              <div class="char-count">
-                <span id="charCount">0</span> / 1000 characters
-              </div>
-            </div>
-
-            <!-- Select Category (Optional) -->
-            <div class="form-group">
-              <label for="categorySelect" class="form-label">
-                Select Category <span class="optional">(Optional)</span>
-              </label>
-              <select id="categorySelect" name="category" class="form-select">
-                <option value="">Choose a category...</option>
-                <option value="technical">Technical Support</option>
-                <option value="billing">Billing & Payments</option>
-                <option value="general">General Information</option>
-                <option value="complaint">Complaint</option>
-                <option value="suggestion">Suggestion</option>
-                <option value="other">Other</option>
-              </select>
-            </div>
-
-            <!-- Sub Category (Optional) -->
-            <div class="form-group">
-              <label for="subCategorySelect" class="form-label">
-                Sub Category <span class="optional">(Optional)</span>
-              </label>
-              <select id="subCategorySelect" name="subCategory" class="form-select">
-                <option value="">Choose a sub category...</option>
-                <option value="urgent">Urgent</option>
-                <option value="normal">Normal Priority</option>
-                <option value="low">Low Priority</option>
-              </select>
-            </div>
-
-            <!-- Attachments -->
-            <div class="form-group">
-              <label for="attachments" class="form-label">
-                Attachments <span class="optional">(Optional)</span>
-              </label>
-              <div class="file-upload-area" id="fileUploadArea">
-                <div class="file-upload-content">
-                  <i class="fa-solid fa-cloud-upload-alt"></i>
-                  <p>Drag and drop files here or <span class="browse-link">browse</span></p>
-                  <small>Supported formats: PDF, DOC, DOCX, JPG, PNG (Max 10MB each)</small>
-                </div>
-                <input type="file" id="attachments" name="attachments" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" class="file-input">
-              </div>
-              <div class="file-list" id="fileList"></div>
-            </div>
-
-            <!-- Submit Button -->
-            <div class="form-actions">
-              <button type="button" class="btn btn-secondary" id="saveDraft">Cancel</button>
-              <button type="submit" class="btn btn-primary" id="submitInquiry">Submit Inquiry</button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
   </main>
   <!-- Main Content End -->
 
+  <!-- Inquiry View Offcanvas -->
+    <div class="purchase-offcanvas" id="prOffcanvas">
+      <div class="purchase-offcanvas-backdrop" onclick="closePROffcanvas()"></div>
+      <div class="purchase-offcanvas-content">
+        <!-- Resize Button -->
+        <button class="purchase-offcanvas-resize-btn" onclick="toggleOffcanvasWidth()">
+          <i class="fa-solid fa-chevron-left offcanvas-resize-icon"></i>
+        </button>
+  
+        <div class="purchase-offcanvas-header">
+          <h3>INQ-2025</h3>
+          <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
+            <i class="fa-solid fa-times"></i>
+          </button>
+           <!-- Inquiry Dropdown -->
+           <div class="inqury-dropdown">
+            <button class="inqury-dropdown-btn" onclick="toggleInquiryDropdown()">
+              <i class="fa-solid fa-chevron-down"></i>
+              <span class="btn-text">Inquiry Type</span>
+            </button>
+            <div class="inqury-dropdown-menu" id="inquryDropdownMenu">
+              <button class="inqury-dropdown-item" onclick="selectInquiryType('quick')">
+                <i class="fa-solid fa-bolt"></i>
+                Quick Inquiry
+              </button>
+              <button class="inqury-dropdown-item" onclick="selectInquiryType('advance')">
+                <i class="fa-solid fa-cogs"></i>
+                Advance Inquiry
+              </button>
+            </div>
+          </div>
+  
+        </div>
+        <div class="purchase-offcanvas-body">
+          
+         
+          <!-- Tabs Navigation -->
+          <div class="pr-tabs-container">
+            <div class="pr-tabs">
+              <button class="pr-tab-btn active" onclick="switchTab('inquiry')" data-tab="inquiry" data-title="INQ-2025">
+                <i class="fa-solid fa-question-circle"></i>
+                Inquiry
+              </button>
+              <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="Create Inquiry">
+                <i class="fa-solid fa-plus"></i>
+                Create
+              </button>
+              <button class="pr-tab-btn" onclick="switchTab('chat')" data-tab="chat" data-title="Chat">
+                <i class="fa-solid fa-comments"></i>
+                Chat
+              </button>
+              <button class="pr-tab-btn" onclick="switchTab('log')" data-tab="log" data-title="Activity Log">
+                <i class="fa-solid fa-list"></i>
+                Log
+              </button>
+            </div>
+          </div>
+  
+          <!-- Tab Content -->
+          <div class="pr-tab-content">
+            <div class="pr-tab-panel active" id="inquiry-panel">
+             
+              <div class="pr-overview-section">
+                  <div class="pr-overview-header" onclick="togglePROverview()">
+                    <h4>Inquiry Overview</h4>
+                    <i class="fa-solid fa-chevron-down pr-overview-toggle-icon"></i>
+                  </div>
+                  <div class="pr-overview-content" id="prOverviewContent">
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Inquiry ID</div>
+                        <div class="pr-overview-value">INQ-2025</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Created By</div>
+                        <div class="pr-overview-value">John Smith</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Requested By</div>
+                        <div class="pr-overview-value">Sarah Johnson</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Inquiry Type</div>
+                        <div class="pr-overview-value pr-type-equipment">Office Renovation</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Department</div>
+                        <div class="pr-overview-value">Procurement</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Priority</div>
+                        <div class="pr-overview-value pr-priority-high">High</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Status</div>
+                        <div class="pr-overview-value pr-status-draft">Draft</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Created On</div>
+                        <div class="pr-overview-value">Dec 15, 2024</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Due Date</div>
+                        <div class="pr-overview-value">Dec 30, 2024</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+  
+                    </div>
+                  </div>
+              </div>
+  
+            </div>
+            <div class="pr-tab-panel" id="chat-panel">
+              <p>Chat messages will be displayed here...</p>
+            </div>
+            <div class="pr-tab-panel" id="log-panel">
+              <p>Activity log will be displayed here...</p>
+            </div>
+  
+            <!-- Create PR Form Panel -->
+            <div class="pr-tab-panel" id="create-panel">
+              <div class="purchase-form-container">
+                <form class="purchase-form" data-type="inq" style="gap: 2px;">
+                  <!-- Row 1 -->
+                  <div class="purchase-form-row">
+                    <div class="purchase-form-group">
+                      <label for="InquiryTitle">Title</label>
+                      <input type="text" id="InquiryTitle" name="InquiryTitle" placeholder="Enter inquiry title" required>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prRequesterName">Project</label>
+                     <select id="prProject" name="project" required>
+                      <option value="">Select Project</option>
+                      <option>Office Renovation</option>
+                      <option>IT Upgrade</option>
+                      <option>Road Project</option>
+                      <option>Event Planning</option>
+                      <option>Housing Project</option>
+                     </select>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prDepartment">Category</label>
+                      <select id="prDepartment" name="department" required>
+                        <option>Furniture → Chairs</option>
+                        <option>IT → Hardware</option>
+                        <option>Construction → Roads</option>
+                        <option>Services → Catering</option>
+                        <option>Electrical → Fittings</option>
+                      </select>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="budget">Budget</label>
+                      <input type="number" name="budget" placeholder="Enter budget" required>
+                    </div>
+                  </div>
+  
+                  <!-- Row 2 -->
+                  <div class="purchase-form-row">
+                    <div class="purchase-form-group">
+                      <label for="prRequiredDate">Description</label>
+                      <textarea name="description" required placeholder="Enter description" style="margin-bottom: 0px;"></textarea>
+                    </div>
+                  </div>
+
+                  <div class="purchase-form-row">
+                    <label>Attachments</label>
+                    <div class="attachments-dropdown">
+                      <button type="button" class="attachments-dropdown-btn">
+                        <i class="fa-solid fa-paperclip"></i>
+                        <span>Attachment</span>
+                        <i class="fa-solid fa-chevron-down"></i>
+                      </button>
+                      <div class="attachments-dropdown-menu">
+                        <label class="attachments-dropdown-item" for="file-upload">
+                          <i class="fa-solid fa-upload"></i>
+                          Upload File
+                          <input type="file" id="file-upload" style="display: none;" multiple>
+                        </label>
+                        <label class="attachments-dropdown-item" for="camera-capture">
+                          <i class="fa-solid fa-camera"></i>
+                          Take Photo
+                          <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!-- Form Actions -->
+                  <div class="purchase-form-actions">
+                    <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
+                      Cancel
+                    </button>
+                    <button type="submit" class="purchase-btn purchase-btn-primary">
+                      <i class="fa-solid fa-save"></i>
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- Delete Confirmation Modal -->
+  <div class="purchase-delete-modal" id="deleteModal" style="display: none;">
+    <div class="purchase-delete-modal-overlay"></div>
+    <div class="purchase-delete-modal-content">
+      <div class="purchase-delete-modal-header">
+        <div class="purchase-delete-modal-icon">
+          <i class="fa-solid fa-exclamation-triangle"></i>
+        </div>
+        <h3>Confirm Delete</h3>
+      </div>
+
+      <div class="purchase-delete-modal-body">
+        <p class="purchase-delete-modal-message">
+          Are you sure you want to delete <span class="purchase-delete-count">3</span> selected item(s)?
+        </p>
+        <p class="purchase-delete-modal-warning">
+          This action cannot be undone.
+        </p>
+      </div>
+
+      <div class="purchase-delete-modal-footer">
+        <button class="purchase-delete-modal-cancel" onclick="closeDeleteModal()">
+          Cancel
+        </button>
+        <button class="purchase-delete-modal-delete" onclick="confirmDelete()">
+          <i class="fa-solid fa-trash"></i>
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
@@ -913,7 +1413,9 @@
   <script src="script/sidebar.js"></script>
   <script src="script/filter-modal.js"></script>
   <script src="script/header.js"></script>
-  
+  <script src="script/common-table.js"></script>
+  <script src="script/inquiries.js"></script>
+  <script src="script/common-offcanvas.js"></script>
 </body>
 
 </html>
