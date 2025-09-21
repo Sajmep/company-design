@@ -65,6 +65,43 @@ function confirmDelete() {
       console.log('Selected inquiry type:', type);
     }
 
+    // File display for attachments
+    function displaySelectedFiles(input) {
+      const filesList = document.getElementById('attachmentsFilesList');
+      filesList.innerHTML = '';
+      
+      if (input.files && input.files.length > 0) {
+        Array.from(input.files).forEach((file, index) => {
+          const fileBox = document.createElement('div');
+          fileBox.className = 'attachments-file-box';
+          fileBox.innerHTML = `
+            <div class="attachments-file-info">
+              <i class="attachments-file-icon fa-solid fa-file"></i>
+              <span class="attachments-file-name">${file.name}</span>
+            </div>
+            <div class="attachments-file-actions">
+              <div class="attachments-file-preview">
+                <i class="fa-solid fa-eye"></i>
+              </div>
+              <button type="button" class="attachments-file-remove" onclick="removeAttachmentFile(${index})" title="Remove">
+                <i class="fa-solid fa-times"></i>
+              </button>
+            </div>
+          `;
+          filesList.appendChild(fileBox);
+        });
+      }
+    }
+
+    function removeAttachmentFile(index) {
+      // For now, just remove the visual element
+      // In a real implementation, you'd also remove from the file input
+      const fileBoxes = document.querySelectorAll('.attachments-file-box');
+      if (fileBoxes[index]) {
+        fileBoxes[index].remove();
+      }
+    }
+
 // Group by dropdown functionality
 function toggleGroupByDropdown() {
   const dropdown = document.getElementById('groupByDropdown');

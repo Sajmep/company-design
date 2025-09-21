@@ -1343,14 +1343,17 @@
                         <label class="attachments-dropdown-item" for="file-upload">
                           <i class="fa-solid fa-upload"></i>
                           Upload File
-                          <input type="file" id="file-upload" style="display: none;" multiple>
+                          <input type="file" id="file-upload" style="display: none;" multiple onchange="displaySelectedFiles(this)">
                         </label>
                         <label class="attachments-dropdown-item" for="camera-capture">
                           <i class="fa-solid fa-camera"></i>
                           Take Photo
-                          <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture>
+                          <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture onchange="displaySelectedFiles(this)">
                         </label>
                       </div>
+                    </div>
+                    <div class="attachments-files-list" id="attachmentsFilesList">
+                      <!-- Selected files will be displayed here -->
                     </div>
                   </div>
   
