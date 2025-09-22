@@ -612,6 +612,7 @@ function initCommonTable(options = {}) {
     initColumnVisibility(config.columnDropdownId, config.columnButtonSelector, config.hiddenByDefault, config.fixedColumns);
     initClickableRows(config.clickableSelector, config.onClickCallback);
     initSearch(config.searchInputSelector, config.searchTargetSelector, config.onSearch);
+    initResizableColumns('.data-table');
 }
 
 // ============================================================================
@@ -625,7 +626,6 @@ document.addEventListener('DOMContentLoaded', function() {
         const commonTables = document.querySelectorAll('.data-table');
         
         if (commonTables.length > 0) {
-            console.log('Found common tables, initializing...');
             
             // Initialize each table found
             commonTables.forEach((table, index) => {
@@ -672,6 +672,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Initialize action dropdowns
             initActionDropdowns();
+            
+            // Initialize resizable columns
+            initResizableColumns('.data-table');
         }
     }, 50); // Small delay to allow manual initialization
 });
@@ -698,6 +701,78 @@ window.CommonTable = {
     initCommonTable
 };
 
+// ============================================================================
+// RESIZABLE COLUMNS - Minimal Implementation
+// ============================================================================
+
+/**
+ * Initialize resizable columns for any table
+ * @param {string} tableSelector - CSS selector for the table
+ */
+function initResizableColumns(tableSelector = '.data-table') {
+    const table = document.querySelector(tableSelector);
+    if (!table) return;
+    
+    // Set table layout to fixed to allow width changes
+    table.style.tableLayout = 'fixed';
+    
+    const headers = table.querySelectorAll('th');
+    
+    // Set default column widths (skip first 2 columns - checkbox and drag handle)
+    const defaultWidths = [50, 30, 120, 150, 200, 100, 100, 150, 120, 120, 100, 80, 90, 100, 120, 50];
+    
+    headers.forEach((header, index) => {
+        // Apply default width if available
+        if (defaultWidths[index]) {
+            header.style.width = defaultWidths[index] + 'px';
+        }
+        
+        // Skip first two columns (checkbox and drag handle) - they shouldn't be resizable
+        if (index < 2) return;
+        
+        header.addEventListener('mousedown', (e) => {
+            const rect = header.getBoundingClientRect();
+            const mouseX = e.clientX;
+            const headerRight = rect.right;
+            
+            // Check if mouse is within 4px of the right edge
+            if (mouseX >= headerRight - 4 && mouseX <= headerRight) {
+                isResizing = true;
+                currentHeader = header;
+                startX = e.clientX;
+                startWidth = header.offsetWidth;
+                document.body.style.cursor = 'col-resize';
+                document.body.style.userSelect = 'none';
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        });
+    });
+    
+    let isResizing = false;
+    let currentHeader = null;
+    let startX = 0;
+    let startWidth = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        if (!isResizing || !currentHeader) return;
+        
+        const newWidth = startWidth + (e.clientX - startX);
+        if (newWidth >= 60 && newWidth <= 300) {
+            currentHeader.style.width = newWidth + 'px';
+        }
+    });
+    
+    document.addEventListener('mouseup', () => {
+        if (isResizing) {
+            isResizing = false;
+            currentHeader = null;
+            document.body.style.cursor = '';
+            document.body.style.userSelect = '';
+        }
+    });
+}
+
 // Also export individual functions for direct use
 window.initSelectAll = initSelectAll;
 window.initDragReorder = initDragReorder;
@@ -713,4 +788,5 @@ window.closeColumnDropdown = closeColumnDropdown;
 window.saveColumnVisibility = saveColumnVisibility;
 window.initClickableRows = initClickableRows;
 window.initSearch = initSearch;
+window.initResizableColumns = initResizableColumns;
 window.initCommonTable = initCommonTable;

@@ -929,6 +929,10 @@
                   <th class="col-requested-by">Created By</th>
                   <th class="col-priority">Created On</th>
                 <th class="col-attachments">Attachments</th>
+                <th class="col-priority-level">Priority</th>
+                <th class="col-budget">Budget</th>
+                <th class="col-deadline">Deadline</th>
+                <th class="col-assigned-to">Assigned To</th>
                 <th class="data-table-actions">
                   <div class="data-columns-dropdown">
                     <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
@@ -1017,11 +1021,25 @@
                 </td>
                   <td class="data-visibility col-created-by">Public</td>
                   <td class="data-category col-created-on">Furniture → Chairs</td>
-                  <td class="data-created-by col-requested-by">Sarah Khan</td>
+                  <td class="data-created-by col-requested-by">
+                    <div class="data-user-info">
+                      <div class="data-user-avatar">
+                        <img src="images/user.png" alt="John Smith">
+                        <div class="data-user-status online"></div>
+                      </div>
+                      <span class="data-user-name">Johnzaib Smith</span>
+                    </div>
+                  </td>
                   <td class="data-created-on col-priority">10/09/2025</td>
                   <td class="data-attachments col-attachments">
                     <span class="data-attachment-count">3 files</span>
                 </td>
+                <td class="data-priority col-priority-level">
+                  <span class="data-priority-badge data-priority-high">High</span>
+                </td>
+                <td class="data-budget col-budget">$5,000</td>
+                <td class="data-deadline col-deadline">15/09/2025</td>
+                <td class="data-assigned col-assigned-to">John Smith</td>
                 <td class="data-table-actions-cell"></td>
               </tr>
               <tr>
@@ -1039,11 +1057,25 @@
                 </td>
                   <td class="data-visibility col-created-by">Public</td>
                   <td class="data-category col-created-on">Healthcare → Equipment</td>
-                  <td class="data-created-by col-requested-by">Sarah Khan</td>
+                  <td class="data-created-by col-requested-by">
+                    <div class="data-user-info">
+                      <div class="data-user-avatar">
+                        <img src="images/sarah.pnh.png" alt="Sarah Khan">
+                        <div class="data-user-status offline"></div>
+                      </div>
+                      <span class="data-user-name">Sarah Khan</span>
+                    </div>
+                  </td>
                   <td class="data-created-on col-priority">10/09/2025</td>
                   <td class="data-attachments col-attachments">
                     <span class="data-attachment-count">3 files</span>
                 </td>
+                <td class="data-priority col-priority-level">
+                  <span class="data-priority-badge data-priority-medium">Medium</span>
+                </td>
+                <td class="data-budget col-budget">$2,500</td>
+                <td class="data-deadline col-deadline">20/09/2025</td>
+                <td class="data-assigned col-assigned-to">Jane Doe</td>
                 <td class="data-table-actions-cell"></td>
               </tr>
             </tbody>
@@ -1087,7 +1119,15 @@
                 </div>
                 <div class="data-card-row">
                   <span class="data-card-label">Created By:</span>
-                  <span class="data-card-value">Sarah Khan</span>
+                  <span class="data-card-value">
+                    <div class="data-card-user-info">
+                      <div class="data-card-user-avatar">
+                        <img src="images/sarah.pnh.png" alt="Sarah Khan">
+                        <div class="data-user-status offline"></div>
+                      </div>
+                      <span class="data-card-user-name">Sarah Khan</span>
+                    </div>
+                  </span>
                 </div>
                 <div class="data-card-row">
                   <span class="data-card-label">Created On:</span>
@@ -1135,7 +1175,14 @@
                 </div>
                 <div class="data-card-row">
                   <span class="data-card-label">Created By:</span>
-                  <span class="data-card-value">Sarah Khan</span>
+                  <span class="data-card-value">
+                    <div class="data-card-user-info">
+                      <div class="data-card-user-avatar">
+                        <img src="images/user.png" alt="Sofia Richardson">
+                      </div>
+                      <span class="data-card-user-name">Sofia Richardson</span>
+                    </div>
+                  </span>
                 </div>
                 <div class="data-card-row">
                   <span class="data-card-label">Created On:</span>
