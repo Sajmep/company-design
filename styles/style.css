@@ -142,12 +142,6 @@ nav.breadcrumb {
   /* Hidden on desktop */
 }
 
-/* Breadcrumb */
-.card {
-  flex: 1;
-}
-
-
 /* Header Icons */
 .header-icons {
   display: flex;

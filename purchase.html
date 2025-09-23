@@ -927,12 +927,12 @@
                           <th class="data-drag-header">--</th>
                         <th class="col-pr-number">PR No</th>
                         <th class="col-pr-type">PR Type</th>
-                        <th class="col-department">Dep</th>
-                        <th class="col-status">Status</th>
-                        <th class="col-created-on">Created On</th>
                         <th class="col-created-by">Created By</th>
+                        <th class="col-created-on">Created On</th>
                         <th class="col-requested-by">Requested By</th>
                         <th class="col-priority">Priority</th>
+                        <th class="col-status">Status</th>
+                        <th class="col-department">Dep</th>
                         <th class="col-required-date">Required Date</th>
                         <th class="col-delivery-location hidden">Delivery Location</th>
                         <th class="col-attachments">Attachments</th>
@@ -1023,15 +1023,10 @@
                             <input type="checkbox" class="data-checkbox data-checkbox-row" id="pr-0012">
                             <label for="pr-0012" class="data-checkbox-label"></label>
                         </td>
-                          <td class="data-item-number col-pr-number">PR-2025</td>
+                        <td class="data-item-number col-pr-number">PR-2025</td>
                         <td class="purchase-list-pr-type col-pr-type">
                             <span class="data-type-badge data-type-equipment">Equipment</span>
                         </td>
-                        <td class="purchase-list-department col-department">IT Department</td>
-                        <td class="purchase-list-status col-status">
-                            <span class="data-status-badge data-status-approved">Approved</span>
-                        </td>
-                        <td class="purchase-list-created-on col-created-on">2025-01-15</td>
                         <td class="data-created-by col-requested-by">
                           <div class="data-user-info">
                             <div class="data-user-avatar">
@@ -1041,10 +1036,65 @@
                             <span class="data-user-name">sOfia Richardson</span>
                           </div>
                         </td>
+                        <td class="purchase-list-created-on col-created-on">2025-01-15</td>
                         <td class="purchase-list-requester col-requested-by">John Smith</td>
                         <td class="purchase-list-priority col-priority">
-                            <span class="data-priority-badge data-priority-medium">Medium</span>
+                            <div class="data-priority-dropdown">
+                                <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
+                                    <span class="data-priority-badge data-priority-medium" title="Medium Priority"><i class="fa-light fa-star" style="color: #d4b33b;"></i><i class="fa-light fa-star" style="color: #d4b33b;"></i></span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                </button>
+                                <div class="data-priority-dropdown-menu">
+                                    <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
+                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        Low Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
+                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        Medium Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
+                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        High Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="urgent" onclick="changePriority(this, 'urgent')">
+                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        Urgent Priority
+                                    </button>
+                                </div>
+                            </div>
                         </td>
+                         <td class="purchase-list-status col-status">
+                             <div class="data-status-dropdown">
+                                 <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                                     <span class="data-status-badge data-status-approved">Approved</span>
+                                     <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                 </button>
+                                 <div class="data-status-dropdown-menu">
+                                     <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
+                                         <i class="fa-solid fa-edit"></i>
+                                         Draft
+                                     </button>
+                                     <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
+                                         <i class="fa-solid fa-paper-plane"></i>
+                                         Submitted
+                                     </button>
+                                     <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
+                                         <i class="fa-solid fa-check"></i>
+                                         Approved
+                                     </button>
+                                     <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
+                                         <i class="fa-solid fa-times"></i>
+                                         Rejected
+                                     </button>
+                                     <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
+                                         <i class="fa-solid fa-lock"></i>
+                                         Closed
+                                     </button>
+                                 </div>
+                             </div>
+                         </td>
+                        <td class="purchase-list-department col-department">IT Department</td>
                         <td class="purchase-list-required-date col-required-date">2025-02-15</td>
                         <td class="purchase-list-delivery-location col-delivery-location">Main Office, Floor 3</td>
                         <td class="purchase-list-attachments col-attachments">
@@ -1061,11 +1111,6 @@
                         <td class="purchase-list-pr-type col-pr-type">
                             <span class="data-type-badge data-type-stationary">Stationary</span>
                         </td>
-                        <td class="purchase-list-department col-department">HR Department</td>
-                        <td class="purchase-list-status col-status">
-                            <span class="data-status-badge data-status-submitted">Submitted</span>
-                        </td>
-                        <td class="purchase-list-created-on col-created-on">2025-01-14</td>
                         
                         <td class="data-created-by col-requested-by">
                           <div class="data-user-info">
@@ -1076,10 +1121,66 @@
                             <span class="data-user-name">Sarah Johnson</span>
                           </div>
                         </td>
+                        <td class="purchase-list-created-on col-created-on">2025-01-14</td>
                         <td class="purchase-list-requester col-requested-by">Sarah Johnson</td>
                         <td class="purchase-list-priority col-priority">
-                            <span class="data-priority-badge data-priority-high">High</span>
+                            <div class="data-priority-dropdown">
+                                <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
+                                    <span class="data-priority-badge data-priority-high" title="High Priority"><i class="fa-light fa-star" style="color: #ff5c5c;"></i><i class="fa-light fa-star" style="color: #ff5c5c;"></i><i class="fa-light fa-star" style="color: #ff5c5c;"></i></span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                </button>
+                                <div class="data-priority-dropdown-menu">
+                                    <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
+                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        Low Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
+                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        Medium Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
+                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        High Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="urgent" onclick="changePriority(this, 'urgent')">
+                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        Urgent Priority
+                                    </button>
+                                </div>
+                            </div>
                         </td>
+                         <td class="purchase-list-status col-status">
+                             <div class="data-status-dropdown">
+                                 <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                                     <span class="data-status-badge data-status-submitted">Submitted</span>
+                                     <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                 </button>
+                                 <div class="data-status-dropdown-menu">
+                                     <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
+                                         <i class="fa-solid fa-edit"></i>
+                                         Draft
+                                     </button>
+                                     <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
+                                         <i class="fa-solid fa-paper-plane"></i>
+                                         Submitted
+                                     </button>
+                                     <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
+                                         <i class="fa-solid fa-check"></i>
+                                         Approved
+                                     </button>
+                                     <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
+                                         <i class="fa-solid fa-times"></i>
+                                         Rejected
+                                     </button>
+                                     <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
+                                         <i class="fa-solid fa-lock"></i>
+                                         Closed
+                                     </button>
+                                 </div>
+                             </div>
+                         </td>
+                        <td class="purchase-list-department col-department">HR Department</td>
+                        
                         <td class="purchase-list-required-date col-required-date">2025-02-01</td>
                         <td class="purchase-list-delivery-location col-delivery-location">Training Center, Building B
                         </td>
@@ -1097,11 +1198,7 @@
                         <td class="purchase-list-pr-type col-pr-type">
                             <span class="data-type-badge data-type-building-materials">Building Materials</span>
                         </td>
-                        <td class="purchase-list-department col-department">Finance Department</td>
-                        <td class="purchase-list-status col-status">
-                            <span class="data-status-badge data-status-draft">Draft</span>
-                        </td>
-                        <td class="purchase-list-created-on col-created-on">2025-01-13</td>
+                        
                         <td class="data-created-by col-requested-by">
                           <div class="data-user-info">
                             <div class="data-user-avatar">
@@ -1111,10 +1208,67 @@
                             <span class="data-user-name">Mike Wilson</span>
                           </div>
                         </td>
+                        
+                        <td class="purchase-list-created-on col-created-on">2025-01-13</td>
                         <td class="purchase-list-requester col-requested-by">Mike Wilson</td>
+                        
                         <td class="purchase-list-priority col-priority">
-                            <span class="data-priority-badge data-priority-low">Low</span>
+                            <div class="data-priority-dropdown">
+                                <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
+                                    <span class="data-priority-badge data-priority-low" title="Low Priority"><i class="fa-light fa-star" style="color: #005a9e;"></i></span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                </button>
+                                <div class="data-priority-dropdown-menu">
+                                    <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
+                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        Low Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
+                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        Medium Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
+                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        High Priority
+                                    </button>
+                                    <button class="data-priority-option" data-priority="urgent" onclick="changePriority(this, 'urgent')">
+                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        Urgent Priority
+                                    </button>
+                                </div>
+                            </div>
                         </td>
+                         <td class="purchase-list-status col-status">
+                             <div class="data-status-dropdown">
+                                 <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                                     <span class="data-status-badge data-status-draft">Draft</span>
+                                     <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                 </button>
+                                 <div class="data-status-dropdown-menu">
+                                     <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
+                                         <i class="fa-solid fa-edit"></i>
+                                         Draft
+                                     </button>
+                                     <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
+                                         <i class="fa-solid fa-paper-plane"></i>
+                                         Submitted
+                                     </button>
+                                     <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
+                                         <i class="fa-solid fa-check"></i>
+                                         Approved
+                                     </button>
+                                     <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
+                                         <i class="fa-solid fa-times"></i>
+                                         Rejected
+                                     </button>
+                                     <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
+                                         <i class="fa-solid fa-lock"></i>
+                                         Closed
+                                     </button>
+                                 </div>
+                             </div>
+                         </td>
+                        <td class="purchase-list-department col-department">Finance Department</td>
                         <td class="purchase-list-required-date col-required-date">2025-03-01</td>
                         <td class="purchase-list-delivery-location col-delivery-location">IT Department, Floor 2</td>
                         <td class="purchase-list-attachments col-attachments">
@@ -1139,7 +1293,34 @@
                       </div>
                         <div class="data-card-item-number">PR-2025</div>
                       <div class="purchase-card-status">
-                          <span class="data-status-badge data-status-approved">Approved</span>
+                          <div class="data-card-status-dropdown">
+                              <button class="data-card-status-dropdown-btn" onclick="toggleCardStatusDropdown(this)">
+                                  <span class="data-status-badge data-status-approved">Approved</span>
+                                  <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                              </button>
+                              <div class="data-card-status-dropdown-menu">
+                                  <button class="data-card-status-option" data-status="draft" onclick="changeCardStatus(this, 'draft')">
+                                      <i class="fa-solid fa-edit"></i>
+                                      Draft
+                                  </button>
+                                  <button class="data-card-status-option" data-status="submitted" onclick="changeCardStatus(this, 'submitted')">
+                                      <i class="fa-solid fa-paper-plane"></i>
+                                      Submitted
+                                  </button>
+                                  <button class="data-card-status-option" data-status="approved" onclick="changeCardStatus(this, 'approved')">
+                                      <i class="fa-solid fa-check"></i>
+                                      Approved
+                                  </button>
+                                  <button class="data-card-status-option" data-status="rejected" onclick="changeCardStatus(this, 'rejected')">
+                                      <i class="fa-solid fa-times"></i>
+                                      Rejected
+                                  </button>
+                                  <button class="data-card-status-option" data-status="closed" onclick="changeCardStatus(this, 'closed')">
+                                      <i class="fa-solid fa-lock"></i>
+                                      Closed
+                                  </button>
+                              </div>
+                          </div>
                       </div>
                     </div>
                       <div class="data-card-body">
@@ -1168,7 +1349,30 @@
                         <div class="data-card-row">
                           <span class="data-card-label">Priority:</span>
                           <span class="data-card-value">
-                            <span class="data-priority-badge data-priority-medium">Medium</span>
+                            <div class="data-card-priority-dropdown">
+                                <button class="data-card-priority-dropdown-btn" onclick="toggleCardPriorityDropdown(this)">
+                                    <span class="data-priority-badge data-priority-medium">Medium</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                </button>
+                                <div class="data-card-priority-dropdown-menu">
+                                    <button class="data-card-priority-option" data-priority="low" onclick="changeCardPriority(this, 'low')">
+                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        Low
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="medium" onclick="changeCardPriority(this, 'medium')">
+                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        Medium
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="high" onclick="changeCardPriority(this, 'high')">
+                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        High
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="urgent" onclick="changeCardPriority(this, 'urgent')">
+                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        Urgent
+                                    </button>
+                                </div>
+                            </div>
                         </span>
                       </div>
                         <div class="data-card-row">
@@ -1197,7 +1401,34 @@
                       </div>
                         <div class="data-card-item-number">PR-2025</div>
                       <div class="purchase-card-status">
-                          <span class="data-status-badge data-status-submitted">Submitted</span>
+                          <div class="data-card-status-dropdown">
+                              <button class="data-card-status-dropdown-btn" onclick="toggleCardStatusDropdown(this)">
+                                  <span class="data-status-badge data-status-submitted">Submitted</span>
+                                  <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                              </button>
+                              <div class="data-card-status-dropdown-menu">
+                                  <button class="data-card-status-option" data-status="draft" onclick="changeCardStatus(this, 'draft')">
+                                      <i class="fa-solid fa-edit"></i>
+                                      Draft
+                                  </button>
+                                  <button class="data-card-status-option" data-status="submitted" onclick="changeCardStatus(this, 'submitted')">
+                                      <i class="fa-solid fa-paper-plane"></i>
+                                      Submitted
+                                  </button>
+                                  <button class="data-card-status-option" data-status="approved" onclick="changeCardStatus(this, 'approved')">
+                                      <i class="fa-solid fa-check"></i>
+                                      Approved
+                                  </button>
+                                  <button class="data-card-status-option" data-status="rejected" onclick="changeCardStatus(this, 'rejected')">
+                                      <i class="fa-solid fa-times"></i>
+                                      Rejected
+                                  </button>
+                                  <button class="data-card-status-option" data-status="closed" onclick="changeCardStatus(this, 'closed')">
+                                      <i class="fa-solid fa-lock"></i>
+                                      Closed
+                                  </button>
+                              </div>
+                          </div>
                       </div>
                     </div>
                       <div class="data-card-body">
@@ -1226,7 +1457,30 @@
                         <div class="data-card-row">
                           <span class="data-card-label">Priority:</span>
                           <span class="data-card-value">
-                            <span class="data-priority-badge data-priority-high">High</span>
+                            <div class="data-card-priority-dropdown">
+                                <button class="data-card-priority-dropdown-btn" onclick="toggleCardPriorityDropdown(this)">
+                                    <span class="data-priority-badge data-priority-high">High</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                </button>
+                                <div class="data-card-priority-dropdown-menu">
+                                    <button class="data-card-priority-option" data-priority="low" onclick="changeCardPriority(this, 'low')">
+                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        Low
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="medium" onclick="changeCardPriority(this, 'medium')">
+                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        Medium
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="high" onclick="changeCardPriority(this, 'high')">
+                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        High
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="urgent" onclick="changeCardPriority(this, 'urgent')">
+                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        Urgent
+                                    </button>
+                                </div>
+                            </div>
                         </span>
                       </div>
                         <div class="data-card-row">
@@ -1255,7 +1509,34 @@
                       </div>
                         <div class="data-card-item-number">PR-2025</div>
                       <div class="purchase-card-status">
-                          <span class="data-status-badge data-status-draft">Draft</span>
+                          <div class="data-card-status-dropdown">
+                              <button class="data-card-status-dropdown-btn" onclick="toggleCardStatusDropdown(this)">
+                                  <span class="data-status-badge data-status-draft">Draft</span>
+                                  <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                              </button>
+                              <div class="data-card-status-dropdown-menu">
+                                  <button class="data-card-status-option" data-status="draft" onclick="changeCardStatus(this, 'draft')">
+                                      <i class="fa-solid fa-edit"></i>
+                                      Draft
+                                  </button>
+                                  <button class="data-card-status-option" data-status="submitted" onclick="changeCardStatus(this, 'submitted')">
+                                      <i class="fa-solid fa-paper-plane"></i>
+                                      Submitted
+                                  </button>
+                                  <button class="data-card-status-option" data-status="approved" onclick="changeCardStatus(this, 'approved')">
+                                      <i class="fa-solid fa-check"></i>
+                                      Approved
+                                  </button>
+                                  <button class="data-card-status-option" data-status="rejected" onclick="changeCardStatus(this, 'rejected')">
+                                      <i class="fa-solid fa-times"></i>
+                                      Rejected
+                                  </button>
+                                  <button class="data-card-status-option" data-status="closed" onclick="changeCardStatus(this, 'closed')">
+                                      <i class="fa-solid fa-lock"></i>
+                                      Closed
+                                  </button>
+                              </div>
+                          </div>
                       </div>
                     </div>
                       <div class="data-card-body">
@@ -1284,7 +1565,30 @@
                         <div class="data-card-row">
                           <span class="data-card-label">Priority:</span>
                           <span class="data-card-value">
-                            <span class="data-priority-badge data-priority-low">Low</span>
+                            <div class="data-card-priority-dropdown">
+                                <button class="data-card-priority-dropdown-btn" onclick="toggleCardPriorityDropdown(this)">
+                                    <span class="data-priority-badge data-priority-low">Low</span>
+                                    <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                </button>
+                                <div class="data-card-priority-dropdown-menu">
+                                    <button class="data-card-priority-option" data-priority="low" onclick="changeCardPriority(this, 'low')">
+                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        Low
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="medium" onclick="changeCardPriority(this, 'medium')">
+                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        Medium
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="high" onclick="changeCardPriority(this, 'high')">
+                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        High
+                                    </button>
+                                    <button class="data-card-priority-option" data-priority="urgent" onclick="changeCardPriority(this, 'urgent')">
+                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        Urgent
+                                    </button>
+                                </div>
+                            </div>
                         </span>
                       </div>
                         <div class="data-card-row">

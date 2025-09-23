@@ -306,11 +306,6 @@
   gap: 20px;
 }
 
-.card{
-  width: 100%;
-  padding-left: 10px;
-}
-
 .purchase-tab-title-section {
   text-align: center;
   flex: 1;
@@ -1407,7 +1402,7 @@
   border-top-color: #1f2937;
 }
 
-.purchase-attachment-container:hover .purchase-upload-popover {
+.col-priority:hover .data-priority-text {
   opacity: 1;
   visibility: visible;
 }

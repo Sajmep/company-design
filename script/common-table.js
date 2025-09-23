@@ -773,6 +773,91 @@ function initResizableColumns(tableSelector = '.data-table') {
     });
 }
 
+ // ============================================================================
+  // STATUS DROPDOWN FUNCTIONALITY
+  // ============================================================================
+
+  /**
+   * Toggle status dropdown for table view
+   */
+  function toggleStatusDropdown(button) {
+    const dropdown = button.closest('.data-status-dropdown');
+    const isActive = dropdown.classList.contains('active');
+    
+    // Close all other dropdowns
+    document.querySelectorAll('.data-status-dropdown.active').forEach(dd => {
+        dd.classList.remove('active');
+    });
+    
+    // Toggle current dropdown
+    if (!isActive) {
+        dropdown.classList.add('active');
+    }
+}
+
+    /**
+     * Change status in table view
+     */
+    function changeStatus(option, newStatus) {
+        const dropdown = option.closest('.data-status-dropdown');
+        const button = dropdown.querySelector('.data-status-dropdown-btn');
+        const badge = button.querySelector('.data-status-badge');
+        
+        // Update badge class and text
+        badge.className = `data-status-badge data-status-${newStatus}`;
+        badge.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+        
+        // Close dropdown
+        dropdown.classList.remove('active');
+        
+        console.log(`Status changed to: ${newStatus}`);
+    }
+
+    /**
+     * Toggle status dropdown for card view
+     */
+    function toggleCardStatusDropdown(button) {
+        const dropdown = button.closest('.data-card-status-dropdown');
+        const isActive = dropdown.classList.contains('active');
+        
+        // Close all other dropdowns
+        document.querySelectorAll('.data-card-status-dropdown.active').forEach(dd => {
+            dd.classList.remove('active');
+        });
+        
+        // Toggle current dropdown
+        if (!isActive) {
+            dropdown.classList.add('active');
+        }
+    }
+
+    /**
+     * Change status in card view
+     */
+    function changeCardStatus(option, newStatus) {
+        const dropdown = option.closest('.data-card-status-dropdown');
+        const button = dropdown.querySelector('.data-card-status-dropdown-btn');
+        const badge = button.querySelector('.data-status-badge');
+        
+        // Update badge class and text
+        badge.className = `data-status-badge data-status-${newStatus}`;
+        badge.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+        
+        // Close dropdown
+        dropdown.classList.remove('active');
+        
+        console.log(`Card status changed to: ${newStatus}`);
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.data-status-dropdown') && !e.target.closest('.data-card-status-dropdown')) {
+            document.querySelectorAll('.data-status-dropdown.active, .data-card-status-dropdown.active').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+    });
+
 // Also export individual functions for direct use
 window.initSelectAll = initSelectAll;
 window.initDragReorder = initDragReorder;
@@ -790,3 +875,159 @@ window.initClickableRows = initClickableRows;
 window.initSearch = initSearch;
 window.initResizableColumns = initResizableColumns;
 window.initCommonTable = initCommonTable;
+
+// ============================================================================
+// STATUS DROPDOWN FUNCTIONALITY
+// ============================================================================
+
+/**
+ * Toggle status dropdown for table view
+ */
+function toggleStatusDropdown(button) {
+    const dropdown = button.closest('.data-status-dropdown');
+    const isActive = dropdown.classList.contains('active');
+    
+    // Close all other dropdowns
+    document.querySelectorAll('.data-status-dropdown.active').forEach(dd => {
+        dd.classList.remove('active');
+    });
+    
+    // Toggle current dropdown
+    if (!isActive) {
+        dropdown.classList.add('active');
+        
+        // Position the dropdown menu
+        const menu = dropdown.querySelector('.data-status-dropdown-menu');
+        const buttonRect = button.getBoundingClientRect();
+        
+        menu.style.top = (buttonRect.bottom + 4) + 'px';
+        menu.style.left = buttonRect.left + 'px';
+    }
+}
+
+/**
+ * Change status in table view
+ */
+function changeStatus(option, newStatus) {
+    const dropdown = option.closest('.data-status-dropdown');
+    const button = dropdown.querySelector('.data-status-dropdown-btn');
+    const badge = button.querySelector('.data-status-badge');
+    
+    // Update badge class and text
+    badge.className = `data-status-badge data-status-${newStatus}`;
+    badge.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+    
+    // Close dropdown
+    dropdown.classList.remove('active');
+    
+    console.log(`Status changed to: ${newStatus}`);
+}
+
+/**
+ * Toggle status dropdown for card view
+ */
+function toggleCardStatusDropdown(button) {
+    const dropdown = button.closest('.data-card-status-dropdown');
+    const isActive = dropdown.classList.contains('active');
+    
+    // Close all other dropdowns
+    document.querySelectorAll('.data-card-status-dropdown.active').forEach(dd => {
+        dd.classList.remove('active');
+    });
+    
+    // Toggle current dropdown
+    if (!isActive) {
+        dropdown.classList.add('active');
+        
+        // Position the dropdown menu
+        const menu = dropdown.querySelector('.data-card-status-dropdown-menu');
+        const buttonRect = button.getBoundingClientRect();
+        
+        menu.style.top = (buttonRect.bottom + 4) + 'px';
+        menu.style.left = buttonRect.left + 'px';
+    }
+}
+
+/**
+ * Change status in card view
+ */
+function changeCardStatus(option, newStatus) {
+    const dropdown = option.closest('.data-card-status-dropdown');
+    const button = dropdown.querySelector('.data-card-status-dropdown-btn');
+    const badge = button.querySelector('.data-status-badge');
+    
+    // Update badge class and text
+    badge.className = `data-status-badge data-status-${newStatus}`;
+    badge.textContent = newStatus.charAt(0).toUpperCase() + newStatus.slice(1);
+    
+    // Close dropdown
+    dropdown.classList.remove('active');
+    
+    console.log(`Card status changed to: ${newStatus}`);
+}
+
+// Close dropdowns when clicking outside
+document.addEventListener('click', function(e) {
+    if (!e.target.closest('.data-status-dropdown') && !e.target.closest('.data-card-status-dropdown')) {
+        document.querySelectorAll('.data-status-dropdown.active, .data-card-status-dropdown.active').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+});
+
+// ============================================================================
+// PRIORITY DROPDOWN FUNCTIONALITY (MINIMAL)
+// ============================================================================
+
+// Priority configurations
+const priorityConfig = {
+    low: { stars: '<i class="fa-light fa-star" style="color: #1976d2;"></i>', text: 'Low', title: 'Low Priority' },
+    medium: { stars: '<i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>', text: 'Medium', title: 'Medium Priority' },
+    high: { stars: '<i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>', text: 'High', title: 'High Priority' },
+    urgent: { stars: '<i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>', text: 'Urgent', title: 'Urgent Priority' }
+};
+
+// Generic dropdown toggle
+function toggleDropdown(button, dropdownClass) {
+    const dropdown = button.closest(dropdownClass);
+    const isActive = dropdown.classList.contains('active');
+    
+    // Close all dropdowns of this type
+    document.querySelectorAll(`${dropdownClass}.active`).forEach(dd => dd.classList.remove('active'));
+    
+    if (!isActive) {
+        dropdown.classList.add('active');
+        const menu = dropdown.querySelector('.data-priority-dropdown-menu, .data-card-priority-dropdown-menu');
+        const rect = button.getBoundingClientRect();
+        menu.style.top = (rect.bottom + 4) + 'px';
+        menu.style.left = rect.left + 'px';
+    }
+}
+
+// Generic priority change
+function changePriority(option, newPriority, isCard = false) {
+    const dropdown = option.closest(isCard ? '.data-card-priority-dropdown' : '.data-priority-dropdown');
+    const badge = dropdown.querySelector('.data-priority-badge');
+    const config = priorityConfig[newPriority];
+    
+    badge.className = `data-priority-badge data-priority-${newPriority}`;
+    
+    if (isCard) {
+        badge.textContent = config.text;
+    } else {
+        badge.innerHTML = config.stars;
+        badge.title = config.title;
+    }
+    
+    dropdown.classList.remove('active');
+}
+
+// Export minimal functions
+window.toggleStatusDropdown = toggleStatusDropdown;
+window.changeStatus = changeStatus;
+window.toggleCardStatusDropdown = toggleCardStatusDropdown;
+window.changeCardStatus = changeCardStatus;
+window.togglePriorityDropdown = (btn) => toggleDropdown(btn, '.data-priority-dropdown');
+window.changePriority = (opt, priority) => changePriority(opt, priority, false);
+window.toggleCardPriorityDropdown = (btn) => toggleDropdown(btn, '.data-card-priority-dropdown');
+window.changeCardPriority = (opt, priority) => changePriority(opt, priority, true);

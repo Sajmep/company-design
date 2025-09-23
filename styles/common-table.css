@@ -10,7 +10,7 @@
 
 .data-table-wrapper {
   overflow-x: auto;
-  overflow-y: hidden;
+  overflow-y: visible;
 }
 
 .data-table {
@@ -55,6 +55,8 @@
   border-bottom: 1px solid #f1f3f4;
   vertical-align: middle;
   font-size: 12px;
+  position: relative;
+  overflow: visible;
 }
 
 .data-table tbody tr:hover {
@@ -955,6 +957,300 @@
 
 .data-card-user-avatar {
   position: relative;
+}
+
+/* ===== STATUS DROPDOWN ===== */
+.data-status-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.data-status-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.data-status-dropdown-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.data-status-dropdown.active .data-status-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.data-status-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 12px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.data-status-option:hover {
+  background: #f8f9fa;
+}
+
+.data-status-option i {
+  width: 12px;
+  text-align: center;
+}
+
+/* Status option colors */
+.data-status-option[data-status="draft"] {
+  color: #6c757d;
+}
+
+.data-status-option[data-status="submitted"] {
+  color: #856404;
+}
+
+.data-status-option[data-status="approved"] {
+  color: #155724;
+}
+
+.data-status-option[data-status="rejected"] {
+  color: #721c24;
+}
+
+.data-status-option[data-status="closed"] {
+  color: #495057;
+}
+
+/* Card view status dropdown */
+.data-card-status-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.data-card-status-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.data-card-status-dropdown-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.data-card-status-dropdown-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.data-card-status-dropdown.active .data-card-status-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.data-card-status-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 11px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.data-card-status-option:hover {
+  background: #f8f9fa;
+}
+
+.data-card-status-option i {
+  width: 10px;
+  text-align: center;
+}
+
+/* ===== PRIORITY DROPDOWN ===== */
+.data-priority-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.data-priority-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.data-priority-dropdown-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.data-priority-dropdown-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 160px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.data-priority-dropdown.active .data-priority-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.data-priority-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 12px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.data-priority-option:hover {
+  background: #f8f9fa;
+}
+
+.data-priority-option i {
+  width: 12px;
+  text-align: center;
+}
+
+/* Priority option colors */
+.data-priority-option[data-priority="low"] {
+  color: #1976d2;
+}
+
+.data-priority-option[data-priority="medium"] {
+  color: #f57c00;
+}
+
+.data-priority-option[data-priority="high"] {
+  color: #d32f2f;
+}
+
+.data-priority-option[data-priority="urgent"] {
+  color: #7b1fa2;
+}
+
+/* Card view priority dropdown */
+.data-card-priority-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.data-card-priority-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.data-card-priority-dropdown-btn:hover {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.data-card-priority-dropdown-menu {
+  position: fixed;
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 140px;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+}
+
+.data-card-priority-dropdown.active .data-card-priority-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.data-card-priority-option {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 11px;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+}
+
+.data-card-priority-option:hover {
+  background: #f8f9fa;
+}
+
+.data-card-priority-option i {
+  width: 10px;
+  text-align: center;
 }
 
 /* ===== HIDDEN COLUMNS ===== */
