@@ -1,8 +1,12 @@
 /* Dashboard Styles */
 
+.dashboard-container{
+  margin: 0;
+  height: 100%;
+}
 
 .dashboard-header {
-  margin-bottom: 25px;
+  margin-bottom: 5px;
   display: flex;
   justify-content: space-between;
 }
@@ -120,8 +124,8 @@
   background: #fff;
   border-radius: 0 0 8px 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-height: 450px;
-  padding: 40px;
+  padding: 25px;
+  height: 88%;
   overflow-y: auto;
 }
 
@@ -141,7 +145,7 @@
   font-weight: 600;
 }
 
-.dashboard-tab-panel h3 {
+.dashboard-metrics-grid h3 {
   color: #4b5563;
   font-size: 1.5rem;
   margin-bottom: 15px;
@@ -151,8 +155,6 @@
 .dashboard-tab-panel p {
   color: #6b7280;
   font-size: 12px;
-  line-height: 1.6;
-  margin-bottom: 15px;
 }
 
 /* Animations */

@@ -891,7 +891,7 @@
         </div>
       </div>
 
-      <div class="purchase-container">
+      <div class="purchase-container"> 
 
         <!-- Tab Content -->
         <div class="purchase-tab-content">
@@ -1028,16 +1028,22 @@
                             <span class="data-type-badge data-type-equipment">Equipment</span>
                         </td>
                         <td class="data-created-by col-requested-by">
-                          <div class="data-user-info">
+                          <div class="data-user-info clickable-user" data-user="sofia">
                             <div class="data-user-avatar">
-                              <img src="images/user.png" alt="Sofia Richardson">
-                              <div class="data-user-status online"></div>
+                              <img src="images/sarah.pnh.png" alt="Sofia Richardson">
+                              <div class="data-user-status offline"></div>
                             </div>
-                            <span class="data-user-name">sOfia Richardson</span>
+                            <span class="data-user-name">Sofia Richardson</span>
                           </div>
                         </td>
                         <td class="purchase-list-created-on col-created-on">2025-01-15</td>
-                        <td class="purchase-list-requester col-requested-by">John Smith</td>
+                        <td class="purchase-list-requester col-requested-by"> <div class="data-user-info clickable-user" data-user="sofia">
+                          <div class="data-user-avatar">
+                            <img src="images/user3.png" alt="Sofia Richardson">
+                            <div class="data-user-status online"></div>
+                          </div>
+                          <span class="data-user-name">Sabella Alsaif</span>
+                        </div></td>
                         <td class="purchase-list-priority col-priority">
                             <div class="data-priority-dropdown">
                                 <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
@@ -1047,19 +1053,15 @@
                                 <div class="data-priority-dropdown-menu">
                                     <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
                                         <i class="fa-light fa-star" style="color: #1976d2;"></i>
-                                        Low Priority
+                                      
                                     </button>
                                     <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
                                         <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
-                                        Medium Priority
+                                      
                                     </button>
                                     <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
                                         <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
-                                        High Priority
-                                    </button>
-                                    <button class="data-priority-option" data-priority="urgent" onclick="changePriority(this, 'urgent')">
-                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
-                                        Urgent Priority
+                                       
                                     </button>
                                 </div>
                             </div>
@@ -1113,16 +1115,22 @@
                         </td>
                         
                         <td class="data-created-by col-requested-by">
-                          <div class="data-user-info">
+                          <div class="data-user-info clickable-user" data-user="sarah">
                             <div class="data-user-avatar">
-                              <img src="images/user.png" alt="Sarah Johnson">
+                              <img src="images/sofia.png" alt="Sarah Johnson">
                               <div class="data-user-status online"></div>
                             </div>
                             <span class="data-user-name">Sarah Johnson</span>
                           </div>
                         </td>
                         <td class="purchase-list-created-on col-created-on">2025-01-14</td>
-                        <td class="purchase-list-requester col-requested-by">Sarah Johnson</td>
+                        <td class="purchase-list-requester col-requested-by"> <div class="data-user-info clickable-user" data-user="sofia">
+                          <div class="data-user-avatar">
+                            <img src="images/user.png" alt="Sofia Richardson">
+                            <div class="data-user-status offline"></div>
+                          </div>
+                          <span class="data-user-name">Sabella Alsaif</span>
+                        </div></td>
                         <td class="purchase-list-priority col-priority">
                             <div class="data-priority-dropdown">
                                 <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
@@ -1132,19 +1140,14 @@
                                 <div class="data-priority-dropdown-menu">
                                     <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
                                         <i class="fa-light fa-star" style="color: #1976d2;"></i>
-                                        Low Priority
                                     </button>
                                     <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
                                         <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
-                                        Medium Priority
+                                      
                                     </button>
                                     <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
                                         <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
-                                        High Priority
-                                    </button>
-                                    <button class="data-priority-option" data-priority="urgent" onclick="changePriority(this, 'urgent')">
-                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
-                                        Urgent Priority
+                                      
                                     </button>
                                 </div>
                             </div>
@@ -1200,9 +1203,9 @@
                         </td>
                         
                         <td class="data-created-by col-requested-by">
-                          <div class="data-user-info">
+                          <div class="data-user-info clickable-user" data-user="mike">
                             <div class="data-user-avatar">
-                              <img src="images/user.png" alt="Mike Wilson">
+                              <img src="images/mike.png" alt="Mike Wilson">
                               <div class="data-user-status offline"></div>
                             </div>
                             <span class="data-user-name">Mike Wilson</span>
@@ -1210,7 +1213,13 @@
                         </td>
                         
                         <td class="purchase-list-created-on col-created-on">2025-01-13</td>
-                        <td class="purchase-list-requester col-requested-by">Mike Wilson</td>
+                        <td class="purchase-list-requester col-requested-by"> <div class="data-user-info clickable-user" data-user="mike">
+                          <div class="data-user-avatar">
+                            <img src="images/sofia.png" alt="Mike Wilson">
+                            <div class="data-user-status online"></div>
+                          </div>
+                          <span class="data-user-name">Mohammed Alsaif</span>
+                        </div></td>
                         
                         <td class="purchase-list-priority col-priority">
                             <div class="data-priority-dropdown">
@@ -1221,19 +1230,15 @@
                                 <div class="data-priority-dropdown-menu">
                                     <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
                                         <i class="fa-light fa-star" style="color: #1976d2;"></i>
-                                        Low Priority
+                                      
                                     </button>
                                     <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
                                         <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
-                                        Medium Priority
+                                      
                                     </button>
                                     <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
                                         <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
-                                        High Priority
-                                    </button>
-                                    <button class="data-priority-option" data-priority="urgent" onclick="changePriority(this, 'urgent')">
-                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
-                                        Urgent Priority
+
                                     </button>
                                 </div>
                             </div>
@@ -1743,13 +1748,29 @@
                     </div>
                     <div class="pr-overview-item">
                       <div class="pr-overview-label">Created By</div>
-                      <div class="pr-overview-value">John Smith</div>
+                      <div class="pr-overview-value">
+                        <div class="data-user-info clickable-user" data-user="john">
+                          <div class="data-user-avatar">
+                            <img src="images/user.png" alt="John Smith">
+                            <div class="data-user-status online"></div>
+                          </div>
+                          <span class="data-user-name">John Smith</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div class="pr-overview-row">
                     <div class="pr-overview-item">
                       <div class="pr-overview-label">Requested By</div>
-                      <div class="pr-overview-value">Sarah Johnson</div>
+                      <div class="pr-overview-value">
+                        <div class="data-user-info clickable-user" data-user="sarah">
+                          <div class="data-user-avatar">
+                            <img src="images/sofia.png" alt="Sarah Johnson">
+                            <div class="data-user-status online"></div>
+                          </div>
+                          <span class="data-user-name">Sarah Johnson</span>
+                        </div>
+                      </div>
                     </div>
                     <div class="pr-overview-item">
                       <div class="pr-overview-label">PR Type</div>
@@ -2215,7 +2236,36 @@
   <script src="script/common-offcanvas.js"></script>
   <script src="script/purchase.js"></script>
   <script src="script/purchase-group-by.js"></script>
-
+  
+  <!-- User Contact Popup -->
+  <div id="userContactPopup" class="user-contact-popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <div class="popup-user-info">
+          <div class="popup-user-avatar">
+            <img src="images/user.png" alt="User" id="popupUserImage">
+            <div class="popup-user-status" id="popupUserStatus"></div>
+          </div>
+          <h3 id="popupUserName">User Name</h3>
+        </div>
+        <button class="popup-close">&times;</button>
+      </div>
+      <div class="popup-body">
+        <div class="contact-item">
+          <i class="fa-solid fa-comment-dots"></i>
+          <a href="https://wa.me/1234567890" target="_blank" id="popupWhatsapp">+1234567890</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-phone"></i>
+          <a href="tel:+1234567890" id="popupPhone">+1234567890</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa-solid fa-envelope"></i>
+          <a href="mailto:user@example.com" id="popupEmail">user@example.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

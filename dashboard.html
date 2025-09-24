@@ -11,8 +11,10 @@
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/overview-responsive.css">
-  <link rel="stylesheet" href="styles/dashboard.css">
-  <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/dashboard-graphs.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
 
@@ -812,7 +814,6 @@
 
         <div class="dashboard-heading">
           <h1><i class="fa-solid fa-chart-line dashboard-tab-icon"></i> Dashboard</h1>
-          <p>Welcome to your comprehensive dashboard. Monitor your business performance and access key insights.</p>
         </div>
 
         <!-- Search Bar -->
@@ -899,27 +900,54 @@
                 <p class="dashboard-metric-label">Total products</p>
               </div>
             </div>
+
+
           </div>
+
+          <div class="graphs-container">
+            <div class="income-target-graph">
+              <h3 class="graph-title">Income Target Progress</h3>
+              <!-- Circle Graph -->
+              <div class="circle" data-target="5000" data-current="1250">
+                <div class="label">
+                  <div class="percent">0%</div>
+                  <div class="sub"></div>
+                </div>
+              </div>
+            </div>
+            <div class="traffic-graph">
+              <h3 class="graph-title">Traffic Sources</h3>
+              <div id="controls">
+                <div class="control-row">
+                  <label>Blog Data: <input type="text" id="blogData" value="400,500,350,650,200,300,180,350,720,400,280,200"></label>
+                  <label>Social Data: <input type="text" id="socialData" value="300,700,600,450,700,300,250,350,300,280,180,220"></label>
+                  <button onclick="updateChart()">Update</button>
+                </div>
+              </div>
+              <canvas id="trafficChart" height="100"></canvas>
+            </div>
+          </div>
+
         </div>
 
         <!-- Reports Tab -->
-        <div class="dashboard-tab-panel" data-tab="reports" role="tabpanel" aria-labelledby="dashboard-tab-reports">
+        <!-- <div class="dashboard-tab-panel" data-tab="reports" role="tabpanel" aria-labelledby="dashboard-tab-reports">
           <h2>Reports</h2>
           <p>Generate and view comprehensive reports for your business operations.</p>
-        </div>
+        </div> -->
 
         <!-- Performance Tab -->
-        <div class="dashboard-tab-panel" data-tab="performance" role="tabpanel"
+        <!-- <div class="dashboard-tab-panel" data-tab="performance" role="tabpanel"
           aria-labelledby="dashboard-tab-performance">
           <h2>Performance</h2>
           <p>Track and monitor your business performance metrics and KPIs.</p>
-        </div>
+        </div> -->
 
         <!-- Insights Tab -->
-        <div class="dashboard-tab-panel" data-tab="insights" role="tabpanel" aria-labelledby="dashboard-tab-insights">
+        <!-- <div class="dashboard-tab-panel" data-tab="insights" role="tabpanel" aria-labelledby="dashboard-tab-insights">
           <h2>Insights</h2>
           <p>AI-powered insights and recommendations to optimize your business operations.</p>
-        </div>
+        </div> -->
       </div>
     </div>
 
@@ -939,6 +967,7 @@
   <script src="script/filter-modal.js"></script>
   <script src="script/header.js"></script>
   <script src="script/dashboard.js"></script>
+  <script src="script/dashboard-graphs.js"></script>
 </body>
 
 </html>

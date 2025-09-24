@@ -1282,7 +1282,7 @@
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 6px;
-  }
+  } 
   
   .data-card-label {
     margin-bottom: 3px;
@@ -1316,4 +1316,128 @@
   .data-view-toggle {
     justify-content: center;
   }
+}
+
+/* User Contact Popup */
+.user-contact-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  min-width: 280px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.popup-user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.popup-user-avatar {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.popup-user-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.popup-user-status {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: #10b981;
+}
+
+.popup-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #1f2937;
+}
+
+.popup-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-close:hover {
+  color: #374151;
+}
+
+.popup-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.contact-item i {
+  width: 16px;
+  color: #6b7280;
+}
+
+.contact-item span,
+.contact-item a {
+  font-size: 14px;
+  color: #374151;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: #0863d0;
+  text-decoration: underline;
+}
+
+.clickable-user {
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.clickable-user:hover {
+  opacity: 0.8;
 }

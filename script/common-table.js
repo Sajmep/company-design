@@ -1022,8 +1022,58 @@ function changePriority(option, newPriority, isCard = false) {
     dropdown.classList.remove('active');
 }
 
+// ============================================================================
+    // user contact popup functionality
+// ============================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+  const popup = document.getElementById('userContactPopup');
+  const closeBtn = document.querySelector('.popup-close');
+  const clickableUsers = document.querySelectorAll('.clickable-user');
+  
+  // Show popup
+  function showPopup(userElement) {
+    // Copy user image and status
+    const userImg = userElement.querySelector('.data-user-avatar img');
+    const userStatus = userElement.querySelector('.data-user-status');
+    const userName = userElement.querySelector('.data-user-name');
+    
+    document.getElementById('popupUserImage').src = userImg.src;
+    document.getElementById('popupUserImage').alt = userImg.alt;
+    document.getElementById('popupUserName').textContent = userName.textContent;
+    
+    // Copy status class
+    const popupStatus = document.getElementById('popupUserStatus');
+    popupStatus.className = 'popup-user-status ' + userStatus.className;
+    
+    popup.style.display = 'flex';
+  }
+  
+  // Hide popup
+  function hidePopup() {
+    popup.style.display = 'none';
+  }
+  
+  // Event listeners
+  clickableUsers.forEach(user => {
+    user.addEventListener('click', function() {
+      showPopup(this);
+    });
+  });
+  
+  closeBtn.addEventListener('click', hidePopup);
+  
+  // Close on background click
+  popup.addEventListener('click', function(e) {
+    if (e.target === popup) {
+      hidePopup();
+    }
+  });
+});
+
 // Export minimal functions
 window.toggleStatusDropdown = toggleStatusDropdown;
+
 window.changeStatus = changeStatus;
 window.toggleCardStatusDropdown = toggleCardStatusDropdown;
 window.changeCardStatus = changeCardStatus;
