@@ -26,10 +26,19 @@
 
 <body>
 
+ 
+  <!-- Top Header -->
   <div class="top">
 
     <div class="header-icons">
 
+      <div class="filter-btn-header">
+        <a href="filter-modal.html">
+          <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+        </a>
+       
+      </div>
+      
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -274,7 +283,8 @@
 
     </div>
   </div>
-
+  <!-- Top Header End -->
+  
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
@@ -509,18 +519,48 @@
             </div>
 
             <div class="form-section">
+
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
+
                 <img src="images/procurement.png" alt="" width="28px">
+
                 Procurements
               </h2>
-
               <!-- Company Name Box -->
+
               <div class="checkbox-group collapsed ">
+
                 <ul class="subsubmenu">
-                  <li><a href="#">Purchase</a></li>
+
+                  <li>
+                    <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
+                      <i class="fa-solid fa-shopping-cart"></i>
+                      Purchase
+                    </a>
+                    <ul class="purchase-submenu">
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        PR
+                        <span class="purchase-tab-count">12</span>
+                      </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
+                        <i class="fa-solid fa-question-circle"></i>
+                        RFQ
+                        <span class="purchase-tab-count">8</span>
+                      </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
+                        <i class="fa-solid fa-receipt"></i>
+                        PO
+                        <span class="purchase-tab-count">25</span>
+                      </a></li>
+                    </ul>
+                  </li>
                   <li><a href="#">Tenders</a></li>
+
                 </ul>
+
               </div>
+
             </div>
 
           </div>
@@ -578,6 +618,17 @@
           </div>
 
         </div>
+      </div>
+
+      <div class="item has-submenu" id="quickLinksItem">
+        <a href="inquiries.html">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Inquiries</span>
+        </button>
+        </a>
       </div>
 
     </nav>

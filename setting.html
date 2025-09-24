@@ -28,12 +28,18 @@
 
 <body>
 
-
   <!-- Top Header -->
   <div class="top">
 
     <div class="header-icons">
 
+      <div class="filter-btn-header">
+        <a href="filter-modal.html">
+          <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+        </a>
+       
+      </div>
+      
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -49,8 +55,7 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-        <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false"
-          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+          <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
 
         <div class="create-dropdown-menu" role="menu">
           <!-- Category: Projects -->
@@ -280,7 +285,7 @@
     </div>
   </div>
   <!-- Top Header End -->
-
+  
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
@@ -308,9 +313,9 @@
           <h2>Company</h2>
         </div>
         <div class="form-grid">
-
+          
           <div class="company form-section">
-
+      
             <div class="checkbox-group ">
               <div class="section">
                 <h4>SAJMEP</h4>
@@ -402,7 +407,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/our-products-icon.png" alt="" width="28px">
-                Offering
+                Offering 
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -515,18 +520,48 @@
             </div>
 
             <div class="form-section">
+
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
+
                 <img src="images/procurement.png" alt="" width="28px">
+
                 Procurements
               </h2>
-
               <!-- Company Name Box -->
+
               <div class="checkbox-group collapsed ">
+
                 <ul class="subsubmenu">
-                  <li><a href="#">Purchase</a></li>
+
+                  <li>
+                    <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
+                      <i class="fa-solid fa-shopping-cart"></i>
+                      Purchase
+                    </a>
+                    <ul class="purchase-submenu">
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
+                        <i class="fa-solid fa-file-invoice"></i>
+                        PR
+                        <span class="purchase-tab-count">12</span>
+                      </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
+                        <i class="fa-solid fa-question-circle"></i>
+                        RFQ
+                        <span class="purchase-tab-count">8</span>
+                      </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
+                        <i class="fa-solid fa-receipt"></i>
+                        PO
+                        <span class="purchase-tab-count">25</span>
+                      </a></li>
+                    </ul>
+                  </li>
                   <li><a href="#">Tenders</a></li>
+
                 </ul>
+
               </div>
+
             </div>
 
           </div>
@@ -586,6 +621,17 @@
         </div>
       </div>
 
+      <div class="item has-submenu" id="quickLinksItem">
+        <a href="inquiries.html">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Inquiries</span>
+        </button>
+        </a>
+      </div>
+
     </nav>
 
     <div class="bottom-area">
@@ -628,7 +674,7 @@
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
                   <img src="images/competition.png" alt="" width="28px">
-                  Competitions
+                  Competitions 
                 </h2>
               </a>
             </div>
@@ -636,7 +682,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/media-center.png" alt="" width="28px">
-                Media Center
+                Media Center 
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -705,12 +751,9 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a>
-                  </li>
-                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a>
-                  </li>
-                  <li><a href="help-center.html#video-tutorials"
-                      onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
+                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>

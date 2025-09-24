@@ -900,6 +900,7 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  justify-content: flex-end;
 }
 
 .data-card-user-avatar {
