@@ -7,7 +7,6 @@
   <title>Sidebar with Click-to-Open Submenu (pushes content)</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/scrollbar.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles/settings.css">
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/settings-responsive.css">
@@ -16,7 +15,7 @@
   <link rel="stylesheet" href="styles/common-table.css">
   <link rel="stylesheet" href="styles/filter-modal.css">
   <link rel="stylesheet" href="styles/common-page-header.css">
-  <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
 
@@ -29,7 +28,7 @@
 
       <div class="filter-btn-header">
         <a href="filter-modal.html">
-          <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+          <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
         </a>
        
       </div>
@@ -49,7 +48,7 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-          <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+          <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
 
         <div class="create-dropdown-menu" role="menu">
           <!-- Category: Projects -->
@@ -74,14 +73,14 @@
         </div>
       </div>
 
-      <i class="fa-solid fa-clock-five fa-xl" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
+      <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
 
       <!-- Bell dropdown -->
       <div class="bell-section">
         <details>
 
           <summary aria-haspopup="true" aria-label="Notifications" title="Notifications">
-            <i class="fa-thin fa-bell fa-xl" style="color: #9885d1; cursor: pointer;"></i>
+            <i class="fa fa-bell fa-2x" style="color: #9885d1; cursor: pointer;"></i>
           </summary>
 
 
@@ -250,7 +249,7 @@
       </div>
 
       <button class="login-btn">
-        <a href="vendors.html">Vendors</a>
+        <a href="directory.html">Directory</a>
       </button>
 
 
@@ -262,18 +261,18 @@
 
         <div class="dropdown-menu" role="menu">
           <div class="dropdown-section">
-            <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
-            <a href="#"><i class="fa-solid fa-building"></i> My Company</a>
-            <a href="#"><i class="fa-solid fa-people-arrows"></i> Switch User</a>
+            <a href="#"><i class="fa fa-user"></i> Profile</a>
+            <a href="#"><i class="fa fa-building"></i> My Company</a>
+            <a href="#"><i class="fa fa-exchange"></i> Switch User</a>
           </div>
           <hr>
           <div class="dropdown-section">
-            <a href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
-            <a href="#"><i class="fa-solid fa-globe"></i> Language</a>
+            <a href="#"><i class="fa fa-question-circle"></i> Help</a>
+            <a href="#"><i class="fa fa-globe"></i> Language</a>
           </div>
           <hr>
           <div class="dropdown-section">
-            <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+            <a href="#" class="logout"><i class="fa fa-sign-out"></i> Sign Out</a>
           </div>
         </div>
       </div>
@@ -291,7 +290,7 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa-solid fa-chevron-down"
+          <i class="fa fa-chevron-down"
             style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
@@ -531,22 +530,22 @@
 
                   <li>
                     <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
-                      <i class="fa-solid fa-shopping-cart"></i>
+                      <i class="fa fa-shopping-cart"></i>
                       Purchase
                     </a>
                     <ul class="purchase-submenu">
                       <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
-                        <i class="fa-solid fa-file-invoice"></i>
+                        <i class="fa fa-file-text-o"></i>
                         PR
                         <span class="purchase-tab-count">12</span>
                       </a></li>
                       <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
-                        <i class="fa-solid fa-question-circle"></i>
+                        <i class="fa fa-question-circle"></i>
                         RFQ
                         <span class="purchase-tab-count">8</span>
                       </a></li>
                       <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
-                        <i class="fa-solid fa-receipt"></i>
+                        <i class="fa fa-file-text"></i>
                         PO
                         <span class="purchase-tab-count">25</span>
                       </a></li>
@@ -803,52 +802,52 @@
                 <a href="#" title="Company">Company</a>
               </li>
               <li>
-                <span aria-current="page" title="Vendors">Vendors</span>
+                <span aria-current="page" title="Vendors">Directory</span>
               </li>
             </ol>
           </nav>
         </div>
         <!-- breadcrumb end -->
         <div class="page-header-title">
-          <h2>Vendors</h2>
-          <p>Manage your vendor relationships and supplier information.</p>
+          <h2>Directory</h2>
+          <p>Manage your directory information.</p>
         </div>
         <div class="page-header-controls">
           <div class="page-header-search">
-            <input type="text" class="page-header-search-input" placeholder="Search vendors...">
-            <i class="fa-solid fa-search page-header-search-icon"></i>
+            <input type="text" class="page-header-search-input" placeholder="Search directory...">
+            <i class="fa fa-search page-header-search-icon"></i>
           </div>
 
           <div class="page-header-actions">
             <div class="page-header-group-by">
               <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa fa-chevron-down"></i>
                 <span class="btn-text">Group By</span>
               </button>
               <div class="page-header-group-by-dropdown" id="groupByDropdown">
                 <div class="page-header-group-by-item" data-value="status">
-                  <i class="fa-solid fa-flag"></i>
+                  <i class="fa fa-flag"></i>
                   Status
                 </div>
                 <div class="page-header-group-by-item" data-value="category">
-                  <i class="fa-solid fa-tags"></i>
+                  <i class="fa fa-tags"></i>
                   Category
                 </div>
                 <div class="page-header-group-by-item" data-value="location">
-                  <i class="fa-solid fa-map-marker-alt"></i>
+                  <i class="fa fa-map-marker"></i>
                   Location
                 </div>
               </div>
             </div>
 
             <button class="page-header-filter-btn" title="Filter">
-              <i class="fa-solid fa-filter"></i>
+              <i class="fa fa-filter"></i>
               <span class="btn-text">Filter</span>
             </button>
 
             <!-- Import Button -->
             <button class="page-header-import-btn" onclick="importVendors()" title="Import">
-              <i class="fa-solid fa-upload"></i>
+              <i class="fa fa-upload"></i>
               <span class="btn-text">Import</span>
             </button>
 
@@ -856,32 +855,32 @@
             <div class="page-header-action-dropdown" id="vendorActionDropdown">
               <button class="page-header-action-dropdown-btn" onclick="toggleActionDropdown('vendorActionDropdown')"
                 title="Actions">
-                <i class="fa-solid fa-ellipsis-v"></i>
+                <i class="fa fa-ellipsis-v"></i>
                 <span class="btn-text">Actions</span>
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa fa-chevron-down"></i>
               </button>
               <div class="page-header-action-menu" id="vendorActionMenu">
                 <div class="page-header-action-item" onclick="exportVendors()">
-                  <i class="fa-solid fa-download"></i>
+                  <i class="fa fa-download"></i>
                   <span>Export</span>
                 </div>
                 <div class="page-header-action-item" onclick="editSelectedVendors()">
-                  <i class="fa-solid fa-edit"></i>
+                  <i class="fa fa-edit"></i>
                   <span>Edit</span>
                 </div>
                 <div class="page-header-action-item" onclick="duplicateSelectedVendors()">
-                  <i class="fa-solid fa-copy"></i>
+                  <i class="fa fa-copy"></i>
                   <span>Duplicate</span>
                 </div>
                 <div class="page-header-action-divider"></div>
                 <div class="page-header-action-item danger" onclick="deleteSelectedVendors()">
-                  <i class="fa-solid fa-trash"></i>
+                  <i class="fa fa-trash"></i>
                   <span>Delete</span>
                 </div>
               </div>
             </div>
             <!-- <button class="page-header-primary-btn" onclick="createVendor()" title="Add Vendor">
-              <i class="fa-solid fa-plus"></i>
+              <i class="fa fa-plus"></i>
               <span class="btn-text">Add Vendor</span>
             </button> -->
 
@@ -895,10 +894,10 @@
             <!-- View Toggle Buttons -->
             <div class="data-view-toggle">
               <button class="data-view-btn data-view-btn-active" title="List View">
-                <i class="fas fa-list"></i>
+                <i class="fa fa-list"></i>
               </button>
               <button class="data-view-btn" title="Card View">
-                <i class="fas fa-th-large"></i>
+                <i class="fa fa-th-large"></i>
               </button>
             </div>
     
@@ -937,7 +936,7 @@
                                  <label class="data-column-option fixed-column">
                                    <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
                                    <span class="data-column-label">
-                                     Vendor ID <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                     Vendor ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                    </span>
                                  </label>
                                  <label class="data-column-option">
@@ -951,13 +950,13 @@
                                  <label class="data-column-option fixed-column">
                                    <input type="checkbox" value="col-status" checked disabled data-fixed="true">
                                    <span class="data-column-label">
-                                     Category <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                     Category <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                    </span>
                                  </label>
                                  <label class="data-column-option fixed-column">
                                    <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
                                    <span class="data-column-label">
-                                     Location <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                     Location <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                    </span>
                                  </label>
                                  <label class="data-column-option">
@@ -967,13 +966,13 @@
                                  <label class="data-column-option fixed-column">
                                    <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
                                    <span class="data-column-label">
-                                     Status <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                     Status <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                    </span>
                                  </label>
                                  <label class="data-column-option fixed-column">
                                    <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
                                    <span class="data-column-label">
-                                     Type <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                     Type <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                    </span>
                                  </label>
                                  <label class="data-column-option">
@@ -1023,23 +1022,23 @@
                          <div class="data-status-dropdown">
                              <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                                  <span class="data-status-badge data-status-approved">Active</span>
-                                 <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                              </button>
                              <div class="data-status-dropdown-menu">
                                  <button class="data-status-option" data-status="active" onclick="changeStatus(this, 'active')">
-                                     <i class="fa-solid fa-check-circle"></i>
+                                     <i class="fa fa-check-circle"></i>
                                      Active
                                  </button>
                                  <button class="data-status-option" data-status="inactive" onclick="changeStatus(this, 'inactive')">
-                                     <i class="fa-solid fa-pause-circle"></i>
+                                     <i class="fa fa-pause-circle"></i>
                                      Inactive
                                  </button>
                                  <button class="data-status-option" data-status="suspended" onclick="changeStatus(this, 'suspended')">
-                                     <i class="fa-solid fa-ban"></i>
+                                     <i class="fa fa-ban"></i>
                                      Suspended
                                  </button>
                                  <button class="data-status-option" data-status="blacklisted" onclick="changeStatus(this, 'blacklisted')">
-                                     <i class="fa-solid fa-times-circle"></i>
+                                     <i class="fa fa-times-circle"></i>
                                      Blacklisted
                                  </button>
                              </div>
@@ -1049,23 +1048,23 @@
                          <div class="data-status-dropdown">
                              <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                                  <span class="data-status-badge data-status-approved">Supplier</span>
-                                 <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                              </button>
                              <div class="data-status-dropdown-menu">
                                  <button class="data-status-option" data-status="supplier" onclick="changeStatus(this, 'supplier')">
-                                     <i class="fa-solid fa-truck"></i>
+                                     <i class="fa fa-truck"></i>
                                      Supplier
                                  </button>
                                  <button class="data-status-option" data-status="contractor" onclick="changeStatus(this, 'contractor')">
-                                     <i class="fa-solid fa-hammer"></i>
+                                     <i class="fa fa-wrench"></i>
                                      Contractor
                                  </button>
                                  <button class="data-status-option" data-status="service" onclick="changeStatus(this, 'service')">
-                                     <i class="fa-solid fa-cogs"></i>
+                                     <i class="fa fa-cogs"></i>
                                      Service Provider
                                  </button>
                                  <button class="data-status-option" data-status="consultant" onclick="changeStatus(this, 'consultant')">
-                                     <i class="fa-solid fa-user-tie"></i>
+                                     <i class="fa fa-user"></i>
                                      Consultant
                                  </button>
                              </div>
@@ -1099,26 +1098,26 @@
                          <div class="data-status-dropdown">
                            <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                              <span class="data-status-badge data-status-submitted">Inactive</span>
-                             <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                             <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                            </button>
                            <div class="data-status-dropdown-menu">
                              <button class="data-status-option" data-status="active" onclick="changeStatus(this, 'active')">
-                               <i class="fa-solid fa-check-circle"></i>
+                               <i class="fa fa-check-circle"></i>
                                Active
                              </button>
                              <button class="data-status-option" data-status="inactive"
                                onclick="changeStatus(this, 'inactive')">
-                               <i class="fa-solid fa-pause-circle"></i>
+                               <i class="fa fa-pause-circle"></i>
                                Inactive
                              </button>
                              <button class="data-status-option" data-status="suspended"
                                onclick="changeStatus(this, 'suspended')">
-                               <i class="fa-solid fa-ban"></i>
+                               <i class="fa fa-ban"></i>
                                Suspended
                              </button>
                              <button class="data-status-option" data-status="blacklisted"
                                onclick="changeStatus(this, 'blacklisted')">
-                               <i class="fa-solid fa-times-circle"></i>
+                               <i class="fa fa-times-circle"></i>
                                Blacklisted
                              </button>
                            </div>
@@ -1128,25 +1127,25 @@
                          <div class="data-status-dropdown">
                            <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                              <span class="data-status-badge data-status-submitted">Contractor</span>
-                             <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                             <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                            </button>
                            <div class="data-status-dropdown-menu">
                              <button class="data-status-option" data-status="supplier" onclick="changeStatus(this, 'supplier')">
-                               <i class="fa-solid fa-truck"></i>
+                               <i class="fa fa-truck"></i>
                                Supplier
                              </button>
                              <button class="data-status-option" data-status="contractor"
                                onclick="changeStatus(this, 'contractor')">
-                               <i class="fa-solid fa-hammer"></i>
+                               <i class="fa fa-wrench"></i>
                                Contractor
                              </button>
                              <button class="data-status-option" data-status="service"
                                onclick="changeStatus(this, 'service')">
-                               <i class="fa-solid fa-cogs"></i>
+                               <i class="fa fa-cogs"></i>
                                Service Provider
                              </button>
                              <button class="data-status-option" data-status="consultant" onclick="changeStatus(this, 'consultant')">
-                               <i class="fa-solid fa-user-tie"></i>
+                               <i class="fa fa-user"></i>
                                Consultant
                              </button>
                            </div>
@@ -1311,15 +1310,15 @@
       </div>
       <div class="popup-body">
         <div class="contact-item">
-          <i class="fa-solid fa-comment-dots"></i>
+          <i class="fa fa-comment"></i>
           <a href="https://wa.me/1234567890" target="_blank" id="popupWhatsapp">+1234567890</a>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
+          <i class="fa fa-phone"></i>
           <a href="tel:+1234567890" id="popupPhone">+1234567890</a>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa fa-envelope"></i>
           <a href="mailto:user@example.com" id="popupEmail">user@example.com</a>
         </div>
       </div>

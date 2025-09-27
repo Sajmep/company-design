@@ -7,7 +7,6 @@
   <title>Purchase</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/scrollbar.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles/settings.css">
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/settings-responsive.css">
@@ -16,8 +15,8 @@
   <link rel="stylesheet" href="styles/help-center.css">
   <link rel="stylesheet" href="styles/purchase.css">
   <link rel="stylesheet" href="styles/purchase-group-by.css">
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
   <link rel="stylesheet" href="styles/purchase-offcanvas.css">
-  <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
 
@@ -31,7 +30,7 @@
 
       <div class="filter-btn-header">
         <a href="filter-modal.html">
-          <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+          <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
         </a>
        
       </div>
@@ -51,7 +50,7 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-          <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+          <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
 
         <div class="create-dropdown-menu" role="menu">
           <!-- Category: Projects -->
@@ -76,14 +75,14 @@
         </div>
       </div>
 
-      <i class="fa-solid fa-clock-five fa-xl" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
+      <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
 
       <!-- Bell dropdown -->
       <div class="bell-section">
         <details>
 
           <summary aria-haspopup="true" aria-label="Notifications" title="Notifications">
-            <i class="fa-thin fa-bell fa-xl" style="color: #9885d1; cursor: pointer;"></i>
+            <i class="fa fa-bell fa-2x" style="color: #9885d1; cursor: pointer;"></i>
           </summary>
 
 
@@ -262,18 +261,18 @@
 
         <div class="dropdown-menu" role="menu">
           <div class="dropdown-section">
-            <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
-            <a href="#"><i class="fa-solid fa-building"></i> My Company</a>
-            <a href="#"><i class="fa-solid fa-people-arrows"></i> Switch User</a>
+            <a href="#"><i class="fa fa-user"></i> Profile</a>
+            <a href="#"><i class="fa fa-building"></i> My Company</a>
+            <a href="#"><i class="fa fa-exchange"></i> Switch User</a>
           </div>
           <hr>
           <div class="dropdown-section">
-            <a href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
-            <a href="#"><i class="fa-solid fa-globe"></i> Language</a>
+            <a href="#"><i class="fa fa-question-circle"></i> Help</a>
+            <a href="#"><i class="fa fa-globe"></i> Language</a>
           </div>
           <hr>
           <div class="dropdown-section">
-            <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+            <a href="#" class="logout"><i class="fa fa-sign-out"></i> Sign Out</a>
           </div>
         </div>
       </div>
@@ -291,7 +290,7 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa-solid fa-chevron-down"
+          <i class="fa fa-chevron-down"
             style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
@@ -531,22 +530,22 @@
 
                   <li>
                     <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
-                      <i class="fa-solid fa-shopping-cart"></i>
+                      <i class="fa fa-shopping-cart"></i>
                       Purchase
                     </a>
                     <ul class="purchase-submenu">
                       <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
-                        <i class="fa-solid fa-file-invoice"></i>
+                        <i class="fa fa-file-text-o"></i>
                         PR
                         <span class="purchase-tab-count">12</span>
                       </a></li>
                       <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
-                        <i class="fa-solid fa-question-circle"></i>
+                        <i class="fa fa-question-circle"></i>
                         RFQ
                         <span class="purchase-tab-count">8</span>
                       </a></li>
                       <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
-                        <i class="fa-solid fa-receipt"></i>
+                        <i class="fa fa-file-text"></i>
                         PO
                         <span class="purchase-tab-count">25</span>
                       </a></li>
@@ -814,79 +813,79 @@
         <div class="purchase-tab-controls">
           <div class="data-search-container">
             <input type="text" class="data-search-input" placeholder="Search PRs...">
-            <i class="fa-solid fa-search data-search-icon"></i>
+            <i class="fa fa-search data-search-icon"></i>
           </div>
 
           <div class="action-buttons">
             <div class="group-by-container">
               <div class="group-by-button" onclick="toggleGroupByDropdown()" title="Group By">
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa fa-chevron-down"></i>
                 <span class="btn-text" style="width: 54px;">Group By</span>
               </div>
               <div class="group-by-dropdown" id="groupByDropdown">
                 <div class="dropdown-item" data-value="status">
-                  <i class="fa-solid fa-flag"></i>
+                  <i class="fa fa-flag"></i>
                   Status
                 </div>
                 <div class="dropdown-item" data-value="department">
-                  <i class="fa-solid fa-building"></i>
+                  <i class="fa fa-building"></i>
                   Department
                 </div>
                 <div class="dropdown-item" data-value="priority">
-                  <i class="fa-solid fa-exclamation-triangle"></i>
+                  <i class="fa fa-exclamation-triangle"></i>
                   Priority
                 </div>
                 <div class="dropdown-item" data-value="pr-type">
-                  <i class="fa-solid fa-tags"></i>
+                  <i class="fa fa-tags"></i>
                   PR Type
                 </div>
               </div>
             </div>
 
             <button class="data-filter-btn" title="Filter">
-              <i class="fa-solid fa-filter"></i>
+              <i class="fa fa-filter"></i>
               <span class="btn-text">Filter</span>
             </button>
 
             <!-- Import Button -->
             <button class="purchase-import-btn" onclick="importPRs()" title="Import">
-              <i class="fa-solid fa-upload"></i>
+              <i class="fa fa-upload"></i>
               <span class="btn-text">Import</span>
             </button>
 
             <!-- Action Dropdown (hidden by default) -->
             <div class="data-action-dropdown" id="prActionDropdown" style="display: none;">
               <button class="data-action-dropdown-btn" onclick="toggleActionDropdown('pr')" title="Actions">
-                <i class="fa-solid fa-ellipsis-v"></i>
+                <i class="fa fa-ellipsis-v"></i>
                 <span class="btn-text">Actions</span>
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa fa-chevron-down"></i>
               </button>
               <div class="data-action-menu" id="prActionMenu">
                 <div class="data-action-item" onclick="exportPRs()">
-                  <i class="fa-solid fa-download"></i>
+                  <i class="fa fa-download"></i>
                   <span>Export</span>
                 </div>
                 <div class="data-action-item" onclick="editSelectedPRs()">
-                  <i class="fa-solid fa-edit"></i>
+                  <i class="fa fa-edit"></i>
                   <span>Edit</span>
                 </div>
                 <div class="data-action-item" onclick="duplicateSelectedPRs()">
-                  <i class="fa-solid fa-copy"></i>
+                  <i class="fa fa-copy"></i>
                   <span>Duplicate</span>
                 </div>
                 <div class="data-action-item" onclick="mergeSelectedPRs()">
-                  <i class="fa-solid fa-compress-arrows-alt"></i>
+                  <i class="fa fa-compress"></i>
                   <span>Merge</span>
                 </div>
                 <div class="data-action-divider"></div>
                 <div class="data-action-item data-action-danger" onclick="deleteSelectedPRs()">
-                  <i class="fa-solid fa-trash"></i>
+                  <i class="fa fa-trash"></i>
                   <span>Delete</span>
                 </div>
               </div>
             </div>
             <button class="data-btn data-btn-primary" onclick="createPurchaseItem('pr')" title="Create PR">
-              <i class="fa-solid fa-plus"></i>
+              <i class="fa fa-plus"></i>
               <span class="btn-text">PR</span>
             </button>
 
@@ -908,11 +907,11 @@
 
               <!-- View Toggle Buttons -->
                 <div class="data-view-toggle">
-                  <button class="data-view-btn data-view-btn-active" title="List View">
-                  <i class="fas fa-list"></i>
+                  <button class="data-view-btn data-view-btn-active" title="List View" onclick="showListView()">
+                  <i class="fa fa-list"></i>
                 </button>
-                  <button class="data-view-btn" title="Card View">
-                  <i class="fas fa-th-large"></i>
+                  <button class="data-view-btn" title="Card View" onclick="showCardView()">
+                  <i class="fa fa-th-large"></i>
                 </button>
               </div>
 
@@ -923,8 +922,8 @@
                     <thead>
                       <tr>
                         <th>
-                            <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
-                            <label for="selectAllPRs" class="data-checkbox-label"></label>
+                            <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAll">
+                            <label for="selectAll" class="data-checkbox-label"></label>
                             <span class="data-checkbox-text"></span>
                         </th>
                           <th class="data-drag-header">--</th>
@@ -954,7 +953,7 @@
                                     <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
                                       <span class="data-column-label">
-                                      PR No <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                      PR No <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
                                     <label class="data-column-option">
@@ -968,13 +967,13 @@
                                     <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-status" checked disabled data-fixed="true">
                                       <span class="data-column-label">
-                                      Status <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                      Status <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
                                     <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
                                       <span class="data-column-label">
-                                      Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                      Created By <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
                                     <label class="data-column-option">
@@ -984,13 +983,13 @@
                                     <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
                                       <span class="data-column-label">
-                                      Requested By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                      Requested By <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
                                     <label class="data-column-option fixed-column">
                                     <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
                                       <span class="data-column-label">
-                                      Priority <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                      Priority <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                     </span>
                                   </label>
                                     <label class="data-column-option">
@@ -1050,20 +1049,20 @@
                         <td class="purchase-list-priority col-priority">
                             <div class="data-priority-dropdown">
                                 <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
-                                    <span class="data-priority-badge data-priority-medium" title="Medium Priority"><i class="fa-light fa-star" style="color: #d4b33b;"></i><i class="fa-light fa-star" style="color: #d4b33b;"></i></span>
-                                    <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                    <span class="data-priority-badge data-priority-medium" title="Medium Priority"><i class="fa fa-star" style="color: #d4b33b;"></i><i class="fa fa-star" style="color: #d4b33b;"></i></span>
+                                    <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                                 </button>
                                 <div class="data-priority-dropdown-menu">
                                     <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
-                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        <i class="fa fa-star" style="color: #1976d2;"></i>
                                       
                                     </button>
                                     <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
-                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>
                                       
                                     </button>
                                     <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
-                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
                                        
                                     </button>
                                 </div>
@@ -1073,27 +1072,27 @@
                              <div class="data-status-dropdown">
                                  <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                                      <span class="data-status-badge data-status-approved">Approved</span>
-                                     <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                     <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                                  </button>
                                  <div class="data-status-dropdown-menu">
                                      <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
-                                         <i class="fa-solid fa-edit"></i>
+                                         <i class="fa fa-edit"></i>
                                          Draft
                                      </button>
                                      <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
-                                         <i class="fa-solid fa-paper-plane"></i>
+                                         <i class="fa fa-paper-plane"></i>
                                          Submitted
                                      </button>
                                      <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
-                                         <i class="fa-solid fa-check"></i>
+                                         <i class="fa fa-check"></i>
                                          Approved
                                      </button>
                                      <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
-                                         <i class="fa-solid fa-times"></i>
+                                         <i class="fa fa-times"></i>
                                          Rejected
                                      </button>
                                      <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
-                                         <i class="fa-solid fa-lock"></i>
+                                         <i class="fa fa-lock"></i>
                                          Closed
                                      </button>
                                  </div>
@@ -1137,19 +1136,19 @@
                         <td class="purchase-list-priority col-priority">
                             <div class="data-priority-dropdown">
                                 <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
-                                    <span class="data-priority-badge data-priority-high" title="High Priority"><i class="fa-light fa-star" style="color: #ff5c5c;"></i><i class="fa-light fa-star" style="color: #ff5c5c;"></i><i class="fa-light fa-star" style="color: #ff5c5c;"></i></span>
-                                    <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                    <span class="data-priority-badge data-priority-high" title="High Priority"><i class="fa fa-star" style="color: #ff5c5c;"></i><i class="fa fa-star" style="color: #ff5c5c;"></i><i class="fa fa-star" style="color: #ff5c5c;"></i></span>
+                                    <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                                 </button>
                                 <div class="data-priority-dropdown-menu">
                                     <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
-                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        <i class="fa fa-star" style="color: #1976d2;"></i>
                                     </button>
                                     <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
-                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>
                                       
                                     </button>
                                     <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
-                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
                                       
                                     </button>
                                 </div>
@@ -1159,27 +1158,27 @@
                              <div class="data-status-dropdown">
                                  <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                                      <span class="data-status-badge data-status-submitted">Submitted</span>
-                                     <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                     <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                                  </button>
                                  <div class="data-status-dropdown-menu">
                                      <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
-                                         <i class="fa-solid fa-edit"></i>
+                                         <i class="fa fa-edit"></i>
                                          Draft
                                      </button>
                                      <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
-                                         <i class="fa-solid fa-paper-plane"></i>
+                                         <i class="fa fa-paper-plane"></i>
                                          Submitted
                                      </button>
                                      <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
-                                         <i class="fa-solid fa-check"></i>
+                                         <i class="fa fa-check"></i>
                                          Approved
                                      </button>
                                      <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
-                                         <i class="fa-solid fa-times"></i>
+                                         <i class="fa fa-times"></i>
                                          Rejected
                                      </button>
                                      <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
-                                         <i class="fa-solid fa-lock"></i>
+                                         <i class="fa fa-lock"></i>
                                          Closed
                                      </button>
                                  </div>
@@ -1227,20 +1226,20 @@
                         <td class="purchase-list-priority col-priority">
                             <div class="data-priority-dropdown">
                                 <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
-                                    <span class="data-priority-badge data-priority-low" title="Low Priority"><i class="fa-light fa-star" style="color: #005a9e;"></i></span>
-                                    <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                    <span class="data-priority-badge data-priority-low" title="Low Priority"><i class="fa fa-star" style="color: #005a9e;"></i></span>
+                                    <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                                 </button>
                                 <div class="data-priority-dropdown-menu">
                                     <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
-                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        <i class="fa fa-star" style="color: #1976d2;"></i>
                                       
                                     </button>
                                     <button class="data-priority-option" data-priority="medium" onclick="changePriority(this, 'medium')">
-                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>
                                       
                                     </button>
                                     <button class="data-priority-option" data-priority="high" onclick="changePriority(this, 'high')">
-                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
 
                                     </button>
                                 </div>
@@ -1250,27 +1249,27 @@
                              <div class="data-status-dropdown">
                                  <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                                      <span class="data-status-badge data-status-draft">Draft</span>
-                                     <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                                     <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                                  </button>
                                  <div class="data-status-dropdown-menu">
                                      <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
-                                         <i class="fa-solid fa-edit"></i>
+                                         <i class="fa fa-edit"></i>
                                          Draft
                                      </button>
                                      <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
-                                         <i class="fa-solid fa-paper-plane"></i>
+                                         <i class="fa fa-paper-plane"></i>
                                          Submitted
                                      </button>
                                      <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
-                                         <i class="fa-solid fa-check"></i>
+                                         <i class="fa fa-check"></i>
                                          Approved
                                      </button>
                                      <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
-                                         <i class="fa-solid fa-times"></i>
+                                         <i class="fa fa-times"></i>
                                          Rejected
                                      </button>
                                      <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
-                                         <i class="fa-solid fa-lock"></i>
+                                         <i class="fa fa-lock"></i>
                                          Closed
                                      </button>
                                  </div>
@@ -1304,27 +1303,27 @@
                           <div class="data-card-status-dropdown">
                               <button class="data-card-status-dropdown-btn" onclick="toggleCardStatusDropdown(this)">
                                   <span class="data-status-badge data-status-approved">Approved</span>
-                                  <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                  <i class="fa fa-chevron-down" style="font-size: 8px;"></i>
                               </button>
                               <div class="data-card-status-dropdown-menu">
                                   <button class="data-card-status-option" data-status="draft" onclick="changeCardStatus(this, 'draft')">
-                                      <i class="fa-solid fa-edit"></i>
+                                      <i class="fa fa-edit"></i>
                                       Draft
                                   </button>
                                   <button class="data-card-status-option" data-status="submitted" onclick="changeCardStatus(this, 'submitted')">
-                                      <i class="fa-solid fa-paper-plane"></i>
+                                      <i class="fa fa-paper-plane"></i>
                                       Submitted
                                   </button>
                                   <button class="data-card-status-option" data-status="approved" onclick="changeCardStatus(this, 'approved')">
-                                      <i class="fa-solid fa-check"></i>
+                                      <i class="fa fa-check"></i>
                                       Approved
                                   </button>
                                   <button class="data-card-status-option" data-status="rejected" onclick="changeCardStatus(this, 'rejected')">
-                                      <i class="fa-solid fa-times"></i>
+                                      <i class="fa fa-times"></i>
                                       Rejected
                                   </button>
                                   <button class="data-card-status-option" data-status="closed" onclick="changeCardStatus(this, 'closed')">
-                                      <i class="fa-solid fa-lock"></i>
+                                      <i class="fa fa-lock"></i>
                                       Closed
                                   </button>
                               </div>
@@ -1360,23 +1359,23 @@
                             <div class="data-card-priority-dropdown">
                                 <button class="data-card-priority-dropdown-btn" onclick="toggleCardPriorityDropdown(this)">
                                     <span class="data-priority-badge data-priority-medium">Medium</span>
-                                    <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                    <i class="fa fa-chevron-down" style="font-size: 8px;"></i>
                                 </button>
                                 <div class="data-card-priority-dropdown-menu">
                                     <button class="data-card-priority-option" data-priority="low" onclick="changeCardPriority(this, 'low')">
-                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        <i class="fa fa-star" style="color: #1976d2;"></i>
                                         Low
                                     </button>
                                     <button class="data-card-priority-option" data-priority="medium" onclick="changeCardPriority(this, 'medium')">
-                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>
                                         Medium
                                     </button>
                                     <button class="data-card-priority-option" data-priority="high" onclick="changeCardPriority(this, 'high')">
-                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
                                         High
                                     </button>
                                     <button class="data-card-priority-option" data-priority="urgent" onclick="changeCardPriority(this, 'urgent')">
-                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        <i class="fa fa-exclamation-triangle" style="color: #7b1fa2;"></i>
                                         Urgent
                                     </button>
                                 </div>
@@ -1412,27 +1411,27 @@
                           <div class="data-card-status-dropdown">
                               <button class="data-card-status-dropdown-btn" onclick="toggleCardStatusDropdown(this)">
                                   <span class="data-status-badge data-status-submitted">Submitted</span>
-                                  <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                  <i class="fa fa-chevron-down" style="font-size: 8px;"></i>
                               </button>
                               <div class="data-card-status-dropdown-menu">
                                   <button class="data-card-status-option" data-status="draft" onclick="changeCardStatus(this, 'draft')">
-                                      <i class="fa-solid fa-edit"></i>
+                                      <i class="fa fa-edit"></i>
                                       Draft
                                   </button>
                                   <button class="data-card-status-option" data-status="submitted" onclick="changeCardStatus(this, 'submitted')">
-                                      <i class="fa-solid fa-paper-plane"></i>
+                                      <i class="fa fa-paper-plane"></i>
                                       Submitted
                                   </button>
                                   <button class="data-card-status-option" data-status="approved" onclick="changeCardStatus(this, 'approved')">
-                                      <i class="fa-solid fa-check"></i>
+                                      <i class="fa fa-check"></i>
                                       Approved
                                   </button>
                                   <button class="data-card-status-option" data-status="rejected" onclick="changeCardStatus(this, 'rejected')">
-                                      <i class="fa-solid fa-times"></i>
+                                      <i class="fa fa-times"></i>
                                       Rejected
                                   </button>
                                   <button class="data-card-status-option" data-status="closed" onclick="changeCardStatus(this, 'closed')">
-                                      <i class="fa-solid fa-lock"></i>
+                                      <i class="fa fa-lock"></i>
                                       Closed
                                   </button>
                               </div>
@@ -1468,23 +1467,23 @@
                             <div class="data-card-priority-dropdown">
                                 <button class="data-card-priority-dropdown-btn" onclick="toggleCardPriorityDropdown(this)">
                                     <span class="data-priority-badge data-priority-high">High</span>
-                                    <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                    <i class="fa fa-chevron-down" style="font-size: 8px;"></i>
                                 </button>
                                 <div class="data-card-priority-dropdown-menu">
                                     <button class="data-card-priority-option" data-priority="low" onclick="changeCardPriority(this, 'low')">
-                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        <i class="fa fa-star" style="color: #1976d2;"></i>
                                         Low
                                     </button>
                                     <button class="data-card-priority-option" data-priority="medium" onclick="changeCardPriority(this, 'medium')">
-                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>
                                         Medium
                                     </button>
                                     <button class="data-card-priority-option" data-priority="high" onclick="changeCardPriority(this, 'high')">
-                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
                                         High
                                     </button>
                                     <button class="data-card-priority-option" data-priority="urgent" onclick="changeCardPriority(this, 'urgent')">
-                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        <i class="fa fa-exclamation-triangle" style="color: #7b1fa2;"></i>
                                         Urgent
                                     </button>
                                 </div>
@@ -1520,27 +1519,27 @@
                           <div class="data-card-status-dropdown">
                               <button class="data-card-status-dropdown-btn" onclick="toggleCardStatusDropdown(this)">
                                   <span class="data-status-badge data-status-draft">Draft</span>
-                                  <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                  <i class="fa fa-chevron-down" style="font-size: 8px;"></i>
                               </button>
                               <div class="data-card-status-dropdown-menu">
                                   <button class="data-card-status-option" data-status="draft" onclick="changeCardStatus(this, 'draft')">
-                                      <i class="fa-solid fa-edit"></i>
+                                      <i class="fa fa-edit"></i>
                                       Draft
                                   </button>
                                   <button class="data-card-status-option" data-status="submitted" onclick="changeCardStatus(this, 'submitted')">
-                                      <i class="fa-solid fa-paper-plane"></i>
+                                      <i class="fa fa-paper-plane"></i>
                                       Submitted
                                   </button>
                                   <button class="data-card-status-option" data-status="approved" onclick="changeCardStatus(this, 'approved')">
-                                      <i class="fa-solid fa-check"></i>
+                                      <i class="fa fa-check"></i>
                                       Approved
                                   </button>
                                   <button class="data-card-status-option" data-status="rejected" onclick="changeCardStatus(this, 'rejected')">
-                                      <i class="fa-solid fa-times"></i>
+                                      <i class="fa fa-times"></i>
                                       Rejected
                                   </button>
                                   <button class="data-card-status-option" data-status="closed" onclick="changeCardStatus(this, 'closed')">
-                                      <i class="fa-solid fa-lock"></i>
+                                      <i class="fa fa-lock"></i>
                                       Closed
                                   </button>
                               </div>
@@ -1576,23 +1575,23 @@
                             <div class="data-card-priority-dropdown">
                                 <button class="data-card-priority-dropdown-btn" onclick="toggleCardPriorityDropdown(this)">
                                     <span class="data-priority-badge data-priority-low">Low</span>
-                                    <i class="fa-solid fa-chevron-down" style="font-size: 8px;"></i>
+                                    <i class="fa fa-chevron-down" style="font-size: 8px;"></i>
                                 </button>
                                 <div class="data-card-priority-dropdown-menu">
                                     <button class="data-card-priority-option" data-priority="low" onclick="changeCardPriority(this, 'low')">
-                                        <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                                        <i class="fa fa-star" style="color: #1976d2;"></i>
                                         Low
                                     </button>
                                     <button class="data-card-priority-option" data-priority="medium" onclick="changeCardPriority(this, 'medium')">
-                                        <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>
+                                        <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>
                                         Medium
                                     </button>
                                     <button class="data-card-priority-option" data-priority="high" onclick="changeCardPriority(this, 'high')">
-                                        <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                                        <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
                                         High
                                     </button>
                                     <button class="data-card-priority-option" data-priority="urgent" onclick="changeCardPriority(this, 'urgent')">
-                                        <i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>
+                                        <i class="fa fa-exclamation-triangle" style="color: #7b1fa2;"></i>
                                         Urgent
                                     </button>
                                 </div>
@@ -1642,13 +1641,13 @@
     <div class="purchase-offcanvas-content">
       <!-- Resize Button -->
       <button class="purchase-offcanvas-resize-btn" onclick="toggleOffcanvasWidth()">
-        <i class="fa-solid fa-chevron-left offcanvas-resize-icon"></i>
+        <i class="fa fa-chevron-left offcanvas-resize-icon"></i>
       </button>
 
       <div class="purchase-offcanvas-header">
         <h3>PR-3456222</h3>
         <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
-          <i class="fa-solid fa-times"></i>
+          <i class="fa fa-times"></i>
         </button>
           <!-- Staging Section -->
           <div class="pr-staging-section">
@@ -1685,19 +1684,19 @@
         <div class="pr-tabs-container">
           <div class="pr-tabs">
             <button class="pr-tab-btn active" onclick="switchTab('pr')" data-tab="pr" data-title="PR-3456222">
-              <i class="fa-solid fa-file-invoice"></i>
+              <i class="fa fa-file-invoice"></i>
               PR
             </button>
             <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="Create My PR">
-              <i class="fa-solid fa-plus"></i>
+              <i class="fa fa-plus"></i>
               Create
             </button>
             <button class="pr-tab-btn" onclick="switchTab('chat')" data-tab="chat" data-title="Chat">
-              <i class="fa-solid fa-comments"></i>
+              <i class="fa fa-comments"></i>
               Chat
             </button>
             <button class="pr-tab-btn" onclick="switchTab('log')" data-tab="log" data-title="Activity Log">
-              <i class="fa-solid fa-list"></i>
+              <i class="fa fa-list"></i>
               Log
             </button>
           </div>
@@ -1710,27 +1709,27 @@
             <div class="pr-action-buttons">
               <div class="pr-action-buttons-group">
                 <button class="pr-btn pr-btn-edit" type="button">
-                  <i class="fa-solid fa-edit"></i>
+                  <i class="fa fa-edit"></i>
                   Edit
                 </button>
                 <button class="pr-btn pr-btn-submit" type="button">
-                  <i class="fa-solid fa-paper-plane"></i>
+                  <i class="fa fa-paper-plane"></i>
                   Submit
                 </button>
               </div>
               <div class="pr-action-buttons-group">
                 <button class="pr-btn pr-btn-approve" type="button">
-                  <i class="fa-solid fa-check"></i>
+                  <i class="fa fa-check"></i>
                   Approve
                 </button>
                 <button class="pr-btn pr-btn-reject" type="button">
-                  <i class="fa-solid fa-times"></i>
+                  <i class="fa fa-times"></i>
                   Reject
                 </button>
               </div>
               <div class="pr-action-buttons-group">
                 <button class="pr-btn pr-btn-cancel" type="button">
-                  <i class="fa-solid fa-ban"></i>
+                  <i class="fa fa-ban"></i>
                   Cancel
                 </button>
               </div>
@@ -1741,7 +1740,7 @@
               <div class="pr-overview-section">
                 <div class="pr-overview-header" onclick="togglePROverview()">
                   <h4>PR Overview</h4>
-                  <i class="fa-solid fa-chevron-down pr-overview-toggle-icon"></i>
+                  <i class="fa fa-chevron-down pr-overview-toggle-icon"></i>
                 </div>
                 <div class="pr-overview-content" id="prOverviewContent">
                   <div class="pr-overview-row">
@@ -1816,7 +1815,7 @@
               <div class="pr-items-section collapsed">
                 <div class="pr-items-header" onclick="togglePRItems()">
                   <h4>Items requested</h4>
-                  <i class="fa-solid fa-chevron-down pr-items-toggle-icon"></i>
+                  <i class="fa fa-chevron-down pr-items-toggle-icon"></i>
                 </div>
                 <div class="pr-items-table-container" id="prItemsContent">
                   <table class="pr-items-table">
@@ -1839,7 +1838,7 @@
                           <label for="item-001" class="pr-item-checkbox-label"></label>
                         </td>
                         <td class="pr-item-drag-handle">
-                          <i class="fa-solid fa-grip-vertical"></i>
+                          <i class="fa fa-grip-vertical"></i>
                         </td>
                         <td class="pr-item-description">Laptop Computer - Dell Inspiron 15</td>
                         <td class="pr-item-unit">PCS</td>
@@ -1851,7 +1850,7 @@
                           <label for="item-002" class="pr-item-checkbox-label"></label>
                         </td>
                         <td class="pr-item-drag-handle">
-                          <i class="fa-solid fa-grip-vertical"></i>
+                          <i class="fa fa-grip-vertical"></i>
                         </td>
                         <td class="pr-item-description">Office Chair - Ergonomic Design</td>
                         <td class="pr-item-unit">PCS</td>
@@ -1863,7 +1862,7 @@
                           <label for="item-003" class="pr-item-checkbox-label"></label>
                         </td>
                         <td class="pr-item-drag-handle">
-                          <i class="fa-solid fa-grip-vertical"></i>
+                          <i class="fa fa-grip-vertical"></i>
                         </td>
                         <td class="pr-item-description">Printer Paper - A4 White 80gsm</td>
                         <td class="pr-item-unit">REAMS</td>
@@ -1875,7 +1874,7 @@
                           <label for="item-004" class="pr-item-checkbox-label"></label>
                         </td>
                         <td class="pr-item-drag-handle">
-                          <i class="fa-solid fa-grip-vertical"></i>
+                          <i class="fa fa-grip-vertical"></i>
                         </td>
                         <td class="pr-item-description">Projector - HD 1080p Wireless</td>
                         <td class="pr-item-unit">PCS</td>
@@ -1892,7 +1891,7 @@
             <div class="pr-description-section collapsed">
               <div class="pr-description-header" onclick="togglePRDescription()">
                 <h4>Description</h4>
-                <i class="fa-solid fa-chevron-down pr-description-toggle-icon"></i>
+                <i class="fa fa-chevron-down pr-description-toggle-icon"></i>
               </div>
               <div class="pr-description-content" id="prDescriptionContent">
                 <p class="pr-description">This request includes essential office equipment and supplies:
@@ -1911,7 +1910,7 @@
             <div class="pr-description-section collapsed">
               <div class="pr-description-header" onclick="togglePRJustification()">
                 <h4>Justification</h4>
-                <i class="fa-solid fa-chevron-down pr-description-toggle-icon"></i>
+                <i class="fa fa-chevron-down pr-description-toggle-icon"></i>
               </div>
               <div class="pr-description-content" id="prJustificationContent">
                 <p class="pr-description">The requested items are necessary to support daily office operations and
@@ -1927,7 +1926,7 @@
             <div class="pr-description-section collapsed">
               <div class="pr-description-header" onclick="togglePRNotes()">
                 <h4>Additional Notes</h4>
-                <i class="fa-solid fa-chevron-down pr-description-toggle-icon"></i>
+                <i class="fa fa-chevron-down pr-description-toggle-icon"></i>
               </div>
               <div class="pr-description-content" id="prNotesContent">
                 <p class="pr-description">All items are requested to enhance efficiency and maintain smooth office
@@ -2101,12 +2100,12 @@
                     <div class="purchase-tabs-nav">
                       <button type="button" class="purchase-tab-nav-btn active"
                         onclick="switchPurchaseFormTab('description', event)" data-tab="description">
-                        <i class="fa-solid fa-file-text"></i>
+                        <i class="fa fa-file-text"></i>
                         Description
                       </button>
                       <button type="button" class="purchase-tab-nav-btn"
                         onclick="switchPurchaseFormTab('attachments', event)" data-tab="attachments">
-                        <i class="fa-solid fa-paperclip"></i>
+                        <i class="fa fa-paperclip"></i>
                         Attachments
                       </button>
                     </div>
@@ -2143,7 +2142,7 @@
                               onchange="displaySelectedFiles(this)">
                             <button type="button" class="purchase-upload-btn"
                               onclick="document.getElementById('prAttachments').click()">
-                              <i class="fa-solid fa-upload"></i>
+                              <i class="fa fa-upload"></i>
                               Upload Files
                             </button>
                             <div class="purchase-upload-popover">
@@ -2161,7 +2160,7 @@
                             <div class="purchase-link-input-group">
                               <input type="url" class="purchase-link-input" placeholder="Enter URL" id="prLinkInput">
                               <button type="button" class="purchase-add-link-btn" onclick="addLink()">
-                                <i class="fa-solid fa-plus"></i>
+                                <i class="fa fa-plus"></i>
                                 Add Link
                               </button>
                             </div>
@@ -2181,7 +2180,7 @@
                     Cancel
                   </button>
                   <button type="submit" class="purchase-btn purchase-btn-primary">
-                    <i class="fa-solid fa-save"></i>
+                    <i class="fa fa-save"></i>
                     Save
                   </button>
                 </div>
@@ -2199,7 +2198,7 @@
     <div class="purchase-delete-modal-content">
       <div class="purchase-delete-modal-header">
         <div class="purchase-delete-modal-icon">
-          <i class="fa-solid fa-exclamation-triangle"></i>
+          <i class="fa fa-exclamation-triangle"></i>
         </div>
         <h3>Confirm Delete</h3>
       </div>
@@ -2218,7 +2217,7 @@
           Cancel
         </button>
         <button class="purchase-delete-modal-delete" onclick="confirmDelete()">
-          <i class="fa-solid fa-trash"></i>
+          <i class="fa fa-trash"></i>
           Delete
         </button>
       </div>
@@ -2235,10 +2234,10 @@
   <script src="script/settings.js"></script>
   <script src="script/sidebar.js"></script>
   <script src="script/help-center.js"></script>
-  <script src="script/common-table.js"></script>
   <script src="script/common-offcanvas.js"></script>
   <script src="script/purchase.js"></script>
   <script src="script/purchase-group-by.js"></script>
+  <script src="script/common-table.js"></script>
   
   <!-- User Contact Popup -->
   <div id="userContactPopup" class="user-contact-popup">
@@ -2255,15 +2254,15 @@
       </div>
       <div class="popup-body">
         <div class="contact-item">
-          <i class="fa-solid fa-comment-dots"></i>
+          <i class="fa fa-comment-dots"></i>
           <a href="https://wa.me/1234567890" target="_blank" id="popupWhatsapp">+1234567890</a>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
+          <i class="fa fa-phone"></i>
           <a href="tel:+1234567890" id="popupPhone">+1234567890</a>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa fa-envelope"></i>
           <a href="mailto:user@example.com" id="popupEmail">user@example.com</a>
         </div>
       </div>

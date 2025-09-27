@@ -7,15 +7,14 @@
   <title>Sidebar with Click-to-Open Submenu (pushes content)</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="stylesheet" href="styles/scrollbar.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/overview-responsive.css">
   <link rel="stylesheet" href="styles/purchase.css">
   <link rel="stylesheet" href="styles/purchase-offcanvas.css">
   <link rel="stylesheet" href="styles/inquiries.css">
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
   <link rel="stylesheet" href="styles/common-table.css">
-  <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
 
@@ -28,7 +27,7 @@
 
       <div class="filter-btn-header">
         <a href="filter-modal.html">
-          <i class="fa-solid fa-filter fa-xl" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+          <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
         </a>
        
       </div>
@@ -48,7 +47,7 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-          <i class="fa-thin fa-circle-plus fa-xl create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+          <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
 
         <div class="create-dropdown-menu" role="menu">
           <!-- Category: Projects -->
@@ -73,14 +72,14 @@
         </div>
       </div>
 
-      <i class="fa-solid fa-clock-five fa-xl" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
+      <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
 
       <!-- Bell dropdown -->
       <div class="bell-section">
         <details>
 
           <summary aria-haspopup="true" aria-label="Notifications" title="Notifications">
-            <i class="fa-thin fa-bell fa-xl" style="color: #9885d1; cursor: pointer;"></i>
+            <i class="fa fa-bell fa-2x" style="color: #9885d1; cursor: pointer;"></i>
           </summary>
 
 
@@ -248,7 +247,9 @@
         </div>
       </div>
 
-      <button class="login-btn">Login</button>
+      <button class="login-btn">
+        <a href="vendors.html">Vendors</a>
+      </button>
 
 
 
@@ -259,18 +260,18 @@
 
         <div class="dropdown-menu" role="menu">
           <div class="dropdown-section">
-            <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
-            <a href="#"><i class="fa-solid fa-building"></i> My Company</a>
-            <a href="#"><i class="fa-solid fa-people-arrows"></i> Switch User</a>
+            <a href="#"><i class="fa fa-user"></i> Profile</a>
+            <a href="#"><i class="fa fa-building"></i> My Company</a>
+            <a href="#"><i class="fa fa-exchange"></i> Switch User</a>
           </div>
           <hr>
           <div class="dropdown-section">
-            <a href="#"><i class="fa-solid fa-circle-question"></i> Help</a>
-            <a href="#"><i class="fa-solid fa-globe"></i> Language</a>
+            <a href="#"><i class="fa fa-question-circle"></i> Help</a>
+            <a href="#"><i class="fa fa-globe"></i> Language</a>
           </div>
           <hr>
           <div class="dropdown-section">
-            <a href="#" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Sign Out</a>
+            <a href="#" class="logout"><i class="fa fa-sign-out"></i> Sign Out</a>
           </div>
         </div>
       </div>
@@ -288,7 +289,7 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa-solid fa-chevron-down"
+          <i class="fa fa-chevron-down"
             style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
@@ -528,22 +529,22 @@
 
                   <li>
                     <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
-                      <i class="fa-solid fa-shopping-cart"></i>
+                      <i class="fa fa-shopping-cart"></i>
                       Purchase
                     </a>
                     <ul class="purchase-submenu">
                       <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
-                        <i class="fa-solid fa-file-invoice"></i>
+                        <i class="fa fa-file-text-o"></i>
                         PR
                         <span class="purchase-tab-count">12</span>
                       </a></li>
                       <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
-                        <i class="fa-solid fa-question-circle"></i>
+                        <i class="fa fa-question-circle"></i>
                         RFQ
                         <span class="purchase-tab-count">8</span>
                       </a></li>
                       <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
-                        <i class="fa-solid fa-receipt"></i>
+                        <i class="fa fa-file-text"></i>
                         PO
                         <span class="purchase-tab-count">25</span>
                       </a></li>
@@ -811,39 +812,39 @@
         <div class="purchase-tab-controls">
           <div class="data-search-container">
             <input type="text" class="data-search-input" placeholder="Search Inquiries...">
-            <i class="fa-solid fa-search data-search-icon"></i>
+            <i class="fa fa-search data-search-icon"></i>
           </div>
 
           <div class="action-buttons">
             <div class="group-by-container">
               <div class="group-by-button" onclick="toggleGroupByDropdown()" title="Group By">
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa fa-chevron-down"></i>
                 <span class="btn-text" style="width: 54px;">Group By</span>
               </div>
               <div class="group-by-dropdown" id="groupByDropdown">
                 <div class="dropdown-item" data-value="status">
-                  <i class="fa-solid fa-flag"></i>
+                  <i class="fa fa-flag"></i>
                   Status
                 </div>
                 <div class="dropdown-item" data-value="project">
-                  <i class="fa-solid fa-building"></i>
+                  <i class="fa fa-building"></i>
                   Project
                 </div>
                 <div class="dropdown-item" data-value="category">
-                  <i class="fa-solid fa-exclamation-triangle"></i>
+                  <i class="fa fa-exclamation-triangle"></i>
                   Category
                 </div>
               </div>
             </div>
 
             <button class="data-filter-btn" title="Filter">
-              <i class="fa-solid fa-filter"></i>
+              <i class="fa fa-filter"></i>
               <span class="btn-text">Filter</span>
             </button>
 
             <!-- Import Button -->
             <button class="inquiries-import-btn" onclick="importInquiries()" title="Import">
-              <i class="fa-solid fa-upload"></i>
+              <i class="fa fa-upload"></i>
               <span class="btn-text">Import</span>
             </button>
 
@@ -851,36 +852,36 @@
             <div class="data-action-dropdown" id="inqActionDropdown" style="display: none;">
               <button class="data-action-dropdown-btn" onclick="toggleActionDropdown('inqActionDropdown')"
                 title="Actions">
-                <i class="fa-solid fa-ellipsis-v"></i>
+                <i class="fa fa-ellipsis-v"></i>
                 <span class="btn-text">Actions</span>
-                <i class="fa-solid fa-chevron-down"></i>
+                <i class="fa fa-chevron-down"></i>
               </button>
               <div class="data-action-menu" id="inqActionMenu">
                 <div class="data-action-item" onclick="exportInquiries()">
-                  <i class="fa-solid fa-download"></i>
+                  <i class="fa fa-download"></i>
                   <span>Export</span>
                 </div>
                 <div class="data-action-item" onclick="editSelectedInquiries()">
-                  <i class="fa-solid fa-edit"></i>
+                  <i class="fa fa-edit"></i>
                   <span>Edit</span>
                 </div>
                 <div class="data-action-item" onclick="duplicateSelectedInquiries()">
-                  <i class="fa-solid fa-copy"></i>
+                  <i class="fa fa-copy"></i>
                   <span>Duplicate</span>
                 </div>
                 <div class="data-action-item" onclick="mergeSelectedInquiries()">
-                  <i class="fa-solid fa-compress-arrows-alt"></i>
+                  <i class="fa fa-compress"></i>
                   <span>Merge</span>
                 </div>
                 <div class="data-action-divider"></div>
                 <div class="data-action-item data-action-danger" onclick="deleteSelectedInquiries()">
-                  <i class="fa-solid fa-trash"></i>
+                  <i class="fa fa-trash"></i>
                   <span>Delete</span>
                 </div>
               </div>
             </div>
             <button class="data-btn data-btn-primary" onclick="createInquiryItem('inq')" title="Create Inquiry">
-              <i class="fa-solid fa-plus"></i>
+              <i class="fa fa-plus"></i>
               <span class="btn-text">Inquiry</span>
             </button>
 
@@ -894,10 +895,10 @@
         <!-- View Toggle Buttons -->
         <div class="data-view-toggle">
           <button class="data-view-btn data-view-btn-active" title="List View">
-            <i class="fas fa-list"></i>
+            <i class="fa fa-list"></i>
           </button>
           <button class="data-view-btn" title="Card View">
-            <i class="fas fa-th-large"></i>
+            <i class="fa fa-th-large"></i>
           </button>
         </div>
 
@@ -936,7 +937,7 @@
                             <label class="data-column-option fixed-column">
                               <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
                               <span class="data-column-label">
-                                Inquiry ID <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                Inquiry ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option">
@@ -950,13 +951,13 @@
                             <label class="data-column-option fixed-column">
                               <input type="checkbox" value="col-status" checked disabled data-fixed="true">
                               <span class="data-column-label">
-                                Category <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                Category <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option fixed-column">
                               <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
                               <span class="data-column-label">
-                                Visibility <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                Visibility <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option">
@@ -966,13 +967,13 @@
                             <label class="data-column-option fixed-column">
                               <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
                               <span class="data-column-label">
-                                Created By <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                Created By <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option fixed-column">
                               <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
                               <span class="data-column-label">
-                                Created On <i class="fa-solid fa-lock" title="This column cannot be hidden"></i>
+                                Created On <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option">
@@ -1022,25 +1023,25 @@
                     <div class="data-priority-dropdown">
                       <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
                         <span class="data-priority-badge data-priority-medium" title="Medium Priority"><i
-                            class="fa-light fa-star" style="color: #d4b33b;"></i><i class="fa-light fa-star"
+                            class="fa fa-star" style="color: #d4b33b;"></i><i class="fa fa-star"
                             style="color: #d4b33b;"></i></span>
-                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                       </button>
                       <div class="data-priority-dropdown-menu">
                         <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
-                          <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                          <i class="fa fa-star" style="color: #1976d2;"></i>
 
                         </button>
                         <button class="data-priority-option" data-priority="medium"
                           onclick="changePriority(this, 'medium')">
-                          <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star"
+                          <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star"
                             style="color: #f57c00;"></i>
 
                         </button>
                         <button class="data-priority-option" data-priority="high"
                           onclick="changePriority(this, 'high')">
-                          <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star"
-                            style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                          <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star"
+                            style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
 
                         </button>
                       </div>
@@ -1050,27 +1051,27 @@
                     <div class="data-status-dropdown">
                         <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                             <span class="data-status-badge data-status-approved">Approved</span>
-                            <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                            <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                         </button>
                         <div class="data-status-dropdown-menu">
                             <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
-                                <i class="fa-solid fa-edit"></i>
+                                <i class="fa fa-edit"></i>
                                 Draft
                             </button>
                             <button class="data-status-option" data-status="submitted" onclick="changeStatus(this, 'submitted')">
-                                <i class="fa-solid fa-paper-plane"></i>
+                                <i class="fa fa-paper-plane"></i>
                                 Submitted
                             </button>
                             <button class="data-status-option" data-status="approved" onclick="changeStatus(this, 'approved')">
-                                <i class="fa-solid fa-check"></i>
+                                <i class="fa fa-check"></i>
                                 Approved
                             </button>
                             <button class="data-status-option" data-status="rejected" onclick="changeStatus(this, 'rejected')">
-                                <i class="fa-solid fa-times"></i>
+                                <i class="fa fa-times"></i>
                                 Rejected
                             </button>
                             <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
-                                <i class="fa-solid fa-lock"></i>
+                                <i class="fa fa-lock"></i>
                                 Closed
                             </button>
                         </div>
@@ -1104,25 +1105,25 @@
                     <div class="data-priority-dropdown">
                       <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
                         <span class="data-priority-badge data-priority-high" title="High Priority"><i
-                            class="fa-light fa-star" style="color: #ff5c5c;"></i><i class="fa-light fa-star"
-                            style="color: #ff5c5c;"></i><i class="fa-light fa-star" style="color: #ff5c5c;"></i></span>
-                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                            class="fa fa-star" style="color: #ff5c5c;"></i><i class="fa fa-star"
+                            style="color: #ff5c5c;"></i><i class="fa fa-star" style="color: #ff5c5c;"></i></span>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                       </button>
                       <div class="data-priority-dropdown-menu">
                         <button class="data-priority-option" data-priority="low" onclick="changePriority(this, 'low')">
-                          <i class="fa-light fa-star" style="color: #1976d2;"></i>
+                          <i class="fa fa-star" style="color: #1976d2;"></i>
 
                         </button>
                         <button class="data-priority-option" data-priority="medium"
                           onclick="changePriority(this, 'medium')">
-                          <i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star"
+                          <i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star"
                             style="color: #f57c00;"></i>
 
                         </button>
                         <button class="data-priority-option" data-priority="high"
                           onclick="changePriority(this, 'high')">
-                          <i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star"
-                            style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>
+                          <i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star"
+                            style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>
 
                         </button>
                       </div>
@@ -1132,30 +1133,30 @@
                     <div class="data-status-dropdown">
                       <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
                         <span class="data-status-badge data-status-submitted">Submitted</span>
-                        <i class="fa-solid fa-chevron-down" style="font-size: 10px;"></i>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
                       </button>
                       <div class="data-status-dropdown-menu">
                         <button class="data-status-option" data-status="draft" onclick="changeStatus(this, 'draft')">
-                          <i class="fa-solid fa-edit"></i>
+                          <i class="fa fa-edit"></i>
                           Draft
                         </button>
                         <button class="data-status-option" data-status="submitted"
                           onclick="changeStatus(this, 'submitted')">
-                          <i class="fa-solid fa-paper-plane"></i>
+                          <i class="fa fa-paper-plane"></i>
                           Submitted
                         </button>
                         <button class="data-status-option" data-status="approved"
                           onclick="changeStatus(this, 'approved')">
-                          <i class="fa-solid fa-check"></i>
+                          <i class="fa fa-check"></i>
                           Approved
                         </button>
                         <button class="data-status-option" data-status="rejected"
                           onclick="changeStatus(this, 'rejected')">
-                          <i class="fa-solid fa-times"></i>
+                          <i class="fa fa-times"></i>
                           Rejected
                         </button>
                         <button class="data-status-option" data-status="closed" onclick="changeStatus(this, 'closed')">
-                          <i class="fa-solid fa-lock"></i>
+                          <i class="fa fa-lock"></i>
                           Closed
                         </button>
                       </div>
@@ -1296,27 +1297,27 @@
     <div class="purchase-offcanvas-content">
       <!-- Resize Button -->
       <button class="purchase-offcanvas-resize-btn" onclick="toggleOffcanvasWidth()">
-        <i class="fa-solid fa-chevron-left offcanvas-resize-icon"></i>
+        <i class="fa fa-chevron-left offcanvas-resize-icon"></i>
       </button>
 
       <div class="purchase-offcanvas-header">
         <h3>INQ-2025</h3>
         <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
-          <i class="fa-solid fa-times"></i>
+          <i class="fa fa-times"></i>
         </button>
         <!-- Inquiry Dropdown -->
         <div class="inqury-dropdown">
           <button class="inqury-dropdown-btn" onclick="toggleInquiryDropdown()">
-            <i class="fa-solid fa-chevron-down"></i>
+            <i class="fa fa-chevron-down"></i>
             <span class="btn-text">Inquiry Type</span>
           </button>
           <div class="inqury-dropdown-menu" id="inquryDropdownMenu">
             <button class="inqury-dropdown-item" onclick="selectInquiryType('quick')">
-              <i class="fa-solid fa-bolt"></i>
+              <i class="fa fa-bolt"></i>
               Quick Inquiry
             </button>
             <button class="inqury-dropdown-item" onclick="selectInquiryType('advance')">
-              <i class="fa-solid fa-cogs"></i>
+              <i class="fa fa-cogs"></i>
               Advance Inquiry
             </button>
           </div>
@@ -1330,19 +1331,19 @@
         <div class="pr-tabs-container">
           <div class="pr-tabs">
             <button class="pr-tab-btn active" onclick="switchTab('inquiry')" data-tab="inquiry" data-title="INQ-2025">
-              <i class="fa-solid fa-question-circle"></i>
+              <i class="fa fa-question-circle"></i>
               Inquiry
             </button>
             <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="Create Inquiry">
-              <i class="fa-solid fa-plus"></i>
+              <i class="fa fa-plus"></i>
               Create
             </button>
             <button class="pr-tab-btn" onclick="switchTab('chat')" data-tab="chat" data-title="Chat">
-              <i class="fa-solid fa-comments"></i>
+              <i class="fa fa-comments"></i>
               Chat
             </button>
             <button class="pr-tab-btn" onclick="switchTab('log')" data-tab="log" data-title="Activity Log">
-              <i class="fa-solid fa-list"></i>
+              <i class="fa fa-list"></i>
               Log
             </button>
           </div>
@@ -1355,7 +1356,7 @@
             <div class="pr-overview-section">
               <div class="pr-overview-header" onclick="togglePROverview()">
                 <h4>Inquiry Overview</h4>
-                <i class="fa-solid fa-chevron-down pr-overview-toggle-icon"></i>
+                <i class="fa fa-chevron-down pr-overview-toggle-icon"></i>
               </div>
               <div class="pr-overview-content" id="prOverviewContent">
                 <div class="pr-overview-row">
@@ -1484,19 +1485,19 @@
                   <label>Attachments</label>
                   <div class="attachments-dropdown">
                     <button type="button" class="attachments-dropdown-btn" onclick="toggleAttachmentsDropdown()">
-                      <i class="fa-solid fa-paperclip"></i>
+                      <i class="fa fa-paperclip"></i>
                       <span>Attachment</span>
-                      <i class="fa-solid fa-chevron-down"></i>
+                      <i class="fa fa-chevron-down"></i>
                     </button>
                     <div class="attachments-dropdown-menu" id="attachmentsDropdownMenu">
                       <label class="attachments-dropdown-item" for="file-upload">
-                        <i class="fa-solid fa-upload"></i>
+                        <i class="fa fa-upload"></i>
                         Upload File
                         <input type="file" id="file-upload" style="display: none;" multiple
                           onchange="displaySelectedFiles(this)">
                       </label>
                       <label class="attachments-dropdown-item" for="camera-capture">
-                        <i class="fa-solid fa-camera"></i>
+                        <i class="fa fa-camera"></i>
                         Take Photo
                         <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture
                           onchange="displaySelectedFiles(this)">
@@ -1514,7 +1515,7 @@
                     Cancel
                   </button>
                   <button type="submit" class="purchase-btn purchase-btn-primary">
-                    <i class="fa-solid fa-save"></i>
+                    <i class="fa fa-save"></i>
                     Submit
                   </button>
                 </div>
@@ -1532,7 +1533,7 @@
     <div class="purchase-delete-modal-content">
       <div class="purchase-delete-modal-header">
         <div class="purchase-delete-modal-icon">
-          <i class="fa-solid fa-exclamation-triangle"></i>
+          <i class="fa fa-exclamation-triangle"></i>
         </div>
         <h3>Confirm Delete</h3>
       </div>
@@ -1551,7 +1552,7 @@
           Cancel
         </button>
         <button class="purchase-delete-modal-delete" onclick="confirmDelete()">
-          <i class="fa-solid fa-trash"></i>
+          <i class="fa fa-trash"></i>
           Delete
         </button>
       </div>
@@ -1587,15 +1588,15 @@
       </div>
       <div class="popup-body">
         <div class="contact-item">
-          <i class="fa-solid fa-comment-dots"></i>
+          <i class="fa fa-comment-dots"></i>
           <a href="https://wa.me/1234567890" target="_blank" id="popupWhatsapp">+1234567890</a>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-phone"></i>
+          <i class="fa fa-phone"></i>
           <a href="tel:+1234567890" id="popupPhone">+1234567890</a>
         </div>
         <div class="contact-item">
-          <i class="fa-solid fa-envelope"></i>
+          <i class="fa fa-envelope"></i>
           <a href="mailto:user@example.com" id="popupEmail">user@example.com</a>
         </div>
       </div>

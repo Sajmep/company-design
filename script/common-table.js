@@ -52,14 +52,12 @@ function initSelectAll(selectAllId = 'selectAll', rowCheckboxSelector = '.data-c
 function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) {
     const tbody = document.querySelector(tableSelector);
     if (!tbody) {
-        console.log('Table body not found for selector:', tableSelector);
         return;
     }
     
     // Check if this table is already initialized
     const existingDragHandles = tbody.querySelectorAll('.data-drag-handle');
     if (existingDragHandles.length > 0) {
-        console.log('Table already initialized, skipping drag reorder setup');
         return;
     }
     
@@ -67,7 +65,6 @@ function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) 
     
     // Add drag handles to each row
     const rows = tbody.querySelectorAll('tr');
-    console.log('Found rows:', rows.length);
     
     rows.forEach((row, index) => {
         // Add drag handle cell if it doesn't exist
@@ -75,7 +72,7 @@ function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) 
         if (!dragCell) {
             dragCell = document.createElement('td');
             dragCell.className = 'data-drag-handle';
-            dragCell.innerHTML = '<i class="fa-solid fa-grip-vertical"></i>';
+            dragCell.innerHTML = '<i class="fa fa-bars"></i>';
             dragCell.draggable = true;
             dragCell.style.cursor = 'grab';
             
@@ -94,7 +91,6 @@ function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) 
         
         // Drag events on the row
         row.addEventListener('dragstart', function(e) {
-            console.log('Drag started');
             draggedRow = row;
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.setData('text/html', row.outerHTML);
@@ -108,7 +104,6 @@ function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) 
         });
         
         row.addEventListener('dragend', function(e) {
-            console.log('Drag ended');
             // Reset visual effects
             row.style.opacity = '1';
             row.style.transform = 'none';
@@ -137,14 +132,11 @@ function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) 
         
         row.addEventListener('drop', function(e) {
             e.preventDefault();
-            console.log('Drop event');
             
             if (draggedRow && draggedRow !== row) {
                 // Get the position of dragged row and target row
                 const draggedIndex = Array.from(tbody.children).indexOf(draggedRow);
                 const targetIndex = Array.from(tbody.children).indexOf(row);
-                
-                console.log('Dragged index:', draggedIndex, 'Target index:', targetIndex);
                 
                 // Determine the correct insertion point
                 if (draggedIndex < targetIndex) {
@@ -158,7 +150,6 @@ function initDragReorder(tableSelector = '.data-table tbody', onReorder = null) 
                     // Dragging up: insert before the target row
                     tbody.insertBefore(draggedRow, row);
                 }
-                console.log('Row moved');
                 
                 // Call callback if provided
                 if (onReorder) onReorder(draggedRow, targetIndex);
@@ -522,40 +513,6 @@ function initClickableRows(clickableSelector = '.purchase-list-pr-number, .purch
 }
 
 // ============================================================================
-// SEARCH FUNCTIONALITY
-// ============================================================================
-
-/**
- * Initialize search functionality
- * @param {string} searchInputSelector - CSS selector for search input
- * @param {string} searchTargetSelector - CSS selector for elements to search in
- * @param {function} onSearch - Callback function when search is performed
- */
-function initSearch(searchInputSelector = '.data-search-input', 
-                   searchTargetSelector = '.data-table tbody tr, .data-card',
-                   onSearch = null) {
-    const searchInput = document.querySelector(searchInputSelector);
-    
-    if (searchInput) {
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
-            const targets = document.querySelectorAll(searchTargetSelector);
-            
-            targets.forEach(target => {
-                const text = target.textContent.toLowerCase();
-                if (text.includes(searchTerm)) {
-                    target.style.display = '';
-                } else {
-                    target.style.display = 'none';
-                }
-            });
-            
-            if (onSearch) onSearch(searchTerm);
-        });
-    }
-}
-
-// ============================================================================
 // UTILITY FUNCTIONS
 // ============================================================================
 
@@ -675,6 +632,59 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Initialize resizable columns
             initResizableColumns('.data-table');
+        }
+        
+        // Initialize user contact popup
+        const popup = document.getElementById('userContactPopup');
+        const closeBtn = document.querySelector('.popup-close');
+        const clickableUsers = document.querySelectorAll('.clickable-user');
+        
+        if (popup && closeBtn && clickableUsers.length > 0) {
+            // Show popup
+            function showPopup(userElement) {
+                // Copy user image and status
+                const userImg = userElement.querySelector('.data-user-avatar img');
+                const userStatus = userElement.querySelector('.data-user-status');
+                const userName = userElement.querySelector('.data-user-name');
+                
+                if (userImg && userStatus && userName) {
+                    const popupUserImage = document.getElementById('popupUserImage');
+                    const popupUserName = document.getElementById('popupUserName');
+                    const popupUserStatus = document.getElementById('popupUserStatus');
+                    
+                    if (popupUserImage && popupUserName && popupUserStatus) {
+                        popupUserImage.src = userImg.src;
+                        popupUserImage.alt = userImg.alt;
+                        popupUserName.textContent = userName.textContent;
+                        
+                        // Copy status class
+                        popupUserStatus.className = 'popup-user-status ' + userStatus.className;
+                        
+                        popup.style.display = 'flex';
+                    }
+                }
+            }
+            
+            // Hide popup
+            function hidePopup() {
+                popup.style.display = 'none';
+            }
+            
+            // Event listeners
+            clickableUsers.forEach(user => {
+                user.addEventListener('click', function() {
+                    showPopup(this);
+                });
+            });
+            
+            closeBtn.addEventListener('click', hidePopup);
+            
+            // Close on background click
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    hidePopup();
+                }
+            });
         }
     }, 50); // Small delay to allow manual initialization
 });
@@ -810,7 +820,6 @@ function initResizableColumns(tableSelector = '.data-table') {
         // Close dropdown
         dropdown.classList.remove('active');
         
-        console.log(`Status changed to: ${newStatus}`);
     }
 
     /**
@@ -846,7 +855,6 @@ function initResizableColumns(tableSelector = '.data-table') {
         // Close dropdown
         dropdown.classList.remove('active');
         
-        console.log(`Card status changed to: ${newStatus}`);
     }
 
     // Close dropdowns when clicking outside
@@ -920,7 +928,6 @@ function changeStatus(option, newStatus) {
     // Close dropdown
     dropdown.classList.remove('active');
     
-    console.log(`Status changed to: ${newStatus}`);
 }
 
 /**
@@ -963,7 +970,6 @@ function changeCardStatus(option, newStatus) {
     // Close dropdown
     dropdown.classList.remove('active');
     
-    console.log(`Card status changed to: ${newStatus}`);
 }
 
 // Close dropdowns when clicking outside
@@ -981,95 +987,56 @@ document.addEventListener('click', function(e) {
 
 // Priority configurations
 const priorityConfig = {
-    low: { stars: '<i class="fa-light fa-star" style="color: #1976d2;"></i>', text: 'Low', title: 'Low Priority' },
-    medium: { stars: '<i class="fa-light fa-star" style="color: #f57c00;"></i><i class="fa-light fa-star" style="color: #f57c00;"></i>', text: 'Medium', title: 'Medium Priority' },
-    high: { stars: '<i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i><i class="fa-light fa-star" style="color: #d32f2f;"></i>', text: 'High', title: 'High Priority' },
-    urgent: { stars: '<i class="fa-solid fa-exclamation-triangle" style="color: #7b1fa2;"></i>', text: 'Urgent', title: 'Urgent Priority' }
+    low: { stars: '<i class="fa fa-star" style="color: #1976d2;"></i>', text: 'Low', title: 'Low Priority' },
+    medium: { stars: '<i class="fa fa-star" style="color: #f57c00;"></i><i class="fa fa-star" style="color: #f57c00;"></i>', text: 'Medium', title: 'Medium Priority' },
+    high: { stars: '<i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i><i class="fa fa-star" style="color: #d32f2f;"></i>', text: 'High', title: 'High Priority' },
+    urgent: { stars: '<i class="fa fa-exclamation-triangle" style="color: #7b1fa2;"></i>', text: 'Urgent', title: 'Urgent Priority' }
 };
 
-// Generic dropdown toggle
-function toggleDropdown(button, dropdownClass) {
-    const dropdown = button.closest(dropdownClass);
+// Priority dropdown toggle (same as status dropdown)
+function togglePriorityDropdown(button) {
+    const dropdown = button.closest('.data-priority-dropdown');
     const isActive = dropdown.classList.contains('active');
     
-    // Close all dropdowns of this type
-    document.querySelectorAll(`${dropdownClass}.active`).forEach(dd => dd.classList.remove('active'));
+    // Close all other dropdowns
+    document.querySelectorAll('.data-priority-dropdown.active').forEach(dd => {
+        dd.classList.remove('active');
+    });
     
+    // Toggle current dropdown
     if (!isActive) {
         dropdown.classList.add('active');
-        const menu = dropdown.querySelector('.data-priority-dropdown-menu, .data-card-priority-dropdown-menu');
-        const rect = button.getBoundingClientRect();
-        menu.style.top = (rect.bottom + 4) + 'px';
-        menu.style.left = rect.left + 'px';
+        
+        // Position the dropdown menu
+        const menu = dropdown.querySelector('.data-priority-dropdown-menu');
+        const buttonRect = button.getBoundingClientRect();
+        
+        menu.style.top = (buttonRect.bottom + 4) + 'px';
+        menu.style.left = buttonRect.left + 'px';
     }
 }
 
-// Generic priority change
-function changePriority(option, newPriority, isCard = false) {
-    const dropdown = option.closest(isCard ? '.data-card-priority-dropdown' : '.data-priority-dropdown');
-    const badge = dropdown.querySelector('.data-priority-badge');
+// Priority change (same as status dropdown)
+function changePriority(option, newPriority) {
+    const dropdown = option.closest('.data-priority-dropdown');
+    const button = dropdown.querySelector('.data-priority-dropdown-btn');
+    const badge = button.querySelector('.data-priority-badge');
     const config = priorityConfig[newPriority];
     
+    // Update badge class and content
     badge.className = `data-priority-badge data-priority-${newPriority}`;
+    badge.innerHTML = config.stars;
+    badge.title = config.title;
     
-    if (isCard) {
-        badge.textContent = config.text;
-    } else {
-        badge.innerHTML = config.stars;
-        badge.title = config.title;
-    }
-    
+    // Close dropdown
     dropdown.classList.remove('active');
+    
 }
 
 // ============================================================================
     // user contact popup functionality
 // ============================================================================
-
-document.addEventListener('DOMContentLoaded', function() {
-  const popup = document.getElementById('userContactPopup');
-  const closeBtn = document.querySelector('.popup-close');
-  const clickableUsers = document.querySelectorAll('.clickable-user');
-  
-  // Show popup
-  function showPopup(userElement) {
-    // Copy user image and status
-    const userImg = userElement.querySelector('.data-user-avatar img');
-    const userStatus = userElement.querySelector('.data-user-status');
-    const userName = userElement.querySelector('.data-user-name');
-    
-    document.getElementById('popupUserImage').src = userImg.src;
-    document.getElementById('popupUserImage').alt = userImg.alt;
-    document.getElementById('popupUserName').textContent = userName.textContent;
-    
-    // Copy status class
-    const popupStatus = document.getElementById('popupUserStatus');
-    popupStatus.className = 'popup-user-status ' + userStatus.className;
-    
-    popup.style.display = 'flex';
-  }
-  
-  // Hide popup
-  function hidePopup() {
-    popup.style.display = 'none';
-  }
-  
-  // Event listeners
-  clickableUsers.forEach(user => {
-    user.addEventListener('click', function() {
-      showPopup(this);
-    });
-  });
-  
-  closeBtn.addEventListener('click', hidePopup);
-  
-  // Close on background click
-  popup.addEventListener('click', function(e) {
-    if (e.target === popup) {
-      hidePopup();
-    }
-  });
-});
+// (Moved to main DOMContentLoaded listener above to prevent conflicts)
 
 // Export minimal functions
 window.toggleStatusDropdown = toggleStatusDropdown;
@@ -1077,7 +1044,5 @@ window.toggleStatusDropdown = toggleStatusDropdown;
 window.changeStatus = changeStatus;
 window.toggleCardStatusDropdown = toggleCardStatusDropdown;
 window.changeCardStatus = changeCardStatus;
-window.togglePriorityDropdown = (btn) => toggleDropdown(btn, '.data-priority-dropdown');
-window.changePriority = (opt, priority) => changePriority(opt, priority, false);
-window.toggleCardPriorityDropdown = (btn) => toggleDropdown(btn, '.data-card-priority-dropdown');
-window.changeCardPriority = (opt, priority) => changePriority(opt, priority, true);
+window.togglePriorityDropdown = togglePriorityDropdown;
+window.changePriority = changePriority;

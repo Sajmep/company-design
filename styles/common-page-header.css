@@ -1,6 +1,6 @@
 /* ============================================================================
    Common Page Header Styles
-   Reusable header component for all pages - Based on existing purchase/inquiries design
+   Reusable header component for all pages -
    ============================================================================ */
 
 /* Page Header Container */
@@ -11,6 +11,75 @@
   margin-bottom: 25px;
   gap: 20px;
 }
+
+/* Breadcrumb Styles */
+
+.breadcrumb ol {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.breadcrumb li:not(:last-child)::after {
+  content: '›';
+  margin-left: 8px;
+  color: #d1d5db;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.breadcrumb a {
+  color: #6b7280;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.breadcrumb a:hover {
+  color: #9885d1;
+  background: rgba(152, 133, 209, 0.1);
+}
+
+.breadcrumb span[aria-current="page"] {
+  color: #374151;
+  font-weight: 100;
+  padding: 4px 8px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #e5e7eb;
+}
+
+
+/* Separator chevron built with CSS */
+.breadcrumb li+li::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-right: 2px solid var(--muted);
+  border-top: 2px solid var(--muted);
+  transform: rotate(45deg);
+  margin-right: 2px;
+}
+
+
+/* Current page */
+.breadcrumb [aria-current="page"] {
+  color: #ceced1;
+  font-weight: 600;
+}
+
 
 /* Title Section */
 .page-header-title {
@@ -326,7 +395,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: #0863d0;
+  background: #9885d1;
   color: white;
   border: none;
   border-radius: 6px;
@@ -337,7 +406,7 @@
 }
 
 .page-header-primary-btn:hover {
-  background: #0652a3;
+  background: #7c3aed;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(8, 99, 208, 0.3);
 }
@@ -371,6 +440,11 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+
+  .main-content {
+    padding: 10px;
+    padding-top: 0 !important;
+  }
   
   .page-header-search {
     min-width: auto;
@@ -387,7 +461,7 @@
   .page-header-actions {
     position: fixed;
     bottom: 0;
-    left: 69px;
+    left: 0;
     right: 0;
     background: #fff;
     border-top: 1px solid #e5e7eb;
