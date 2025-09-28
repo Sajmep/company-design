@@ -85,6 +85,29 @@
   transform: scale(1.05);
 }
 
+.bmh-card-view .card-view-company-logo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bmh-card-view .card-view-company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
 .bmh-card-view .card-view-content-container {
   padding: 15px;
   position: relative;
@@ -136,14 +159,24 @@
   letter-spacing: 0.5px;
 }
 
-.bmh-card-view .contractor-status.active {
+.bmh-card-view .contractor-status.online {
   background: #dcfce7;
   color: #166534;
 }
 
-.bmh-card-view .contractor-status.inactive {
+.bmh-card-view .contractor-status.offline {
   background: #fee2e2;
-  color: #991b1b;
+  color: #dc2626;
+}
+
+.bmh-card-view .contractor-status.busy {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.bmh-card-view .contractor-status.vacation {
+  background: #e5e7eb;
+  color: #4b5563;
 }
 
 .bmh-card-view .contractor-status.pending {
@@ -173,12 +206,7 @@
   .bmh-card-view .company-name {
     font-size: 15px;
   }
-  
-  .bmh-card-view .contractor-info {
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-start;
-  }
+ 
 }
 
 @media (max-width: 480px) {
@@ -192,6 +220,14 @@
   
   .bmh-card-view .company-name {
     font-size: 14px;
+  }
+
+  .bmh-list-view{
+    margin-bottom: 30px;
+  }
+
+  .bmh-card-view{
+    margin-bottom: 30px;
   }
 }
 
@@ -298,9 +334,24 @@
   font-weight: 600;
 }
 
-.status-badge.active {
+.status-badge.online {
   background: #dcfce7;
   color: #166534;
+}
+
+.status-badge.offline {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-badge.busy {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.status-badge.vacation {
+  background: #e5e7eb;
+  color: #4b5563;
 }
 
 .vendor-popup-actions {
@@ -557,16 +608,20 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
-.bmh-map-legend-marker.active {
+.bmh-map-legend-marker.online {
   background: #10b981;
 }
 
-.bmh-map-legend-marker.pending {
+.bmh-map-legend-marker.offline {
+  background: #ef4444;
+}
+
+.bmh-map-legend-marker.busy {
   background: #f59e0b;
 }
 
-.bmh-map-legend-marker.inactive {
-  background: #ef4444;
+.bmh-map-legend-marker.vacation {
+  background: #6b7280;
 }
 
 .bmh-map-marker {
@@ -586,16 +641,20 @@
   z-index: 15;
 }
 
-.bmh-map-marker.active {
+.bmh-map-marker.online {
   background: #10b981;
 }
 
-.bmh-map-marker.pending {
+.bmh-map-marker.offline {
+  background: #ef4444;
+}
+
+.bmh-map-marker.busy {
   background: #f59e0b;
 }
 
-.bmh-map-marker.inactive {
-  background: #ef4444;
+.bmh-map-marker.vacation {
+  background: #6b7280;
 }
 
 .bmh-map-marker-tooltip {
@@ -708,6 +767,53 @@
   color: #991b1b;
 }
 
+.bmh-map-info-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid #e5e7eb;
+}
+
+.bmh-map-info-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.bmh-map-info-btn.primary {
+  background: #9885d1;
+  color: #fff;
+}
+
+.bmh-map-info-btn.primary:hover {
+  background: #7c3aed;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(152, 133, 209, 0.3);
+}
+
+.bmh-map-info-btn.secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.bmh-map-info-btn.secondary:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Map Markers Positioning */
 .bmh-map-marker:nth-child(1) { top: 30%; left: 25%; }
 .bmh-map-marker:nth-child(2) { top: 45%; left: 60%; }
@@ -783,19 +889,29 @@
   letter-spacing: 0.5px;
 }
 
-.bmh-list-view-item-status.active {
+.bmh-list-view-item-status.online {
   background: #dcfce7;
   color: #166534;
+}
+
+.bmh-list-view-item-status.offline {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.bmh-list-view-item-status.busy {
+  background: #fed7aa;
+  color: #c2410c;
+}
+
+.bmh-list-view-item-status.vacation {
+  background: #e5e7eb;
+  color: #4b5563;
 }
 
 .bmh-list-view-item-status.pending {
   background: #fef3c7;
   color: #92400e;
-}
-
-.bmh-list-view-item-status.inactive {
-  background: #fee2e2;
-  color: #991b1b;
 }
 
 .bmh-list-view-item-contact {

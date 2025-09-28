@@ -1,0 +1,459 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.page-header{
+  margin: 25px;
+}
+
+/* Vendor Details Banner */
+.vendor-details-banner {
+  position: relative;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #cbd5e1 100%);
+  min-height: 300px;
+  margin: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.vendor-banner-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
+
+.vendor-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: transparent;
+}
+
+.vendor-banner-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  min-height: 300px;
+}
+
+.vendor-banner-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex: 1;
+}
+
+.vendor-banner-image {
+  position: relative;
+  width: 250px;
+  height: 180px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.vendor-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vendor-banner-status {
+  margin: 12px 0;
+}
+
+.vendor-save-btn {
+  background: #9885d1;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+.vendor-save-btn:hover {
+  background: #7c3aed;
+  color: white;
+}
+
+.vendor-status-badge {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 14px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.vendor-status-badge.online {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.vendor-status-badge.offline {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+.vendor-status-badge.busy {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+}
+
+.vendor-status-badge.vacation {
+  background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+  box-shadow: 0 2px 8px rgba(156, 163, 175, 0.3);
+}
+
+.vendor-company-logo {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+.vendor-company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
+.vendor-banner-info {
+  flex: 1;
+}
+
+.vendor-company-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  text-shadow: none;
+}
+
+.vendor-company-slogan {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0 0 20px 0;
+  font-style: italic;
+}
+
+.vendor-banner-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.vendor-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #475569;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.vendor-meta-item i {
+  font-size: 16px;
+  color: #64748b;
+}
+
+.vendor-banner-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-end;
+}
+
+.vendor-banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.vendor-action-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: white;
+}
+
+.vendor-action-btn.primary {
+  background: #9885d1;
+  border: 2px solid #9885d1;
+  backdrop-filter: blur(10px);
+}
+
+.vendor-action-btn.primary:hover {
+    background: #7c3aed;
+    border-color: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(152, 133, 209, 0.4);
+}
+
+.vendor-action-btn.secondary {
+  background: #64748b;
+  border: 1px solid #64748b;
+  color: white;
+}
+
+.vendor-action-btn.secondary:hover {
+  background: #475569;
+  border-color: #475569;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
+}
+
+.vendor-banner-stats {
+  display: flex;
+  gap: 32px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.vendor-stat-item {
+  text-align: center;
+  color: #1e293b;
+}
+
+.vendor-stat-number {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: #1e293b;
+}
+
+.vendor-stat-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vendor-banner-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  .vendor-banner-left {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .vendor-banner-right {
+    align-items: center;
+    width: 100%;
+  }
+  
+  .vendor-banner-actions {
+    justify-content: center;
+  }
+  
+  .vendor-company-name {
+    font-size: 24px;
+  }
+  
+  .vendor-company-slogan {
+    font-size: 16px;
+  }
+  
+  .vendor-banner-meta {
+    justify-content: center;
+  }
+  
+  .vendor-banner-stats {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vendor-details-banner {
+    margin: 10px;
+    border-radius: 12px;
+  }
+  
+  .vendor-banner-content {
+    padding: 20px 15px;
+  }
+  
+  .vendor-banner-image {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .vendor-company-name {
+    font-size: 20px;
+  }
+  
+  .vendor-banner-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .vendor-action-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .vendor-banner-stats {
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+  }
+}
+
+/* Vendor Details Section */
+.vendor-details-section {
+  display: flex;
+  margin: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  min-height: 500px;
+}
+
+.vendor-details-sidebar {
+  width: 250px;
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+  flex-shrink: 0;
+}
+
+.vendor-details-tabs {
+  padding: 20px 0;
+}
+
+.vendor-tab-btn {
+  width: 100%;
+  padding: 12px 20px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  border-left: 3px solid transparent;
+}
+
+.vendor-tab-btn:hover {
+  background: #e2e8f0;
+  color: #475569;
+}
+
+.vendor-tab-btn.active {
+  background: #9885d1;
+  color: #fff;
+  border-left-color: #7c3aed;
+}
+
+.vendor-tab-btn i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.vendor-details-content {
+  flex: 1;
+  padding: 30px;
+  background: #fff;
+}
+
+.vendor-tab-content {
+  display: none;
+}
+
+.vendor-tab-content.active {
+  display: block;
+}
+
+.vendor-tab-content h2 {
+  color: #1e293b;
+  font-size: 24px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .vendor-details-section {
+    flex-direction: column;
+    margin: 10px;
+  }
+  
+  .vendor-details-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .vendor-details-tabs {
+    display: flex;
+    overflow-x: auto;
+    padding: 0;
+  }
+  
+  .vendor-tab-btn {
+    flex-shrink: 0;
+    padding: 12px 16px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+  }
+  
+  .vendor-tab-btn.active {
+    border-left: none;
+    border-bottom-color: #7c3aed;
+  }
+  
+  .vendor-details-content {
+    padding: 20px;
+  }
+}

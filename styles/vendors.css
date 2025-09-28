@@ -2,7 +2,6 @@
   margin: 25px;
 }
 
-
 /* Vendor Popup Styles */
 .vendor-popup {
   display: none;
@@ -130,12 +129,16 @@
   color: #374151;
 }
 
-.vendor-action-btn.secondary {
+
+.vendor-action-btn.secondary  {
   background: #9885d1;
-  color: white;
   border: 1px solid #d1d5db;
 }
 
+.vendor-action-btn.secondary a {
+  color: white;
+  text-decoration: none;
+}
 .vendor-action-btn.secondary:hover {
     background: #7c3aed;
     color: white;
