@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vendors</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
+  <link rel="stylesheet" href="../styles/views-container.css">
+  <link rel="stylesheet" href="../styles/vendors.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+</head>
+
+<body>
+  <!-- Main Content -->
+
+  <!-- Common Page Header -->
+  <div class="page-header">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li>
+          <a href="#" title="Enterprise">Home</a>
+        </li>
+        <li>
+          <span aria-current="page" title="Vendors">Vendors</span>
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumb end -->
+    <div class="page-header-title">
+      <h2>Vendors</h2>
+      <p>Explore vendor profiles with company details</p>
+    </div>
+    <div class="page-header-controls">
+      <div class="page-header-search">
+        <input type="text" class="page-header-search-input" placeholder="Search directory...">
+        <i class="fa fa-search page-header-search-icon"></i>
+      </div>
+
+      <div class="page-header-actions">
+        <div class="page-header-group-by">
+          <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+            <i class="fa fa-chevron-down"></i>
+            <span class="btn-text">Group By</span>
+          </button>
+          <div class="page-header-group-by-dropdown" id="groupByDropdown">
+            <div class="page-header-group-by-item" data-value="status">
+              <i class="fa fa-flag"></i>
+              Status
+            </div>
+            <div class="page-header-group-by-item" data-value="category">
+              <i class="fa fa-tags"></i>
+              Category
+            </div>
+            <div class="page-header-group-by-item" data-value="location">
+              <i class="fa fa-map-marker"></i>
+              Location
+            </div>
+          </div>
+        </div>
+
+        <button class="page-header-filter-btn" title="Filter">
+          <i class="fa fa-filter"></i>
+          <span class="btn-text">Filter</span>
+        </button>
+
+        <!-- Import Button -->
+        <button class="page-header-import-btn" onclick="importVendors()" title="Import">
+          <i class="fa fa-upload"></i>
+          <span class="btn-text">Import</span>
+        </button>
+
+        <!-- Action Dropdown (hidden by default) -->
+        <div class="page-header-action-dropdown" id="vendorActionDropdown">
+          <button class="page-header-action-dropdown-btn" onclick="toggleActionDropdown('vendorActionDropdown')"
+            title="Actions">
+            <i class="fa fa-ellipsis-v"></i>
+            <span class="btn-text">Actions</span>
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="page-header-action-menu" id="vendorActionMenu">
+            <div class="page-header-action-item" onclick="exportVendors()">
+              <i class="fa fa-download"></i>
+              <span>Export</span>
+            </div>
+            <div class="page-header-action-item" onclick="editSelectedVendors()">
+              <i class="fa fa-edit"></i>
+              <span>Edit</span>
+            </div>
+            <div class="page-header-action-item" onclick="duplicateSelectedVendors()">
+              <i class="fa fa-copy"></i>
+              <span>Duplicate</span>
+            </div>
+            <div class="page-header-action-divider"></div>
+            <div class="page-header-action-item danger" onclick="deleteSelectedVendors()">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
+          </div>
+        </div>
+        <button class="page-header-primary-btn" onclick="createRFQ()" title="Send RFQ">
+          <i class="fa fa-send"></i>
+          <span class="btn-text">Send RFQ</span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="views-container">
+
+    <div class="views-toggle">
+      <button class="data-view-btn" title="Dashboard View">
+        <i class="fa fa-dashboard"></i>
+      </button>
+      <button class="data-view-btn" title="Card View">
+        <i class="fa fa-th-large"></i>
+      </button>
+      <button class="data-view-btn" title="List View">
+        <i class="fa fa-list"></i>
+      </button>
+      <button class="data-view-btn" title="Calendar View">
+        <i class="fa fa-calendar"></i>
+      </button>
+      <button class="data-view-btn" title="Map View">
+        <i class="fa fa-map"></i>
+      </button>
+    </div>
+
+    <!-- Card View -->
+    <div class="bmh-card-view">
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor.png" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo" title="Sakhrat Al Janoub Contracting Co. - SAJMEP">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Your Trusted Construction Partner"</h3>
+          <div class="company-name">Sakhrat Al Janoub Contracting Co.</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Contractor</span>
+            <span class="contractor-status online">online</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor7.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/bmh-logo.png" alt="Company Logo" title="Al-Mansour Engineering Group">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Innovation in Every Project"</h3>
+          <div class="company-name">Al-Mansour Engineering Group</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Consultant</span>
+            <span class="contractor-status busy">busy</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor5.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo" title="Gulf Construction Solutions">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Quality First, Always"</h3>
+          <div class="company-name">Gulf Construction Solutions</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Supplier</span>
+            <span class="contractor-status online">online</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor6.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/projects-hub.png" alt="Company Logo" title="TechBuild Industries">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Excellence Through Technology"</h3>
+          <div class="company-name">TechBuild Industries</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Service Provider</span>
+            <span class="contractor-status offline">offline</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor7.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo" title="Royal Builders Ltd">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Building Excellence, Delivering Success"</h3>
+          <div class="company-name">Royal Builders Ltd</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Subcontractor</span>
+            <span class="contractor-status vacation">vacation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor.png" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/subscription.png" alt="Company Logo" title="Sakhrat Al Janoub Contracting Co.">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Building Excellence, Delivering Success"</h3>
+          <div class="company-name">Sakhrat Al Janoub Contracting Co.</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Vendor</span>
+            <span class="contractor-status online">online</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card" onclick="openVendorPopup()">
+        <div class="card-view-image-container">
+          <img src="../images/vendor2.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/bmh-logo.png" alt="Company Logo" title="Sakhrat Al Janoub Contracting Co.">
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <h3>"Building Excellence, Delivering Success"</h3>
+          <div class="company-name">Sakhrat Al Janoub Contracting Co.</div>
+          <div class="contractor-info">
+            <span class="contractor-name">Distributor</span>
+            <span class="contractor-status vacation">vacation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" style="width: 100%;">
+        <button class="pagination-btn" disabled>
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span class="pagination-dots">...</span>
+        <button class="pagination-btn">8</button>
+        <button class="pagination-btn">9</button>
+        <button class="pagination-btn">10</button>
+        <button class="pagination-btn">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+        <span class="pagination-info">Page 1 of 10</span>
+      </div>
+      <!-- Pagination End -->
+    </div>
+    <!-- Card View End -->
+
+    <!-- List View -->
+    <div class="bmh-list-view">
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor.png" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">Sakhrat Al Janoub Contracting Co.</h3>
+            <p class="bmh-list-view-item-subtitle">"Your Trusted Construction Partner"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status online">online</span>
+              <span class="bmh-list-view-item-contact">Type: Contractor</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Riyadh, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <a href="vendor-details.html" target="_blank">
+              <i class="fa fa-eye"></i>
+              View
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor7.jpg" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">Al-Mansour Engineering Group</h3>
+            <p class="bmh-list-view-item-subtitle">"Innovation in Every Project"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status offline">offline</span>
+              <span class="bmh-list-view-item-contact">Type: Consultant</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Jeddah, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <a href="vendor-details.html" target="_blank">
+              <i class="fa fa-eye"></i>
+              View
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor5.jpg" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">Gulf Construction Solutions</h3>
+            <p class="bmh-list-view-item-subtitle">"Quality First, Always"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status online">online</span>
+              <span class="bmh-list-view-item-contact">Type: Supplier</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Dammam, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <i class="fa fa-eye"></i>
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor6.jpg" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">TechBuild Industries</h3>
+            <p class="bmh-list-view-item-subtitle">"Excellence Through Technology"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status offline">offline</span>
+              <span class="bmh-list-view-item-contact">Type: Service Provider</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Medina, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <a href="vendor-details.html" target="_blank">
+              <i class="fa fa-eye"></i>
+              View
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button class="pagination-btn" disabled>
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span class="pagination-dots">...</span>
+        <button class="pagination-btn">8</button>
+        <button class="pagination-btn">9</button>
+        <button class="pagination-btn">10</button>
+        <button class="pagination-btn">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+        <span class="pagination-info">Page 1 of 10</span>
+      </div>
+      <!-- Pagination End -->
+
+    </div>
+    <!-- List View End -->
+
+    <!-- Dashboard View -->
+    <div class="bmh-dashboard-view">
+      <h2>Dashboard View</h2>
+    </div>
+    <!-- Dashboard View End -->
+
+    <!-- Calendar View -->
+    <div class="bmh-calendar-view">
+      <h2>Calendar View</h2>
+    </div>
+    <!-- Calendar View End -->
+
+    <!-- Map View -->
+    <div class="bmh-map-view">
+      <div class="bmh-map-container" id="map">
+        <!-- Map Search -->
+        <div class="bmh-map-search">
+          <input type="text" class="bmh-map-search-input" placeholder="Search vendors by location...">
+        </div>
+
+        <!-- Map Controls -->
+        <div class="bmh-map-controls">
+          <button class="bmh-map-control-btn" id="zoomInBtn">
+            <i class="fa fa-plus"></i>
+            Zoom In
+          </button>
+          <button class="bmh-map-control-btn" id="zoomOutBtn">
+            <i class="fa fa-minus"></i>
+            Zoom Out
+          </button>
+          <button class="bmh-map-control-btn" id="fitVendorsBtn">
+              <i class="fa fa-search"></i>
+              Show All Vendors
+          </button>
+          <button class="bmh-map-control-btn">
+            <i class="fa fa-expand"></i>
+            Fullscreen
+          </button>
+          <button class="bmh-map-control-btn">
+            <i class="fa fa-location-arrow"></i>
+            My Location
+          </button>
+          <button class="bmh-map-control-btn">
+            <i class="fa fa-map-marker"></i>
+            Vendor near me
+          </button>
+        </div>
+
+        <!-- Map Legend -->
+        <div class="bmh-map-legend">
+          <h4>Vendor Status</h4>
+          <div class="bmh-map-legend-item">
+            <div class="bmh-map-legend-marker online"></div>
+            <span>online</span>
+          </div>
+          <div class="bmh-map-legend-item">
+            <div class="bmh-map-legend-marker offline"></div>
+            <span>offline</span>
+          </div>
+          <div class="bmh-map-legend-item">
+            <div class="bmh-map-legend-marker busy"></div>
+            <span>busy</span>
+          </div>
+          <div class="bmh-map-legend-item">
+            <div class="bmh-map-legend-marker vacation"></div>
+            <span>vacation</span>
+          </div>
+        </div>
+
+        <!-- Map Markers -->
+        <div class="bmh-map-marker online" data-vendor="Sakhrat Al Janoub">
+          <div class="bmh-map-marker-tooltip">Sakhrat Al Janoub Contracting Co.</div>
+        </div>
+        <div class="bmh-map-marker busy" data-vendor="Al-Mansour">
+          <div class="bmh-map-marker-tooltip">Al-Mansour Engineering Group</div>
+        </div>
+        <div class="bmh-map-marker online" data-vendor="Gulf Construction">
+          <div class="bmh-map-marker-tooltip">Gulf Construction Solutions</div>
+        </div>
+        <div class="bmh-map-marker vacation" data-vendor="TechBuild">
+          <div class="bmh-map-marker-tooltip">TechBuild Industries</div>
+        </div>
+        <div class="bmh-map-marker online" data-vendor="Royal Builders">
+          <div class="bmh-map-marker-tooltip">Royal Builders Ltd</div>
+        </div>
+        <div class="bmh-map-marker offline" data-vendor="Future Construction">
+          <div class="bmh-map-marker-tooltip">Future Construction Co.</div>
+        </div>
+
+
+      </div>
+    </div>
+    <!-- Map View End -->
+
+  </div>
+  <!-- Main Content End -->
+
+  <!-- Vendor Details Popup -->
+  <div id="vendorPopup" class="vendor-popup">
+    <div class="vendor-popup-content">
+      <div class="vendor-popup-header">
+        <h3>Sakhrat Al Janoub Contracting Co.</h3>
+        <button class="vendor-popup-close" onclick="closeVendorPopup()">&times;</button>
+      </div>
+      <div class="vendor-popup-body">
+        <div class="vendor-popup-image">
+          <img src="../images/vendor.png" alt="Company Image">
+        </div>
+        <div class="vendor-popup-details">
+          <p><strong>Type:</strong> Contractor</p>
+          <p><strong>Status:</strong> <span class="status-badge online">online</span></p>
+          <p><strong>Industry:</strong> Construction</p>
+          <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
+        </div>
+      </div>
+      <div class="vendor-popup-actions">
+        <button class="vendor-action-btn primary" onclick="sendRFQ()">
+          <i class="fa fa-envelope"></i> Send RFQ
+        </button>
+        <button class="vendor-action-btn secondary">
+          <a href="vendor-details.html" target="_blank">
+          <i class="fa fa-eye"></i> View Details
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor Details Popup End -->
+
+  <script src="../script/views-container.js"></script>
+</body>
+
+</html>
