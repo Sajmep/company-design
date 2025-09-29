@@ -143,3 +143,40 @@
     background: #7c3aed;
     color: white;
 }
+
+/* Custom marker styles based on status */
+.custom-marker {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.custom-marker .marker-online { 
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #10b981; /* Green for online */
+}
+
+.custom-marker .marker-offline { 
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ef4444; /* Red for offline */
+}
+
+.custom-marker .marker-busy { 
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #f59e0b; /* Orange for busy */
+}
+
+.custom-marker .marker-vacation { 
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #6b7280; /* Gray for vacation */
+}

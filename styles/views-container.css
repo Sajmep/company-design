@@ -510,13 +510,49 @@
 .bmh-map-container {
   position: relative;
   height: 500px;
-  background-image: url('../images/map-view.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
 
+
+/* Custom marker styles based on status */
+.custom-marker {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.custom-marker .marker-online { 
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #10b981; /* Green for online */
+}
+
+.custom-marker .marker-offline { 
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #6b7280; /* Gray for offline */
+}
+
+.custom-marker .marker-busy { 
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #f59e0b; /* Orange for busy */
+}
+
+.custom-marker .marker-vacation { 
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ef4444; /* Red for vacation */
+}
 .bmh-map-controls {
   position: absolute;
   top: 16px;
@@ -524,7 +560,7 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  z-index: 10;
+  z-index: 500;
 }
 
 .bmh-map-control-btn {
@@ -581,7 +617,7 @@
   border-radius: 8px;
   padding: 12px 16px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  z-index: 10;
+  z-index: 500;
 }
 
 .bmh-map-legend h4 {
