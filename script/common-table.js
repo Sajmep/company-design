@@ -685,6 +685,39 @@ document.addEventListener('DOMContentLoaded', function() {
                     hidePopup();
                 }
             });
+            
+            // Chat Now functionality
+            const chatNowBtn = document.getElementById('popupChatNow');
+            if (chatNowBtn) {
+                chatNowBtn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Get user information
+                    const userName = document.getElementById('popupUserName').textContent;
+                    const userPhone = document.getElementById('popupPhone').textContent;
+                    const userEmail = document.getElementById('popupEmail').textContent;
+                    
+                    // Create chat message
+                    const chatMessage = `Hi! I'd like to chat about ${userName}. ` +
+                                     `Contact: ${userPhone} | ${userEmail}`;
+                    
+                    // You can customize this to open your preferred chat system
+                    // Option 1: Open WhatsApp with pre-filled message
+                    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(chatMessage)}`;
+                    window.open(whatsappUrl, '_blank');
+                    
+                    // Option 2: Copy message to clipboard (uncomment if needed)
+                    // navigator.clipboard.writeText(chatMessage).then(() => {
+                    //     alert('Chat message copied to clipboard!');
+                    // });
+                    
+                    // Option 3: Open internal chat modal (if you have one)
+                    // openChatModal(userName, userPhone, userEmail);
+                    
+                    // Close the popup after action
+                    hidePopup();
+                });
+            }
         }
     }, 50); // Small delay to allow manual initialization
 });
