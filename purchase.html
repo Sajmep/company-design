@@ -2065,6 +2065,76 @@
                           <th>Text</th>
                           <th>UOM</th>
                           <th>Quantity</th>
+                          <th class="data-table-actions">
+                            <div class="data-columns-dropdown">
+                              <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                                <img src="images/add-column.png" alt="Columns" width="20px">
+                              </button>
+                              <div class="data-columns-dropdown-content" id="columnDropdown">
+                                <div class="data-columns-dropdown-header">
+                                  <h4>Select Columns</h4>
+                                </div>
+                                <div class="data-columns-dropdown-body">
+                                  <div class="data-column-options">
+                                    <label class="data-column-option fixed-column">
+                                      <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                      <span class="data-column-label">
+                                        Inquiry ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                      </span>
+                                    </label>
+                                    <label class="data-column-option">
+                                      <input type="checkbox" value="col-pr-type" checked>
+                                      <span class="data-column-label">Project</span>
+                                    </label>
+                                    <label class="data-column-option">
+                                      <input type="checkbox" value="col-department" checked>
+                                      <span class="data-column-label">Title</span>
+                                    </label>
+                                    <label class="data-column-option fixed-column">
+                                      <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                      <span class="data-column-label">
+                                        Category <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                      </span>
+                                    </label>
+                                    <label class="data-column-option fixed-column">
+                                      <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                      <span class="data-column-label">
+                                        Visibility <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                      </span>
+                                    </label>
+                                    <label class="data-column-option">
+                                      <input type="checkbox" value="col-created-on" checked>
+                                      <span class="data-column-label">Status</span>
+                                    </label>
+                                    <label class="data-column-option fixed-column">
+                                      <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                      <span class="data-column-label">
+                                        Created By <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                      </span>
+                                    </label>
+                                    <label class="data-column-option fixed-column">
+                                      <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                      <span class="data-column-label">
+                                        Created On <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                      </span>
+                                    </label>
+                                    <label class="data-column-option">
+                                      <input type="checkbox" value="col-required-date" checked>
+                                      <span class="data-column-label">Attachments</span>
+                                    </label>
+                                  </div>
+                                </div>
+                                <div class="data-columns-dropdown-footer">
+                                  <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                    Cancel
+                                  </button>
+                                  <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                    Save
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </th>
                         </tr>
                       </thead>
                       <tbody id="purchaseItemsTableBody">
@@ -2088,6 +2158,7 @@
                             <input type="number" class="purchase-item-input purchase-quantity-input" placeholder="0"
                               name="itemQuantity[]" min="0" step="0.01" onchange="calculateRowTotal(this)">
                           </td>
+                          <td class="data-table-actions-cell"></td>
                         </tr>
                       </tbody>
                     </table>
@@ -2253,8 +2324,12 @@
         <button class="popup-close">&times;</button>
       </div>
       <div class="popup-body">
+        <div class="contact-item chat-now-item">
+          <i class="fa fa-comments"></i>
+          <a href="#" id="popupChatNow" class="chat-now-link">Chat Now</a>
+        </div>
         <div class="contact-item">
-          <i class="fa fa-comment-dots"></i>
+          <i class="fa fa-whatsapp"></i>
           <a href="https://wa.me/1234567890" target="_blank" id="popupWhatsapp">+1234567890</a>
         </div>
         <div class="contact-item">

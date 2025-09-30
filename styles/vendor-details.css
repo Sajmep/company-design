@@ -850,3 +850,337 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Contact Details Styling */
+.contact-details-section {
+  margin-top: 20px;
+}
+
+.contact-info-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.contact-info-card {
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-info-card:hover {
+  background: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.1);
+}
+
+.contact-info-header {
+  background: transparent;
+  color: #1e293b;
+  padding: 16px 20px 8px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.contact-info-header i {
+  font-size: 18px;
+  color: #9885d1;
+}
+
+.contact-info-header h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #1e293b;
+}
+
+.contact-info-content {
+  padding: 16px 20px 20px 20px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  padding: 12px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.contact-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contact-item:first-child {
+  padding-top: 0;
+}
+
+.contact-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.contact-value {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  flex: 1;
+}
+
+.contact-value a {
+  color: #1e293b;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+  transition: color 0.3s ease;
+}
+
+.contact-value a:hover {
+  color: #9885d1;
+}
+
+.contact-value i {
+  color: #9885d1;
+  font-size: 12px;
+  opacity: 0.7;
+  padding: 6px;
+  border-radius: 4px;
+  background: rgba(152, 133, 209, 0.1);
+  transition: all 0.3s ease;
+}
+
+.contact-value i:hover {
+  background: #9885d1;
+  color: white;
+}
+
+/* Social Accounts & E-commerce Styling */
+.social-card,
+.ecommerce-card {
+  grid-column: 1 / -1;
+}
+
+.social-accounts,
+.ecommerce-accounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 250px;
+}
+
+.social-item:hover {
+  background: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.1);
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+}
+
+.social-icon.linkedin {
+  background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+}
+
+.social-icon.twitter {
+  background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);
+}
+
+.social-icon.facebook {
+  background: linear-gradient(135deg, #4267b2 0%, #365899 100%);
+}
+
+.social-icon.instagram {
+  background: linear-gradient(135deg, #e4405f 0%, #c13584 100%);
+}
+
+.social-icon.whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.social-details {
+  flex: 1;
+}
+
+.social-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.social-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.social-link {
+  color: #9885d1;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: #9885d1;
+  color: white;
+}
+
+/* E-commerce Accounts Styling */
+.ecommerce-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  flex: 1;
+  min-width: 250px;
+}
+
+.ecommerce-item:hover {
+  background: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.1);
+}
+
+.ecommerce-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+}
+
+.ecommerce-icon.shopify {
+  background: linear-gradient(135deg, #96f4d1 0%, #7dd3fc 100%);
+  color: #0f172a;
+}
+
+.ecommerce-icon.amazon {
+  background: linear-gradient(135deg, #ff9900 0%, #ff6600 100%);
+}
+
+.ecommerce-icon.noon {
+  background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+}
+
+.ecommerce-icon.souq {
+  background: linear-gradient(135deg, #00a651 0%, #008a42 100%);
+}
+
+.ecommerce-details {
+  flex: 1;
+}
+
+.ecommerce-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.ecommerce-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.ecommerce-link {
+  color: #9885d1;
+  text-decoration: none;
+  padding: 6px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.ecommerce-link:hover {
+  background: #9885d1;
+  color: white;
+}
+
+
+/* Responsive Design for Contact Details */
+@media (max-width: 768px) {
+  .contact-info-grid {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .contact-info-card {
+    min-width: 100%;
+  }
+  
+  .social-card,
+  .ecommerce-card {
+    width: 100%;
+  }
+  
+  .social-accounts,
+  .ecommerce-accounts {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .social-item,
+  .ecommerce-item {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-info-content {
+    padding: 16px;
+  }
+  
+  .contact-actions-section {
+    padding: 20px;
+  }
+  
+  .social-item {
+    padding: 12px;
+  }
+}
