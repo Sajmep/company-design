@@ -8,7 +8,8 @@
 
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="../styles/common-page-header.css">
-  <link rel="stylesheet" href="../styles/vendor-details.css">
+  <link rel="stylesheet" href="vendor-styles/vendor-details.css">
+  <link rel="stylesheet" href="vendor-styles/vendor-gallery.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 </head>
 
@@ -530,6 +531,187 @@
         </div>
         <div class="vendor-tab-content" id="gallery">
           <h2>Gallery</h2>
+          
+          <div class="gallery-section">
+            <div class="gallery-tabs">
+              <!-- Gallery Tabs -->
+              <button class="gallery-tab-btn active" data-gallery-tab="all">
+                <i class="fa fa-th"></i>
+                <span>All</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="images">
+                <i class="fa fa-image"></i>
+                <span>Images</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="videos">
+                <i class="fa fa-video-camera"></i>
+                <span>Videos</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="albums">
+                <i class="fa fa-folder"></i>
+                <span>Albums</span>
+              </button>
+            </div>
+            
+            <div class="gallery-content">
+
+              <div class="gallery-tab-content active" id="gallery-all">
+                <div class="gallery-grid">
+                  <div class="gallery-item all-image-item">
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item all-image-item">
+                    <img src="../images/gallery4.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery3.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery2.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery5.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gallery-tab-content" id="gallery-images">
+                <div class="gallery-grid">
+                  <div class="gallery-item" >
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery4.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery3.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item" >
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery2.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item" >
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery5.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gallery-tab-content" id="gallery-videos">
+               <span style="font-size: 20px; font-weight: 600; color: #9885d1;text-decoration: underline;">Coming Soon</span>
+              </div>
+              
+              <div class="gallery-tab-content" id="gallery-albums">
+                <span style="font-size: 20px; font-weight: 600; color: #9885d1;text-decoration: underline;">Coming Soon</span>
+                <!-- <div class="albums-grid">
+                  <div class="album-item">
+                    <div class="album-cover">
+                      <img src="../images/vendor.png" alt="Project Gallery">
+                      <div class="album-overlay">
+                        <i class="fa fa-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="album-info">
+                      <h3>Project Gallery</h3>
+                      <p>12 photos</p>
+                    </div>
+                  </div>
+                  
+                  <div class="album-item">
+                    <div class="album-cover">
+                      <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Office Photos">
+                      <div class="album-overlay">
+                        <i class="fa fa-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="album-info">
+                      <h3>Office Photos</h3>
+                      <p>8 photos</p>
+                    </div>
+                  </div>
+                  
+                  <div class="album-item">
+                    <div class="album-cover">
+                      <img src="../images/vendor.png" alt="Team Photos">
+                      <div class="album-overlay">
+                        <i class="fa fa-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="album-info">
+                      <h3>Team Photos</h3>
+                      <p>15 photos</p>
+                    </div>
+                  </div>
+                  
+                  <div class="album-item">
+                    <div class="album-cover">
+                      <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Equipment">
+                      <div class="album-overlay">
+                        <i class="fa fa-folder-open"></i>
+                      </div>
+                    </div>
+                    <div class="album-info">
+                      <h3>Equipment</h3>
+                      <p>6 photos</p>
+                    </div>
+                  </div>
+                </div> -->
+              </div>
+
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -538,7 +720,8 @@
   <!--Main Content End-->
 
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
-  <script src="../script/vendor-details.js"></script>
+  <script src="vendor-scripts/vendor-details.js"></script>
+  <script src="vendor-scripts/vendor-gallery.js"></script>
 </body>
 
 </html>
