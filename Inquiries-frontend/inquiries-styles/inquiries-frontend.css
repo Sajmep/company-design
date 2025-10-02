@@ -1,0 +1,155 @@
+/* Simple Inquiries Page */
+
+.page-header {
+    margin: 25px;
+}
+
+.inquiries-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.inquiry-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.inquiry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.inquiry-header h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    flex: 1;
+    margin-right: 15px;
+}
+
+.status {
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.inquiry-content {
+    margin-bottom: 15px;
+}
+
+.inquiry-content p {
+    color: #666;
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.inquiry-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+
+.inquiry-date {
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.inquiry-date i {
+    margin-right: 5px;
+}
+
+.inquiry-priority {
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+}
+
+.inquiry-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.inquiry-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.user-avatar {
+    width: 30px;
+    height: 30px;
+    background: #9885d1;
+    border: 1px solid #9885d1;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    color: #fff;
+}
+
+.inquiry-user span {
+    font-size: 0.85rem;
+}
+
+.inquiry-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-primary, .btn-secondary {
+    padding: 6px 12px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background: #fff;
+    color: #333;
+}
+
+.btn-primary  {
+    background: #9885d1;
+}
+
+.btn-primary a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .inquiries-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .inquiry-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .inquiry-meta {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .inquiry-footer {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

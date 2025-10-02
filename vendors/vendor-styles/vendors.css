@@ -180,3 +180,260 @@
     border-radius: 50%;
     background-color: #6b7280; /* Gray for vacation */
 }
+
+/* RFQ Modal Styles */
+.rfq-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  align-items: center;
+  justify-content: center;
+}
+
+.rfq-modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.rfq-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rfq-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--panel);
+}
+
+.rfq-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rfq-modal-close:hover {
+  color: #374151;
+}
+
+.rfq-modal-body {
+  padding: 20px;
+}
+
+.rfq-modal-actions {
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.rfq-action-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rfq-action-btn.primary {
+  background: #9885d1;
+  color: white;
+}
+
+.rfq-action-btn.primary:hover {
+  background: #7c3aed;
+}
+
+.rfq-action-btn.secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.rfq-action-btn.secondary:hover {
+  background: #e5e7eb;
+}
+
+/* RFQ Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #374151;
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #9885d1;
+}
+
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Products Table Styles */
+.products-table {
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 80px 100px 80px;
+  gap: 10px;
+  background: #f9fafb;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.table-body {
+  background: #fff;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 80px 100px 80px;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #f3f4f6;
+  align-items: center;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.col-product input,
+.col-brand input,
+.col-qty input,
+.col-uom select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.col-uom select {
+  padding: 6px 6px;
+}
+
+.remove-btn {
+  padding: 4px 8px;
+  border: 1px solid #dc2626;
+  border-radius: 3px;
+  background: #fff;
+  color: #dc2626;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.add-row-btn {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* Mobile responsive for products table */
+@media (max-width: 768px) {
+  .table-header,
+  .table-row {
+    grid-template-columns: 1fr;
+    gap: 5px;
+  }
+  
+  .table-header > div,
+  .table-row > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .table-header > div:first-child::before {
+    content: "Product: ";
+    font-weight: 500;
+  }
+  
+  .table-header > div:nth-child(2)::before {
+    content: "Brand: ";
+    font-weight: 500;
+  }
+  
+  .table-header > div:nth-child(3)::before {
+    content: "Qty: ";
+    font-weight: 500;
+  }
+  
+  .table-header > div:nth-child(4)::before {
+    content: "UOM: ";
+    font-weight: 500;
+  }
+  
+  .table-header > div:nth-child(5)::before {
+    content: "Actions: ";
+    font-weight: 500;
+  }
+}

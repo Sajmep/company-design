@@ -101,6 +101,14 @@ function closeVendorPopup() {
     document.getElementById('vendorPopup').style.display = 'none';
 }
 
+// Close vendor popup when clicking outside of it
+document.addEventListener('click', function(event) {
+    const vendorModal = document.getElementById('vendorPopup');
+    if (event.target === vendorModal) {
+        closeVendorPopup();
+    }
+});
+
 // Map View Functions
 document.addEventListener('DOMContentLoaded', function() {
     const mapMarkers = document.querySelectorAll('.bmh-map-marker');

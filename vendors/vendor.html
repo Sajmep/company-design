@@ -8,7 +8,7 @@
 
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="../styles/common-page-header.css">
-  <link rel="stylesheet" href="../styles/views-container.css">
+  <link rel="stylesheet" href="vendor-styles/views-container.css">
   <link rel="stylesheet" href="vendor-styles/vendors.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
@@ -415,13 +415,13 @@
 
     <!-- Dashboard View -->
     <div class="bmh-dashboard-view">
-      <h2>Dashboard View</h2>
+      <h2>Comming Soon...</h2>
     </div>
     <!-- Dashboard View End -->
 
     <!-- Calendar View -->
     <div class="bmh-calendar-view">
-      <h2>Calendar View</h2>
+      <h2>Comming Soon...</h2>
     </div>
     <!-- Calendar View End -->
 
@@ -542,7 +542,128 @@
   </div>
   <!-- Vendor Details Popup End -->
 
+  <!-- RFQ Modal -->
+  <div id="rfqModal" class="rfq-modal">
+    <div class="rfq-modal-content">
+      <div class="rfq-modal-header">
+        <h3>Send RFQ</h3>
+        <button class="rfq-modal-close" onclick="closeRFQModal()">&times;</button>
+      </div>
+      <div class="rfq-modal-body">
+        <div class="form-group">
+          <label>Vendors?</label>
+          <input type="text" placeholder="Enter vendors">
+        </div>
+        
+        <div class="form-group">
+          <label>Select Project</label>
+          <select>
+            <option value="">Choose a project</option>
+            <option value="project1">Website Development</option>
+            <option value="project2">Mobile App Development</option>
+            <option value="project3">E-commerce Platform</option>
+            <option value="project4">Database Migration</option>
+            <option value="project5">SEO Services</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Select Company</label>
+          <select>
+            <option value="">Choose a company</option>
+            <option value="company1">Smith Enterprises</option>
+            <option value="company2">Johnson & Associates</option>
+            <option value="company3">Tech Solutions Inc</option>
+            <option value="company4">Digital Marketing Co</option>
+            <option value="company5">Global Services Ltd</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Vendor Reference?</label>
+          <input type="text" placeholder="Enter vendor reference">
+        </div>
+        
+        <div class="form-group">
+          <label>Currency</label>
+          <select>
+            <option value="SAR" selected>SAR</option>
+            <option value="USD">USD</option>
+            <option value="EUR">EUR</option>
+            <option value="GBP">GBP</option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Order Deadline?</label>
+          <input type="datetime-local" value="2025-01-10T17:02">
+        </div>
+        
+        <div class="form-group">
+          <label>Expected Arrival?</label>
+          <input type="date">
+        </div>
+        
+        <div class="form-group">
+          <label>Deliver To?</label>
+          <textarea placeholder="Enter delivery address"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Products</label>
+          <div class="products-table">
+            <div class="table-header">
+              <div class="col-product">Product</div>
+              <div class="col-brand">Brand</div>
+              <div class="col-qty">Qty</div>
+              <div class="col-uom">UOM</div>
+              <div class="col-actions">Actions</div>
+            </div>
+            <div class="table-body">
+              <div class="table-row">
+                <div class="col-product">
+                  <input type="text" placeholder="Enter product name">
+                </div>
+                <div class="col-brand">
+                  <input type="text" placeholder="Brand">
+                </div>
+                <div class="col-qty">
+                  <input type="number" placeholder="Qty">
+                </div>
+                <div class="col-uom">
+                  <select>
+                    <option value="">UOM</option>
+                    <option value="pcs">PCS</option>
+                    <option value="kg">KG</option>
+                    <option value="m">M</option>
+                    <option value="m2">M²</option>
+                    <option value="m3">M³</option>
+                    <option value="liters">Liters</option>
+                    <option value="box">Box</option>
+                    <option value="set">Set</option>
+                  </select>
+                </div>
+                <div class="col-actions">
+                  <button type="button" class="remove-btn">Remove</button>
+                </div>
+              </div>
+            </div>
+            <div class="table-footer">
+              <button type="button" class="add-row-btn">Add Product</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="rfq-modal-actions">
+        <button class="rfq-action-btn secondary" onclick="closeRFQModal()">Cancel</button>
+        <button class="rfq-action-btn primary">Send RFQ</button>
+      </div>
+    </div>
+  </div>
+  <!-- RFQ Modal End -->
+
   <script src="vendor-scripts/views-container.js"></script>
+  <script src="vendor-scripts/vendor.js"></script>
 </body>
 
 </html>
