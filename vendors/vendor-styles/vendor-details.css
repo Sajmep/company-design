@@ -907,7 +907,7 @@
 .contact-item {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: flex-start !important;
   gap: 3px;
   padding: 12px 0;
   border-bottom: 1px solid #f1f5f9;
@@ -958,6 +958,7 @@
   color: #9885d1;
   font-size: 12px;
   opacity: 0.7;
+  width: auto !important;
   padding: 6px;
   border-radius: 4px;
   background: rgba(152, 133, 209, 0.1);
@@ -1140,6 +1141,337 @@
 .ecommerce-link:hover {
   background: #9885d1;
   color: white;
+}
+
+
+/* RFQ Form Styles */
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
+/* File Input Styles */
+.file-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.file-input:hover {
+  border-color: #9885d1;
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: #9885d1;
+  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+}
+
+/* RFQ Modal Table Overrides - Compact Width */
+.rfq-modal .data-table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.rfq-modal .data-table {
+  min-width: 400px;
+  width: 100%;
+}
+
+.rfq-modal .col-brand {
+  width: 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+}
+
+.rfq-modal .col-product {
+  width: 120px !important;
+  max-width: 120px !important;
+  min-width: 120px !important;
+}
+
+.rfq-modal .col-qty {
+  width: 60px !important;
+  max-width: 60px !important;
+  min-width: 60px !important;
+}
+
+.rfq-modal .col-uom {
+  width: 64px !important;
+  max-width: 64px !important;
+  min-width: 64px !important;
+}
+
+.rfq-modal .data-table-actions {
+  width: 40px !important;
+  max-width: 40px !important;
+  min-width: 40px !important;
+}
+
+.rfq-modal .data-checkbox-cell {
+  width: 32px !important;
+  max-width: 32px !important;
+  min-width: 32px !important;
+}
+
+.rfq-modal .data-drag-header {
+  width: 20px !important;
+  max-width: 20px !important;
+  min-width: 20px !important;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-row .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .file-upload-container {
+    padding: 15px;
+  }
+  
+  .file-upload-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+
+
+/* RFQ Modal Styles */
+.rfq-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  align-items: center;
+  justify-content: center;
+}
+
+.rfq-modal-content {
+  background: white;
+  border-radius: 12px;
+  max-width: 650px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.rfq-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rfq-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--panel);
+}
+
+.rfq-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rfq-modal-close:hover {
+  color: #374151;
+}
+
+.rfq-modal-body {
+  padding: 20px;
+}
+
+.rfq-modal-actions {
+  padding: 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.rfq-action-btn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rfq-action-btn.primary {
+  background: #9885d1;
+  color: white;
+}
+
+.rfq-action-btn.primary:hover {
+  background: #7c3aed;
+}
+
+.rfq-action-btn.secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+}
+
+.rfq-action-btn.secondary:hover {
+  background: #e5e7eb;
+}
+
+/* RFQ Form Styles */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: #374151;
+  font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #374151;
+  background: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #9885d1;
+}
+
+.form-group textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Products Table Styles */
+.products-table {
+  overflow: hidden;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: 2fr 1fr 80px 100px 80px;
+  gap: 10px;
+  background: #f9fafb;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #374151;
+  border-bottom: 1px solid #d1d5db;
+}
+
+.table-body {
+  background: #fff;
+}
+
+.table-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 80px 100px 80px;
+  gap: 10px;
+  padding: 10px;
+  border-bottom: 1px solid #f3f4f6;
+  align-items: center;
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.col-product input,
+.col-brand input,
+.col-qty input,
+.col-uom select {
+  width: 100%;
+  padding: 6px 8px;
+  border: 1px solid #d1d5db;
+  border-radius: 3px;
+  font-size: 13px;
+  background: #fff;
+}
+
+.col-uom select {
+  padding: 6px 6px;
+}
+
+.remove-btn {
+  padding: 4px 8px;
+  border: 1px solid #dc2626;
+  border-radius: 3px;
+  background: #fff;
+  color: #dc2626;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.add-row-btn {
+  padding: 8px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: #fff;
+  color: #374151;
+  font-size: 13px;
+  cursor: pointer;
 }
 
 

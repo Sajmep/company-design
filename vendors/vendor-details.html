@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="vendor-styles/vendor-details.css">
   <link rel="stylesheet" href="vendor-styles/vendor-gallery.css">
+  <link rel="stylesheet" href="../styles/common-table.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 </head>
 
@@ -86,7 +87,7 @@
         
         <div class="vendor-banner-right">
           <div class="vendor-banner-actions">
-            <button class="vendor-action-btn primary">
+            <button class="vendor-action-btn primary" onclick="createRFQ()">
               <i class="fa fa-envelope"></i>
               Send RFQ
             </button>
@@ -327,17 +328,17 @@
                 </div>
                 <div class="contact-info-content">
                   <div class="contact-item">
-                    <div class="contact-label">Primary Phone</div>
+                    <div class="contact-label">Phone</div>
                     <div class="contact-value">
                       <a href="tel:+966569400876">+966 56 940 0876</a>
                       <i class="fa fa-phone"></i>
                     </div>
                   </div>
                   <div class="contact-item">
-                    <div class="contact-label">Secondary Phone</div>
+                    <div class="contact-label">Mobile</div>
                     <div class="contact-value">
                       <a href="tel:+966920014993">+966 9200 14993</a>
-                      <i class="fa fa-phone"></i>
+                      <i class="fa fa-mobile"></i>
                     </div>
                   </div>
                 </div>
@@ -551,6 +552,10 @@
                 <i class="fa fa-folder"></i>
                 <span>Albums</span>
               </button>
+              <button class="gallery-tab-btn" data-gallery-tab="360-images">
+                <i class="fa fa-folder"></i>
+                <span>360 Images</span>
+              </button>
             </div>
             
             <div class="gallery-content">
@@ -710,6 +715,10 @@
                 </div> -->
               </div>
 
+              <div class="gallery-tab-content" id="gallery-360-images">
+                <span style="font-size: 20px; font-weight: 600; color: #9885d1;text-decoration: underline;">Coming Soon</span>
+               </div>
+
             </div>
           </div>
         </div>
@@ -719,9 +728,221 @@
   </main>
   <!--Main Content End-->
 
+    <!-- RFQ Modal -->
+    <div id="rfqModal" class="rfq-modal">
+      <div class="rfq-modal-content">
+        <div class="rfq-modal-header">
+          <h3>Send RFQ</h3>
+          <button class="rfq-modal-close" onclick="closeRFQModal()">&times;</button>
+        </div>
+        <div class="rfq-modal-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Vendor</label>
+              <input type="text" value="Sakhrat Al Janoub Contracting Co." disabled style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
+            </div>
+            <div class="form-group">
+              <label>RFQ Number</label>
+              <input type="text" value="RFQ-2024-001" disabled style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Select Project</label>
+              <select>
+                <option value="">Choose a project</option>
+                <option value="project1">Website Development</option>
+                <option value="project2">Mobile App Development</option>
+                <option value="project3">E-commerce Platform</option>
+                <option value="project4">Database Migration</option>
+                <option value="project5">SEO Services</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Company</label>
+              <select>
+                <option value="">Choose a company</option>
+                <option value="company1">Smith Enterprises</option>
+                <option value="company2">Johnson & Associates</option>
+                <option value="company3">Tech Solutions Inc</option>
+                <option value="company4" selected>Sakhrat Al Janoub Contracting Co.</option>
+                <option value="company5">Global Services Ltd</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Currency</label>
+              <select>
+                <option value="SAR" selected>SAR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Order Deadline?</label>
+              <input type="datetime-local" value="2025-01-10T17:02">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Expected Arrival?</label>
+              <input type="date">
+            </div>
+            <div class="form-group">
+              <label>Product Name</label>
+              <input type="text" placeholder="Enter product name">
+            </div>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label>Attention To</label>
+              <input type="text" placeholder="Enter contact person or department">
+            </div>
+            <div class="form-group">
+              <label>Priority</label>
+              <select>
+                <option value="">Select Priority</option>
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+              </select>
+            </div>
+          </div>
+          
+          <div class="form-group full-width">
+            <label>Deliver To?</label>
+            <textarea placeholder="Enter delivery address"></textarea>
+          </div>
+          
+          <div class="form-group full-width">
+            <label>Attachments</label>
+            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" class="file-input">
+          </div>
+          
+          <div class="form-group full-width">
+                   <!-- Inquiry List Table -->
+        <div class="data-table-container" id="listView">
+          <div class="data-table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 32px !important; max-width: 32px !important;">
+                    <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                    <label for="selectAllPRs" class="data-checkbox-label"></label>
+                    <span class="data-checkbox-text"></span>
+                  </th>
+                  <th class="data-drag-header">--</th>
+                  <th class="col-brand" style="max-width: 45px !important;">Brand</th>
+                  <th class="col-product" style="max-width: 60px !important;">Product</th>
+                  <th class="col-qty" style="max-width: 60px !important;">Qty</th>
+                  <th class="col-uom" style="max-width: 60px !important;">UOM</th>
+                  <th class="data-table-actions" style="max-width: 32px !important;">
+                    <div class="data-columns-dropdown">
+                      <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                        <img src="../images/add-column.png" alt="Columns" width="20px">
+                      </button>
+                      <div class="data-columns-dropdown-content" id="columnDropdown">
+                        <div class="data-columns-dropdown-header">
+                          <h4>Select Columns</h4>
+                        </div>
+                        <div class="data-columns-dropdown-body">
+                          <div class="data-column-options">
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
+                            <label class="data-column-option">
+                              <input type="checkbox" value="col-pr-type" checked>
+                              <span class="data-column-label">Product</span>
+                            </label>
+                            <label class="data-column-option">
+                              <input type="checkbox" value="col-department" checked>
+                              <span class="data-column-label">Qty</span>
+                            </label>
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="data-columns-dropdown-footer">
+                          <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                            Cancel
+                          </button>
+                          <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="data-checkbox-cell">
+                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
+                    <label for="rfq-001" class="data-checkbox-label"></label>
+                  </td>
+                  <td class="data-item-brand col-brand">
+                    <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                      <option value="">Add</option>
+                      <option value="brand1">Brand 1</option>
+                      <option value="brand2">Brand 2</option>
+                      <option value="brand3">Brand 3</option>
+                    </select>
+                  </td>
+                  <td class="data-item-product col-product">
+                    <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                      <option value="">Add Product</option>
+                      <option value="product1">Product 1</option>
+                      <option value="product2">Product 2</option>
+                      <option value="product3">Product 3</option>
+                    </select>
+                  </td>
+                  <td class="data-item-qty col-qty">
+                    <input type="number" placeholder="Qty">
+                  </td>
+                  <td class="data-item-uom col-uom">
+                    <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                      <option value="">Add</option>
+                      <option value="uom1">UOM 1</option>
+                      <option value="uom2">UOM 2</option>
+                      <option value="uom3">UOM 3</option>
+                    </select>
+                  </td>
+                  <td class="data-table-actions-cell"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+          </div>
+         
+        </div>
+        <div class="rfq-modal-actions">
+          <button class="rfq-action-btn secondary" onclick="closeRFQModal()">Cancel</button>
+          <button class="rfq-action-btn primary">Send RFQ</button>
+        </div>
+      </div>
+    </div>
+    <!-- RFQ Modal End -->
+
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <script src="vendor-scripts/vendor-details.js"></script>
   <script src="vendor-scripts/vendor-gallery.js"></script>
+  <script src="../script/common-table.js"></script>
 </body>
-
+ 
 </html>
