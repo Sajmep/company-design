@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inquiries Frontend</title>
+
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../vendors/vendor-styles/views-container.css">
+    <link rel="stylesheet" href="../styles/common-page-header.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="inquiries-styles/inquiries-frontend.css">
+    <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+</head>
+
+<body>
+    <div class="inquiries-container">
+        <!-- Page Header -->
+
+
+        <!-- Common Page Header -->
+        <div class="page-header">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li>
+                        <a href="#" title="Enterprise">Home</a>
+                    </li>
+                    <li>
+                        <span aria-current="page" title="Inquiries">Inquiries</span>
+                    </li>
+                </ol>
+            </nav>
+            <!-- breadcrumb end -->
+            <div class="page-header-title">
+                <h2>Inquiries</h2>
+                <p>Manage and track all your inquiries</p>
+            </div>
+            <div class="page-header-controls">
+                <div class="page-header-search">
+                    <input type="text" class="page-header-search-input" placeholder="Search directory...">
+                    <i class="fa fa-search page-header-search-icon"></i>
+                </div>
+
+                <div class="page-header-actions">
+                    <div class="page-header-group-by">
+                        <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                            <i class="fa fa-chevron-down"></i>
+                            <span class="btn-text">Group By</span>
+                        </button>
+                        <div class="page-header-group-by-dropdown" id="groupByDropdown">
+                            <div class="page-header-group-by-item" data-value="status">
+                                <i class="fa fa-flag"></i>
+                                Status
+                            </div>
+                            <div class="page-header-group-by-item" data-value="category">
+                                <i class="fa fa-tags"></i>
+                                Category
+                            </div>
+                            <div class="page-header-group-by-item" data-value="location">
+                                <i class="fa fa-map-marker"></i>
+                                Location
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="page-header-filter-btn" title="Filter">
+                        <i class="fa fa-filter"></i>
+                        <span class="btn-text">Filter</span>
+                    </button>
+
+                    <!-- Import Button -->
+                    <button class="page-header-import-btn" title="Import">
+                        <i class="fa fa-upload"></i>
+                        <span class="btn-text">Import</span>
+                    </button>
+
+                    <!-- Action Dropdown (hidden by default) -->
+                    <div class="page-header-action-dropdown" id="inquiriesActionDropdown">
+                        <button class="page-header-action-dropdown-btn"
+                            onclick="toggleActionDropdown('inquiriesActionDropdown')" title="Actions">
+                            <i class="fa fa-ellipsis-v"></i>
+                            <span class="btn-text">Actions</span>
+                            <i class="fa fa-chevron-down"></i>
+                        </button>
+                        <div class="page-header-action-menu" id="inquiriesActionMenu">
+                            <div class="page-header-action-item">
+                                <i class="fa fa-download"></i>
+                                <span>Export</span>
+                            </div>
+                            <div class="page-header-action-item">
+                                <i class="fa fa-edit"></i>
+                                <span>Edit</span>
+                            </div>
+                            <div class="page-header-action-item">
+                                <i class="fa fa-copy"></i>
+                                <span>Duplicate</span>
+                            </div>
+                            <div class="page-header-action-divider"></div>
+                            <div class="page-header-action-item danger">
+                                <i class="fa fa-trash"></i>
+                                <span>Delete</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="page-header-primary-btn" onclick="createInquiry()" title="Create Inquiry">
+                        <i class="fa fa-send"></i>
+                        <span class="btn-text">Create Inquiry</span>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="views-container">
+
+            <div class="views-toggle">
+                <button class="data-view-btn" title="Dashboard View">
+                    <i class="fa fa-dashboard"></i>
+                </button>
+                <button class="data-view-btn" title="Card View">
+                    <i class="fa fa-th-large"></i>
+                </button>
+                <button class="data-view-btn" title="List View">
+                    <i class="fa fa-list"></i>
+                </button>
+                <button class="data-view-btn" title="Calendar View">
+                    <i class="fa fa-calendar"></i>
+                </button>
+                <button class="data-view-btn" title="Map View">
+                    <i class="fa fa-map"></i>
+                </button>
+            </div>
+
+            <!-- Card View -->
+            <div class="bmh-card-view">
+                <div class="inquiries-cards">
+                    <!-- Inquiries Cards -->
+                    <!-- Inquiry Card 1 -->
+                    <div class="inquiry-card">
+                        <div class="inquiry-header">
+                            <h3>Website Development Inquiry</h3>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <div class="inquiry-content">
+                            <p>Looking for a complete website development solution for our business. Need modern design
+                                with
+                                e-commerce functionality.</p>
+                        </div>
+                        <div class="inquiry-meta">
+                            <div class="inquiry-date">
+                                <i class="fa fa-calendar"></i>
+                                <span>Dec 15, 2024</span>
+                            </div>
+                            <div class="inquiry-priority high">High Priority</div>
+                        </div>
+                        <div class="inquiry-footer">
+                            <div class="inquiry-user">
+                                <div class="user-avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <span>John Smith</span>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View Details</a></button>
+                                <button class="btn-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inquiry Card 2 -->
+                    <div class="inquiry-card">
+                        <div class="inquiry-header">
+                            <h3>Mobile App Consultation</h3>
+                            <span class="status in-progress">In Progress</span>
+                        </div>
+                        <div class="inquiry-content">
+                            <p>Need consultation for developing a mobile application for iOS and Android platforms.</p>
+                        </div>
+                        <div class="inquiry-meta">
+                            <div class="inquiry-date">
+                                <i class="fa fa-calendar"></i>
+                                <span>Dec 14, 2024</span>
+                            </div>
+                            <div class="inquiry-priority medium">Medium Priority</div>
+                        </div>
+                        <div class="inquiry-footer">
+                            <div class="inquiry-user">
+                                <div class="user-avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <span>Sarah Johnson</span>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View Details</a></button>
+                                <button class="btn-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inquiry Card 3 -->
+                    <div class="inquiry-card">
+                        <div class="inquiry-header">
+                            <h3>SEO Services Request</h3>
+                            <span class="status completed">Completed</span>
+                        </div>
+                        <div class="inquiry-content">
+                            <p>Interested in comprehensive SEO services to improve our website's search engine rankings.
+                            </p>
+                        </div>
+                        <div class="inquiry-meta">
+                            <div class="inquiry-date">
+                                <i class="fa fa-calendar"></i>
+                                <span>Dec 13, 2024</span>
+                            </div>
+                            <div class="inquiry-priority low">Low Priority</div>
+                        </div>
+                        <div class="inquiry-footer">
+                            <div class="inquiry-user">
+                                <div class="user-avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <span>Mike Wilson</span>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View Details</a></button>
+                                <button class="btn-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inquiry Card 4 -->
+                    <div class="inquiry-card">
+                        <div class="inquiry-header">
+                            <h3>Graphic Design Project</h3>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <div class="inquiry-content">
+                            <p>Need professional logo design and branding materials for our new startup company.</p>
+                        </div>
+                        <div class="inquiry-meta">
+                            <div class="inquiry-date">
+                                <i class="fa fa-calendar"></i>
+                                <span>Dec 12, 2024</span>
+                            </div>
+                            <div class="inquiry-priority high">High Priority</div>
+                        </div>
+                        <div class="inquiry-footer">
+                            <div class="inquiry-user">
+                                <div class="user-avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <span>Emily Davis</span>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View Details</a></button>
+                                <button class="btn-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inquiry Card 5 -->
+                    <div class="inquiry-card">
+                        <div class="inquiry-header">
+                            <h3>Database Migration Service</h3>
+                            <span class="status in-progress">In Progress</span>
+                        </div>
+                        <div class="inquiry-content">
+                            <p>Looking for assistance with migrating our existing database to a cloud-based solution.
+                            </p>
+                        </div>
+                        <div class="inquiry-meta">
+                            <div class="inquiry-date">
+                                <i class="fa fa-calendar"></i>
+                                <span>Dec 11, 2024</span>
+                            </div>
+                            <div class="inquiry-priority medium">Medium Priority</div>
+                        </div>
+                        <div class="inquiry-footer">
+                            <div class="inquiry-user">
+                                <div class="user-avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <span>David Brown</span>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View Details</a></button>
+                                <button class="btn-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inquiry Card 6 -->
+                    <div class="inquiry-card">
+                        <div class="inquiry-header">
+                            <h3>E-commerce Platform Setup</h3>
+                            <span class="status pending">Pending</span>
+                        </div>
+                        <div class="inquiry-content">
+                            <p>Need help setting up an online store with payment integration and inventory management.
+                            </p>
+                        </div>
+                        <div class="inquiry-meta">
+                            <div class="inquiry-date">
+                                <i class="fa fa-calendar"></i>
+                                <span>Dec 10, 2024</span>
+                            </div>
+                            <div class="inquiry-priority high">High Priority</div>
+                        </div>
+                        <div class="inquiry-footer">
+                            <div class="inquiry-user">
+                                <div class="user-avatar">
+                                    <i class="fa fa-user"></i>
+                                </div>
+                                <span>Lisa Anderson</span>
+                            </div>
+                            <div class="inquiry-actions">
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View Details</a></button>
+                                <button class="btn-secondary">Reply</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pagination -->
+                <div class="pagination" style="width: 100%;">
+                    <button class="pagination-btn" disabled>
+                        <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <span class="pagination-dots">...</span>
+                    <button class="pagination-btn">8</button>
+                    <button class="pagination-btn">9</button>
+                    <button class="pagination-btn">10</button>
+                    <button class="pagination-btn">
+                        <i class="fa fa-chevron-right"></i>
+                    </button>
+                    <span class="pagination-info">Page 1 of 10</span>
+                </div>
+                <!-- Pagination End -->
+            </div>
+            <!-- Card View End -->
+
+            <!-- List View -->
+            <div class="bmh-list-view">
+                <h2 style="padding: 40px 20px;
+                text-align: center;
+                background: #f8fafc;
+                border-radius: 8px;
+                margin-top: 20px;">Comming Soon...</h2>
+              <!--<div class="bmh-list-view-item">
+                <div class="bmh-list-view-item-content">
+                  <img src="../images/vendor.png" alt="Company" class="bmh-list-view-item-image">
+                  <div class="bmh-list-view-item-details">
+                    <h3 class="bmh-list-view-item-title">Sakhrat Al Janoub Contracting Co.</h3>
+                    <p class="bmh-list-view-item-subtitle">"Your Trusted Construction Partner"</p>
+                    <div class="bmh-list-view-item-meta">
+                      <span class="bmh-list-view-item-status online">online</span>
+                      <span class="bmh-list-view-item-contact">Type: Contractor</span>
+                      <span class="bmh-list-view-item-location">
+                        <i class="fa fa-map-marker"></i>
+                        Riyadh, Saudi Arabia
+                      </span>
+                    </div>
+                  </div>
+                  <div class="bmh-list-view-item-actions">
+                    <button class="bmh-list-view-action-btn primary">
+                      <i class="fa fa-envelope"></i>
+                      Send RFQ
+                    </button>
+                    <button class="bmh-list-view-action-btn">
+                      <a href="vendor-details.html" target="_blank">
+                      <i class="fa fa-eye"></i>
+                      View
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="bmh-list-view-item">
+                <div class="bmh-list-view-item-content">
+                  <img src="../images/vendor7.jpg" alt="Company" class="bmh-list-view-item-image">
+                  <div class="bmh-list-view-item-details">
+                    <h3 class="bmh-list-view-item-title">Al-Mansour Engineering Group</h3>
+                    <p class="bmh-list-view-item-subtitle">"Innovation in Every Project"</p>
+                    <div class="bmh-list-view-item-meta">
+                      <span class="bmh-list-view-item-status offline">offline</span>
+                      <span class="bmh-list-view-item-contact">Type: Consultant</span>
+                      <span class="bmh-list-view-item-location">
+                        <i class="fa fa-map-marker"></i>
+                        Jeddah, Saudi Arabia
+                      </span>
+                    </div>
+                  </div>
+                  <div class="bmh-list-view-item-actions">
+                    <button class="bmh-list-view-action-btn primary">
+                      <i class="fa fa-envelope"></i>
+                      Send RFQ
+                    </button>
+                    <button class="bmh-list-view-action-btn">
+                      <a href="vendor-details.html" target="_blank">
+                      <i class="fa fa-eye"></i>
+                      View
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="bmh-list-view-item">
+                <div class="bmh-list-view-item-content">
+                  <img src="../images/vendor5.jpg" alt="Company" class="bmh-list-view-item-image">
+                  <div class="bmh-list-view-item-details">
+                    <h3 class="bmh-list-view-item-title">Gulf Construction Solutions</h3>
+                    <p class="bmh-list-view-item-subtitle">"Quality First, Always"</p>
+                    <div class="bmh-list-view-item-meta">
+                      <span class="bmh-list-view-item-status online">online</span>
+                      <span class="bmh-list-view-item-contact">Type: Supplier</span>
+                      <span class="bmh-list-view-item-location">
+                        <i class="fa fa-map-marker"></i>
+                        Dammam, Saudi Arabia
+                      </span>
+                    </div>
+                  </div>
+                  <div class="bmh-list-view-item-actions">
+                    <button class="bmh-list-view-action-btn primary">
+                      <i class="fa fa-envelope"></i>
+                      Send RFQ
+                    </button>
+                    <button class="bmh-list-view-action-btn">
+                      <i class="fa fa-eye"></i>
+                      View
+                    </button>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="bmh-list-view-item">
+                <div class="bmh-list-view-item-content">
+                  <img src="../images/vendor6.jpg" alt="Company" class="bmh-list-view-item-image">
+                  <div class="bmh-list-view-item-details">
+                    <h3 class="bmh-list-view-item-title">TechBuild Industries</h3>
+                    <p class="bmh-list-view-item-subtitle">"Excellence Through Technology"</p>
+                    <div class="bmh-list-view-item-meta">
+                      <span class="bmh-list-view-item-status offline">offline</span>
+                      <span class="bmh-list-view-item-contact">Type: Service Provider</span>
+                      <span class="bmh-list-view-item-location">
+                        <i class="fa fa-map-marker"></i>
+                        Medina, Saudi Arabia
+                      </span>
+                    </div>
+                  </div>
+                  <div class="bmh-list-view-item-actions">
+                    <button class="bmh-list-view-action-btn primary">
+                      <i class="fa fa-envelope"></i>
+                      Send RFQ
+                    </button>
+                    <button class="bmh-list-view-action-btn">
+                      <a href="vendor-details.html" target="_blank">
+                      <i class="fa fa-eye"></i>
+                      View
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </div>
+        
+              <div class="pagination">
+                <button class="pagination-btn" disabled>
+                  <i class="fa fa-chevron-left"></i>
+                </button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <span class="pagination-dots">...</span>
+                <button class="pagination-btn">8</button>
+                <button class="pagination-btn">9</button>
+                <button class="pagination-btn">10</button>
+                <button class="pagination-btn">
+                  <i class="fa fa-chevron-right"></i>
+                </button>
+                <span class="pagination-info">Page 1 of 10</span>
+              </div> -->
+        
+            </div>
+             <!-- List View End -->
+
+            <!-- Dashboard View -->
+            <div class="bmh-dashboard-view">
+                <h2>Comming Soon...</h2>
+            </div>
+            <!-- Dashboard View End -->
+
+            <!-- Calendar View -->
+            <div class="bmh-calendar-view">
+                <h2>Comming Soon...</h2>
+            </div>
+            <!-- Calendar View End -->
+
+            <!-- Map View -->
+            <div class="bmh-map-view">
+                <h2 style="padding: 40px 20px;
+                text-align: center;
+                background: #f8fafc;
+                border-radius: 8px;
+                margin-top: 20px;">Comming Soon...</h2>
+            </div>
+            <!-- Map View End -->
+
+        </div>
+    </div>
+
+
+    <script src="../vendors/vendor-scripts/views-container.js"></script>
+</body>
+
+</html>
