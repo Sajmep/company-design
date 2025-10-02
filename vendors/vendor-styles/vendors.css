@@ -279,6 +279,117 @@
 }
 
 /* RFQ Form Styles */
+.form-row {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.form-row .form-group {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.form-group.full-width {
+  flex: 1 1 100%;
+}
+
+/* File Input Styles */
+.file-input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.file-input:hover {
+  border-color: #9885d1;
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: #9885d1;
+  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+}
+
+/* RFQ Modal Table Overrides - Compact Width */
+.rfq-modal .data-table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.rfq-modal .data-table {
+  min-width: 400px;
+  width: 100%;
+}
+
+.rfq-modal .col-brand {
+  width: 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+}
+
+.rfq-modal .col-product {
+  width: 120px !important;
+  max-width: 120px !important;
+  min-width: 120px !important;
+}
+
+.rfq-modal .col-qty {
+  width: 60px !important;
+  max-width: 60px !important;
+  min-width: 60px !important;
+}
+
+.rfq-modal .col-uom {
+  width: 64px !important;
+  max-width: 64px !important;
+  min-width: 64px !important;
+}
+
+.rfq-modal .data-table-actions {
+  width: 40px !important;
+  max-width: 40px !important;
+  min-width: 40px !important;
+}
+
+.rfq-modal .data-checkbox-cell {
+  width: 32px !important;
+  max-width: 32px !important;
+  min-width: 32px !important;
+}
+
+.rfq-modal .data-drag-header {
+  width: 20px !important;
+  max-width: 20px !important;
+  min-width: 20px !important;
+}
+
+/* Responsive styles for mobile */
+@media (max-width: 768px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-row .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .file-upload-container {
+    padding: 15px;
+  }
+  
+  .file-upload-btn {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
 .form-group {
   margin-bottom: 15px;
 }
