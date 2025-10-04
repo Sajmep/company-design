@@ -164,7 +164,8 @@
                                 <span>John Smith</span>
                             </div>
                             <div class="inquiry-actions">
-                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View Details</a></button>
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View
+                                        Details</a></button>
                                 <button class="btn-secondary">Reply</button>
                             </div>
                         </div>
@@ -194,7 +195,8 @@
                                 <span>Sarah Johnson</span>
                             </div>
                             <div class="inquiry-actions">
-                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View Details</a></button>
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View
+                                        Details</a></button>
                                 <button class="btn-secondary">Reply</button>
                             </div>
                         </div>
@@ -225,7 +227,8 @@
                                 <span>Mike Wilson</span>
                             </div>
                             <div class="inquiry-actions">
-                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View Details</a></button>
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View
+                                        Details</a></button>
                                 <button class="btn-secondary">Reply</button>
                             </div>
                         </div>
@@ -255,7 +258,8 @@
                                 <span>Emily Davis</span>
                             </div>
                             <div class="inquiry-actions">
-                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View Details</a></button>
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View
+                                        Details</a></button>
                                 <button class="btn-secondary">Reply</button>
                             </div>
                         </div>
@@ -286,7 +290,8 @@
                                 <span>David Brown</span>
                             </div>
                             <div class="inquiry-actions">
-                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View Details</a></button>
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html">View
+                                        Details</a></button>
                                 <button class="btn-secondary">Reply</button>
                             </div>
                         </div>
@@ -317,7 +322,8 @@
                                 <span>Lisa Anderson</span>
                             </div>
                             <div class="inquiry-actions">
-                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View Details</a></button>
+                                <button class="btn-primary"> <a href="inquiries-details-frontend.html"> View
+                                        Details</a></button>
                                 <button class="btn-secondary">Reply</button>
                             </div>
                         </div>
@@ -351,7 +357,7 @@
                 background: #f8fafc;
                 border-radius: 8px;
                 margin-top: 20px;">Comming Soon...</h2>
-              <!--<div class="bmh-list-view-item">
+                <!--<div class="bmh-list-view-item">
                 <div class="bmh-list-view-item-content">
                   <img src="../images/vendor.png" alt="Company" class="bmh-list-view-item-image">
                   <div class="bmh-list-view-item-details">
@@ -485,9 +491,9 @@
                 </button>
                 <span class="pagination-info">Page 1 of 10</span>
               </div> -->
-        
+
             </div>
-             <!-- List View End -->
+            <!-- List View End -->
 
             <!-- Dashboard View -->
             <div class="bmh-dashboard-view">
@@ -514,8 +520,234 @@
         </div>
     </div>
 
+    <!-- Create Inquiry Modal -->
+    <div class="modal-overlay" id="createInquiryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create New Inquiry</h3>
+                <button class="modal-close" onclick="closeCreateInquiryModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="tabs">
+                    <button class="tab-btn active" onclick="showTab('quick')">Quick Inquiry</button>
+                    <button class="tab-btn" onclick="showTab('advanced')">Advanced Inquiry</button>
+                </div>
+
+                <!-- Quick Inquiry Tab -->
+                <div id="quickInquiryTab" class="tab-content active">
+                    <form id="quickInquiryForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="quickTitle">Title *</label>
+                                <input type="text" id="quickTitle" name="title" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quickProject">Select Project</label>
+                                <select id="quickProject" name="project">
+                                    <option value="">Select Project</option>
+                                    <option value="web-development">Web Development Project</option>
+                                    <option value="mobile-app">Mobile App Project</option>
+                                    <option value="seo">SEO Project</option>
+                                    <option value="graphic-design">Graphic Design Project</option>
+                                    <option value="other">Other Project</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="quickCategory">Select Category *</label>
+                                <select id="quickCategory" name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="web-development">Web Development</option>
+                                    <option value="mobile-app">Mobile App Development</option>
+                                    <option value="seo">SEO Services</option>
+                                    <option value="graphic-design">Graphic Design</option>
+                                    <option value="database">Database Services</option>
+                                    <option value="ecommerce">E-commerce Solutions</option>
+                                    <option value="consulting">IT Consulting</option>
+                                    <option value="maintenance">Maintenance & Support</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="quickBudget">Budget (*in SR) *</label>
+                                <input type="number" id="quickBudget" name="budget" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="quickDescription">Description *</label>
+                            <textarea id="quickDescription" name="description" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="quickAttachment">Attachments</label>
+                            <input type="file" id="quickAttachment" name="attachment"
+                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Advanced Inquiry Tab -->
+                <div id="advancedInquiryTab" class="tab-content">
+                    <form id="advancedInquiryForm">
+
+                        <div class="form-grid">
+                            <div class="form-group" data-field="inquiryTitle">
+                                <label for="inquiryTitle">Title *</label>
+                                <input type="text" id="inquiryTitle" name="title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="quickProject">Select Project</label>
+                                <select id="quickProject" name="project">
+                                    <option value="">Select Project</option>
+                                    <option value="web-development">Web Development Project</option>
+                                    <option value="mobile-app">Mobile App Project</option>
+                                    <option value="seo">SEO Project</option>
+                                    <option value="graphic-design">Graphic Design Project</option>
+                                    <option value="other">Other Project</option>
+                                </select>
+                            </div>
+
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group" data-field="inquiryStatus">
+                                <label for="inquiryStatus">Status *</label>
+                                <select id="inquiryStatus" name="status" required>
+                                    <option value="">Select Status</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="in-progress">In Progress</option>
+                                    <option value="completed">Completed</option>
+                                    <option value="cancelled">Cancelled</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" data-field="inquiryPriority">
+                                <label for="inquiryPriority">Priority *</label>
+                                <select id="inquiryPriority" name="priority" required>
+                                    <option value="">Select Priority</option>
+                                    <option value="low">Low Priority</option>
+                                    <option value="medium">Medium Priority</option>
+                                    <option value="high">High Priority</option>
+                                    <option value="urgent">Urgent</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group" data-field="inquiryEmail">
+                                <label for="inquiryEmail">Email *</label>
+                                <input type="email" id="inquiryEmail" name="email" required>
+                            </div>
+
+                            <div class="form-group" data-field="inquiryPhone">
+                                <label for="inquiryPhone">Phone *</label>
+                                <input type="tel" id="inquiryPhone" name="phone" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group" data-field="inquiryBudget">
+                                <label for="inquiryBudget">Budget (*in SR) *</label>
+                                <input type="number" id="inquiryBudget" name="budget" required>
+                            </div>
+
+                            <div class="form-group" data-field="estStartDate">
+                                <label for="estStartDate">Estd. Start Date *</label>
+                                <input type="date" id="estStartDate" name="startDate" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group" data-field="serviceCity">
+                                <label for="serviceCity">Service City *</label>
+                                <input type="text" id="serviceCity" name="serviceCity" required>
+                            </div>
+
+                            <div class="form-group" data-field="serviceZip">
+                                <label for="serviceZip">ZIP *</label>
+                                <input type="text" id="serviceZip" name="zip" required>
+                            </div>
+                        </div>
+
+                        <div class="form-grid">
+                            <div class="form-group" data-field="serviceState">
+                                <label for="serviceState">State *</label>
+                                <select id="serviceState" name="state" required>
+                                    <option value="">Select State</option>
+                                    <option value="riyadh">Riyadh</option>
+                                    <option value="makkah">Makkah</option>
+                                    <option value="eastern">Eastern Province</option>
+                                    <option value="asir">Asir</option>
+                                    <option value="jazan">Jazan</option>
+                                    <option value="medina">Medina</option>
+                                    <option value="qassim">Qassim</option>
+                                    <option value="tabuk">Tabuk</option>
+                                    <option value="hail">Hail</option>
+                                    <option value="northern">Northern Borders</option>
+                                    <option value="jazan">Jazan</option>
+                                    <option value="najran">Najran</option>
+                                    <option value="al-baha">Al Baha</option>
+                                    <option value="al-jouf">Al Jouf</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" data-field="serviceCountry">
+                                <label for="serviceCountry">Country *</label>
+                                <select id="serviceCountry" name="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="saudi-arabia">Saudi Arabia</option>
+                                    <option value="uae">United Arab Emirates</option>
+                                    <option value="kuwait">Kuwait</option>
+                                    <option value="qatar">Qatar</option>
+                                    <option value="bahrain">Bahrain</option>
+                                    <option value="oman">Oman</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="serviceCategory">Service Category *</label>
+                            <select id="serviceCategory" name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="web-development">Web Development</option>
+                                <option value="mobile-app">Mobile App Development</option>
+                                <option value="seo">SEO Services</option>
+                                <option value="graphic-design">Graphic Design</option>
+                                <option value="database">Database Services</option>
+                                <option value="ecommerce">E-commerce Solutions</option>
+                                <option value="consulting">IT Consulting</option>
+                                <option value="maintenance">Maintenance & Support</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="inquiryDescription">Inquiry Description *</label>
+                            <textarea id="inquiryDescription" name="description" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="quickAttachment">Attachments</label>
+                            <input type="file" id="quickAttachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn-secondary" onclick="closeCreateInquiryModal()">Cancel</button>
+                <button type="button" class="btn-primary" onclick="submitInquiry()">Create Inquiry</button>
+            </div>
+        </div>
+    </div>
 
     <script src="../vendors/vendor-scripts/views-container.js"></script>
+    <script src="inquiries-scripts/inquiries-frontend-js"></script>
+
 </body>
 
 </html>

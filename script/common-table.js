@@ -568,7 +568,6 @@ function initCommonTable(options = {}) {
     });
     initColumnVisibility(config.columnDropdownId, config.columnButtonSelector, config.hiddenByDefault, config.fixedColumns);
     initClickableRows(config.clickableSelector, config.onClickCallback);
-    initSearch(config.searchInputSelector, config.searchTargetSelector, config.onSearch);
     initResizableColumns('.data-table');
 }
 
@@ -740,7 +739,6 @@ window.CommonTable = {
     setDefaultColumnVisibility,
     ensureFixedColumnsVisible,
     initClickableRows,
-    initSearch,
     initCommonTable
 };
 
@@ -913,7 +911,6 @@ window.openColumnDropdown = openColumnDropdown;
 window.closeColumnDropdown = closeColumnDropdown;
 window.saveColumnVisibility = saveColumnVisibility;
 window.initClickableRows = initClickableRows;
-window.initSearch = initSearch;
 window.initResizableColumns = initResizableColumns;
 window.initCommonTable = initCommonTable;
 

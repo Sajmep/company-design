@@ -1,0 +1,33 @@
+// Modal functions
+function createInquiry() {
+    document.getElementById('createInquiryModal').style.display = 'flex';
+}
+
+function closeCreateInquiryModal() {
+    document.getElementById('createInquiryModal').style.display = 'none';
+}
+
+function showTab(type) {
+    // Update tab buttons
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    // Show/hide tab content
+    document.getElementById('quickInquiryTab').classList.remove('active');
+    document.getElementById('advancedInquiryTab').classList.remove('active');
+    
+    if (type === 'quick') {
+        document.getElementById('quickInquiryTab').classList.add('active');
+    } else {
+        document.getElementById('advancedInquiryTab').classList.add('active');
+    }
+}
+
+// Close modal when clicking outside
+document.getElementById('createInquiryModal').addEventListener('click', function (e) {
+    if (e.target === this) {
+        closeCreateInquiryModal();
+    }
+});
