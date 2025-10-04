@@ -132,6 +132,159 @@
     text-decoration: none;
 }
 
+/* Modal Styles */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 4px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.1rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #666;
+}
+
+.modal-body {
+    padding: 10px;
+}
+
+/* Simple Tabs */
+.tabs {
+    display: flex;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tab-btn {
+    padding: 6px 12px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 12px;
+    color: #666;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn:hover {
+    color: #333;
+}
+
+.tab-btn.active {
+    color: #9885d1;
+    border-bottom-color: #9885d1;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 15px;
+    border-top: 1px solid #ddd;
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-row {
+    display: flex;
+    gap: 8px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 0.85rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.form-group textarea {
+    height: 50px;
+    resize: vertical;
+}
+
+/* Dropdown hover effect */
+.form-group select:hover {
+    cursor: pointer;
+}
+
+.form-group select:focus {
+    outline: none;
+    border-color: #9885d1;
+}
+
+/* Full width for description only */
+.form-group.full-width {
+    width: 100%;
+}
+
+/* Two columns layout for most fields */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+}
+
+.form-grid .form-group {
+    margin-bottom: 12px;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .inquiries-cards {
@@ -151,5 +304,13 @@
     .inquiry-footer {
         flex-direction: column;
         gap: 10px;
+    }
+
+    .modal-content {
+        width: 95%;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
     }
 }

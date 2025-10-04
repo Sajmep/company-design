@@ -31,6 +31,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+// Expertise Tabs functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const expertiseTabButtons = document.querySelectorAll('.expertise-tab-btn');
+    const expertiseTabContents = document.querySelectorAll('.expertise-tab-content');
+
+    // Expertise tab switching function
+    function switchExpertiseTab(targetTab) {
+        // Remove active class from all expertise buttons and contents
+        expertiseTabButtons.forEach(btn => btn.classList.remove('active'));
+        expertiseTabContents.forEach(content => content.classList.remove('active'));
+
+        // Add active class to clicked button
+        const activeButton = document.querySelector(`[data-expertise-tab="${targetTab}"]`);
+        if (activeButton) {
+            activeButton.classList.add('active');
+        }
+
+        // Show corresponding content
+        const activeContent = document.getElementById(`expertise-${targetTab}`);
+        if (activeContent) {
+            activeContent.classList.add('active');
+        }
+    }
+
+    // Add click event listeners to all expertise tab buttons
+    expertiseTabButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const targetTab = this.getAttribute('data-expertise-tab');
+            switchExpertiseTab(targetTab);
+        });
+    });
+});
+
 
 // RFQ Modal functionality
 function openRFQModal() {
