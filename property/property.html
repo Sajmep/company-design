@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vendors</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <!-- <link rel="stylesheet" href="../styles/common-page-header.css"> -->
+  <link rel="stylesheet" href="property-styles/views-container.css">
+
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+</head>
+
+<body>
+  <!-- Main Content -->
+
+  <!-- Common Page Header -->
+  <!-- <div class="page-header">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li>
+          <a href="#" title="Enterprise">Home</a>
+        </li>
+        <li>
+          <span aria-current="page" title="Vendors">Vendors</span>
+        </li>
+      </ol>
+    </nav>
+    <div class="page-header-title">
+      <h2>Vendors</h2>
+      <p>Explore vendor profiles with company details</p>
+    </div>
+    <div class="page-header-controls">
+      <div class="page-header-search">
+        <input type="text" class="page-header-search-input" placeholder="Search directory...">
+        <i class="fa fa-search page-header-search-icon"></i>
+      </div>
+
+      <div class="page-header-actions">
+        <div class="page-header-group-by">
+          <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+            <i class="fa fa-chevron-down"></i>
+            <span class="btn-text">Group By</span>
+          </button>
+          <div class="page-header-group-by-dropdown" id="groupByDropdown">
+            <div class="page-header-group-by-item" data-value="status">
+              <i class="fa fa-flag"></i>
+              Status
+            </div>
+            <div class="page-header-group-by-item" data-value="category">
+              <i class="fa fa-tags"></i>
+              Category
+            </div>
+            <div class="page-header-group-by-item" data-value="location">
+              <i class="fa fa-map-marker"></i>
+              Location
+            </div>
+          </div>
+        </div>
+
+        <button class="page-header-filter-btn" title="Filter">
+          <i class="fa fa-filter"></i>
+          <span class="btn-text">Filter</span>
+        </button>
+
+        <button class="page-header-import-btn" onclick="importVendors()" title="Import">
+          <i class="fa fa-upload"></i>
+          <span class="btn-text">Import</span>
+        </button>
+
+        <div class="page-header-action-dropdown" id="vendorActionDropdown">
+          <button class="page-header-action-dropdown-btn" onclick="toggleActionDropdown('vendorActionDropdown')"
+            title="Actions">
+            <i class="fa fa-ellipsis-v"></i>
+            <span class="btn-text">Actions</span>
+            <i class="fa fa-chevron-down"></i>
+          </button>
+          <div class="page-header-action-menu" id="vendorActionMenu">
+            <div class="page-header-action-item" onclick="exportVendors()">
+              <i class="fa fa-download"></i>
+              <span>Export</span>
+            </div>
+            <div class="page-header-action-item" onclick="editSelectedVendors()">
+              <i class="fa fa-edit"></i>
+              <span>Edit</span>
+            </div>
+            <div class="page-header-action-item" onclick="duplicateSelectedVendors()">
+              <i class="fa fa-copy"></i>
+              <span>Duplicate</span>
+            </div>
+            <div class="page-header-action-divider"></div>
+            <div class="page-header-action-item danger" onclick="deleteSelectedVendors()">
+              <i class="fa fa-trash"></i>
+              <span>Delete</span>
+            </div>
+          </div>
+        </div>
+        <button class="page-header-primary-btn" onclick="createRFQ()" title="Send RFQ">
+          <i class="fa fa-send"></i>
+          <span class="btn-text">Send RFQ</span>
+        </button>
+
+      </div>
+    </div>
+  </div> -->
+
+  <div class="views-container">
+
+    <div class="views-toggle">
+      <button class="data-view-btn" title="Dashboard View">
+        <i class="fa fa-dashboard"></i>
+      </button>
+      <button class="data-view-btn" title="Card View">
+        <i class="fa fa-th-large"></i>
+      </button>
+      <button class="data-view-btn" title="List View">
+        <i class="fa fa-list"></i>
+      </button>
+      <button class="data-view-btn" title="Calendar View">
+        <i class="fa fa-calendar"></i>
+      </button>
+      <button class="data-view-btn" title="Map View">
+        <i class="fa fa-map"></i>
+      </button>
+    </div>
+
+    <!-- Card View -->
+    <div class="bmh-card-view">
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/property1.png" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>12
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>122
+            </div>
+            <div class="property-type">
+              Build/Residential/Villa
+            </div>
+          </div>
+          
+          <div class="property-title">Home in Olaya</div>
+          <div class="property-price">$700.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-bed"></i>3 bedrooms</span>
+            <span class="amenity"><i class="fa fa-bath"></i>4 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 3423</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/shop1.jpg" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>8
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>89
+            </div>
+            <div class="property-type">
+              Commercial/Office
+            </div>
+          </div>
+          <div class="property-title">Office in Business District</div>
+          <div class="property-price">$1,200.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-home"></i>5 rooms</span>
+            <span class="amenity"><i class="fa fa-bath"></i>2 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 2500</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/property2.jpg" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>15
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>156
+            </div>
+            <div class="property-type">
+              Residential/Apartment
+            </div>
+          </div>
+          <div class="property-title">Apartment in Downtown</div>
+          <div class="property-price">$850.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-bed"></i>2 bedrooms</span>
+            <span class="amenity"><i class="fa fa-bath"></i>2 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 1200</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/property.jpg" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>6
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>67
+            </div>
+            <div class="property-type">
+              Residential/Villa
+            </div>
+          </div>
+          <div class="property-title">Villa in Al Nakheel</div>
+          <div class="property-price">$1,500.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-bed"></i>4 bedrooms</span>
+            <span class="amenity"><i class="fa fa-bath"></i>3 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 2800</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/shop2.jpg" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>20
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>234
+            </div>
+            <div class="property-type">
+              Residential/Townhouse
+            </div>
+          </div>
+          <div class="property-title">Townhouse in Al Malaz</div>
+          <div class="property-price">$950.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-bed"></i>3 bedrooms</span>
+            <span class="amenity"><i class="fa fa-bath"></i>2 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 1800</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/property5.jpg" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>9
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>78
+            </div>
+            <div class="property-type">
+              Residential/Studio
+            </div>
+          </div>
+          <div class="property-title">Studio in Al Faisaliah</div>
+          <div class="property-price">$450.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-bed"></i>1 bedroom</span>
+            <span class="amenity"><i class="fa fa-bath"></i>1 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 600</span>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="properties-images/property5.jpg" alt="Property Image">
+          <div class="card-view-image-count">
+            <i class="fa fa-camera"></i>14
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="property-stats">
+            <div class="property-views">
+              <i class="fa fa-eye"></i>189
+            </div>
+            <div class="property-type">
+              Commercial/Retail
+            </div>
+          </div>
+          <div class="property-title">Shop in Al Batha</div>
+          <div class="property-price">$1,100.00 /Month</div>
+          <div class="property-amenities">
+            <span class="amenity"><i class="fa fa-home"></i>2 rooms</span>
+            <span class="amenity"><i class="fa fa-bath"></i>1 bathroom</span>
+            <span class="amenity"><i class="fa fa-arrows-alt"></i>area 800</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination" style="width: 100%;">
+        <button class="pagination-btn" disabled>
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span class="pagination-dots">...</span>
+        <button class="pagination-btn">8</button>
+        <button class="pagination-btn">9</button>
+        <button class="pagination-btn">10</button>
+        <button class="pagination-btn">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+        <span class="pagination-info">Page 1 of 10</span>
+      </div>
+      <!-- Pagination End -->
+    </div>
+    <!-- Card View End -->
+
+    <!-- List View -->
+    <div class="bmh-list-view">
+        <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h2>
+      <!-- <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor.png" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">Sakhrat Al Janoub Contracting Co.</h3>
+            <p class="bmh-list-view-item-subtitle">"Your Trusted Construction Partner"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status online">online</span>
+              <span class="bmh-list-view-item-contact">Type: Contractor</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Riyadh, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <a href="vendor-details.html" target="_blank">
+              <i class="fa fa-eye"></i>
+              View
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor7.jpg" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">Al-Mansour Engineering Group</h3>
+            <p class="bmh-list-view-item-subtitle">"Innovation in Every Project"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status offline">offline</span>
+              <span class="bmh-list-view-item-contact">Type: Consultant</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Jeddah, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <a href="vendor-details.html" target="_blank">
+              <i class="fa fa-eye"></i>
+              View
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor5.jpg" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">Gulf Construction Solutions</h3>
+            <p class="bmh-list-view-item-subtitle">"Quality First, Always"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status online">online</span>
+              <span class="bmh-list-view-item-contact">Type: Supplier</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Dammam, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <i class="fa fa-eye"></i>
+              View
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bmh-list-view-item">
+        <div class="bmh-list-view-item-content">
+          <img src="../images/vendor6.jpg" alt="Company" class="bmh-list-view-item-image">
+          <div class="bmh-list-view-item-details">
+            <h3 class="bmh-list-view-item-title">TechBuild Industries</h3>
+            <p class="bmh-list-view-item-subtitle">"Excellence Through Technology"</p>
+            <div class="bmh-list-view-item-meta">
+              <span class="bmh-list-view-item-status offline">offline</span>
+              <span class="bmh-list-view-item-contact">Type: Service Provider</span>
+              <span class="bmh-list-view-item-location">
+                <i class="fa fa-map-marker"></i>
+                Medina, Saudi Arabia
+              </span>
+            </div>
+          </div>
+          <div class="bmh-list-view-item-actions">
+            <button class="bmh-list-view-action-btn primary">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="bmh-list-view-action-btn">
+              <a href="vendor-details.html" target="_blank">
+              <i class="fa fa-eye"></i>
+              View
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pagination">
+        <button class="pagination-btn" disabled>
+          <i class="fa fa-chevron-left"></i>
+        </button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <span class="pagination-dots">...</span>
+        <button class="pagination-btn">8</button>
+        <button class="pagination-btn">9</button>
+        <button class="pagination-btn">10</button>
+        <button class="pagination-btn">
+          <i class="fa fa-chevron-right"></i>
+        </button>
+        <span class="pagination-info">Page 1 of 10</span>
+      </div> -->
+
+    </div>
+    <!-- List View End -->
+
+    <!-- Dashboard View -->
+    <div class="bmh-dashboard-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h2>
+    </div>
+    <!-- Dashboard View End -->
+
+    <!-- Calendar View -->
+    <div class="bmh-calendar-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h2>
+    </div>
+    <!-- Calendar View End -->
+
+    <!-- Map View -->
+    <div class="bmh-map-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h2>
+    </div>
+    <!-- Map View End -->
+
+  </div>
+  <!-- Main Content End -->
+
+  <script src="property-scripts/views-container.js"></script>
+</body>
+
+</html>
