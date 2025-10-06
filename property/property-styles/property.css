@@ -1,0 +1,411 @@
+
+/* ==================== Comparison Modal Styles ==================== */
+.comparison-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .comparison-modal-content {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 1200px;
+    width: 95%;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  }
+  
+  .comparison-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 15px;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .comparison-modal-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+  }
+  
+  .comparison-modal-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #6b7280;
+    padding: 8px;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+  
+  .comparison-modal-close:hover {
+    background: #f3f4f6;
+    color: #374151;
+  }
+  
+/* ==================== Two-Step Modal Styles ==================== */
+.comparison-modal-step2 {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .modal-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  
+  .back-to-selection-btn {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .back-to-selection-btn:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+  }
+  
+  /* Step 1 Styles */
+  .comparison-step1 {
+    display: flex;
+    gap: 30px;
+    padding: 15px;
+  }
+  
+  .selected-property-section,
+  .search-property-section {
+    flex: 1;
+  }
+  
+  .selected-property-section h4,
+  .search-property-section h4 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+  }
+  
+  .property-card-selected {
+    border: 2px solid #9885d1;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+  
+  .property-image-selected {
+    width: 100%;
+    height: 243px;
+    object-fit: cover;
+  }
+  
+  .property-details-selected {
+    padding: 12px;
+  }
+  
+  .property-title-selected {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111827;
+    margin: 0 0 8px 0;
+  }
+  
+  .property-price-selected {
+    font-size: 14px;
+    font-weight: 700;
+    color: #9885d1;
+    margin: 0 0 15px 0;
+  }
+  
+  .property-amenities-selected {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .amenity-selected {
+    font-size: 12px;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 6px 15px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 500;
+  }
+  
+  .amenity-selected i {
+    font-size: 11px;
+    color: #9885d1;
+  }
+  
+  /* Search Section */
+  .search-property-section .search-container {
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #fff;
+  }
+  
+  .search-property-section .search-box {
+    display: flex;
+    padding: 10px;
+    border-bottom: 1px solid #e5e7eb;
+    background: #f9fafb;
+  }
+  
+  .search-property-section .search-box input {
+    flex: 1;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+  
+  .search-property-section .search-box input:focus {
+    outline: none;
+    border-color: #9885d1;
+    box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+  }
+  
+  .search-property-section .search-btn {
+    background: #9885d1;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+  }
+  
+  .search-property-section .search-btn:hover {
+    background: #7c3aed;
+  }
+  
+  .search-property-section .search-results {
+    max-height: 302px;
+    overflow-y: auto;
+  }
+  
+  .search-property-section .search-result-item {
+    padding: 10px;
+    border-bottom: 1px solid #f3f4f6;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.2s ease;
+  }
+  
+  .search-property-section .search-result-item:hover {
+    background: #f9fafb;
+  }
+  
+  .search-property-section .search-result-item:last-child {
+    border-bottom: none;
+  }
+  
+  .search-property-section .search-result-image {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+  }
+  
+  .search-property-section .search-result-details {
+    flex: 1;
+  }
+  
+  .search-property-section .search-result-details h6 {
+    margin: 0 0 6px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #111827;
+  }
+  
+  .search-property-section .search-result-details p {
+    margin: 0;
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.4;
+  }
+  
+  .search-property-section .select-property-btn {
+    background: #9885d1;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+  }
+  
+  .search-property-section .select-property-btn:hover {
+    background: #7c3aed;
+    transform: translateY(-1px);
+  }
+  
+  .search-property-section .select-property-btn:disabled {
+    background: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  /* Comparison Actions */
+  .comparison-modal-body .comparison-actions {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .comparison-modal-body .compare-now-btn {
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 25px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .comparison-modal-body .compare-now-btn:hover:not(:disabled) {
+    background: #9885d1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(152, 133, 209, 0.4);
+  }
+  
+  .comparison-modal-body .compare-now-btn:disabled {
+    background: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+  
+  /* Step 2 Styles */
+  .comparison-modal-body .comparison-table-container {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .comparison-modal-body .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .comparison-modal-body .comparison-table th {
+    background: #f8fafc;
+    padding: 20px;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 2px solid #e5e7eb;
+    font-size: 16px;
+  }
+  
+  .comparison-modal-body .comparison-table td {
+    padding: 20px;
+    border-bottom: 1px solid #f3f4f6;
+    color: #6b7280;
+    font-size: 15px;
+  }
+  
+  .comparison-modal-body .feature-label {
+    background: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+    width: 200px;
+  }
+  
+  .comparison-modal-body .property1-header {
+    background: #fef3c7;
+    color: #92400e;
+    text-align: center;
+  }
+  
+  .comparison-modal-body .property2-header {
+    background: #dbeafe;
+    color: #1e40af;
+    text-align: center;
+  }
+  
+  .comparison-modal-body .property1-data {
+    background: #fffbeb;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  .comparison-modal-body .property2-data {
+    background: #eff6ff;
+    text-align: center;
+    font-weight: 500;
+  }
+  
+  /* Responsive for Two-Step Modal */
+  @media (max-width: 768px) {
+    .comparison-step1 {
+      flex-direction: column;
+      gap: 20px;
+    }
+    
+    .modal-actions {
+      flex-direction: column;
+      gap: 8px;
+    }
+    
+    .comparison-modal-body .comparison-table {
+      font-size: 14px;
+    }
+    
+    .comparison-modal-body .comparison-table th,
+    .comparison-modal-body .comparison-table td {
+      padding: 12px 8px;
+    }
+    
+    .comparison-modal-body .feature-label {
+      width: 120px;
+    }
+  }
+  
