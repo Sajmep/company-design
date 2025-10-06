@@ -85,10 +85,9 @@
   transform: scale(1.05);
 }
 
-.bmh-card-view .card-view-image-count {
-  position: absolute;
-  top: 12px;
-  right: 12px;
+.bmh-card-view .card-view-image-count,
+.bmh-card-view .card-view-video-count,
+.bmh-card-view .card-view-360-count {
   background: rgb(0 0 0 / 38%);
   color: #fff;
   border-radius: 20px;
@@ -100,8 +99,94 @@
   gap: 4px;
 }
 
-.bmh-card-view .card-view-image-count i {
+
+.bmh-card-view .card-view-image-count i,
+.bmh-card-view .card-view-video-count i,
+.bmh-card-view .card-view-360-count i {
   font-size: 11px;
+}
+/* Property Actions */
+.bmh-card-view .property-actions {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 3;
+}
+
+.bmh-card-view .property-favorite-btn,
+.bmh-card-view .property-compare-btn {
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bmh-card-view .property-favorite-btn:hover,
+.bmh-card-view .property-compare-btn:hover {
+  background: #9885d1;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.bmh-card-view .property-favorite-btn i,
+.bmh-card-view .property-compare-btn i {
+  font-size: 14px;
+}
+
+/* Media Count Details */
+.bmh-card-view .media-count-details {
+  position: absolute;
+    top: 0px;
+    right: 0px;
+    color: #fff;
+    border-radius: 20px;
+    padding: 4px 8px;
+    font-size: 11px;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.bmh-card-view .media-item {
+  color: #fff;
+  font-size: 10px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.bmh-card-view .media-item i {
+  font-size: 9px;
+}
+
+/* Sold Ribbon */
+.bmh-card-view .sold-ribbon {
+  position: absolute;
+  top: 83%;
+  left: -26px;
+  background: #ef4444;
+  color: #fff;
+  padding: 4px 30px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transform: rotate(45deg);
+  z-index: 4;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
 }
 
 .bmh-card-view .card-view-content-container {
