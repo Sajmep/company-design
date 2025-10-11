@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Stats Flex Layout</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+        .start-box-inner {
+        background: #0a2d5e;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        color: #fff;
+        padding: 0px 12px;
+        border-radius: 16px;
+        text-align: cene;
+        text-align: center;
+        flex-direction: column;
+        justify-content: center;
+        font-weight: bold;
+    }
+
+    .stats-section {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 1600px;
+      width: 100%;
+    }
+
+    /* Each row */
+    .row {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+      gap: 20px;
+    }
+
+    /* Blue boxes */
+    .stat-box {
+      flex: 1;
+      display: flex;
+      height: 142px;
+      overflow-y: auto;
+    }
+
+    .stat-box span {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+
+    /* Image boxes */
+    .img-box {
+      flex: 1;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: grayscale(100%);
+      transition: 0.3s;
+    }
+
+    .img-box img:hover {
+      filter: grayscale(0%);
+      transform: scale(1.02);
+    }
+
+    /* Make images slightly bigger visually */
+    .row .img-box {
+      flex: 1.2;
+    }
+
+    /* Responsive */
+    @media (max-width: 1200px) {
+      .row {
+        flex-wrap: wrap;
+      }
+      .stat-box, .img-box {
+        flex: 1 1 45%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .stat-box, .img-box {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="stats-section">
+
+    <!-- Row 1 -->
+    <div class="row">
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>322,231</span>
+        All Projects
+        </div>
+      </div>
+      <div class="img-box"><img src="../images/vendor6.jpg" alt="img1"></div>
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>100,715</span>
+        Available projects
+        </div>
+      </div>
+      <div class="img-box"><img src="../images/vendor2.jpg" alt="img2"></div>
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>150,465</span>
+        Contracted projects
+        </div>
+      </div>
+      <div class="img-box"><img src="../images/vendor7.jpg" alt="img3"></div>
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>20,270</span>
+        Projects available this week
+        </div>
+      </div>
+    </div>
+
+    <!-- Row 2 -->
+    <div class="row">
+      <div class="img-box"><img src="../images/vendor7.jpg" alt="img4"></div>
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>200,245</span>
+        Completed projects
+        </div>
+      </div>
+      <div class="img-box"><img src="../images/vendor6.jpg" alt="img5"></div>
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>650 Billion</span>
+        Project cost
+        </div>
+      </div>
+      <div class="img-box"><img src="../images/vendor5.jpg" alt="img6"></div>
+      <div class="stat-box">
+        <div class="start-box-inner">
+        <span>5,430</span>
+        Projects available for today
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
