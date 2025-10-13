@@ -565,7 +565,7 @@
 }
 
 /* Attachments List */
-/* .product-offcanvas .attachments-list {
+.product-offcanvas .attachments-list {
   margin-top: 20px;
 }
 
@@ -583,9 +583,9 @@
 .product-offcanvas .attachment-item:hover {
   background: #f1f5f9;
   border-color: #cbd5e1;
-} */
+}
 
-/* .product-offcanvas .attachment-icon {
+.product-offcanvas .attachment-icon {
   width: 40px;
   height: 40px;
   background: #3b82f6;
@@ -646,7 +646,7 @@
 }
 
 /* Attachment Sections */
-.product-offcanvas .attachment-section { */
+.product-offcanvas .attachment-section {
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 1px solid #e5e7eb;
@@ -658,12 +658,12 @@
 }
 
 /* Two column layout when offcanvas is expanded */
-/* .product-offcanvas.expanded-offcanvas .attachment-section {
+.product-offcanvas.expanded-offcanvas .attachment-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
-  align-items: end;
-} */
+  align-items: start;
+}
 
 .product-offcanvas.expanded-offcanvas .categories-section {
   display: grid;
@@ -680,7 +680,7 @@
   grid-column: 1;
 }
 
-/* .product-offcanvas.expanded-offcanvas .attachment-section .attachments-list {
+.product-offcanvas.expanded-offcanvas .attachment-section .attachments-list {
   grid-column: 2;
   margin-top: 0;
 }
@@ -770,7 +770,7 @@
 
 .product-offcanvas .attachment-preview:hover .attachment-thumbnail {
   transform: scale(1.05);
-} */
+}
 
 
 /* Responsive */
@@ -858,7 +858,7 @@
   min-height: 400px;
   padding: 20px;
 }
-/* 
+
 .image-preview-container img {
   max-width: 100%;
   max-height: 70vh;
@@ -892,7 +892,7 @@
 
 .image-preview-arrow-left {
   left: 15px;
-} */
+}
 
 .image-preview-arrow-right {
   right: 15px;
