@@ -106,8 +106,8 @@
                         </div>
                     </div>
                     <button class="page-header-primary-btn" onclick="createInquiry()" title="Create Inquiry">
-                        <i class="fa fa-send"></i>
-                        <span class="btn-text">Create Inquiry</span>
+                        <i class="fa fa-plus"></i>
+                        <span class="btn-text">Inquiry</span>
                     </button>
 
                 </div>
@@ -544,14 +544,39 @@
 
                             <div class="form-group">
                                 <label for="quickProject">Select Project</label>
-                                <select id="quickProject" name="project">
-                                    <option value="">Select Project</option>
-                                    <option value="web-development">Web Development Project</option>
-                                    <option value="mobile-app">Mobile App Project</option>
-                                    <option value="seo">SEO Project</option>
-                                    <option value="graphic-design">Graphic Design Project</option>
-                                    <option value="other">Other Project</option>
-                                </select>
+                                <div class="autocomplete-container">
+                                    <input type="text" id="quickProject" name="project" placeholder="Type to search projects..." autocomplete="off">
+                                    <div class="autocomplete-dropdown" id="quickProjectDropdown">
+                                        <div class="autocomplete-item" data-value="residential-building">
+                                            <span>Residential Building Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="commercial-building">
+                                            <span>Commercial Building Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="infrastructure">
+                                            <span>Infrastructure Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="renovation">
+                                            <span>Renovation Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="industrial">
+                                            <span>Industrial Construction</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="hospitality">
+                                            <span>Hospitality Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="healthcare">
+                                            <span>Healthcare Facility</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="educational">
+                                            <span>Educational Facility</span>
+                                        </div>
+                                        <div class="autocomplete-divider"></div>
+                                        <div class="autocomplete-item create-project">
+                                            <span><i class="fa fa-plus"></i> Create</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -601,15 +626,40 @@
                                 <input type="text" id="inquiryTitle" name="title" required>
                             </div>
                             <div class="form-group">
-                                <label for="quickProject">Select Project</label>
-                                <select id="quickProject" name="project">
-                                    <option value="">Select Project</option>
-                                    <option value="web-development">Web Development Project</option>
-                                    <option value="mobile-app">Mobile App Project</option>
-                                    <option value="seo">SEO Project</option>
-                                    <option value="graphic-design">Graphic Design Project</option>
-                                    <option value="other">Other Project</option>
-                                </select>
+                                <label for="advancedProject">Select Project</label>
+                                <div class="autocomplete-container">
+                                    <input type="text" id="advancedProject" name="project" placeholder="Type to search projects..." autocomplete="off">
+                                    <div class="autocomplete-dropdown" id="advancedProjectDropdown">
+                                        <div class="autocomplete-item" data-value="residential-building">
+                                            <span>Residential Building Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="commercial-building">
+                                            <span>Commercial Building Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="infrastructure">
+                                            <span>Infrastructure Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="renovation">
+                                            <span>Renovation Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="industrial">
+                                            <span>Industrial Construction</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="hospitality">
+                                            <span>Hospitality Project</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="healthcare">
+                                            <span>Healthcare Facility</span>
+                                        </div>
+                                        <div class="autocomplete-item" data-value="educational">
+                                            <span>Educational Facility</span>
+                                        </div>
+                                        <div class="autocomplete-divider"></div>
+                                        <div class="autocomplete-item create-project">
+                                            <span><i class="fa fa-plus"></i> Create</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                         </div>
@@ -744,6 +794,7 @@
             </div>
         </div>
     </div>
+
 
     <script src="../vendors/vendor-scripts/views-container.js"></script>
     <script src="inquiries-scripts/inquiries-frontend-js"></script>

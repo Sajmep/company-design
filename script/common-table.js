@@ -760,7 +760,7 @@ function initResizableColumns(tableSelector = '.data-table') {
     const headers = table.querySelectorAll('th');
     
     // Set default column widths (skip first 2 columns - checkbox and drag handle)
-    const defaultWidths = [50, 30, 120, 150, 200, 100, 100, 150, 120, 120, 100, 80, 90, 100, 120, 50];
+    const defaultWidths = [50, 30, 120, 150, 200, 100, 100, 150, 120, 120, 125, 100, 100, 100, 120, 120, 50];
     
     headers.forEach((header, index) => {
         // Apply default width if available

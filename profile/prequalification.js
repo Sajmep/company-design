@@ -54,40 +54,65 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tab functionality
     let currentPrequalTabIndex = 0;
     const prequalTabs = [
-        { id: 'company-info', title: 'Company Information' },
-        { id: 'legal-docs', title: 'Legal Documents' },
-        { id: 'financial-info', title: 'Financial Information' },
-        { id: 'certifications', title: 'Certifications' },
-        { id: 'references', title: 'References' }
+        { id: 'project-list', title: 'Project List' },
+        { id: 'equipment-list', title: 'Equipment List' },
+        { id: 'company-documents', title: 'Company Documents' },
+        { id: 'certificate-documents', title: 'Certificate Documents' }
     ];
 
     function initializePrequalTabs() {
         const prevBtn = document.getElementById('prevPrequalTab');
         const nextBtn = document.getElementById('nextPrequalTab');
+        const modalPrevBtn = document.getElementById('prequalModalPrevBtn');
+        const modalNextBtn = document.getElementById('prequalModalNextBtn');
         const currentTitle = document.getElementById('currentPrequalTabTitle');
 
         function updatePrequalTab() {
             // Update title
             currentTitle.textContent = prequalTabs[currentPrequalTabIndex].title;
             
-            // Update panels
-            document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-            document.getElementById(prequalTabs[currentPrequalTabIndex].id).classList.add('active');
+            // Update panels - only within the prequalification modal
+            const prequalModal = document.getElementById('companyPrequalificationModal');
+            if (prequalModal) {
+                prequalModal.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+                const targetPanel = prequalModal.querySelector('#' + prequalTabs[currentPrequalTabIndex].id);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            }
         }
 
-        prevBtn.addEventListener('click', function() {
+        function goToPreviousTab() {
             if (currentPrequalTabIndex > 0) {
                 currentPrequalTabIndex--;
                 updatePrequalTab();
             }
-        });
+        }
 
-        nextBtn.addEventListener('click', function() {
+        function goToNextTab() {
             if (currentPrequalTabIndex < prequalTabs.length - 1) {
                 currentPrequalTabIndex++;
                 updatePrequalTab();
             }
-        });
+        }
+
+        // Top navigation buttons
+        if (prevBtn) {
+            prevBtn.addEventListener('click', goToPreviousTab);
+        }
+
+        if (nextBtn) {
+            nextBtn.addEventListener('click', goToNextTab);
+        }
+
+        // Modal footer buttons
+        if (modalPrevBtn) {
+            modalPrevBtn.addEventListener('click', goToPreviousTab);
+        }
+
+        if (modalNextBtn) {
+            modalNextBtn.addEventListener('click', goToNextTab);
+        }
 
         // Initialize first tab
         updatePrequalTab();

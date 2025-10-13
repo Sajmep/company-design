@@ -10,8 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../styles/sidebar.css">
   <link rel="stylesheet" href="../styles/overview-responsive.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="../styles/header.css">
   <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="../styles/common-table.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 
@@ -34,9 +36,59 @@
           <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa fa-chevron-down" style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+          <i class="fa fa-chevron-down"
+            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
+
+      <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company" hidden>
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+          </svg>
+          <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+        </div>
+        <div class="company-heading collapsed ">
+          <h2>Company</h2>
+        </div>
+        <div class="form-grid">
+          
+          <div class="company form-section">
+      
+            <div class="checkbox-group ">
+              <div class="section">
+                <h4>SAJMEP</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Company A</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Branch</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Shop</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+            </div>
+
+          </div>
+          <a href="#" class="create-btn" onclick="openCreateCompanyModal()">+ Create Company</a>
+        </div>
+
+      </div>
     </div>
 
     <nav class="menu" role="menu" aria-label="Primary">
@@ -66,7 +118,7 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="index.html">Dashboard</a></li>
+                  <li><a href="../index.html">Dashboard</a></li>
                   <li><a href="#">Reports</a></li>
                   <li><a href="#">Customer satisfaction</a></li>
                   <li><a href="#">Number of visitors</a></li>
@@ -77,26 +129,8 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="../images/business-info-icon.png" alt="" width="28px">
-                Business Information
-              </h2>
-
-              <div class="checkbox-group collapsed ">
-                <ul class="subsubmenu">
-                  <li><a href="#">Company Profile & Details</a></li>
-                  <li><a href="profile.html">Profile Page</a></li>
-                  <li><a href="#">Policies</a></li>
-                  <li><a href="#">Experiences</a></li>
-                  <li><a href="#">SOP</a></li>
-                  <li><a href="#">Documents</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="form-section">
-              <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="../images/our-products-icon.png" alt="" width="28px">
-                Offering
+                Offering 
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -228,24 +262,21 @@
                       Purchase
                     </a>
                     <ul class="purchase-submenu">
-                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')"
-                          class="purchase-submenu-link active" data-tab="pr">
-                          <i class="fa fa-file-text-o"></i>
-                          PR
-                          <span class="purchase-tab-count">12</span>
-                        </a></li>
-                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link"
-                          data-tab="rfq">
-                          <i class="fa fa-question-circle"></i>
-                          RFQ
-                          <span class="purchase-tab-count">8</span>
-                        </a></li>
-                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link"
-                          data-tab="po">
-                          <i class="fa fa-file-text"></i>
-                          PO
-                          <span class="purchase-tab-count">25</span>
-                        </a></li>
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
+                        <i class="fa fa-file-text-o"></i>
+                        PR
+                        <span class="purchase-tab-count">12</span>
+                      </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
+                        <i class="fa fa-question-circle"></i>
+                        RFQ
+                        <span class="purchase-tab-count">8</span>
+                      </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
+                        <i class="fa fa-file-text"></i>
+                        PO
+                        <span class="purchase-tab-count">25</span>
+                      </a></li>
                     </ul>
                   </li>
                   <li><a href="#">Tenders</a></li>
@@ -315,12 +346,12 @@
 
       <div class="item has-submenu" id="quickLinksItem">
         <a href="inquiries.html">
-          <button class="btn" aria-haspopup="true" aria-expanded="false">
-            <span class="icon" aria-hidden>
-              <img src="../images/quick-link.png" alt="" class="sidebar-icons">
-            </span>
-            <span class="label">Inquiries</span>
-          </button>
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="../images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Inquiries</span>
+        </button>
         </a>
       </div>
 
@@ -366,7 +397,7 @@
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
                   <img src="../images/competition.png" alt="" width="28px">
-                  Competitions
+                  Competitions 
                 </h2>
               </a>
             </div>
@@ -374,7 +405,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="../images/media-center.png" alt="" width="28px">
-                Media Center
+                Media Center 
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -443,12 +474,9 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a>
-                  </li>
-                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a>
-                  </li>
-                  <li><a href="help-center.html#video-tutorials"
-                      onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
+                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>
@@ -470,8 +498,8 @@
           </div>
         </div>
       </div>
-      <a href="setting.html">
-        <div class="item">
+      <a href="#">
+        <div class="item has-submenu" id="supportItem">
           <button class="btn" id="settingsBtn">
             <span class="icon" aria-hidden>
               <!-- settings icon -->
@@ -479,6 +507,43 @@
             </span>
             <span class="label">Settings</span>
           </button>
+                  <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="../setting.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/company-settings.png" alt="" width="28px">
+                  Company Setting
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="profile.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/profile-settings.png" alt="" width="28px">
+                  Company Profile
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="prequalification.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/company-prequalification.png" alt="" width="28px">
+                  Company Prequalification
+                </h2>
+              </a>
+            </div>
+
+          </div>
+        </div>
         </div>
       </a>
     </div>
@@ -495,11 +560,6 @@
       <div class="task">
         <span>Verify Your Profile Informations</span>
         <button class="open-btn" onclick="openProfileModal()">Profile Setup</button>
-      </div>
-
-      <div class="task">
-        <span>Verify Your Company Prequalification</span>
-        <button class="open-btn" onclick="openCompanyPrequalificationModal()">Company Prequalification</button>
       </div>
 
     </div>
@@ -747,52 +807,9 @@
   </div>
   <!-- modal Profile setup end -->
 
-  <!-- modal Company Prequalification -->
-  <div class="modal" id="companyPrequalificationModal">
-    <div class="modal-content">
-      <button class="close-btn" id="closeCompanyPrequalificationModal">&times;</button>
-      <main class="prequalification-content">
-        <h3>Company Prequalification</h3>
-        <p>Setup your company prequalification</p>
-        <span class="step-indicator-popup" id="modalStepIndicator">1 of 5 Steps</span>
-
-        <!-- Tab Navigation -->
-        <div class="tab-navigation">
-          <button class="tab-arrow" id="prevPrequalTab"><i class="fas fa-chevron-left"></i></button>
-          <div class="tab-title" id="currentPrequalTabTitle">Company Information</div>
-          <button class="tab-arrow" id="nextPrequalTab"><i class="fas fa-chevron-right"></i></button>
-        </div>
-
-        <!-- Tab Content -->
-        <div class="tab-content">
-          <div class="tab-panel active" id="company-info">
-            <h4>Company Information</h4>
-          </div>
-
-          <div class="tab-panel" id="legal-docs">
-            <h4>Legal Documents</h4>
-          </div>
-
-          <div class="tab-panel" id="financial-info">
-            <h4>Financial Information</h4>
-          </div>
-
-          <div class="tab-panel" id="certifications">
-            <h4>Certifications</h4>
-          </div>
-
-          <div class="tab-panel" id="references">
-            <h4>References</h4>
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-  <!-- modal Company Prequalification end -->
-
   <script src="../script/sidebar.js"></script>
   <script src="profile.js"></script>
-  <script src="prequalification.js"></script>
+  <script src="../script/common-table.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,1765 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Profile - Pre Qualification</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/overview-responsive.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="../styles/common-table.css">
+  <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+</head>
+
+<body>
+
+  <!-- Top Header -->
+  <div class="top">
+
+  </div>
+  <!-- Top Header End -->
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+
+    <div class="combobox" id="combobox">
+      <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+        <div class="selected-logo" id="selectedLogo">
+          <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+        </div>
+        <div class="caret" id="caret">
+          <i class="fa fa-chevron-down"
+            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+        </div>
+      </button>
+
+      <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company" hidden>
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+          </svg>
+          <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+        </div>
+        <div class="company-heading collapsed ">
+          <h2>Company</h2>
+        </div>
+        <div class="form-grid">
+          
+          <div class="company form-section">
+      
+            <div class="checkbox-group ">
+              <div class="section">
+                <h4>SAJMEP</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Company A</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Branch</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Shop</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+            </div>
+
+          </div>
+          <a href="#" class="create-btn" onclick="openCreateCompanyModal()">+ Create Company</a>
+        </div>
+
+      </div>
+    </div>
+
+    <nav class="menu" role="menu" aria-label="Primary">
+
+      <div class="item has-submenu" id="orgItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- organization icon -->
+            <img src="../images/organization.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Organization</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Organization</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/overview-icon.png" alt="" width="28px">
+                Overview
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="../index.html">Dashboard</a></li>
+                  <li><a href="#">Reports</a></li>
+                  <li><a href="#">Customer satisfaction</a></li>
+                  <li><a href="#">Number of visitors</a></li>
+                  <li><a href="#">Number of followers</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/our-products-icon.png" alt="" width="28px">
+                Offering 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Supply</a></li>
+                  <li><a href="#">Installation</a></li>
+                  <li><a href="#">Maintenance</a></li>
+                  <li><a href="#">Commissioning</a></li>
+                  <li><a href="#">Turnkey EPC</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/marketing-icon.png" alt="" width="28px">
+                  Marketing
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/assets-icon.png" alt="" width="28px">
+                  Assets
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/financial-icon.png" alt="" width="28px">
+                Finance
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Bills & Invoices</a></li>
+                  <li><a href="#">Payment & Received</a></li>
+                  <li><a href="#">Finance Settings</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/business-straegy-icon.png" alt="" width="28px">
+                Business & Strategy
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Business Model</a></li>
+                  <li><a href="#">SWOT analysis</a></li>
+                  <li><a href="#">Audit</a></li>
+                  <li><a href="#">Risk Management</a></li>
+                  <li><a href="#">RCA</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/hr-icon.png" alt="" width="28px">
+                HR & Workforce
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">HR Management</a></li>
+                  <li><a href="#">Payroll</a></li>
+                  <li><a href="#">Recruitments</a></li>
+                  <li><a href="#">Resource Allocation</a></li>
+                  <li><a href="#">Training</a></li>
+                  <li><a href="#">Compliance</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/crm-icon.png" alt="" width="28px">
+                CRM
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Leads</a></li>
+                  <li><a href="#">Opportunities</a></li>
+                  <li><a href="#">Visits</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/sales-icon.png" alt="" width="28px">
+                Sales
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Quotations</a></li>
+                  <li><a href="#">Sales Orders</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+
+                <img src="../images/procurement.png" alt="" width="28px">
+
+                Procurements
+              </h2>
+              <!-- Company Name Box -->
+
+              <div class="checkbox-group collapsed ">
+
+                <ul class="subsubmenu">
+
+                  <li>
+                    <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
+                      <i class="fa fa-shopping-cart"></i>
+                      Purchase
+                    </a>
+                    <ul class="purchase-submenu">
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
+                        <i class="fa fa-file-text-o"></i>
+                        PR
+                        <span class="purchase-tab-count">12</span>
+                      </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
+                        <i class="fa fa-question-circle"></i>
+                        RFQ
+                        <span class="purchase-tab-count">8</span>
+                      </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
+                        <i class="fa fa-file-text"></i>
+                        PO
+                        <span class="purchase-tab-count">25</span>
+                      </a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Tenders</a></li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="appsItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- apps icon -->
+            <img src="../images/myapps.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Apps</span>
+        </button>
+
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="directoryItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- Directory icon -->
+            <img src="../images/directory.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Directory</span>
+        </button>
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="quickLinksItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="../images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Quick Links</span>
+        </button>
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="quickLinksItem">
+        <a href="inquiries.html">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="../images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Inquiries</span>
+        </button>
+        </a>
+      </div>
+
+    </nav>
+
+    <div class="bottom-area">
+      <div class="item has-submenu" id="supportItem">
+        <button class="btn" id="settingsBtn">
+          <span class="icon" aria-hidden>
+            <!-- settings icon -->
+            <img src="../images/bmh-club.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">BMH Club</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">BMH Club</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="index.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/membership.png" alt="" width="28px">
+                  Membership
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/subscription.png" alt="" width="28px">
+                  Subscription
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/competition.png" alt="" width="28px">
+                  Competitions 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/media-center.png" alt="" width="28px">
+                Media Center 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Blogs</a></li>
+                  <li><a href="#">e-Learning</a></li>
+                  <li><a href="#">Newsletters</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+      <div class="item has-submenu" id="supportItem">
+        <button class="btn" id="settingsBtn">
+          <span class="icon" aria-hidden>
+            <!-- settings icon -->
+            <img src="../images/support.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Support</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Support</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="index.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/live-chate-icon.png" alt="" width="28px">
+                  Live Chat
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/contact-support-icon.png" alt="" width="28px">
+                Contact Support
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Submit Ticket</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="../images/help-ceneter-icon.png" alt="" width="28px">
+                Help Center
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
+                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/report-issue-icon.png" alt="" width="28px">
+                  Report Issue
+                </h2>
+              </a>
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+      <a href="#">
+        <div class="item has-submenu" id="supportItem">
+          <button class="btn" id="settingsBtn">
+            <span class="icon" aria-hidden>
+              <!-- settings icon -->
+              <img src="../images/settings.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Settings</span>
+          </button>
+                  <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="../setting.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/company-settings.png" alt="" width="28px">
+                  Company Setting
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="profile.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/profile-settings.png" alt="" width="28px">
+                  Company Profile
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="prequalification.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="../images/company-prequalification.png" alt="" width="28px">
+                  Company Prequalification
+                </h2>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </a>
+    </div>
+  </aside>
+  <!-- Sidebar End -->
+
+  <!-- Main Content -->
+  <main class="content page">
+
+    <div class="content-body">
+      <h3>Finish Your Company Prequalification Setting up</h3>
+      <p>To publish and participate with your valuable team, enjoy the challengeable experience </p>
+
+      <div class="task">
+        <span>Verify Your Company Prequalification</span>
+        <button class="open-btn" onclick="openCompanyPrequalificationModal()">Company Prequalification</button>
+      </div>
+
+    </div>
+
+  </main>
+  <!-- Main Content End -->
+
+  <!-- modal Company Prequalification -->
+  <div class="modal" id="companyPrequalificationModal">
+    <div class="modal-content">
+      <button class="close-btn" id="closeCompanyPrequalificationModal">&times;</button>
+      <main class="prequalification-content">
+        <h3>Company Prequalification</h3>
+        <p>Setup your company prequalification</p>
+        <span class="step-indicator-popup" id="modalStepIndicator">1 of 5 Steps</span>
+
+        <!-- Tab Navigation -->
+        <div class="tab-navigation">
+          <button class="tab-arrow" id="prevPrequalTab"><i class="fas fa-chevron-left"></i></button>
+          <div class="tab-title" id="currentPrequalTabTitle">Company Information</div>
+          <button class="tab-arrow" id="nextPrequalTab"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content" style="padding: 0px; background-color: #fff; margin-top: 10px;">
+          <div class="tab-panel active" id="project-list">
+
+            <div class="page-header-actions" style="justify-content: flex-end;">
+              <div class="page-header-group-by">
+                <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                  <i class="fa fa-chevron-down"></i>
+                  <span class="btn-text">Group By</span>
+                </button>
+                <div class="page-header-group-by-dropdown" id="groupByDropdown">
+                  <div class="page-header-group-by-item" data-value="status">
+                    <i class="fa fa-flag"></i>
+                    Status
+                  </div>
+                  <div class="page-header-group-by-item" data-value="category">
+                    <i class="fa fa-tags"></i>
+                    Category
+                  </div>
+                  <div class="page-header-group-by-item" data-value="location">
+                    <i class="fa fa-map-marker"></i>
+                    Location
+                  </div>
+                </div>
+              </div>
+
+              <button class="page-header-filter-btn" title="Filter">
+                <i class="fa fa-filter"></i>
+                <span class="btn-text">Filter</span>
+              </button>
+
+              <!-- Import Button -->
+              <button class="page-header-import-btn" title="Import">
+                <i class="fa fa-upload"></i>
+                <span class="btn-text">Import</span>
+              </button>
+
+              <!-- Action Dropdown (hidden by default) -->
+              <div class="page-header-action-dropdown" id="inquiriesActionDropdown">
+                <button class="page-header-action-dropdown-btn"
+                  onclick="toggleActionDropdown('inquiriesActionDropdown')" title="Actions">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <span class="btn-text">Actions</span>
+                  <i class="fa fa-chevron-down"></i>
+                </button>
+                <div class="page-header-action-menu" id="inquiriesActionMenu">
+                  <div class="page-header-action-item">
+                    <i class="fa fa-download"></i>
+                    <span>Export</span>
+                  </div>
+                  <div class="page-header-action-item">
+                    <i class="fa fa-edit"></i>
+                    <span>Edit</span>
+                  </div>
+                  <div class="page-header-action-item">
+                    <i class="fa fa-copy"></i>
+                    <span>Duplicate</span>
+                  </div>
+                  <div class="page-header-action-divider"></div>
+                  <div class="page-header-action-item danger">
+                    <i class="fa fa-trash"></i>
+                    <span>Delete</span>
+                  </div>
+                </div>
+              </div>
+              <button class="page-header-primary-btn" onclick="createProject()" title="Create Project">
+                <i class="fa fa-plus"></i>
+                <span class="btn-text">Project</span>
+              </button>
+
+            </div>
+
+            <div class="data-table-container">
+
+              <!-- View Toggle Buttons -->
+              <div class="data-view-toggle">
+                <button class="data-view-btn data-view-btn-active" title="List View">
+                  <i class="fa fa-list"></i>
+                </button>
+                <button class="data-view-btn" title="Card View">
+                  <i class="fa fa-th-large"></i>
+                </button>
+              </div>
+
+              <!-- List Table -->
+              <div class="data-table-container" id="listView">
+                <div class="data-table-wrapper">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                          <label for="selectAllPRs" class="data-checkbox-label"></label>
+                          <span class="data-checkbox-text"></span>
+                        </th>
+                        <th class="data-drag-header">--</th>
+                        <th class="col-project-id">Project ID</th>
+                        <th class="col-project-name">Project Name</th>
+                        <th class="col-project-type">Project Type</th>
+                        <th class="col-contract-year">Contract Year</th>
+                        <th class="col-duration">Duration</th>
+                        <th class="col-client">Client</th>
+                        <th class="col-amount">Amount</th>
+                        <th class="col-ownership">OwnerShip</th>
+                        <th class="col-build-environment" style="width: 150px !important;">Build Environment</th>
+                        <th class="col-building-type">Building Type</th>
+                        <th class="col-category">Category</th>
+                        <th class="col-sub-category">Sub Category</th>
+                        <th class="col-scale">Scale</th>
+                        <th class="col-status">Project Status</th>
+                        <th class="data-table-actions">
+                          <div class="data-columns-dropdown">
+                            <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                              title="Show/Hide Columns">
+                              <img src="../images/add-column.png" alt="Columns" width="20px">
+                            </button>
+                            <div class="data-columns-dropdown-content" id="columnDropdown">
+                              <div class="data-columns-dropdown-header">
+                                <h4>Select Columns</h4>
+                              </div>
+                              <div class="data-columns-dropdown-body">
+                                <div class="data-column-options">
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Project ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-pr-type" checked>
+                                    <span class="data-column-label">Project Name</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-department" checked>
+                                    <span class="data-column-label">OwnerShip</span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Contract Year <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Duration <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-created-on" checked>
+                                    <span class="data-column-label">Client</span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Amount <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Project Type <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Build Environment</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Building Type</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Category</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Sub Category</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Scale</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Project Status</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="data-columns-dropdown-footer">
+                                <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                  Cancel
+                                </button>
+                                <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="data-checkbox-cell">
+                          <input type="checkbox" class="data-checkbox data-checkbox-row">
+                          <label class="data-checkbox-label"></label>
+                        </td>
+                        <td class="data-item-number">Project-2025</td>
+                        <td class="data-item-type">
+                          <span class="data-type-badge data-type-equipment">Office Renovation</span>
+                        </td>
+                        <td class="data-created-on">Building Materials</td>
+                        <td class="data-budget">2025</td>
+                        <td class="data-category">10 years</td>
+                        <td class="data-created-by">
+                          <div class="data-user-info clickable-user" data-user="sarah">
+                            <div class="data-user-avatar">
+                              <img src="../images/sarah.pnh.png" alt="Sarah Khan">
+                              <div class="data-user-status offline"></div>
+                            </div>
+                            <span class="data-user-name">John Smith</span>
+                          </div>
+                        </td>
+                        <td class="data-created-on">$5,000</td>
+                        <td class="data-title">Public</td>
+                        <td class="data-created-on">Indoor</td>
+                        <td class="data-created-on">Office</td>
+                        <td class="data-created-on">Furniture</td>
+                        <td class="data-created-on">Chairs</td>
+                        <td class="data-created-on">100</td>
+                        <td class="purchase-list-status col-status">
+                          <div class="data-status-dropdown">
+                            <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                              <span class="data-status-badge data-status-approved">Open</span>
+                              <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                            </button>
+                            <div class="data-status-dropdown-menu">
+                              <button class="data-status-option" data-status="Open"
+                                onclick="changeStatus(this, 'Open')">
+                                <i class="fa fa-edit"></i>
+                                Open
+                              </button>
+                              <button class="data-status-option" data-status="Closed"
+                                onclick="changeStatus(this, 'Closed')">
+                                <i class="fa fa-paper-plane"></i>
+                                Closed
+                              </button>
+                              <button class="data-status-option" data-status="On Hold"
+                                onclick="changeStatus(this, 'On Hold')">
+                                <i class="fa fa-check"></i>
+                                On Hold
+                              </button>
+                              <button class="data-status-option" data-status="Cancelled"
+                                onclick="changeStatus(this, 'Cancelled')">
+                                <i class="fa fa-times"></i>
+                                Cancelled
+                              </button>
+                              <button class="data-status-option" data-status="On Hold"
+                                onclick="changeStatus(this, 'On Hold')">
+                                <i class="fa fa-lock"></i>
+                                On Hold
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="data-table-actions-cell"></td>
+                      </tr>
+                      <tr>
+                        <td class="data-checkbox-cell">
+                          <input type="checkbox" class="data-checkbox data-checkbox-row">
+                          <label class="data-checkbox-label"></label>
+                        </td>
+                        <td class="data-item-number">Pro-2025-001</td>
+                        <td class="data-item-type">
+                          <span class="data-type-badge data-type-equipment">Healthcare</span>
+                        </td>
+                        <td class="data-created-on">Healthcare</td>
+                        <td class="data-budget">2025</td>
+                        <td class="data-category">5 years</td>
+                        <td class="data-created-by">
+                          <div class="data-user-info clickable-user" data-user="sarah">
+                            <div class="data-user-avatar">
+                              <img src="../images/sarah.pnh.png" alt="Sarah Khan">
+                              <div class="data-user-status offline"></div>
+                            </div>
+                            <span class="data-user-name">Sofia Richardson</span>
+                          </div>
+                        </td>
+                        <td class="data-created-on">$5,000</td>
+                        <td class="data-title">Private</td>
+                        <td class="data-created-on">Healthcare</td>
+                        <td class="data-created-on">Office</td>
+                        <td class="data-created-on">Healthcare</td>
+                        <td class="data-created-on">Equipment</td>
+                        <td class="data-created-on">1000</td>
+                        <td class="purchase-list-status col-status">
+                          <div class="data-status-dropdown">
+                            <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                              <span class="data-status-badge data-status-approved">Open</span>
+                              <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                            </button>
+                            <div class="data-status-dropdown-menu">
+                              <button class="data-status-option" data-status="Open"
+                                onclick="changeStatus(this, 'Open')">
+                                <i class="fa fa-edit"></i>
+                                Open
+                              </button>
+                              <button class="data-status-option" data-status="Closed"
+                                onclick="changeStatus(this, 'Closed')">
+                                <i class="fa fa-paper-plane"></i>
+                                Closed
+                              </button>
+                              <button class="data-status-option" data-status="On Hold"
+                                onclick="changeStatus(this, 'On Hold')">
+                                <i class="fa fa-check"></i>
+                                On Hold
+                              </button>
+                              <button class="data-status-option" data-status="Cancelled"
+                                onclick="changeStatus(this, 'Cancelled')">
+                                <i class="fa fa-times"></i>
+                                Cancelled
+                              </button>
+                              <button class="data-status-option" data-status="On Hold"
+                                onclick="changeStatus(this, 'On Hold')">
+                                <i class="fa fa-lock"></i>
+                                On Hold
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                        <td class="data-table-actions-cell"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Card View -->
+              <div class="data-card-container" id="cardView" style="display: none;">
+                <div class="data-card-grid">
+                  <!-- Card 1 -->
+                  <div class="data-card">
+                    <div class="data-card-header">
+                      <div class="data-card-checkbox">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
+                        <label for="card-inq-001" class="data-checkbox-label"></label>
+                      </div>
+                      <div class="data-card-item-number">PR-2025</div>
+                      <div class="data-card-status">
+                        <span class="data-status-badge data-status-approved">Open</span>
+                      </div>
+                    </div>
+                    <div class="data-card-body">
+                      <div class="data-card-title">Office Renovation</div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Project:</span>
+                        <span class="data-card-value">
+                          <span class="data-type-badge data-type-equipment">Office Renovation</span>
+                        </span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Category:</span>
+                        <span class="data-card-value">Furniture → Chairs</span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Created By:</span>
+                        <span class="data-card-value">
+                          <div class="data-card-user-info">
+                            <div class="data-card-user-avatar">
+                              <img src="images/sarah.pnh.png" alt="Sarah Khan">
+                              <div class="data-user-status offline"></div>
+                            </div>
+                            <span class="data-card-user-name">Sarah Khan</span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div class="data-card">
+                    <div class="data-card-header">
+                      <div class="data-card-checkbox">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
+                        <label for="card-inq-002" class="data-checkbox-label"></label>
+                      </div>
+                      <div class="data-card-item-number">PR-2025-001</div>
+                      <div class="data-card-status">
+                        <span class="data-status-badge data-status-draft">Closed</span>
+                      </div>
+                    </div>
+                    <div class="data-card-body">
+                      <div class="data-card-title">Need healthcare equipment</div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Project:</span>
+                        <span class="data-card-value">
+                          <span class="data-type-badge data-type-equipment">Healthcare</span>
+                        </span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Category:</span>
+                        <span class="data-card-value">Healthcare → Equipment</span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Created By:</span>
+                        <span class="data-card-value">
+                          <div class="data-card-user-info">
+                            <div class="data-card-user-avatar">
+                              <img src="images/user.png" alt="Sofia Richardson">
+                            </div>
+                            <span class="data-card-user-name">Sofia Richardson</span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="equipment-list">
+            <div class="page-header-actions" style="justify-content: flex-end;">
+              <div class="page-header-group-by">
+                <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                  <i class="fa fa-chevron-down"></i>
+                  <span class="btn-text">Group By</span>
+                </button>
+                <div class="page-header-group-by-dropdown" id="groupByDropdown">
+                  <div class="page-header-group-by-item" data-value="status">
+                    <i class="fa fa-flag"></i>
+                    Status
+                  </div>
+                  <div class="page-header-group-by-item" data-value="category">
+                    <i class="fa fa-tags"></i>
+                    Category
+                  </div>
+                  <div class="page-header-group-by-item" data-value="location">
+                    <i class="fa fa-map-marker"></i>
+                    Location
+                  </div>
+                </div>
+              </div>
+
+              <button class="page-header-filter-btn" title="Filter">
+                <i class="fa fa-filter"></i>
+                <span class="btn-text">Filter</span>
+              </button>
+
+              <!-- Import Button -->
+              <button class="page-header-import-btn" title="Import">
+                <i class="fa fa-upload"></i>
+                <span class="btn-text">Import</span>
+              </button>
+
+              <!-- Action Dropdown (hidden by default) -->
+              <div class="page-header-action-dropdown" id="inquiriesActionDropdown">
+                <button class="page-header-action-dropdown-btn"
+                  onclick="toggleActionDropdown('inquiriesActionDropdown')" title="Actions">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <span class="btn-text">Actions</span>
+                  <i class="fa fa-chevron-down"></i>
+                </button>
+                <div class="page-header-action-menu" id="inquiriesActionMenu">
+                  <div class="page-header-action-item">
+                    <i class="fa fa-download"></i>
+                    <span>Export</span>
+                  </div>
+                  <div class="page-header-action-item">
+                    <i class="fa fa-edit"></i>
+                    <span>Edit</span>
+                  </div>
+                  <div class="page-header-action-item">
+                    <i class="fa fa-copy"></i>
+                    <span>Duplicate</span>
+                  </div>
+                  <div class="page-header-action-divider"></div>
+                  <div class="page-header-action-item danger">
+                    <i class="fa fa-trash"></i>
+                    <span>Delete</span>
+                  </div>
+                </div>
+              </div>
+              <button class="page-header-primary-btn" onclick="createEquipment()" title="Create Equipment">
+                <i class="fa fa-plus"></i>
+                <span class="btn-text">Equipment</span>
+              </button>
+
+            </div>
+
+            <div class="data-table-container">
+
+              <!-- View Toggle Buttons -->
+              <div class="data-view-toggle">
+                <button class="data-view-btn data-view-btn-active" title="List View">
+                  <i class="fa fa-list"></i>
+                </button>
+                <button class="data-view-btn" title="Card View">
+                  <i class="fa fa-th-large"></i>
+                </button>
+              </div>
+
+              <!-- List Table -->
+              <div class="data-table-container" id="listView">
+                <div class="data-table-wrapper">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                          <label for="selectAllPRs" class="data-checkbox-label"></label>
+                          <span class="data-checkbox-text"></span>
+                        </th>
+                        <th class="data-drag-header">--</th>
+                        <th class="col-project-id">Equipment ID</th>
+                        <th class="col-project-name">Project Name</th>
+                        <th class="col-project-type">Equipment Name</th>
+                        <th class="col-equipment-type">Equipment Type</th>
+                        <th class="col-duration">Power</th>
+                        <th class="col-year">Year</th>
+                        <th class="col-collaboration">Collaboration</th>
+                        <th class="col-operation">Operation</th>
+                        <th class="col-capacity">Capacity</th>
+                        <th class="col-description">Description</th>
+                        <th class="data-table-actions">
+                          <div class="data-columns-dropdown">
+                            <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                              title="Show/Hide Columns">
+                              <img src="../images/add-column.png" alt="Columns" width="20px">
+                            </button>
+                            <div class="data-columns-dropdown-content" id="columnDropdown">
+                              <div class="data-columns-dropdown-header">
+                                <h4>Select Columns</h4>
+                              </div>
+                              <div class="data-columns-dropdown-body">
+                                <div class="data-column-options">
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Eq ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-pr-type" checked>
+                                    <span class="data-column-label">Project Name</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-department" checked>
+                                    <span class="data-column-label">OwnerShip</span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Contract Year <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Duration <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-created-on" checked>
+                                    <span class="data-column-label">Client</span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Amount <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Project Type <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Build Environment</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Building Type</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Category</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Sub Category</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Scale</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Project Status</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="data-columns-dropdown-footer">
+                                <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                  Cancel
+                                </button>
+                                <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="data-checkbox-cell">
+                          <input type="checkbox" class="data-checkbox data-checkbox-row">
+                          <label class="data-checkbox-label"></label>
+                        </td>
+                        <td class="data-item-number">Equipment-2025</td>
+                        <td class="data-item-type">
+                          <span class="data-type-badge data-type-equipment">Office Renovation</span>
+                        </td>
+                        <td class="data-created-on">Test Equipment</td>
+                        <td class="data-budget">Test Equipment Type</td>
+                        <td class="data-category">Test Power</td>
+                        <td class="data-created-on">Test Year</td>
+                        <td class="data-created-on">Test Collaboration</td>
+                        <td class="data-created-on">Test Operation</td>
+                        <td class="data-created-on">Test Capacity</td>
+                          <td class="data-created-on">Test Description</td>
+                        <td class="data-table-actions-cell"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Card View -->
+              <div class="data-card-container" id="cardView" style="display: none;">
+                <div class="data-card-grid">
+                  <!-- Card 1 -->
+                  <div class="data-card">
+                    <div class="data-card-header">
+                      <div class="data-card-checkbox">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
+                        <label for="card-inq-001" class="data-checkbox-label"></label>
+                      </div>
+                      <div class="data-card-item-number">EQ-2025</div>
+                      <div class="data-card-status">
+                        <span class="data-status-badge data-status-approved">Active</span>
+                      </div>
+                    </div>
+                    <div class="data-card-body">
+                      <div class="data-card-title">Test Equipment</div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Project:</span>
+                        <span class="data-card-value">
+                          <span class="data-type-badge data-type-equipment">Test Equipment</span>
+                        </span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Category:</span>
+                        <span class="data-card-value">Test Equipment Type</span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Created By:</span>
+                        <span class="data-card-value">
+                          <div class="data-card-user-info">
+                            <div class="data-card-user-avatar">
+                              <img src="../images/sarah.pnh.png" alt="Sarah Khan">
+                              <div class="data-user-status offline"></div>
+                            </div>
+                            <span class="data-card-user-name">John Smith</span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div class="data-card">
+                    <div class="data-card-header">
+                      <div class="data-card-checkbox">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
+                        <label for="card-inq-002" class="data-checkbox-label"></label>
+                      </div>
+                      <div class="data-card-item-number">PR-2025-001</div>
+                      <div class="data-card-status">
+                        <span class="data-status-badge data-status-draft">Active</span>
+                      </div>
+                    </div>
+                    <div class="data-card-body">
+                      <div class="data-card-title">Test Equipment</div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Project:</span>
+                        <span class="data-card-value">
+                          <span class="data-type-badge data-type-equipment">Test Equipment</span>
+                        </span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Category:</span>
+                        <span class="data-card-value">Test Equipment Type</span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Created By:</span>
+                        <span class="data-card-value">
+                          <div class="data-card-user-info">
+                            <div class="data-card-user-avatar">
+                              <img src="../images/sarah.pnh.png" alt="Sarah Khan">
+                            </div>
+                            <span class="data-card-user-name">John Smith</span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="company-documents">
+            <div class="page-header-actions" style="justify-content: flex-end;">
+              <div class="page-header-group-by">
+                <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                  <i class="fa fa-chevron-down"></i>
+                  <span class="btn-text">Group By</span>
+                </button>
+                <div class="page-header-group-by-dropdown" id="groupByDropdown">
+                  <div class="page-header-group-by-item" data-value="status">
+                    <i class="fa fa-flag"></i>
+                    Status
+                  </div>
+                  <div class="page-header-group-by-item" data-value="category">
+                    <i class="fa fa-tags"></i>
+                    Category
+                  </div>
+                  <div class="page-header-group-by-item" data-value="location">
+                    <i class="fa fa-map-marker"></i>
+                    Location
+                  </div>
+                </div>
+              </div>
+
+              <button class="page-header-filter-btn" title="Filter">
+                <i class="fa fa-filter"></i>
+                <span class="btn-text">Filter</span>
+              </button>
+
+              <!-- Import Button -->
+              <button class="page-header-import-btn" title="Import">
+                <i class="fa fa-upload"></i>
+                <span class="btn-text">Import</span>
+              </button>
+
+              <!-- Action Dropdown (hidden by default) -->
+              <div class="page-header-action-dropdown" id="inquiriesActionDropdown">
+                <button class="page-header-action-dropdown-btn"
+                  onclick="toggleActionDropdown('inquiriesActionDropdown')" title="Actions">
+                  <i class="fa fa-ellipsis-v"></i>
+                  <span class="btn-text">Actions</span>
+                  <i class="fa fa-chevron-down"></i>
+                </button>
+                <div class="page-header-action-menu" id="inquiriesActionMenu">
+                  <div class="page-header-action-item">
+                    <i class="fa fa-download"></i>
+                    <span>Export</span>
+                  </div>
+                  <div class="page-header-action-item">
+                    <i class="fa fa-edit"></i>
+                    <span>Edit</span>
+                  </div>
+                  <div class="page-header-action-item">
+                    <i class="fa fa-copy"></i>
+                    <span>Duplicate</span>
+                  </div>
+                  <div class="page-header-action-divider"></div>
+                  <div class="page-header-action-item danger">
+                    <i class="fa fa-trash"></i>
+                    <span>Delete</span>
+                  </div>
+                </div>
+              </div>
+              <button class="page-header-primary-btn" onclick="createEquipment()" title="Create Equipment">
+                <i class="fa fa-plus"></i>
+                <span class="btn-text">Document</span>
+              </button>
+
+            </div>
+
+            <div class="data-table-container">
+
+              <!-- View Toggle Buttons -->
+              <div class="data-view-toggle">
+                <button class="data-view-btn data-view-btn-active" title="List View">
+                  <i class="fa fa-list"></i>
+                </button>
+                <button class="data-view-btn" title="Card View">
+                  <i class="fa fa-th-large"></i>
+                </button>
+              </div>
+
+              <!-- List Table -->
+              <div class="data-table-container" id="listView">
+                <div class="data-table-wrapper">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>
+                          <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                          <label for="selectAllPRs" class="data-checkbox-label"></label>
+                          <span class="data-checkbox-text"></span>
+                        </th>
+                        <th class="data-drag-header">--</th>
+                        <th class="col-project-id">Document ID</th>
+                        <th class="col-project-name">Document Name</th>
+                        <th class="col-equipment-type">Document Type</th>
+                        <th class="col-duration">Company</th>
+                        <th class="col-year">Certificate Number</th>
+                        <th class="col-collaboration">Issuer</th>
+                        <th class="col-operation">Issue Country</th>
+                        <th class="col-capacity">Start Date</th>
+                        <th class="col-description">Expiry Date</th>
+                        <th class="col-description">Status</th>
+                        <th class="data-table-actions">
+                          <div class="data-columns-dropdown">
+                            <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                              title="Show/Hide Columns">
+                              <img src="../images/add-column.png" alt="Columns" width="20px">
+                            </button>
+                            <div class="data-columns-dropdown-content" id="columnDropdown">
+                              <div class="data-columns-dropdown-header">
+                                <h4>Select Columns</h4>
+                              </div>
+                              <div class="data-columns-dropdown-body">
+                                <div class="data-column-options">
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Document ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-pr-type" checked>
+                                    <span class="data-column-label">Document Name</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-department" checked>
+                                    <span class="data-column-label">Document Type</span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Company <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Certificate Number <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-created-on" checked>
+                                    <span class="data-column-label">Issuer</span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Issue Country <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option fixed-column">
+                                    <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                    <span class="data-column-label">
+                                      Start Date <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                    </span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Expiry Date</span>
+                                  </label>
+                                  <label class="data-column-option">
+                                    <input type="checkbox" value="col-required-date" checked>
+                                    <span class="data-column-label">Status</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="data-columns-dropdown-footer">
+                                <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                  Cancel
+                                </button>
+                                <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                  Save
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td class="data-checkbox-cell">
+                          <input type="checkbox" class="data-checkbox data-checkbox-row">
+                          <label class="data-checkbox-label"></label>
+                        </td>
+                        <td class="data-item-number">Document-2025</td>
+                        <td class="data-item-type">
+                          <span class="data-type-badge data-type-equipment">Office Renovation</span>
+                        </td>
+                          <td class="data-created-on">Test Document</td>
+                        <td class="data-category">Test Company</td>
+                        <td class="data-created-on">Test Certificate Number</td>
+                        <td class="data-created-on">Test Issuer</td>
+                        <td class="data-created-on">Test Issue Country</td>
+                        <td class="data-created-on">Test Start Date</td>
+                          <td class="data-created-on">Test Expiry Date</td>
+                          <td class="purchase-list-status col-status">
+                            <div class="data-status-dropdown">
+                              <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                                <span class="data-status-badge data-status-approved">Open</span>
+                                <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                              </button>
+                              <div class="data-status-dropdown-menu">
+                                <button class="data-status-option" data-status="Open"
+                                  onclick="changeStatus(this, 'Open')">
+                                  <i class="fa fa-edit"></i>
+                                  Open
+                                </button>
+                                <button class="data-status-option" data-status="Closed"
+                                  onclick="changeStatus(this, 'Closed')">
+                                  <i class="fa fa-paper-plane"></i>
+                                  Closed
+                                </button>
+                                <button class="data-status-option" data-status="On Hold"
+                                  onclick="changeStatus(this, 'On Hold')">
+                                  <i class="fa fa-check"></i>
+                                  On Hold
+                                </button>
+                                <button class="data-status-option" data-status="Cancelled"
+                                  onclick="changeStatus(this, 'Cancelled')">
+                                  <i class="fa fa-times"></i>
+                                  Cancelled
+                                </button>
+                                <button class="data-status-option" data-status="On Hold"
+                                  onclick="changeStatus(this, 'On Hold')">
+                                  <i class="fa fa-lock"></i>
+                                  On Hold
+                                </button>
+                              </div>
+                            </div>
+                          </td>
+                        <td class="data-table-actions-cell"></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Card View -->
+              <div class="data-card-container" id="cardView" style="display: none;">
+                <div class="data-card-grid">
+                  <!-- Card 1 -->
+                  <div class="data-card">
+                    <div class="data-card-header">
+                      <div class="data-card-checkbox">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
+                        <label for="card-inq-001" class="data-checkbox-label"></label>
+                      </div>
+                      <div class="data-card-item-number">EQ-2025</div>
+                      <div class="data-card-status">
+                        <span class="data-status-badge data-status-approved">Active</span>
+                      </div>
+                    </div>
+                    <div class="data-card-body">
+                      <div class="data-card-title">Test Equipment</div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Project:</span>
+                        <span class="data-card-value">
+                          <span class="data-type-badge data-type-equipment">Test Equipment</span>
+                        </span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Category:</span>
+                        <span class="data-card-value">Test Equipment Type</span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Created By:</span>
+                        <span class="data-card-value">
+                          <div class="data-card-user-info">
+                            <div class="data-card-user-avatar">
+                              <img src="../images/sarah.pnh.png" alt="Sarah Khan">
+                              <div class="data-user-status offline"></div>
+                            </div>
+                            <span class="data-card-user-name">John Smith</span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Card 2 -->
+                  <div class="data-card">
+                    <div class="data-card-header">
+                      <div class="data-card-checkbox">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
+                        <label for="card-inq-002" class="data-checkbox-label"></label>
+                      </div>
+                      <div class="data-card-item-number">PR-2025-001</div>
+                      <div class="data-card-status">
+                        <span class="data-status-badge data-status-draft">Active</span>
+                      </div>
+                    </div>
+                    <div class="data-card-body">
+                      <div class="data-card-title">Test Equipment</div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Project:</span>
+                        <span class="data-card-value">
+                          <span class="data-type-badge data-type-equipment">Test Equipment</span>
+                        </span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Category:</span>
+                        <span class="data-card-value">Test Equipment Type</span>
+                      </div>
+                      <div class="data-card-row">
+                        <span class="data-card-label">Created By:</span>
+                        <span class="data-card-value">
+                          <div class="data-card-user-info">
+                            <div class="data-card-user-avatar">
+                              <img src="../images/sarah.pnh.png" alt="Sarah Khan">
+                            </div>
+                            <span class="data-card-user-name">John Smith</span>
+                          </div>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="certificate-documents">
+            <div class="profile-field-group">
+              <h2 class="section-title" onclick="toggleSection(this)">
+                Company License
+              </h2>
+              <!-- Company Name Box -->
+              <div class="checkbox-group collapsed ">
+                <div class="field-row">
+                  <div class="field">
+                    <label for="cr-number">CR Number</label>
+                    <input id="cr-number" type="text" placeholder="Enter CR Number">
+                  </div>
+                  <div class="field">
+                    <label for="cr-file">CR Document</label>
+                    <input id="cr-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="vat-number">VAT Number</label>
+                    <input id="vat-number" type="text" placeholder="Enter VAT Number">
+                  </div>
+                  <div class="field">
+                    <label for="vat-file">VAT Document</label>
+                    <input id="vat-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="national-address">National Address</label>
+                    <input id="national-address" type="text" placeholder="Enter National Address">
+                  </div>
+                  <div class="field">
+                    <label for="national-address-file">National Address Document</label>
+                    <input id="national-address-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="company-classification">Company Classification</label>
+                    <input id="company-classification" type="text" placeholder="Enter Company Classification">
+                  </div>
+                  <div class="field">
+                    <label for="company-classification-file">Company Classification Document</label>
+                    <input id="company-classification-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="company-profile">Company Profile</label>
+                    <input id="company-profile" type="text" placeholder="Enter Company Profile">
+                  </div>
+                  <div class="field">
+                    <label for="company-profile-file">Company Profile Document</label>
+                    <input id="company-profile-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="company-prequalification">Company Prequalification</label>
+                    <input id="company-prequalification" type="text" placeholder="Enter Company Prequalification">
+                  </div>
+                  <div class="field">
+                    <label for="company-prequalification-file">Company Prequalification Document</label>
+                    <input id="company-prequalification-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field-row">
+                  <div class="field">
+                    <label for="iso-certificate">ISO Certificate</label>
+                    <input id="iso-certificate" type="text" placeholder="Enter ISO Certificate">
+                  </div>
+                  <div class="field">
+                    <label for="iso-certificate-file">ISO Certificate Document</label>
+                    <input id="iso-certificate-file" type="file" accept=".pdf,.jpg,.png">
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="prequalification-category">Category</label>
+                  <select id="prequalification-category">
+                    <option value="" disabled selected>Select Category
+                    </option>
+                    <option value=""> Company License</option>
+                    <option value="">Company Documents</option>
+                    <option value="">Certificate Documents</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Modal Footer with Navigation Buttons -->
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="prequalModalPrevBtn">
+            <i class="fas fa-chevron-left"></i>
+            Previous
+          </button>
+          <button class="btn btn-primary" id="prequalModalNextBtn">
+            Next
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </main>
+    </div>
+  </div>
+  <!-- modal Company Prequalification end -->
+
+  <script src="../script/sidebar.js"></script>
+  <script src="../script/common-table.js"></script>
+  <script src="prequalification.js"></script>
+  
+  <script>
+    // Fallback toggleSection function
+    function toggleSection(element) {
+      const content = element.nextElementSibling;
+      if (content) {
+        content.classList.toggle('collapsed');
+      }
+      element.classList.toggle('collapsed');
+    }
+  </script>
+</body>
+
+</html>

@@ -285,6 +285,72 @@
     margin-bottom: 12px;
 }
 
+/* Autocomplete Styles */
+.autocomplete-container {
+    position: relative;
+    width: 100%;
+}
+
+.autocomplete-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 3px 3px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+    display: none;
+}
+
+.autocomplete-dropdown.show {
+    display: block;
+}
+
+.autocomplete-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 13px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.autocomplete-item:hover {
+    background: #f8f9fa;
+}
+
+.autocomplete-item i {
+    margin-right: 8px;
+    width: 16px;
+    text-align: center;
+    color: #666;
+}
+
+.autocomplete-item.create-project {
+    background: #f8f9fa;
+    color: #9885d1;
+    font-weight: 500;
+}
+
+.autocomplete-item.create-project:hover {
+    background: #e8e9ea;
+}
+
+.autocomplete-divider {
+    height: 1px;
+    background: #ddd;
+    margin: 4px 0;
+}
+
+.autocomplete-item.hidden {
+    display: none;
+}
+
 /* Mobile */
 @media (max-width: 768px) {
     .inquiries-cards {
