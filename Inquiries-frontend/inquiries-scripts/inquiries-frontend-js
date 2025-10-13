@@ -31,3 +31,36 @@ document.getElementById('createInquiryModal').addEventListener('click', function
         closeCreateInquiryModal();
     }
 });
+
+// Simple autocomplete for presentation
+function initializeAutocomplete(inputId, dropdownId) {
+    const input = document.getElementById(inputId);
+    const dropdown = document.getElementById(dropdownId);
+    
+    // Show dropdown when clicking inside the field
+    input.addEventListener('focus', function() {
+        dropdown.classList.add('show');
+    });
+    
+    // Show dropdown when typing
+    input.addEventListener('input', function() {
+        if (this.value.trim() !== '') {
+            dropdown.classList.add('show');
+        } else {
+            dropdown.classList.add('show'); // Keep showing even when empty
+        }
+    });
+    
+    // Hide dropdown when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.autocomplete-container')) {
+            dropdown.classList.remove('show');
+        }
+    });
+}
+
+// Initialize on page load
+document.addEventListener('DOMContentLoaded', function() {
+    initializeAutocomplete('quickProject', 'quickProjectDropdown');
+    initializeAutocomplete('advancedProject', 'advancedProjectDropdown');
+});

@@ -767,7 +767,7 @@
         </div>
       </div>
       <a href="setting.html">
-        <div class="item">
+        <div class="item has-submenu" id="supportItem">
           <button class="btn" id="settingsBtn">
             <span class="icon" aria-hidden>
               <!-- settings icon -->
@@ -775,12 +775,48 @@
             </span>
             <span class="label">Settings</span>
           </button>
+          <!-- Submenu (full-height) -->
+          <div class="submenu" role="menu" aria-label="Organization submenu">
+            <div class="submenu-top">
+              <h3 style="margin:0;font-size:16px">All Settings</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="setting.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-settings.png" alt="" width="28px">
+                    Company Setting
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/profile.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/profile-settings.png" alt="" width="28px">
+                    Company Profile
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/prequalification.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-prequalification.png" alt="" width="28px">
+                    Company Prequalification
+                  </h2>
+                </a>
+              </div>
+
+            </div>
+          </div>
         </div>
       </a>
     </div>
   </aside>
   <!-- Sidebar End -->
-
 
   <!-- Main Content -->
   <main class="content page" id="page">
@@ -901,15 +937,15 @@
         <h3>Create Product</h3>
         <button class="product-offcanvas-close" onclick="closePROffcanvas()">
           <i class="fa fa-times"></i>
-            </button>
-          </div>
+        </button>
+      </div>
 
       <div class="product-offcanvas-body">
         <form class="product-form">
           <div class="form-group">
             <label>Product Name</label>
             <input type="text" placeholder="Enter product name">
-        </div>
+          </div>
 
           <div class="form-group">
             <div class="checkbox-group">
@@ -922,7 +958,7 @@
                 <label for="forSale">For Sale</label>
               </div>
             </div>
-      </div>
+          </div>
 
           <!-- Product Tabs -->
           <div class="product-tabs">
@@ -933,165 +969,165 @@
             </div>
             <div class="tab-content">
               <div class="tab-panel active" id="general-tab">
-                <div class="form-group">
-                  <label>Category</label>
-              <div class="product-category-dropdown">
-                <div class="dropdown-trigger" onclick="toggleCategoryDropdown()">
-                  <div class="selected-items" id="selectedItems">
-                    <span class="placeholder">Select Categories</span>
-                </div>
-                </div>
-                    <div class="dropdown-content">
-
-                      <details>
-                        <summary>Light Equipments</summary>
-                        <div class="product-category-dropdown-content">
-                          <details>
-                            <summary>Earthmoving Equipments</summary>
-                            <div class="item" onclick="selectCategoryItem('Mini Excavators')">Mini Excavators</div>
-                            <div class="item" onclick="selectCategoryItem('Compact Loaders')">Compact Loaders</div>
-                            <div class="item" onclick="selectCategoryItem('Trenchers')">Trenchers</div>
-                            <div class="item" onclick="selectCategoryItem('Augers')">Augers</div>
-                          </details>
-                          <details>
-                            <summary>Material Handling Equipment</summary>
-                            <div class="item" onclick="selectCategoryItem('Forklifts (Smaller Capacity)')">Forklifts
-                              (Smaller
-                              Capacity)</div>
-                            <div class="item" onclick="selectCategoryItem('Pallet Jacks')">Pallet Jacks</div>
-                            <div class="item" onclick="selectCategoryItem('Order Pickers')">Order Pickers</div>
-                            <div class="item" onclick="selectCategoryItem('Hand Trucks')">Hand Trucks</div>
-                            <div class="item" onclick="selectCategoryItem('Conveyor Belts (portable)')">Conveyor Belts
-                              (portable)</div>
-                          </details>
-                          <details>
-                            <summary>Construction Equipments</summary>
-                            <div class="item" onclick="selectCategoryItem('Concrete Mixers (smaller capacity)')">
-                              Concrete
-                              Mixers (smaller capacity)</div>
-                            <div class="item" onclick="selectCategoryItem('Tile Cutters')">Tile Cutters</div>
-                            <div class="item" onclick="selectCategoryItem('Mortar Mixers')">Mortar Mixers</div>
-                            <div class="item" onclick="selectCategoryItem('Vibratory Plate Compactors')">Vibratory Plate
-                              Compactors</div>
-                          </details>
-                          <details>
-                            <summary>Surface Preparation Equipments</summary>
-                            <div class="item" onclick="selectCategoryItem('Floor Grinders')">Floor Grinders</div>
-                            <div class="item" onclick="selectCategoryItem('Floor Polishers')">Floor Polishers</div>
-                            <div class="item" onclick="selectCategoryItem('Pressure Washers (smaller units)')">Pressure
-                              Washers (smaller units)</div>
-                          </details>
-                          <details>
-                            <summary>Lighting Equipmen</summary>
-                            <div class="item" onclick="selectCategoryItem('Portable Light Towers')">Portable Light
-                              Towers
-                            </div>
-                            <div class="item" onclick="selectCategoryItem('Work Lights')">Work Lights</div>
-                          </details>
-                          <details>
-                            <summary>Miscellaneous</summary>
-                            <div class="item" onclick="selectCategoryItem('Portable Generators (smaller units)')">
-                              Portable
-                              Generators (smaller units)</div>
-                            <div class="item" onclick="selectCategoryItem('Portable Air Compressors')">Portable Air
-                              Compressors</div>
-                            <div class="item" onclick="selectCategoryItem('Scaffolding (smaller setups)')">Scaffolding
-                              (smaller setups)</div>
-                            <div class="item" onclick="selectCategoryItem('Welding Equipment')">Welding Equipment</div>
-                            <div class="item" onclick="selectCategoryItem('Cutting Discs')">Cutting Discs</div>
-                            <div class="item" onclick="selectCategoryItem('Threaded Machines')">Threaded Machines</div>
-                            <div class="item" onclick="selectCategoryItem('Grooved Machines')">Grooved Machines</div>
-                            <div class="item" onclick="selectCategoryItem('Coring Machines')">Coring Machines</div>
-                          </details>
+                <div class="categories-section">
+                  <div class="form-group">
+                    <label>Category</label>
+                    <div class="product-category-dropdown">
+                      <div class="dropdown-trigger" onclick="toggleCategoryDropdown()">
+                        <div class="selected-items" id="selectedItems">
+                          <span class="placeholder">Select Categories</span>
                         </div>
-                      </details>
-
-                      <details>
-                        <summary>Heavy Equipment</summary>
-                        <div class="product-category-dropdown-content">
-                          <details>
-                            <summary>Lifting Equipment</summary>
-                            <div class="item" onclick="selectCategoryItem('Telescopic Boom Lifts')">Telescopic Boom
-                              Lifts
-                            </div>
-                            <div class="item" onclick="selectCategoryItem('Rough Terrain Cranes')">Rough Terrain Cranes
-                            </div>
-                            <div class="item" onclick="selectCategoryItem('Rough Hydraulic Gantries Cranes')">Hydraulic
-                              Gantries</div>
-                            <div class="item" onclick="selectCategoryItem(' Cranes')">Cranes</div>
-                          </details>
-                          <details>
-                            <summary>Heavy-Duty Vehicles</summary>
-                            <div class="item" onclick="selectCategoryItem('Bulldozers')">Bulldozers</div>
-                            <div class="item" onclick="selectCategoryItem('Large Excavators')">Large Excavators</div>
-                            <div class="item" onclick="selectCategoryItem('Articulated Dump Trucks')">Articulated Dump
-                              Trucks</div>
-                            <div class="item" onclick="selectCategoryItem('Backhoes')">Backhoes</div>
-                            <div class="item" onclick="selectCategoryItem('Loaders')">Loaders</div>
-                            <div class="item" onclick="selectCategoryItem('Skid Steers')">Skid Steers</div>
-                            <div class="item" onclick="selectCategoryItem('Graders')">Graders</div>
-                            <div class="item" onclick="selectCategoryItem('Pavers')">Pavers</div>
-                            <div class="item" onclick="selectCategoryItem('Compactors')">Compactors</div>
-                          </details>
-                          <details>
-                            <summary>Demolition Equipment</summary>
-                            <div class="item" onclick="selectCategoryItem('Hydraulic Breakers')">Hydraulic Breakers
-                            </div>
-                            <div class="item" onclick="selectCategoryItem('Demolition Excavators')">Demolition
-                              Excavators</div>
-                            <div class="item" onclick="selectCategoryItem('Large Vibratory Rollers')">Large Vibratory
-                              Rollers</div>
-                            <div class="item" onclick="selectCategoryItem('Pneumatic Rollers')">Pneumatic Rollers</div>
-                          </details>
-                          <details>
-                            <summary>Concrete and Masonry</summary>
-                            <div class="item" onclick="selectCategoryItem('Concrete Pumps')">Concrete Pumps</div>
-                            <div class="item" onclick="selectCategoryItem('Stone Saws')">Stone Saws</div>
-                          </details>
-                          <details>
-                            <summary>Welding Equipment</summary>
-                            <div class="item" onclick="selectCategoryItem('Industrial Welding Machines')">Industrial
-                              Welding Machines</div>
-                            <div class="item" onclick="selectCategoryItem('Welding Generators')">Welding Generators
-                            </div>
-                          </details>
-
-                        </div>
-                      </details>
-
-                      <details>
-                        <summary>Tools</summary>
-                        <div class="product-category-dropdown-content">
-                          <details>
-                            <summary>Drills</summary>
-                            <div class="item" onclick="selectCategoryItem('Cordless Drills')">Cordless Drills
-                            </div>
-                            <div class="item" onclick="selectCategoryItem('Hammer Drills')">Hammer Drills</div>
-                            <div class="item" onclick="selectCategoryItem('Impact Drills')">Impact Drills</div>
-                          </details>
-                          <details>
-                            <summary>Saws</summary>
-                            <div class="item" onclick="selectCategoryItem('Circular Saws')">Circular Saws</div>
-                            <div class="item" onclick="selectCategoryItem('Jigsaws')">Jigsaws</div>
-                            <div class="item" onclick="selectCategoryItem('Reciprocating Saws')">Reciprocating Saws
-                            </div>
-                          </details>
-                          <details>
-                            <summary>Sanders</summary>
-                            <div class="item" onclick="selectCategoryItem('Orbital Sanders')">Orbital Sanders</div>
-                            <div class="item" onclick="selectCategoryItem('Belt Sanders')">Belt Sanders</div>
-                            <div class="item" onclick="selectCategoryItem('Random Orbital Sanders')">Random Orbital
-                              Sanders</div>
-                          </details>
-                        </div>
-                      </details>
-
+                      </div>
+                      <div class="dropdown-content">
+  
+                        <details>
+                          <summary>Light Equipments</summary>
+                          <div class="product-category-dropdown-content">
+                            <details>
+                              <summary>Earthmoving Equipments</summary>
+                              <div class="item" onclick="selectCategoryItem('Mini Excavators')">Mini Excavators</div>
+                              <div class="item" onclick="selectCategoryItem('Compact Loaders')">Compact Loaders</div>
+                              <div class="item" onclick="selectCategoryItem('Trenchers')">Trenchers</div>
+                              <div class="item" onclick="selectCategoryItem('Augers')">Augers</div>
+                            </details>
+                            <details>
+                              <summary>Material Handling Equipment</summary>
+                              <div class="item" onclick="selectCategoryItem('Forklifts (Smaller Capacity)')">Forklifts
+                                (Smaller
+                                Capacity)</div>
+                              <div class="item" onclick="selectCategoryItem('Pallet Jacks')">Pallet Jacks</div>
+                              <div class="item" onclick="selectCategoryItem('Order Pickers')">Order Pickers</div>
+                              <div class="item" onclick="selectCategoryItem('Hand Trucks')">Hand Trucks</div>
+                              <div class="item" onclick="selectCategoryItem('Conveyor Belts (portable)')">Conveyor Belts
+                                (portable)</div>
+                            </details>
+                            <details>
+                              <summary>Construction Equipments</summary>
+                              <div class="item" onclick="selectCategoryItem('Concrete Mixers (smaller capacity)')">
+                                Concrete
+                                Mixers (smaller capacity)</div>
+                              <div class="item" onclick="selectCategoryItem('Tile Cutters')">Tile Cutters</div>
+                              <div class="item" onclick="selectCategoryItem('Mortar Mixers')">Mortar Mixers</div>
+                              <div class="item" onclick="selectCategoryItem('Vibratory Plate Compactors')">Vibratory Plate
+                                Compactors</div>
+                            </details>
+                            <details>
+                              <summary>Surface Preparation Equipments</summary>
+                              <div class="item" onclick="selectCategoryItem('Floor Grinders')">Floor Grinders</div>
+                              <div class="item" onclick="selectCategoryItem('Floor Polishers')">Floor Polishers</div>
+                              <div class="item" onclick="selectCategoryItem('Pressure Washers (smaller units)')">Pressure
+                                Washers (smaller units)</div>
+                            </details>
+                            <details>
+                              <summary>Lighting Equipmen</summary>
+                              <div class="item" onclick="selectCategoryItem('Portable Light Towers')">Portable Light
+                                Towers
+                              </div>
+                              <div class="item" onclick="selectCategoryItem('Work Lights')">Work Lights</div>
+                            </details>
+                            <details>
+                              <summary>Miscellaneous</summary>
+                              <div class="item" onclick="selectCategoryItem('Portable Generators (smaller units)')">
+                                Portable
+                                Generators (smaller units)</div>
+                              <div class="item" onclick="selectCategoryItem('Portable Air Compressors')">Portable Air
+                                Compressors</div>
+                              <div class="item" onclick="selectCategoryItem('Scaffolding (smaller setups)')">Scaffolding
+                                (smaller setups)</div>
+                              <div class="item" onclick="selectCategoryItem('Welding Equipment')">Welding Equipment</div>
+                              <div class="item" onclick="selectCategoryItem('Cutting Discs')">Cutting Discs</div>
+                              <div class="item" onclick="selectCategoryItem('Threaded Machines')">Threaded Machines</div>
+                              <div class="item" onclick="selectCategoryItem('Grooved Machines')">Grooved Machines</div>
+                              <div class="item" onclick="selectCategoryItem('Coring Machines')">Coring Machines</div>
+                            </details>
+                          </div>
+                        </details>
+  
+                        <details>
+                          <summary>Heavy Equipment</summary>
+                          <div class="product-category-dropdown-content">
+                            <details>
+                              <summary>Lifting Equipment</summary>
+                              <div class="item" onclick="selectCategoryItem('Telescopic Boom Lifts')">Telescopic Boom
+                                Lifts
+                              </div>
+                              <div class="item" onclick="selectCategoryItem('Rough Terrain Cranes')">Rough Terrain Cranes
+                              </div>
+                              <div class="item" onclick="selectCategoryItem('Rough Hydraulic Gantries Cranes')">Hydraulic
+                                Gantries</div>
+                              <div class="item" onclick="selectCategoryItem(' Cranes')">Cranes</div>
+                            </details>
+                            <details>
+                              <summary>Heavy-Duty Vehicles</summary>
+                              <div class="item" onclick="selectCategoryItem('Bulldozers')">Bulldozers</div>
+                              <div class="item" onclick="selectCategoryItem('Large Excavators')">Large Excavators</div>
+                              <div class="item" onclick="selectCategoryItem('Articulated Dump Trucks')">Articulated Dump
+                                Trucks</div>
+                              <div class="item" onclick="selectCategoryItem('Backhoes')">Backhoes</div>
+                              <div class="item" onclick="selectCategoryItem('Loaders')">Loaders</div>
+                              <div class="item" onclick="selectCategoryItem('Skid Steers')">Skid Steers</div>
+                              <div class="item" onclick="selectCategoryItem('Graders')">Graders</div>
+                              <div class="item" onclick="selectCategoryItem('Pavers')">Pavers</div>
+                              <div class="item" onclick="selectCategoryItem('Compactors')">Compactors</div>
+                            </details>
+                            <details>
+                              <summary>Demolition Equipment</summary>
+                              <div class="item" onclick="selectCategoryItem('Hydraulic Breakers')">Hydraulic Breakers
+                              </div>
+                              <div class="item" onclick="selectCategoryItem('Demolition Excavators')">Demolition
+                                Excavators</div>
+                              <div class="item" onclick="selectCategoryItem('Large Vibratory Rollers')">Large Vibratory
+                                Rollers</div>
+                              <div class="item" onclick="selectCategoryItem('Pneumatic Rollers')">Pneumatic Rollers</div>
+                            </details>
+                            <details>
+                              <summary>Concrete and Masonry</summary>
+                              <div class="item" onclick="selectCategoryItem('Concrete Pumps')">Concrete Pumps</div>
+                              <div class="item" onclick="selectCategoryItem('Stone Saws')">Stone Saws</div>
+                            </details>
+                            <details>
+                              <summary>Welding Equipment</summary>
+                              <div class="item" onclick="selectCategoryItem('Industrial Welding Machines')">Industrial
+                                Welding Machines</div>
+                              <div class="item" onclick="selectCategoryItem('Welding Generators')">Welding Generators
+                              </div>
+                            </details>
+  
+                          </div>
+                        </details>
+  
+                        <details>
+                          <summary>Tools</summary>
+                          <div class="product-category-dropdown-content">
+                            <details>
+                              <summary>Drills</summary>
+                              <div class="item" onclick="selectCategoryItem('Cordless Drills')">Cordless Drills
+                              </div>
+                              <div class="item" onclick="selectCategoryItem('Hammer Drills')">Hammer Drills</div>
+                              <div class="item" onclick="selectCategoryItem('Impact Drills')">Impact Drills</div>
+                            </details>
+                            <details>
+                              <summary>Saws</summary>
+                              <div class="item" onclick="selectCategoryItem('Circular Saws')">Circular Saws</div>
+                              <div class="item" onclick="selectCategoryItem('Jigsaws')">Jigsaws</div>
+                              <div class="item" onclick="selectCategoryItem('Reciprocating Saws')">Reciprocating Saws
+                              </div>
+                            </details>
+                            <details>
+                              <summary>Sanders</summary>
+                              <div class="item" onclick="selectCategoryItem('Orbital Sanders')">Orbital Sanders</div>
+                              <div class="item" onclick="selectCategoryItem('Belt Sanders')">Belt Sanders</div>
+                              <div class="item" onclick="selectCategoryItem('Random Orbital Sanders')">Random Orbital
+                                Sanders</div>
+                            </details>
+                          </div>
+                        </details>
+  
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <!-- Ecommerce Category Dropdown -->
-             
+  
+                  <!-- Ecommerce Category Dropdown -->
                   <div class="form-group" style="margin-top: 10px;">
                     <label>Ecommerce Category</label>
                     <div class="product-category-dropdown" id="ecommerceCategoryDropdown">
@@ -1101,29 +1137,44 @@
                         </div>
                       </div>
                       <div class="product-category-dropdown-content">
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Heavy Machinery')">Heavy Machinery</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Construction Tools')">Construction Tools</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Safety Equipment')">Safety Equipment</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Building Materials')">Building Materials</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Electrical Equipment')">Electrical Equipment</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Plumbing Supplies')">Plumbing Supplies</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Concrete & Masonry')">Concrete & Masonry</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Roofing Materials')">Roofing Materials</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Insulation Products')">Insulation Products</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('HVAC Equipment')">HVAC Equipment</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Flooring Materials')">Flooring Materials</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Paint & Coatings')">Paint & Coatings</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Lumber & Wood')">Lumber & Wood</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Steel & Metal')">Steel & Metal</div>
-                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Fasteners & Hardware')">Fasteners & Hardware</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Heavy Machinery')">Heavy
+                          Machinery</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Construction Tools')">
+                          Construction Tools</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Safety Equipment')">Safety
+                          Equipment</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Building Materials')">
+                          Building Materials</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Electrical Equipment')">
+                          Electrical Equipment</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Plumbing Supplies')">
+                          Plumbing Supplies</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Concrete & Masonry')">
+                          Concrete & Masonry</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Roofing Materials')">
+                          Roofing Materials</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Insulation Products')">
+                          Insulation Products</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('HVAC Equipment')">HVAC
+                          Equipment</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Flooring Materials')">
+                          Flooring Materials</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Paint & Coatings')">Paint &
+                          Coatings</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Lumber & Wood')">Lumber &
+                          Wood</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Steel & Metal')">Steel &
+                          Metal</div>
+                        <div class="item ecommerce-item" onclick="selectEcommerceCategoryItem('Fasteners & Hardware')">
+                          Fasteners & Hardware</div>
                       </div>
                     </div>
                   </div>
-               
-
+                </div>
+             
                 <!-- Additional General Information Fields -->
                 <div class="form-row">
-                <div class="form-group">
+                  <div class="form-group">
                     <label>UOM (Unit of Measure)</label>
                     <select>
                       <option value="">Select UOM</option>
@@ -1134,30 +1185,30 @@
                       <option value="liter">Liter</option>
                       <option value="hour">Hour</option>
                       <option value="day">Day</option>
-                  </select>
-                </div>
-                <div class="form-group">
+                    </select>
+                  </div>
+                  <div class="form-group">
                     <label>Price</label>
                     <input type="number" placeholder="Enter price" step="0.01">
-                </div>
+                  </div>
                 </div>
 
                 <div class="form-row">
-                <div class="form-group">
+                  <div class="form-group">
                     <label>Brand</label>
                     <input type="text" placeholder="Enter brand name">
                   </div>
                   <div class="form-group">
                     <label>Barcode</label>
                     <input type="text" placeholder="Enter barcode">
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-row">
-                <div class="form-group">
+                <div class="form-row">
+                  <div class="form-group">
                     <label>SKU</label>
                     <input type="text" placeholder="Enter SKU">
-                </div>
+                  </div>
                   <div class="form-group">
                     <label>Model</label>
                     <input type="text" placeholder="Enter model">
@@ -1167,9 +1218,9 @@
                 <div class="form-group">
                   <label>Description</label>
                   <textarea placeholder="Enter product description" rows="3"></textarea>
-              </div>
+                </div>
 
-              <div class="form-row">
+                <div class="form-row">
                   <div class="form-group">
                     <label>Weight (kg)</label>
                     <input type="number" placeholder="Enter weight" step="0.01">
@@ -1184,86 +1235,165 @@
                 <!-- Attributes content will go here -->
               </div>
               <div class="tab-panel" id="attachments-tab">
-                <div class="form-group">
-                  <label>Upload Files</label>
-                  <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
-                    <div class="file-upload-content">
-                      <i class="fa fa-cloud-upload"></i>
-                      <p>Click to upload or drag and drop</p>
-                      <small>PDF, DOC, DOCX, JPG, PNG (Max 10MB)</small>
-                    </div>
-                    <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" style="display: none;" onchange="handleFileUpload(this)">
+                <!-- Product Images Section -->
+                <div class="attachment-section">
+                  <div class="section-header">
+                    <h4>Product Images</h4>
+                    <p>Upload product photos and images</p>
                   </div>
-                </div>
-                
-                <div class="attachments-list" id="attachmentsList">
-                  <!-- Sample attachments for interface -->
-                  <div class="attachment-item" data-file="product-specs.pdf">
-                    <div class="attachment-icon">
-                      <i class="fa fa-file-pdf-o"></i>
+                  <div class="form-group">
+                    <div class="file-upload-area" onclick="document.getElementById('productImagesInput').click()">
+                      <div class="file-upload-content">
+                        <i class="fa fa-camera"></i>
+                        <p>Click to upload product images</p>
+                        <small>JPG, PNG, GIF (Max 10MB each)</small>
+                      </div>
+                      <input type="file" id="productImagesInput" multiple accept=".jpg,.jpeg,.png,.gif"
+                        style="display: none;" onchange="handleProductImagesUpload(this)">
                     </div>
-                    <div class="attachment-info">
-                      <div class="attachment-name">product-specs.pdf</div>
-                      <div class="attachment-size">2.4 MB</div>
-                    </div>
-                    <div class="attachment-actions">
-                      <button class="attachment-btn" onclick="downloadAttachment('product-specs.pdf')" title="Download">
-                        <i class="fa fa-download"></i>
-                  </button>
-                      <button class="attachment-btn delete" onclick="removeAttachment('product-specs.pdf')" title="Remove">
-                        <i class="fa fa-trash"></i>
-                      </button>
                   </div>
-                </div>
-                  
-                  <div class="attachment-item" data-file="product-image.jpg">
-                    <div class="attachment-icon">
-                      <i class="fa fa-file-image-o"></i>
-                    </div>
-                    <div class="attachment-info">
-                      <div class="attachment-name">product-image.jpg</div>
-                      <div class="attachment-size">1.2 MB</div>
-                    </div>
-                    <div class="attachment-actions">
-                      <button class="attachment-btn" onclick="downloadAttachment('product-image.jpg')" title="Download">
-                        <i class="fa fa-download"></i>
-                      </button>
-                      <button class="attachment-btn delete" onclick="removeAttachment('product-image.jpg')" title="Remove">
-                        <i class="fa fa-trash"></i>
-                      </button>
-                </div>
-              </div>
 
-                  <div class="attachment-item" data-file="manual.docx">
-                    <div class="attachment-icon">
-                      <i class="fa fa-file-word-o"></i>
+                  <div class="attachments-list" id="productImagesList">
+                    <!-- Sample product images for interface -->
+                    <div class="attachment-item image-attachment" data-file="product-main.jpg">
+                      <div class="attachment-preview" onclick="previewImage('images/gallery1.jpg', 'product-main.jpg')">
+                        <img src="images/gallery1.jpg" alt="Product Image" class="attachment-thumbnail">
+                        <div class="preview-overlay">
+                          <i class="fa fa-eye"></i>
+                        </div>
+                      </div>
+                      <div class="attachment-info">
+                        <div class="attachment-name">product-main.jpg</div>
+                        <div class="attachment-size">1.2 MB</div>
+                      </div>
+                      <div class="attachment-actions">
+                        <button class="attachment-btn" onclick="downloadAttachment('product-main.jpg')"
+                          title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                        <button class="attachment-btn delete" onclick="removeAttachment('product-main.jpg')"
+                          title="Remove">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
                     </div>
-                    <div class="attachment-info">
-                      <div class="attachment-name">manual.docx</div>
-                      <div class="attachment-size">856 KB</div>
+                  </div>
+                </div>
+
+                <!-- 360/3D Images Section -->
+                <div class="attachment-section">
+                  <div class="section-header">
+                    <h4>360° / 3D Images</h4>
+                    <p>Upload 360° photos and 3D model files</p>
+                  </div>
+                  <div class="form-group">
+                    <div class="file-upload-area" onclick="document.getElementById('360ImagesInput').click()">
+                      <div class="file-upload-content">
+                        <i class="fa fa-cube"></i>
+                        <p>Click to upload 360° or 3D files</p>
+                        <small>GLB, GLTF, OBJ, FBX, JPG, PNG (Max 50MB each)</small>
+                      </div>
+                      <input type="file" id="360ImagesInput" multiple accept=".glb,.gltf,.obj,.fbx,.jpg,.jpeg,.png"
+                        style="display: none;" onchange="handle360ImagesUpload(this)">
                     </div>
-                    <div class="attachment-actions">
-                      <button class="attachment-btn" onclick="downloadAttachment('manual.docx')" title="Download">
-                        <i class="fa fa-download"></i>
-                </button>
-                      <button class="attachment-btn delete" onclick="removeAttachment('manual.docx')" title="Remove">
-                        <i class="fa fa-trash"></i>
-                </button>
+                  </div>
+
+                  <div class="attachments-list" id="360ImagesList">
+                    <!-- Sample 360/3D files for interface -->
+                    <div class="attachment-item" data-file="product-360.glb">
+                      <div class="attachment-icon">
+                        <i class="fa fa-cube"></i>
+                      </div>
+                      <div class="attachment-info">
+                        <div class="attachment-name">product-360.glb</div>
+                        <div class="attachment-size">15.3 MB</div>
+                      </div>
+                      <div class="attachment-actions">
+                        <button class="attachment-btn" onclick="downloadAttachment('product-360.glb')" title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                        <button class="attachment-btn delete" onclick="removeAttachment('product-360.glb')"
+                          title="Remove">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Additional Attachments Section -->
+                <div class="attachment-section">
+                  <div class="section-header">
+                    <h4>Additional Attachments</h4>
+                    <p>Upload documents, manuals, and other files</p>
+                  </div>
+                  <div class="form-group">
+                    <div class="file-upload-area" onclick="document.getElementById('additionalFilesInput').click()">
+                      <div class="file-upload-content">
+                        <i class="fa fa-cloud-upload"></i>
+                        <p>Click to upload additional files</p>
+                        <small>PDF, DOC, DOCX, XLS, XLSX, TXT (Max 10MB each)</small>
+                      </div>
+                      <input type="file" id="additionalFilesInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.txt"
+                        style="display: none;" onchange="handleAdditionalFilesUpload(this)">
+                    </div>
+                  </div>
+
+                  <div class="attachments-list" id="additionalFilesList">
+                    <!-- Sample additional attachments for interface -->
+                    <div class="attachment-item" data-file="product-specs.pdf">
+                      <div class="attachment-icon">
+                        <i class="fa fa-file-pdf-o"></i>
+                      </div>
+                      <div class="attachment-info">
+                        <div class="attachment-name">product-specs.pdf</div>
+                        <div class="attachment-size">2.4 MB</div>
+                      </div>
+                      <div class="attachment-actions">
+                        <button class="attachment-btn" onclick="downloadAttachment('product-specs.pdf')"
+                          title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                        <button class="attachment-btn delete" onclick="removeAttachment('product-specs.pdf')"
+                          title="Remove">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="attachment-item" data-file="manual.docx">
+                      <div class="attachment-icon">
+                        <i class="fa fa-file-word-o"></i>
+                      </div>
+                      <div class="attachment-info">
+                        <div class="attachment-name">manual.docx</div>
+                        <div class="attachment-size">856 KB</div>
+                      </div>
+                      <div class="attachment-actions">
+                        <button class="attachment-btn" onclick="downloadAttachment('manual.docx')" title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                        <button class="attachment-btn delete" onclick="removeAttachment('manual.docx')" title="Remove">
+                          <i class="fa fa-trash"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
+            </div>
           </div>
-        </div>
       </div>
     </div>
+
+    </form>
   </div>
 
-        </form>
-      </div>
-
-      <div class="product-offcanvas-actions">
-        <button class="product-action-btn secondary" onclick="closePROffcanvas()">Cancel</button>
-        <button class="product-action-btn primary">Save</button>
-      </div>
-    </div>
+  <div class="product-offcanvas-actions">
+    <button class="product-action-btn secondary" onclick="closePROffcanvas()">Cancel</button>
+    <button class="product-action-btn primary">Save</button>
+  </div>
+  </div>
   </div>
   </div>
 
@@ -1272,6 +1402,48 @@
 
   <!-- CustomEase plugin -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+
+  <!-- Image Preview Modal -->
+  <div id="imagePreviewModal" class="image-preview-modal">
+    <div class="image-preview-modal-content">
+      <div class="image-preview-modal-header">
+        <h3>Image Preview</h3>
+        <button class="image-preview-modal-close" onclick="closeImagePreviewModal()">&times;</button>
+      </div>
+      <div class="image-preview-modal-body">
+        <div class="image-preview-container">
+          <button class="image-preview-arrow image-preview-arrow-left" onclick="previousImage()">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <img id="previewImage" src="" alt="Preview Image">
+          <button class="image-preview-arrow image-preview-arrow-right" onclick="nextImage()">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Simple Image Preview Modal -->
+  <div id="imagePreviewModal" class="image-preview-modal">
+    <div class="image-preview-modal-content">
+      <div class="image-preview-modal-header">
+        <h3>Image Preview</h3>
+        <button class="image-preview-modal-close" onclick="closeImagePreviewModal()">&times;</button>
+      </div>
+      <div class="image-preview-modal-body">
+        <div class="image-preview-container">
+          <button class="image-preview-arrow image-preview-arrow-left" onclick="previousImage()">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <img id="previewImage" src="" alt="Preview Image">
+          <button class="image-preview-arrow image-preview-arrow-right" onclick="nextImage()">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <script src="script/header.js"></script>
   <script src="script/products.js"></script>

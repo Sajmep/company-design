@@ -771,7 +771,7 @@
         </div>
       </div>
       <a href="setting.html">
-        <div class="item">
+        <div class="item has-submenu" id="supportItem">
           <button class="btn" id="settingsBtn">
             <span class="icon" aria-hidden>
               <!-- settings icon -->
@@ -779,12 +779,48 @@
             </span>
             <span class="label">Settings</span>
           </button>
+                  <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="setting.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/company-settings.png" alt="" width="28px">
+                  Company Setting
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="profile/profile.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/profile-settings.png" alt="" width="28px">
+                  Company Profile
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="profile/prequalification.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/company-prequalification.png" alt="" width="28px">
+                  Company Prequalification
+                </h2>
+              </a>
+            </div>
+
+          </div>
+        </div>
         </div>
       </a>
     </div>
   </aside>
   <!-- Sidebar End -->
-
   
   <!-- Main Content -->
   <main class="content page" id="page">

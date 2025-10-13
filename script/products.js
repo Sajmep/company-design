@@ -32,10 +32,10 @@ function toggleOffcanvasWidth() {
     const resizeIcon = document.querySelector('.offcanvas-resize-icon');
     
     if (offcanvas && resizeIcon) {
-        offcanvas.classList.toggle('expanded');
+        offcanvas.classList.toggle('expanded-offcanvas');
         
         // Toggle icon direction
-        if (offcanvas.classList.contains('expanded')) {
+        if (offcanvas.classList.contains('expanded-offcanvas')) {
             resizeIcon.classList.remove('fa-chevron-left');
             resizeIcon.classList.add('fa-chevron-right');
         } else {
@@ -237,3 +237,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+
+
+
+    // Simple Image Preview Functions
+    function previewImage(imageSrc, imageName) {
+        const modal = document.getElementById('imagePreviewModal');
+        const img = document.getElementById('previewImage');
+        
+        if (modal && img) {
+          img.src = imageSrc;
+          img.alt = imageName || 'Preview Image';
+          modal.style.display = 'block';
+        }
+      }
+      
+      function closeImagePreviewModal() {
+        const modal = document.getElementById('imagePreviewModal');
+        if (modal) {
+          modal.style.display = 'none';
+        }
+      }
+      
+      // Close modal when clicking outside
+      window.onclick = function(event) {
+        const modal = document.getElementById('imagePreviewModal');
+        if (event.target === modal) {
+          closeImagePreviewModal();
+        }
+      }
+      
+      // Arrow navigation functions (placeholder for developers)
+      function previousImage() {
+        // Placeholder - developers can implement navigation logic here
+        // console.log('Previous image clicked');
+      }
+      
+      function nextImage() {
+        // Placeholder - developers can implement navigation logic here
+        // console.log('Next image clicked');
+      }

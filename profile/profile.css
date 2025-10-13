@@ -67,8 +67,6 @@
     border-radius: 8px;
     padding: 20px;
     padding-bottom: 12px;
-    max-height: 305px;
-    overflow-y: auto;
 }
 
 @keyframes modalSlideIn {
@@ -86,7 +84,7 @@
 .close-btn {
     position: absolute;
     top: 15px;
-    right: 15px;
+    right: 41px;
     background: none;
     border: none;
     font-size: 24px;
@@ -111,6 +109,13 @@
 /* Modal Content Area */
 .profile-content {
     height: 100%;
+    overflow-y: auto;
+}
+
+/* Modal Content Area */
+.prequalification-content {
+    height: 100%;
+    overflow-y: auto;
 }
 
 /* Tab Navigation */
@@ -147,6 +152,7 @@
     padding: 10px;
     box-shadow: 0 1px 3px rgba(16, 24, 40, 0.04);
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .tab-panel.active {
@@ -203,6 +209,10 @@
     max-height: 0;
 }
 
+.project-table-section{
+    padding: 0 !important;
+}
+
 /* Form Fields */
 .field {
     margin-bottom: 10px;
@@ -210,7 +220,7 @@
 
 .field label {
     display: block;
-    margin-bottom: 8px;
+    margin-bottom: 4px;
     font-weight: 500;
     color: #495057;
     font-size: 12px;
@@ -310,6 +320,18 @@
     color: #666;
     font-size: 10px;
     margin-top: 4px;
+}
+
+/* Field Row - Two fields in one row */
+.field-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.field-row .field {
+    flex: 1;
+    margin-bottom: 0;
 }
 
 /* Custom File Upload Design */
@@ -437,5 +459,11 @@
     .modal-content {
         margin: 20px;
         max-width: calc(100% - 40px);
+    }
+}
+
+@media (max-width: 480px) {
+    .banner-preview-container{
+        flex-direction: column;
     }
 }
