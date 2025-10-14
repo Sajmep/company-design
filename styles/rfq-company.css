@@ -1,0 +1,288 @@
+
+/* Attachments Dropdown Styles */
+.attachments-dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.attachments-dropdown-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: #f8f9fa;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 134px;
+  justify-content: space-between;
+}
+
+.attachments-dropdown-btn:hover {
+  border-color: #afb2b7;
+  background: #ffffff;
+}
+
+.attachments-dropdown-btn i:first-child {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.attachments-dropdown-btn i:last-child {
+  font-size: 10px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+
+.attachments-dropdown-btn:hover i:last-child,
+.attachments-dropdown-btn.active i:last-child {
+  transform: rotate(180deg);
+}
+
+.attachments-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  margin-top: 4px;
+  width: 134px;
+}
+
+/* Desktop hover behavior */
+@media (hover: hover) {
+  .attachments-dropdown:hover .attachments-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile and click behavior */
+.attachments-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.attachments-dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 12px;
+  color: #374151;
+  transition: background-color 0.2s ease;
+  border-bottom: 1px solid #f3f4f6;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  width: 100%;
+  text-align: left;
+}
+
+.attachments-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.attachments-dropdown-item:hover {
+  background-color: #f8fafc;
+}
+
+.attachments-dropdown-item i {
+  font-size: 14px;
+  color: #6b7280;
+  width: 16px;
+  text-align: center;
+}
+
+/* Attachments File List Display */
+.attachments-files-list {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.attachments-file-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0f9ff;
+  border: 1px solid #0ea5e9;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 11px;
+  color: #0369a1;
+  max-width: 200px;
+  animation: slideInDown 0.2s ease-out;
+}
+
+.attachments-file-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+
+.attachments-file-icon {
+  font-size: 12px;
+  color: #0ea5e9;
+  flex-shrink: 0;
+}
+
+.attachments-file-name {
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.attachments-file-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 8px;
+  flex-shrink: 0;
+}
+
+.attachments-file-preview {
+  color: #6b7280;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+}
+
+.attachments-file-remove {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  transition: all 0.2s;
+  font-size: 10px;
+}
+
+.attachments-file-remove:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+
+
+/* Add Product Button Styles */
+.add-product-container {
+  padding: 15px 20px;
+  border-top: 1px solid #e5e7eb;
+  background-color: #f9fafb;
+}
+
+.add-product-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  background-color: #9885d1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-product-btn:hover {
+  background-color: #8b7bc7;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.3);
+}
+
+.add-product-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(152, 133, 209, 0.3);
+}
+
+.add-product-btn i {
+  font-size: 12px;
+}
+
+
+/* RFQ Modal Table Overrides - Compact Width */
+.purchase-form-row .data-table-container {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.purchase-form-row .data-table {
+  min-width: 400px;
+  width: 100%;
+}
+
+.purchase-form-row .col-brand {
+  width: 80px !important;
+  max-width: 80px !important;
+  min-width: 80px !important;
+}
+
+.purchase-form-row .col-product {
+  width: 120px !important;
+  max-width: 120px !important;
+  min-width: 120px !important;
+}
+
+.purchase-form-row .col-qty {
+  width: 60px !important;
+  max-width: 60px !important;
+  min-width: 60px !important;
+}
+
+.purchase-form-row .col-uom {
+  width: 64px !important;
+  max-width: 64px !important;
+  min-width: 64px !important;
+}
+
+.purchase-form-row .data-table-actions {
+  width: 40px !important;
+  max-width: 40px !important;
+  min-width: 40px !important;
+}
+
+.purchase-form-row .data-checkbox-cell {
+  width: 32px !important;
+  max-width: 32px !important;
+  min-width: 32px !important;
+}
+
+.purchase-form-row .data-drag-header {
+  width: 20px !important;
+  max-width: 20px !important;
+  min-width: 20px !important;
+}
