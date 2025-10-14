@@ -15,11 +15,15 @@
 }
 
 .vendor-status-dot.online {
-  background: #10b981;
+  background: #10b981; /* Green for online */
 }
 
 .vendor-status-dot.offline {
-  background: #6b7280;
+  background: #6b7280; /* Gray for offline */
+}
+
+.vendor-status-dot.busy {
+  background: #f59e0b; /* Orange for busy */
 }
 
 /* List View Image Container */
@@ -34,19 +38,34 @@
   display: inline-block;
 }
 
+/* Company Logo Container */
+.card-view-company-logo {
+  position: relative;
+}
+
+/* Verified Indicator */
+.verified-indicator {
+  position: absolute;
+  bottom: -8px;
+  right: -13px;
+  width: 16px;
+  height: 16px;
+  z-index: 2;
+}
+
 /* Contractor Status Styles */
-.contractor-status.available {
+.contractor-status.open {
   background: #10b981;
   color: white;
 }
 
-.contractor-status.busy {
-  background: #f59e0b;
+.contractor-status.closed {
+  background: #dc2626;
   color: white;
 }
 
 .contractor-status.vacation {
-  background: #8b5cf6;
+  background: #f59e0b;
   color: white;
 }
 
@@ -56,8 +75,18 @@
 }
 
 /* List View Status Colors */
-.bmh-list-view-item-status.available {
+.bmh-list-view-item-status.open {
   background: #10b981;
+  color: white;
+}
+
+.bmh-list-view-item-status.closed {
+  background: #dc2626;
+  color: white;
+}
+
+.bmh-list-view-item-status.vacation {
+  background: #f59e0b;
   color: white;
 }
 
@@ -162,9 +191,19 @@
   font-weight: 600;
 }
 
-.status-badge.active {
+.status-badge.open {
   background: #dcfce7;
   color: #166534;
+}
+
+.status-badge.closed {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.status-badge.vacation {
+  background: #fef3c7;
+  color: #d97706;
 }
 
 .vendor-popup-actions {
