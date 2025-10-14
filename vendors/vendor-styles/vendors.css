@@ -2,6 +2,71 @@
   margin: 25px;
 }
 
+/* Vendor Status Dot */
+.vendor-status-dot {
+  position: absolute;
+  top: -1px;
+  right: -4px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  z-index: 2;
+}
+
+.vendor-status-dot.online {
+  background: #10b981;
+}
+
+.vendor-status-dot.offline {
+  background: #6b7280;
+}
+
+/* List View Image Container */
+.bmh-list-view-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Vendor Popup Image Container */
+.vendor-popup-image {
+  position: relative;
+  display: inline-block;
+}
+
+/* Contractor Status Styles */
+.contractor-status.available {
+  background: #10b981;
+  color: white;
+}
+
+.contractor-status.busy {
+  background: #f59e0b;
+  color: white;
+}
+
+.contractor-status.vacation {
+  background: #8b5cf6;
+  color: white;
+}
+
+.contractor-status.coming-soon {
+  background: #ef4444;
+  color: white;
+}
+
+/* List View Status Colors */
+.bmh-list-view-item-status.available {
+  background: #10b981;
+  color: white;
+}
+
+.bmh-list-view-item-status.coming-soon {
+  background: #ef4444;
+  color: white;
+}
+
+
 /* Vendor Popup Styles */
 .vendor-popup {
   display: none;
