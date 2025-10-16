@@ -35,6 +35,7 @@
 /* Expanded state */
 .product-offcanvas.expanded-offcanvas .product-offcanvas-content {
   width: 100%;
+  padding: 0 10%;
 }
 
 .product-offcanvas.show .product-offcanvas-content {
@@ -921,4 +922,76 @@
   .image-preview-arrow i {
     font-size: 12px;
   }
+}
+
+/* Configuration Section Styles */
+.configuration-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  background-color: #f8f8f8;
+  color: #374151;
+  margin-top: 15px;
+  font-size: 12px;
+}
+
+.configuration-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.configuration-header .fa-cog {
+  margin-right: 12px;
+  font-size: 14px;
+}
+
+.configuration-arrow {
+  transition: transform 0.3s ease;
+  font-size: 12px;
+}
+
+.configuration-content {
+  overflow: hidden;
+  transition: all 0.4s ease;
+  max-height: 0;
+  opacity: 0;
+}
+
+.configuration-content.expanded {
+  max-height: none;
+  opacity: 1;
+}
+
+/* Configuration Form Styling */
+.configuration-content select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  font-size: 14px;
+  background: white;
+  transition: border-color 0.3s ease;
+  cursor: pointer;
+}
+
+.configuration-content select:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.configuration-content select:hover {
+  border-color: #d1d5db;
+}
+
+.configuration-content label {
+  font-weight: 500;
+  color: #374151;
+  display: block;
+  font-size: 14px;
 }

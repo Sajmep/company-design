@@ -1,5 +1,29 @@
 // Products JavaScript Functions
 
+// Toggle Section (for collapsible sections)
+function toggleSection(titleElement) {
+  const contentElement = titleElement.nextElementSibling;
+  const arrow = titleElement.querySelector('#config-arrow');
+  
+  if (contentElement && contentElement.classList.contains('collapsed')) {
+    // Expand section
+    contentElement.classList.remove('collapsed');
+    contentElement.classList.add('expanded');
+    titleElement.classList.remove('collapsed');
+    if (arrow) {
+      arrow.style.transform = 'rotate(180deg)';
+    }
+  } else if (contentElement) {
+    // Collapse section
+    contentElement.classList.add('collapsed');
+    contentElement.classList.remove('expanded');
+    titleElement.classList.add('collapsed');
+    if (arrow) {
+      arrow.style.transform = 'rotate(0deg)';
+    }
+  }
+}
+
 // Open Product Creation Offcanvas
 function createProduct() {
     const offcanvas = document.getElementById('Offcanvas');
