@@ -961,9 +961,10 @@
           <!-- Product Tabs -->
           <div class="product-tabs">
             <div class="tab-buttons">
-              <button class="tab-btn active" data-tab="general">General Information</button>
+              <button class="tab-btn active" data-tab="general">General Info</button>
               <button class="tab-btn" data-tab="attributes">Attributes</button>
               <button class="tab-btn" data-tab="attachments">Attachments</button>
+              <button class="tab-btn" data-tab="logistics">Logistics</button>
             </div>
             <div class="tab-content">
               <div class="tab-panel active" id="general-tab">
@@ -1201,34 +1202,13 @@
                     <input type="text" placeholder="Enter barcode">
                   </div>
                 </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label>SKU</label>
-                    <input type="text" placeholder="Enter SKU">
-                  </div>
-                  <div class="form-group">
-                    <label>Model</label>
-                    <input type="text" placeholder="Enter model">
-                  </div>
-                </div>
-
+<br>
                 <div class="form-group">
                   <label>Description</label>
                   <textarea placeholder="Enter product description" rows="3"></textarea>
                 </div>
-
-                <div class="form-row">
-                  <div class="form-group">
-                    <label>Weight (kg)</label>
-                    <input type="number" placeholder="Enter weight" step="0.01">
-                  </div>
-                  <div class="form-group">
-                    <label>Dimensions (L x W x H)</label>
-                    <input type="text" placeholder="e.g., 100x50x30 cm">
-                  </div>
-                </div>
               </div>
+
               <div class="tab-panel" id="attributes-tab">
                 <!-- Attributes content will go here -->
               </div>
@@ -1379,17 +1359,131 @@
                   </div>
                 </div>
               </div>
+
+              <!-- Logistics Fields -->
+              <div class="tab-panel" id="logistics-tab">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>SKU</label>
+                    <input type="text" placeholder="Enter SKU">
+                  </div>
+                  <div class="form-group">
+                    <label>Model</label>
+                    <input type="text" placeholder="Enter model">
+                  </div>
+                </div>
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" placeholder="Enter weight" step="0.01">
+                  </div>
+                  <div class="form-group">
+                    <label>Dimensions (L x W x H)</label>
+                    <input type="text" placeholder="e.g., 100x50x30 cm">
+                  </div>
+                </div>
+
+                
+              <!-- Configuration Section -->
+              <div class="form-section">
+                <h2 class="configuration-header collapsed" onclick="toggleSection(this)">
+                  <div class="configuration-header-left">
+                    <i class="fa fa-cog"></i>
+                    Configuration
+                  </div>
+                  <i class="fa fa-chevron-down configuration-arrow" id="config-arrow"></i>
+                </h2>
+                <div class="configuration-content collapsed">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Pricelist</label>
+                      <select>
+                        <option value="" disabled selected>Select Pricelist</option>
+                        <option value="standard">Standard Pricing</option>
+                        <option value="wholesale">Wholesale Pricing</option>
+                        <option value="vip">VIP Customer Pricing</option>
+                        <option value="seasonal">Seasonal Pricing</option>
+                        <option value="contract">Contract Pricing</option>
+                        <option value="promotional">Promotional Pricing</option>
+                        <option value="internal">Internal Pricing</option>
+                        <option value="custom">Custom Pricing</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Responsible</label>
+                      <input type="text" placeholder="Enter responsible person">
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Website</label>
+                      <select>
+                        <option value="" disabled selected>Select Website</option>
+                        <option value="company-website">Marketplace</option>
+                        <option value="ecommerce-store">Vendor Website</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label>Country</label>
+                      <select>
+                        <option value="" disabled selected>Select Country</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="QA">Qatar</option>
+                        <option value="BH">Bahrain</option>
+                        <option value="OM">Oman</option>
+                        <option value="EG">Egypt</option>
+                        <option value="JO">Jordan</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="IQ">Iraq</option>
+                        <option value="SY">Syria</option>
+                        <option value="YE">Yemen</option>
+                        <option value="US">United States</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="DE">Germany</option>
+                        <option value="FR">France</option>
+                        <option value="IT">Italy</option>
+                        <option value="ES">Spain</option>
+                        <option value="CN">China</option>
+                        <option value="JP">Japan</option>
+                        <option value="IN">India</option>
+                        <option value="BR">Brazil</option>
+                        <option value="CA">Canada</option>
+                        <option value="AU">Australia</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Min Quantity</label>
+                      <input type="number" placeholder="Enter minimum quantity" min="1" step="1">
+                    </div>
+                    <div class="form-group">
+                      <label>Customer Lead Time</label>
+                      <input type="number" placeholder="Enter lead time in days" min="0" step="1">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+
             </div>
           </div>
       </div>
+      
+    <!-- Form Actions -->
+    <div class="product-offcanvas-actions">
+      <button class="product-action-btn secondary" onclick="closePROffcanvas()">Cancel</button>
+      <button class="product-action-btn primary">Save</button>
+    </div>
     </div>
 
-    </form>
-  </div>
 
-  <div class="product-offcanvas-actions">
-    <button class="product-action-btn secondary" onclick="closePROffcanvas()">Cancel</button>
-    <button class="product-action-btn primary">Save</button>
+    </form>
   </div>
   </div>
   </div>
