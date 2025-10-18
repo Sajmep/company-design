@@ -6,16 +6,130 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Property Details</title>
 
+  <link rel="stylesheet" href="../styles/header.css">
   <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="property-styles/property-details.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 
 </head>
 
 <body>
+
+
+  <!-- Top Header -->
+  <div class="top">
+
+    <div class="header-icons">
+
+      <div class="filter-btn-header">
+        <a href="filter-modal.html">
+          <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+        </a>
+
+      </div>
+
+      <!-- Static progress icon example (no logic) -->
+      <div class="demo-row" title="Profile Score">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <div class="progress" style="--pct:72;"> <!-- change --pct value here to any number 0-100 -->
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+              <circle class="bg" cx="18" cy="18" r="15.9155"></circle>
+              <circle class="fg" cx="18" cy="18" r="15.9155"></circle>
+            </svg>
+            <div class="label">72%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Dropdown -->
+      <div class="create-dropdown">
+        <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false"
+          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+
+        <div class="create-dropdown-menu" role="menu">
+          <!-- Category: Projects -->
+          <div class="create-category">
+            <button class="create-category-btn">Projects</button>
+            <ul class="create-category-list">
+              <li><a href="#">New Website</a></li>
+              <li><a href="#">Mobile App</a></li>
+              <li><a href="#">Dashboard</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
+
+      <!-- Bell dropdown -->
+      <div class="bell-section">
+        <details>
+
+          <summary aria-haspopup="true" aria-label="Notifications" title="Notifications">
+            <i class="fa fa-bell fa-2x" style="color: #9885d1; cursor: pointer;"></i>
+          </summary>
+        </details>
+      </div>
+
+      <!-- Apps Dropdown -->
+      <div class="appsDropdown">
+        <button class="appsDropdownBtn">
+          <div class="menu-container">
+            <div class="dots-grid">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </button>
+
+        <div class="apps-menu">
+          <!-- Search Bar -->
+          <div class="apps-search">
+            <input type="text" placeholder="Search apps..." id="appsSearch" title="Search">
+            <button class="search-btn" title="Search">
+              <span class="sr-only">Search</span>
+            </button>
+            <button class="voice-btn" title="Voice Search" title="Voice Search">
+              <span class="sr-only">Voice Search</span>
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Top Header End -->
+
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <ol>
+      <li>
+        <a href="#" title="Home">
+          <i class="fa fa-home"></i>
+        </a>
+      </li>
+      <li>
+        <a href="property.html" title="Property">Property</a>
+      </li>
+      <li>
+        <span aria-current="page" title="Luxury Villa in Riyadh">Luxury Villa in Riyadh</span>
+      </li>
+    </ol>
+  </nav>
+  <!-- Breadcrumb End -->
+
   <!-- Property Details Page -->
   <div class="property-details-container">
-    
+
     <!-- Property Header Section -->
     <div class="property-header">
       <div class="property-image-gallery">
@@ -38,29 +152,37 @@
             </div>
           </div>
         </div>
-        <div class="image-thumbnails">
-          <img src="properties-images/property1.png" alt="Thumbnail 1" class="thumbnail active">
-          <img src="properties-images/shop1.jpg" alt="Thumbnail 2" class="thumbnail">
-          <img src="properties-images/property2.jpg" alt="Thumbnail 3" class="thumbnail">
-          <img src="properties-images/property.jpg" alt="Thumbnail 4" class="thumbnail">
-          <img src="properties-images/property5.jpg" alt="Thumbnail 5" class="thumbnail">
-          <img src="properties-images/shop2.jpg" alt="Thumbnail 6" class="thumbnail">
-          <img src="properties-images/property3.jpg" alt="Thumbnail 7" class="thumbnail">
-          <img src="properties-images/property1.png" alt="Thumbnail 8" class="thumbnail">
+        <div class="thumbnail-navigation">
+          <button class="nav-btn nav-left">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <div class="image-thumbnails">
+            <img src="properties-images/property1.png" alt="Thumbnail 1" class="thumbnail active">
+            <img src="properties-images/shop1.jpg" alt="Thumbnail 2" class="thumbnail">
+            <img src="properties-images/property2.jpg" alt="Thumbnail 3" class="thumbnail">
+            <img src="properties-images/property.jpg" alt="Thumbnail 4" class="thumbnail">
+            <img src="properties-images/property5.jpg" alt="Thumbnail 5" class="thumbnail">
+            <img src="properties-images/shop2.jpg" alt="Thumbnail 6" class="thumbnail">
+            <img src="properties-images/property3.jpg" alt="Thumbnail 7" class="thumbnail">
+            <img src="properties-images/property1.png" alt="Thumbnail 8" class="thumbnail">
+          </div>
+          <button class="nav-btn nav-right">
+            <i class="fa fa-chevron-right"></i>
+          </button>
         </div>
       </div>
-      
+
       <div class="property-info">
         <div class="property-title">
-          <h1>Home in Olaya</h1>
+          <h1>Luxury Villa in Riyadh</h1>
           <div class="property-price">$700.00 /Month</div>
         </div>
-        
+
         <div class="property-location">
           <i class="fa fa-map-marker"></i>
           <span>Riyadh, Saudi Arabia</span>
         </div>
-        
+
         <div class="property-amenities">
           <div class="amenity">
             <i class="fa fa-bed"></i>
@@ -75,7 +197,7 @@
             <span>3423 sq ft</span>
           </div>
         </div>
-        
+
         <div class="property-actions">
           <button class="action-btn favorite-btn">
             <i class="fa fa-heart-o"></i>
@@ -85,341 +207,363 @@
             <i class="fa fa-exchange"></i>
             <span>Compare</span>
           </button>
+          <button class="action-btn share-btn">
+            <i class="fa fa-share-alt"></i>
+            <span>Share</span>
+          </button>
           <button class="action-btn contact-btn">
             <i class="fa fa-phone"></i>
             <span>Contact</span>
           </button>
         </div>
+
+        <div class="map-view">
+          <img src="properties-images/map-image.png" alt="Map">
+        </div>
       </div>
     </div>
-    
+
+  </div>
+
+  <div class="property-details-container-inner">
+
     <!-- Property Description Section -->
     <div class="property-description">
-      <h2>Description</h2>
-      <p>This beautiful home in Olaya offers modern living with spacious rooms and excellent amenities. Perfect for families looking for comfort and convenience in the heart of Riyadh.</p>
+      <input type="checkbox" id="description-toggle" class="description-toggle" checked>
+      <label for="description-toggle" class="description-header">
+        <h2>Description</h2>
+        <i class="fa fa-chevron-down toggle-icon"></i>
+      </label>
+      <div class="description-content">
+        <p>This beautiful home in Olaya offers modern living with spacious rooms and excellent amenities. Perfect for
+          families looking for comfort and convenience in the heart of Riyadh.</p>
+        <p>This beautiful home in Olaya offers modern living with spacious rooms and excellent amenities. Perfect for
+          families looking for comfort and convenience in the heart of Riyadh.</p>
+      </div>
     </div>
-    
+
     <!-- Property Details Section -->
     <div class="property-details-section">
-      <h2>Property Details</h2>
-      
       <!-- Basic Property Info -->
-      <div class="details-grid">
-        <div class="detail-item">
-          <label>Property Type:</label>
-          <span>Land</span>
-        </div>
-        <div class="detail-item">
-          <label>Build Environment Type:</label>
-          <span>Building</span>
-        </div>
-        <div class="detail-item">
-          <label>Occupancy:</label>
-          <span>Residential</span>
-        </div>
-        <div class="detail-item">
-          <label>For:</label>
-          <span>Sale</span>
-        </div>
-        <div class="detail-item">
-          <label>Payment Method:</label>
-          <span>Installment</span>
-        </div>
-      </div>
-      
-      <!-- Interior Details -->
-      <div class="interior-section">
-        <h3>Interior</h3>
-        
-        <!-- Bedrooms -->
-        <div class="detail-category">
-          <h4>Bedrooms</h4>
-          <div class="category-grid">
+      <div class="property-info-section">
+        <input type="checkbox" id="property-info-toggle" class="property-info-toggle" checked>
+        <label for="property-info-toggle" class="property-info-header">
+          <h2>Property Details</h2>
+          <i class="fa fa-chevron-down toggle-icon"></i>
+        </label>
+        <div class="property-info-content">
+          <div class="details-grid">
             <div class="detail-item">
-              <label>Master Bedroom:</label>
-              <span>1 (with en-suite bathroom)</span>
+              <label>Property Type:</label>
+              <span>Land</span>
             </div>
             <div class="detail-item">
-              <label>Guest Bedrooms:</label>
-              <span>2 (shared bathroom)</span>
+              <label>Build Environment Type:</label>
+              <span>Building</span>
             </div>
             <div class="detail-item">
-              <label>Total Bedrooms:</label>
-              <span>3</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Interior Features -->
-        <div class="detail-category">
-          <h4>Interior Features</h4>
-          <div class="features-list">
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Hardwood Floors</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>High Ceilings</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Built-in Wardrobes</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Modern Lighting</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Air Conditioning</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Security System</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Bathrooms -->
-        <div class="detail-category">
-          <h4>Bathrooms</h4>
-          <div class="category-grid">
-            <div class="detail-item">
-              <label>Master Bathroom:</label>
-              <span>1 (en-suite)</span>
-            </div>
-            <div class="detail-item">
-              <label>Guest Bathroom:</label>
-              <span>1 (shared)</span>
-            </div>
-            <div class="detail-item">
-              <label>Powder Room:</label>
-              <span>1 (ground floor)</span>
-            </div>
-            <div class="detail-item">
-              <label>Total Bathrooms:</label>
-              <span>3</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Other Rooms -->
-        <div class="detail-category">
-          <h4>Other Rooms</h4>
-          <div class="category-grid">
-            <div class="detail-item">
-              <label>Living Room:</label>
-              <span>1 (open plan)</span>
-            </div>
-            <div class="detail-item">
-              <label>Dining Room:</label>
-              <span>1 (formal dining)</span>
-            </div>
-            <div class="detail-item">
-              <label>Study/Office:</label>
-              <span>1 (home office)</span>
-            </div>
-            <div class="detail-item">
-              <label>Storage Room:</label>
-              <span>1 (utility room)</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Heating and Cooling -->
-        <div class="detail-category">
-          <h4>Heating and Cooling</h4>
-          <div class="category-grid">
-            <div class="detail-item">
-              <label>Heating System:</label>
-              <span>Central Heating</span>
-            </div>
-            <div class="detail-item">
-              <label>Cooling System:</label>
-              <span>Central Air Conditioning</span>
-            </div>
-            <div class="detail-item">
-              <label>Energy Rating:</label>
-              <span>A+ (Energy Efficient)</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Kitchen and Dining -->
-        <div class="detail-category">
-          <h4>Kitchen and Dining</h4>
-          <div class="category-grid">
-            <div class="detail-item">
-              <label>Kitchen Type:</label>
-              <span>Modern Open Kitchen</span>
-            </div>
-            <div class="detail-item">
-              <label>Appliances:</label>
-              <span>Stainless Steel</span>
-            </div>
-            <div class="detail-item">
-              <label>Countertops:</label>
-              <span>Granite</span>
-            </div>
-            <div class="detail-item">
-              <label>Dining Area:</label>
-              <span>Seats 8 people</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Exterior Details -->
-      <div class="exterior-section">
-        <h3>Exterior</h3>
-        
-        <!-- Exterior and Lot Features -->
-        <div class="detail-category">
-          <h4>Exterior and Lot Features</h4>
-          <div class="features-list">
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Private Garden</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Swimming Pool</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Outdoor Kitchen</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Patio Area</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Landscaped Garden</span>
-            </div>
-            <div class="feature-item">
-              <i class="fa fa-check"></i>
-              <span>Security Fencing</span>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Land Info -->
-        <div class="detail-category">
-          <h4>Land Info</h4>
-          <div class="category-grid">
-            <div class="detail-item">
-              <label>Lot Size:</label>
-              <span>500 sq m</span>
-            </div>
-            <div class="detail-item">
-              <label>Building Area:</label>
-              <span>300 sq m</span>
-            </div>
-            <div class="detail-item">
-              <label>Garden Area:</label>
-              <span>200 sq m</span>
-            </div>
-            <div class="detail-item">
-              <label>Lot Shape:</label>
-              <span>Rectangular</span>
-            </div>
-            <div class="detail-item">
-              <label>Orientation:</label>
-              <span>South Facing</span>
-            </div>
-            <div class="detail-item">
-              <label>Zoning:</label>
+              <label>Occupancy:</label>
               <span>Residential</span>
             </div>
-          </div>
-        </div>
-        
-        <!-- Garage and Parking -->
-        <div class="detail-category">
-          <h4>Garage and Parking</h4>
-          <div class="category-grid">
             <div class="detail-item">
-              <label>Garage Spaces:</label>
-              <span>2 cars</span>
+              <label>For:</label>
+              <span>Sale</span>
             </div>
             <div class="detail-item">
-              <label>Driveway:</label>
-              <span>Private driveway</span>
-            </div>
-            <div class="detail-item">
-              <label>Street Parking:</label>
-              <span>Available</span>
-            </div>
-            <div class="detail-item">
-              <label>Garage Type:</label>
-              <span>Attached</span>
+              <label>Payment Method:</label>
+              <span>Installment</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-    
-    <!-- Media Section -->
-    <div class="media-section">
-      <h2>Media</h2>
-      <div class="media-tabs">
-        <button class="media-tab active" data-tab="gallery">Gallery</button>
-        <button class="media-tab" data-tab="360">360° Images</button>
-        <button class="media-tab" data-tab="designs">Designs</button>
-      </div>
-      <div class="media-content">
-        <div class="media-tab-content active" id="gallery">
-          <div class="media-grid">
-            <img src="properties-images/property1.png" alt="Gallery Image 1">
-            <img src="properties-images/shop1.jpg" alt="Gallery Image 2">
-            <img src="properties-images/property2.jpg" alt="Gallery Image 3">
-            <img src="properties-images/property.jpg" alt="Gallery Image 4">
+
+        <!-- Interior Details -->
+        <div class="interior-section">
+          <input type="checkbox" id="interior-toggle" class="interior-toggle">
+          <label for="interior-toggle" class="interior-header">
+            <h3>Interior</h3>
+            <i class="fa fa-chevron-down toggle-icon"></i>
+          </label>
+          <div class="interior-content">
+
+            <!-- Bedrooms -->
+            <div class="detail-category">
+              <h4>Bedrooms</h4>
+              <div class="room-list">
+                <div class="room-item">
+                  <i class="fa fa-bed"></i>
+                  <div class="room-info">
+                    <span class="room-name">Master Bedroom</span>
+                    <span class="room-details">1 (with en-suite bathroom)</span>
+                  </div>
+                </div>
+                <div class="room-item">
+                  <i class="fa fa-bed"></i>
+                  <div class="room-info">
+                    <span class="room-name">Guest Bedrooms</span>
+                    <span class="room-details">2 (shared bathroom)</span>
+                  </div>
+                </div>
+                <div class="room-item total">
+                  <i class="fa fa-home"></i>
+                  <div class="room-info">
+                    <span class="room-name">Total Bedrooms</span>
+                    <span class="room-details">3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interior Features -->
+            <div class="detail-category">
+              <h4>Interior Features</h4>
+              <div class="features-list">
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Hardwood Floors</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>High Ceilings</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Built-in Wardrobes</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Modern Lighting</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Air Conditioning</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Security System</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Bathrooms -->
+            <div class="detail-category">
+              <h4>Bathrooms</h4>
+              <div class="room-list">
+                <div class="room-item">
+                  <i class="fa fa-bath"></i>
+                  <div class="room-info">
+                    <span class="room-name">Master Bathroom</span>
+                    <span class="room-details">1 (en-suite)</span>
+                  </div>
+                </div>
+                <div class="room-item">
+                  <i class="fa fa-bath"></i>
+                  <div class="room-info">
+                    <span class="room-name">Guest Bathroom</span>
+                    <span class="room-details">1 (shared)</span>
+                  </div>
+                </div>
+                <div class="room-item">
+                  <i class="fa fa-bath"></i>
+                  <div class="room-info">
+                    <span class="room-name">Powder Room</span>
+                    <span class="room-details">1 (ground floor)</span>
+                  </div>
+                </div>
+                <div class="room-item total">
+                  <i class="fa fa-home"></i>
+                  <div class="room-info">
+                    <span class="room-name">Total Bathrooms</span>
+                    <span class="room-details">3</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Other Rooms -->
+            <div class="detail-category">
+              <h4>Other Rooms</h4>
+              <div class="room-list">
+                <div class="room-item">
+                  <i class="fa fa-couch"></i>
+                  <div class="room-info">
+                    <span class="room-name">Living Room</span>
+                    <span class="room-details">1 (open plan)</span>
+                  </div>
+                </div>
+                <div class="room-item">
+                  <i class="fa fa-utensils"></i>
+                  <div class="room-info">
+                    <span class="room-name">Dining Room</span>
+                    <span class="room-details">1 (formal dining)</span>
+                  </div>
+                </div>
+                <div class="room-item">
+                  <i class="fa fa-laptop"></i>
+                  <div class="room-info">
+                    <span class="room-name">Study/Office</span>
+                    <span class="room-details">1 (home office)</span>
+                  </div>
+                </div>
+                <div class="room-item">
+                  <i class="fa fa-box"></i>
+                  <div class="room-info">
+                    <span class="room-name">Storage Room</span>
+                    <span class="room-details">1 (utility room)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Heating and Cooling -->
+            <div class="detail-category">
+              <h4>Heating and Cooling</h4>
+              <div class="category-grid">
+                <div class="detail-item">
+                  <label>Heating System:</label>
+                  <span>Central Heating</span>
+                </div>
+                <div class="detail-item">
+                  <label>Cooling System:</label>
+                  <span>Central Air Conditioning</span>
+                </div>
+                <div class="detail-item">
+                  <label>Energy Rating:</label>
+                  <span>A+ (Energy Efficient)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Kitchen and Dining -->
+            <div class="detail-category">
+              <h4>Kitchen and Dining</h4>
+              <div class="category-grid">
+                <div class="detail-item">
+                  <label>Kitchen Type:</label>
+                  <span>Modern Open Kitchen</span>
+                </div>
+                <div class="detail-item">
+                  <label>Appliances:</label>
+                  <span>Stainless Steel</span>
+                </div>
+                <div class="detail-item">
+                  <label>Countertops:</label>
+                  <span>Granite</span>
+                </div>
+                <div class="detail-item">
+                  <label>Dining Area:</label>
+                  <span>Seats 8 people</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="media-tab-content" id="360">
-          <p>360° Images will be displayed here</p>
+
+        <!-- Exterior Details -->
+        <div class="exterior-section">
+          <input type="checkbox" id="exterior-toggle" class="exterior-toggle">
+          <label for="exterior-toggle" class="exterior-header">
+            <h3>Exterior</h3>
+            <i class="fa fa-chevron-down toggle-icon"></i>
+          </label>
+          <div class="exterior-content">
+
+            <!-- Exterior and Lot Features -->
+            <div class="detail-category">
+              <h4>Exterior and Lot Features</h4>
+              <div class="features-list">
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Private Garden</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Swimming Pool</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Outdoor Kitchen</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Patio Area</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Landscaped Garden</span>
+                </div>
+                <div class="feature-item">
+                  <i class="fa fa-check"></i>
+                  <span>Security Fencing</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Land Info -->
+            <div class="detail-category">
+              <h4>Land Info</h4>
+              <div class="category-grid">
+                <div class="detail-item">
+                  <label>Lot Size:</label>
+                  <span>500 sq m</span>
+                </div>
+                <div class="detail-item">
+                  <label>Building Area:</label>
+                  <span>300 sq m</span>
+                </div>
+                <div class="detail-item">
+                  <label>Garden Area:</label>
+                  <span>200 sq m</span>
+                </div>
+                <div class="detail-item">
+                  <label>Lot Shape:</label>
+                  <span>Rectangular</span>
+                </div>
+                <div class="detail-item">
+                  <label>Orientation:</label>
+                  <span>South Facing</span>
+                </div>
+                <div class="detail-item">
+                  <label>Zoning:</label>
+                  <span>Residential</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Garage and Parking -->
+            <div class="detail-category">
+              <h4>Garage and Parking</h4>
+              <div class="category-grid">
+                <div class="detail-item">
+                  <label>Garage Spaces:</label>
+                  <span>2 cars</span>
+                </div>
+                <div class="detail-item">
+                  <label>Driveway:</label>
+                  <span>Private driveway</span>
+                </div>
+                <div class="detail-item">
+                  <label>Street Parking:</label>
+                  <span>Available</span>
+                </div>
+                <div class="detail-item">
+                  <label>Garage Type:</label>
+                  <span>Attached</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="media-tab-content" id="designs">
-          <p>Design documents will be displayed here</p>
-        </div>
+
       </div>
+
     </div>
-    
-    <!-- Nearby Utilities Section -->
-    <div class="utilities-section">
-      <h2>Nearby Utilities</h2>
-      <div class="utilities-grid">
-        <div class="utility-item">
-          <i class="fa fa-hospital-o"></i>
-          <span>Hospital - 2km</span>
-        </div>
-        <div class="utility-item">
-          <i class="fa fa-graduation-cap"></i>
-          <span>School - 1km</span>
-        </div>
-        <div class="utility-item">
-          <i class="fa fa-shopping-cart"></i>
-          <span>Shopping Mall - 3km</span>
-        </div>
-        <div class="utility-item">
-          <i class="fa fa-bus"></i>
-          <span>Bus Station - 500m</span>
-        </div>
-        <div class="utility-item">
-          <i class="fa fa-cutlery"></i>
-          <span>Restaurants - 1.5km</span>
-        </div>
-        <div class="utility-item">
-          <i class="fa fa-bank"></i>
-          <span>Bank - 2km</span>
-        </div>
-      </div>
-    </div>
-    
-    
+
   </div>
+
+  <div class="property-details-sidebar">
+    <h2>Call to action ⬇️</h2>
+  </div>
+  
 
 </body>
 

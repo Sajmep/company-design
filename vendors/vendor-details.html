@@ -702,6 +702,9 @@
                       <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery1')">
                         <i class="fa fa-comment"></i>
                       </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery1')">
+                        <i class="fa fa-flag"></i>
+                      </button>
                     </div>
                     <div class="gallery-caption">Construction Site Overview</div>
                     <div class="gallery-comment-count">3 comments</div>
@@ -712,6 +715,9 @@
                       <i class="fa fa-search-plus"></i>
                       <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery4')">
                         <i class="fa fa-comment"></i>
+                      </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery4')">
+                        <i class="fa fa-flag"></i>
                       </button>
                     </div>
                     <div class="gallery-caption">Road Construction Project</div>
@@ -724,6 +730,9 @@
                       <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery3')">
                         <i class="fa fa-comment"></i>
                       </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery3')">
+                        <i class="fa fa-flag"></i>
+                      </button>
                     </div>
                     <div class="gallery-caption">Building Infrastructure</div>
                     <div class="gallery-comment-count">0 comments</div>
@@ -734,6 +743,9 @@
                       <i class="fa fa-search-plus"></i>
                       <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery2')">
                         <i class="fa fa-comment"></i>
+                      </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery2')">
+                        <i class="fa fa-flag"></i>
                       </button>
                     </div>
                     <div class="gallery-caption">Heavy Machinery in Action</div>
@@ -1208,6 +1220,53 @@
     </div>
     <!-- Comment Modal End -->
 
+    <!-- Report Modal -->
+    <div id="reportModal" class="report-modal">
+      <div class="report-modal-content">
+        <div class="report-modal-header">
+          <h3>Report Image</h3>
+          <button class="report-modal-close" onclick="closeReportModal()">&times;</button>
+        </div>
+        <div class="report-modal-body">
+          <div class="report-image-preview">
+            <img id="reportImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
+          </div>
+          <div class="report-section">
+            <div class="report-form">
+              <h4>Report this image</h4>
+              <form>
+                <div class="form-group">
+                  <label>Reason for reporting</label>
+                  <select required>
+                    <option value="">Select a reason</option>
+                    <option value="inappropriate">Inappropriate content</option>
+                    <option value="spam">Spam or misleading</option>
+                    <option value="copyright">Copyright violation</option>
+                    <option value="quality">Poor quality</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Your name</label>
+                  <input type="text" placeholder="Your name" required>
+                </div>
+                <div class="form-group">
+                  <label>Email</label>
+                  <input type="email" placeholder="your@email.com" required>
+                </div>
+                <div class="form-group">
+                  <label>Additional details</label>
+                  <textarea placeholder="Please provide more details about your report..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="report-submit-btn">Submit Report</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Report Modal End -->
+
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <script src="vendor-scripts/vendor-details.js"></script>
   <script src="vendor-scripts/vendor-gallery.js"></script>
@@ -1225,14 +1284,29 @@
       document.getElementById('commentModal').style.display = 'none';
     }
     
+    // Report Modal Functions
+    function openReportModal(imageId) {
+      document.getElementById('reportModal').style.display = 'block';
+      // Update the image preview in the modal
+      document.getElementById('reportImagePreview').src = '../images/' + imageId + '.jpg';
+    }
+    
+    function closeReportModal() {
+      document.getElementById('reportModal').style.display = 'none';
+    }
+    
     // Close modal when clicking outside
     window.onclick = function(event) {
-      var modal = document.getElementById('commentModal');
-      if (event.target == modal) {
-        modal.style.display = 'none';
+      var commentModal = document.getElementById('commentModal');
+      var reportModal = document.getElementById('reportModal');
+      if (event.target == commentModal) {
+        commentModal.style.display = 'none';
+      }
+      if (event.target == reportModal) {
+        reportModal.style.display = 'none';
       }
     }
   </script>
 </body>
  
-</html>
+</html> 
