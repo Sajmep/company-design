@@ -1,0 +1,164 @@
+
+  /* Add Apps Section Styles */
+  .add-apps-section {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 8px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .add-apps-header {
+    margin-bottom: 12px;
+  }
+
+  .add-apps-header h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+  }
+
+  .add-apps-scroll-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+
+  .add-apps-scroll {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1;
+    padding: 4px 0;
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 #f1f5f9;
+  }
+
+  .add-apps-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .add-apps-scroll::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 2px;
+  }
+
+  .add-apps-scroll::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
+  }
+
+  .add-apps-scroll::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .add-app-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    padding: 8px 6px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    min-width: 60px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .add-app-item:hover {
+    background: #f8fafc;
+    border-color: #3b82f6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+  }
+
+  .add-app-item span {
+    font-size: 10px;
+    color: #374151;
+    font-weight: 500;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 4px;
+    white-space: nowrap;
+  }
+
+  .add-app-item:hover span {
+    color: #1d4ed8;
+  }
+
+  .add-app-item img {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
+  }
+
+  .add-app-item:hover img {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+
+  /* Create App Button */
+  .create-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981, #059669);
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .create-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #34d399, #10b981);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 50%;
+  }
+
+  .create-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+  }
+
+  .create-btn:hover::before {
+    opacity: 1;
+  }
+
+  .create-btn:active {
+    transform: scale(0.95);
+  }
+
+  .create-btn i {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
+  }
+
+  .create-btn:hover i {
+    transform: rotate(90deg);
+  }

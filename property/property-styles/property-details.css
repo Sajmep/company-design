@@ -1573,3 +1573,185 @@
 }
 
 .album-thumb.active { border-color: #d91f23; }
+
+/* Book Property Button - Minimal */
+.book-property-btn {
+  background: #d91f23;
+  color: white;
+  border: 1px solid #d91f23;
+}
+
+.book-property-btn:hover {
+  background: #b71c1c;
+  border-color: #b71c1c;
+  color: white;
+}
+
+/* Book Property Modal - Minimal */
+.book-property-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 1000;
+}
+
+.book-property-modal.show {
+  display: block;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  width: 90%;
+  max-width: 500px;
+  margin: 50px auto;
+  border-radius: 8px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+/* Date Range Picker - Minimal */
+.date-range-picker {
+  display: flex;
+  gap: 15px;
+  margin: 15px 0;
+}
+
+.date-input {
+  flex: 1;
+}
+
+.date-input label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.date-input input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.duration-display {
+  margin-top: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Guest Selector - Simple */
+.guest-selector {
+  margin: 15px 0;
+  text-align: center;
+}
+
+.guest-counter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.counter-btn {
+  width: 35px;
+  height: 35px;
+  border: 1px solid #ddd;
+  background: white;
+
+}
+
+.counter-value {
+  min-width: 30px;
+}
+
+/* Pricing Calculator - Minimal */
+.pricing-calculator {
+  margin: 15px 0;
+}
+
+.price-breakdown {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.price-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 8px 0;
+  padding: 5px 0;
+}
+
+.price-item.total {
+  border-top: 1px solid #ddd;
+  margin-top: 10px;
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* Explore Button - Bottom Right */
+.explore-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #163f77;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(22, 63, 119, 0.3);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.explore-btn:hover {
+  background: #0f2a5a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(22, 63, 119, 0.4);
+}
+
+.explore-btn i {
+  font-size: 16px;
+}

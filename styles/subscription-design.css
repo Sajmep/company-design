@@ -287,7 +287,7 @@ main.content{
 
 .comparison-table .feature-name {
   text-align: left;
-  font-weight: 600;
+  font-size: 13px;
   color: #495057;
   background-color: #f8f9fa;
 }
@@ -305,6 +305,124 @@ main.content{
 .comparison-table tr:hover {
   background-color: #f8f9fa;
 }
+
+.comparison-table .section-header {
+  background-color: #f8f9fa;
+  color: #163f77;
+  font-weight: 600;
+  font-size: 14px;
+  border-left: 4px solid #163f77;
+}
+
+.comparison-table .section-header:hover {
+  background-color: #f1f3f4;
+}
+
+.comparison-table .section-title {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: #163f77;
+  cursor: pointer;
+}
+
+.comparison-table .section-toggle {
+  margin-right: 8px;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  font-size: 12px;
+}
+
+.comparison-table .section-header.collapsed .section-toggle {
+  transform: rotate(90deg);
+}
+
+.comparison-table .section-content {
+  display: table-row;
+  opacity: 1;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+}
+
+.comparison-table .section-content.collapsed {
+  display: none;
+  opacity: 0;
+}
+
+/* ROI Section */
+.roi-section{
+  margin-top: 24px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  padding: 16px 20px;
+}
+
+.roi-title{
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #163f77;
+}
+
+.roi-placeholder{
+  color: #6c757d;
+  font-size: 14px;
+}
+
+/* Feature Boxes Section - basic alignment only */
+.feature-boxes-section{ margin-top: 16px; }
+.feature-boxes-title{ margin: 0 0 8px; font-size: 16px; color: #163f77; }
+.feature-boxes{
+  display: flex
+  ;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 780px;
+      flex-direction: column;
+      align-items: flex-start;
+}
+.feature-cost-wrapper{ display:flex; gap:16px; align-items:flex-start; }
+.feature-cost-table{ border-collapse: collapse; min-width: 260px; }
+.feature-cost-table th, .feature-cost-table td{ border:1px solid #ddd; padding:6px 8px; font-size:12px; text-align:left; }
+.feature-cost-table thead th{ background:#f8f9fa; color:#163f77; }
+.feature-box{
+  padding: 6px 8px;
+  border: 1px solid #ddd; /* simple divider */
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* BMH All Features summary */
+.bmh-all-section{ margin-top: 16px; }
+.bmh-title{ margin: 0 0 8px; font-size: 16px; color: #163f77; }
+.bmh-summary{ display:flex; justify-content: space-between; align-items:center; border:1px solid #ddd; padding:10px; }
+.bmh-note{ font-size:12px; color:#495057; }
+.bmh-total{ display:flex; align-items:center; gap:6px; font-weight:700; }
+.bmh-total .label{ color:#163f77; }
+.bmh-total .value{ color:#495057; }
+.bmh-total .currency{ color:#495057; font-weight:600; }
+
+/* Your Saving */
+.saving-section{ margin-top: 16px; }
+.saving-title{ margin: 0 0 8px; font-size: 16px; color: #163f77; }
+.saving-summary{ display:flex; justify-content: space-between; align-items:center; border:1px solid #ddd; padding:10px; }
+.saving-label{ font-size:12px; color:#495057; }
+.saving-value{ font-weight:700; color:#495057; }
+
+.feature-box input[type="checkbox"]{
+  width: 14px;
+  height: 14px;
+}
+
+/* Cut Cost Section - basic alignment only */
+.cut-cost-section{ margin-top: 16px; }
+.cut-cost-title{ margin: 0 0 8px; font-size: 16px; color: #163f77; }
+.cut-cost-row{ display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
+.cut-cost-row:last-child{ border-bottom: 0; }
+.cut-cost-total{ display: flex; justify-content: space-between; margin-top: 8px; padding: 8px 0; border-top: 1px solid #eee; }
+
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -333,3 +451,189 @@ main.content{
     font-size: 12px;
   }
 }
+
+/* Action Panel Tab Styles */
+
+.action-panel {
+  width: 600px !important;
+  right: -600px !important;
+}
+
+.action-panel.open {
+  right: 0 !important;
+}
+
+.panel-tabs {
+  display: flex;
+  border-bottom: 1px solid #e9ecef;
+  margin-bottom: 20px;
+}
+
+.tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #6c757d;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #163f77;
+  background: #f8f9fa;
+}
+
+.tab-btn.active {
+  color: #163f77;
+  border-bottom-color: #163f77;
+  background: #f8f9fa;
+}
+
+.tab-content {
+  position: relative;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+.tab-panel h4 {
+  margin: 0 0 12px 0;
+  color: #163f77;
+  font-size: 16px;
+}
+
+.tab-panel p {
+  margin: 0;
+  color: #6c757d;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Feature Boxes Design */
+.feature-boxes {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 234px;
+  flex-direction: row;
+  max-height: 332px;
+  padding-top: 8px;
+  overflow-y: auto;
+}
+
+.feature-box {
+  position: relative;
+  background: #ffffff;
+  border: 2px solid #e9ecef;
+  border-radius: 5px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: left;
+  min-height: 60px;
+  width: 100px;
+  height: 100px;
+  justify-content: flex-start;
+}
+
+.feature-box:hover {
+  border-color: #163f77;
+  box-shadow: 0 4px 12px rgba(22, 63, 119, 0.1);
+}
+
+.feature-box input[type="checkbox"] {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.feature-box input[type="checkbox"]:checked {
+  border-color: #163f77;
+}
+
+.feature-box input[type="checkbox"]:checked + .feature-content {
+  border-color: #163f77;
+  background: #f8f9ff;
+}
+
+.feature-box:has(input[type="checkbox"]:checked) {
+  border-color: #163f77;
+  background: #f8f9ff;
+}
+
+.feature-box input[type="checkbox"]:checked + .feature-content::after {
+  content: '✓';
+  position: absolute;
+  top: -22px;
+  right: -24px;
+  background: #163f77;
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(22, 63, 119, 0.3);
+}
+
+.feature-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  gap: 8px;
+}
+
+.feature-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #163f77, #4a90e2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: white;
+  box-shadow: 0 2px 6px rgba(22, 63, 119, 0.2);
+  flex-shrink: 0;
+}
+
+.feature-text {
+  font-size: 13px;
+  font-weight: 500;
+  color: #495057;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Feature icons for different features */
+.feature-box[data-feature="Publish vendors"] .feature-icon::before { content: '📝'; }
+.feature-box[data-feature="RFQs"] .feature-icon::before { content: '📋'; }
+.feature-box[data-feature="Tenders"] .feature-icon::before { content: '📄'; }
+.feature-box[data-feature="Project management"] .feature-icon::before { content: '📊'; }
+.feature-box[data-feature="360 preview"] .feature-icon::before { content: '🔄'; }
+.feature-box[data-feature="Virtual showroom"] .feature-icon::before { content: '🏪'; }
+.feature-box[data-feature="AI assistant"] .feature-icon::before { content: '🤖'; }
+.feature-box[data-feature="Analytics"] .feature-icon::before { content: '📈'; }
