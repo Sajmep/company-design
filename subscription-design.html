@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 
@@ -9,6 +8,7 @@
   <link rel="stylesheet" href="styles/scrollbar.css">
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/action-panel-right.css">
   <link rel="stylesheet" href="styles/subscription-design.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
 </head>
@@ -24,9 +24,9 @@
         <a href="filter-modal.html">
           <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
         </a>
-       
+
       </div>
-      
+
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -42,7 +42,8 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-          <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+        <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false"
+          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
       </div>
 
       <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
@@ -85,7 +86,7 @@
     </div>
   </div>
   <!-- Top Header End -->
-  
+
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
@@ -95,8 +96,7 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa fa-chevron-down"
-            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+          <i class="fa fa-chevron-down" style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
 
@@ -113,9 +113,9 @@
           <h2>Company</h2>
         </div>
         <div class="form-grid">
-          
+
           <div class="company form-section">
-      
+
             <div class="checkbox-group ">
               <div class="section">
                 <h4>SAJMEP</h4>
@@ -207,7 +207,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/our-products-icon.png" alt="" width="28px">
-                Offering 
+                Offering
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -340,20 +340,20 @@
                     </a>
                     <ul class="purchase-submenu">
                       <li><a href="purchase.html" class="purchase-submenu-link active">
-                        <i class="fa fa-file-text-o"></i>
-                        PR
-                        <span class="purchase-tab-count">12</span>
-                      </a></li>
+                          <i class="fa fa-file-text-o"></i>
+                          PR
+                          <span class="purchase-tab-count">12</span>
+                        </a></li>
                       <li><a href="rfq.html" class="purchase-submenu-link">
-                        <i class="fa fa-question-circle"></i>
-                        RFQ
-                        <span class="purchase-tab-count">8</span>
-                      </a></li>
+                          <i class="fa fa-question-circle"></i>
+                          RFQ
+                          <span class="purchase-tab-count">8</span>
+                        </a></li>
                       <li><a href="po.html" class="purchase-submenu-link">
-                        <i class="fa fa-file-text"></i>
-                        PO
-                        <span class="purchase-tab-count">25</span>
-                      </a></li>
+                          <i class="fa fa-file-text"></i>
+                          PO
+                          <span class="purchase-tab-count">25</span>
+                        </a></li>
                     </ul>
                   </li>
                   <li><a href="#">Tenders</a></li>
@@ -419,12 +419,12 @@
 
       <div class="item has-submenu" id="quickLinksItem">
         <a href="inquiries.html">
-        <button class="btn" aria-haspopup="true" aria-expanded="false">
-          <span class="icon" aria-hidden>
-            <img src="images/quick-link.png" alt="" class="sidebar-icons">
-          </span>
-          <span class="label">Inquiries</span>
-        </button>
+          <button class="btn" aria-haspopup="true" aria-expanded="false">
+            <span class="icon" aria-hidden>
+              <img src="images/quick-link.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Inquiries</span>
+          </button>
         </a>
       </div>
 
@@ -470,7 +470,7 @@
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
                   <img src="images/competition.png" alt="" width="28px">
-                  Competitions 
+                  Competitions
                 </h2>
               </a>
             </div>
@@ -478,7 +478,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/media-center.png" alt="" width="28px">
-                Media Center 
+                Media Center
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -547,9 +547,12 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
-                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
-                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a>
+                  </li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a>
+                  </li>
+                  <li><a href="help-center.html#video-tutorials"
+                      onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>
@@ -576,43 +579,43 @@
             </span>
             <span class="label">Settings</span>
           </button>
-                  <!-- Submenu (full-height) -->
-        <div class="submenu" role="menu" aria-label="Organization submenu">
-          <div class="submenu-top">
-            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          <!-- Submenu (full-height) -->
+          <div class="submenu" role="menu" aria-label="Organization submenu">
+            <div class="submenu-top">
+              <h3 style="margin:0;font-size:16px">All Settings</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="setting.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-settings.png" alt="" width="28px">
+                    Company Setting
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/profile.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/profile-settings.png" alt="" width="28px">
+                    Company Profile
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/prequalification.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-prequalification.png" alt="" width="28px">
+                    Company Prequalification
+                  </h2>
+                </a>
+              </div>
+
+            </div>
           </div>
-
-          <div class="form-grid">
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="setting.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/company-settings.png" alt="" width="28px">
-                  Company Setting
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="profile/profile.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/profile-settings.png" alt="" width="28px">
-                  Company Profile
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="profile/prequalification.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/company-prequalification.png" alt="" width="28px">
-                  Company Prequalification
-                </h2>
-              </a>
-            </div>
-
-          </div>
-        </div>
         </div>
       </a>
     </div>
@@ -621,194 +624,361 @@
 
   <main class="content page" id="page">
     <div class="subscription-container">
-        <div class="subscription-header">
-          <h1>Subscription Design</h1>
-          <select name="company" id="company">
-            <option value="company0">Select Company</option>
-            <option value="company1">Company 1</option>
-            <option value="company2">Company 2</option>
-            <option value="company3">Company 3</option>
-          </select>
-        </div>
+      <div class="subscription-header">
+        <h1>Subscription Design</h1>
+        <select name="company" id="company">
+          <option value="company0">Select Company</option>
+          <option value="company1">Company 1</option>
+          <option value="company2">Company 2</option>
+          <option value="company3">Company 3</option>
+        </select>
+      </div>
 
-        <div class="subscription-toggle">
-          <button class="subscription-toggle-btn active" onclick="togglePeriod('monthly')">Monthly</button>
-          <button class="subscription-toggle-btn" onclick="togglePeriod('yearly')">Yearly</button>
-        </div>
+      <div class="subscription-toggle">
+        <button class="subscription-toggle-btn active" onclick="togglePeriod('monthly')">Monthly</button>
+        <button class="subscription-toggle-btn" onclick="togglePeriod('yearly')">Yearly</button>
+      </div>
 
-        <div class="subscription-body">
-            <div class="tier-card">
-                <h2>Standard</h2>
-                <div class="price">109 SAR<span>/month</span></div>
-                <ul class="features">
-                    <li>Publish vendors</li>
-                    <li>Connect to vendors</li>
-                    <li>Follow vendors</li>
-                    <li>Receive RFQ</li>
-                    <li>Basic search</li>
-                    <li>5 users</li>
-                </ul>
-                <button class="subscribe-btn">Pay now</button>
-            </div>
-            <div class="tier-card">
-                <h2>Pro</h2>
-                <div class="price">221 SAR<span>/month</span></div>
-                <ul class="features">
-                    <li>All Standard features</li>
-                    <li>Participate with tenders</li>
-                    <li>Access to tenders (Etimad)</li>
-                    <li>Project management</li>
-                    <li>360 product preview</li>
-                    <li>25 users</li>
-                </ul>
-                <button class="subscribe-btn">Pay now</button>
-            </div>
-            <div class="tier-card">
-                <h2>Pro+</h2>
-                <div class="price">371 SAR<span>/month</span></div>
-                <ul class="features">
-                    <li>All Pro features</li>
-                    <li>Virtual showroom</li>
-                    <li>Preorder/Reorder</li>
-                    <li>Construction classification</li>
-                    <li>Company evaluation</li>
-                    <li>100 users</li>
-                </ul>
-                <button class="subscribe-btn">Pay now</button>
-            </div>
-            <div class="tier-card">
-                <h2>Enterprise</h2>
-                <div class="price">746 SAR<span>/month</span></div>
-                <ul class="features">
-                    <li>All Pro+ features</li>
-                    <li>AI assistant</li>
-                    <li>Augmented Reality</li>
-                    <li>Cost estimation</li>
-                    <li>Project performance reports</li>
-                    <li>Unlimited users</li>
-                </ul>
-                <button class="subscribe-btn">Pay now</button>
-            </div>
-            <div class="tier-card">
-                <h2>Custom</h2>
-                <div class="price">Contact Us</div>
-                <ul class="features">
-                    <li>All Enterprise features</li>
-                    <li>Custom integrations</li>
-                    <li>Dedicated support</li>
-                    <li>Tailored solutions</li>
-                    <li>API access</li>
-                </ul>
-                <button class="subscribe-btn">Get Quote</button>
-            </div>
+      <div class="subscription-body">
+        <div class="tier-card">
+          <h2>Standard</h2>
+          <div class="price">109 SAR<span>/month</span></div>
+          <ul class="features">
+            <li>Publish vendors</li>
+            <li>Connect to vendors</li>
+            <li>Follow vendors</li>
+            <li>Receive RFQ</li>
+            <li>Basic search</li>
+            <li>5 users</li>
+          </ul>
+          <button class="subscribe-btn">Pay now</button>
         </div>
+        <div class="tier-card">
+          <h2>Pro</h2>
+          <div class="price">221 SAR<span>/month</span></div>
+          <ul class="features">
+            <li>All Standard features</li>
+            <li>Participate with tenders</li>
+            <li>Access to tenders (Etimad)</li>
+            <li>Project management</li>
+            <li>360 product preview</li>
+            <li>25 users</li>
+          </ul>
+          <button class="subscribe-btn">Pay now</button>
+        </div>
+        <div class="tier-card">
+          <h2>Pro+</h2>
+          <div class="price">371 SAR<span>/month</span></div>
+          <ul class="features">
+            <li>All Pro features</li>
+            <li>Virtual showroom</li>
+            <li>Preorder/Reorder</li>
+            <li>Construction classification</li>
+            <li>Company evaluation</li>
+            <li>100 users</li>
+          </ul>
+          <button class="subscribe-btn">Pay now</button>
+        </div>
+        <div class="tier-card">
+          <h2>Enterprise</h2>
+          <div class="price">746 SAR<span>/month</span></div>
+          <ul class="features">
+            <li>All Pro+ features</li>
+            <li>AI assistant</li>
+            <li>Augmented Reality</li>
+            <li>Cost estimation</li>
+            <li>Project performance reports</li>
+            <li>Unlimited users</li>
+          </ul>
+          <button class="subscribe-btn">Pay now</button>
+        </div>
+        <div class="tier-card">
+          <h2>Custom</h2>
+          <div class="price">Contact Us</div>
+          <ul class="features">
+            <li>All Enterprise features</li>
+            <li>Custom integrations</li>
+            <li>Dedicated support</li>
+            <li>Tailored solutions</li>
+            <li>API access</li>
+          </ul>
+          <button class="subscribe-btn">Get Quote</button>
+        </div>
+      </div>
 
-        <!-- Comparison Table -->
-        <div class="comparison-section">
-            <h2 class="comparison-title">Plan Comparison</h2>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Features</th>
-                            <th>Standard</th>
-                            <th>Pro</th>
-                            <th>Pro+</th>
-                            <th>Enterprise</th>
-                            <th>Custom</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="feature-name">Basic Features</td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Email Support</td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Priority Support</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Advanced Analytics</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">24/7 Support</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Storage</td>
-                            <td>5GB</td>
-                            <td>50GB</td>
-                            <td>100GB</td>
-                            <td>Unlimited</td>
-                            <td>Custom</td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Users</td>
-                            <td>5</td>
-                            <td>25</td>
-                            <td>100</td>
-                            <td>Unlimited</td>
-                            <td>Custom</td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">API Access</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                        <tr>
-                            <td class="feature-name">Custom Integration</td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-times"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                            <td><i class="fa fa-check"></i></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- Comparison Table -->
+      <div class="comparison-section">
+        <h2 class="comparison-title">Plan Comparison</h2>
+        <div class="comparison-table">
+          <table>
+            <thead>
+              <tr>
+                <th>Features</th>
+                <th>Standard</th>
+                <th>Pro</th>
+                <th>Pro+</th>
+                <th>Enterprise</th>
+                <th>Custom</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Core Features Section -->
+              <tr class="section-header" onclick="toggleSection(this)">
+                <td colspan="6" class="section-title">
+                  <span class="section-toggle">▶</span> Core Features
+                </td>
+              </tr>
+              <tr class="section-content">
+                <td class="feature-name">Basic Features</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr class="section-content">
+                <td class="feature-name">Email Support</td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr class="section-content">
+                <td class="feature-name">API Access</td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <!-- Support Section -->
+              <tr class="section-header collapsed" onclick="toggleSection(this)">
+                <td colspan="6" class="section-title">
+                  <span class="section-toggle">▶</span> Support & Service
+                </td>
+              </tr>
+              <tr class="section-content collapsed">
+                <td class="feature-name">Priority Support</td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+              <tr class="section-content collapsed">
+                <td class="feature-name">24/7 Support</td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <!-- Analytics & Reporting Section -->
+              <tr class="section-header collapsed" onclick="toggleSection(this)">
+                <td colspan="6" class="section-title">
+                  <span class="section-toggle">▶</span> Analytics & Reporting
+                </td>
+              </tr>
+              <tr class="section-content collapsed">
+                <td class="feature-name">Advanced Analytics</td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+
+              <!-- Capacity & Limits Section -->
+              <tr class="section-header collapsed" onclick="toggleSection(this)">
+                <td colspan="6" class="section-title">
+                  <span class="section-toggle">▶</span> Capacity & Limits
+                </td>
+              </tr>
+              <tr class="section-content collapsed">
+                <td class="feature-name">Storage</td>
+                <td>5GB</td>
+                <td>50GB</td>
+                <td>100GB</td>
+                <td>Unlimited</td>
+                <td>Custom</td>
+              </tr>
+              <tr class="section-content collapsed">
+                <td class="feature-name">Users</td>
+                <td>5</td>
+                <td>25</td>
+                <td>100</td>
+                <td>Unlimited</td>
+                <td>Custom</td>
+              </tr>
+
+              <!-- Integration Section -->
+              <tr class="section-header collapsed" onclick="toggleSection(this)">
+                <td colspan="6" class="section-title">
+                  <span class="section-toggle">▶</span> Integration & Customization
+                </td>
+              </tr>
+              <tr class="section-content collapsed">
+                <td class="feature-name">Custom Integration</td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-times"></i></td>
+                <td><i class="fa fa-check"></i></td>
+                <td><i class="fa fa-check"></i></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
+      </div>
+
+
+      <!-- ROI Section -->
+      <section class="roi-section">
+        <h2 class="roi-title">ROI</h2>
+        <div class="roi-placeholder">Coming soon: Smart ROI reports to help you make better business decisions.</div>
+      </section>
 
     </div>
   </main>
 
-  <script>
-    function togglePeriod(period) {
-      // Remove active class from all buttons
-      const buttons = document.querySelectorAll('.subscription-toggle-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      
-      // Add active class to clicked button
-      event.target.classList.add('active');
-    }
-  </script>
+  <!-- Action Panel -->
+  <div class="action-panel" id="actionPanel">
+    <div class="panel-header">
+      <h3>Quick Actions</h3>
+      <button class="panel-close" onclick="closePanel()">×</button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-tabs">
+        <button class="tab-btn active" onclick="switchTab('tab1')">Tab 1</button>
+        <button class="tab-btn" onclick="switchTab('tab2')">Tab 2</button>
+      </div>
+      <div class="tab-content">
+        <div id="tab1" class="tab-panel active">
+          <!-- Feature Boxes: left-aligned small boxes (skeleton) -->
+          <section class="feature-boxes-section">
+            <h2 class="feature-boxes-title">Features</h2>
+            <div class="feature-cost-wrapper">
+              <div class="feature-boxes">
+                <label class="feature-box" data-feature="Publish vendors">
+                  <input type="checkbox" data-feature="Publish vendors" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">Publish vendors</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="RFQs">
+                  <input type="checkbox" data-feature="RFQs" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">RFQs</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="Tenders">
+                  <input type="checkbox" data-feature="Tenders" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">Tenders</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="Project management">
+                  <input type="checkbox" data-feature="Project management" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">Project management</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="360 preview">
+                  <input type="checkbox" data-feature="360 preview" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">360 preview</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="Virtual showroom">
+                  <input type="checkbox" data-feature="Virtual showroom" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">Virtual showroom</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="AI assistant">
+                  <input type="checkbox" data-feature="AI assistant" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">AI assistant</div>
+                  </div>
+                </label>
+                <label class="feature-box" data-feature="Analytics">
+                  <input type="checkbox" data-feature="Analytics" data-cost="1000">
+                  <div class="feature-content">
+                    <div class="feature-icon"></div>
+                    <div class="feature-text">Analytics</div>
+                  </div>
+                </label>
+              </div>
+              <div class="feature-cost">
+                <table class="feature-cost-table">
+                  <thead>
+                    <tr>
+                      <th>Feature</th>
+                      <th>Monthly (SAR)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="costTableBody">
+                    <!-- rows injected by JS -->
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td class="total-label">Total per year</td>
+                      <td id="costTotal">0</td>
+                    </tr>
+                  </tfoot>
+                </table>
+              </div>
+            </div>
+          </section>
+
+          <!-- BMH All Features - fixed yearly total -->
+          <section class="bmh-all-section">
+            <h2 class="bmh-title">BMH – All Features</h2>
+            <div class="bmh-summary">
+              <div class="bmh-note">Includes all features</div>
+              <div class="bmh-total">
+                <span class="label">Total per year</span>
+                <span class="value">10,000</span>
+                <span class="currency">SAR</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- Your Saving (skeleton) -->
+          <section class="saving-section">
+            <h2 class="saving-title">Your Saving</h2>
+            <div class="saving-summary">
+              <div class="saving-label">Estimated saving per year</div>
+              <div class="saving-value"><span id="savingValue">—</span> <span class="currency">SAR</span></div>
+            </div>
+          </section>
+        </div>
+        <div id="tab2" class="tab-panel">
+          <h4>Tab 2 Content</h4>
+          <p>This is the content for Tab 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel Toggle Button -->
+  <button class="panel-toggle" onclick="togglePanel()">
+    <i class="fa fa-bars"></i>
+  </button>
+
+ 
+
+  <script src="script/subscription-design.js"> </script>
+  <script src="script/action-panel-right.js"> </script>
 
 </body>
 

@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="property-styles/property-details.css">
+  <link rel="stylesheet" href="property-styles/views-container.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 
 </head>
@@ -214,6 +215,10 @@
           <button class="action-btn contact-btn">
             <i class="fa fa-phone"></i>
             <span>Contact</span>
+          </button>
+          <button class="action-btn book-property-btn">
+            <i class="fa fa-calendar"></i>
+            <span>Book Property</span>
           </button>
         </div>
 
@@ -739,6 +744,13 @@
       </div>
     </div>
 
+    <!-- Related Properties Section -->
+    <div class="related-properties-section">
+      <h2>Related Properties</h2>
+      broker and agency
+
+    </div>
+ 
 
   </div>
 
@@ -800,10 +812,70 @@
     </div>
   </div>
 
+  <!-- Book Property Modal -->
+  <div class="book-property-modal" id="bookPropertyModal">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Book Property</h3>
+        <button class="modal-close" id="closeBookModal">×</button>
+      </div>
+      <div class="modal-body">
+        <h4>Select Dates</h4>
+        <div class="date-range-picker">
+          <div class="date-input">
+            <label>Check-in Date:</label>
+            <input type="date" id="checkinDate" required>
+          </div>
+          <div class="date-input">
+            <label>Check-out Date:</label>
+            <input type="date" id="checkoutDate" required>
+          </div>
+        </div>
+        <div class="duration-display">
+          <span id="durationText">Select dates to see duration</span>
+        </div>
+        
+        <h4>Number of Guests</h4>
+        <div class="guest-selector">
+          <div class="guest-counter">
+            <button type="button" class="counter-btn" id="guestsMinus">-</button>
+            <span class="counter-value" id="guestsCount">1</span>
+            <button type="button" class="counter-btn" id="guestsPlus">+</button>
+          </div>
+        </div>
+        
+        <h4>Pricing</h4>
+        <div class="pricing-calculator">
+          <div class="price-breakdown">
+            <div class="price-item">
+              <span>Rate per night:</span>
+              <span id="ratePerNight">$700.00</span>
+            </div>
+            <div class="price-item">
+              <span>Number of nights:</span>
+              <span id="nightsCount">0</span>
+            </div>
+            <div class="price-item total">
+              <span>Total cost:</span>
+              <span id="totalCost">$0.00</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Explore Button -->
+  <button class="explore-btn" id="exploreBtn">
+    <i class="fa fa-compass"></i>
+    <span>Explore</span>
+  </button>
+
   <script src="property-scripts/property-details.js"></script>
   
   <!-- Album Images Modal -->
-  <!-- <div class="album-modal" id="albumModal" aria-hidden="true">
+  <div class="album-modal" id="albumModal" aria-hidden="true">
     <div class="album-modal-backdrop" id="albumModalBackdrop"></div>
     <div class="album-modal-dialog" role="dialog" aria-modal="true" aria-labelledby="albumModalTitle">
       <div class="album-modal-header">
@@ -811,9 +883,9 @@
           Kitchen & Dining</h3>
         <button class="album-modal-close" id="albumModalClose" aria-label="Close">×</button>
       </div>
-      <div class="album-modal-body"> -->
+      <div class="album-modal-body">
         <!-- Big image viewer (design-only) -->
-        <!-- <div class="album-viewer">
+        <div class="album-viewer">
           <button class="album-nav album-nav-left" aria-label="Previous">
             <i class="fa fa-chevron-left"></i>
           </button>
@@ -821,10 +893,10 @@
           <button class="album-nav album-nav-right" aria-label="Next">
             <i class="fa fa-chevron-right"></i>
           </button>
-        </div> -->
+        </div>
 
         <!-- Thumbnails row with its own arrows (design-only) -->
-        <!-- <div class="album-thumbs-bar">
+        <div class="album-thumbs-bar">
           <button class="thumbs-nav thumbs-nav-left" aria-label="Previous thumbnails">
             <i class="fa fa-chevron-left"></i>
           </button>
@@ -839,10 +911,10 @@
           <button class="thumbs-nav thumbs-nav-right" aria-label="Next thumbnails">
             <i class="fa fa-chevron-right"></i>
           </button>
-        </div> -->
-      <!-- </div> -->
-    <!-- </div> -->
-  <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>
