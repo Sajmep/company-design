@@ -365,7 +365,7 @@ nav.breadcrumb {
     background: #fff;
     border-radius: 14px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15), 0 8px 25px rgba(0, 0, 0, 0.1);
-    padding: 16px;
+    overflow-x: hidden;
     z-index: 1000;
     border: 1px solid rgba(0, 0, 0, 0.08);
     animation: slideInUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -388,7 +388,7 @@ nav.breadcrumb {
   }
   
   .apps-category {
-    margin-bottom: 16px;
+    margin: 16px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     padding-bottom: 12px;
   }
@@ -413,9 +413,23 @@ nav.breadcrumb {
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     position: relative;
     overflow: hidden;
+  }
+
+  .category-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    filter: grayscale(20%);
+  }
+
+  .apps-category-btn:hover .category-icon {
+    filter: grayscale(0%);
+    transform: scale(1.1);
   }
   
   .apps-category-btn::before {
@@ -536,12 +550,12 @@ nav.breadcrumb {
   
   /* Enhanced dropdown header */
   .apps-menu::before {
-    content: 'Apps Hub';
+    content: 'Websites';
     display: block;
     font-size: 16px;
     font-weight: 700;
     color: #1f2937;
-    margin-bottom: 16px;
+    margin: 16px;
     text-align: center;
     padding-bottom: 12px;
     border-bottom: 2px solid #f3f4f6;
@@ -549,7 +563,7 @@ nav.breadcrumb {
   
   /* Search functionality */
   .apps-search {
-    margin-bottom: 16px;
+    margin: 16px;
     position: relative;
     display: flex;
     align-items: center;
