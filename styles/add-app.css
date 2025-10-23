@@ -4,6 +4,7 @@
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     border-radius: 12px;
     padding: 16px;
+    margin: 16px;
     margin-top: 8px;
     border: 1px solid #e2e8f0;
   }
@@ -114,6 +115,7 @@
     border-radius: 50%;
     background: linear-gradient(135deg, #10b981, #059669);
     border: none;
+    margin-top: -12px;
     color: white;
     font-size: 14px;
     cursor: pointer;
