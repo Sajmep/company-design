@@ -164,3 +164,104 @@
   .create-btn:hover i {
     transform: rotate(90deg);
   }
+
+  /* Creativity Section Styles */
+
+  .creativity-section{
+    margin: 3px 0;
+  }
+
+  .creativity-section-title h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.5px;
+  }
+
+  .creativity-section .apps-category-content {
+    padding: 8px;
+  }
+
+  /* Apps Hub Section Styles */
+
+  .apps-hub-title {
+    margin-bottom: 12px;
+  }
+
+  .apps-hub-title h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0;
+    padding: 0;
+    letter-spacing: 0.5px;
+  }
+
+
+  .apps-hub-section .apps-category-content {
+    padding: 8px;
+  }
+
+  /* Collapsible Section Styles */
+  .section-toggle-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    background: #f1f6f9;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    transition: all 0.3s ease;
+  }
+
+  .section-toggle-btn:hover {
+    background: rgba(59, 130, 246, 0.05);
+    border-radius: 6px;
+  }
+
+  .section-toggle-btn h4 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1f2937;
+    letter-spacing: 0.5px;
+  }
+
+  .toggle-icon {
+    font-size: 12px;
+    color: #6b7280;
+    transition: transform 0.3s ease;
+    margin: 0 14px;
+  }
+
+  .section-toggle-btn.collapsed .toggle-icon {
+    transform: rotate(-90deg);
+    margin: 0 14px;
+  }
+
+  /* Content sections */
+  .websites-content,
+  .creativity-content,
+  .apps-hub-content {
+    transition: all 0.3s ease;
+    overflow: hidden;
+  }
+
+  .websites-content.collapsed,
+  .creativity-content.collapsed,
+  .apps-hub-content.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+
+  .appsDropdown h4{
+    margin: 2px 16px;
+    font-size: 14px;
+  }

@@ -846,16 +846,11 @@
   <!-- Action Panel -->
   <div class="action-panel" id="actionPanel">
     <div class="panel-header">
-      <h3>Quick Actions</h3>
+      <h3>Cut Costs with BMH</h3>
       <button class="panel-close" onclick="closePanel()">×</button>
     </div>
     <div class="panel-content">
-      <div class="panel-tabs">
-        <button class="tab-btn active" onclick="switchTab('tab1')">Tab 1</button>
-        <button class="tab-btn" onclick="switchTab('tab2')">Tab 2</button>
-      </div>
-      <div class="tab-content">
-        <div id="tab1" class="tab-panel active">
+      <div id="tab1" class="tab-panel active">
           <!-- Feature Boxes: left-aligned small boxes (skeleton) -->
           <section class="feature-boxes-section">
             <h2 class="feature-boxes-title">Features</h2>
@@ -922,7 +917,7 @@
                 <table class="feature-cost-table">
                   <thead>
                     <tr>
-                      <th>Feature</th>
+                      <th>Other Platform</th>
                       <th>Monthly (SAR)</th>
                     </tr>
                   </thead>
@@ -962,19 +957,29 @@
             </div>
           </section>
         </div>
-        <div id="tab2" class="tab-panel">
-          <h4>Tab 2 Content</h4>
-          <p>This is the content for Tab 2.</p>
-        </div>
+      </div>
+      
+      <!-- ROI Tab -->
+      <div id="tab2" class="tab-panel">
+        <section class="roi-section">
+          <h2 class="roi-title">Return on Investment</h2>
+          <div class="roi-placeholder">Coming soon: Smart ROI reports to help you make better business decisions.</div>
+        </section>
       </div>
     </div>
   </div>
 
-  <!-- Panel Toggle Button -->
-  <button class="panel-toggle" onclick="togglePanel()">
-    <i class="fa fa-bars"></i>
-  </button>
-
+  <!-- External Tab Buttons -->
+  <div class="external-tabs">
+    <button class="external-tab-btn active" onclick="openTab('cut-costs')">
+      <i class="fa fa-calculator"></i>
+      Cut costs
+    </button>
+    <button class="external-tab-btn" onclick="openTab('roi')">
+      <i class="fa fa-chart-line"></i>
+      ROI
+    </button>
+  </div>
  
 
   <script src="script/subscription-design.js"> </script>

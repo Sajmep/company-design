@@ -15,17 +15,30 @@ function togglePeriod(period) {
   const savingEl = document.getElementById('savingValue');
   if(!container || !tbody || !totalEl) return;
 
-  function updateCosts(){
+  // Competitor platform mapping
+  const competitorPlatforms = {
+    'Publish vendors': 'VendorHub Pro',
+    'RFQs': 'QuoteManager Plus',
+    'Tenders': 'TenderMaster',
+    'Project management': 'ProjectFlow',
+    '360 preview': 'View360 Pro',
+    'Virtual showroom': 'ShowroomVR',
+    'AI assistant': 'SmartBot AI',
+    'Analytics': 'DataInsight Pro'
+  };
+
+  function updateCosts(){ 
     // Rebuild table from checked inputs
     tbody.innerHTML = '';
     let monthly = 0;
     container.querySelectorAll('input[type="checkbox"]:checked').forEach(cb => {
-      const name = cb.getAttribute('data-feature') || '';
+      const featureName = cb.getAttribute('data-feature') || '';
       const cost = parseFloat(cb.getAttribute('data-cost') || '0') || 0;
+      const competitorName = competitorPlatforms[featureName] || 'Other Platform';
       monthly += cost;
       const tr = document.createElement('tr');
       tr.setAttribute('data-cost', String(cost));
-      tr.innerHTML = `<td>${name}</td><td>${cost.toLocaleString('en-US')}</td>`;
+      tr.innerHTML = `<td>${competitorName}</td><td>${cost.toLocaleString('en-US')}</td>`;
       tbody.appendChild(tr);
     });
     const yearly = monthly * 12;
@@ -73,4 +86,30 @@ function switchTab(tabId) {
   // Add active class to clicked tab and corresponding panel
   event.target.classList.add('active');
   document.getElementById(tabId).classList.add('active');
+}
+
+// External tab functionality
+function openTab(tabType) {
+  const panel = document.getElementById('actionPanel');
+  const externalTabs = document.querySelectorAll('.external-tab-btn');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  
+  // Remove active class from all external tabs
+  externalTabs.forEach(btn => btn.classList.remove('active'));
+  
+  // Add active class to clicked tab
+  event.target.classList.add('active');
+  
+  // Remove active class from all tab panels
+  tabPanels.forEach(panel => panel.classList.remove('active'));
+  
+  // Show the appropriate tab panel
+  if (tabType === 'cut-costs') {
+    document.getElementById('tab1').classList.add('active');
+  } else if (tabType === 'roi') {
+    document.getElementById('tab2').classList.add('active');
+  }
+  
+  // Open the action panel
+  panel.classList.add('open');
 }

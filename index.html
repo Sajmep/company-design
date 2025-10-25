@@ -36,9 +36,9 @@
         <a href="filter-modal.html">
           <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
         </a>
-       
+
       </div>
-      
+
       <!-- Static progress icon example (no logic) -->
       <div class="demo-row" title="Profile Score">
         <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
@@ -54,7 +54,8 @@
 
       <!-- Create Dropdown -->
       <div class="create-dropdown">
-          <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false" style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+        <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false"
+          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
 
         <div class="create-dropdown-menu" role="menu">
           <!-- Category: Projects -->
@@ -158,20 +159,31 @@
             </button>
           </div>
 
+          <!-- Websites Section Title -->
+          <div class="websites-section-title">
+            <button class="section-toggle-btn" onclick="toggleSection('websites')">
+              <h4>Websites</h4>
+              <span class="toggle-icon">▼</span>
+            </button>
+          </div>
+
           <!-- Category 1 -->
+          <div class="websites-content" id="websites-content">
           <div class="apps-category">
             <button class="apps-category-btn">
-              <img src="images/projects-hub.png" alt="Construction" class="category-icon">
-              Construction Hub
+              <div class="category-left">
+                <img src="images/projects-hub.png" alt="Construction" class="category-icon">
+                Master
+              </div>
             </button>
             <div class="apps-category-content">
               <a href="#" data-app="gmail">
                 <img src="images/tenders-hub.png" alt="Gmail">
-                <span>Tenders Hub</span>
+                <span>Marketplace</span>
               </a>
               <a href="#" data-app="drive">
                 <img src="images/projects-hub.png" alt="Drive">
-                <span>Projects Hub</span>
+                <span>E-learning</span>
               </a>
             </div>
           </div>
@@ -179,8 +191,10 @@
           <!-- Category 2 -->
           <div class="apps-category">
             <button class="apps-category-btn">
-              <img src="images/bmh-logo.png" alt="Home" class="category-icon">
-              Home
+              <div class="category-left">
+                <img src="images/bmh-logo.png" alt="Home" class="category-icon">
+                Home
+              </div>
             </button>
             <div class="apps-category-content">
               <a href="#" data-app="docs">
@@ -197,8 +211,10 @@
           <!-- Category 3 -->
           <div class="apps-category">
             <button class="apps-category-btn">
-              <img src="images/Shopping.png" alt="Marketplace" class="category-icon">
-              Marketplace
+              <div class="category-left">
+                <img src="images/Shopping.png" alt="Marketplace" class="category-icon">
+                Marketplace
+              </div>
             </button>
             <div class="apps-category-content">
               <a href="#" data-app="github">
@@ -227,13 +243,148 @@
               </a>
             </div>
           </div>
+          </div>
 
+          <!-- Creativity Section -->
+          <div class="creativity-section">
+            <div class="creativity-section-title">
+              <button class="section-toggle-btn" onclick="toggleSection('creativity')">
+                <h4>Creativity</h4>
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
 
+            <!-- Analytics & Insights Category -->
+            <div class="creativity-content" id="creativity-content">
+            <div class="apps-category">
+              <button class="apps-category-btn">
+                <div class="category-left">
+                  <img src="images/analytics-icon.png" alt="Analytics" class="category-icon">
+                  Analytics & Insights
+                </div>
+              </button>
+              <div class="apps-category-content">
+                <a href="#" data-app="analytics1">
+                  <img src="images/default.png" alt="Dashboard">
+                  <span>Dashboard</span>
+                </a>
+                <a href="#" data-app="analytics2">
+                  <img src="images/default.png" alt="Reports">
+                  <span>Reports</span>
+                </a>
+                <a href="#" data-app="analytics3">
+                  <img src="images/default.png" alt="Charts">
+                  <span>Charts</span>
+                </a>
+                <a href="#" data-app="analytics4">
+                  <img src="images/default.png" alt="Metrics">
+                  <span>Metrics</span>
+                </a>
+              </div>
+            </div>
 
-          <!-- Add Apps Section -->
+            <!-- Support Category -->
+            <div class="apps-category">
+              <button class="apps-category-btn">
+                <div class="category-left">
+                  <img src="images/help-ceneter-icon.png" alt="Support" class="category-icon">
+                  Support
+                </div>
+              </button>
+              <div class="apps-category-content">
+                <a href="#" data-app="support1">
+                  <img src="images/help-ceneter-icon.png" alt="Help Center">
+                  <span>Help Center</span>
+                </a>
+                <a href="#" data-app="support2">
+                  <img src="images/default.png" alt="Tickets">
+                  <span>Tickets</span>
+                </a>
+                <a href="#" data-app="support3">
+                  <img src="images/default.png" alt="Chat">
+                  <span>Live Chat</span>
+                </a>
+                <a href="#" data-app="support4">
+                  <img src="images/default.png" alt="FAQ">
+                  <span>FAQ</span>
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- Apps Hub Section -->
+          <div class="apps-hub-section">
+            <div class="apps-hub-title">
+              <button class="section-toggle-btn" onclick="toggleSection('apps-hub')">
+                <h4>Apps Hub</h4>
+                <span class="toggle-icon">▼</span>
+              </button>
+            </div>
+
+            <!-- Productivity Category -->
+            <div class="apps-hub-content" id="apps-hub-content">
+            <div class="apps-category">
+              <button class="apps-category-btn">
+                <div class="category-left">
+                  <img src="images/default.png" alt="Productivity" class="category-icon">
+                  Productivity
+                </div>
+              </button>
+              <div class="apps-category-content">
+                <a href="#" data-app="productivity1">
+                  <img src="images/default.png" alt="Office">
+                  <span>Office</span>
+                </a>
+                <a href="#" data-app="productivity2">
+                  <img src="images/default.png" alt="Calendar">
+                  <span>Calendar</span>
+                </a>
+                <a href="#" data-app="productivity3">
+                  <img src="images/default.png" alt="Tasks">
+                  <span>Tasks</span>
+                </a>
+                <a href="#" data-app="productivity4">
+                  <img src="images/default.png" alt="Notes">
+                  <span>Notes</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Engineering Category -->
+            <div class="apps-category">
+              <button class="apps-category-btn">
+                <div class="category-left">
+                  <img src="images/default.png" alt="Engineering" class="category-icon">
+                  Engineering
+                </div>
+              </button>
+              <div class="apps-category-content">
+                <a href="#" data-app="engineering1">
+                  <img src="images/default.png" alt="CAD">
+                  <span>CAD</span>
+                </a>
+                <a href="#" data-app="engineering2">
+                  <img src="images/default.png" alt="Simulation">
+                  <span>Simulation</span>
+                </a>
+                <a href="#" data-app="engineering3">
+                  <img src="images/default.png" alt="Design">
+                  <span>Design</span>
+                </a>
+                <a href="#" data-app="engineering4">
+                  <img src="images/default.png" alt="Analysis">
+                  <span>Analysis</span>
+                </a>
+              </div>
+            </div>
+            </div>
+          </div>
+
+          <!-- Quick Links Section -->
           <div class="add-apps-section">
             <div class="add-apps-header">
-              <h4>Apps Hub</h4>
+              <h4>Quick Links</h4>
             </div>
             <div class="add-apps-scroll-container">
               <div class="add-apps-scroll">
@@ -284,6 +435,8 @@
             </div>
           </div>
 
+          
+
         </div>
       </div>
 
@@ -319,7 +472,7 @@
     </div>
   </div>
   <!-- Top Header End -->
-  
+
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
@@ -329,8 +482,7 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa fa-chevron-down"
-            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+          <i class="fa fa-chevron-down" style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
 
@@ -347,9 +499,9 @@
           <h2>Company</h2>
         </div>
         <div class="form-grid">
-          
+
           <div class="company form-section">
-      
+
             <div class="checkbox-group ">
               <div class="section">
                 <h4>SAJMEP</h4>
@@ -441,7 +593,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/our-products-icon.png" alt="" width="28px">
-                Offering 
+                Offering
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -574,20 +726,20 @@
                     </a>
                     <ul class="purchase-submenu">
                       <li><a href="purchase.html" class="purchase-submenu-link active">
-                        <i class="fa fa-file-text-o"></i>
-                        PR
-                        <span class="purchase-tab-count">12</span>
-                      </a></li>
+                          <i class="fa fa-file-text-o"></i>
+                          PR
+                          <span class="purchase-tab-count">12</span>
+                        </a></li>
                       <li><a href="rfq.html" class="purchase-submenu-link">
-                        <i class="fa fa-question-circle"></i>
-                        RFQ
-                        <span class="purchase-tab-count">8</span>
-                      </a></li>
+                          <i class="fa fa-question-circle"></i>
+                          RFQ
+                          <span class="purchase-tab-count">8</span>
+                        </a></li>
                       <li><a href="po.html" class="purchase-submenu-link">
-                        <i class="fa fa-file-text"></i>
-                        PO
-                        <span class="purchase-tab-count">25</span>
-                      </a></li>
+                          <i class="fa fa-file-text"></i>
+                          PO
+                          <span class="purchase-tab-count">25</span>
+                        </a></li>
                     </ul>
                   </li>
                   <li><a href="#">Tenders</a></li>
@@ -653,12 +805,12 @@
 
       <div class="item has-submenu" id="quickLinksItem">
         <a href="inquiries.html">
-        <button class="btn" aria-haspopup="true" aria-expanded="false">
-          <span class="icon" aria-hidden>
-            <img src="images/quick-link.png" alt="" class="sidebar-icons">
-          </span>
-          <span class="label">Inquiries</span>
-        </button>
+          <button class="btn" aria-haspopup="true" aria-expanded="false">
+            <span class="icon" aria-hidden>
+              <img src="images/quick-link.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Inquiries</span>
+          </button>
         </a>
       </div>
 
@@ -704,7 +856,7 @@
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
                   <img src="images/competition.png" alt="" width="28px">
-                  Competitions 
+                  Competitions
                 </h2>
               </a>
             </div>
@@ -712,7 +864,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/media-center.png" alt="" width="28px">
-                Media Center 
+                Media Center
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -781,9 +933,12 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
-                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
-                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a>
+                  </li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a>
+                  </li>
+                  <li><a href="help-center.html#video-tutorials"
+                      onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>
@@ -810,43 +965,43 @@
             </span>
             <span class="label">Settings</span>
           </button>
-                  <!-- Submenu (full-height) -->
-        <div class="submenu" role="menu" aria-label="Organization submenu">
-          <div class="submenu-top">
-            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          <!-- Submenu (full-height) -->
+          <div class="submenu" role="menu" aria-label="Organization submenu">
+            <div class="submenu-top">
+              <h3 style="margin:0;font-size:16px">All Settings</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="setting.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-settings.png" alt="" width="28px">
+                    Company Setting
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/profile.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/profile-settings.png" alt="" width="28px">
+                    Company Profile
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/prequalification.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-prequalification.png" alt="" width="28px">
+                    Company Prequalification
+                  </h2>
+                </a>
+              </div>
+
+            </div>
           </div>
-
-          <div class="form-grid">
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="setting.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/company-settings.png" alt="" width="28px">
-                  Company Setting
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="profile/profile.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/profile-settings.png" alt="" width="28px">
-                  Company Profile
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="profile/prequalification.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/company-prequalification.png" alt="" width="28px">
-                  Company Prequalification
-                </h2>
-              </a>
-            </div>
-
-          </div>
-        </div>
         </div>
       </a>
     </div>
@@ -1393,7 +1548,7 @@
       </main>
     </div>
   </div>
-  <!-- modal compay setup end --> 
+  <!-- modal compay setup end -->
 
   <!-- Create Company Modal -->
   <div id="createCompanyModal" class="create-company-modal">
@@ -1407,7 +1562,8 @@
           <div class="create-company-form-group">
             <label for="companyName">Company Name</label>
             <div class="autocomplete-container">
-              <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required autocomplete="off">
+              <input type="text" id="companyName" name="companyName" placeholder="Enter company name" required
+                autocomplete="off">
               <div id="companySuggestions" class="autocomplete-dropdown"></div>
               <!-- Google Search Container -->
               <div class="gcse-search"></div>
@@ -1418,7 +1574,8 @@
             <input type="email" id="companyEmail" name="companyEmail" placeholder="Enter company email" required>
           </div>
           <div class="create-company-modal-actions">
-            <button type="button" class="create-company-btn-secondary" onclick="closeCreateCompanyModal()">Cancel</button>
+            <button type="button" class="create-company-btn-secondary"
+              onclick="closeCreateCompanyModal()">Cancel</button>
             <button type="submit" class="create-company-btn-primary">Submit</button>
           </div>
         </form>
@@ -1437,6 +1594,21 @@
   <script src="script/sidebar.js"></script>
   <script src="script/filter-modal.js"></script>
   <script src="script/header.js"></script>
+  
+  <script>
+    function toggleSection(sectionName) {
+      const content = document.getElementById(sectionName + '-content');
+      const button = event.currentTarget;
+      
+      if (content.classList.contains('collapsed')) {
+        content.classList.remove('collapsed');
+        button.classList.remove('collapsed');
+      } else {
+        content.classList.add('collapsed');
+        button.classList.add('collapsed');
+      }
+    }
+  </script>
 </body>
 
 </html>
