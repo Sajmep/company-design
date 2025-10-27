@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Explore Button</title>
+  <link rel="stylesheet" href="styles/scrollbar.css">
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="styles/explore-button.css">
+</head>
+
+<body>
+
+    <div class="fab-box" id="fabBox">
+        <div class="menu">
+          <div class="fab-item" data-label="Create" id="createButton">
+            <img src="images/create-logo.png" alt="Create" class="fab-icon">
+          </div>
+          <div class="fab-item" data-label="FAQs">
+            <img src="images/faq.png" alt="FAQs" class="fab-icon">
+          </div>
+          <div class="fab-item" data-label="Guidelines">
+            <img src="images/guidelines.png" alt="Guidelines" class="fab-icon">
+          </div>
+          <div class="fab-item" data-label="Search Directory">
+            <img src="images/search.png" alt="Search" class="fab-icon">
+          </div>
+        </div>
+        <div class="fab-main" id="exploreMain" data-label="Explore">
+          <img src="images/explore.png" alt="Explore" class="fab-main-icon">
+        </div>
+      </div>
+      <button class="close-explore-button" id="closeExploreBtn">×</button>
+
+      <!-- create Popover -->
+      <div class="categories-popover" id="categoriesPopover">
+        <div class="popover-header">
+          <h3>Create New</h3>
+          <button class="close-popover" id="closePopover">×</button>
+        </div>
+        <div class="popover-content">
+          <div class="category-item" data-category="projects">
+            <div class="category-header">
+              <div class="category-info">
+                <img src="images/projects-hub.png" alt="Projects" class="category-icon">
+                <span class="category-title">Projects</span>
+              </div>
+              <span class="expand-icon">+</span>
+            </div>
+            <div class="category-items">
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Project</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Task</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Milestone</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Template</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="category-item" data-category="vendors">
+            <div class="category-header">
+              <div class="category-info">
+                <img src="images/vendor.png" alt="Vendors" class="category-icon">
+                <span class="category-title">Vendors</span>
+              </div>
+              <span class="expand-icon">+</span>
+            </div>
+            <div class="category-items">
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Add Vendor</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>RFQ</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Contract</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Evaluation</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="category-item" data-category="tenders">
+            <div class="category-header">
+              <div class="category-info">
+                <img src="images/tenders-hub.png" alt="Tenders" class="category-icon">
+                <span class="category-title">Tenders</span>
+              </div>
+              <span class="expand-icon">+</span>
+            </div>
+            <div class="category-items">
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Tender</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Bid</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Proposal</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Evaluation</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="category-item" data-category="products">
+            <div class="category-header">
+              <div class="category-info">
+                <img src="images/Shopping.png" alt="Products" class="category-icon">
+                <span class="category-title">Products</span>
+              </div>
+              <span class="expand-icon">+</span>
+            </div>
+            <div class="category-items">
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Product</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Category</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Catalog</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Bundle</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="category-item" data-category="general">
+            <div class="category-header">
+              <div class="category-info">
+                <img src="images/announcement.png" alt="General" class="category-icon">
+                <span class="category-title">General</span>
+              </div>
+              <span class="expand-icon">+</span>
+            </div>
+            <div class="category-items">
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Announcement</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Event</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Report</span>
+              </div>
+              <div class="sub-item">
+                <span class="sub-icon">+</span>
+                <span>Meeting</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <script src="script/explore.js"></script>
+</body>
+</html>

@@ -24,7 +24,7 @@ main.content{
 .subscription-header h1 {
   font-size: 22px;
   font-weight: 700;
-  color: #163f77;
+  color: #012f6d;
   margin: 0;
 }
 
@@ -34,14 +34,14 @@ main.content{
   border-radius: 8px;
   padding: 8px 15px;
   font-size: 12px;
-  color: #163f77;
+  color: #012f6d;
   cursor: pointer;
   min-width: 200px;
 }
 
 .subscription-header select:focus {
   outline: none;
-  border-color: #163f77;
+  border-color: #012f6d;
   box-shadow: 0 0 0 3px rgba(22, 63, 119, 0.1);
 }
 
@@ -49,7 +49,7 @@ main.content{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 12px 0;
+  margin: 12px 0 30px 0;
   background-color: #f1f3f4;
   border-radius: 30px;
   padding: 5px;
@@ -76,14 +76,14 @@ main.content{
 }
 
 .subscription-toggle-btn.active {
-  background-color: #163f77;
+  background-color: #012f6d;
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(22, 63, 119, 0.3);
   transform: scale(1.05);
 }
 
 .subscription-toggle-btn:hover:not(.active) {
-  color: #163f77;
+  color: #012f6d;
   background-color: rgba(22, 63, 119, 0.1);
 }
 
@@ -108,8 +108,8 @@ main.content{
 }
 
 .toggle-switch.active {
-  background-color: #163f77;
-  border-color: #163f77;
+  background-color: #012f6d;
+  border-color: #012f6d;
 }
 
 .toggle-slider {
@@ -136,7 +136,7 @@ main.content{
 }
 
 .toggle-switch.active + .toggle-label {
-  color: #163f77;
+  color: #012f6d;
 }
 
 .subscription-body {
@@ -156,20 +156,42 @@ main.content{
   border: 2px solid transparent;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .tier-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 30px rgba(22, 63, 119, 0.15);
-  border-color: #163f77;
+  border-color: #012f6d;
+}
+
+.tier-card.popular {
+  border: 2px solid #012f6d;
+  background: linear-gradient(135deg, #ffffff, #f8f9ff);
+  box-shadow: 0 8px 25px rgba(22, 63, 119, 0.15);
+  transform: scale(1.05);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #012f6d, #4a90e2);
+  color: white;
+  padding: 6px 20px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 12px rgba(22, 63, 119, 0.3);
+  z-index: 10;
 }
 
 .tier-card h2 {
   font-size: 16px;
   font-weight: 700;
-  color: #163f77;
-  margin-bottom: 15px;
+  color: #012f6d;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
@@ -177,7 +199,7 @@ main.content{
 .price {
   font-size: 26px;
   font-weight: 800;
-  color: #163f77;
+  color: #012f6d;
   margin-bottom: 20px;
 }
 
@@ -206,13 +228,13 @@ main.content{
   content: "✓";
   position: absolute;
   left: 0;
-  color: #163f77;
+  color: #012f6d;
   font-weight: bold;
   font-size: 12px;
 }
 
 .subscribe-btn {
-  background-color: #163f77;
+  background-color: #012f6d;
   color: white;
   border: none;
   border-radius: 8px;
@@ -241,7 +263,7 @@ main.content{
 .comparison-title {
   font-size: 24px;
   font-weight: 700;
-  color: #163f77;
+  color: #012f6d;
   text-align: center;
   margin-bottom: 30px;
 }
@@ -261,7 +283,7 @@ main.content{
 }
 
 .comparison-table th {
-  background-color: #163f77;
+  background-color: #012f6d;
   color: white;
   padding: 15px 10px;
   text-align: center;
@@ -274,7 +296,7 @@ main.content{
 .comparison-table th:first-child {
   text-align: left;
   background-color: #f8f9fa;
-  color: #163f77;
+  color: #012f6d;
   font-weight: 700;
 }
 
@@ -308,10 +330,10 @@ main.content{
 
 .comparison-table .section-header {
   background-color: #f8f9fa;
-  color: #163f77;
+  color: #012f6d;
   font-weight: 600;
   font-size: 14px;
-  border-left: 4px solid #163f77;
+  border-left: 4px solid #012f6d;
 }
 
 .comparison-table .section-header:hover {
@@ -322,7 +344,7 @@ main.content{
   padding: 12px 16px;
   text-align: left;
   font-weight: 600;
-  color: #163f77;
+  color: #012f6d;
   cursor: pointer;
 }
 
@@ -361,7 +383,7 @@ main.content{
   margin: 0 0 8px;
   font-size: 20px;
   font-weight: 700;
-  color: #163f77;
+  color: #012f6d;
 }
 
 .roi-placeholder{
@@ -370,7 +392,7 @@ main.content{
 }
 
 /* Feature Boxes Section - basic alignment only */
-.feature-boxes-title{ margin: 0 0 8px; font-size: 16px; color: #163f77; }
+.feature-boxes-title{ margin: 0 0 8px; font-size: 16px; color: #012f6d; }
 .feature-boxes{
   display: flex
   ;
@@ -398,7 +420,7 @@ main.content{
 
 .feature-cost-table th {
   background: #f8f9fa;
-  color: #163f77;
+  color: #012f6d;
   font-weight: 600;
   font-size: 14px;
   padding: 16px 20px;
@@ -416,21 +438,21 @@ main.content{
 .feature-cost-table tfoot td {
   background: #f8f9fa;
   font-weight: 700;
-  color: #163f77;
-  border-top: 2px solid #163f77;
+  color: #012f6d;
+  border-top: 2px solid #012f6d;
   font-size: 15px;
   padding: 18px 20px;
 }
 
 .total-label {
   font-weight: 700;
-  color: #163f77;
+  color: #012f6d;
   font-size: 15px;
 }
 
 #costTotal {
   font-weight: 700;
-  color: #163f77;
+  color: #012f6d;
   font-size: 15px;
 }
 .feature-box{
@@ -453,7 +475,7 @@ main.content{
 }
 
 .bmh-title {
-  color: #163f77;
+  color: #012f6d;
   font-size: 18px;
   font-weight: 600;
   margin-bottom: 20px;
@@ -466,7 +488,7 @@ main.content{
   padding: 16px 20px;
   background: #f8f9fa;
   border-radius: 6px;
-  border-top: 2px solid #163f77;
+  border-top: 2px solid #012f6d;
 }
 
 .bmh-note {
@@ -488,13 +510,13 @@ main.content{
 }
 
 .bmh-total .value {
-  color: #163f77;
+  color: #012f6d;
   font-size: 20px;
   font-weight: 700;
 }
 
 .bmh-total .currency {
-  color: #163f77;
+  color: #012f6d;
   font-size: 16px;
   font-weight: 600;
 }
@@ -504,7 +526,7 @@ main.content{
   margin-top: 30px;
   padding: 24px;
   background: linear-gradient(135deg, #e8f4fd, #f0f8ff);
-  border: 2px solid #163f77;
+  border: 2px solid #012f6d;
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(22, 63, 119, 0.15);
   position: relative;
@@ -522,7 +544,7 @@ main.content{
 .saving-title {
   margin: 0 0 16px;
   font-size: 18px;
-  color: #163f77;
+  color: #012f6d;
   font-weight: 700;
   text-align: center;
 }
@@ -532,7 +554,7 @@ main.content{
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
-  border: 1px solid #163f77;
+  border: 1px solid #012f6d;
   border-radius: 8px;
   padding: 20px 24px;
   box-shadow: 0 2px 8px rgba(22, 63, 119, 0.1);
@@ -540,18 +562,18 @@ main.content{
 
 .saving-label {
   font-size: 14px;
-  color: #163f77;
+  color: #012f6d;
   font-weight: 600;
 }
 
 .saving-value {
   font-weight: 700;
-  color: #163f77;
+  color: #012f6d;
   font-size: 18px;
 }
 
 .saving-value .currency {
-  color: #163f77;
+  color: #012f6d;
   font-weight: 600;
   margin-left: 4px;
 }
@@ -563,7 +585,7 @@ main.content{
 
 /* Cut Cost Section - basic alignment only */
 .cut-cost-section{ margin-top: 16px; }
-.cut-cost-title{ margin: 0 0 8px; font-size: 16px; color: #163f77; }
+.cut-cost-title{ margin: 0 0 8px; font-size: 16px; color: #012f6d; }
 .cut-cost-row{ display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee; }
 .cut-cost-row:last-child{ border-bottom: 0; }
 .cut-cost-total{ display: flex; justify-content: space-between; margin-top: 8px; padding: 8px 0; border-top: 1px solid #eee; }
@@ -608,7 +630,7 @@ main.content{
 }
 
 .external-tab-btn {
-  background: #163f77;
+  background: #012f6d;
   color: white;
   border: none;
   border-radius: 8px;
@@ -672,13 +694,13 @@ main.content{
 }
 
 .tab-btn:hover {
-  color: #163f77;
+  color: #012f6d;
   background: #f8f9fa;
 }
 
 .tab-btn.active {
-  color: #163f77;
-  border-bottom-color: #163f77;
+  color: #012f6d;
+  border-bottom-color: #012f6d;
   background: #f8f9fa;
 }
 
@@ -696,7 +718,7 @@ main.content{
 
 .tab-panel h4 {
   margin: 0 0 12px 0;
-  color: #163f77;
+  color: #012f6d;
   font-size: 16px;
 } 
 
@@ -738,7 +760,7 @@ main.content{
 }
 
 .feature-box:hover {
-  border-color: #163f77;
+  border-color: #012f6d;
   box-shadow: 0 4px 12px rgba(22, 63, 119, 0.1);
 }
 
@@ -753,16 +775,16 @@ main.content{
 }
 
 .feature-box input[type="checkbox"]:checked {
-  border-color: #163f77;
+  border-color: #012f6d;
 }
 
 .feature-box input[type="checkbox"]:checked + .feature-content {
-  border-color: #163f77;
+  border-color: #012f6d;
   background: #f8f9ff;
 }
 
 .feature-box:has(input[type="checkbox"]:checked) {
-  border-color: #163f77;
+  border-color: #012f6d;
   background: #f8f9ff;
 }
 
@@ -771,7 +793,7 @@ main.content{
   position: absolute;
   top: -22px;
   right: -24px;
-  background: #163f77;
+  background: #012f6d;
   color: white;
   width: 24px;
   height: 24px;
@@ -799,7 +821,7 @@ main.content{
 .feature-icon {
   width: 32px;
   height: 32px;
-  background: linear-gradient(135deg, #163f77, #4a90e2);
+  background: linear-gradient(135deg, #012f6d, #4a90e2);
   border-radius: 8px;
   display: flex;
   align-items: center;

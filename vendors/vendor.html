@@ -16,6 +16,12 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+  <style>
+    .page-header-title {
+      text-align: left;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -23,18 +29,7 @@
 
   <!-- Common Page Header -->
   <div class="page-header">
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <ol>
-        <li>
-          <a href="#" title="Enterprise">Home</a>
-        </li>
-        <li>
-          <span aria-current="page" title="Vendors">Vendors</span>
-        </li>
-      </ol>
-    </nav>
-    <!-- breadcrumb end -->
+
     <div class="page-header-title">
       <h2>Vendors</h2>
       <p>Explore vendor profiles with company details</p>
@@ -78,37 +73,9 @@
           <span class="btn-text">Import</span>
         </button>
 
-        <!-- Action Dropdown (hidden by default) -->
-        <div class="page-header-action-dropdown" id="vendorActionDropdown">
-          <button class="page-header-action-dropdown-btn" onclick="toggleActionDropdown('vendorActionDropdown')"
-            title="Actions">
-            <i class="fa fa-ellipsis-v"></i>
-            <span class="btn-text">Actions</span>
-            <i class="fa fa-chevron-down"></i>
-          </button>
-          <div class="page-header-action-menu" id="vendorActionMenu">
-            <div class="page-header-action-item" onclick="exportVendors()">
-              <i class="fa fa-download"></i>
-              <span>Export</span>
-            </div>
-            <div class="page-header-action-item" onclick="editSelectedVendors()">
-              <i class="fa fa-edit"></i>
-              <span>Edit</span>
-            </div>
-            <div class="page-header-action-item" onclick="duplicateSelectedVendors()">
-              <i class="fa fa-copy"></i>
-              <span>Duplicate</span>
-            </div>
-            <div class="page-header-action-divider"></div>
-            <div class="page-header-action-item danger" onclick="deleteSelectedVendors()">
-              <i class="fa fa-trash"></i>
-              <span>Delete</span>
-            </div>
-          </div>
-        </div>
-        <button class="page-header-primary-btn" onclick="createRFQ()" title="Send RFQ">
-          <i class="fa fa-send"></i>
-          <span class="btn-text">Send RFQ</span>
+        <button class="page-header-primary-btn" onclick="createRFQ()" title="RFQ">
+          <i class="fa fa-plus"></i>
+          <span class="btn-text">RFQ</span>
         </button>
 
       </div>
@@ -275,8 +242,8 @@
           </div>
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-envelope"></i>
-              Create RFQ
+              <i class="fa fa-plus"></i>
+               RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
@@ -308,8 +275,8 @@
           </div>
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-envelope"></i>
-              Create RFQ
+              <i class="fa fa-plus"></i>
+               RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
@@ -341,8 +308,8 @@
           </div>
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-envelope"></i>
-              Send RFQ
+              <i class="fa fa-plus"></i>
+              RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <i class="fa fa-eye"></i>
@@ -372,8 +339,8 @@
           </div>
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-envelope"></i>
-              Create RFQ
+              <i class="fa fa-plus"></i>
+               RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
@@ -527,7 +494,7 @@
       </div>
       <div class="vendor-popup-actions">
         <button class="vendor-action-btn primary" onclick="sendRFQ()">
-          <i class="fa fa-envelope"></i> Create RFQ
+          <i class="fa fa-plus"></i> RFQ
         </button>
         <button class="vendor-action-btn secondary">
           <a href="vendor-details.html" target="_blank">
@@ -760,7 +727,7 @@
       </div>
       <div class="rfq-modal-actions">
         <button class="rfq-action-btn secondary" onclick="closeRFQModal()">Cancel</button>
-        <button class="rfq-action-btn primary">Create RFQ</button>
+        <button class="rfq-action-btn primary"><i class="fa fa-plus"></i> RFQ</button>
       </div>
     </div>
   </div>
