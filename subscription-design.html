@@ -666,7 +666,8 @@
           </ul>
           <button class="subscribe-btn">Pay now</button>
         </div>
-        <div class="tier-card">
+        <div class="tier-card popular">
+          <div class="popular-badge">Most Popular</div>
           <h2>Pro+</h2>
           <div class="price">371 SAR<span>/month</span></div>
           <ul class="features">
@@ -926,8 +927,12 @@
                   </tbody>
                   <tfoot>
                     <tr>
+                      <td class="total-label">Total per month</td>
+                      <td id="monthlyTotal">0</td>
+                    </tr>
+                    <tr>
                       <td class="total-label">Total per year</td>
-                      <td id="costTotal">0</td>
+                      <td id="yearlyTotal">0</td>
                     </tr>
                   </tfoot>
                 </table>

@@ -309,6 +309,28 @@
   color: #1e40af;
   background: #f0f9ff;
   border-bottom: 1px solid #b1b8c3;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.product-offcanvas .ecommerce-item:hover {
+  background: #dbeafe;
+  color: #1e3a8a;
+}
+
+/* Ecommerce Category Dropdown Specific Styling */
+#ecommerceCategoryDropdown .product-category-dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
 }
 
 .product-action-btn.secondary:hover {

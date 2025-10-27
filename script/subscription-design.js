@@ -11,9 +11,9 @@ function togglePeriod(period) {
 (function initFeatureCosts(){
   const container = document.querySelector('.feature-boxes');
   const tbody = document.getElementById('costTableBody');
-  const totalEl = document.getElementById('costTotal');
+  const monthlyTotalEl = document.getElementById('monthlyTotal');
   const savingEl = document.getElementById('savingValue');
-  if(!container || !tbody || !totalEl) return;
+  if(!container || !tbody || !monthlyTotalEl) return;
 
   // Competitor platform mapping
   const competitorPlatforms = {
@@ -41,8 +41,20 @@ function togglePeriod(period) {
       tr.innerHTML = `<td>${competitorName}</td><td>${cost.toLocaleString('en-US')}</td>`;
       tbody.appendChild(tr);
     });
+    
+    // Update monthly total
+    const monthlyTotalEl = document.getElementById('monthlyTotal');
+    if (monthlyTotalEl) {
+      monthlyTotalEl.textContent = monthly.toLocaleString('en-US');
+    }
+    
+    // Update yearly total
     const yearly = monthly * 12;
-    totalEl.textContent = yearly.toLocaleString('en-US');
+    const yearlyTotalEl = document.getElementById('yearlyTotal');
+    if (yearlyTotalEl) {
+      yearlyTotalEl.textContent = yearly.toLocaleString('en-US');
+    }
+    
     if (savingEl) {
       const baseline = 10000; // SAR/year
       const saving = Math.max(0, yearly - baseline);
