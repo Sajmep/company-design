@@ -324,6 +324,9 @@ function toggleActionDropdown(tabType) {
     }
 }
 
+// Export to window to override CommonTable version for purchase page
+window.toggleActionDropdown = toggleActionDropdown;
+
 // Purchase-specific action dropdown visibility update
 function updateActionDropdownVisibility() {
     CommonTable.updateActionDropdownVisibility('.data-checkbox-row:checked', '.data-action-dropdown');

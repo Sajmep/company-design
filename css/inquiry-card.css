@@ -1,0 +1,153 @@
+:root {
+  --bg: #f1f6fb;
+  --card-bg: #ffffff;
+  --muted: #9aa6b3;
+  --text: #2f3a45;
+  --accent: #e6bb01;
+  --soft-gray: #f3f5f7;
+  --icon-bg: #f7ecd4;
+  --border: rgba(47, 58, 69, 0.06);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.inquiries-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+}
+.inquiries-cards .inquiry-card {
+  width: 360px;
+  background: var(--card-bg);
+  border-radius: 18px;
+  box-shadow: 0 10px 22px rgba(31, 45, 61, 0.08);
+  padding: 18px;
+  border: 1px solid var(--border);
+}
+.inquiries-cards .inquiry-card .header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #f6f7f8;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 14px;
+}
+.inquiries-cards .inquiry-card .header .avatar-square {
+  width: 36px;
+  height: 36px;
+  background: var(--icon-bg);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.inquiries-cards .inquiry-card .header .title {
+  font-weight: 700;
+  color: var(--text);
+  font-size: 15px;
+  flex: 1;
+}
+.inquiries-cards .inquiry-card .header .status-badge {
+  background: #eaecee;
+  color: #333;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 13px;
+  border: 1px solid #eef0f2;
+}
+.inquiries-cards .inquiry-card .desc {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+.inquiries-cards .inquiry-card .hr {
+  height: 1px;
+  background: var(--soft-gray);
+  margin: 6px -18px 12px -18px;
+}
+.inquiries-cards .inquiry-card .meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.inquiries-cards .inquiry-card .meta .user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.inquiries-cards .inquiry-card .meta .user .avatar-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #e0c78a, #d3a94a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+}
+.inquiries-cards .inquiry-card .meta .user .username {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 14px;
+}
+.inquiries-cards .inquiry-card .meta .date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.inquiries-cards .inquiry-card .buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  border-top: 1px solid #dde0e4;
+  padding: 7px 14px;
+  background: #f6f7f8;
+}
+.inquiries-cards .inquiry-card .buttons .btn {
+  flex: 1;
+  padding: 10px 14px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 13px;
+}
+.inquiries-cards .inquiry-card .buttons .btn.btn-details {
+  background: #eaecee;
+  color: #28323a;
+}
+.inquiries-cards .inquiry-card .buttons .btn.btn-view {
+  background: var(--accent);
+  color: #111;
+}
+.inquiries-cards .inquiry-card .buttons .btn:hover {
+  transform: translateY(-1px);
+}
+@media (max-width: 420px) {
+  .inquiries-cards .inquiry-card {
+    width: 92vw;
+  }
+  .inquiries-cards .inquiry-card .title {
+    font-size: 14px;
+  }
+  .inquiries-cards .inquiry-card .desc {
+    font-size: 13px;
+  }
+  .inquiries-cards .inquiry-card .meta .user .username {
+    font-size: 13px;
+  }
+  .inquiries-cards .inquiry-card .buttons .btn {
+    font-size: 13px;
+  }
+}
+
+/*# sourceMappingURL=inquiry-card.css.map */

@@ -46,8 +46,8 @@
 }
 
 .breadcrumb a:hover {
-  color: #9885d1;
-  background: rgba(152, 133, 209, 0.1);
+  color: #012f6d;
+  background: rgba(1, 47, 109, 0.1);
 }
 
 .breadcrumb span[aria-current="page"] {
@@ -394,7 +394,7 @@
   align-items: center;
   gap: 8px;
   padding: 8px 12px;
-  background: #9885d1;
+  background: #012f6d;
   color: white;
   border: none;
   border-radius: 6px;
@@ -405,7 +405,7 @@
 }
 
 .page-header-primary-btn:hover {
-  background: #7c3aed;
+  background: #012f6d;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(8, 99, 208, 0.3);
 }

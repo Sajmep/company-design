@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sidebar with Click-to-Open Submenu (pushes content)</title>
+  <title>RFQ Company</title>
   <link rel="stylesheet" href="styles/scrollbar.css">
   <link rel="stylesheet" href="styles/sidebar.css">
   <link rel="stylesheet" href="styles/header.css">
@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="styles/purchase-offcanvas.css">
   <link rel="stylesheet" href="styles/rfq-company.css">
   <link rel="stylesheet" href="styles/purchase.css">
+  <link rel="stylesheet" href="css/rfq-offers.css">
+  <link rel="stylesheet" href="css/chat.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
 
@@ -618,12 +620,12 @@
       </div>
 
       <div class="item has-submenu" id="quickLinksItem">
-        <a href="inquiries.html">
+        <a href="rfq-company.html">
           <button class="btn" aria-haspopup="true" aria-expanded="false">
             <span class="icon" aria-hidden>
               <img src="images/quick-link.png" alt="" class="sidebar-icons">
             </span>
-            <span class="label">Inquiries</span>
+            <span class="label">RFQs</span>
           </button>
         </a>
       </div>
@@ -850,7 +852,7 @@
         <!-- breadcrumb end -->
         <div class="page-header-title">
           <h2>Request for Quotation (RFQ)</h2>
-          <p>Manage your RFQ requests and responses.</p>
+          <p>Manage your RFQ requests and offers.</p>
         </div>
         <div class="page-header-controls">
           <div class="page-header-search">
@@ -929,7 +931,7 @@
       </div>
 
 
-      <!-- Inquiry Content -->
+      <!-- RFQ Content -->
       <div class="data-table-container">
 
         <!-- View Toggle Buttons -->
@@ -942,7 +944,7 @@
           </button>
         </div>
 
-        <!-- Inquiry List Table -->
+        <!-- RFQ List Table -->
         <div class="data-table-container" id="listView">
           <div class="data-table-wrapper">
             <table class="data-table">
@@ -1038,7 +1040,7 @@
               <tbody>
                 <tr>
                   <td class="data-checkbox-cell">
-                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-001">
+                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
                     <label for="inq-001" class="data-checkbox-label"></label>
                   </td>
                   <td class="data-item-number col-rfq-number">RFQ-2025</td>
@@ -1377,7 +1379,6 @@
       </div>
       <div class="purchase-offcanvas-body">
 
-
         <!-- Tabs Navigation -->
         <div class="pr-tabs-container">
           <div class="pr-tabs">
@@ -1393,6 +1394,10 @@
               <i class="fa fa-comments"></i>
               Chat
             </button>
+            <button class="pr-tab-btn" onclick="switchTab('offers')" data-tab="offers" data-title="Offers">
+              <i class="fa fa-comments"></i>
+              Offers
+            </button>
             <button class="pr-tab-btn" onclick="switchTab('log')" data-tab="log" data-title="Activity Log">
               <i class="fa fa-list"></i>
               Log
@@ -1402,8 +1407,37 @@
 
         <!-- Tab Content -->
         <div class="pr-tab-content">
-          <div class="pr-tab-panel active" id="inquiry-panel">
 
+          <div class="pr-tab-panel active" id="rfq-panel">
+
+            <div class="pr-action-buttons">
+              <div class="pr-action-buttons-group">
+                <button class="pr-btn pr-btn-edit" type="button">
+                  <i class="fa fa-edit"></i>
+                  Edit
+                </button>
+                <button class="pr-btn pr-btn-submit" type="button" onclick="openVendorModal()">
+                  <i class="fa fa-paper-plane"></i>
+                  Send
+                </button>
+              </div>
+              <div class="pr-action-buttons-group">
+                <button class="pr-btn pr-btn-approve" type="button">
+                  <i class="fa fa-check"></i>
+                  Approve
+                </button>
+                <button class="pr-btn pr-btn-reject" type="button">
+                  <i class="fa fa-times"></i>
+                  Reject
+                </button>
+              </div>
+              <div class="pr-action-buttons-group">
+                <button class="pr-btn pr-btn-cancel" type="button">
+                  <i class="fa fa-ban"></i>
+                  Cancel
+                </button>
+              </div>
+            </div>
             <div class="pr-overview-section">
               <div class="pr-overview-header" onclick="togglePROverview()">
                 <h4>RFQ Overview</h4>
@@ -1486,12 +1520,358 @@
 
           </div>
           <div class="pr-tab-panel" id="chat-panel">
-            <p>Chat messages will be displayed here...</p>
+            <div class="chat-panel-header">
+              <button type="button" class="create-message-btn" onclick="openCreateMessageModal()" title="Create Message">
+                <i class="fa fa-envelope"></i>
+                <span>Bulk Message</span>
+              </button>
+            </div>
+
+            <!-- Chat View -->
+            <div class="chat-view active" id="chat-view">
+              <div class="chat-layout">
+                <div class="chat-sidebar">
+                  <div class="chat-sidebar-header">
+                    <h4>Vendors</h4>
+                  </div>
+                  <div class="vendor-list">
+                    <div class="vendor-item active">
+                      <img src="images/vendor.png" alt="Saudi Aramco">
+                      <div class="vendor-info">
+                        <div class="vendor-name">Saudi Aramco</div>
+                        <div class="vendor-status">Online</div>
+                      </div>
+                      <div class="vendor-time">10:30</div>
+                    </div>
+                    <div class="vendor-item">
+                      <img src="images/vendor2.jpg" alt="Aramix">
+                      <div class="vendor-info">
+                        <div class="vendor-name">Aramix</div>
+                        <div class="vendor-status">Last seen 2 hours ago</div>
+                      </div>
+                      <div class="vendor-time">08:15</div>
+                    </div>
+                    <div class="vendor-item">
+                      <img src="images/vendor3.png" alt="Trade Link">
+                      <div class="vendor-info">
+                        <div class="vendor-name">Trade Link</div>
+                        <div class="vendor-status">Last seen yesterday</div>
+                      </div>
+                      <div class="vendor-time">Yesterday</div>
+                    </div>
+                    <div class="vendor-item">
+                      <img src="images/vendor5.jpg" alt="Saudi Aramco">
+                      <div class="vendor-info">
+                        <div class="vendor-name">Saudi Aramco</div>
+                        <div class="vendor-status">Last seen 1 week ago</div>
+                      </div>
+                      <div class="vendor-time">1 week</div>
+                    </div>
+                    <button type="button" class="add-vendor-btn">
+                      <i class="fa fa-plus"></i>
+                      <span>Add</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="chat-content">
+                  <div class="chat-header">
+                    <img src="images/vendor.png" alt="Saudi Aramco" class="chat-header-company-logo">
+                    <div class="chat-header-info">
+                      <div class="chat-header-name">Saudi Aramco</div>
+                      <div class="chat-header-participants">4 participants · 2 from your company, 2 from vendor</div>
+                    </div>
+                    <div class="chat-header-members-dropdown">
+                      <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()" title="View Members">
+                        <i class="fa fa-users"></i>
+                      </button>
+                      <div class="chat-header-members-menu" id="chatMembersMenu">
+                        <div class="chat-members-header">
+                          <h4>Saudi Aramco Members</h4>
+                          <button class="chat-members-close" onclick="toggleChatMembersDropdown()">&times;</button>
+                        </div>
+                        <div class="chat-members-invite">
+                          <button class="chat-invite-member-btn" onclick="openInviteMemberModal()">
+                            <i class="fa fa-user-plus"></i>
+                            <span>Invite Member</span>
+                          </button>
+                        </div>
+                        <div class="chat-members-list">
+                          <div class="chat-member-item">
+                            <img src="images/vendor.png" alt="Ahmed Hassan" class="chat-member-avatar">
+                            <div class="chat-member-info">
+                              <div class="chat-member-name">Ahmed Hassan</div>
+                              <div class="chat-member-role">Project Manager</div>
+                            </div>
+                            <div class="chat-member-status online"></div>
+                          </div>
+                          <div class="chat-member-item">
+                            <img src="images/vendor2.jpg" alt="Muhammad Ali" class="chat-member-avatar">
+                            <div class="chat-member-info">
+                              <div class="chat-member-name">Muhammad Ali</div>
+                              <div class="chat-member-role">Sales Representative</div>
+                            </div>
+                            <div class="chat-member-status online"></div>
+                          </div>
+                          <div class="chat-member-item">
+                            <img src="images/user3.png" alt="Fatima Ahmed" class="chat-member-avatar">
+                            <div class="chat-member-info">
+                              <div class="chat-member-name">Fatima Ahmed</div>
+                              <div class="chat-member-role">Technical Lead</div>
+                            </div>
+                            <div class="chat-member-status offline"></div>
+                          </div>
+                        </div>
+                        <div class="chat-members-divider"></div>
+                        <div class="chat-members-header">
+                          <h4>My Company x Members</h4>
+                        </div>
+                        <div class="chat-members-list">
+                          <div class="chat-member-item">
+                            <img src="images/user.png" alt="John Smith" class="chat-member-avatar">
+                            <div class="chat-member-info">
+                              <div class="chat-member-name">John Smith</div>
+                              <div class="chat-member-role">Procurement Manager</div>
+                            </div>
+                            <div class="chat-member-status online"></div>
+                          </div>
+                          <div class="chat-member-item">
+                            <img src="images/sarah.pnh.png" alt="Sarah Khan" class="chat-member-avatar">
+                            <div class="chat-member-info">
+                              <div class="chat-member-name">Sarah Khan</div>
+                              <div class="chat-member-role">Buyer</div>
+                            </div>
+                            <div class="chat-member-status online"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-messages">
+                    <div class="chat-message">
+                      <img src="images/vendor.png" alt="Ahmed Hassan" class="message-avatar">
+                      <div class="message-content">
+                        <div class="message-sender-info">
+                          <span class="message-sender-name">Ahmed Hassan</span>
+                          <span class="message-sender-company">Saudi Aramco</span>
+                        </div>
+                        <div class="message-bubble">
+                          <div class="message-text">Hello, can you provide more details about the RFQ?</div>
+                          <div class="message-time">10:30 AM</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat-message sent">
+                      <img src="images/user.png" alt="John Smith" class="message-avatar">
+                      <div class="message-content">
+                        <div class="message-sender-info">
+                          <span class="message-sender-name">John Smith</span>
+                          <span class="message-sender-company">My Company x</span>
+                        </div>
+                        <div class="message-bubble">
+                          <div class="message-text">Sure, I'll send the details shortly.</div>
+                          <div class="message-time">10:35 AM</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat-message sent">
+                      <img src="images/sarah.pnh.png" alt="Sarah Khan" class="message-avatar">
+                      <div class="message-content">
+                        <div class="message-sender-info">
+                          <span class="message-sender-name">Sarah Khan</span>
+                          <span class="message-sender-company">My Company x</span>
+                        </div>
+                        <div class="message-bubble">
+                          <div class="message-text">I've also attached the technical specifications document.</div>
+                          <div class="message-time">10:36 AM</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="chat-message">
+                      <img src="images/vendor2.jpg" alt="Muhammad Ali" class="message-avatar">
+                      <div class="message-content">
+                        <div class="message-sender-info">
+                          <span class="message-sender-name">Muhammad Ali</span>
+                          <span class="message-sender-company">Saudi Aramco</span>
+                        </div>
+                        <div class="message-bubble">
+                          <div class="message-text">Thank you for the quick response. We'll review and get back to you.</div>
+                          <div class="message-time">10:40 AM</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-input-area">
+                    <input type="file" id="fileInput" style="display: none;" multiple>
+                    <input type="text" placeholder="Type a message" id="chatInput">
+                    <button type="button" class="attachment-btn"
+                      onclick="document.getElementById('fileInput').click()"><i class="fa fa-paperclip"></i></button>
+                    <button type="button" class="voice-btn" id="voiceBtn"><i class="fa fa-microphone"></i></button>
+                    <button type="button" class="send-btn" id="sendBtn" style="display: none;"><i
+                        class="fa fa-paper-plane"></i></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="pr-tab-panel" id="offers-panel">
+            <div class="offers-view" id="offers-offers-view">
+              <div class="offers-container">
+                <div class="offers-header">
+                  <h4>All offers</h4>
+                  <div class="offers-header-actions">
+                    <div class="offers-group-by">
+                      <button class="offers-group-by-btn" title="Group By">
+                        <i class="fa fa-chevron-down"></i>
+                        <span class="btn-text">Group By</span>
+                      </button>
+                      <div class="offers-group-by-dropdown" id="offersGroupByDropdown">
+                        <div class="offers-group-by-item" data-value="status">
+                          <i class="fa fa-flag"></i>
+                          Status
+                        </div>
+                        <div class="offers-group-by-item" data-value="vendor">
+                          <i class="fa fa-building"></i>
+                          Vendor
+                        </div>
+                        <div class="offers-group-by-item" data-value="date">
+                          <i class="fa fa-calendar"></i>
+                          Date
+                        </div>
+                      </div>
+                    </div>
+
+                    <button class="offers-filter-btn" title="Filter">
+                      <i class="fa fa-filter"></i>
+                      <span class="btn-text">Filter</span>
+                    </button>
+
+                    <button class="offers-import-btn" title="Import Offers">
+                      <i class="fa fa-upload"></i>
+                      <span class="btn-text">Import</span>
+                    </button>
+                    <div class="offers-action-dropdown">
+                      <button class="offers-action-dropdown-btn" title="Actions">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <span class="btn-text">Actions</span>
+                        <i class="fa fa-chevron-down"></i>
+                      </button>
+                      <div class="offers-action-menu" id="offersActionMenu">
+                        <div class="offers-action-item">
+                          <i class="fa fa-download"></i>
+                          <span>Export</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button class="offers-create-btn" title="Create Offer">
+                      <i class="fa fa-plus"></i>
+                      <span class="btn-text">Offer</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="offers-list">
+                  <div class="offer-item">
+                    <div class="offer-vendor">
+                      <img src="images/vendor.png" alt="Saudi Aramco">
+                      <div class="offer-vendor-info">
+                        <div class="offer-vendor-name">Saudi Aramco</div>
+                        <div class="offer-date">Submitted: Jan 15, 2025 10:30 AM</div>
+                      </div>
+                    </div>
+                    <div class="offer-actions-group">
+                      <div class="offer-status accepted">Accepted</div>
+                      <div class="offer-actions">
+                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button class="offer-compare-btn-icon" title="Compare">
+                          <i class="fa fa-columns"></i>
+                        </button>
+                        <button class="offer-download-btn" title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="offer-item">
+                    <div class="offer-vendor">
+                      <img src="images/vendor2.jpg" alt="Aramix">
+                      <div class="offer-vendor-info">
+                        <div class="offer-vendor-name">Aramix</div>
+                        <div class="offer-date">Submitted: Jan 14, 2025 02:15 PM</div>
+                      </div>
+                    </div>
+                    <div class="offer-actions-group">
+                      <div class="offer-status pending">Pending</div>
+                      <div class="offer-actions">
+                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button class="offer-compare-btn-icon" title="Compare">
+                          <i class="fa fa-columns"></i>
+                        </button>
+                        <button class="offer-download-btn" title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="offer-item">
+                    <div class="offer-vendor">
+                      <img src="images/vendor3.png" alt="Trade Link">
+                      <div class="offer-vendor-info">
+                        <div class="offer-vendor-name">Trade Link</div>
+                        <div class="offer-date">Submitted: Jan 13, 2025 09:45 AM</div>
+                      </div>
+                    </div>
+                    <div class="offer-actions-group">
+                      <div class="offer-status accepted">Accepted</div>
+                      <div class="offer-actions">
+                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button class="offer-compare-btn-icon" title="Compare">
+                          <i class="fa fa-columns"></i>
+                        </button>
+                        <button class="offer-download-btn" title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="offer-item">
+                    <div class="offer-vendor">
+                      <img src="images/vendor5.jpg" alt="Saudi Aramco">
+                      <div class="offer-vendor-info">
+                        <div class="offer-vendor-name">Saudi Aramco</div>
+                        <div class="offer-date">Submitted: Jan 12, 2025 04:20 PM</div>
+                      </div>
+                    </div>
+                    <div class="offer-actions-group">
+                      <div class="offer-status rejected">Rejected</div>
+                      <div class="offer-actions">
+                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                          <i class="fa fa-eye"></i>
+                        </button>
+                        <button class="offer-compare-btn-icon" title="Compare">
+                          <i class="fa fa-columns"></i>
+                        </button>
+                        <button class="offer-download-btn" title="Download">
+                          <i class="fa fa-download"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
           </div>
           <div class="pr-tab-panel" id="log-panel">
             <p>Activity log will be displayed here...</p>
           </div>
-
           <!-- Create PR Form Panel -->
           <div class="pr-tab-panel" id="create-panel">
             <div class="purchase-form-container">
@@ -1510,8 +1890,8 @@
                     </select>
                   </div>
                   <div class="purchase-form-group">
-                    <label for="InquiryTitle">RFQ Number</label>
-                    <input type="text" id="InquiryTitle" name="InquiryTitle" value="RFQ-2025-001" disabled>
+                    <label for="rfqTitle">RFQ Number</label>
+                    <input type="text" id="rfqTitle" name="rfqTitle" value="RFQ-2025-001" disabled>
                   </div>
                   <div class="purchase-form-group">
                     <label for="prRequesterName">Project</label>
@@ -1743,7 +2123,9 @@
               </form>
             </div>
           </div>
+
         </div>
+
       </div>
     </div>
   </div>
@@ -1789,7 +2171,6 @@
   <script src="script/header.js"></script>
   <script src="script/common-table.js"></script>
   <script src="script/common-offcanvas.js"></script>
-  <script src="script/rfq-company.js"></script>
 
   <!-- Initialize select all functionality for this page -->
   <script>
@@ -1844,6 +2225,488 @@
       </div>
     </div>
   </div>
+
+  <!-- Vendor Selection Modal -->
+  <div id="vendorModal" class="vendor-modal">
+    <div class="vendor-modal-content">
+      <div class="vendor-modal-header">
+        <h3>Select Vendor</h3>
+        <span class="vendor-modal-close" onclick="closeVendorModal()">&times;</span>
+      </div>
+      <div class="vendor-modal-body">
+        <select id="vendorSelect" class="vendor-select">
+          <option value="">-- Select a vendor --</option>
+          <option value="vendor1">Vendor 1</option>
+          <option value="vendor2">Vendor 2</option>
+          <option value="vendor3">Vendor 3</option>
+          <option value="vendor4">Vendor 4</option>
+          <option value="vendor5">Vendor 5</option>
+        </select>
+      </div>
+      <div class="vendor-modal-footer">
+        <button type="button" onclick="closeVendorModal()">Cancel</button>
+        <button type="button" onclick="sendToVendor()">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- offer View Modal -->
+  <div id="offerModal" class="offer-modal">
+    <div class="offer-modal-content">
+      <div class="offer-modal-header">
+        <h3>Offer from <span id="offerModalVendorName">Saudi Aramco</span></h3>
+        <div class="offer-modal-actions">
+          <button type="button" class="offer-compare-btn">Compare</button>
+          <span class="offer-modal-close" onclick="closeofferModal()">&times;</span>
+        </div>
+      </div>
+      <div class="offer-modal-body">
+        <!-- RFQ Overview -->
+        <div class="offer-rfq-overview">
+          <h4>RFQ Overview</h4>
+          <div class="offer-overview-grid">
+            <div class="offer-overview-item">
+              <div class="offer-overview-label">RFQ Number</div>
+              <div class="offer-overview-value" id="offerRFQNumber">RFQ-2025</div>
+            </div>
+            <div class="offer-overview-item">
+              <div class="offer-overview-label">Project</div>
+              <div class="offer-overview-value" id="offerProject">Office Renovation</div>
+            </div>
+            <div class="offer-overview-item">
+              <div class="offer-overview-label">Created On</div>
+              <div class="offer-overview-value" id="offerCreatedOn">12/12/2025</div>
+            </div>
+            <div class="offer-overview-item">
+              <div class="offer-overview-label">Order Deadline</div>
+              <div class="offer-overview-value" id="offerDeadline">10/09/2025</div>
+            </div>
+            <div class="offer-overview-item">
+              <div class="offer-overview-label">Priority</div>
+              <div class="offer-overview-value" id="offerPriority">High</div>
+            </div>
+            <div class="offer-overview-item">
+              <div class="offer-overview-label">Currency</div>
+              <div class="offer-overview-value" id="offerCurrency">SAR</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RFQ Items Table -->
+        <div class="offer-rfq-items">
+          <h4>RFQ Items</h4>
+          <div class="offer-items-table-wrapper">
+            <table class="offer-items-table">
+              <thead>
+                <tr>
+                  <th>Brand</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>UOM</th>
+                </tr>
+              </thead>
+              <tbody id="offerRfqItemsBody">
+                <tr>
+                  <td>Samsung</td>
+                  <td>LED Monitor 27"</td>
+                  <td>10</td>
+                  <td>PCS</td>
+                </tr>
+                <tr>
+                  <td>Dell</td>
+                  <td>Wireless Keyboard & Mouse</td>
+                  <td>15</td>
+                  <td>SET</td>
+                </tr>
+                <tr>
+                  <td>HP</td>
+                  <td>Office Chair</td>
+                  <td>20</td>
+                  <td>PCS</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Vendor offer Table -->
+        <div class="offer-vendor-offer">
+          <h4>Vendor offer</h4>
+          <div class="offer-items-table-wrapper">
+            <table class="offer-items-table">
+              <thead>
+                <tr>
+                  <th>Brand</th>
+                  <th>Product</th>
+                  <th>Quantity</th>
+                  <th>UOM</th>
+                  <th>Unit Price</th>
+                  <th>Total Price</th>
+                  <th>Notes</th>
+                </tr>
+              </thead>
+              <tbody id="offerVendorItemsBody">
+                <tr>
+                  <td>Samsung</td>
+                  <td>LED Monitor 27"</td>
+                  <td>10</td>
+                  <td>PCS</td>
+                  <td>SAR 1,200.00</td>
+                  <td>SAR 12,000.00</td>
+                  <td>Including mounting bracket</td>
+                </tr>
+                <tr>
+                  <td>Dell</td>
+                  <td>Wireless Keyboard & Mouse</td>
+                  <td>15</td>
+                  <td>SET</td>
+                  <td>SAR 350.00</td>
+                  <td>SAR 5,250.00</td>
+                  <td>Logitech alternative available</td>
+                </tr>
+                <tr>
+                  <td>HP</td>
+                  <td>Office Chair</td>
+                  <td>20</td>
+                  <td>PCS</td>
+                  <td>SAR 800.00</td>
+                  <td>SAR 16,000.00</td>
+                  <td>Ergonomic design</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- offers Compare Popup -->
+  <div class="offers-compare-popup" id="offersComparePopup" style="display: none;">
+    <span class="offers-compare-count" id="offersCompareCount">0</span> offers selected
+    <div class="offers-compare-dropdown" id="offersCompareDropdown">
+      <div class="selected-offers-list" id="selectedoffersList">
+        <div class="selected-offer-item">
+          <img class="selected-offer-avatar" src="images/vendor.png" alt="Saudi Aramco">
+          <div class="selected-offer-details">
+            <div class="selected-offer-name">Saudi Aramco</div>
+            <div class="selected-offer-meta">Submitted: Jan 15, 2025 10:30 AM</div>
+          </div>
+          <button class="delete-offer-btn" title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+        <div class="selected-offer-item">
+          <img class="selected-offer-avatar" src="images/vendor2.jpg" alt="Aramix">
+          <div class="selected-offer-details">
+            <div class="selected-offer-name">Aramix</div>
+            <div class="selected-offer-meta">Submitted: Jan 14, 2025 02:15 PM</div>
+          </div>
+          <button class="delete-offer-btn" title="Delete">
+            <i class="fa fa-trash"></i>
+          </button>
+        </div>
+      </div>
+      <div class="offers-compare-actions">
+        <button class="offers-compare-now-btn" id="offersCompareNowBtn">Compare Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- offers Compare Modal -->
+  <div class="offers-compare-modal" id="offersCompareModal">
+    <div class="offers-compare-modal-content">
+      <div class="offers-compare-modal-header">
+        <h3>Offers Comparison</h3>
+        <button class="offers-compare-modal-close" id="closeoffersCompareModal">×</button>
+      </div>
+      <div class="offers-compare-modal-body">
+        <div class="offers-comparison-table" id="offersComparisonTable">
+          <!-- Static sample comparison table -->
+          <table>
+            <thead>
+              <tr>
+                <th class="comparison-field-header">Field</th>
+                <th class="comparison-vendor-header">
+                  <div class="comparison-vendor-info">
+                    <img src="images/vendor.png" alt="Saudi Aramco" class="comparison-vendor-avatar">
+                    <span>Saudi Aramco</span>
+                  </div>
+                </th>
+                <th class="comparison-vendor-header">
+                  <div class="comparison-vendor-info">
+                    <img src="images/vendor2.jpg" alt="Aramix" class="comparison-vendor-avatar">
+                    <span>Aramix</span>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="comparison-field-label">Vendor</td>
+                <td>Saudi Aramco</td>
+                <td>Aramix</td>
+              </tr>
+              <tr>
+                <td class="comparison-field-label">Total</td>
+                <td class="comparison-price">SAR 125,000.00</td>
+                <td class="comparison-price">SAR 119,500.00</td>
+              </tr>
+              <tr>
+                <td class="comparison-field-label">Submitted</td>
+                <td>Jan 15, 2025 10:30 AM</td>
+                <td>Jan 14, 2025 02:15 PM</td>
+              </tr>
+              <tr class="comparison-score-row">
+                <td class="comparison-field-label">Score</td>
+                <td>
+                  <div class="comparison-score-value">
+                    <span class="score-badge">85</span>
+                    <span class="score-label">Good</span>
+                  </div>
+                </td>
+                <td>
+                  <div class="comparison-score-value">
+                    <span class="score-badge score-badge-high">92</span>
+                    <span class="score-label">Excellent</span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Offer Modal -->
+  <div id="createOfferModal" class="create-offer-modal">
+    <div class="create-offer-modal-content">
+      <div class="create-offer-modal-header">
+        <h3>Create Offer</h3>
+        <button class="create-offer-modal-close" onclick="closeCreateOfferModal()">&times;</button>
+      </div>
+      <div class="create-offer-modal-body">
+        <form class="create-offer-form">
+          <div class="create-offer-form-row">
+            <div class="create-offer-form-group">
+              <label for="offerVendor">Vendor <span class="required">*</span></label>
+              <select id="offerVendor" name="vendor" required>
+                <option value="">Select Vendor</option>
+                <option value="saudi-aramco">Saudi Aramco</option>
+                <option value="aramix">Aramix</option>
+                <option value="trade-link">Trade Link</option>
+              </select>
+            </div>
+            <div class="create-offer-form-group">
+              <label for="offerRFQ">RFQ Number</label>
+              <input type="text" id="offerRFQ" name="rfq" value="RFQ-2025" disabled>
+            </div>
+          </div>
+
+          <div class="create-offer-form-row">
+            <div class="create-offer-form-group">
+              <label for="offerCurrency">Currency <span class="required">*</span></label>
+              <select id="offerCurrency" name="currency" required>
+                <option value="SAR">SAR</option>
+                <option value="USD">USD</option>
+                <option value="EUR">EUR</option>
+              </select>
+            </div>
+            <div class="create-offer-form-group">
+              <label for="offerTotal">Total Amount <span class="required">*</span></label>
+              <input type="number" id="offerTotal" name="total" placeholder="0.00" step="0.01" required>
+            </div>
+          </div>
+
+          <div class="create-offer-form-row">
+            <div class="create-offer-form-group">
+              <label for="offerValidUntil">Valid Until <span class="required">*</span></label>
+              <input type="date" id="offerValidUntil" name="validUntil" required>
+            </div>
+            <div class="create-offer-form-group">
+              <label for="offerDelivery">Delivery Days</label>
+              <input type="number" id="offerDelivery" name="delivery" placeholder="30" min="1">
+            </div>
+          </div>
+
+          <div class="create-offer-form-group">
+            <label for="offerNotes">Notes</label>
+            <textarea id="offerNotes" name="notes" rows="3" placeholder="Additional notes or terms..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="create-offer-modal-footer">
+        <button type="button" class="create-offer-btn-cancel" onclick="closeCreateOfferModal()">Cancel</button>
+        <button type="button" class="create-offer-btn-submit" onclick="submitCreateOffer()">Create Offer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Message Modal -->
+  <div id="createMessageModal" class="create-message-modal">
+    <div class="create-message-modal-content">
+      <div class="create-message-modal-header">
+        <h3>Create Message</h3>
+        <button class="create-message-modal-close" onclick="closeCreateMessageModal()">&times;</button>
+      </div>
+      <div class="create-message-modal-body">
+        <form class="create-message-form">
+          <div class="create-message-form-group">
+            <div class="vendor-selection-header">
+              <label>Select Vendors <span class="required">*</span></label>
+              <label class="select-all-vendors">
+                <input type="checkbox" id="vendorSelectAll">
+                <span>Select All</span>
+              </label>
+            </div>
+            <div class="vendor-selection-container">
+              <div class="vendor-selection-item">
+                <input type="checkbox" id="vendor-saudi-aramco-1" name="vendors" value="saudi-aramco-1">
+                <label for="vendor-saudi-aramco-1" class="vendor-selection-label">
+                  <img src="images/vendor.png" alt="Saudi Aramco" class="vendor-selection-avatar">
+                  <span class="vendor-selection-name">Saudi Aramco</span>
+                </label>
+              </div>
+              <div class="vendor-selection-item">
+                <input type="checkbox" id="vendor-aramix" name="vendors" value="aramix">
+                <label for="vendor-aramix" class="vendor-selection-label">
+                  <img src="images/vendor2.jpg" alt="Aramix" class="vendor-selection-avatar">
+                  <span class="vendor-selection-name">Aramix</span>
+                </label>
+              </div>
+              <div class="vendor-selection-item">
+                <input type="checkbox" id="vendor-trade-link" name="vendors" value="trade-link">
+                <label for="vendor-trade-link" class="vendor-selection-label">
+                  <img src="images/vendor3.png" alt="Trade Link" class="vendor-selection-avatar">
+                  <span class="vendor-selection-name">Trade Link</span>
+                </label>
+              </div>
+              <div class="vendor-selection-item">
+                <input type="checkbox" id="vendor-saudi-aramco-2" name="vendors" value="saudi-aramco-2">
+                <label for="vendor-saudi-aramco-2" class="vendor-selection-label">
+                  <img src="images/vendor5.jpg" alt="Saudi Aramco" class="vendor-selection-avatar">
+                  <span class="vendor-selection-name">Saudi Aramco</span>
+                </label>
+              </div>
+            </div>
+          </div>
+
+          <div class="create-message-form-group">
+            <label for="messageText">Message <span class="required">*</span></label>
+            <div class="message-input-wrapper">
+              <textarea id="messageText" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+              <div class="message-input-actions">
+                <button type="button" class="message-attachment-btn" title="Attach File">
+                  <i class="fa fa-paperclip"></i>
+                </button>
+                <button type="button" class="message-voice-btn" title="Voice Note">
+                  <i class="fa fa-microphone"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="create-message-modal-footer">
+        <button type="button" class="create-message-btn-cancel" onclick="closeCreateMessageModal()">Cancel</button>
+        <button type="button" class="create-message-btn-submit">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Invite Member Modal -->
+  <div id="inviteMemberModal" class="invite-member-modal">
+    <div class="invite-member-modal-content">
+      <div class="invite-member-modal-header">
+        <h3>Invite Member to Chat</h3>
+        <button class="invite-member-modal-close" onclick="closeInviteMemberModal()">&times;</button>
+      </div>
+      <div class="invite-member-modal-body">
+        <div class="invite-member-form-group">
+          <label for="inviteMemberSearch">Search Member</label>
+          <div class="invite-member-search-wrapper">
+            <i class="fa fa-search invite-member-search-icon"></i>
+            <input type="text" id="inviteMemberSearch" class="invite-member-search-input" placeholder="Search by name, email, or role...">
+          </div>
+        </div>
+        <div class="invite-member-list" id="inviteMemberList">
+          <div class="invite-member-option">
+            <div class="invite-member-option-info">
+              <img src="images/user3.png" alt="Ali Raza" class="invite-member-option-avatar">
+              <div class="invite-member-option-details">
+                <div class="invite-member-option-name">Ali Raza</div>
+                <div class="invite-member-option-role">Finance Manager · Saudi Aramco</div>
+              </div>
+            </div>
+            <button class="invite-member-option-btn">
+              <i class="fa fa-user-plus"></i>
+              <span>Invite</span>
+            </button>
+          </div>
+          <div class="invite-member-option">
+            <div class="invite-member-option-info">
+              <img src="images/vendor3.png" alt="Omar Hassan" class="invite-member-option-avatar">
+              <div class="invite-member-option-details">
+                <div class="invite-member-option-name">Omar Hassan</div>
+                <div class="invite-member-option-role">Operations Lead · Saudi Aramco</div>
+              </div>
+            </div>
+            <button class="invite-member-option-btn">
+              <i class="fa fa-user-plus"></i>
+              <span>Invite</span>
+            </button>
+          </div>
+          <div class="invite-member-option">
+            <div class="invite-member-option-info">
+              <img src="images/user.png" alt="David Lee" class="invite-member-option-avatar">
+              <div class="invite-member-option-details">
+                <div class="invite-member-option-name">David Lee</div>
+                <div class="invite-member-option-role">Quality Assurance · My Company x</div>
+              </div>
+            </div>
+            <button class="invite-member-option-btn">
+              <i class="fa fa-user-plus"></i>
+              <span>Invite</span>
+            </button>
+          </div>
+          <div class="invite-member-option">
+            <div class="invite-member-option-info">
+              <img src="images/vendor2.jpg" alt="Sara Al-Mansoori" class="invite-member-option-avatar">
+              <div class="invite-member-option-details">
+                <div class="invite-member-option-name">Sara Al-Mansoori</div>
+                <div class="invite-member-option-role">Legal Advisor · Saudi Aramco</div>
+              </div>
+            </div>
+            <button class="invite-member-option-btn">
+              <i class="fa fa-user-plus"></i>
+              <span>Invite</span>
+            </button>
+          </div>
+          <div class="invite-member-option">
+            <div class="invite-member-option-info">
+              <img src="images/sarah.pnh.png" alt="Michael Chen" class="invite-member-option-avatar">
+              <div class="invite-member-option-details">
+                <div class="invite-member-option-name">Michael Chen</div>
+                <div class="invite-member-option-role">IT Support · My Company x</div>
+              </div>
+            </div>
+            <button class="invite-member-option-btn">
+              <i class="fa fa-user-plus"></i>
+              <span>Invite</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="invite-member-modal-footer">
+        <button type="button" class="invite-member-btn-cancel" onclick="closeInviteMemberModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script/rfq-company.js"></script>
+  <script src="script/chat.js"></script>
+
 </body>
 
 </html>
