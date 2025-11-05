@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>360 Project View</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="css/preview-360.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+</head>
+
+<body>
+  <!-- Panorama Preview Container -->
+  <div class="panorama-preview-container">
+    <!-- Panorama Image -->
+    <img id="panoramaImage" src="" alt="360 Panorama" class="panorama-preview-image">
+    
+    <!-- Back Button (Left Side) -->
+    <button class="panorama-back-btn" onclick="goBack()">
+      <i class="fa fa-arrow-left"></i>
+    </button>
+    
+    <!-- Sidebar Toggle Button (Right Side) -->
+    <button class="panorama-sidebar-toggle" onclick="toggleSidebar()">
+      <i class="fa fa-bars"></i>
+    </button>
+    
+    <!-- Sidebar -->
+    <div class="panorama-sidebar" id="panoramaSidebar">
+      <div class="panorama-sidebar-header">
+        <h3>All Panoramas</h3>
+        <button class="panorama-sidebar-close" onclick="toggleSidebar()">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="panorama-sidebar-content">
+        <!-- Panorama List Items -->
+        <div class="panorama-item">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/property1.png" alt="Living Room Panorama">
+          </div>
+          <div class="panorama-item-info">
+            <h4>Living Room Panorama</h4>
+          </div>
+        </div>
+        
+        <div class="panorama-item">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/property2.jpg" alt="Terrace Panorama">
+          </div>
+          <div class="panorama-item-info">
+            <h4>Terrace Panorama</h4>
+          </div>
+        </div>
+        
+        <div class="panorama-item">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/shop1.jpg" alt="Kitchen Panorama">
+          </div>
+          <div class="panorama-item-info">
+            <h4>Kitchen Panorama</h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="panorama-sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+  </div>
+
+  <script src="scripts/preview-360.js"></script>
+</body>
+
+</html>
+

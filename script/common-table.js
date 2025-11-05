@@ -269,7 +269,16 @@ function initActionDropdowns(dropdownSelector = '.data-action-dropdown',
  */
 function toggleActionDropdown(dropdownId, buttonSelector = '.data-action-dropdown-btn') {
     const dropdown = document.getElementById(dropdownId);
+    if (!dropdown) {
+        console.warn(`Action dropdown with ID "${dropdownId}" not found`);
+        return;
+    }
+    
     const button = dropdown.querySelector(buttonSelector);
+    if (!button) {
+        console.warn(`Action dropdown button not found in dropdown "${dropdownId}"`);
+        return;
+    }
     
     if (dropdown.classList.contains('active')) {
         dropdown.classList.remove('active');

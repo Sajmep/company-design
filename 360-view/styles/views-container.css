@@ -1,0 +1,148 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+
+.views-container {
+  background: #ffffff;
+  width: 90%;
+  margin: auto;
+}
+
+.views-toggle {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  gap: 8px;
+}
+
+.data-view-btn {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+}
+
+.data-view-btn:hover {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.data-view-btn-active {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+
+/* ==================== pagination styles ==================== */
+
+.bmh-card-view {
+  padding: 20px;
+  padding-top: 8px;
+  background: #ffffff;
+}
+
+/* Pagination Styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0;
+  padding: 20px;
+}
+
+.pagination-btn {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #6b7280;
+  font-size: 14px;
+  font-weight: 500;
+  min-width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination-btn:hover {
+  background: #f9fafb;
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.pagination-btn.active {
+  background: #dc2626;
+  border-color: #dc2626;
+  color: #fff;
+}
+
+.pagination-btn:disabled {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+  color: #d1d5db;
+  cursor: not-allowed;
+}
+
+.pagination-btn:disabled:hover {
+  background: #f9fafb;
+  border-color: #e5e7eb;
+  color: #d1d5db;
+}
+
+.pagination-info {
+  color: #6b7280;
+  font-size: 14px;
+  margin: 0 16px;
+}
+
+.pagination-dots {
+  color: #d1d5db;
+  font-size: 16px;
+  padding: 0 4px;
+}
+
+
+@media (max-width: 480px) {
+  
+  .pagination {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  
+  .pagination-btn {
+    min-width: 36px;
+    height: 36px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+  
+  .pagination-info {
+    font-size: 12px;
+    margin: 0 8px;
+  }
+  
+  .bmh-list-view-item {
+    padding: 12px;
+  }
+  
+}
+
