@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>360 Project View</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="css/edit-360.css">
+  <link rel="stylesheet" href="css/preview-360.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  
+  <!-- Three.js and Panolens for 360 Viewer -->
+</head>
+
+<body>
+  <!-- Panorama Preview Container -->
+  <div class="panorama-preview-container">
+    <!-- Panorama Viewer Container (will be created by JavaScript) -->
+    <div id="panoramaImage"></div>
+    
+    <!-- Hotspot Icons Tray (Left Side) -->
+    <div class="hotspot-tray">
+      <div class="hotspot-tray-header">
+        <h3>Hotspots</h3>
+      </div>
+      <div class="hotspot-tray-content">
+        <button class="hotspot-icon-btn" title="Image Hotspot">
+          <i class="fa fa-image"></i>
+          <span>Image</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Video Hotspot">
+          <i class="fa fa-video-camera"></i>
+          <span>Video</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Sound Hotspot">
+          <i class="fa fa-volume-up"></i>
+          <span>Sound</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Navigation Point">
+          <i class="fa fa-arrow-right"></i>
+          <span>Point</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Info Hotspot">
+          <i class="fa fa-info-circle"></i>
+          <span>Info</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Link Hotspot">
+          <i class="fa fa-link"></i>
+          <span>Link</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Text Hotspot">
+          <i class="fa fa-font"></i>
+          <span>Text</span>
+        </button>
+        <button class="hotspot-icon-btn" title="Gallery Hotspot">
+          <i class="fa fa-photo"></i>
+          <span>Gallery</span>
+        </button>
+      </div>
+      <div class="hotspot-tray-footer">
+        <div class="hotspot-tray-count">
+          <span class="hotspot-tray-count-number" id="hotspotTotalCount">0</span>
+          <span class="hotspot-tray-count-label">Hotspots</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Back Button (Left Side) -->
+    <button class="panorama-back-btn" onclick="goBack()">
+      <i class="fa fa-arrow-left"></i>
+    </button>
+    
+    <!-- Sidebar Toggle Button (Right Side) -->
+    <button class="panorama-sidebar-toggle" onclick="toggleSidebar()">
+      <i class="fa fa-bars"></i>
+    </button>
+    
+    <!-- Sidebar -->
+    <div class="panorama-sidebar" id="panoramaSidebar">
+      <div class="panorama-sidebar-header">
+        <h3>Panoramas</h3>
+        <button class="panorama-sidebar-close" onclick="toggleSidebar()">
+          <i class="fa fa-times"></i>
+        </button>
+      </div>
+      
+      <div class="panorama-sidebar-content">
+        <!-- Panorama Preview Items -->
+        <div class="panorama-item active">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/property1.png" alt="Living Room Panorama">
+            <div class="panorama-item-badge">Current</div>
+          </div>
+          <div class="panorama-item-info">
+            <h4>Living Room</h4>
+          </div>
+        </div>
+        
+        <div class="panorama-item">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/property2.jpg" alt="Terrace Panorama">
+          </div>
+          <div class="panorama-item-info">
+            <h4>Terrace</h4>
+          </div>
+        </div>
+        
+        <div class="panorama-item">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/shop1.jpg" alt="Kitchen Panorama">
+          </div>
+          <div class="panorama-item-info">
+            <h4>Kitchen</h4>
+          </div>
+        </div>
+        
+        <div class="panorama-item">
+          <div class="panorama-item-image">
+            <img src="../property/properties-images/property1.png" alt="Bedroom Panorama">
+          </div>
+          <div class="panorama-item-info">
+            <h4>Bedroom</h4>
+          </div>
+        </div>
+      </div>
+      
+      <div class="panorama-sidebar-footer">
+        <button class="panorama-add-btn" onclick="addPanorama()">
+          <i class="fa fa-plus"></i>
+          <span>Add More</span>
+        </button>
+      </div>
+    </div>
+    
+    <!-- Sidebar Overlay -->
+    <div class="panorama-sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+  </div>
+
+  <!-- Hotspot Info Popup -->
+  <div id="hotspotInfoPopup" class="hotspot-info-popup" style="display: none;"></div>
+
+  <!-- Three.js and Panolens -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+  <script src="scripts/edit-360.js"></script>
+</body>
+
+</html>
+

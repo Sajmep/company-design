@@ -496,42 +496,78 @@
           </svg>
           <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
         </div>
-        <div class="company-heading collapsed ">
-          <h2>Company</h2>
-        </div>
-        <div class="form-grid">
-          
-          <div class="company form-section">
-      
-            <div class="checkbox-group ">
-              <div class="section">
-                <h4>SAJMEP</h4>
-                <span>ID - 123342 243</span>
-
-              </div>
-
-              <div class="section">
-                <h4>Company A</h4>
-                <span>ID - 123342 243</span>
-
-              </div>
-
-              <div class="section">
-                <h4>Branch</h4>
-                <span>ID - 123342 243</span>
-
-              </div>
-
-              <div class="section">
-                <h4>Shop</h4>
-                <span>ID - 123342 243</span>
-
-              </div>
-
-            </div>
-
+        
+        <!-- Enterprise Section -->
+        <div class="section-group">
+          <div class="section-heading" onclick="toggleCompanySection(this)">
+            <h2>Enterprise</h2>
+            <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
           </div>
-          <a href="#" class="create-btn" onclick="openCreateCompanyModal()">+ Create Company</a>
+          <div class="section-content">
+            <div class="section-actions">
+              <a href="#" class="combobox-view-all-btn" onclick="viewAllCompanies(); return false;">
+                <i class="fa fa-list" aria-hidden="true"></i> View All
+              </a>
+            </div>
+            <div class="company form-section">
+              <div class="checkbox-group">
+                <div class="section-item active" data-company="SAJMEP" onclick="selectCompany('SAJMEP', 'images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png', this)">
+                  <div class="item-logo">
+                    <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="SAJMEP" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>SAJMEP</h4>
+                    <span>ID - 123342 243</span>
+                  </div>
+                </div>
+
+                <div class="section-item" data-company="Company A" onclick="selectCompany('Company A', 'images/bmh-logo.png', this)">
+                  <div class="item-logo">
+                    <img src="images/bmh-logo.png" alt="Company A" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>Company A</h4>
+                    <span>ID - 123342 244</span>
+                  </div>
+                </div>
+
+                <div class="section-item" data-company="Company B" onclick="selectCompany('Company B', 'images/sellers-logo.png', this)">
+                  <div class="item-logo">
+                    <img src="images/sellers-logo.png" alt="Company B" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>Company B</h4>
+                    <span>ID - 123342 245</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          <a href="#" class="combobox-create-btn" onclick="openCreateCompanyModal(); return false;">+ Company</a>
+          </div>
+        </div>
+
+        <!-- Individual Section -->
+        <div class="section-group">
+          <div class="section-heading" onclick="toggleCompanySection(this)">
+            <h2>Individual</h2>
+            <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+          </div>
+          <div class="section-content">
+            <div class="company form-section">
+              <div class="checkbox-group">
+                <div class="section-item" data-company="Fazli" onclick="selectCompany('Fazli', 'images/user.png', this)">
+                  <div class="item-avatar">
+                    <img src="images/user.png" alt="Fazli" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>Fazli</h4>
+                    <span>ID - 123342 246</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
