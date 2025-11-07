@@ -106,8 +106,7 @@ main.content {
   }
 
 
-.combobox .create-btn { display: block; margin: 8px; padding: 6px; text-align: center; background: #007bff; color: white; border-radius: 4px; text-decoration: none; }
-.combobox .create-btn:hover { background: #0056b3; }
+/* Removed - using .combobox-create-btn instead */
 
 
 hr.sep{border:0;border-top:1px solid rgba(255,255,255,0.04);margin:10px 0}

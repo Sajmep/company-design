@@ -9,11 +9,19 @@
   background: #000;
 }
 
-.panorama-preview-image {
+#panoramaViewer {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+  height: 100vh;
+}
+
+#panoramaImage {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+}
+#panoramaImage canvas {
+  pointer-events: auto;
 }
 
 /* Back Button (Left Side) */
@@ -30,10 +38,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 10;
+  z-index: 1000;
   transition: all 0.3s ease;
   color: #1f2937;
   font-size: 20px;
+  pointer-events: auto;
 }
 .panorama-back-btn:hover {
   background: #dc2626;
@@ -54,31 +63,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
   z-index: 10;
+  cursor: pointer;
   transition: all 0.3s ease;
   color: #1f2937;
   font-size: 20px;
+  pointer-events: auto !important;
+  touch-action: manipulation;
 }
 .panorama-sidebar-toggle:hover {
   background: #dc2626;
   color: #fff;
   transform: scale(1.1);
 }
+.panorama-sidebar-toggle:active {
+  transform: scale(0.95);
+}
 
 /* Sidebar */
 .panorama-sidebar {
   position: fixed;
   top: 0;
-  right: -400px;
-  width: 400px;
+  right: -280px;
+  width: 230px;
   height: 100vh;
   background: #fff;
-  z-index: 100;
+  z-index: 1001;
   transition: right 0.3s ease;
   display: flex;
   flex-direction: column;
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+  pointer-events: auto;
 }
 .panorama-sidebar.active {
   right: 0;
@@ -88,13 +103,13 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 15px;
   border-bottom: 1px solid #e5e7eb;
   background: #f9fafb;
 }
 .panorama-sidebar-header h3 {
   margin: 0;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 600;
   color: #1f2937;
 }
@@ -102,12 +117,12 @@
 .panorama-sidebar-close {
   background: none;
   border: none;
-  font-size: 20px;
+  font-size: 18px;
   cursor: pointer;
   color: #6b7280;
   padding: 5px;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -122,42 +137,57 @@
 .panorama-sidebar-content {
   flex: 1;
   overflow-y: auto;
-  padding: 20px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* Panorama Item */
+/* Panorama Item - Compact Preview */
 .panorama-item {
   display: flex;
-  gap: 15px;
-  padding: 15px;
+  gap: 10px;
+  padding: 10px;
   border-radius: 8px;
-  margin-bottom: 15px;
+  border: 2px solid #e5e7eb;
+  background: #fff;
   cursor: pointer;
   transition: all 0.2s ease;
-  border: 1px solid #e5e7eb;
 }
 .panorama-item:hover {
-  background: #f9fafb;
   border-color: #dc2626;
-  transform: translateX(5px);
+  box-shadow: 0 2px 6px rgba(220, 38, 38, 0.15);
 }
 .panorama-item.active {
-  background: #fef2f2;
   border-color: #dc2626;
+  background: #fee2e2;
 }
 
 .panorama-item-image {
-  width: 80px;
-  height: 80px;
+  width: 60px;
+  height: 60px;
   border-radius: 6px;
   overflow: hidden;
   flex-shrink: 0;
   background: #f3f4f6;
+  position: relative;
 }
 .panorama-item-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+.panorama-item-image .panorama-item-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: #dc2626;
+  color: #fff;
+  font-size: 9px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .panorama-item-info {
@@ -165,13 +195,52 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;
 }
 .panorama-item-info h4 {
   margin: 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
   color: #1f2937;
-  line-height: 1.4;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar Footer */
+.panorama-sidebar-footer {
+  padding: 12px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.panorama-add-btn {
+  width: 100%;
+  padding: 10px;
+  background: #dc2626;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.panorama-add-btn i {
+  font-size: 14px;
+}
+.panorama-add-btn:hover {
+  background: #b91c1c;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+.panorama-add-btn:active {
+  transform: translateY(0);
 }
 
 /* Sidebar Overlay */
@@ -182,45 +251,123 @@
   width: 100%;
   height: 100vh;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 99;
+  z-index: 1000;
   display: none;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: auto;
 }
 .panorama-sidebar-overlay.active {
   display: block;
   opacity: 1;
 }
 
+.psv-navbar {
+  padding: 0 90px;
+}
+
+/* Hotspot Info Popup */
+.hotspot-info-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  z-index: 10000;
+  min-width: 300px;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.hotspot-info-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s ease;
+}
+.hotspot-info-close:hover {
+  color: #dc2626;
+}
+
+.hotspot-info-content {
+  text-align: center;
+}
+.hotspot-info-content h2 {
+  margin: 0 0 15px 0;
+  font-size: 24px;
+  color: #fff;
+  font-weight: 600;
+}
+.hotspot-info-content p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #e5e7eb;
+}
+.hotspot-info-content .hotspot-price {
+  font-size: 18px;
+  color: #dc2626;
+  font-weight: 600;
+  margin: 15px 0;
+}
+.hotspot-info-content .hotspot-link {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #dc2626;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.hotspot-info-content .hotspot-link:hover {
+  background: #b91c1c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .panorama-back-btn {
+    left: 15px;
+  }
   .panorama-sidebar {
     width: 100%;
     right: -100%;
   }
-  .panorama-back-btn,
   .panorama-sidebar-toggle {
     width: 45px;
     height: 45px;
     font-size: 18px;
     top: 15px;
-  }
-  .panorama-back-btn {
-    left: 15px;
-  }
-  .panorama-sidebar-toggle {
     right: 15px;
   }
   .panorama-item {
-    padding: 12px;
-    gap: 12px;
+    padding: 8px;
+    gap: 8px;
   }
   .panorama-item-image {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
   }
   .panorama-item-info h4 {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 

@@ -490,6 +490,65 @@ function toggleSection(titleElement) {
   }
 }
 
+// Toggle company section (Enterprise/Individual)
+function toggleCompanySection(headingElement) {
+  const sectionContent = headingElement.nextElementSibling;
+  const isCollapsed = sectionContent.classList.contains('collapsed');
+  
+  if (isCollapsed) {
+    sectionContent.classList.remove('collapsed');
+    headingElement.classList.remove('collapsed');
+  } else {
+    sectionContent.classList.add('collapsed');
+    headingElement.classList.add('collapsed');
+  }
+}
+
+// Select company/individual and update the selector
+function selectCompany(name, logoPath, element) {
+  const selectedLogo = document.getElementById('selectedLogo');
+  const panel = document.getElementById('panel');
+  const selector = document.getElementById('selector');
+  
+  // Remove active class from all section items
+  const allItems = document.querySelectorAll('.section-item');
+  allItems.forEach(item => {
+    item.classList.remove('active');
+  });
+  
+  // Add active class to the selected item
+  if (element) {
+    element.classList.add('active');
+  }
+  
+  if (selectedLogo && logoPath) {
+    selectedLogo.innerHTML = `<img src="${logoPath}" alt="${name}" width="100%">`;
+  }
+  
+  // Close the panel
+  if (panel) {
+    panel.style.display = 'none';
+    panel.setAttribute('aria-hidden', 'true');
+  }
+  
+  if (selector) {
+    selector.setAttribute('aria-expanded', 'false');
+  }
+  
+  // Optional: Store selected company info
+  console.log('Selected:', name, logoPath);
+}
+
+// View all companies function
+function viewAllCompanies() {
+  // You can implement navigation to a full companies list page
+  // or show a modal with all companies
+  console.log('View all companies clicked');
+  // Example: window.location.href = 'companies.html';
+  // Or: openAllCompaniesModal();
+  alert('View All Companies - This can navigate to a full companies list page');
+}
+
 
 // phone number fields for country code 
 
