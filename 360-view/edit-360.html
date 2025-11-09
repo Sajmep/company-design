@@ -67,6 +67,29 @@
       </div>
     </div>
     
+    <!-- Hotspot Move Controls (Top Right) -->
+    <div class="hotspot-move-controls">
+      <div class="move-controls-header">
+        <h4>Move Hotspot</h4>
+      </div>
+      <div class="move-controls-buttons">
+        <button class="move-btn" id="moveUp" title="Move Up">
+          <i class="fa fa-arrow-up"></i>
+        </button>
+        <div class="move-controls-row">
+          <button class="move-btn" id="moveLeft" title="Move Left">
+            <i class="fa fa-arrow-left"></i>
+          </button>
+          <button class="move-btn" id="moveRight" title="Move Right">
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+        <button class="move-btn" id="moveDown" title="Move Down">
+          <i class="fa fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+    
     <!-- Back Button (Left Side) -->
     <button class="panorama-back-btn" onclick="goBack()">
       <i class="fa fa-arrow-left"></i>
@@ -144,6 +167,7 @@
   <!-- Three.js and Panolens -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+  <script src="scripts/preview-360.js"></script>
   <script src="scripts/edit-360.js"></script>
 </body>
 

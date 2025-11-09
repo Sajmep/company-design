@@ -22,6 +22,11 @@ const hotspotData = {
     description: "Some sample text for this info card. This is just test text",
     price: "$199.99",
     link: "https://example.com/product"
+  },
+  navigation: {
+    type: 'navigation',
+    title: "Go to Next Panorama",
+    targetPanorama: "images/360-2.jpg" // Image URL of the next panorama
   }
 };
 
@@ -37,7 +42,29 @@ window.addEventListener('load', function() {
   }
   
   initializeViewer(imageUrl);
+  updateActivePanoramaInSidebar(imageUrl);
 });
+
+// Update active panorama in sidebar based on current image
+function updateActivePanoramaInSidebar(currentImageUrl) {
+  const panoramaItems = document.querySelectorAll('.panorama-item');
+  
+  panoramaItems.forEach(function(item) {
+    // Remove active class from all items
+    item.classList.remove('active');
+    
+    // Get image path from this item
+    const img = item.querySelector('.panorama-item-image img');
+    if (img) {
+      const itemImagePath = img.getAttribute('src');
+      
+      // Check if this item's image matches current panorama
+      if (currentImageUrl.includes(itemImagePath) || itemImagePath === currentImageUrl) {
+        item.classList.add('active');
+      }
+    }
+  });
+}
 
 // Initialize Panolens viewer
 function initializeViewer(imageUrl) {
@@ -87,7 +114,8 @@ function createHotspotIcon(type) {
   const iconMap = {
     'image': 'fa-image',
     'video': 'fa-video-camera',
-    'info': 'fa-info-circle'
+    'info': 'fa-info-circle',
+    'navigation': 'fa-arrow-right'
   };
   const iconClass = iconMap[type] || 'fa-info-circle';
   
@@ -119,7 +147,8 @@ function createHotspotIcon(type) {
   const unicodeMap = {
     'fa-image': '\uf03e',
     'fa-video-camera': '\uf03d',
-    'fa-info-circle': '\uf05a'
+    'fa-info-circle': '\uf05a',
+    'fa-arrow-right': '\uf061'
   };
   
   ctx.fillText(unicodeMap[iconClass] || '\uf05a', 32, 32);
@@ -135,12 +164,25 @@ function createHotspot(data, position, size = 200) {
   
   infospot.addEventListener('click', function() {
     console.log('Hotspot clicked:', data.type);
+    
+    // Select hotspot for editing (if edit page is loaded)
+    if (window.selectHotspot) {
+      const index = hotspots.findIndex(h => h === infospot);
+      if (index !== -1) {
+        window.selectHotspot(index);
+      }
+    }
+    
+    // Show content based on type
     if (data.type === 'image') {
       showImageHotspot(data);
     } else if (data.type === 'video') {
       showVideoHotspot(data);
     } else if (data.type === 'info') {
       showInfoHotspot(data);
+    } else if (data.type === 'navigation') {
+      // Navigate to another panorama
+      navigateToPanorama(data.targetPanorama);
     }
   });
   
@@ -218,11 +260,24 @@ window.closeHotspotInfo = function() {
   }
 };
 
+// Navigate to another panorama
+function navigateToPanorama(imageUrl) {
+  // Get current URL parameters
+  const currentUrl = new URL(window.location.href);
+  
+  // Update the image parameter with the new panorama image
+  currentUrl.searchParams.set('image', imageUrl);
+  
+  // Navigate to the new panorama
+  window.location.href = currentUrl.toString();
+}
+
 // Default positions for hotspots
 const defaultPositions = [
   { x: 3000, y: 0, z: -2000 },    // Image hotspot
   { x: -2000, y: 200, z: -3000 }, // Video hotspot
-  { x: 1000, y: -300, z: -4000 }  // Info hotspot
+  { x: 1000, y: -300, z: -4000 }, // Info hotspot
+  { x: -3000, y: 0, z: -2000 }    // Navigation hotspot
 ];
 
 // Create all hotspots
@@ -230,13 +285,17 @@ function createHotspots() {
   hotspots = [
     createHotspot(hotspotData.image, defaultPositions[0]),
     createHotspot(hotspotData.video, defaultPositions[1]),
-    createHotspot(hotspotData.info, defaultPositions[2])
+    createHotspot(hotspotData.info, defaultPositions[2]),
+    createHotspot(hotspotData.navigation, defaultPositions[3])
   ];
   
   // Add all hotspots to panorama
   hotspots.forEach(hotspot => {
     panorama.add(hotspot);
   });
+  
+  // Make hotspots globally accessible
+  window.hotspots = hotspots;
 }
 
 // Update hotspot count display (not needed in preview page)
@@ -324,4 +383,20 @@ document.addEventListener('DOMContentLoaded', function() {
       console.log('Add panorama clicked');
     });
   }
+  
+  // Make panorama items clickable to switch panoramas
+  const panoramaItems = document.querySelectorAll('.panorama-item');
+  panoramaItems.forEach(function(item) {
+    item.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Get image path from clicked item
+      const img = item.querySelector('.panorama-item-image img');
+      if (img) {
+        const imagePath = img.getAttribute('src');
+        navigateToPanorama(imagePath);
+      }
+    });
+  });
 });
