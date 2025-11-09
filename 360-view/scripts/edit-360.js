@@ -1,15 +1,16 @@
 // Edit Page - Only Move Controls Logic
 
 let selectedHotspotIndex = 0; // Currently selected hotspot
-let isDragging = false;
-let dragHotspot = null;
 
 // Setup move controls when page loads
 window.addEventListener('load', function() {
   // Wait a bit for preview-360.js to initialize
   setTimeout(function() {
     setupMoveControls();
-    setupDragAndDrop();
+    setupHotspotTypeChange();
+    if (typeof setupDragAndDrop === 'function') {
+      setupDragAndDrop();
+    }
   }, 500);
 });
 
@@ -76,86 +77,63 @@ window.selectHotspot = function(index) {
   console.log('Selected hotspot:', index);
 };
 
-// Setup drag and drop for hotspots
-function setupDragAndDrop() {
-  const container = document.getElementById('panoramaImage');
-  if (!container) return;
+// Function to get selected hotspot index (for dragHotspot.js)
+window.getSelectedHotspotIndex = function() {
+  return selectedHotspotIndex;
+};
 
-  let startMouseX = 0;
-  let startMouseY = 0;
-  let startPosition = { x: 0, y: 0, z: 0 };
+// Open hotspot sidebar
+window.openHotspotSidebar = function() {
+  const sidebar = document.getElementById('hotspotEditSidebar');
+  if (sidebar) sidebar.classList.add('active');
+};
 
-  // Mouse down - start dragging (hold Shift key to drag)
-  container.addEventListener('mousedown', function(e) {
-    if (!window.hotspots || window.hotspots.length === 0) return;
-    
-    // Only start dragging if Shift key is held and a hotspot is selected
-    if (e.shiftKey && window.hotspots[selectedHotspotIndex]) {
-      isDragging = true;
-      dragHotspot = window.hotspots[selectedHotspotIndex];
-      startMouseX = e.clientX;
-      startMouseY = e.clientY;
-      startPosition = {
-        x: dragHotspot.position.x,
-        y: dragHotspot.position.y,
-        z: dragHotspot.position.z
-      };
-      
-      // Disable panorama controls while dragging
-      if (window.viewer && window.viewer.controls) {
-        window.viewer.controls.enabled = false;
+// Close hotspot sidebar
+window.closeHotspotSidebar = function() {
+  const sidebar = document.getElementById('hotspotEditSidebar');
+  if (sidebar) sidebar.classList.remove('active');
+};
+
+// Show hotspot tab based on type
+window.showHotspotTab = function(type) {
+  // Hide all tabs
+  const allTabs = document.querySelectorAll('[class*="-hotspot-tab"]');
+  allTabs.forEach(tab => {
+    tab.style.display = 'none';
+  });
+  
+  // Show the selected tab
+  const selectedTab = document.querySelector('.' + type + '-hotspot-tab');
+  if (selectedTab) {
+    selectedTab.style.display = 'block';
+  }
+};
+
+// Setup hotspot type change handler
+function setupHotspotTypeChange() {
+  const hotspotSelect = document.getElementById('hotspot');
+  if (hotspotSelect) {
+    hotspotSelect.addEventListener('change', function() {
+      const selectedType = this.value;
+      window.showHotspotTab(selectedType);
+    });
+  }
+
+  // Setup image upload preview
+  const imageUpload = document.getElementById('imageHotspotUpload');
+  const imagePreview = document.getElementById('imageHotspotPreview');
+  
+  if (imageUpload && imagePreview) {
+    imageUpload.addEventListener('change', function(e) {
+      const file = e.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          imagePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
       }
-      
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  });
-
-  // Mouse move - update position while dragging
-  container.addEventListener('mousemove', function(e) {
-    if (!isDragging || !dragHotspot) return;
-
-    // Calculate mouse movement
-    const deltaX = e.clientX - startMouseX;
-    const deltaY = e.clientY - startMouseY;
-
-    // Convert screen movement to 3D position change
-    const moveSpeed = 10; // Adjust this to control drag sensitivity
-    
-    // Invert X direction to match cursor movement
-    dragHotspot.position.x = startPosition.x - (deltaX * moveSpeed);
-    dragHotspot.position.y = startPosition.y - (deltaY * moveSpeed); // Invert Y
-
-    e.preventDefault();
-    e.stopPropagation();
-  });
-
-  // Mouse up - stop dragging
-  container.addEventListener('mouseup', function(e) {
-    if (isDragging) {
-      isDragging = false;
-      dragHotspot = null;
-      
-      // Re-enable panorama controls
-      if (window.viewer && window.viewer.controls) {
-        window.viewer.controls.enabled = true;
-      }
-      
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  });
-
-  // Also handle mouse leave
-  container.addEventListener('mouseleave', function(e) {
-    if (isDragging) {
-      isDragging = false;
-      dragHotspot = null;
-      
-      // Re-enable panorama controls
-      if (window.viewer && window.viewer.controls) {
-        window.viewer.controls.enabled = true;
-      }
-    }
-  });
+    });
+  }
 }
+

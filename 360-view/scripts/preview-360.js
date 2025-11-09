@@ -173,16 +173,24 @@ function createHotspot(data, position, size = 200) {
       }
     }
     
-    // Show content based on type
-    if (data.type === 'image') {
-      showImageHotspot(data);
-    } else if (data.type === 'video') {
-      showVideoHotspot(data);
-    } else if (data.type === 'info') {
-      showInfoHotspot(data);
-    } else if (data.type === 'navigation') {
-      // Navigate to another panorama
-      navigateToPanorama(data.targetPanorama);
+    // Check if we're on edit page (edit-360.html)
+    const isEditPage = window.location.pathname.includes('edit-360.html');
+    
+    if (isEditPage) {
+      // Show empty popup for editing
+      showHotspotSidebar(data);
+    } else {
+      // Show content based on type (preview page)
+      if (data.type === 'image') {
+        showImageHotspot(data);
+      } else if (data.type === 'video') {
+        showVideoHotspot(data);
+      } else if (data.type === 'info') {
+        showInfoHotspot(data);
+      } else if (data.type === 'navigation') {
+        // Navigate to another panorama
+        navigateToPanorama(data.targetPanorama);
+      }
     }
   });
   
@@ -252,7 +260,33 @@ function showInfoHotspot(data) {
   }
 }
 
-// Close hotspot info
+// Show sidebar for editing hotspot
+function showHotspotSidebar(data) {
+  const hotspotSelect = document.getElementById('hotspot');
+  
+  // Set hotspot type in dropdown
+  if (hotspotSelect && data.type) {
+    hotspotSelect.value = data.type;
+  }
+  
+  // Update image preview if it's an image hotspot
+  if (data.type === 'image' && data.imageUrl) {
+    const imagePreview = document.getElementById('imageHotspotPreview');
+    if (imagePreview) {
+      imagePreview.src = data.imageUrl;
+    }
+  }
+  
+  // Show the correct tab based on hotspot type
+  if (window.showHotspotTab && typeof window.showHotspotTab === 'function') {
+    window.showHotspotTab(data.type || 'info');
+  }
+  
+  // Show sidebar
+  openHotspotSidebar();
+}
+
+// Close hotspot info (for backward compatibility - only used in preview page)
 window.closeHotspotInfo = function() {
   const content = document.getElementById('hotspotInfoPopup');
   if (content) {
