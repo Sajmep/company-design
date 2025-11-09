@@ -156,15 +156,13 @@
 }
 /* Hotspot Move Controls (Top Right) */
 .hotspot-move-controls {
-  position: fixed;
-  top: 80px;
-  right: 20px;
   width: 120px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 1000;
   padding: 10px;
+  margin: 38px auto;
 }
 
 .move-controls-header {
@@ -215,83 +213,238 @@
   color: #fff;
 }
 
-/* Hotspot Info Popup */
-.hotspot-info-popup {
+/* Hotspot Edit Sidebar */
+.hotspot-edit-sidebar {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.95);
-  color: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  z-index: 10000;
-  min-width: 300px;
-  max-width: 500px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  background: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 10001;
+  transition: left 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.hotspot-edit-sidebar.active {
+  left: 0px;
 }
 
-.hotspot-info-close {
-  position: absolute;
-  top: 10px;
-  right: 15px;
+.hotspot-sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hotspot-sidebar-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.hotspot-sidebar-header .hotspot-sidebar-close {
   background: none;
   border: none;
-  color: #fff;
-  font-size: 28px;
+  color: #6b7280;
+  font-size: 20px;
   cursor: pointer;
-  line-height: 1;
-  padding: 0;
+  padding: 5px;
   width: 30px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: color 0.2s ease;
+  border-radius: 4px;
+  transition: all 0.2s ease;
 }
-.hotspot-info-close:hover {
+.hotspot-sidebar-header .hotspot-sidebar-close:hover {
+  background: #fee2e2;
   color: #dc2626;
 }
 
-.hotspot-info-content {
-  text-align: center;
+.hotspot-sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
 }
-.hotspot-info-content h2 {
-  margin: 0 0 15px 0;
-  font-size: 24px;
-  color: #fff;
-  font-weight: 600;
+
+.hotspot-edit-form [class*=-hotspot-tab],
+.hotspot-data-form [class*=-hotspot-tab] {
+  display: none;
 }
-.hotspot-info-content p {
-  margin: 10px 0;
+.hotspot-edit-form .form-group,
+.hotspot-data-form .form-group {
+  margin-bottom: 20px;
+}
+.hotspot-edit-form .form-group label,
+.hotspot-data-form .form-group label {
+  display: block;
+  margin-bottom: 8px;
   font-size: 14px;
-  line-height: 1.6;
-  color: #e5e7eb;
-}
-.hotspot-info-content .panorama-back-btn {
-  left: 90px;
-}
-.hotspot-info-content .hotspot-price {
-  font-size: 18px;
-  color: #dc2626;
   font-weight: 600;
-  margin: 15px 0;
+  color: #1f2937;
 }
-.hotspot-info-content .hotspot-link {
-  display: inline-block;
-  margin-top: 15px;
+.hotspot-edit-form .form-group span,
+.hotspot-data-form .form-group span {
+  display: block;
+  padding: 8px 12px;
+  background: #f3f4f6;
+  border-radius: 4px;
+  color: #1f2937;
+  font-size: 14px;
+}
+.hotspot-edit-form .form-group input[type=text],
+.hotspot-edit-form .form-group textarea,
+.hotspot-edit-form .form-group select,
+.hotspot-data-form .form-group input[type=text],
+.hotspot-data-form .form-group textarea,
+.hotspot-data-form .form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  color: #1f2937;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.hotspot-edit-form .form-group input[type=text]::placeholder,
+.hotspot-edit-form .form-group textarea::placeholder,
+.hotspot-edit-form .form-group select::placeholder,
+.hotspot-data-form .form-group input[type=text]::placeholder,
+.hotspot-data-form .form-group textarea::placeholder,
+.hotspot-data-form .form-group select::placeholder {
+  color: #9ca3af;
+}
+.hotspot-edit-form .form-group input[type=text]:focus,
+.hotspot-edit-form .form-group textarea:focus,
+.hotspot-edit-form .form-group select:focus,
+.hotspot-data-form .form-group input[type=text]:focus,
+.hotspot-data-form .form-group textarea:focus,
+.hotspot-data-form .form-group select:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+.hotspot-edit-form .form-group input[type=text] option,
+.hotspot-edit-form .form-group textarea option,
+.hotspot-edit-form .form-group select option,
+.hotspot-data-form .form-group input[type=text] option,
+.hotspot-data-form .form-group textarea option,
+.hotspot-data-form .form-group select option {
+  background: #fff;
+  color: #1f2937;
+}
+.hotspot-edit-form .form-group textarea,
+.hotspot-data-form .form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.hotspot-edit-form .form-group .image-preview-container,
+.hotspot-data-form .form-group .image-preview-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.hotspot-edit-form .form-group .image-preview,
+.hotspot-data-form .form-group .image-preview {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+}
+.hotspot-edit-form .form-group .file-upload,
+.hotspot-data-form .form-group .file-upload {
+  width: 100%;
+  padding: 8px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  color: #1f2937;
+  font-size: 14px;
+  cursor: pointer;
+}
+.hotspot-edit-form .form-group .file-upload:focus,
+.hotspot-data-form .form-group .file-upload:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+.hotspot-edit-form .form-group .video-preview-container,
+.hotspot-data-form .form-group .video-preview-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.hotspot-edit-form .form-group .video-preview,
+.hotspot-data-form .form-group .video-preview {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 4px;
+  border: 1px solid #d1d5db;
+  background: #000;
+}
+.hotspot-edit-form .form-group .youtube-url-input,
+.hotspot-data-form .form-group .youtube-url-input {
+  width: 100%;
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  color: #1f2937;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+.hotspot-edit-form .form-group .youtube-url-input::placeholder,
+.hotspot-data-form .form-group .youtube-url-input::placeholder {
+  color: #9ca3af;
+}
+.hotspot-edit-form .form-group .youtube-url-input:focus,
+.hotspot-data-form .form-group .youtube-url-input:focus {
+  outline: none;
+  border-color: #dc2626;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+.hotspot-edit-form .form-actions,
+.hotspot-data-form .form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+  justify-content: flex-end;
+}
+.hotspot-edit-form .form-actions button,
+.hotspot-data-form .form-actions button {
   padding: 10px 20px;
-  background: #dc2626;
-  color: #fff;
-  text-decoration: none;
+  border: none;
   border-radius: 6px;
+  font-size: 14px;
   font-weight: 600;
+  cursor: pointer;
   transition: all 0.3s ease;
 }
-.hotspot-info-content .hotspot-link:hover {
+.hotspot-edit-form .form-actions button.btn-save,
+.hotspot-data-form .form-actions button.btn-save {
+  background: #dc2626;
+  color: #fff;
+}
+.hotspot-edit-form .form-actions button.btn-save:hover,
+.hotspot-data-form .form-actions button.btn-save:hover {
   background: #b91c1c;
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(220, 38, 38, 0.3);
+}
+.hotspot-edit-form .form-actions button.btn-cancel,
+.hotspot-data-form .form-actions button.btn-cancel {
+  background: #f3f4f6;
+  color: #1f2937;
+}
+.hotspot-edit-form .form-actions button.btn-cancel:hover,
+.hotspot-data-form .form-actions button.btn-cancel:hover {
+  background: #e5e7eb;
 }
 
 /*# sourceMappingURL=edit-360.css.map */

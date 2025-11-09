@@ -67,29 +67,6 @@
       </div>
     </div>
     
-    <!-- Hotspot Move Controls (Top Right) -->
-    <div class="hotspot-move-controls">
-      <div class="move-controls-header">
-        <h4>Move Hotspot</h4>
-      </div>
-      <div class="move-controls-buttons">
-        <button class="move-btn" id="moveUp" title="Move Up">
-          <i class="fa fa-arrow-up"></i>
-        </button>
-        <div class="move-controls-row">
-          <button class="move-btn" id="moveLeft" title="Move Left">
-            <i class="fa fa-arrow-left"></i>
-          </button>
-          <button class="move-btn" id="moveRight" title="Move Right">
-            <i class="fa fa-arrow-right"></i>
-          </button>
-        </div>
-        <button class="move-btn" id="moveDown" title="Move Down">
-          <i class="fa fa-arrow-down"></i>
-        </button>
-      </div>
-    </div>
-    
     <!-- Back Button (Left Side) -->
     <button class="panorama-back-btn" onclick="goBack()">
       <i class="fa fa-arrow-left"></i>
@@ -161,13 +138,120 @@
     <div class="panorama-sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
   </div>
 
-  <!-- Hotspot Info Popup -->
-  <div id="hotspotInfoPopup" class="hotspot-info-popup" style="display: none;"></div>
+  <!-- Hotspot Edit Sidebar -->
+  <div id="hotspotEditSidebar" class="hotspot-edit-sidebar">
+    <div class="hotspot-sidebar-header">
+      <h2>Hotspot</h2>
+      <button class="hotspot-sidebar-close" onclick="closeHotspotSidebar()">
+        <i class="fa fa-times"></i>
+      </button>
+    </div>
+    <div class="hotspot-sidebar-content">
+      <div class="hotspot-edit-form">
+        <div class="form-group">
+          <label>Hotspot</label>
+          <select name="hotspot" id="hotspot">
+            <option value="image">Image</option>
+            <option value="video">Video</option>
+            <option value="info">Info</option>
+            <option value="navigation">Navigation</option>
+            <option value="link">Link</option>
+            <option value="text">Text</option>
+            <option value="gallery">Gallery</option>
+          </select>
+        </div>
+        <div class="info-hotspot-tab">
+          <div class="form-group">
+            <label>Title</label>
+            <input type="text" name="title" id="title" value="Room Information">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" id="description">Some sample text for this info card. This is just test text</textarea>
+          </div>
+        </div>
+        <div class="image-hotspot-tab">
+          <div class="form-group">
+            <label>Image Preview</label>
+            <div class="image-preview-container">
+              <img id="imageHotspotPreview" src="../images/vendor6.jpg" alt="Image Preview" class="image-preview">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Upload Image</label>
+            <input type="file" id="imageHotspotUpload" accept="image/*" class="file-upload">
+          </div>
+        </div>
+        <div class="video-hotspot-tab">
+          <div class="form-group">
+            <label>Video Preview</label>
+            <div class="video-preview-container">
+              <video id="videoHotspotPreview" class="video-preview" controls>
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Upload Video</label>
+            <input type="file" id="videoHotspotUpload" accept="video/*" class="file-upload">
+          </div>
+          <div class="form-group">
+            <label>Or Enter YouTube URL</label>
+            <input type="text" id="videoHotspotYoutubeUrl" placeholder="https://www.youtube.com/watch?v=..." class="youtube-url-input">
+          </div>
+        </div>
+        <div class="sound-hotspot-tab">
+          <h3>Sound Hotspot</h3>
+        </div>
+        <div class="navigation-hotspot-tab">
+          <h3>Navigation Hotspot</h3>
+        </div>
+        <div class="link-hotspot-tab">
+          <h3>Link Hotspot</h3>
+        </div>
+        <div class="text-hotspot-tab">
+          <h3>Text Hotspot</h3>
+        </div>
+        <div class="gallery-hotspot-tab">
+          <h3>Gallery Hotspot</h3>
+        </div>
+        <div class="form-actions">
+          <button class="btn-save" onclick="saveHotspotEdit()">Save</button>
+          <button class="btn-cancel" onclick="closeHotspotSidebar()">Cancel</button>
+        </div>
+
+            
+    <!-- Hotspot Move Controls (Top Right) -->
+    <div class="hotspot-move-controls">
+      <div class="move-controls-header">
+        <h4>Move Hotspot</h4>
+      </div>
+      <div class="move-controls-buttons">
+        <button class="move-btn" id="moveUp" title="Move Up">
+          <i class="fa fa-arrow-up"></i>
+        </button>
+        <div class="move-controls-row">
+          <button class="move-btn" id="moveRight" title="Move Left">
+            <i class="fa fa-arrow-left"></i>
+          </button>
+          <button class="move-btn" id="moveLeft" title="Move Right">
+            <i class="fa fa-arrow-right"></i>
+          </button>
+        </div>
+        <button class="move-btn" id="moveDown" title="Move Down">
+          <i class="fa fa-arrow-down"></i>
+        </button>
+      </div>
+    </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Three.js and Panolens -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
   <script src="scripts/preview-360.js"></script>
+  <script src="scripts/dragHotspot.js"></script>
   <script src="scripts/edit-360.js"></script>
 </body>
 
