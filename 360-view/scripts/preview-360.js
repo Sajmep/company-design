@@ -700,7 +700,16 @@ async function checkVRAvailability() {
     return;
   }
   
-
+  // TESTING MODE: Set to true to enable VR button without headset (for testing)
+  const TESTING_MODE = false; // Change to true to test without VR headset
+  
+  if (TESTING_MODE) {
+    // Enable button for testing (will still need WebXR emulator to actually enter VR)
+    vrBtn.disabled = false;
+    vrBtn.classList.remove('disabled');
+    vrBtn.title = 'Enter VR Mode (TESTING MODE - Use WebXR Emulator)';
+    return;
+  }
   
   // Check if WebXR is available
   if (!navigator.xr) {
@@ -720,11 +729,13 @@ async function checkVRAvailability() {
       vrBtn.disabled = false;
       vrBtn.classList.remove('disabled');
       vrBtn.title = 'Enter VR Mode (Right-click: Toggle Reticle)';
+      console.log('VR headset detected - button enabled');
     } else {
       // VR is not supported or no headset connected
       vrBtn.disabled = true;
       vrBtn.classList.add('disabled');
       vrBtn.title = 'No VR headset detected. Please connect a VR headset.';
+      console.log('No VR headset detected - button disabled');
     }
   } catch (error) {
     // Error checking VR support
@@ -796,12 +807,15 @@ async function enterVRMode() {
   
   // Use Panolens' built-in VR functionality
   // Panolens automatically handles VR when enableVR is true
-  // We just need to trigger the VR session through the renderer
+  // We need to ensure the panorama is ready before entering VR
   try {
-    // Request VR session
+    // Wait a moment to ensure panorama is fully rendered
+    await new Promise(resolve => setTimeout(resolve, 100));
+    
+    // Request VR session with only supported features
     const session = await navigator.xr.requestSession('immersive-vr', {
-      requiredFeatures: ['local-floor'],
-      optionalFeatures: ['bounded-floor', 'hand-tracking']
+      requiredFeatures: ['local-floor']
+      // Removed optional features that may not be supported
     });
     
     // Enable WebXR on the renderer (Panolens will handle the rendering)
@@ -810,6 +824,14 @@ async function enterVRMode() {
       
       // Set the XR session - Panolens will automatically render the panorama
       await renderer.xr.setSession(session);
+      
+      // Wait a frame to ensure rendering is set up
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      
+      // Ensure panorama is visible in VR
+      if (panorama && panorama.mesh) {
+        panorama.mesh.visible = true;
+      }
       
       // Enable reticle when entering VR
       let reticleEnabled = false;
@@ -821,8 +843,11 @@ async function enterVRMode() {
       // Update button to show exit state
       updateVRControlButton(true, reticleEnabled);
       
+      console.log('VR mode entered successfully');
+      
       // Handle session end
       session.addEventListener('end', function() {
+        console.log('VR session ended');
         // Disable reticle when exiting VR
         if (viewer.reticle) {
           viewer.reticle.visible = false;
