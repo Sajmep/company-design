@@ -53,9 +53,13 @@ window.addEventListener('load', function() {
   
   if (!imageUrl) {
     console.error('No image URL provided');
+    console.log('Current URL:', window.location.href);
+    console.log('URL parameters:', urlParams.toString());
+    alert('No image URL provided. Please provide an image parameter in the URL.');
     return;
   }
   
+  console.log('Initializing viewer with image:', imageUrl);
   initializeViewer(imageUrl);
   updateActivePanoramaInSidebar(imageUrl);
 });
@@ -130,6 +134,7 @@ function initializeViewer(imageUrl) {
   
   // Create hotspots after panorama loads
   panorama.addEventListener('load', function() {
+    console.log('Panorama loaded successfully');
     panoramaLoaded = true;
     createHotspots();
     updateHotspotCount();
@@ -137,6 +142,23 @@ function initializeViewer(imageUrl) {
     initializeDirectionIndicator();
     // Re-check VR availability after panorama loads
     checkVRAvailability();
+  });
+  
+  // Handle panorama loading errors
+  panorama.addEventListener('error', function(error) {
+    console.error('Error loading panorama:', error);
+    console.error('Image URL:', imageUrl);
+    panoramaLoaded = false;
+    alert('Failed to load panorama image. Please check the image URL: ' + imageUrl);
+    checkVRAvailability();
+  });
+  
+  // Handle panorama progress
+  panorama.addEventListener('progress', function(event) {
+    if (event.lengthComputable) {
+      const percentComplete = (event.loaded / event.total) * 100;
+      console.log('Panorama loading progress:', percentComplete.toFixed(2) + '%');
+    }
   });
   
   // Make viewer globally available
