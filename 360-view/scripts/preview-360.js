@@ -82,12 +82,11 @@ function updateActivePanoramaInSidebar(currentImageUrl) {
     }
   });
 }
-
 // ============================================================================
-// SECTION 5: PANORAMA VIEWER SETUP WITH VR SUPPORT
+// SECTION 5: PANORAMA VIEWER SETUP (KEEP YOUR ORIGINAL, JUST ADD VR BUTTON)
 // ============================================================================
 
-// Initialize Panolens viewer with VR support
+// Initialize Panolens viewer (your original code - don't change)
 function initializeViewer(imageUrl) {
   const container = document.getElementById('panoramaImage');
   
@@ -98,19 +97,15 @@ function initializeViewer(imageUrl) {
   // Clear container
   container.innerHTML = '';
   
-  // Create viewer with VR enabled
+  // Create viewer (ORIGINAL CODE - NO CHANGES)
   viewer = new PANOLENS.Viewer({
     container: container,
     autoRotate: false,
     controlBar: true,
     autoRotateSpeed: 0.3,
     autoRotateActivationDuration: 2000,
-    cameraFov: 75,
-    output: 'console' // Enable VR output
+    cameraFov: 75
   });
-  
-  // Enable VR mode
-  viewer.enableEffect(PANOLENS.MODES.STEREO);
   
   // Ensure viewer canvas doesn't block pointer events on buttons
   setTimeout(() => {
@@ -142,64 +137,69 @@ function initializeViewer(imageUrl) {
 }
 
 // ============================================================================
-// ADD VR BUTTON TO YOUR HTML
+// SIMPLE VR BUTTON - ADD THIS NEW FUNCTION
 // ============================================================================
-// Add this function to create a VR button in the UI
 
-function addVRButton() {
-  // Check if VR is supported
-  if ('xr' in navigator) {
-    navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
-      if (supported) {
-        // Create VR button
-        const vrButton = document.createElement('button');
-        vrButton.id = 'vrButton';
-        vrButton.textContent = 'Enter VR';
-        vrButton.style.cssText = `
-          position: fixed;
-          bottom: 20px;
-          right: 20px;
-          padding: 15px 30px;
-          background: #dc2626;
-          color: white;
-          border: none;
-          border-radius: 8px;
-          font-size: 16px;
-          font-weight: bold;
-          cursor: pointer;
-          z-index: 1000;
-          box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        `;
-        
-        vrButton.addEventListener('click', function() {
-          if (viewer) {
-            viewer.enableEffect(PANOLENS.MODES.STEREO);
-            
-            // Request VR session
-            navigator.xr.requestSession('immersive-vr', {
-              requiredFeatures: ['local-floor']
-            }).then((session) => {
-              viewer.renderer.xr.setSession(session);
-              vrButton.textContent = 'Exit VR';
-              
-              session.addEventListener('end', () => {
-                vrButton.textContent = 'Enter VR';
-              });
-            }).catch((error) => {
-              console.error('VR session error:', error);
-              alert('Unable to enter VR mode. Make sure you are using a VR headset.');
-            });
-          }
+function addSimpleVRButton() {
+  // Create VR button
+  const vrButton = document.createElement('button');
+  vrButton.id = 'vrButton';
+  vrButton.innerHTML = '<i class="fa fa-eye"></i> Enter VR';
+  vrButton.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 15px 30px;
+    background: #dc2626;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  `;
+  
+  let vrMode = false;
+  
+  vrButton.addEventListener('click', function() {
+    if (!viewer) return;
+    
+    if (!vrMode) {
+      // Enter VR mode - use Cardboard mode which works on Quest 2
+      viewer.enableEffect(PANOLENS.MODES.CARDBOARD);
+      vrButton.innerHTML = '<i class="fa fa-eye-slash"></i> Exit VR';
+      vrMode = true;
+      
+      // Request fullscreen for better VR experience
+      const container = document.getElementById('panoramaImage');
+      if (container && container.requestFullscreen) {
+        container.requestFullscreen().catch(err => {
+          console.log('Fullscreen error:', err);
         });
-        
-        document.body.appendChild(vrButton);
       }
-    });
-  }
+    } else {
+      // Exit VR mode
+      viewer.disableEffect();
+      vrButton.innerHTML = '<i class="fa fa-eye"></i> Enter VR';
+      vrMode = false;
+      
+      // Exit fullscreen
+      if (document.exitFullscreen && document.fullscreenElement) {
+        document.exitFullscreen();
+      }
+    }
+  });
+  
+  document.body.appendChild(vrButton);
 }
 
-// Call this function when the viewer is initialized
-// Add to your window load event listener:
+// ============================================================================
+// UPDATE YOUR WINDOW LOAD EVENT
+// ============================================================================
+// Replace your existing window.addEventListener('load') with this:
+
 window.addEventListener('load', function() {
   const urlParams = new URLSearchParams(window.location.search);
   const imageUrl = urlParams.get('image');
@@ -211,9 +211,9 @@ window.addEventListener('load', function() {
   initializeViewer(imageUrl);
   updateActivePanoramaInSidebar(imageUrl);
   
-  // Add VR button after viewer is initialized
+  // Add VR button after a short delay to ensure viewer is ready
   setTimeout(() => {
-    addVRButton();
+    addSimpleVRButton();
   }, 1000);
 });
 // ============================================================================
