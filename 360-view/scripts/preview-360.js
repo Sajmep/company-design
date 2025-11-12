@@ -83,10 +83,10 @@ function updateActivePanoramaInSidebar(currentImageUrl) {
   });
 }
 // ============================================================================
-// SECTION 5: PANORAMA VIEWER SETUP (KEEP YOUR ORIGINAL, JUST ADD VR BUTTON)
+// SECTION 5: PANORAMA VIEWER SETUP WITH WEBXR IMMERSIVE VR
 // ============================================================================
 
-// Initialize Panolens viewer (your original code - don't change)
+// Initialize Panolens viewer with WebXR support
 function initializeViewer(imageUrl) {
   const container = document.getElementById('panoramaImage');
   
@@ -97,7 +97,7 @@ function initializeViewer(imageUrl) {
   // Clear container
   container.innerHTML = '';
   
-  // Create viewer (ORIGINAL CODE - NO CHANGES)
+  // Create viewer
   viewer = new PANOLENS.Viewer({
     container: container,
     autoRotate: false,
@@ -124,6 +124,9 @@ function initializeViewer(imageUrl) {
     createHotspots();
     updateHotspotCount();
     initializeDirectionIndicator();
+    
+    // Add VR button after panorama loads
+    addWebXRButton();
   });
   
   // Handle panorama loading errors
@@ -137,68 +140,130 @@ function initializeViewer(imageUrl) {
 }
 
 // ============================================================================
-// SIMPLE VR BUTTON - ADD THIS NEW FUNCTION
+// WEBXR IMMERSIVE VR BUTTON
 // ============================================================================
 
-function addSimpleVRButton() {
-  // Create VR button
-  const vrButton = document.createElement('button');
-  vrButton.id = 'vrButton';
-  vrButton.innerHTML = '<i class="fa fa-eye"></i> Enter VR';
-  vrButton.style.cssText = `
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 15px 30px;
-    background: #dc2626;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-  `;
+function addWebXRButton() {
+  // Check if WebXR is supported
+  if (!navigator.xr) {
+    console.log('WebXR not supported');
+    return;
+  }
   
-  let vrMode = false;
-  
-  vrButton.addEventListener('click', function() {
-    if (!viewer) return;
-    
-    if (!vrMode) {
-      // Enter VR mode - use Cardboard mode which works on Quest 2
-      viewer.enableEffect(PANOLENS.MODES.CARDBOARD);
-      vrButton.innerHTML = '<i class="fa fa-eye-slash"></i> Exit VR';
-      vrMode = true;
+  navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
+    if (supported) {
+      // Create VR button
+      const vrButton = document.createElement('button');
+      vrButton.id = 'webxrButton';
+      vrButton.innerHTML = '🥽 Enter VR';
+      vrButton.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 15px 30px;
+        background: #dc2626;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      `;
       
-      // Request fullscreen for better VR experience
-      const container = document.getElementById('panoramaImage');
-      if (container && container.requestFullscreen) {
-        container.requestFullscreen().catch(err => {
-          console.log('Fullscreen error:', err);
-        });
-      }
+      let xrSession = null;
+      
+      vrButton.addEventListener('click', async function() {
+        if (!xrSession) {
+          // Enter immersive VR
+          try {
+            xrSession = await navigator.xr.requestSession('immersive-vr', {
+              requiredFeatures: ['local-floor'],
+              optionalFeatures: ['bounded-floor']
+            });
+            
+            vrButton.innerHTML = '🥽 Exit VR';
+            
+            // Set up WebXR rendering
+            await setupWebXRSession(xrSession);
+            
+            // Handle session end
+            xrSession.addEventListener('end', () => {
+              xrSession = null;
+              vrButton.innerHTML = '🥽 Enter VR';
+            });
+            
+          } catch (error) {
+            console.error('Failed to start VR session:', error);
+            alert('Could not enter VR mode: ' + error.message);
+          }
+        } else {
+          // Exit VR
+          xrSession.end();
+        }
+      });
+      
+      document.body.appendChild(vrButton);
     } else {
-      // Exit VR mode
-      viewer.disableEffect();
-      vrButton.innerHTML = '<i class="fa fa-eye"></i> Enter VR';
-      vrMode = false;
-      
-      // Exit fullscreen
-      if (document.exitFullscreen && document.fullscreenElement) {
-        document.exitFullscreen();
-      }
+      console.log('Immersive VR not supported');
     }
   });
+}
+
+// ============================================================================
+// WEBXR SESSION SETUP
+// ============================================================================
+
+async function setupWebXRSession(session) {
+  const renderer = viewer.renderer;
+  const gl = renderer.getContext();
   
-  document.body.appendChild(vrButton);
+  // Set up XR-compatible rendering
+  await gl.makeXRCompatible();
+  
+  // Configure session
+  const xrLayer = new XRWebGLLayer(session, gl);
+  await session.updateRenderState({
+    baseLayer: xrLayer
+  });
+  
+  // Get reference space
+  const referenceSpace = await session.requestReferenceSpace('local-floor');
+  
+  // Animation loop for VR
+  function onXRFrame(time, frame) {
+    const xrSession = frame.session;
+    xrSession.requestAnimationFrame(onXRFrame);
+    
+    const pose = frame.getViewerPose(referenceSpace);
+    
+    if (pose) {
+      const layer = xrSession.renderState.baseLayer;
+      renderer.setFramebuffer(layer.framebuffer);
+      
+      // Render for each eye
+      for (const view of pose.views) {
+        const viewport = layer.getViewport(view);
+        renderer.setViewport(viewport.x, viewport.y, viewport.width, viewport.height);
+        
+        // Update camera with VR view
+        viewer.camera.matrix.fromArray(view.transform.matrix);
+        viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
+        viewer.camera.updateMatrixWorld(true);
+        
+        // Render the scene
+        renderer.render(viewer.scene, viewer.camera);
+      }
+    }
+  }
+  
+  session.requestAnimationFrame(onXRFrame);
 }
 
 // ============================================================================
 // UPDATE YOUR WINDOW LOAD EVENT
 // ============================================================================
-// Replace your existing window.addEventListener('load') with this:
 
 window.addEventListener('load', function() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -210,11 +275,6 @@ window.addEventListener('load', function() {
   
   initializeViewer(imageUrl);
   updateActivePanoramaInSidebar(imageUrl);
-  
-  // Add VR button after a short delay to ensure viewer is ready
-  setTimeout(() => {
-    addSimpleVRButton();
-  }, 1000);
 });
 // ============================================================================
 // SECTION 6: HOTSPOT ICON CREATION
