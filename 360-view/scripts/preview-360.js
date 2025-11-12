@@ -1,10 +1,20 @@
-// Panorama Edit Page Script - Using Three.js with Panolens
+// ============================================================================
+// Panorama Preview Page Script - Using Three.js with Panolens
+// ============================================================================
+
+// ============================================================================
+// SECTION 1: GLOBAL VARIABLES
+// ============================================================================
 
 let viewer = null;
 let panorama = null;
 let hotspots = [];
 
-// Hotspot data
+// ============================================================================
+// SECTION 2: HOTSPOT DATA & CONFIGURATION
+// ============================================================================
+
+// Hotspot data - Contains information for different types of hotspots
 const hotspotData = {
   image: {
     type: 'image',
@@ -30,6 +40,10 @@ const hotspotData = {
   }
 };
 
+// ============================================================================
+// SECTION 3: PANORAMA VIEWER INITIALIZATION
+// ============================================================================
+
 // Initialize viewer when page loads
 window.addEventListener('load', function() {
   // Get image URL from URL parameters
@@ -44,6 +58,10 @@ window.addEventListener('load', function() {
   initializeViewer(imageUrl);
   updateActivePanoramaInSidebar(imageUrl);
 });
+
+// ============================================================================
+// SECTION 4: PANORAMA SIDEBAR FUNCTIONALITY (PREVIEW PAGE)
+// ============================================================================
 
 // Update active panorama in sidebar based on current image
 function updateActivePanoramaInSidebar(currentImageUrl) {
@@ -66,6 +84,10 @@ function updateActivePanoramaInSidebar(currentImageUrl) {
   });
 }
 
+// ============================================================================
+// SECTION 5: PANORAMA VIEWER SETUP
+// ============================================================================
+
 // Initialize Panolens viewer
 function initializeViewer(imageUrl) {
   const container = document.getElementById('panoramaImage');
@@ -78,13 +100,16 @@ function initializeViewer(imageUrl) {
   // Clear container
   container.innerHTML = '';
   
-  // Create viewer
+  // Create viewer with WebXR VR support
   viewer = new PANOLENS.Viewer({
     container: container,
     autoRotate: false,
     controlBar: true,
     autoRotateSpeed: 0.3,
-    autoRotateActivationDuration: 2000
+    autoRotateActivationDuration: 2000,
+    enableVR: true,        // Enable WebXR VR mode
+    enableReticle: false,   // by default this will be false but in vr mode we will enable throgh a button
+    cameraFov: 75          // Set camera field of view
   });
   
   // Ensure viewer canvas doesn't block pointer events on buttons
@@ -103,11 +128,19 @@ function initializeViewer(imageUrl) {
   panorama.addEventListener('load', function() {
     createHotspots();
     updateHotspotCount();
+    // Initialize direction indicator after panorama loads
+    initializeDirectionIndicator();
   });
   
   // Make viewer globally available
   window.viewer = viewer;
+  // Make panorama globally available
+  window.panorama = panorama;
 }
+
+// ============================================================================
+// SECTION 6: HOTSPOT ICON CREATION
+// ============================================================================
 
 // Create icon for hotspot (works without tray)
 function createHotspotIcon(type) {
@@ -156,6 +189,10 @@ function createHotspotIcon(type) {
   return canvas.toDataURL();
 }
 
+// ============================================================================
+// SECTION 7: HOTSPOT CREATION & MANAGEMENT
+// ============================================================================
+
 // Create hotspots with different types
 function createHotspot(data, position, size = 200) {
   const icon = createHotspotIcon(data.type);
@@ -196,6 +233,10 @@ function createHotspot(data, position, size = 200) {
   
   return infospot;
 }
+
+// ============================================================================
+// SECTION 8: HOTSPOT CONTENT DISPLAY (PREVIEW PAGE)
+// ============================================================================
 
 // Show image hotspot
 function showImageHotspot(data) {
@@ -260,6 +301,10 @@ function showInfoHotspot(data) {
   }
 }
 
+// ============================================================================
+// SECTION 9: HOTSPOT EDIT SIDEBAR (EDIT PAGE)
+// ============================================================================
+
 // Show sidebar for editing hotspot
 function showHotspotSidebar(data) {
   const hotspotSelect = document.getElementById('hotspot');
@@ -286,6 +331,10 @@ function showHotspotSidebar(data) {
   openHotspotSidebar();
 }
 
+// ============================================================================
+// SECTION 10: HOTSPOT INFO POPUP (PREVIEW PAGE)
+// ============================================================================
+
 // Close hotspot info (for backward compatibility - only used in preview page)
 window.closeHotspotInfo = function() {
   const content = document.getElementById('hotspotInfoPopup');
@@ -293,6 +342,10 @@ window.closeHotspotInfo = function() {
     content.style.display = 'none';
   }
 };
+
+// ============================================================================
+// SECTION 11: PANORAMA NAVIGATION
+// ============================================================================
 
 // Navigate to another panorama
 function navigateToPanorama(imageUrl) {
@@ -305,6 +358,10 @@ function navigateToPanorama(imageUrl) {
   // Navigate to the new panorama
   window.location.href = currentUrl.toString();
 }
+
+// ============================================================================
+// SECTION 12: HOTSPOT POSITIONS & CREATION
+// ============================================================================
 
 // Default positions for hotspots
 const defaultPositions = [
@@ -337,6 +394,10 @@ function updateHotspotCount() {
   // Hotspot count is only shown in edit page, not preview page
 }
 
+// ============================================================================
+// SECTION 13: UI CONTROLS (PREVIEW PAGE)
+// ============================================================================
+
 // Go back function
 window.goBack = function() {
   if (viewer) {
@@ -365,6 +426,10 @@ window.toggleSidebar = function(e) {
     }
   }
 };
+
+// ============================================================================
+// SECTION 14: EVENT LISTENERS SETUP
+// ============================================================================
 
 // Add event listeners when DOM is ready
 document.addEventListener('DOMContentLoaded', function() {
@@ -433,4 +498,289 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+  
+  // VR control button (combined VR and reticle toggle)
+  const vrControlBtn = document.getElementById('vrControlBtn');
+  if (vrControlBtn) {
+    // Check VR availability and update button state
+    checkVRAvailability();
+    
+    // Left click: Enter/Exit VR mode
+    // Shift+Click: Toggle reticle
+    vrControlBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Don't do anything if button is disabled
+      if (vrControlBtn.disabled) {
+        return;
+      }
+      
+      if (e.shiftKey) {
+        // Shift+Click: Toggle reticle
+        toggleReticle();
+      } else {
+        // Normal click: Enter/Exit VR mode
+        enterVRMode();
+      }
+    });
+    
+    // Right click: Toggle reticle
+    vrControlBtn.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      // Don't do anything if button is disabled
+      if (vrControlBtn.disabled) {
+        return;
+      }
+      
+      toggleReticle();
+    });
+  }
 });
+
+// ============================================================================
+// SECTION 15: DIRECTION MAP/COMPASS INDICATOR (PREVIEW PAGE)
+// ============================================================================
+
+// Initialize direction indicator to show current viewing direction
+function initializeDirectionIndicator() {
+  // Get the arrow container element from the compass
+  const compassArrow = document.querySelector('.compass-arrow');
+  
+  if (!compassArrow) {
+    return;
+  }
+  
+  if (!viewer) {
+    return;
+  }
+  
+  // Function to update the arrow rotation based on viewer direction
+  function updateArrowRotation() {
+    const camera = viewer.camera;
+    
+    // Check if camera exists
+    if (!camera) {
+      // If camera doesn't exist, exit the function
+      return;
+    }
+    
+    // Get the current rotation angle from the camera's Y rotation (yaw)
+    // camera.rotation.y gives us the horizontal rotation in radians
+    // This tells us which direction the camera is facing horizontally
+    const rotation = camera.rotation.y;
+    
+    // Convert radians to degrees (multiply by 180 and divide by PI)
+    // This gives us the angle in degrees (0-360)
+    const rotationDegrees = rotation * (180 / Math.PI);
+    
+    compassArrow.style.transform = 'translate(-50%, -50%) rotate(' + (-rotationDegrees) + 'deg)';
+  }
+  
+  // Update the arrow rotation immediately when function is called
+  updateArrowRotation();
+  
+  function animate() {
+    // Update the arrow rotation
+    updateArrowRotation();
+    
+    // This creates a smooth continuous update loop
+    requestAnimationFrame(animate);
+  }
+  
+  // Start the animation loop
+  animate();
+}
+
+// ============================================================================
+// SECTION 16: RETICLE TOGGLE FUNCTIONALITY
+// ============================================================================
+
+// Helper function to update VR control button appearance
+function updateVRControlButton(isInVR, isReticleEnabled) {
+  const vrBtn = document.getElementById('vrControlBtn');
+  if (!vrBtn || vrBtn.disabled) {
+    // Don't update if button is disabled
+    return;
+  }
+  
+  if (isInVR) {
+    // In VR mode: show exit icon
+    vrBtn.classList.add('active', 'vr-mode');
+    vrBtn.title = 'Exit VR Mode (Right-click: Toggle Reticle)';
+    vrBtn.innerHTML = '<i class="fa fa-times"></i>';
+    
+    // Add reticle indicator if enabled
+    if (isReticleEnabled) {
+      vrBtn.classList.add('reticle-enabled');
+    } else {
+      vrBtn.classList.remove('reticle-enabled');
+    }
+  } else {
+    // Not in VR mode: show VR icon
+    vrBtn.classList.remove('active', 'vr-mode', 'reticle-enabled');
+    vrBtn.title = 'Enter VR Mode (Right-click: Toggle Reticle)';
+    vrBtn.innerHTML = '<i class="fa fa-cube"></i>';
+  }
+}
+
+// Toggle reticle on/off
+function toggleReticle() {
+  // Check if viewer exists
+  if (!viewer) {
+    console.error('Viewer not initialized');
+    return;
+  }
+  
+  // Toggle reticle state
+  // Panolens stores reticle state in viewer.reticle
+  if (viewer.reticle) {
+    // Toggle visibility
+    const isVisible = viewer.reticle.visible;
+    viewer.reticle.visible = !isVisible;
+    
+    // Update button appearance
+    const renderer = viewer.renderer;
+    const isInVR = renderer && renderer.xr && renderer.xr.isPresenting;
+    updateVRControlButton(isInVR, !isVisible);
+  } else {
+    // If reticle doesn't exist, try to enable it
+    // Panolens may need enableReticle to be set and viewer reinitialized
+    console.log('Reticle not available. VR mode may need to be active.');
+  }
+}
+
+// ============================================================================
+// SECTION 17: VR MODE FUNCTIONALITY
+// ============================================================================
+
+// Check if VR headset is available and update button state
+async function checkVRAvailability() {
+  const vrBtn = document.getElementById('vrControlBtn');
+  if (!vrBtn) {
+    return;
+  }
+  
+  // Check if WebXR is available
+  if (!navigator.xr) {
+    // WebXR not supported
+    vrBtn.disabled = true;
+    vrBtn.classList.add('disabled');
+    vrBtn.title = 'VR not supported in this browser';
+    return;
+  }
+  
+  try {
+    // Check if immersive VR session is supported
+    const isSupported = await navigator.xr.isSessionSupported('immersive-vr');
+    
+    if (isSupported) {
+      // VR is supported and headset is available
+      vrBtn.disabled = false;
+      vrBtn.classList.remove('disabled');
+      vrBtn.title = 'Enter VR Mode (Right-click: Toggle Reticle)';
+    } else {
+      // VR is not supported or no headset connected
+      vrBtn.disabled = true;
+      vrBtn.classList.add('disabled');
+      vrBtn.title = 'No VR headset detected. Please connect a VR headset.';
+    }
+  } catch (error) {
+    // Error checking VR support
+    console.error('Error checking VR availability:', error);
+    vrBtn.disabled = true;
+    vrBtn.classList.add('disabled');
+    vrBtn.title = 'Unable to check VR availability';
+  }
+}
+
+// Enter VR mode using WebXR
+async function enterVRMode() {
+  // Check if viewer exists
+  if (!viewer) {
+    console.error('Viewer not initialized');
+    return;
+  }
+  
+  // Get the Three.js renderer from Panolens viewer
+  const renderer = viewer.renderer;
+  
+  if (!renderer) {
+    console.error('Renderer not available');
+    return;
+  }
+  
+  // Check if WebXR is available
+  if (!navigator.xr) {
+    alert('WebXR is not supported in this browser. Please use a VR-compatible browser (Chrome, Edge) with a VR headset connected.');
+    checkVRAvailability(); // Update button state
+    return;
+  }
+  
+  // Double-check VR session support
+  try {
+    const isSupported = await navigator.xr.isSessionSupported('immersive-vr');
+    if (!isSupported) {
+      alert('No VR headset detected. Please connect a VR headset and try again.');
+      checkVRAvailability(); // Update button state
+      return;
+    }
+  } catch (error) {
+    console.error('Error checking VR session support:', error);
+    alert('Unable to check VR headset availability. Please ensure a VR headset is connected.');
+    checkVRAvailability(); // Update button state
+    return;
+  }
+  
+  try {
+    // Check if already in VR mode
+    if (renderer.xr && renderer.xr.isPresenting) {
+      // Exit VR mode
+      const session = renderer.xr.getSession();
+      if (session) {
+        await session.end();
+        updateVRControlButton(false, false);
+      }
+      return;
+    }
+    
+    // Request VR session
+    const session = await navigator.xr.requestSession('immersive-vr', {
+      requiredFeatures: ['local-floor'],
+      optionalFeatures: ['bounded-floor', 'hand-tracking']
+    });
+    
+    // Enable WebXR on the renderer
+    if (renderer.xr) {
+      renderer.xr.enabled = true;
+      
+      // Set the XR session
+      await renderer.xr.setSession(session);
+      
+      // Enable reticle when entering VR
+      let reticleEnabled = false;
+      if (viewer.reticle) {
+        viewer.reticle.visible = true;
+        reticleEnabled = true;
+      }
+      
+      // Update button to show exit state
+      updateVRControlButton(true, reticleEnabled);
+      
+      // Handle session end
+      session.addEventListener('end', function() {
+        // Disable reticle when exiting VR
+        if (viewer.reticle) {
+          viewer.reticle.visible = false;
+        }
+        updateVRControlButton(false, false);
+      });
+    }
+  } catch (error) {
+    console.error('Error entering VR mode:', error);
+    alert('Failed to enter VR mode: ' + error.message + '\n\nPlease ensure:\n- You are using a VR-compatible browser (Chrome, Edge)\n- A VR headset is connected\n- The page is served over HTTPS (or localhost)');
+    checkVRAvailability(); // Update button state in case headset was disconnected
+  }
+}

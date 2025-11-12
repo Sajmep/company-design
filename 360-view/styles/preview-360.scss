@@ -85,6 +85,182 @@
   }
 }
 
+/* VR Control Button (Combined VR Enter/Exit and Reticle Toggle) */
+.vr-control-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #1f2937;
+  font-size: 20px;
+  pointer-events: auto !important;
+  touch-action: manipulation;
+  
+  // Ensure icon is visible
+  i {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 1;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+  }
+
+  &:hover {
+    background: #dc2626;
+    color: #fff;
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+  
+  &.active {
+    background: #dc2626;
+    color: #fff;
+    
+    &:hover {
+      background: #b91c1c;
+    }
+  }
+  
+  // When in VR mode
+  &.vr-mode {
+    background: #dc2626;
+    color: #fff;
+    
+    &:hover {
+      background: #b91c1c;
+    }
+  }
+  
+  // When reticle is enabled (show indicator)
+  &.reticle-enabled {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+  }
+  
+  // Disabled state (no VR headset)
+  &.disabled,
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.9);
+      color: #1f2937;
+      transform: none;
+    }
+  }
+}
+
+/* Direction Map/Compass Indicator */
+.direction-map {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 115px;
+  height: 115px;
+  z-index: 1000;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.compass-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: rgb(0 0 0 / 52%);
+  backdrop-filter: blur(10px);
+  border-radius: 50%;
+  border: 2px solid rgb(255 255 255);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.compass-north-label {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  border-radius: 2px;
+  font-size: 17px;
+  background: rgb(79 79 79);
+  border-top: 2px solid white;
+  font-weight: 700;
+  padding: 0 11px;
+  z-index: 3;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.compass-arrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 0;
+  height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-shape {
+  // Create a triangle arrow pointing up using CSS borders
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 20px solid #3b82f6; // Blue color
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(59, 130, 246, 0.4));
+  
+  // Add a subtle glow effect
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -10px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 22px solid rgba(59, 130, 246, 0.3);
+    z-index: -1;
+    filter: blur(4px);
+  }
+  
+  // Add a light inner highlight
+  &::after {
+    content: "";
+    position: absolute;
+    top: -21px;
+    left: -4px;
+    width: -2px;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 36px solid rgba(255, 255, 255, 0.5);
+    filter: blur(1px);
+  }
+}
+
 /* Sidebar */
 .panorama-sidebar {
   position: fixed;

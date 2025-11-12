@@ -29,6 +29,22 @@
       <i class="fa fa-bars"></i>
     </button>
     
+    <!-- VR Control Button (Combined VR Enter/Exit and Reticle Toggle) -->
+    <button class="vr-control-btn" id="vrControlBtn" title="Enter VR Mode">
+      <i class="fa fa-cube"></i>
+    </button>
+    
+    <!-- Direction Map/Compass Indicator -->
+    <div class="direction-map">
+      <div class="compass-container">
+        <div class="compass-north-label">N</div>
+        <div class="compass-arrow">
+          <div class="arrow-shape"></div>
+        </div>
+        <div class="compass-hotspots" id="compassHotspots"></div>
+      </div>
+    </div>
+    
     <!-- Sidebar -->
     <div class="panorama-sidebar" id="panoramaSidebar">
       <div class="panorama-sidebar-header">
@@ -96,6 +112,8 @@
   <!-- Three.js and Panolens -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+  
+  
   <script src="scripts/preview-360.js"></script>
 </body>
 
