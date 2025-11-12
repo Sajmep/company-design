@@ -117,6 +117,27 @@ function initializeViewer(imageUrl) {
     cameraFov: 75          // Set camera field of view
   });
   
+  // Wait for viewer to fully initialize and check if it has VR button
+  setTimeout(() => {
+    // Check if Panolens created a VR button
+    const panolensVRButton = container.querySelector('.panolens-control-bar .panolens-control-item[data-control="vr"]');
+    if (panolensVRButton) {
+      console.log('Panolens VR button found');
+      // Hide Panolens VR button since we have our own
+      panolensVRButton.style.display = 'none';
+    } else {
+      console.log('Panolens VR button not found (might be in control bar)');
+    }
+    
+    // Check renderer XR availability
+    if (viewer && viewer.renderer) {
+      console.log('Renderer XR check:', {
+        hasXR: !!viewer.renderer.xr,
+        rendererType: viewer.renderer.constructor.name
+      });
+    }
+  }, 1000);
+  
   // Reset panorama loaded state
   panoramaLoaded = false;
   
@@ -126,7 +147,20 @@ function initializeViewer(imageUrl) {
     if (canvas) {
       canvas.style.pointerEvents = 'auto';
     }
-  }, 100);
+    
+    // Check if renderer XR is available after viewer initialization
+    if (viewer && viewer.renderer) {
+      console.log('Viewer renderer initialized');
+      console.log('Renderer XR available:', !!viewer.renderer.xr);
+      
+      // If XR is not available, try to ensure it's set up
+      // Three.js renderer should have XR support by default
+      if (!viewer.renderer.xr && typeof THREE !== 'undefined') {
+        console.log('Renderer XR not found, but Three.js is available');
+        // XR might be initialized lazily by Panolens
+      }
+    }
+  }, 500);
   
   // Load panorama
   panorama = new PANOLENS.ImagePanorama(imageUrl);
@@ -805,12 +839,48 @@ async function enterVRMode() {
     return;
   }
   
-  // Use Panolens' built-in VR functionality
-  // Panolens automatically handles VR when enableVR is true
-  // We need to ensure the panorama is ready before entering VR
+  // Helper function to update debug panel (visible on page)
+  function updateDebugInfo(message) {
+    const debugPanel = document.getElementById('debugPanel');
+    const debugContent = document.getElementById('debugContent');
+    if (debugPanel && debugContent) {
+      debugPanel.style.display = 'block';
+      const time = new Date().toLocaleTimeString();
+      debugContent.innerHTML += '[' + time + '] ' + message + '<br>';
+      console.log(message);
+    }
+  }
+  
+  // Clear debug panel
+  function clearDebugInfo() {
+    const debugContent = document.getElementById('debugContent');
+    if (debugContent) {
+      debugContent.innerHTML = '';
+    }
+  }
+  
+  // Try to use Panolens' built-in VR button first
+  // If that doesn't work, fall back to manual session management
   try {
-    // Wait a moment to ensure panorama is fully rendered
-    await new Promise(resolve => setTimeout(resolve, 100));
+    clearDebugInfo();
+    updateDebugInfo('Step 1: Looking for Panolens VR button...');
+    
+    // Check if Panolens has a VR button we can trigger
+    const container = document.getElementById('panoramaImage');
+    const panolensVRButton = container ? container.querySelector('.panolens-control-bar .panolens-control-item[data-control="vr"], .panolens-control-bar button[data-control="vr"]') : null;
+    
+    if (panolensVRButton) {
+      updateDebugInfo('Found Panolens VR button - clicking it...');
+      // Trigger Panolens' built-in VR button
+      panolensVRButton.click();
+      updateDebugInfo('Panolens VR button clicked ✓');
+      // Panolens will handle everything from here
+      return;
+    } else {
+      updateDebugInfo('Panolens VR button not found, using manual method...');
+    }
+    
+    updateDebugInfo('Step 2: Requesting VR session manually...');
     
     // Request VR session with only supported features
     const session = await navigator.xr.requestSession('immersive-vr', {
@@ -818,36 +888,216 @@ async function enterVRMode() {
       // Removed optional features that may not be supported
     });
     
+    updateDebugInfo('Step 3: VR session created ✓');
+    
+    // Check if renderer has XR support
+    updateDebugInfo('Step 4: Checking renderer XR support...');
+    updateDebugInfo('Renderer exists: ' + (renderer ? 'Yes' : 'No'));
+    updateDebugInfo('Renderer.xr exists: ' + (renderer.xr ? 'Yes' : 'No'));
+    
+    if (!renderer.xr) {
+      updateDebugInfo('WARNING: Renderer.xr not found');
+      updateDebugInfo('Waiting for XR to initialize...');
+      
+      // Wait a bit and check again - Panolens might initialize XR lazily
+      await new Promise(resolve => setTimeout(resolve, 200));
+      
+      // Check again after waiting
+      if (!renderer.xr) {
+        updateDebugInfo('ERROR: Renderer.xr still not found');
+        updateDebugInfo('Renderer type: ' + renderer.constructor.name);
+        
+        // Try to manually create XR interface for Three.js
+        if (typeof THREE !== 'undefined' && THREE.WebGLRenderer && renderer.domElement) {
+          updateDebugInfo('Creating XR interface manually...');
+          
+          // Create XR interface that Three.js expects
+          renderer.xr = {
+            enabled: false,
+            isPresenting: false,
+            session: null,
+            setSession: async function(session) {
+              this.enabled = true;
+              this.session = session;
+              this.isPresenting = true;
+              
+              // Make WebGL context XR compatible
+              const gl = renderer.getContext();
+              if (gl && gl.makeXRCompatible) {
+                await gl.makeXRCompatible();
+                updateDebugInfo('WebGL context made XR compatible ✓');
+              }
+              
+              // Set the session on the WebGL context
+              if (gl && session) {
+                updateDebugInfo('XR session bound to renderer');
+                
+                // CRITICAL: Set up the animation loop for XR rendering
+                // Three.js needs to render frames using the XR session
+                // We need to use the renderer's setAnimationLoop method
+                if (renderer.setAnimationLoop) {
+                  updateDebugInfo('Setting up XR animation loop...');
+                  
+                  // Create reference space once (needed for XR rendering)
+                  let referenceSpace = null;
+                  session.requestReferenceSpace('local-floor').then(function(refSpace) {
+                    referenceSpace = refSpace;
+                    updateDebugInfo('Reference space created ✓');
+                  }).catch(function(error) {
+                    updateDebugInfo('Error creating reference space: ' + error.message);
+                  });
+                  
+                  // Create a render function that uses the XR session
+                  // The frame parameter is provided by the XR session when rendering
+                  const renderXR = function(timestamp, frame) {
+                    // Simply call viewer.render() - Panolens should handle XR rendering
+                    // The frame is automatically handled by the XR session
+                    if (viewer && viewer.render) {
+                      viewer.render();
+                    } else if (viewer && viewer.scene && viewer.camera) {
+                      // Fallback: render directly if viewer.render doesn't exist
+                      renderer.render(viewer.scene, viewer.camera);
+                    }
+                  };
+                  
+                  // Set the animation loop - this tells Three.js to use XR rendering
+                  // The XR session will provide frames automatically
+                  renderer.setAnimationLoop(renderXR);
+                  updateDebugInfo('XR animation loop set ✓');
+                } else {
+                  updateDebugInfo('WARNING: setAnimationLoop not available');
+                }
+              }
+            },
+            getSession: function() {
+              return this.session;
+            }
+          };
+          
+          updateDebugInfo('XR interface created manually ✓');
+        } else {
+          updateDebugInfo('ERROR: Cannot create XR interface');
+          alert('ERROR: Cannot initialize XR on renderer. Panolens might need to handle VR through its built-in button.');
+          await session.end();
+          return;
+        }
+      } else {
+        updateDebugInfo('XR initialized after waiting ✓');
+      }
+    }
+    
     // Enable WebXR on the renderer (Panolens will handle the rendering)
     if (renderer.xr) {
       renderer.xr.enabled = true;
       
+      updateDebugInfo('Step 4: Setting XR session...');
       // Set the XR session - Panolens will automatically render the panorama
       await renderer.xr.setSession(session);
       
-      // Wait a frame to ensure rendering is set up
+      updateDebugInfo('Step 5: XR session set ✓');
+      updateDebugInfo('Renderer enabled: ' + renderer.xr.enabled);
+      updateDebugInfo('Is presenting: ' + renderer.xr.isPresenting);
+      
+      // Wait a few frames to ensure rendering is set up
+      updateDebugInfo('Step 6: Waiting for rendering...');
+      await new Promise(resolve => requestAnimationFrame(resolve));
+      await new Promise(resolve => requestAnimationFrame(resolve));
       await new Promise(resolve => requestAnimationFrame(resolve));
       
-      // Ensure panorama is visible in VR
-      if (panorama && panorama.mesh) {
-        panorama.mesh.visible = true;
+      // Ensure panorama is visible and properly set up for VR
+      if (panorama) {
+        updateDebugInfo('Step 7: Checking panorama...');
+        updateDebugInfo('Panorama exists: ✓');
+        
+        // In Panolens, the panorama object itself is the mesh (it has geometry and material)
+        // So we should set visibility on the panorama object itself
+        updateDebugInfo('Panorama type: ' + panorama.type);
+        updateDebugInfo('Panorama has geometry: ' + (panorama.geometry ? 'Yes' : 'No'));
+        updateDebugInfo('Panorama has material: ' + (panorama.material ? 'Yes' : 'No'));
+        
+        // Ensure panorama is visible
+        panorama.visible = true;
+        updateDebugInfo('Panorama visibility set to true ✓');
+        
+        // Ensure panorama is the active panorama in the viewer
+        if (viewer.panorama !== panorama) {
+          updateDebugInfo('Step 8: Setting active panorama...');
+          viewer.setPanorama(panorama);
+          updateDebugInfo('Panorama set active ✓');
+        } else {
+          updateDebugInfo('Panorama already active ✓');
+        }
+        
+        // Ensure panorama is in the viewer's scene
+        if (viewer && viewer.scene) {
+          let panoramaInScene = false;
+          viewer.scene.traverse(function(child) {
+            if (child === panorama || child.uuid === panorama.uuid) {
+              panoramaInScene = true;
+            }
+          });
+          
+          if (!panoramaInScene) {
+            updateDebugInfo('Adding panorama to viewer scene...');
+            viewer.scene.add(panorama);
+            updateDebugInfo('Panorama added to scene ✓');
+          } else {
+            updateDebugInfo('Panorama already in scene ✓');
+          }
+        }
+        
+        // Force a render update
+        if (viewer && viewer.render) {
+          viewer.render();
+          updateDebugInfo('Forced render update ✓');
+        }
+      } else {
+        updateDebugInfo('ERROR: Panorama object missing!');
+        alert('ERROR: Panorama object not found!');
       }
+      
+      // Check viewer state
+      updateDebugInfo('Step 9: Viewer panorama: ' + (viewer.panorama ? '✓' : '✗'));
+      updateDebugInfo('Viewer scene: ' + (viewer.scene ? '✓' : '✗'));
       
       // Enable reticle when entering VR
       let reticleEnabled = false;
       if (viewer.reticle) {
         viewer.reticle.visible = true;
         reticleEnabled = true;
+        updateDebugInfo('Reticle enabled ✓');
+      } else {
+        updateDebugInfo('Reticle: Not available');
       }
       
       // Update button to show exit state
       updateVRControlButton(true, reticleEnabled);
       
-      console.log('VR mode entered successfully');
+      updateDebugInfo('Step 10: VR mode entered!');
+      updateDebugInfo('Check VR headset now.');
       
       // Handle session end
       session.addEventListener('end', function() {
-        console.log('VR session ended');
+        updateDebugInfo('VR session ended');
+        
+        // Stop the XR animation loop
+        if (renderer && renderer.setAnimationLoop) {
+          renderer.setAnimationLoop(null);
+          updateDebugInfo('XR animation loop stopped');
+        }
+        
+        // Reset XR state
+        if (renderer.xr) {
+          renderer.xr.enabled = false;
+          renderer.xr.isPresenting = false;
+          renderer.xr.session = null;
+        }
+        
+        clearDebugInfo();
+        const debugPanel = document.getElementById('debugPanel');
+        if (debugPanel) {
+          debugPanel.style.display = 'none';
+        }
         // Disable reticle when exiting VR
         if (viewer.reticle) {
           viewer.reticle.visible = false;
@@ -856,10 +1106,13 @@ async function enterVRMode() {
         // Re-check availability after exiting
         checkVRAvailability();
       });
+    } else {
+      updateDebugInfo('ERROR: Renderer XR not available!');
+      alert('ERROR: Renderer XR not available!');
     }
   } catch (error) {
-    console.error('Error entering VR mode:', error);
-    alert('Failed to enter VR mode: ' + error.message + '\n\nPlease ensure:\n- You are using a VR-compatible browser (Chrome, Edge)\n- A VR headset is connected\n- The page is served over HTTPS (or localhost)');
+    updateDebugInfo('ERROR: ' + error.message);
+    alert('Failed to enter VR mode: ' + error.message);
     checkVRAvailability();
   }
 }
