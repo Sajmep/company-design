@@ -178,9 +178,10 @@ function addWebXRButton() {
         if (!xrSession) {
           // Enter immersive VR
           try {
+            // Request VR session without requiring floor tracking (no boundary setup needed)
             xrSession = await navigator.xr.requestSession('immersive-vr', {
-              requiredFeatures: ['local-floor'],
-              optionalFeatures: ['bounded-floor']
+              // No required features - use default viewer reference space
+              optionalFeatures: ['local-floor', 'bounded-floor']
             });
             
             vrButton.innerHTML = '🥽 Exit VR';
@@ -228,15 +229,24 @@ async function setupWebXRSession(session) {
     baseLayer: xrLayer
   });
   
-  // Get reference space
+  // Get reference space - try viewer first (no boundary setup needed)
+  // This avoids the "no boundary found" message
   let referenceSpace;
   try {
-    referenceSpace = await session.requestReferenceSpace('local-floor');
+    // Try viewer reference space first (simplest, no room setup)
+    referenceSpace = await session.requestReferenceSpace('viewer');
   } catch (e) {
     try {
+      // Fallback to local (head-relative, no floor)
       referenceSpace = await session.requestReferenceSpace('local');
     } catch (e2) {
-      referenceSpace = await session.requestReferenceSpace('viewer');
+      try {
+        // Last resort: local-floor (requires room setup)
+        referenceSpace = await session.requestReferenceSpace('local-floor');
+      } catch (e3) {
+        console.error('Failed to get reference space:', e3);
+        throw new Error('Could not initialize VR reference space');
+      }
     }
   }
   
