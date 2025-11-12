@@ -893,11 +893,10 @@ async function enterVRMode() {
     }
   }
   
-  // FINAL SOLUTION: Use Three.js XR manager directly
-  // Since Panolens VR button isn't found, we'll use Three.js's built-in XR support
+  // FINAL SOLUTION: Try to use Panolens's built-in VR or properly initialize XR
   try {
     clearDebugInfo();
-    updateDebugInfo('Step 1: Initializing VR with Three.js XR...');
+    updateDebugInfo('Step 1: Checking for Panolens VR support...');
     
     // First, try to find Panolens VR button one more time
     const container = document.getElementById('panoramaImage');
@@ -908,24 +907,42 @@ async function enterVRMode() {
       return;
     }
     
-    // Check if renderer has XR support (Three.js should have it)
-    // For Three.js r105, XR support is built-in but might not be initialized
+    // Try to use Panolens's built-in VR method if it exists
+    if (viewer && typeof viewer.enterVR === 'function') {
+      updateDebugInfo('Found viewer.enterVR() - using Panolens built-in VR...');
+      viewer.enterVR();
+      updateVRControlButton(true, true);
+      return;
+    }
+    
+    // Check if renderer has XR support
+    updateDebugInfo('Step 2: Checking renderer XR support...');
+    updateDebugInfo('Renderer type: ' + renderer.constructor.name);
+    
+    // For Three.js r105, we need to properly initialize XR
+    // The renderer might not have XR initialized yet
     if (!renderer.xr) {
-      updateDebugInfo('Renderer XR not found - Three.js r105 should have it');
-      updateDebugInfo('Renderer type: ' + renderer.constructor.name);
-      updateDebugInfo('Renderer properties: ' + Object.keys(renderer).slice(0, 20).join(', '));
+      updateDebugInfo('Renderer XR not found - initializing manually...');
       
-      // Try to manually enable XR on the renderer
-      // In Three.js r105, XR is part of the renderer but might need to be accessed differently
-      if (typeof THREE !== 'undefined') {
-        // Check if XR manager exists in Three.js
-        updateDebugInfo('Three.js version: ' + THREE.REVISION);
-        
-        // The renderer should have XR support, but it might not be initialized
-        // We'll create it manually below
-      }
+      // Create a basic XR interface for the renderer
+      // This is needed for Three.js to work with WebXR
+      renderer.xr = {
+        enabled: false,
+        isPresenting: false,
+        session: null,
+        setSession: async function(session) {
+          this.enabled = true;
+          this.isPresenting = true;
+          this.session = session;
+          updateDebugInfo('XR session set on renderer');
+        },
+        getSession: function() {
+          return this.session;
+        }
+      };
+      updateDebugInfo('XR interface created with setSession method');
     } else {
-      updateDebugInfo('Renderer XR found - using it');
+      updateDebugInfo('Renderer XR found');
     }
     
     // Request VR session
@@ -964,12 +981,60 @@ async function enterVRMode() {
     
     // Create XRWebGLLayer with the renderer's WebGL context
     // Make sure we're using the same context that the renderer uses
-    const glLayer = new XRWebGLLayer(session, gl);
+    let glLayer;
+    try {
+      // Try creating with options first
+      glLayer = new XRWebGLLayer(session, gl, {
+        antialias: true,
+        depth: true,
+        stencil: false,
+        alpha: false,
+        ignoreDepthValues: false,
+        framebufferScaleFactor: 1.0
+      });
+      updateDebugInfo('XRWebGLLayer created with options ✓');
+    } catch (error) {
+      updateDebugInfo('Failed to create XRWebGLLayer with options: ' + error.message);
+      // Try creating without options
+      try {
+        glLayer = new XRWebGLLayer(session, gl);
+        updateDebugInfo('XRWebGLLayer created without options ✓');
+      } catch (error2) {
+        updateDebugInfo('ERROR: Failed to create XRWebGLLayer: ' + error2.message);
+        throw new Error('Failed to create XRWebGLLayer: ' + error2.message);
+      }
+    }
+    
+    // Update render state with the layer
     session.updateRenderState({
       baseLayer: glLayer
     });
-    updateDebugInfo('Render state configured ✓');
-    updateDebugInfo('GL Layer framebuffer: ' + (glLayer.framebuffer ? 'Created' : 'Missing'));
+    updateDebugInfo('Render state updated with baseLayer ✓');
+    
+    // The framebuffer should be available immediately after creating the layer
+    // But let's wait a frame to be sure
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    
+    // Check for framebuffer - it should be available now
+    // Try multiple ways to access the framebuffer
+    const framebuffer = glLayer.framebuffer;
+    const renderStateFramebuffer = session.renderState && session.renderState.baseLayer ? session.renderState.baseLayer.framebuffer : null;
+    
+    updateDebugInfo('GL Layer framebuffer check: ' + (framebuffer ? 'Created (ID: ' + framebuffer + ')' : 'Missing'));
+    updateDebugInfo('RenderState framebuffer check: ' + (renderStateFramebuffer ? 'Created (ID: ' + renderStateFramebuffer + ')' : 'Missing'));
+    
+    // Use whichever framebuffer is available
+    const actualFramebuffer = framebuffer || renderStateFramebuffer;
+    
+    if (!actualFramebuffer) {
+      updateDebugInfo('WARNING: XRWebGLLayer framebuffer not found!');
+      updateDebugInfo('This might be a WebXR compatibility issue or emulator limitation.');
+      updateDebugInfo('The framebuffer might be created during the first XR frame.');
+      updateDebugInfo('Continuing anyway - will check again in render loop...');
+      // Don't throw error - let's try to continue and see if it works
+    } else {
+      updateDebugInfo('Framebuffer successfully found! ✓');
+    }
     
     // Ensure renderer knows about the XR session
     // This is important for Three.js to render correctly
@@ -984,6 +1049,133 @@ async function enterVRMode() {
     
     // Set up XR animation loop
     updateDebugInfo('Step 6: Starting XR render loop...');
+    
+    // Use Three.js's setAnimationLoop if available (preferred method)
+    // Note: We'll use setAnimationLoop even if framebuffer is not found yet
+    // It might be created during the first frame
+    if (renderer.setAnimationLoop) {
+      updateDebugInfo('Using renderer.setAnimationLoop for XR rendering');
+      
+      // Update renderer's XR session FIRST
+      if (renderer.xr && renderer.xr.setSession) {
+        await renderer.xr.setSession(session);
+        updateDebugInfo('XR session set on renderer via setSession');
+      }
+      
+      // Set up the animation loop using Three.js's method
+      // Since framebuffer might be missing, we need to handle XR frames manually
+      renderer.setAnimationLoop(function(timestamp, frame) {
+        if (!frame || !viewer || !viewer.scene || !viewer.camera) {
+          return;
+        }
+        
+        // Get the base layer and framebuffer from the frame
+        const baseLayer = session.renderState.baseLayer;
+        if (!baseLayer) {
+          return;
+        }
+        
+        // Check if framebuffer is available now (it might be created during first frame)
+        const frameFramebuffer = baseLayer.framebuffer;
+        if (!frameFramebuffer) {
+          // Framebuffer still not available - can't render
+          return;
+        }
+        
+        // Get pose from frame
+        const pose = frame.getViewerPose(referenceSpace);
+        if (!pose) {
+          return;
+        }
+        
+        // Ensure panorama is visible and in scene
+        if (panorama) {
+          panorama.visible = true;
+          if (viewer.scene) {
+            let panoramaInScene = false;
+            viewer.scene.traverse(function(child) {
+              if (child === panorama || child.uuid === panorama.uuid) {
+                panoramaInScene = true;
+              }
+            });
+            if (!panoramaInScene) {
+              viewer.scene.add(panorama);
+            }
+          }
+        }
+        
+        // Bind the XR framebuffer
+        gl.bindFramebuffer(gl.FRAMEBUFFER, frameFramebuffer);
+        
+        // Clear framebuffer
+        gl.clearColor(0, 0, 0, 1);
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        
+        // Render for each view (left eye, right eye)
+        for (const view of pose.views) {
+          const viewport = baseLayer.getViewport(view);
+          if (!viewport) {
+            continue;
+          }
+          
+          // Set viewport for this eye
+          gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
+          
+          // Clear depth buffer for this view
+          gl.clear(gl.DEPTH_BUFFER_BIT);
+          
+          // Update camera from XR view
+          if (viewer.camera && viewer.scene) {
+            // Set projection matrix from XR view
+            if (view.projectionMatrix) {
+              viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
+              viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
+            }
+            
+            // Set camera transform from XR view
+            const transform = view.transform;
+            if (transform && transform.matrix) {
+              viewer.camera.matrix.fromArray(transform.matrix);
+              viewer.camera.matrixWorldNeedsUpdate = true;
+              viewer.camera.updateMatrixWorld();
+            }
+            
+            // Render the scene
+            const currentRenderTarget = renderer.getRenderTarget();
+            renderer.setRenderTarget(null);
+            renderer.render(viewer.scene, viewer.camera);
+            renderer.setRenderTarget(currentRenderTarget);
+          }
+        }
+      });
+      
+      updateDebugInfo('XR render loop started using setAnimationLoop ✓');
+      updateVRControlButton(true, true);
+      
+      // Handle session end
+      session.addEventListener('end', function() {
+        updateDebugInfo('VR session ended');
+        if (renderer.setAnimationLoop) {
+          renderer.setAnimationLoop(null);
+        }
+        if (renderer.xr) {
+          renderer.xr.enabled = false;
+          renderer.xr.isPresenting = false;
+          renderer.xr.session = null;
+        }
+        updateVRControlButton(false, false);
+        checkVRAvailability();
+      });
+      
+      updateDebugInfo('Step 7: VR mode active!');
+      return; // Exit early - setAnimationLoop handles everything
+    } else if (!glLayer.framebuffer) {
+      updateDebugInfo('WARNING: Framebuffer missing, cannot use setAnimationLoop');
+      updateDebugInfo('Falling back to manual XR frame loop');
+    }
+    
+    // Fallback: Manual XR frame loop (if setAnimationLoop not available)
+    updateDebugInfo('Using manual XR frame loop (fallback)');
     function onXRFrame(timestamp, frame) {
       if (!frame || !viewer || !viewer.scene || !viewer.camera) {
         session.requestAnimationFrame(onXRFrame);
@@ -1002,8 +1194,17 @@ async function enterVRMode() {
         return;
       }
       
+      // Get the framebuffer - it should be available now
+      const frameFramebuffer = glLayer.framebuffer;
+      if (!frameFramebuffer) {
+        // Framebuffer still not available - log and continue
+        updateDebugInfo('WARNING: Framebuffer still missing in render loop');
+        session.requestAnimationFrame(onXRFrame);
+        return;
+      }
+      
       // Bind the XR framebuffer BEFORE rendering
-      gl.bindFramebuffer(gl.FRAMEBUFFER, glLayer.framebuffer);
+      gl.bindFramebuffer(gl.FRAMEBUFFER, frameFramebuffer);
       
       // Ensure panorama is visible and in scene before rendering
       if (panorama) {
