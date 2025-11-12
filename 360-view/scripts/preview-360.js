@@ -9,6 +9,7 @@
 let viewer = null;
 let panorama = null;
 let hotspots = [];
+let panoramaLoaded = false;
 
 // ============================================================================
 // SECTION 2: HOTSPOT DATA & CONFIGURATION
@@ -107,10 +108,13 @@ function initializeViewer(imageUrl) {
     controlBar: true,
     autoRotateSpeed: 0.3,
     autoRotateActivationDuration: 2000,
-    enableVR: true,        // Enable WebXR VR mode
-    enableReticle: false,   // by default this will be false but in vr mode we will enable throgh a button
+    enableVR: true,        // Enable WebXR VR mode (Panolens will handle VR automatically)
+    enableReticle: false,   // by default this will be false but in vr mode we will enable through a button
     cameraFov: 75          // Set camera field of view
   });
+  
+  // Reset panorama loaded state
+  panoramaLoaded = false;
   
   // Ensure viewer canvas doesn't block pointer events on buttons
   setTimeout(() => {
@@ -126,10 +130,13 @@ function initializeViewer(imageUrl) {
   
   // Create hotspots after panorama loads
   panorama.addEventListener('load', function() {
+    panoramaLoaded = true;
     createHotspots();
     updateHotspotCount();
     // Initialize direction indicator after panorama loads
     initializeDirectionIndicator();
+    // Re-check VR availability after panorama loads
+    checkVRAvailability();
   });
   
   // Make viewer globally available
@@ -663,6 +670,16 @@ async function checkVRAvailability() {
     return;
   }
   
+  // Check if panorama is loaded first
+  if (!panoramaLoaded) {
+    vrBtn.disabled = true;
+    vrBtn.classList.add('disabled');
+    vrBtn.title = 'Loading panorama...';
+    return;
+  }
+  
+
+  
   // Check if WebXR is available
   if (!navigator.xr) {
     // WebXR not supported
@@ -696,11 +713,17 @@ async function checkVRAvailability() {
   }
 }
 
-// Enter VR mode using WebXR
+// Enter VR mode using Panolens' built-in VR support
 async function enterVRMode() {
   // Check if viewer exists
   if (!viewer) {
     console.error('Viewer not initialized');
+    return;
+  }
+  
+  // Check if panorama is loaded
+  if (!panoramaLoaded) {
+    alert('Please wait for the panorama to finish loading before entering VR.');
     return;
   }
   
@@ -712,51 +735,58 @@ async function enterVRMode() {
     return;
   }
   
-  // Check if WebXR is available
-  if (!navigator.xr) {
-    alert('WebXR is not supported in this browser. Please use a VR-compatible browser (Chrome, Edge) with a VR headset connected.');
-    checkVRAvailability(); // Update button state
-    return;
-  }
-  
-  // Double-check VR session support
-  try {
-    const isSupported = await navigator.xr.isSessionSupported('immersive-vr');
-    if (!isSupported) {
-      alert('No VR headset detected. Please connect a VR headset and try again.');
-      checkVRAvailability(); // Update button state
-      return;
-    }
-  } catch (error) {
-    console.error('Error checking VR session support:', error);
-    alert('Unable to check VR headset availability. Please ensure a VR headset is connected.');
-    checkVRAvailability(); // Update button state
-    return;
-  }
-  
-  try {
-    // Check if already in VR mode
-    if (renderer.xr && renderer.xr.isPresenting) {
-      // Exit VR mode
+  // Check if already in VR mode
+  if (renderer.xr && renderer.xr.isPresenting) {
+    // Exit VR mode using Panolens' method
+    try {
       const session = renderer.xr.getSession();
       if (session) {
         await session.end();
         updateVRControlButton(false, false);
       }
+    } catch (error) {
+      console.error('Error exiting VR mode:', error);
+    }
+    return;
+  }
+  
+  // Check if WebXR is available
+  if (!navigator.xr) {
+    alert('WebXR is not supported in this browser. Please use a VR-compatible browser (Chrome, Edge) with a VR headset connected.');
+    checkVRAvailability();
+    return;
+  }
+  
+  // Check VR session support
+  try {
+    const isSupported = await navigator.xr.isSessionSupported('immersive-vr');
+    if (!isSupported) {
+      alert('No VR headset detected. Please connect a VR headset and try again.');
+      checkVRAvailability();
       return;
     }
-    
+  } catch (error) {
+    console.error('Error checking VR session support:', error);
+    alert('Unable to check VR headset availability. Please ensure a VR headset is connected.');
+    checkVRAvailability();
+    return;
+  }
+  
+  // Use Panolens' built-in VR functionality
+  // Panolens automatically handles VR when enableVR is true
+  // We just need to trigger the VR session through the renderer
+  try {
     // Request VR session
     const session = await navigator.xr.requestSession('immersive-vr', {
       requiredFeatures: ['local-floor'],
       optionalFeatures: ['bounded-floor', 'hand-tracking']
     });
     
-    // Enable WebXR on the renderer
+    // Enable WebXR on the renderer (Panolens will handle the rendering)
     if (renderer.xr) {
       renderer.xr.enabled = true;
       
-      // Set the XR session
+      // Set the XR session - Panolens will automatically render the panorama
       await renderer.xr.setSession(session);
       
       // Enable reticle when entering VR
@@ -776,11 +806,13 @@ async function enterVRMode() {
           viewer.reticle.visible = false;
         }
         updateVRControlButton(false, false);
+        // Re-check availability after exiting
+        checkVRAvailability();
       });
     }
   } catch (error) {
     console.error('Error entering VR mode:', error);
     alert('Failed to enter VR mode: ' + error.message + '\n\nPlease ensure:\n- You are using a VR-compatible browser (Chrome, Edge)\n- A VR headset is connected\n- The page is served over HTTPS (or localhost)');
-    checkVRAvailability(); // Update button state in case headset was disconnected
+    checkVRAvailability();
   }
 }
