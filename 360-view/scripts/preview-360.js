@@ -224,37 +224,97 @@ async function setupWebXRSession(session) {
   
   // Configure session
   const xrLayer = new XRWebGLLayer(session, gl);
-  await session.updateRenderState({
+  session.updateRenderState({
     baseLayer: xrLayer
   });
   
   // Get reference space
-  const referenceSpace = await session.requestReferenceSpace('local-floor');
+  let referenceSpace;
+  try {
+    referenceSpace = await session.requestReferenceSpace('local-floor');
+  } catch (e) {
+    try {
+      referenceSpace = await session.requestReferenceSpace('local');
+    } catch (e2) {
+      referenceSpace = await session.requestReferenceSpace('viewer');
+    }
+  }
+  
+  // Ensure panorama is visible
+  if (panorama) {
+    panorama.visible = true;
+  }
   
   // Animation loop for VR
   function onXRFrame(time, frame) {
-    const xrSession = frame.session;
-    xrSession.requestAnimationFrame(onXRFrame);
+    session.requestAnimationFrame(onXRFrame);
     
     const pose = frame.getViewerPose(referenceSpace);
     
-    if (pose) {
-      const layer = xrSession.renderState.baseLayer;
-      renderer.setFramebuffer(layer.framebuffer);
-      
-      // Render for each eye
-      for (const view of pose.views) {
-        const viewport = layer.getViewport(view);
-        renderer.setViewport(viewport.x, viewport.y, viewport.width, viewport.height);
-        
-        // Update camera with VR view
-        viewer.camera.matrix.fromArray(view.transform.matrix);
-        viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
-        viewer.camera.updateMatrixWorld(true);
-        
-        // Render the scene
-        renderer.render(viewer.scene, viewer.camera);
+    if (!pose || !viewer || !viewer.scene || !viewer.camera) {
+      return;
+    }
+    
+    const layer = session.renderState.baseLayer;
+    if (!layer || !layer.framebuffer) {
+      return;
+    }
+    
+    // Bind the XR framebuffer
+    gl.bindFramebuffer(gl.FRAMEBUFFER, layer.framebuffer);
+    
+    // Clear framebuffer
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
+    // Render for each eye
+    for (const view of pose.views) {
+      const viewport = layer.getViewport(view);
+      if (!viewport) {
+        continue;
       }
+      
+      // Set viewport for this eye
+      gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
+      
+      // Clear depth buffer for this view
+      gl.clear(gl.DEPTH_BUFFER_BIT);
+      
+      // Update camera with VR view
+      if (view.projectionMatrix) {
+        viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
+        viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
+      }
+      
+      // Update camera transform from view
+      const transform = view.transform;
+      if (transform && transform.matrix) {
+        viewer.camera.matrix.fromArray(transform.matrix);
+        viewer.camera.matrixWorldNeedsUpdate = true;
+        viewer.camera.updateMatrixWorld();
+      }
+      
+      // Ensure panorama is visible and in scene
+      if (panorama) {
+        panorama.visible = true;
+        if (viewer.scene) {
+          let panoramaInScene = false;
+          viewer.scene.traverse(function(child) {
+            if (child === panorama || child.uuid === panorama.uuid) {
+              panoramaInScene = true;
+            }
+          });
+          if (!panoramaInScene) {
+            viewer.scene.add(panorama);
+          }
+        }
+      }
+      
+      // Render the scene to XR framebuffer
+      const currentRenderTarget = renderer.getRenderTarget();
+      renderer.setRenderTarget(null);
+      renderer.render(viewer.scene, viewer.camera);
+      renderer.setRenderTarget(currentRenderTarget);
     }
   }
   
