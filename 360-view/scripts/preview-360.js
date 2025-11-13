@@ -192,7 +192,7 @@ function addWebXRButton() {
             // Handle session end
             xrSession.addEventListener('end', () => {
               xrSession = null;
-              vrButton.innerHTML = '🥽 Enter VR';
+              vrButton.innerHTML = '1🥽 Enter VR';
             });
             
           } catch (error) {
@@ -290,18 +290,30 @@ async function setupWebXRSession(session) {
       // Clear depth buffer for this view
       gl.clear(gl.DEPTH_BUFFER_BIT);
       
-      // Update camera with VR view
+      // Update camera projection for this eye
       if (view.projectionMatrix) {
         viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
-        viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
+        if (viewer.camera.projectionMatrixInverse) {
+          viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
+        }
       }
       
-      // Update camera transform from view
+      // Update camera transform using view matrix
       const transform = view.transform;
       if (transform && transform.matrix) {
-        viewer.camera.matrix.fromArray(transform.matrix);
-        viewer.camera.matrixWorldNeedsUpdate = true;
-        viewer.camera.updateMatrixWorld();
+        // Panolens uses matrix/matrixWorld for rendering, update both
+        viewer.camera.matrixWorld.fromArray(transform.matrix);
+        viewer.camera.matrix.copy(viewer.camera.matrixWorld);
+        
+        // Ensure camera position and rotation are synchronized
+        viewer.camera.matrixWorld.decompose(
+          viewer.camera.position,
+          viewer.camera.quaternion,
+          viewer.camera.scale
+        );
+        
+        viewer.camera.matrixWorldNeedsUpdate = false;
+        viewer.camera.updateMatrixWorld(true);
       }
       
       // Ensure panorama is visible and in scene
