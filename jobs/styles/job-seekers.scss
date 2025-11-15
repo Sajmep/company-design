@@ -1,0 +1,186 @@
+// Font Import
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+.job-seekers-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 13px;
+  justify-content: center;
+
+
+.job-seeker-card {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 16px;
+  max-width: 300px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.15), 0 8px 16px -4px rgba(0, 0, 0, 0.1);
+    border-color: #012f6d;
+  }
+
+  // Open to Work Label
+  .open-to-work-label {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: #e6bb01;
+    color: #000000;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(230, 187, 1, 0.4);
+    z-index: 2;
+  }
+
+  // Card Header - User Picture and Name Section
+  .card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #f3f4f6;
+
+    .user-picture-wrapper {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 8px;
+
+      // Status Indicator (default: online/green)
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 14px;
+        height: 14px;
+        background: #10b981; // Green - Online (default)
+        border: 3px solid #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        z-index: 3;
+      }
+
+      // Offline Status - Gray
+      &.status-busy::after {
+        background: #9ca3af; // Gray
+        box-shadow: 0 2px 4px rgba(156, 163, 175, 0.3);
+      }
+
+      // offline Status - Red
+      &.status-offline::after {
+        background: #db0000; // Red
+        box-shadow: 0 2px 4px rgba(219, 0, 0, 0.3);
+      }
+
+      // Away Status - Orange
+      &.status-away::after {
+        background: #f59e0b; // Orange
+        box-shadow: 0 2px 4px rgba(245, 158, 11, 0.3);
+      }
+
+      // Online Status - Green (explicit)
+      &.status-online::after {
+        background: #10b981; // Green
+        box-shadow: 0 2px 4px rgba(16, 185, 129, 0.3);
+      }
+    }
+
+    .user-picture {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #f3f4f6;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: block;
+
+      &:hover {
+        transform: scale(1.05);
+        border-color: #012f6d;
+        box-shadow: 0 6px 16px rgba(1, 47, 109, 0.3);
+      }
+    }
+
+    .user-name {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 0px;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .user-designation {
+      font-size: 12px;
+      color: #6b7280;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 5px;
+      line-height: 1.4;
+    }
+  }
+
+  // Skills Section
+  .skills-section {
+    margin-top: 14px;
+
+    .skills-title {
+      font-size: 10px;
+      font-weight: 700;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      &::before {
+        content: '';
+        width: 3px;
+        height: 12px;
+        background: #012f6d;
+        border-radius: 2px;
+      }
+    }
+
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+
+      .skill-badge {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        color: #374151;
+        font-size: 11px;
+        font-weight: 600;
+        padding: 5px 10px;
+        border-radius: 16px;
+        border: 1px solid #e5e7eb;
+        transition: all 0.2s ease;
+        cursor: default;
+
+        &:hover {
+          background: #012f6d;
+          color: #ffffff;
+          border-color: #012f6d;
+          transform: translateY(-2px);
+          box-shadow: 0 4px 8px rgba(1, 47, 109, 0.3);
+        }
+      }
+    }
+  }
+}
+}

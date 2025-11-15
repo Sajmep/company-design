@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/job-seekers.css">
+    <link rel="stylesheet" href="styles/scrollbar.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="../styles/common-page-header.css">
+    <title>Job Seekers</title>
+
+    <style>
+
+        .page-header {
+            padding: 20px;
+        }
+        .page-header-title {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Common Page Header -->
+    <div class="page-header">
+        <div class="page-header-title">
+            <h2>Job Seekers</h2>
+            <p>Explore job seekers with their skills and experience</p>
+        </div>
+        <div class="page-header-controls">
+            <div class="page-header-search">
+                <input type="text" class="page-header-search-input" placeholder="Search job seekers...">
+                <i class="fa fa-search page-header-search-icon"></i>
+            </div>
+
+            <div class="page-header-actions">
+                <div class="page-header-group-by">
+                    <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                        <i class="fa fa-chevron-down"></i>
+                        <span class="btn-text">Group By</span>
+                    </button>
+                    <div class="page-header-group-by-dropdown" id="groupByDropdown">
+                        <div class="page-header-group-by-item" data-value="status">
+                            <i class="fa fa-flag"></i>
+                            Status
+                        </div>
+                        <div class="page-header-group-by-item" data-value="category">
+                            <i class="fa fa-tags"></i>
+                            Category
+                        </div>
+                        <div class="page-header-group-by-item" data-value="location">
+                            <i class="fa fa-map-marker"></i>
+                            Location
+                        </div>
+                    </div>
+                </div>
+
+                <button class="page-header-filter-btn" title="Filter">
+                    <i class="fa fa-filter"></i>
+                    <span class="btn-text">Filter</span>
+                </button>
+
+                <button class="page-header-import-btn" onclick="importVendors()" title="Import">
+                    <i class="fa fa-upload"></i>
+                    <span class="btn-text">Import</span>
+                </button>
+
+                <div class="page-header-action-dropdown" id="vendorActionDropdown">
+                    <button class="page-header-action-dropdown-btn"
+                        onclick="toggleActionDropdown('vendorActionDropdown')" title="Actions">
+                        <i class="fa fa-ellipsis-v"></i>
+                        <span class="btn-text">Actions</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="page-header-action-menu" id="vendorActionMenu">
+                        <div class="page-header-action-item" onclick="exportVendors()">
+                            <i class="fa fa-download"></i>
+                            <span>Export</span>
+                        </div>
+                        <div class="page-header-action-item" onclick="editSelectedVendors()">
+                            <i class="fa fa-edit"></i>
+                            <span>Edit</span>
+                        </div>
+                        <div class="page-header-action-item" onclick="duplicateSelectedVendors()">
+                            <i class="fa fa-copy"></i>
+                            <span>Duplicate</span>
+                        </div>
+                        <div class="page-header-action-divider"></div>
+                        <div class="page-header-action-item danger" onclick="deleteSelectedVendors()">
+                            <i class="fa fa-trash"></i>
+                            <span>Delete</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="page-header-primary-btn" onclick="openCreateProjectModal()" title="Create New Project">
+                    <i class="fa fa-plus"></i>
+                    <span class="btn-text">New</span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+    
+    <!-- Job Seekers Container -->
+    <div class="job-seekers-container">
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            <span class="open-to-work-label">Open to Work</span>
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper">
+                    <img src="images/job-seekers/john.jpg" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">John Doe</h2>
+                <p class="user-designation">Senior Full Stack Developer</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">React</span>
+                    <span class="skill-badge">Node.js</span>
+                    <span class="skill-badge">TypeScript</span>
+                    <span class="skill-badge">MongoDB</span>
+                </div>
+            </div>
+        </div>
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper status-offline">
+                    <img src="images/job-seekers/zoia.jpg" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">Zoia 💗</h2>
+                <p class="user-designation">Software Engineer</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">Java</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">AWS</span>
+                </div>
+            </div>
+        </div>
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            <span class="open-to-work-label">Open to Work</span>
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper status-busy">
+                    <img src="images/job-seekers/mike.png" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">Mike Wilson</h2>
+                <p class="user-designation">Marketing Manager</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">Social Media</span>
+                    <span class="skill-badge">Content Creation</span>
+                    <span class="skill-badge">Analytics</span>
+                    <span class="skill-badge">SEO</span>
+                    <span class="skill-badge">Social Media Marketing</span>
+                </div>
+            </div>
+        </div>
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            <span class="open-to-work-label">Open to Work</span>
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper status-away">
+                    <img src="images/job-seekers/sarah.pnh.png" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">Sarah Johnson</h2>
+                <p class="user-designation">Graphic Designer</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">Photoshop</span>
+                    <span class="skill-badge">Illustrator</span>
+                    <span class="skill-badge">InDesign</span>
+                    <span class="skill-badge">Graphic Design</span>
+                    <span class="skill-badge">Branding</span>
+                </div>
+            </div>
+        </div>
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            <span class="open-to-work-label">Open to Work</span>
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper">
+                    <img src="images/job-seekers/user3.png" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">Nawal Al-Rashid</h2>
+                <p class="user-designation">Software Engineer</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">Angular</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">DevOps</span>
+                    <span class="skill-badge">CI/CD</span>
+                </div>
+            </div>
+        </div>
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper">
+                    <img src="images/job-seekers/sofia.png" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">Sofia Richardson</h2>
+                <p class="user-designation">Team Lead</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">Team Management</span>
+                    <span class="skill-badge">Project Management</span>
+                    <span class="skill-badge">Communication</span>
+                    <span class="skill-badge">Leadership</span>
+                    <span class="skill-badge">Problem Solving</span>
+                </div>
+            </div>
+        </div>
+        <!-- Job Seeker Card -->
+        <div class="job-seeker-card">
+            <span class="open-to-work-label">Open to Work</span>
+            
+            <div class="card-header">
+                <div class="user-picture-wrapper">
+                    <img src="images/job-seekers/john.jpg" alt="User Profile" class="user-picture">
+                </div>
+                <h2 class="user-name">Anshak Patelm 👑</h2>
+                <p class="user-designation">Software Engineer</p>
+            </div>
+            
+            <div class="skills-section">
+                <div class="skills-title">Top Skills</div>
+                <div class="skills-container">
+                    <span class="skill-badge">JavaScript</span>
+                    <span class="skill-badge">Python</span>
+                    <span class="skill-badge">SQL</span>
+                    <span class="skill-badge">DevOps</span>
+                    <span class="skill-badge">CI/CD</span>
+                </div>
+            </div>
+        </div>
+    </div>  
+    <!-- Job Seekers Container End -->
+</body>
+</html>
