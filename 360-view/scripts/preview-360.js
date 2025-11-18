@@ -192,7 +192,12 @@ function addWebXRButton() {
             // Handle session end
             xrSession.addEventListener('end', () => {
               xrSession = null;
-              vrButton.innerHTML = '1🥽 Enter VR';
+              vrButton.innerHTML = '🥽 Enter VR';
+              
+              // Restore Panolens's normal animation loop
+              if (viewer && viewer.animate !== undefined) {
+                viewer.animate = true;
+              }
             });
             
           } catch (error) {
@@ -219,6 +224,11 @@ function addWebXRButton() {
 async function setupWebXRSession(session) {
   const renderer = viewer.renderer;
   const gl = renderer.getContext();
+  
+  // Ensure panorama is fully loaded before entering VR
+  if (!panorama || !panorama.material || !panorama.material.map || !panorama.material.map.image) {
+    throw new Error('Panorama not fully loaded. Please wait for the image to load.');
+  }
   
   // Set up XR-compatible rendering
   await gl.makeXRCompatible();
@@ -250,10 +260,40 @@ async function setupWebXRSession(session) {
     }
   }
   
-  // Ensure panorama is visible
+  // Stop Panolens's normal animation loop to avoid conflicts
+  if (viewer.animate) {
+    viewer.animate = false;
+  }
+  
+  // Ensure panorama is visible and properly set up
   if (panorama) {
     panorama.visible = true;
+    
+    // Force material update
+    if (panorama.material) {
+      panorama.material.needsUpdate = true;
+      if (panorama.material.map) {
+        panorama.material.map.needsUpdate = true;
+      }
+    }
+    
+    // Ensure panorama is in the scene
+    if (viewer.scene) {
+      let panoramaInScene = false;
+      viewer.scene.traverse(function(child) {
+        if (child === panorama || child.uuid === panorama.uuid) {
+          panoramaInScene = true;
+        }
+      });
+      if (!panoramaInScene) {
+        viewer.scene.add(panorama);
+      }
+    }
   }
+  
+  // Ensure camera is at origin (inside the panorama sphere)
+  viewer.camera.position.set(0, 0, 0);
+  viewer.camera.updateMatrixWorld(true);
   
   // Animation loop for VR
   function onXRFrame(time, frame) {
@@ -293,50 +333,38 @@ async function setupWebXRSession(session) {
       // Update camera projection for this eye
       if (view.projectionMatrix) {
         viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
-        if (viewer.camera.projectionMatrixInverse) {
-          viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
-        }
+        viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
       }
       
       // Update camera transform using view matrix
       const transform = view.transform;
       if (transform && transform.matrix) {
-        // Panolens uses matrix/matrixWorld for rendering, update both
-        viewer.camera.matrixWorld.fromArray(transform.matrix);
-        viewer.camera.matrix.copy(viewer.camera.matrixWorld);
+        // Create a temporary matrix to extract position and rotation
+        const viewMatrix = new THREE.Matrix4().fromArray(transform.matrix);
         
-        // Ensure camera position and rotation are synchronized
-        viewer.camera.matrixWorld.decompose(
-          viewer.camera.position,
-          viewer.camera.quaternion,
-          viewer.camera.scale
-        );
+        // Extract position (translation) from matrix
+        const position = new THREE.Vector3();
+        position.setFromMatrixPosition(viewMatrix);
         
-        viewer.camera.matrixWorldNeedsUpdate = false;
+        // Extract rotation (quaternion) from matrix
+        const quaternion = new THREE.Quaternion();
+        quaternion.setFromRotationMatrix(viewMatrix);
+        
+        // Update camera position and rotation
+        viewer.camera.position.copy(position);
+        viewer.camera.quaternion.copy(quaternion);
+        
+        // Update camera matrices
         viewer.camera.updateMatrixWorld(true);
       }
       
-      // Ensure panorama is visible and in scene
+      // Ensure panorama is visible
       if (panorama) {
         panorama.visible = true;
-        if (viewer.scene) {
-          let panoramaInScene = false;
-          viewer.scene.traverse(function(child) {
-            if (child === panorama || child.uuid === panorama.uuid) {
-              panoramaInScene = true;
-            }
-          });
-          if (!panoramaInScene) {
-            viewer.scene.add(panorama);
-          }
-        }
       }
       
       // Render the scene to XR framebuffer
-      const currentRenderTarget = renderer.getRenderTarget();
-      renderer.setRenderTarget(null);
       renderer.render(viewer.scene, viewer.camera);
-      renderer.setRenderTarget(currentRenderTarget);
     }
   }
   
