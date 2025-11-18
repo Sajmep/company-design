@@ -9,6 +9,7 @@
 let viewer = null;
 let panorama = null;
 let hotspots = [];
+let previousAnimationLoop = null;
 
 // ============================================================================
 // SECTION 2: HOTSPOT DATA & CONFIGURATION
@@ -178,11 +179,8 @@ function addWebXRButton() {
         if (!xrSession) {
           // Enter immersive VR
           try {
-            // Request VR session without requiring floor tracking (no boundary setup needed)
-            xrSession = await navigator.xr.requestSession('immersive-vr', {
-              // No required features - use default viewer reference space
-              optionalFeatures: ['local-floor', 'bounded-floor']
-            });
+            // Request VR session without forcing room-scale features
+            xrSession = await navigator.xr.requestSession('immersive-vr', {});
             
             vrButton.innerHTML = '🥽 Exit VR';
             
@@ -194,25 +192,25 @@ function addWebXRButton() {
               xrSession = null;
               vrButton.innerHTML = '🥽 Enter VR';
               
-              // Restore Panolens's normal animation loop
-              if (viewer && viewer.animate !== undefined) {
-                viewer.animate = true;
-              }
-              
               if (viewer && viewer.renderer) {
-                viewer.renderer.setAnimationLoop(null);
+                const renderer = viewer.renderer;
                 
-                if (viewer.renderer.xr) {
-                  viewer.renderer.xr.enabled = false;
+                if (typeof renderer.setAnimationLoop === 'function') {
+                  renderer.setAnimationLoop(previousAnimationLoop || null);
+                }
+                previousAnimationLoop = null;
+                
+                if (renderer.xr) {
+                  renderer.xr.enabled = false;
                   try {
-                    viewer.renderer.xr.setSession(null);
+                    renderer.xr.setSession(null);
                   } catch (err) {
                     // ignore cleanup errors
                   }
-                } else if (viewer.renderer.vr) {
-                  viewer.renderer.vr.enabled = false;
-                  if (viewer.renderer.vr.setSession) {
-                    viewer.renderer.vr.setSession(null);
+                } else if (renderer.vr) {
+                  renderer.vr.enabled = false;
+                  if (renderer.vr.setSession) {
+                    renderer.vr.setSession(null);
                   }
                 }
               }
@@ -251,11 +249,6 @@ async function setupWebXRSession(session) {
     throw new Error('Panorama not fully loaded. Please wait for the image to load.');
   }
   
-  // Stop Panolens internal loop while XR takes over rendering
-  if (typeof viewer.animate !== 'undefined') {
-    viewer.animate = false;
-  }
-  
   // Make sure panorama stays visible
   panorama.visible = true;
   if (panorama.material) {
@@ -268,6 +261,12 @@ async function setupWebXRSession(session) {
   const xrManager = renderer.xr || renderer.vr;
   if (!xrManager) {
     throw new Error('WebXR manager not available on renderer.');
+  }
+  
+  if (typeof renderer.getAnimationLoop === 'function') {
+    previousAnimationLoop = renderer.getAnimationLoop();
+  } else {
+    previousAnimationLoop = null;
   }
   
   if (renderer.xr) {
