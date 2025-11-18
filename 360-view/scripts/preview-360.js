@@ -198,6 +198,24 @@ function addWebXRButton() {
               if (viewer && viewer.animate !== undefined) {
                 viewer.animate = true;
               }
+              
+              if (viewer && viewer.renderer) {
+                viewer.renderer.setAnimationLoop(null);
+                
+                if (viewer.renderer.xr) {
+                  viewer.renderer.xr.enabled = false;
+                  try {
+                    viewer.renderer.xr.setSession(null);
+                  } catch (err) {
+                    // ignore cleanup errors
+                  }
+                } else if (viewer.renderer.vr) {
+                  viewer.renderer.vr.enabled = false;
+                  if (viewer.renderer.vr.setSession) {
+                    viewer.renderer.vr.setSession(null);
+                  }
+                }
+              }
             });
             
           } catch (error) {
@@ -222,153 +240,57 @@ function addWebXRButton() {
 // ============================================================================
 
 async function setupWebXRSession(session) {
-  const renderer = viewer.renderer;
-  const gl = renderer.getContext();
+  if (!viewer || !viewer.renderer) {
+    throw new Error('Viewer renderer not available.');
+  }
   
-  // Ensure panorama is fully loaded before entering VR
+  const renderer = viewer.renderer;
+  
+  // Ensure panorama texture is ready
   if (!panorama || !panorama.material || !panorama.material.map || !panorama.material.map.image) {
     throw new Error('Panorama not fully loaded. Please wait for the image to load.');
   }
   
-  // Set up XR-compatible rendering
-  await gl.makeXRCompatible();
-  
-  // Configure session
-  const xrLayer = new XRWebGLLayer(session, gl);
-  session.updateRenderState({
-    baseLayer: xrLayer
-  });
-  
-  // Get reference space - try viewer first (no boundary setup needed)
-  // This avoids the "no boundary found" message
-  let referenceSpace;
-  try {
-    // Try viewer reference space first (simplest, no room setup)
-    referenceSpace = await session.requestReferenceSpace('viewer');
-  } catch (e) {
-    try {
-      // Fallback to local (head-relative, no floor)
-      referenceSpace = await session.requestReferenceSpace('local');
-    } catch (e2) {
-      try {
-        // Last resort: local-floor (requires room setup)
-        referenceSpace = await session.requestReferenceSpace('local-floor');
-      } catch (e3) {
-        console.error('Failed to get reference space:', e3);
-        throw new Error('Could not initialize VR reference space');
-      }
-    }
-  }
-  
-  // Stop Panolens's normal animation loop to avoid conflicts
-  if (viewer.animate) {
+  // Stop Panolens internal loop while XR takes over rendering
+  if (typeof viewer.animate !== 'undefined') {
     viewer.animate = false;
   }
   
-  // Ensure panorama is visible and properly set up
-  if (panorama) {
-    panorama.visible = true;
-    
-    // Force material update
-    if (panorama.material) {
-      panorama.material.needsUpdate = true;
-      if (panorama.material.map) {
-        panorama.material.map.needsUpdate = true;
-      }
-    }
-    
-    // Ensure panorama is in the scene
-    if (viewer.scene) {
-      let panoramaInScene = false;
-      viewer.scene.traverse(function(child) {
-        if (child === panorama || child.uuid === panorama.uuid) {
-          panoramaInScene = true;
-        }
-      });
-      if (!panoramaInScene) {
-        viewer.scene.add(panorama);
-      }
+  // Make sure panorama stays visible
+  panorama.visible = true;
+  if (panorama.material) {
+    panorama.material.needsUpdate = true;
+    if (panorama.material.map) {
+      panorama.material.map.needsUpdate = true;
     }
   }
   
-  // Ensure camera is at origin (inside the panorama sphere)
+  const xrManager = renderer.xr || renderer.vr;
+  if (!xrManager) {
+    throw new Error('WebXR manager not available on renderer.');
+  }
+  
+  if (renderer.xr) {
+    renderer.xr.enabled = true;
+    renderer.xr.setReferenceSpaceType('viewer');
+    await renderer.xr.setSession(session);
+  } else {
+    renderer.vr.enabled = true;
+    if (renderer.vr.setSession) {
+      renderer.vr.setSession(session);
+    }
+  }
+  
   viewer.camera.position.set(0, 0, 0);
+  viewer.camera.quaternion.set(0, 0, 0, 1);
   viewer.camera.updateMatrixWorld(true);
   
-  // Animation loop for VR
-  function onXRFrame(time, frame) {
-    session.requestAnimationFrame(onXRFrame);
-    
-    const pose = frame.getViewerPose(referenceSpace);
-    
-    if (!pose || !viewer || !viewer.scene || !viewer.camera) {
-      return;
-    }
-    
-    const layer = session.renderState.baseLayer;
-    if (!layer || !layer.framebuffer) {
-      return;
-    }
-    
-    // Bind the XR framebuffer
-    gl.bindFramebuffer(gl.FRAMEBUFFER, layer.framebuffer);
-    
-    // Clear framebuffer
-    gl.clearColor(0, 0, 0, 1);
-    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    
-    // Render for each eye
-    for (const view of pose.views) {
-      const viewport = layer.getViewport(view);
-      if (!viewport) {
-        continue;
-      }
-      
-      // Set viewport for this eye
-      gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
-      
-      // Clear depth buffer for this view
-      gl.clear(gl.DEPTH_BUFFER_BIT);
-      
-      // Update camera projection for this eye
-      if (view.projectionMatrix) {
-        viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
-        viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
-      }
-      
-      // Update camera transform using view matrix
-      const transform = view.transform;
-      if (transform && transform.matrix) {
-        // Create a temporary matrix to extract position and rotation
-        const viewMatrix = new THREE.Matrix4().fromArray(transform.matrix);
-        
-        // Extract position (translation) from matrix
-        const position = new THREE.Vector3();
-        position.setFromMatrixPosition(viewMatrix);
-        
-        // Extract rotation (quaternion) from matrix
-        const quaternion = new THREE.Quaternion();
-        quaternion.setFromRotationMatrix(viewMatrix);
-        
-        // Update camera position and rotation
-        viewer.camera.position.copy(position);
-        viewer.camera.quaternion.copy(quaternion);
-        
-        // Update camera matrices
-        viewer.camera.updateMatrixWorld(true);
-      }
-      
-      // Ensure panorama is visible
-      if (panorama) {
-        panorama.visible = true;
-      }
-      
-      // Render the scene to XR framebuffer
-      renderer.render(viewer.scene, viewer.camera);
-    }
-  }
+  const renderLoop = () => {
+    panorama.visible = true;
+    renderer.render(viewer.scene, viewer.camera);
+  };
   
-  session.requestAnimationFrame(onXRFrame);
+  renderer.setAnimationLoop(renderLoop);
 }
 
 // ============================================================================
