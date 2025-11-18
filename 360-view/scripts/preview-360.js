@@ -9,7 +9,6 @@
 let viewer = null;
 let panorama = null;
 let hotspots = [];
-let previousAnimationLoop = null;
 
 // ============================================================================
 // SECTION 2: HOTSPOT DATA & CONFIGURATION
@@ -126,8 +125,8 @@ function initializeViewer(imageUrl) {
     updateHotspotCount();
     initializeDirectionIndicator();
     
-    // Add VR button after panorama loads
-    addWebXRButton();
+    // Bridge custom VR button to Panolens controls
+    setupCustomVRButton();
   });
   
   // Handle panorama loading errors
@@ -141,172 +140,76 @@ function initializeViewer(imageUrl) {
 }
 
 // ============================================================================
-// WEBXR IMMERSIVE VR BUTTON
+// PANOLENS VR BRIDGE (USE BUILT-IN IMPLEMENTATION)
 // ============================================================================
 
-function addWebXRButton() {
-  // Check if WebXR is supported
-  if (!navigator.xr) {
-    console.log('WebXR not supported');
+let panolensVRButton = null;
+let panolensVRObserver = null;
+
+function setupCustomVRButton() {
+  const customButton = document.getElementById('vrControlBtn');
+  if (!customButton || !viewer) {
     return;
   }
-  
-  navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
-    if (supported) {
-      // Create VR button
-      const vrButton = document.createElement('button');
-      vrButton.id = 'webxrButton';
-      vrButton.innerHTML = '🥽 Enter VR';
-      vrButton.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        padding: 15px 30px;
-        background: #dc2626;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 18px;
-        font-weight: bold;
-        cursor: pointer;
-        z-index: 1000;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-      `;
-      
-      let xrSession = null;
-      
-      vrButton.addEventListener('click', async function() {
-        if (!xrSession) {
-          // Enter immersive VR
-          try {
-            // Request VR session without forcing room-scale features
-            xrSession = await navigator.xr.requestSession('immersive-vr', {});
-            
-            vrButton.innerHTML = '🥽 Exit VR';
-            
-            // Set up WebXR rendering
-            await setupWebXRSession(xrSession);
-            
-            // Handle session end
-            xrSession.addEventListener('end', () => {
-              xrSession = null;
-              vrButton.innerHTML = '🥽 Enter VR';
-              
-              if (viewer && viewer.renderer) {
-                const renderer = viewer.renderer;
-                
-                if (typeof renderer.setAnimationLoop === 'function') {
-                  renderer.setAnimationLoop(previousAnimationLoop || null);
-                }
-                previousAnimationLoop = null;
-                
-                if (renderer.xr) {
-                  renderer.xr.enabled = false;
-                  try {
-                    renderer.xr.setSession(null);
-                  } catch (err) {
-                    // ignore cleanup errors
-                  }
-                } else if (renderer.vr) {
-                  renderer.vr.enabled = false;
-                  if (renderer.vr.setSession) {
-                    renderer.vr.setSession(null);
-                  }
-                }
-              }
-            });
-            
-          } catch (error) {
-            console.error('Failed to start VR session:', error);
-            alert('Could not enter VR mode: ' + error.message);
-          }
-        } else {
-          // Exit VR
-          xrSession.end();
-        }
-      });
-      
-      document.body.appendChild(vrButton);
-    } else {
-      console.log('Immersive VR not supported');
-    }
-  });
-}
 
-// ============================================================================
-// WEBXR SESSION SETUP
-// ============================================================================
+  customButton.classList.add('disabled');
 
-async function setupWebXRSession(session) {
-  if (!viewer || !viewer.renderer) {
-    throw new Error('Viewer renderer not available.');
-  }
-  
-  const renderer = viewer.renderer;
-  
-  // Ensure panorama texture is ready
-  if (!panorama || !panorama.material || !panorama.material.map || !panorama.material.map.image) {
-    throw new Error('Panorama not fully loaded. Please wait for the image to load.');
-  }
-  
-  // Make sure panorama stays visible
-  panorama.visible = true;
-  if (panorama.material) {
-    panorama.material.needsUpdate = true;
-    if (panorama.material.map) {
-      panorama.material.map.needsUpdate = true;
+  const syncCustomButtonState = () => {
+    if (!customButton) {
+      return;
     }
-  }
-  
-  const xrManager = renderer.xr || renderer.vr;
-  if (!xrManager) {
-    throw new Error('WebXR manager not available on renderer.');
-  }
-  
-  if (typeof renderer.getAnimationLoop === 'function') {
-    previousAnimationLoop = renderer.getAnimationLoop();
-  } else {
-    previousAnimationLoop = null;
-  }
-  
-  if (renderer.xr) {
-    renderer.xr.enabled = true;
-    renderer.xr.setReferenceSpaceType('viewer');
-    await renderer.xr.setSession(session);
-  } else {
-    renderer.vr.enabled = true;
-    if (renderer.vr.setSession) {
-      renderer.vr.setSession(session);
+    if (!panolensVRButton) {
+      customButton.classList.add('disabled');
+      customButton.classList.remove('active');
+      return;
     }
-  }
-  
-  viewer.camera.position.set(0, 0, 0);
-  viewer.camera.quaternion.set(0, 0, 0, 1);
-  viewer.camera.updateMatrixWorld(true);
-  
-  const renderLoop = () => {
-    panorama.visible = true;
-    renderer.render(viewer.scene, viewer.camera);
+
+    customButton.classList.remove('disabled');
+    const isActive = panolensVRButton.classList.contains('panolens-active');
+    customButton.classList.toggle('active', isActive);
   };
-  
-  renderer.setAnimationLoop(renderLoop);
+
+  const attachObserver = () => {
+    if (!panolensVRButton) {
+      return;
+    }
+    if (panolensVRObserver) {
+      panolensVRObserver.disconnect();
+    }
+    panolensVRObserver = new MutationObserver(syncCustomButtonState);
+    panolensVRObserver.observe(panolensVRButton, { attributes: true, attributeFilter: ['class'] });
+    syncCustomButtonState();
+  };
+
+  const locatePanolensButton = () => {
+    const internalBtn = document.querySelector('.panolens-container .panolens-control-button.panolens-control-button-vr');
+    if (!internalBtn) {
+      setTimeout(locatePanolensButton, 500);
+      return;
+    }
+    panolensVRButton = internalBtn;
+    attachObserver();
+  };
+
+  if (!customButton.dataset.bound) {
+    customButton.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      if (!panolensVRButton) {
+        return;
+      }
+      panolensVRButton.click();
+    });
+    customButton.dataset.bound = 'true';
+  }
+
+  locatePanolensButton();
 }
 
 // ============================================================================
 // UPDATE YOUR WINDOW LOAD EVENT
 // ============================================================================
 
-window.addEventListener('load', function() {
-  const urlParams = new URLSearchParams(window.location.search);
-  const imageUrl = urlParams.get('image');
-  
-  if (!imageUrl) {
-    return;
-  }
-  
-  initializeViewer(imageUrl);
-  updateActivePanoramaInSidebar(imageUrl);
-});
 // ============================================================================
 // SECTION 6: HOTSPOT ICON CREATION
 // ============================================================================
