@@ -18,8 +18,7 @@ body {
   gap: 1.5rem;
   background: linear-gradient(to bottom, #f8f9fa, #ffffff);
 }
-
-.subscription-sidebar {
+.subscription-container .subscription-sidebar {
   width: min(320px, 100%);
   background: #f8f9fa;
   color: #1a1a1a;
@@ -30,29 +29,25 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
   border: 1px solid #e5e7eb;
 }
-
-.sidebar-header {
+.subscription-container .subscription-sidebar .sidebar-header {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
 }
-
-.sidebar-eyebrow {
+.subscription-container .subscription-sidebar .sidebar-header .sidebar-eyebrow {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.75rem;
   color: #6b7280;
   margin: 0;
 }
-
-.sidebar-header h2 {
+.subscription-container .subscription-sidebar .sidebar-header h2 {
   margin: 0;
   font-size: 1.35rem;
   font-weight: 600;
   color: #012f6d;
 }
-
-.website-list {
+.subscription-container .subscription-sidebar .website-list {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -60,11 +55,10 @@ body {
   flex-direction: column;
   gap: 0.75rem;
 }
-
-.website-item {
+.subscription-container .subscription-sidebar .website-list .website-item {
   background: #ffffff;
   border: 1px solid #e5e7eb;
-  border-radius: 0.85rem;
+  border-radius: 6px;
   padding: 0.85rem 1rem;
   font-size: 0.95rem;
   font-weight: 500;
@@ -72,36 +66,83 @@ body {
   transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
 }
-
-.website-item:hover {
+.subscription-container .subscription-sidebar .website-list .website-item:hover {
   border-color: #012f6d;
   transform: translateX(4px);
   box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
 }
-
-.website-item.active {
+.subscription-container .subscription-sidebar .website-list .website-item.active {
   background: #012f6d;
   border-color: #012f6d;
   color: #ffffff;
   box-shadow: 0 2px 8px rgba(1, 47, 109, 0.2);
 }
-
-.subscription-main {
+.subscription-container .subscription-main {
   flex: 1;
   background: #ffffff;
-  padding: clamp(1.5rem, 3vw, 3.5rem);
+  padding: clamp(1.5rem, 2vw, 3.5rem);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-start;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
   border: 1px solid #e5e7eb;
 }
-
-.subscription-heading {
+.subscription-container .subscription-main .subscription-heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.subscription-container .subscription-main .subscription-heading {
   margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 14px;
   color: #012f6d;
-  text-align: center;
+  text-align: left;
+  font-weight: 700;
+}
+.subscription-container .subscription-main .duration-toggle {
+  display: inline-flex;
+  padding: 0.3rem;
+  gap: 0.25rem;
+  background: linear-gradient(135deg, rgba(1, 47, 109, 0.1), rgba(230, 187, 1, 0.15));
+  border: 1px solid rgba(1, 47, 109, 0.18);
+  border-radius: 999px;
+  width: 260px;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.05), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.subscription-container .subscription-main .duration-toggle .duration-toggle-btn {
+  border: none;
+  background: transparent;
+  color: #012f6d;
+  font-size: 12px;
+  padding: 0.55rem 1.5rem;
+  border-radius: 999px;
+  cursor: pointer;
+  width: 50%;
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  font-weight: 600;
+}
+.subscription-container .subscription-main .duration-toggle .duration-toggle-btn:focus-visible {
+  outline: 2px solid rgba(1, 47, 109, 0.3);
+  outline-offset: 2px;
+}
+.subscription-container .subscription-main .duration-toggle .duration-toggle-btn.active {
+  background: linear-gradient(130deg, #012f6d 0%, #012f6d 60%, #e6bb01 140%);
+  color: #fff;
+}
+.subscription-container .subscription-main .duration-toggle .duration-toggle-btn:nth-child(2)::after {
+  content: "Save 20%";
+  position: absolute;
+  top: -0.65rem;
+  right: 0.4rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.35rem;
+  border-radius: 6px;
+  background: #e6bb01;
+  color: #2a1c04;
   font-weight: 700;
 }
 
@@ -109,8 +150,8 @@ body {
   .subscription-container {
     flex-direction: column;
   }
-  .subscription-sidebar,
-  .subscription-main {
+  .subscription-container .subscription-sidebar,
+  .subscription-container .subscription-main {
     width: 100%;
   }
 }
