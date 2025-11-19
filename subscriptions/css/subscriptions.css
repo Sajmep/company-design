@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #ffffff;
+  color: #1a1a1a;
+}
+
+.subscription-container {
+  min-height: 100vh;
+  display: flex;
+  gap: 1.5rem;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+}
+
+.subscription-sidebar {
+  width: min(320px, 100%);
+  background: #f8f9fa;
+  color: #1a1a1a;
+  padding: 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.sidebar-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.sidebar-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #6b7280;
+  margin: 0;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #012f6d;
+}
+
+.website-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.website-item {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.85rem;
+  padding: 0.85rem 1rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1a1a;
+  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.website-item:hover {
+  border-color: #012f6d;
+  transform: translateX(4px);
+  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
+}
+
+.website-item.active {
+  background: #012f6d;
+  border-color: #012f6d;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(1, 47, 109, 0.2);
+}
+
+.subscription-main {
+  flex: 1;
+  background: #ffffff;
+  padding: clamp(1.5rem, 3vw, 3.5rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
+}
+
+.subscription-heading {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: #012f6d;
+  text-align: center;
+  font-weight: 700;
+}
+
+@media (max-width: 960px) {
+  .subscription-container {
+    flex-direction: column;
+  }
+  .subscription-sidebar,
+  .subscription-main {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=subscriptions.css.map */

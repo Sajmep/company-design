@@ -140,11 +140,11 @@ function initializeViewer(imageUrl) {
 }
 
 // ============================================================================
-// PANOLENS VR BRIDGE (USE BUILT-IN IMPLEMENTATION)
+// DIRECT WEBXR IMPLEMENTATION (Works with Three.js r105)
 // ============================================================================
 
-let panolensVRButton = null;
-let panolensVRObserver = null;
+let xrSession = null;
+let xrAnimationFrame = null;
 
 function setupCustomVRButton() {
   const customButton = document.getElementById('vrControlBtn');
@@ -152,58 +152,202 @@ function setupCustomVRButton() {
     return;
   }
 
-  customButton.classList.add('disabled');
+  // Check for WebXR support
+  if (!navigator.xr) {
+    customButton.classList.add('disabled');
+    customButton.title = 'WebXR not supported';
+    return;
+  }
 
-  const syncCustomButtonState = () => {
-    if (!customButton) {
-      return;
-    }
-    if (!panolensVRButton) {
+  // Check if immersive VR is supported
+  navigator.xr.isSessionSupported('immersive-vr').then((supported) => {
+    if (supported) {
+      customButton.classList.remove('disabled');
+      customButton.title = 'Enter VR Mode';
+    } else {
       customButton.classList.add('disabled');
-      customButton.classList.remove('active');
-      return;
+      customButton.title = 'VR not supported';
     }
+  }).catch(() => {
+    customButton.classList.add('disabled');
+    customButton.title = 'VR check failed';
+  });
 
-    customButton.classList.remove('disabled');
-    const isActive = panolensVRButton.classList.contains('panolens-active');
-    customButton.classList.toggle('active', isActive);
-  };
-
-  const attachObserver = () => {
-    if (!panolensVRButton) {
-      return;
-    }
-    if (panolensVRObserver) {
-      panolensVRObserver.disconnect();
-    }
-    panolensVRObserver = new MutationObserver(syncCustomButtonState);
-    panolensVRObserver.observe(panolensVRButton, { attributes: true, attributeFilter: ['class'] });
-    syncCustomButtonState();
-  };
-
-  const locatePanolensButton = () => {
-    const internalBtn = document.querySelector('.panolens-container .panolens-control-button.panolens-control-button-vr');
-    if (!internalBtn) {
-      setTimeout(locatePanolensButton, 500);
-      return;
-    }
-    panolensVRButton = internalBtn;
-    attachObserver();
-  };
-
+  // Handle button click
   if (!customButton.dataset.bound) {
-    customButton.addEventListener('click', function(e) {
+    customButton.addEventListener('click', async function(e) {
       e.preventDefault();
       e.stopPropagation();
-      if (!panolensVRButton) {
+      
+      if (customButton.classList.contains('disabled')) {
         return;
       }
-      panolensVRButton.click();
+
+      if (!xrSession) {
+        // Enter VR
+        try {
+          xrSession = await navigator.xr.requestSession('immersive-vr', {
+            optionalFeatures: ['local-floor', 'bounded-floor']
+          });
+          
+          customButton.classList.add('active');
+          customButton.title = 'Exit VR Mode';
+          
+          await setupWebXRSession(xrSession);
+          
+          // Handle session end
+          xrSession.addEventListener('end', () => {
+            xrSession = null;
+            customButton.classList.remove('active');
+            customButton.title = 'Enter VR Mode';
+            
+            // Stop animation loop
+            if (xrAnimationFrame) {
+              cancelAnimationFrame(xrAnimationFrame);
+              xrAnimationFrame = null;
+            }
+            
+            // Restore normal rendering
+            if (viewer && viewer.renderer) {
+              viewer.renderer.setAnimationLoop(null);
+            }
+          });
+        } catch (error) {
+          console.error('Failed to start VR session:', error);
+          alert('Could not enter VR mode: ' + error.message);
+        }
+      } else {
+        // Exit VR
+        xrSession.end();
+      }
     });
     customButton.dataset.bound = 'true';
   }
+}
 
-  locatePanolensButton();
+async function setupWebXRSession(session) {
+  if (!viewer || !viewer.renderer || !panorama) {
+    throw new Error('Viewer or panorama not available');
+  }
+
+  const renderer = viewer.renderer;
+  const gl = renderer.getContext();
+  
+  // Make WebGL context XR compatible
+  if (gl.makeXRCompatible) {
+    await gl.makeXRCompatible();
+  }
+  
+  // Create XR WebGL layer
+  const xrLayer = new XRWebGLLayer(session, gl);
+  session.updateRenderState({
+    baseLayer: xrLayer
+  });
+  
+  // Get reference space (try viewer first, no boundary needed)
+  let referenceSpace;
+  try {
+    referenceSpace = await session.requestReferenceSpace('viewer');
+  } catch (e) {
+    try {
+      referenceSpace = await session.requestReferenceSpace('local');
+    } catch (e2) {
+      referenceSpace = await session.requestReferenceSpace('local-floor');
+    }
+  }
+  
+  // Ensure panorama is visible
+  panorama.visible = true;
+  if (panorama.material) {
+    panorama.material.needsUpdate = true;
+  }
+  
+  // Ensure camera is at origin
+  viewer.camera.position.set(0, 0, 0);
+  viewer.camera.updateMatrixWorld(true);
+  
+  // XR animation loop
+  function onXRFrame(time, frame) {
+    const pose = frame.getViewerPose(referenceSpace);
+    
+    if (!pose || !viewer || !viewer.scene || !viewer.camera) {
+      xrAnimationFrame = session.requestAnimationFrame(onXRFrame);
+      return;
+    }
+    
+    const layer = session.renderState.baseLayer;
+    if (!layer || !layer.framebuffer) {
+      xrAnimationFrame = session.requestAnimationFrame(onXRFrame);
+      return;
+    }
+    
+    // Save current render target
+    const currentRenderTarget = renderer.getRenderTarget();
+    const currentFramebuffer = gl.getParameter(gl.FRAMEBUFFER_BINDING);
+    
+    // Bind XR framebuffer
+    gl.bindFramebuffer(gl.FRAMEBUFFER, layer.framebuffer);
+    gl.clearColor(0, 0, 0, 1);
+    gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+    
+    // Render for each eye
+    for (const view of pose.views) {
+      const viewport = layer.getViewport(view);
+      if (!viewport) continue;
+      
+      gl.viewport(viewport.x, viewport.y, viewport.width, viewport.height);
+      gl.clear(gl.DEPTH_BUFFER_BIT);
+      
+      // Update camera projection
+      if (view.projectionMatrix) {
+        viewer.camera.projectionMatrix.fromArray(view.projectionMatrix);
+        viewer.camera.projectionMatrixInverse.getInverse(viewer.camera.projectionMatrix);
+      }
+      
+      // Update camera transform
+      const transform = view.transform;
+      if (transform && transform.matrix) {
+        const viewMatrix = new THREE.Matrix4().fromArray(transform.matrix);
+        const position = new THREE.Vector3();
+        const quaternion = new THREE.Quaternion();
+        position.setFromMatrixPosition(viewMatrix);
+        quaternion.setFromRotationMatrix(viewMatrix);
+        viewer.camera.position.copy(position);
+        viewer.camera.quaternion.copy(quaternion);
+        viewer.camera.updateMatrixWorld(true);
+      }
+      
+      // Ensure panorama is visible and in scene
+      panorama.visible = true;
+      if (viewer.scene) {
+        let panoramaInScene = false;
+        viewer.scene.traverse(function(child) {
+          if (child === panorama || child.uuid === panorama.uuid) {
+            panoramaInScene = true;
+          }
+        });
+        if (!panoramaInScene) {
+          viewer.scene.add(panorama);
+        }
+      }
+      
+      // Set render target to null to render to current framebuffer (XR framebuffer)
+      renderer.setRenderTarget(null);
+      
+      // Render scene
+      renderer.render(viewer.scene, viewer.camera);
+    }
+    
+    // Restore previous render target
+    renderer.setRenderTarget(currentRenderTarget);
+    if (currentFramebuffer) {
+      gl.bindFramebuffer(gl.FRAMEBUFFER, currentFramebuffer);
+    }
+    
+    xrAnimationFrame = session.requestAnimationFrame(onXRFrame);
+  }
+  
+  xrAnimationFrame = session.requestAnimationFrame(onXRFrame);
 }
 
 // ============================================================================
