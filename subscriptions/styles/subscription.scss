@@ -28,102 +28,159 @@ body {
   display: flex;
   gap: 1.5rem;
   background: linear-gradient(to bottom, #f8f9fa, #ffffff);
-}
 
-.subscription-sidebar {
-  width: min(320px, 100%);
-  background: $bg-panel;
-  color: $text-primary;
-  padding: 2rem 1.75rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-  border: 1px solid $border-color;
-}
+  .subscription-sidebar {
+    width: min(320px, 100%);
+    background: $bg-panel;
+    color: $text-primary;
+    padding: 2rem 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    border: 1px solid $border-color;
 
-.sidebar-header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
+    .sidebar-header {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
 
-.sidebar-eyebrow {
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-size: 0.75rem;
-  color: $text-muted;
-  margin: 0;
-}
+      .sidebar-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.75rem;
+        color: $text-muted;
+        margin: 0;
+      }
 
-.sidebar-header h2 {
-  margin: 0;
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: $primary-blue;
-}
+      h2 {
+        margin: 0;
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: $primary-blue;
+      }
+    }
 
-.website-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
+    .website-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
 
-.website-item {
-  background: #ffffff;
-  border: 1px solid $border-color;
-  border-radius: 0.85rem;
-  padding: 0.85rem 1rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  color: $text-primary;
-  transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: pointer;
-}
+      .website-item {
+        background: #ffffff;
+        border: 1px solid $border-color;
+        border-radius: 6px;
+        padding: 0.85rem 1rem;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: $text-primary;
+        transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+        cursor: pointer;
 
-.website-item:hover {
-  border-color: $primary-blue;
-  transform: translateX(4px);
-  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
-}
+        &:hover {
+          border-color: $primary-blue;
+          transform: translateX(4px);
+          box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
+        }
 
-.website-item.active {
-  background: $primary-blue;
-  border-color: $primary-blue;
-  color: #ffffff;
-  box-shadow: 0 2px 8px rgba(1, 47, 109, 0.2);
-}
+        &.active {
+          background: $primary-blue;
+          border-color: $primary-blue;
+          color: #ffffff;
+          box-shadow: 0 2px 8px rgba(1, 47, 109, 0.2);
+        }
+      }
+    }
+  }
 
-.subscription-main {
-  flex: 1;
-  background: $bg-main;
-  padding: clamp(1.5rem, 3vw, 3.5rem);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
-  border: 1px solid $border-color;
-}
+  .subscription-main {
+    flex: 1;
+    background: $bg-main;
+    padding: clamp(1.5rem, 2vw, 3.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+    border: 1px solid $border-color;
 
-.subscription-heading {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3rem);
-  color: $primary-blue;
-  text-align: center;
-  font-weight: 700;
+    .subscription-heading-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+    }
+
+    .subscription-heading {
+      margin: 0;
+      font-size: 14px;
+      color: $primary-blue;
+      text-align: left;
+      font-weight: 700;
+    }
+
+    .duration-toggle {
+      display: inline-flex;
+      padding: 0.3rem;
+      gap: 0.25rem;
+      background: linear-gradient(135deg, rgba($primary-blue, 0.1), rgba($accent-yellow, 0.15));
+      border: 1px solid rgba($primary-blue, 0.18);
+      border-radius: 999px;
+      width: 260px;
+      box-shadow: inset 0 1px 1px rgba(#000, 0.05), 0 4px 12px rgba(#000, 0.08);
+
+      .duration-toggle-btn {
+        border: none;
+        background: transparent;
+        color: $primary-blue;
+        font-size: 12px;
+        padding: 0.55rem 1.5rem;
+        border-radius: 999px;
+        cursor: pointer;
+        width: 50%;
+        transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+        position: relative;
+        font-weight: 600;
+
+        &:focus-visible {
+          outline: 2px solid rgba($primary-blue, 0.3);
+          outline-offset: 2px;
+        }
+
+        &.active {
+          background: linear-gradient(130deg, $primary-blue 0%, $primary-blue 60%, $accent-yellow 140%);
+          color: #fff;
+        }
+
+        &:nth-child(2)::after {
+          content: "Save 20%";
+          position: absolute;
+          top: -0.65rem;
+          right: 0.4rem;
+          font-size: 0.6rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          padding: 0.15rem 0.35rem;
+          border-radius: 6px;
+          background: $accent-yellow;
+          color: #2a1c04;
+          font-weight: 700;
+        }
+      }
+    }
+  }
 }
 
 @media (max-width: 960px) {
   .subscription-container {
     flex-direction: column;
-  }
 
-  .subscription-sidebar,
-  .subscription-main {
-    width: 100%;
+    .subscription-sidebar,
+    .subscription-main {
+      width: 100%;
+    }
   }
 }
 
