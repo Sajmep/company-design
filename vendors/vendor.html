@@ -7,20 +7,14 @@
   <title>Vendors</title>
 
   <link rel="stylesheet" href="../styles/scrollbar.css">
-  <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="vendor-styles/views-container.css">
   <link rel="stylesheet" href="vendor-styles/vendors.css">
+  <link rel="stylesheet" href="css/toolbar.css">
   <link rel="stylesheet" href="../styles/common-table.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
-  <style>
-    .page-header-title {
-      text-align: left;
-    }
-  </style>
 
 </head>
 
@@ -28,79 +22,92 @@
   <!-- Main Content -->
 
   <!-- Common Page Header -->
-  <div class="page-header">
+  <div class="toolbar">
 
-    <div class="page-header-title">
+    <div class="toolbar-title">
       <h2>Vendors</h2>
       <p>Explore vendor profiles with company details</p>
     </div>
-    <div class="page-header-controls">
-      <div class="page-header-search">
-        <input type="text" class="page-header-search-input" placeholder="Search directory...">
-        <i class="fa fa-search page-header-search-icon"></i>
+    <div class="toolbar-controls">
+      <div class="toolbar-search">
+        <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
+        <i class="fa fa-search toolbar-search-icon"></i>
+        <i class="fa fa-times toolbar-search-close"></i>
       </div>
 
-      <div class="page-header-actions">
-        <div class="page-header-group-by">
-          <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
-            <i class="fa fa-chevron-down"></i>
+      <div class="toolbar-actions">
+        <div class="toolbar-group-by">
+          <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+            <i class="fa fa-sitemap"></i>
             <span class="btn-text">Group By</span>
           </button>
-          <div class="page-header-group-by-dropdown" id="groupByDropdown">
-            <div class="page-header-group-by-item" data-value="status">
+          <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+            <!-- <div class="toolbar-group-by-item" data-value="status">
               <i class="fa fa-flag"></i>
               Status
             </div>
-            <div class="page-header-group-by-item" data-value="category">
+            <div class="toolbar-group-by-item" data-value="category">
               <i class="fa fa-tags"></i>
               Category
             </div>
-            <div class="page-header-group-by-item" data-value="location">
+            <div class="toolbar-group-by-item" data-value="location">
               <i class="fa fa-map-marker"></i>
               Location
-            </div>
+            </div> -->
           </div>
         </div>
 
-        <button class="page-header-filter-btn" title="Filter">
+        <button class="toolbar-filter-btn" title="Filter">
           <i class="fa fa-filter"></i>
           <span class="btn-text">Filter</span>
         </button>
 
-        <!-- Import Button -->
-        <button class="page-header-import-btn" onclick="importVendors()" title="Import">
-          <i class="fa fa-upload"></i>
-          <span class="btn-text">Import</span>
+        <button class="toolbar-actions-btn" title="Actions">
+          <i class="fa fa-gear"></i>
+          <span class="btn-text">Actions</span>
         </button>
 
-        <button class="page-header-primary-btn" onclick="createRFQ()" title="RFQ">
+        <button class="toolbar-primary-btn" title="RFQ">
           <i class="fa fa-plus"></i>
           <span class="btn-text">RFQ</span>
         </button>
 
+      </div>
+      
+    </div>
+    <div class="views-toggle">
+      <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+        <i class="fa fa-th-large views-toggle-icon"></i>
+        <i class="fa fa-chevron-down views-toggle-arrow"></i>
+      </button>
+      <div class="views-toggle-dropdown" id="viewsDropdown">
+        <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+          <i class="fa fa-dashboard"></i>
+          <span>Dashboard View</span>
+        </div>
+        <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+          <i class="fa fa-th-large"></i>
+          <span>Card View</span>
+        </div>
+        <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+          <i class="fa fa-list"></i>
+          <span>List View</span>
+        </div>
+        <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+          <i class="fa fa-calendar"></i>
+          <span>Calendar View</span>
+        </div>
+        <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+          <i class="fa fa-map"></i>
+          <span>Map View</span>
+        </div>
       </div>
     </div>
   </div>
 
   <div class="views-container">
 
-    <div class="views-toggle">
-      <button class="data-view-btn" title="Dashboard View">
-        <i class="fa fa-dashboard"></i>
-      </button>
-      <button class="data-view-btn" title="Card View">
-        <i class="fa fa-th-large"></i>
-      </button>
-      <button class="data-view-btn" title="List View">
-        <i class="fa fa-list"></i>
-      </button>
-      <button class="data-view-btn" title="Calendar View">
-        <i class="fa fa-calendar"></i>
-      </button>
-      <button class="data-view-btn" title="Map View">
-        <i class="fa fa-map"></i>
-      </button>
-    </div>
+
 
     <!-- Card View -->
     <div class="bmh-card-view">
@@ -472,39 +479,6 @@
 
   </div>
   <!-- Main Content End -->
-
-  <!-- Vendor Details Popup -->
-  <div id="vendorPopup" class="vendor-popup">
-    <div class="vendor-popup-content">
-      <div class="vendor-popup-header">
-        <h3>Sakhrat Al Janoub Contracting Co.</h3>
-        <button class="vendor-popup-close" onclick="closeVendorPopup()">&times;</button>
-      </div>
-      <div class="vendor-popup-body">
-        <div class="vendor-popup-image">
-          <img src="../images/vendor.png" alt="Company Image">
-          <div class="vendor-status-dot online"></div>
-        </div>
-        <div class="vendor-popup-details">
-          <p><strong>Type:</strong> Contractor</p>
-          <p><strong>Status:</strong> <span class="status-badge open">Open</span></p>
-          <p><strong>Industry:</strong> Construction</p>
-          <p><strong>Location:</strong> Riyadh, Saudi Arabia</p>
-        </div>
-      </div>
-      <div class="vendor-popup-actions">
-        <button class="vendor-action-btn primary" onclick="sendRFQ()">
-          <i class="fa fa-plus"></i> RFQ
-        </button>
-        <button class="vendor-action-btn secondary">
-          <a href="vendor-details.html" target="_blank">
-            <i class="fa fa-eye"></i> View Details
-          </a>
-        </button>
-      </div>
-    </div>
-  </div>
-  <!-- Vendor Details Popup End -->
 
   <!-- RFQ Modal -->
   <div id="rfqModal" class="rfq-modal">
