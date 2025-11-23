@@ -119,6 +119,36 @@ body {
       color: $primary-blue;
       text-align: left;
       font-weight: 700;
+
+      .plan-helper {
+        margin-top: 0.3rem;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: $text-muted;
+
+        span {
+          color: $accent-yellow;
+          font-weight: 600;
+          cursor: pointer;
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.15rem;
+            width: 100%;
+            height: 2px;
+            background: $accent-yellow;
+            opacity: 0.4;
+            transition: opacity 0.2s ease;
+          }
+
+          &:hover::after {
+            opacity: 1;
+          }
+        }
+      }
     }
 
     .duration-toggle {
@@ -170,6 +200,296 @@ body {
         }
       }
     }
+  }
+}
+
+.plan-guide-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba($primary-blue, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 50;
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .plan-guide-dialog {
+    background: #ffffff;
+    border-radius: 1.75rem;
+    max-width: 420px;
+    width: min(90vw, 420px);
+    padding: 2.5rem 2.25rem;
+    box-shadow: 0 30px 70px rgba(1, 47, 109, 0.25);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    position: relative;
+  }
+
+  .plan-guide-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    color: $text-muted;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0.25rem;
+    border-radius: 999px;
+    transition: background 0.2s ease, color 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba($primary-blue, 0.08);
+      color: $primary-blue;
+      outline: none;
+    }
+  }
+
+  .plan-guide-hero {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .plan-guide-icon {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: $primary-blue;
+  }
+
+  p {
+    margin: 0;
+    color: $text-primary;
+    line-height: 1.5;
+  }
+
+  .plan-guide-start,
+  .plan-guide-next {
+    border: none;
+    border-radius: 999px;
+    background: linear-gradient(130deg, $primary-blue, darken($primary-blue, 8%));
+    color: #fff;
+    padding: 0.85rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    box-shadow: 0 15px 35px rgba($primary-blue, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+
+    span {
+      font-size: 1.15rem;
+    }
+
+    &:hover:not(:disabled) {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 30px rgba($primary-blue, 0.45);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+
+  .plan-guide-step {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    outline: none;
+  }
+
+  .step-label {
+    margin: 0;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: $text-muted;
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.35rem;
+    color: $primary-blue;
+  }
+
+  .step-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .plan-guide-option {
+    border: 1px solid $border-color;
+    border-radius: 0.85rem;
+    background: #fff;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $text-primary;
+    cursor: pointer;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+
+    &:hover {
+      border-color: $primary-blue;
+      box-shadow: 0 8px 18px rgba($primary-blue, 0.08);
+    }
+
+    &.is-selected {
+      border-color: $primary-blue;
+      background: rgba($primary-blue, 0.08);
+      box-shadow: 0 10px 26px rgba($primary-blue, 0.18);
+    }
+  }
+
+  .plan-guide-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    outline: none;
+
+    .results-icon {
+      font-size: 3.5rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: $primary-blue;
+      font-weight: 700;
+    }
+
+    .plan-card {
+      background: #fff;
+      border: 2px solid rgba($primary-blue, 0.15);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      box-shadow: 0 8px 24px rgba($primary-blue, 0.12);
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto;
+
+      .plan-header {
+        text-align: center;
+        padding-bottom: 1.25rem;
+        border-bottom: 1px solid rgba($primary-blue, 0.1);
+        margin-bottom: 1.25rem;
+
+        .plan-name {
+          margin: 0;
+          font-size: 2rem;
+          font-weight: 700;
+          color: $primary-blue;
+          margin-bottom: 0.5rem;
+        }
+
+        .plan-price {
+          margin: 0;
+          font-size: 1.25rem;
+          font-weight: 600;
+          color: $text-muted;
+        }
+      }
+
+      .plan-features {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        text-align: left;
+
+        li {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          font-size: 0.95rem;
+          color: $text-primary;
+          font-weight: 500;
+
+          .checkmark {
+            color: $accent-yellow;
+            font-weight: 700;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+          }
+        }
+      }
+    }
+
+    .results-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 0.5rem;
+
+      button {
+        border: none;
+        border-radius: 999px;
+        padding: 0.75rem 2rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+      }
+
+      .plan-guide-back {
+        background: #fff;
+        color: $primary-blue;
+        border: 2px solid $primary-blue;
+        box-shadow: 0 4px 12px rgba($primary-blue, 0.15);
+
+        &:hover {
+          background: rgba($primary-blue, 0.05);
+          box-shadow: 0 6px 16px rgba($primary-blue, 0.25);
+        }
+      }
+
+      .plan-guide-pay {
+        background: linear-gradient(130deg, $primary-blue, darken($primary-blue, 8%));
+        color: #fff;
+        box-shadow: 0 8px 20px rgba($primary-blue, 0.35);
+
+        &:hover {
+          box-shadow: 0 12px 28px rgba($primary-blue, 0.45);
+        }
+      }
+    }
+  }
+
+  .is-hidden {
+    display: none !important;
   }
 }
 

@@ -43,14 +43,135 @@
       <div class="subscription-heading-container">
         <div class="subscription-heading">
           <h1>Vendors Hub Plans</h1>
+          <p class="plan-helper">🧩 Not sure which plan is right for you? <span class="plan-helper-trigger" role="button" tabindex="0">Click here!</span></p>
         </div>
         <div class="duration-toggle">
           <button class="duration-toggle-btn">Monthly</button>
           <button class="duration-toggle-btn active">Yearly</button>
         </div>
-        </div>
+      </div>
     </div>
   </div>
+
+  <div class="plan-guide-modal" aria-hidden="true">
+    <div class="plan-guide-dialog">
+      <button class="plan-guide-close" aria-label="Close plan helper dialog">×</button>
+      <div class="plan-guide-hero">
+        <div class="plan-guide-icon">🧩</div>
+        <h2>Not sure which plan is right for you?</h2>
+        <p>Answer 4 quick questions to get your recommended plan.</p>
+        <button class="plan-guide-start">
+          Start
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="plan-guide-step is-hidden" data-step="1" tabindex="-1">
+        <p class="step-label">Question 1 of 4</p>
+        <h3>What describes your company best?</h3>
+        <div class="step-options" role="group" aria-label="Company type">
+          <button class="plan-guide-option">Vendor / Supplier</button>
+          <button class="plan-guide-option">Contractor</button>
+          <button class="plan-guide-option">Consultant / Designer</button>
+          <button class="plan-guide-option">Manufacturer</button>
+          <button class="plan-guide-option">Real Estate Developer</button>
+        </div>
+        <button class="plan-guide-next" disabled>
+          Next
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="plan-guide-step is-hidden" data-step="2" tabindex="-1">
+        <p class="step-label">Question 2 of 4</p>
+        <h3>How many products will you upload?</h3>
+        <div class="step-options" role="group" aria-label="Number of products">
+          <button class="plan-guide-option">0–50</button>
+          <button class="plan-guide-option">50–200</button>
+          <button class="plan-guide-option">200–500</button>
+          <button class="plan-guide-option">500+</button>
+        </div>
+        <button class="plan-guide-next" disabled>
+          Next
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="plan-guide-step is-hidden" data-step="3" tabindex="-1">
+        <p class="step-label">Question 3 of 4</p>
+        <h3>What is your main goal on BMH?</h3>
+        <div class="step-options" role="group" aria-label="Main goal on BMH">
+          <button class="plan-guide-option">Get more clients</button>
+          <button class="plan-guide-option">Join tenders</button>
+          <button class="plan-guide-option">Increase visibility</button>
+          <button class="plan-guide-option">Sell products</button>
+          <button class="plan-guide-option">Upload projects/catalogs</button>
+        </div>
+        <button class="plan-guide-next" disabled>
+          Next
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="plan-guide-step is-hidden" data-step="4" tabindex="-1">
+        <p class="step-label">Question 4 of 4</p>
+        <h3>How many team members need access?</h3>
+        <div class="step-options" role="group" aria-label="Team members needing access">
+          <button class="plan-guide-option">Only me</button>
+          <button class="plan-guide-option">Up to 5 users</button>
+          <button class="plan-guide-option">Up to 20 users</button>
+          <button class="plan-guide-option">20+</button>
+        </div>
+        <button class="plan-guide-next" disabled>
+          Show My Recommended Plan
+          <span aria-hidden="true">→</span>
+        </button>
+      </div>
+
+      <div class="plan-guide-results is-hidden" tabindex="-1">
+        <div class="results-icon">🎉</div>
+        <h2>Your Recommended Plan</h2>
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3 class="plan-name">Pro+</h3>
+            <p class="plan-price">371 SAR/month</p>
+          </div>
+          <ul class="plan-features">
+            <li>
+              <span class="checkmark">✓</span>
+              <span>All Pro features</span>
+            </li>
+            <li>
+              <span class="checkmark">✓</span>
+              <span>Virtual showroom</span>
+            </li>
+            <li>
+              <span class="checkmark">✓</span>
+              <span>Preorder/Reorder</span>
+            </li>
+            <li>
+              <span class="checkmark">✓</span>
+              <span>Construction classification</span>
+            </li>
+            <li>
+              <span class="checkmark">✓</span>
+              <span>Company evaluation</span>
+            </li>
+            <li>
+              <span class="checkmark">✓</span>
+              <span>100 users</span>
+            </li>
+          </ul>
+        </div>
+        <div class="results-actions">
+          <button class="plan-guide-back">Go Back</button>
+          <button class="plan-guide-pay">Pay Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/guide-subscription.js"></script>
 
 </body>
 
