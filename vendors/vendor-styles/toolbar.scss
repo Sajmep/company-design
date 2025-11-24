@@ -302,6 +302,369 @@
     }
   }
 
+  
+  // Company Selector
+  .company-selector {
+    position: relative;
+
+    .selector {
+      justify-content: center;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      background: white;
+      padding: 8px 10px;
+      border: 1px solid #dff0f6;
+      cursor: pointer;
+      border-radius: 6px;
+
+      &:focus {
+        outline: 2px solid rgba(14, 165, 132, 0.12);
+      }
+    }
+
+    .selected-logo {
+      width: 34px;
+      height: 34px;
+      border-radius: 6px;
+      flex: 0 0 34px;
+      display: inline-grid;
+      place-items: center;
+      background: linear-gradient(135deg, #fff, #f3f4f6);
+      border: 1px solid #eee;
+    }
+
+    .selected-text {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+
+      .selected-title {
+        font-weight: 600;
+        font-size: 14px;
+        color: var(--accent);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .selected-sub {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+    }
+
+    .caret {
+      transform: rotate(0deg);
+      transition: transform 0.18s ease;
+
+      &.open {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  // Company Selector Panel
+  .sidebar-panel {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    width: 334px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    padding: 16px;
+    z-index: 50;
+
+    .search {
+      display: flex;
+      gap: 8px;
+      padding: 5px 12px;
+      background: #f3f6f9;
+      border-radius: 8px;
+      border: 1px solid #eef3f9;
+      align-items: center;
+      margin-bottom: 16px;
+
+      input {
+        border: 0;
+        background: transparent;
+        outline: none;
+        padding: 8px;
+        font-size: 14px;
+        width: 100%;
+      }
+    }
+  }
+
+  // Form grid spacing
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  // Company section
+  .company {
+    padding: 8px 4px !important;
+    max-height: 300px;
+    overflow-y: auto;
+
+    .company-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 0 12px 0;
+      margin-bottom: 8px;
+      cursor: pointer;
+
+      h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1f2937;
+      }
+    }
+  }
+
+  // Section Group Styles
+  .section-group {
+    margin-bottom: 16px;
+
+    &:has(.section-content.collapsed) .combobox-create-btn {
+      margin-top: 0;
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.2s ease;
+      border-radius: 6px;
+
+      &:hover {
+        background-color: #f8fafc;
+      }
+
+      &.collapsed {
+        .section-toggle-icon {
+          transform: rotate(-90deg);
+        }
+      }
+
+      h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        color: #1f2937;
+      }
+
+      .section-toggle-icon {
+        font-size: 12px;
+        color: #6b7280;
+        transition: transform 0.3s ease, color 0.2s ease;
+        transform: rotate(0deg);
+      }
+    }
+
+    .section-content {
+      max-height: 500px;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      opacity: 1;
+      padding: 0 4px;
+
+      &.collapsed {
+        max-height: 0;
+        opacity: 0;
+        margin-bottom: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    }
+  }
+
+  // Section Item Styles
+  .section-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 8px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+    margin-bottom: 4px;
+    border: 1px solid transparent;
+
+    &:hover {
+      background-color: #f8fafc;
+    }
+
+    &.active {
+      background-color: #e0f2fe;
+      border: 1px solid #0ea5e9;
+
+      &:hover {
+        background-color: #bae6fd;
+      }
+    }
+  }
+
+  .item-logo,
+  .item-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #fff, #f3f4f6);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .item-avatar {
+    border-radius: 50%;
+  }
+
+  .item-info {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 2px;
+
+    h4 {
+      margin: 0;
+      font-size: 13px;
+      font-weight: 500;
+      color: #374151;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    span {
+      margin: 0;
+      font-size: 11px;
+      color: #6b7280;
+    }
+  }
+
+  .dropdown-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #f3f4f6;
+    }
+  }
+
+
+
+  // Create button spacing
+  .create-btn {
+    display: block;
+    margin: 8px 0 0 0;
+    padding: 10px 12px;
+    text-align: center;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background: #0056b3;
+    }
+  }
+
+  // Combobox specific create button
+  .combobox-create-btn {
+    display: block;
+    width: 35%;
+    float: right;
+    margin: 8px 4px 0 4px;
+    padding: 10px 12px;
+    text-align: center;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background: #0056b3;
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Section actions (View All button)
+  .section-actions {
+    padding: 8px 4px;
+    margin-top: 8px;
+    border-top: 1px solid #e5e7eb;
+  }
+
+  .combobox-view-all-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 31%;
+    padding: 8px 12px;
+    text-align: center;
+    background: #f3f4f6;
+    color: #374151;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border: 1px solid #e5e7eb;
+    cursor: pointer;
+
+    &:hover {
+      background: #e5e7eb;
+      color: #1f2937;
+      border-color: #d1d5db;
+    }
+
+    i {
+      font-size: 11px;
+    }
+  }
+
+
+
 }
 
 
@@ -313,6 +676,7 @@
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 1000;
     background: transparent;
+    justify-content: flex-start;
 
     .views-toggle {
       position: absolute;
@@ -322,9 +686,7 @@
     }
 
     .toolbar-title {
-     max-width: 225px;
-     margin: 0 auto;
-     text-align: center;
+     max-width: 216px;
     }
 
     .toolbar-controls {
@@ -606,21 +968,11 @@
 @media (max-width: 390px) {
   .toolbar {
 
+    flex-direction: column-reverse;
+    align-items: flex-start;
+
     .views-toggle {
       padding: 0;
-    }
-
-  }
-}
-
-
-@media (max-width: 360px) {
-  .toolbar {
-   
-    .toolbar-title {
-     p{
-      display: none;
-     }
     }
 
   }

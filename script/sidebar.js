@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', function() {
       companyNameInput.addEventListener('keydown', function(event) {
           const dropdown = document.getElementById('companySuggestions');
           const items = dropdown ? dropdown.querySelectorAll('.autocomplete-item') : [];
-          const selectedItem = dropdown ? dropdown.querySelector('.autocomplete-item.selected') : null;
+          const selectedItem = dropdown ? dropdown.querypanel('.autocomplete-item.selected') : null;
 
           if (event.key === 'ArrowDown') {
               event.preventDefault();
