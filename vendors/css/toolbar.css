@@ -155,6 +155,25 @@
 .toolbar .toolbar-filter-btn:hover i {
   color: #012f6d;
 }
+.toolbar .toolbar-primary-btn {
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+}
+.toolbar .toolbar-primary-btn:hover {
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+}
+.toolbar .toolbar-primary-btn .btn-text {
+  color: #ffffff;
+}
+.toolbar .toolbar-primary-btn i {
+  color: #ffffff;
+}
+.toolbar .toolbar-primary-btn:hover i {
+  color: #ffffff;
+}
 .toolbar .views-toggle {
   position: relative;
 }

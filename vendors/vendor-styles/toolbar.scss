@@ -172,6 +172,27 @@
     }
   }
 
+  .toolbar-primary-btn {
+    background: #012f6d;
+    color: #ffffff;
+    border: none;
+    &:hover {
+      background: #012f6d;
+      color: #ffffff;
+      border: none;
+    }
+
+    .btn-text {
+      color: #ffffff;
+    }
+    i {
+      color: #ffffff;
+    }
+    &:hover i {
+      color: #ffffff;
+    }
+  }
+
   // Views Toggle Dropdown
   .views-toggle {
     position: relative;
