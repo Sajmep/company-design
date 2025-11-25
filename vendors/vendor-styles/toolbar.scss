@@ -11,8 +11,8 @@
 
   // Toolbar Title Section
   .toolbar-title {
-    flex: 1;
     min-width: 200px;
+    max-width: 370px;
 
     h2 {
       margin: 0 0 4px 0;
@@ -141,7 +141,7 @@
       i {
         color: #012f6d;
       }
-    }
+      }
 
     &:active {
       transform: translateY(0);
@@ -294,7 +294,7 @@
           border-bottom-right-radius: 8px;
         }
       }
-    }
+}
 
     // Rotate arrow when dropdown is open
     .views-toggle-btn.active .views-toggle-arrow {
@@ -377,7 +377,7 @@
     box-shadow: 0 10px 30px rgba(2, 6, 23, 0.12);
     border: 1px solid rgba(15, 23, 42, 0.04);
     padding: 16px;
-    z-index: 50;
+    z-index: 2000;
 
     .search {
       display: flex;
@@ -675,15 +675,8 @@
     padding: 12px 16px 20px 16px;
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 1000;
-    background: transparent;
+    background: transparent; 
     justify-content: flex-start;
-
-    .views-toggle {
-      position: absolute;
-      top: 15px;
-      right: 16px;
-      z-index: 1000;
-    }
 
     .toolbar-title {
      max-width: 216px;
@@ -884,36 +877,58 @@
       transition: opacity 0.3s ease;
       // Glass effect (layered approach)
       position: relative;
-      background: transparent;
+      
+      background: rgba(255, 255, 255, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.35);
       border-radius: 2rem;
-      overflow: hidden;
-      box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+      box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
       padding: 4px;
       justify-content: space-evenly;
 
-      // Glass filter layer (backdrop blur + filter)
-      &::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        backdrop-filter: blur(4px);
-        -webkit-backdrop-filter: blur(4px);
-        filter: saturate(120%) brightness(1.15);
-        border-radius: inherit;
+      flex-wrap: nowrap;
+      overflow: hidden;
+      overflow-x: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(1, 47, 109, 0.4) transparent;
+      padding-bottom: 6px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba(1, 47, 109, 0.2);
+        border-radius: 999px;
       }
 
       // Glass overlay layer (semi-transparent background)
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        filter: saturate(120%) brightness(1.15);
+        border-radius: inherit;
+        background: none;
+        box-shadow: none;
+      }
+
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         inset: 0;
         z-index: 1;
-        background: rgba(255, 255, 255, 0.25);
+        background: none;
         border-radius: inherit;
-        box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75),
-                    inset 0 0 5px rgba(255, 255, 255, 0.75);
-      }
+        
+    }
+
     }
 
     .toolbar-search.expanded ~ .toolbar-actions {
@@ -925,10 +940,12 @@
     .toolbar-filter-btn,
     .toolbar-import-btn,
     .toolbar-actions-btn,
-    .toolbar-primary-btn {
+    .toolbar-primary-btn,
+    .views-toggle-btn {
       flex-direction: column;
       padding: 7px 8px;
       font-size: 11px;
+      border: none !important;
       gap: 0px;
       justify-content: center;
       align-items: center;
@@ -959,16 +976,86 @@
       }
     }
 
+    .views-toggle {
+      .views-toggle-dropdown {
+        top: auto;
+        bottom: calc(100% + 8px);
+        right: auto;
+        left: 0;
+      }
+
+    .views-toggle-btn  {
+
+      padding: 0;
+      
+      gap: 0px; 
+      .views-toggle-arrow {
+        display: none;
+      }
+
+      .views-toggle-icon{
+        font-size: 24px !important;
+      }
+
+      &::after {
+        content: 'Views';
+        display: block;
+        font-size: 10px;
+        line-height: 1.2;
+        text-align: center;
+        margin-top: 2px;
+        color: #000000;
+      }
+    }
+    }
+    
+
+    .company-selector {
+      position: relative;
+  
+      .selector {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border-radius: 999px;
+        min-height: 48px;
+        background: rgba(255, 255, 255, 0.25);
+        border: 1px solid rgba(255, 255, 255, 0.35);
+        backdrop-filter: blur(18px) saturate(180%);
+        -webkit-backdrop-filter: blur(18px) saturate(180%);
+        box-shadow:
+          0 12px 32px rgba(2, 6, 23, 0.2),
+          inset 1px 1px 0 rgba(255, 255, 255, 0.55);
+        position: relative;
+        overflow: hidden;
+        color: #012f6d;
+        cursor: pointer;
+  
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          background: linear-gradient(145deg, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.05));
+          pointer-events: none;
+        }
+  
+        .caret {
+         display: none;
+        }
+      }
+    }
+
 
   }
+
+ 
 }
-
-
 
 @media (max-width: 390px) {
   .toolbar {
 
-    flex-direction: column-reverse;
     align-items: flex-start;
 
     .views-toggle {

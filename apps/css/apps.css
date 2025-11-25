@@ -1,0 +1,124 @@
+.myapps-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background: #f5f5f5;
+}
+.myapps-container .apps-header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+.myapps-container .apps-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.myapps-container .apps-content .apps-card {
+  width: 280px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+}
+.myapps-container .apps-content .apps-card .apps-card-media {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.myapps-container .apps-content .apps-card .apps-card-media .logo-circle {
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  background: #1d4ed8;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+.myapps-container .apps-content .apps-card .apps-card-media .app-meta h2 {
+  margin: 0;
+  font-size: 16px;
+}
+.myapps-container .apps-content .apps-card .apps-card-media .app-meta p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #555;
+}
+.myapps-container .apps-content .apps-card .apps-card-body ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  color: #444;
+}
+.myapps-container .apps-content .apps-card .apps-card-footer {
+  display: flex;
+  gap: 6px;
+  margin-top: 12px;
+}
+.myapps-container .apps-content .apps-card .apps-card-footer .icon-pill {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 11px;
+  background: #fff;
+  color: inherit;
+}
+.myapps-container .apps-content .apps-card .apps-card-footer .icon-pill .icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  margin-bottom: 4px;
+  border: 1px solid #1d4ed8;
+  border-radius: 4px;
+  color: #1d4ed8;
+}
+.myapps-container .apps-content .apps-card .apps-card-footer .icon-pill .icon i {
+  font-size: 12px;
+}
+.myapps-container .apps-content .apps-card .apps-card-footer .icon-pill.add-app-btn {
+  cursor: pointer;
+  gap: 6px;
+}
+
+.app-modal {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.app-modal.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.app-modal .app-modal__dialog {
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  min-width: 260px;
+  text-align: center;
+  width: 80%;
+  position: relative;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.15);
+}
+.app-modal .app-modal__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  line-height: 1;
+}
+
+/*# sourceMappingURL=apps.css.map */

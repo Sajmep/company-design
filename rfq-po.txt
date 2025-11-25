@@ -1,5 +1,0 @@
-After editing the SCSS, compile it with:
-npx sass Inquiries-frontend/inquiries-styles/inquiry-card.scss:css/inquiry-card.css
-
-For automatic recompilation on save, run:
-npx sass --watch Inquiries-frontend/inquiries-styles/inquiry-card.scss:css/inquiry-card.css

@@ -1,0 +1,11 @@
+After editing the SCSS, compile it with:
+npx sass Inquiries-frontend/inquiries-styles/inquiry-card.scss:css/inquiry-card.css
+
+For automatic recompilation on save, run:
+npx sass --watch Inquiries-frontend/inquiries-styles/inquiry-card.scss:css/inquiry-card.css
+
+glass effect
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.4);
