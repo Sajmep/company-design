@@ -677,6 +677,7 @@
     z-index: 1000;
     background: transparent; 
     justify-content: flex-start;
+    gap: 13px;
 
     .toolbar-title {
      max-width: 216px;
@@ -1024,9 +1025,7 @@
         border: 1px solid rgba(255, 255, 255, 0.35);
         backdrop-filter: blur(18px) saturate(180%);
         -webkit-backdrop-filter: blur(18px) saturate(180%);
-        box-shadow:
-          0 12px 32px rgba(2, 6, 23, 0.2),
-          inset 1px 1px 0 rgba(255, 255, 255, 0.55);
+        border: 1px solid #add8e682;
         position: relative;
         overflow: hidden;
         color: #012f6d;
