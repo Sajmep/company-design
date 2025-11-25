@@ -133,6 +133,36 @@
       </div>
 
       <div class="toolbar-actions">
+
+        <div class="views-toggle">
+          <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+            <i class="fa fa-th-large views-toggle-icon"></i>
+            <i class="fa fa-chevron-down views-toggle-arrow"></i>
+          </button>
+          <div class="views-toggle-dropdown" id="viewsDropdown">
+            <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard View</span>
+            </div>
+            <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+              <i class="fa fa-th-large"></i>
+              <span>Card View</span>
+            </div>
+            <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+              <i class="fa fa-list"></i>
+              <span>List View</span>
+            </div>
+            <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+              <i class="fa fa-calendar"></i>
+              <span>Calendar View</span>
+            </div>
+            <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+              <i class="fa fa-map"></i>
+              <span>Map View</span>
+            </div>
+          </div>
+        </div>
+
         <div class="toolbar-group-by">
           <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
             <i class="fa fa-sitemap"></i>
@@ -172,34 +202,7 @@
       </div>
       
     </div>
-    <div class="views-toggle">
-      <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
-        <i class="fa fa-th-large views-toggle-icon"></i>
-        <i class="fa fa-chevron-down views-toggle-arrow"></i>
-      </button>
-      <div class="views-toggle-dropdown" id="viewsDropdown">
-        <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
-          <i class="fa fa-dashboard"></i>
-          <span>Dashboard View</span>
-        </div>
-        <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
-          <i class="fa fa-th-large"></i>
-          <span>Card View</span>
-        </div>
-        <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
-          <i class="fa fa-list"></i>
-          <span>List View</span>
-        </div>
-        <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
-          <i class="fa fa-calendar"></i>
-          <span>Calendar View</span>
-        </div>
-        <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
-          <i class="fa fa-map"></i>
-          <span>Map View</span>
-        </div>
-      </div>
-    </div>
+    
   </div>
 
   <div class="views-container">

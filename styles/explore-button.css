@@ -36,12 +36,14 @@
   }
 
   /* Floating container */
-  .fab-box {
+.fab-box {
     position: fixed;
     bottom: 40px;
     right: 40px;
     width: 60px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(14px) saturate(180%);
+    -webkit-backdrop-filter: blur(14px) saturate(180%);
     border-radius: 30px;
     overflow: visible; /* allow labels outside */
     display: flex;
@@ -49,13 +51,22 @@
     align-items: center;
     transition: height 0.4s ease, border-radius 0.4s ease, box-shadow 0.3s ease;
     box-shadow: 
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06),
-      0 0 0 1px rgba(0, 0, 0, 0.05);
+      0 8px 32px rgba(2, 6, 23, 0.18),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 0 8px rgba(255, 255, 255, 0.2);
     cursor: pointer;
     height: 60px; /* collapsed */
     z-index: 9999;
-    border: 2px solid #012f6d;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .fab-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+    pointer-events: none;
   }
 
   /* Disable expansion when popover is open */
@@ -95,11 +106,11 @@
   }
   
   /* Each icon */
-  .fab-item {
+.fab-item {
     position: relative;
     width: 45px;
     height: 45px;
-    background: #f8f9fa;
+    background: rgba(255, 255, 255, 0.25);
     border-radius: 50%;
     color: #012f6d;
     display: flex;
@@ -108,11 +119,11 @@
     font-size: 20px;
     margin: 6px 0;
     transition: all 0.3s ease;
-    border: 1px solid #dee2e6;
+    border: 1px solid rgba(255, 255, 255, 0.45);
     box-shadow: 
-      0 1px 3px 0 rgba(0, 0, 0, 0.1),
-      0 1px 2px 0 rgba(0, 0, 0, 0.06);
-    backdrop-filter: blur(10px);
+      0 8px 24px rgba(2, 6, 23, 0.15),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(10px) saturate(180%);
     overflow: visible;
   }
 
@@ -126,11 +137,11 @@
   }
   
   /* Tooltip text */
-  .fab-item::before {
+.fab-item::before {
     content: attr(data-label);
     position: absolute;
     right: 60px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.9);
     color: #012f6d;
     padding: 6px 12px;
     border-radius: 6px;
@@ -141,21 +152,21 @@
     transform: translateX(10px);
     transition: all 0.3s ease;
     pointer-events: none;
-    border: 1px solid #012f6d;
+    border: 1px solid rgba(255, 255, 255, 0.4);
     letter-spacing: -0.005em;
     line-height: 1.3;
     font-family: 'Inter', sans-serif;
   }
   
   /* Tooltip arrow */
-  .fab-item::after {
+.fab-item::after {
     content: "";
     position: absolute;
     right: 50px;
     width: 6px;
     height: 6px;
-    background: #ffffff;
-    border-right: 1px solid #012f6d;
+    background: rgba(255, 255, 255, 0.9);
+    border-right: 1px solid rgba(255, 255, 255, 0.4);
     border-bottom: 1px solid #012f6d;
     transform: rotate(45deg);
     opacity: 0;
@@ -170,15 +181,14 @@
   }
   
   /* Hover effects */
-  .fab-item:hover {
-    background: #e9ecef;
+.fab-item:hover {
+    background: rgba(255, 255, 255, 0.45);
     color: #012f6d;
     transform: scale(1.05);
     box-shadow: 
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06),
-      0 0 0 1px #dee2e6;
-    border-color: #dee2e6;
+      0 12px 32px rgba(2, 6, 23, 0.18),
+      inset 1px 1px 0 rgba(255, 255, 255, 0.55);
+    border-color: rgba(255, 255, 255, 0.55);
   }
 
   .fab-item:hover .fab-icon {
@@ -186,14 +196,14 @@
   }
   
   /* Main bottom button */
-  .fab-main {
+.fab-main {
     position: absolute;
     bottom: -5px;
     right: -2px;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    background: #012f6d;
+    background: rgba(1, 47, 109, 0.75);
     color: #ffffff;
     display: flex;
     align-items: center;
@@ -201,24 +211,26 @@
     font-size: 24px;
     font-weight: 600;
     transition: all 0.3s ease;
-    border: 2px solid #012f6d;
-    box-shadow: 
-      0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06),
-      0 0 0 1px rgba(0, 0, 0, 0.05);
-    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(18px) saturate(220%);
+    -webkit-backdrop-filter: blur(18px) saturate(220%);
     overflow: visible;
   }
 
+  .fab-main::before,
+  .fab-main::after {
+    mix-blend-mode: screen;
+  }
+
   /* Tooltip for main button */
-  .fab-main::before {
+.fab-main::before {
     content: attr(data-label);
     position: absolute;
     right: 70px;
     top: 50%;
     transform: translateY(-50%);
-    background: #ffffff;
-    color: #6c757d;
+    background: rgba(255, 255, 255, 0.85);
+    color: #012f6d;
     padding: 8px 12px;
     border-radius: 6px;
     font-size: 13px;
@@ -228,11 +240,11 @@
     visibility: hidden;
     transition: all 0.3s ease;
     pointer-events: none;
-    border: 1px solid #dee2e6;
+    border: 1px solid rgba(255, 255, 255, 0.45);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   }
 
-  .fab-main::after {
+.fab-main::after {
     content: "";
     position: absolute;
     right: 60px;
@@ -240,8 +252,8 @@
     transform: translateY(-50%) rotate(45deg);
     width: 8px;
     height: 8px;
-    background: #ffffff;
-    border: 1px solid #dee2e6;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.45);
     border-left: none;
     border-bottom: none;
     opacity: 0;
@@ -273,15 +285,11 @@
     filter: brightness(0) invert(1);
   }
   
-  .fab-main:hover {
-    background: #e9ecef;
+.fab-main:hover {
+    background: rgba(255, 255, 255, 0.9);
     color: #012f6d;
     transform: rotate(90deg);
-    box-shadow: 
-      0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05),
-      0 0 0 1px #dee2e6;
-    border-color: #dee2e6;
+    border-color: rgba(255, 255, 255, 0.6);
   }
 
   .fab-main:hover .fab-main-icon {
@@ -290,15 +298,17 @@
   }
 
   /* Categories Popover */
-  .categories-popover {
+.categories-popover {
     position: fixed;
     bottom: 120px;
     right: 40px;
     width: 300px;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 48px rgba(2, 6, 23, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.35);
     z-index: 10000;
     opacity: 0;
     transform: translateY(10px);
