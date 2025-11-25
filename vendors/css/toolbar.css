@@ -316,7 +316,7 @@
 .toolbar .company-selector .caret.open {
   transform: rotate(180deg);
 }
-.toolbar .sidebar-panel {
+.toolbar .company-selector .sidebar-panel {
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
@@ -328,7 +328,7 @@
   padding: 16px;
   z-index: 2000;
 }
-.toolbar .sidebar-panel .search {
+.toolbar .company-selector .sidebar-panel .search {
   display: flex;
   gap: 8px;
   padding: 5px 12px;
@@ -338,7 +338,7 @@
   align-items: center;
   margin-bottom: 16px;
 }
-.toolbar .sidebar-panel .search input {
+.toolbar .company-selector .sidebar-panel .search input {
   border: 0;
   background: transparent;
   outline: none;
@@ -346,17 +346,17 @@
   font-size: 14px;
   width: 100%;
 }
-.toolbar .form-grid {
+.toolbar .company-selector .form-grid {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
-.toolbar .company {
+.toolbar .company-selector .company {
   padding: 8px 4px !important;
   max-height: 300px;
   overflow-y: auto;
 }
-.toolbar .company .company-heading {
+.toolbar .company-selector .company .company-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -364,19 +364,19 @@
   margin-bottom: 8px;
   cursor: pointer;
 }
-.toolbar .company .company-heading h2 {
+.toolbar .company-selector .company .company-heading h2 {
   margin: 0;
   font-size: 14px;
   font-weight: 600;
   color: #1f2937;
 }
-.toolbar .section-group {
+.toolbar .company-selector .section-group {
   margin-bottom: 16px;
 }
-.toolbar .section-group:has(.section-content.collapsed) .combobox-create-btn {
+.toolbar .company-selector .section-group:has(.section-content.collapsed) .combobox-create-btn {
   margin-top: 0;
 }
-.toolbar .section-group .section-heading {
+.toolbar .company-selector .section-group .section-heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -387,39 +387,39 @@
   transition: background-color 0.2s ease;
   border-radius: 6px;
 }
-.toolbar .section-group .section-heading:hover {
+.toolbar .company-selector .section-group .section-heading:hover {
   background-color: #f8fafc;
 }
-.toolbar .section-group .section-heading.collapsed .section-toggle-icon {
+.toolbar .company-selector .section-group .section-heading.collapsed .section-toggle-icon {
   transform: rotate(-90deg);
 }
-.toolbar .section-group .section-heading h2 {
+.toolbar .company-selector .section-group .section-heading h2 {
   margin: 0;
   font-size: 14px;
   font-weight: 600;
   color: #1f2937;
 }
-.toolbar .section-group .section-heading .section-toggle-icon {
+.toolbar .company-selector .section-group .section-heading .section-toggle-icon {
   font-size: 12px;
   color: #6b7280;
   transition: transform 0.3s ease, color 0.2s ease;
   transform: rotate(0deg);
 }
-.toolbar .section-group .section-content {
+.toolbar .company-selector .section-group .section-content {
   max-height: 500px;
   overflow: hidden;
   transition: max-height 0.3s ease, opacity 0.3s ease;
   opacity: 1;
   padding: 0 4px;
 }
-.toolbar .section-group .section-content.collapsed {
+.toolbar .company-selector .section-group .section-content.collapsed {
   max-height: 0;
   opacity: 0;
   margin-bottom: 0;
   padding: 0;
   overflow: hidden;
 }
-.toolbar .section-item {
+.toolbar .company-selector .section-item {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -430,18 +430,18 @@
   margin-bottom: 4px;
   border: 1px solid transparent;
 }
-.toolbar .section-item:hover {
+.toolbar .company-selector .section-item:hover {
   background-color: #f8fafc;
 }
-.toolbar .section-item.active {
+.toolbar .company-selector .section-item.active {
   background-color: #e0f2fe;
   border: 1px solid #0ea5e9;
 }
-.toolbar .section-item.active:hover {
+.toolbar .company-selector .section-item.active:hover {
   background-color: #bae6fd;
 }
-.toolbar .item-logo,
-.toolbar .item-avatar {
+.toolbar .company-selector .item-logo,
+.toolbar .company-selector .item-avatar {
   width: 36px;
   height: 36px;
   border-radius: 6px;
@@ -453,23 +453,23 @@
   border: 1px solid #e5e7eb;
   overflow: hidden;
 }
-.toolbar .item-logo img,
-.toolbar .item-avatar img {
+.toolbar .company-selector .item-logo img,
+.toolbar .company-selector .item-avatar img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.toolbar .item-avatar {
+.toolbar .company-selector .item-avatar {
   border-radius: 50%;
 }
-.toolbar .item-info {
+.toolbar .company-selector .item-info {
   flex: 1;
   min-width: 0;
   display: flex;
   justify-content: space-between;
   gap: 2px;
 }
-.toolbar .item-info h4 {
+.toolbar .company-selector .item-info h4 {
   margin: 0;
   font-size: 13px;
   font-weight: 500;
@@ -478,12 +478,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.toolbar .item-info span {
+.toolbar .company-selector .item-info span {
   margin: 0;
   font-size: 11px;
   color: #6b7280;
 }
-.toolbar .dropdown-btn {
+.toolbar .company-selector .dropdown-btn {
   background: none;
   border: none;
   cursor: pointer;
@@ -491,10 +491,10 @@
   border-radius: 4px;
   transition: background-color 0.2s ease;
 }
-.toolbar .dropdown-btn:hover {
+.toolbar .company-selector .dropdown-btn:hover {
   background-color: #f3f4f6;
 }
-.toolbar .create-btn {
+.toolbar .company-selector .create-btn {
   display: block;
   margin: 8px 0 0 0;
   padding: 10px 12px;
@@ -507,10 +507,10 @@
   font-weight: 500;
   transition: background-color 0.2s ease;
 }
-.toolbar .create-btn:hover {
+.toolbar .company-selector .create-btn:hover {
   background: #0056b3;
 }
-.toolbar .combobox-create-btn {
+.toolbar .company-selector .combobox-create-btn {
   display: block;
   width: 35%;
   float: right;
@@ -527,19 +527,19 @@
   border: none;
   cursor: pointer;
 }
-.toolbar .combobox-create-btn:hover {
+.toolbar .company-selector .combobox-create-btn:hover {
   background: #0056b3;
   transform: translateY(-1px);
 }
-.toolbar .combobox-create-btn:active {
+.toolbar .company-selector .combobox-create-btn:active {
   transform: translateY(0);
 }
-.toolbar .section-actions {
+.toolbar .company-selector .section-actions {
   padding: 8px 4px;
   margin-top: 8px;
   border-top: 1px solid #e5e7eb;
 }
-.toolbar .combobox-view-all-btn {
+.toolbar .company-selector .combobox-view-all-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -557,12 +557,12 @@
   border: 1px solid #e5e7eb;
   cursor: pointer;
 }
-.toolbar .combobox-view-all-btn:hover {
+.toolbar .company-selector .combobox-view-all-btn:hover {
   background: #e5e7eb;
   color: #1f2937;
   border-color: #d1d5db;
 }
-.toolbar .combobox-view-all-btn i {
+.toolbar .company-selector .combobox-view-all-btn i {
   font-size: 11px;
 }
 
