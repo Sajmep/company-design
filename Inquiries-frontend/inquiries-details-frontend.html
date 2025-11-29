@@ -114,12 +114,18 @@
                     <div class="attachment-item">
                         <i class="fa fa-file-pdf-o"></i>
                         <span>Project Requirements.pdf</span>
-                        <a href="#" class="download-btn">Download</a>
+                        <div class="attachment-actions">
+                            <button class="preview-btn" data-pdf="../images/job description.pdf" data-title="Project Requirements">Preview</button>
+                            <a href="../images/job description.pdf" class="download-btn" download>Download</a>
+                        </div>
                     </div>
                     <div class="attachment-item">
                         <i class="fa fa-file-image-o"></i>
                         <span>Design Mockups.jpg</span>
-                        <a href="#" class="download-btn">Download</a>
+                        <div class="attachment-actions">
+                            <button class="preview-btn" data-image="../images/gallery1.jpg" data-title="Design Mockups">Preview</button>
+                            <a href="../images/gallery1.jpg" class="download-btn" download>Download</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -133,6 +139,110 @@
             <button class="btn-secondary">Assign to Team</button>
         </div>
     </div>
+
+    <!-- PDF Viewer Overlay -->
+    <div class="pdf-viewer-overlay" id="pdfViewer" aria-hidden="true">
+        <div class="pdf-viewer">
+            <div class="pdf-viewer-header">
+                <h4 id="pdfViewerTitle">Document preview</h4>
+                <button class="close-viewer" type="button" aria-label="Close PDF preview">&times;</button>
+            </div>
+            <iframe id="pdfViewerFrame" title="PDF preview" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Image Viewer Overlay -->
+    <div class="image-viewer-overlay" id="imageViewer" aria-hidden="true">
+        <div class="image-viewer">
+            <div class="image-viewer-header">
+                <h4 id="imageViewerTitle">Attachment preview</h4>
+                <button class="close-image-viewer" type="button" aria-label="Close image preview">&times;</button>
+            </div>
+            <div class="image-viewer-body">
+                <img id="imageViewerPreview" alt="Attachment preview">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewerOverlay = document.getElementById('pdfViewer');
+            const viewerFrame = document.getElementById('pdfViewerFrame');
+            const viewerTitle = document.getElementById('pdfViewerTitle');
+            const closeBtn = viewerOverlay.querySelector('.close-viewer');
+            const imageOverlay = document.getElementById('imageViewer');
+            const imageElement = document.getElementById('imageViewerPreview');
+            const imageTitle = document.getElementById('imageViewerTitle');
+            const imageCloseBtn = imageOverlay.querySelector('.close-image-viewer');
+
+            const openViewer = (pdfUrl, titleText) => {
+                viewerFrame.src = pdfUrl;
+                viewerTitle.textContent = titleText || 'Document preview';
+                viewerOverlay.setAttribute('aria-hidden', 'false');
+                viewerOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                closeBtn.focus();
+            };
+
+            const closeViewer = () => {
+                viewerOverlay.classList.remove('active');
+                viewerOverlay.setAttribute('aria-hidden', 'true');
+                viewerFrame.src = '';
+                document.body.style.overflow = '';
+            };
+
+            const openImageViewer = (imageUrl, titleText) => {
+                imageElement.src = imageUrl;
+                imageElement.alt = titleText || 'Attachment preview';
+                imageTitle.textContent = titleText || 'Attachment preview';
+                imageOverlay.setAttribute('aria-hidden', 'false');
+                imageOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                imageCloseBtn.focus();
+            };
+
+            const closeImageViewer = () => {
+                imageOverlay.classList.remove('active');
+                imageOverlay.setAttribute('aria-hidden', 'true');
+                imageElement.src = '';
+                document.body.style.overflow = '';
+            };
+
+            document.querySelectorAll('[data-pdf]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const pdfUrl = btn.getAttribute('data-pdf');
+                    const titleText = btn.getAttribute('data-title');
+                    if (pdfUrl) {
+                        openViewer(pdfUrl, titleText);
+                    }
+                });
+            });
+
+            document.querySelectorAll('[data-image]').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const imageUrl = btn.getAttribute('data-image');
+                    const titleText = btn.getAttribute('data-title');
+                    if (imageUrl) {
+                        openImageViewer(imageUrl, titleText);
+                    }
+                });
+            });
+
+            closeBtn.addEventListener('click', closeViewer);
+            viewerOverlay.addEventListener('click', (event) => {
+                if (event.target === viewerOverlay) {
+                    closeViewer();
+                }
+            });
+
+            imageCloseBtn.addEventListener('click', closeImageViewer);
+            imageOverlay.addEventListener('click', (event) => {
+                if (event.target === imageOverlay) {
+                    closeImageViewer();
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
