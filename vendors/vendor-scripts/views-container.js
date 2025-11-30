@@ -94,18 +94,47 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Vendor Popup Functions
 function openVendorPopup() {
-    document.getElementById('vendorPopup').style.display = 'flex';
+    const sidebar = document.getElementById('vendorPopup');
+    const overlay = document.getElementById('vendorSidebarOverlay');
+    
+    if (sidebar && overlay) {
+        overlay.classList.add('active');
+        sidebar.classList.add('active');
+        // Prevent body scroll when sidebar is open
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function closeVendorPopup() {
-    document.getElementById('vendorPopup').style.display = 'none';
+    const sidebar = document.getElementById('vendorPopup');
+    const overlay = document.getElementById('vendorSidebarOverlay');
+    
+    if (sidebar && overlay) {
+        sidebar.classList.remove('active');
+        // Delay overlay removal to match sidebar animation
+        setTimeout(() => {
+            overlay.classList.remove('active');
+        }, 300);
+        // Restore body scroll
+        document.body.style.overflow = '';
+    }
 }
 
-// Close vendor popup when clicking outside of it
+// Close vendor sidebar when clicking on overlay
 document.addEventListener('click', function(event) {
-    const vendorModal = document.getElementById('vendorPopup');
-    if (event.target === vendorModal) {
+    const overlay = document.getElementById('vendorSidebarOverlay');
+    if (event.target === overlay) {
         closeVendorPopup();
+    }
+});
+
+// Close vendor sidebar with Escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const sidebar = document.getElementById('vendorPopup');
+        if (sidebar && sidebar.classList.contains('active')) {
+            closeVendorPopup();
+        }
     }
 });
 

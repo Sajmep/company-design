@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" href="../styles/scrollbar.css">
     <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="css/create-inquiry.css">
+    <link rel="stylesheet" href="inquiries-styles/create-inquiry.css">
     <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 
 </head>
@@ -17,9 +17,82 @@
   <div class="create-inquiry-container">
     <div class="create-inquiry-header">
       <h1>Create Inquiry</h1>
+       <!-- Staging Section -->
+       <div class="staging-section">
+        <div class="staging-arrow">
+          <div class="stage stage-active">
+            <div class="stage-content">
+              <div class="pr-stage-label">Draft</div>
+            </div>
+          </div>
+          <div class="arrow-connector"></div>
+          <div class="stage">
+            <div class="stage-content">
+              <div class="stage-label">Submit</div>
+            </div>
+          </div>
+          <div class="arrow-connector"></div>
+          <div class="stage">
+            <div class="stage-content">
+              <div class="stage-label">Approve</div>
+            </div>
+          </div>
+          <div class="arrow-connector"></div>
+          <div class="stage">
+            <div class="pr-stage-content">
+              <div class="stage-label">Done</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     
-    <form class="create-inquiry-form" id="createInquiryForm">
+    <!-- Action Buttons and Tabs Row -->
+    <div class="actions-tabs-row">
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        <button type="button" class="action-btn btn-edit">
+          <i class="fa fa-edit"></i>
+          <span>Edit</span>
+        </button>
+        <button type="button" class="action-btn btn-submit">
+          <i class="fa fa-check"></i>
+          <span>Submit</span>
+        </button>
+        <button type="button" class="action-btn btn-approve">
+          <i class="fa fa-check-circle"></i>
+          <span>Approve</span>
+        </button>
+        <button type="button" class="action-btn btn-reject">
+          <i class="fa fa-times-circle"></i>
+          <span>Reject</span>
+        </button>
+        <button type="button" class="action-btn btn-cancel">
+          <i class="fa fa-times"></i>
+          <span>Cancel</span>
+        </button>
+      </div>
+      
+      <!-- Tabs Navigation -->
+      <div class="inquiry-tabs">
+      <button type="button" class="tab-btn active" data-tab="create">
+        <i class="fa fa-plus-circle"></i>
+        <span>Create</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="chat">
+        <i class="fa fa-comments"></i>
+        <span>Chat</span>
+      </button>
+      <button type="button" class="tab-btn" data-tab="log">
+        <i class="fa fa-list-alt"></i>
+        <span>Log</span>
+      </button>
+      </div>
+    </div>
+
+    <!-- Tab Content: Create -->
+    <div class="tab-content active" data-tab="create">
+      <form class="create-inquiry-form" id="createInquiryForm">
       <div class="form-row">
         <div class="form-column">
           <div class="form-group">
@@ -31,19 +104,7 @@
             <label for="description">Description <span class="required">*</span></label>
             <textarea id="description" name="description" rows="5" required placeholder="Enter inquiry description"></textarea>
           </div>
-          
-          <div class="form-group">
-            <label for="budget">Budget</label>
-            <input type="number" id="budget" name="budget" placeholder="Enter budget amount">
-          </div>
-          
-          <div class="form-group">
-            <label for="service">Service <span class="required">*</span></label>
-            <input type="text" id="service" name="service" required placeholder="Enter service type">
-          </div>
-        </div>
         
-        <div class="form-column">
           <div class="form-group">
             <label for="city">City</label>
             <input type="text" id="city" name="city" placeholder="Enter city">
@@ -53,7 +114,51 @@
             <label for="state">State</label>
             <input type="text" id="state" name="state" placeholder="Enter state">
           </div>
+
+          <div class="form-group">
+            <label for="notes">Additional Notes</label>
+            <textarea id="notes" name="notes" rows="6" placeholder="Enter any additional notes or comments"></textarea>
+          </div>
+
           
+          <div class="form-group">
+            <label for="attachment">Attachment</label>
+            <div class="file-upload-wrapper">
+              <input type="file" id="attachment" name="attachment" class="file-input" multiple>
+              <label for="attachment" class="file-label">
+                <i class="fa fa-paperclip"></i>
+                <span>Choose files or drag and drop</span>
+              </label>
+              <div class="file-list"></div>
+            </div>
+          </div>
+
+
+        </div>
+        
+        <div class="form-column">
+            
+          <div class="form-group">
+            <label for="related-project">Related Project Name</label>
+            <select id="related-project" name="related-project" class="form-select">
+              <option value="">Select a project</option>
+              <option value="project1">Project Alpha</option>
+              <option value="project2">Project Beta</option>
+              <option value="project3">Project Gamma</option>
+              <option value="project4">Project Delta</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget</label>
+            <input type="number" id="budget" name="budget" placeholder="Enter budget amount">
+          </div>
+          
+          <div class="form-group">
+            <label for="service">Service <span class="required">*</span></label>
+            <input type="text" id="service" name="service" required placeholder="Enter service type">
+          </div>
+
           <div class="form-group">
             <label for="country">Country</label>
             <input type="text" id="country" name="country" placeholder="Enter country">
@@ -63,14 +168,103 @@
             <label for="zip">Zip Code</label>
             <input type="text" id="zip" name="zip" placeholder="Enter zip code">
           </div>
+
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority" name="priority" class="form-select priority-select">
+              <option value="" selected disabled>Select priority</option>
+              <option value="1">★</option>
+              <option value="2">★★</option>
+              <option value="3">★★★</option>
+            </select>
+          </div>
         </div>
       </div>
       
       <div class="form-actions">
-        <button type="submit" class="btn btn-submit">Create Inquiry</button>
+        <button type="submit" class="btn btn-submit">Save</button>
         <button type="button" class="btn btn-cancel">Cancel</button>
       </div>
-    </form>
+      </form>
+    </div>
+
+    <!-- Tab Content: Chat -->
+    <div class="tab-content" data-tab="chat">
+      <div class="chat-container">
+        <div class="chat-messages">
+          <div class="chat-message">
+            <div class="message-avatar">JD</div>
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-author">John Doe</span>
+                <span class="message-time">10:30 AM</span>
+              </div>
+              <div class="message-text">Hello, I have a question about this inquiry.</div>
+            </div>
+          </div>
+          <div class="chat-message own-message">
+            <div class="message-content">
+              <div class="message-header">
+                <span class="message-author">You</span>
+                <span class="message-time">10:32 AM</span>
+              </div>
+              <div class="message-text">Sure, what would you like to know?</div>
+            </div>
+            <div class="message-avatar">Y</div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <input type="text" class="chat-input" placeholder="Type your message...">
+          <button type="button" class="chat-send-btn">
+            <i class="fa fa-paper-plane"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab Content: Log -->
+    <div class="tab-content" data-tab="log">
+      <div class="log-container">
+        <div class="log-timeline">
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fa fa-plus"></i>
+            </div>
+            <div class="log-content">
+              <div class="log-header">
+                <span class="log-action">Inquiry Created</span>
+                <span class="log-time">Today at 9:15 AM</span>
+              </div>
+              <div class="log-details">Inquiry was created by John Doe</div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fa fa-edit"></i>
+            </div>
+            <div class="log-content">
+              <div class="log-header">
+                <span class="log-action">Status Updated</span>
+                <span class="log-time">Today at 9:20 AM</span>
+              </div>
+              <div class="log-details">Status changed from Draft to Submit</div>
+            </div>
+          </div>
+          <div class="log-item">
+            <div class="log-icon">
+              <i class="fa fa-file"></i>
+            </div>
+            <div class="log-content">
+              <div class="log-header">
+                <span class="log-action">Attachment Added</span>
+                <span class="log-time">Today at 9:25 AM</span>
+              </div>
+              <div class="log-details">document.pdf was attached</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
 </body>
