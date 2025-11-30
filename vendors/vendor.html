@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="vendor-styles/views-container.css">
   <link rel="stylesheet" href="vendor-styles/vendors.css">
   <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="vendor-styles/overview-vendor.css">
   <link rel="stylesheet" href="../styles/common-table.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
@@ -217,11 +218,9 @@
           <div class="card-view-company-logo">
             <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo"
               title="Sakhrat Al Janoub Contracting Co. - SAJMEP">
-            <div class="vendor-status-dot online" title="Online"></div>
           </div>
         </div>
         <div class="card-view-content-container">
-          <h3>"Your Trusted Construction Partner"</h3>
           <div class="company-name">Sakhrat Al Janoub Contracting Co.</div>
           <div class="contractor-info">
             <span class="contractor-name">Contractor</span>
@@ -234,12 +233,10 @@
           <img src="../images/vendor7.jpg" alt="Company Image">
           <div class="card-view-company-logo">
             <img src="../images/bmh-logo.png" alt="Company Logo" title="Al-Mansour Engineering Group">
-            <div class="vendor-status-dot busy"></div>
             <img src="../images/1.png" alt="Verified" class="verified-indicator">
           </div>
         </div>
         <div class="card-view-content-container">
-          <h3>"Innovation in Every Project"</h3>
           <div class="company-name">Al-Mansour Engineering Group</div>
           <div class="contractor-info">
             <span class="contractor-name">Consultant</span>
@@ -253,15 +250,13 @@
           <div class="card-view-company-logo">
             <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo"
               title="Gulf Construction Solutions">
-            <div class="vendor-status-dot online"></div>
           </div>
         </div>
         <div class="card-view-content-container">
-          <h3>"Quality First, Always"</h3>
           <div class="company-name">Gulf Construction Solutions</div>
           <div class="contractor-info">
             <span class="contractor-name">Supplier</span>
-            <span class="contractor-status vacation">vacation</span>
+            <span class="contractor-status closed">closed</span>
           </div>
         </div>
       </div>
@@ -270,12 +265,10 @@
           <img src="../images/vendor6.jpg" alt="Company Image">
           <div class="card-view-company-logo">
             <img src="../images/projects-hub.png" alt="Company Logo" title="TechBuild Industries">
-            <div class="vendor-status-dot offline"></div>
             <img src="../images/1.png" alt="Verified" class="verified-indicator">
           </div>
         </div>
         <div class="card-view-content-container">
-          <h3>"Excellence Through Technology"</h3>
           <div class="company-name">TechBuild Industries</div>
           <div class="contractor-info">
             <span class="contractor-name">Service Provider</span>
@@ -289,16 +282,14 @@
           <div class="card-view-company-logo">
             <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo"
               title="Royal Builders Ltd">
-            <div class="vendor-status-dot busy"></div>
             <img src="../images/1.png" alt="Verified" class="verified-indicator">
           </div>
         </div>
         <div class="card-view-content-container">
-          <h3>"Building Excellence, Delivering Success"</h3>
           <div class="company-name">Royal Builders Ltd</div>
           <div class="contractor-info">
             <span class="contractor-name">Subcontractor</span>
-            <span class="contractor-status vacation">vacation</span>
+            <span class="contractor-status closed">closed</span>
           </div>
         </div>
       </div>
@@ -806,6 +797,110 @@
     </div>
   </div>
   <!-- RFQ Modal End -->
+
+  <!-- Vendor Overview Sidebar -->
+  <div class="vendor-sidebar-overlay" id="vendorSidebarOverlay" onclick="closeVendorPopup()"></div>
+  <div class="vendor-overview-sidebar" id="vendorPopup">
+   
+    <div class="vendor-sidebar-body">
+
+      <button class="vendor-sidebar-close" onclick="closeVendorPopup()" aria-label="Close sidebar">
+        <i class="fa fa-times"></i>
+      </button>
+
+      <!-- Vendor Overview Content -->
+      <div class="vendor-sidebar-overview">
+        <!-- Vendor Image and Logo -->
+        <div class="vendor-sidebar-image-section">
+          <div class="vendor-sidebar-banner-image">
+            <img src="../images/vendor.png" alt="Company Image">
+            <div class="vendor-sidebar-company-logo">
+              <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
+            </div>
+              <!-- Status Badge -->
+          <div class="vendor-sidebar-status">
+            <span class="vendor-sidebar-status-badge online">Open</span>
+          </div>
+          </div>
+        </div>
+
+        <!-- Vendor Info -->
+        <div class="vendor-sidebar-info">
+          <h2 class="vendor-sidebar-company-name">Sakhrat Al Janoub Contracting Co.</h2>
+          <p class="vendor-sidebar-slogan">"Your Trusted Construction Partner"</p>
+          
+          <!-- Meta Information -->
+          <div class="vendor-sidebar-meta">
+            <div class="vendor-sidebar-meta-item">
+              <i class="fa fa-map-marker"></i>
+              <span>Riyadh, Saudi Arabia</span>
+            </div>
+            <div class="vendor-sidebar-meta-item">
+              <i class="fa fa-building"></i>
+              <span>Construction</span>
+            </div>
+            <div class="vendor-sidebar-meta-item">
+              <i class="fa fa-tag"></i>
+              <span>Contractor</span>
+            </div>
+            <div class="vendor-sidebar-meta-item">
+              <i class="fa fa-calendar"></i>
+              <span>Est. 2015</span>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="vendor-sidebar-stats">
+            <div class="vendor-sidebar-stat-item">
+              <div class="vendor-sidebar-stat-number">10</div>
+              <div class="vendor-sidebar-stat-label">Products</div>
+            </div>
+            <div class="vendor-sidebar-stat-item">
+              <div class="vendor-sidebar-stat-number">20</div>
+              <div class="vendor-sidebar-stat-label">Projects</div>
+            </div>
+            <div class="vendor-sidebar-stat-item">
+              <div class="vendor-sidebar-stat-number">90%</div>
+              <div class="vendor-sidebar-stat-label">Success Rate</div>
+            </div>
+          </div>
+
+          <!-- Action Buttons -->
+          <div class="vendor-sidebar-actions">
+            <button class="vendor-sidebar-action-btn primary" onclick="createRFQ()">
+              <i class="fa fa-plus  "></i>
+               RFQ
+            </button>
+            <button class="vendor-sidebar-action-btn secondary">
+              <i class="fa fa-comments"></i>
+              Chat
+            </button>
+            <button class="vendor-sidebar-action-btn secondary">
+              <i class="fa fa-phone"></i>
+              Call
+            </button>
+            <button class="vendor-sidebar-action-btn secondary">
+              <i class="fa fa-map-marker"></i>
+              Navigate
+            </button>
+            <button class="vendor-sidebar-action-btn secondary">
+              <i class="fa fa-user-plus"></i>
+              Follow
+            </button>
+          </div>
+
+          <!-- View Full Details Button -->
+          <div class="vendor-sidebar-view-details">
+            <a href="vendor-details.html" class="vendor-sidebar-view-details-btn">
+              <i class="fa fa-external-link"></i>
+              View Full Details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor Overview Sidebar End -->
 
   <script src="vendor-scripts/views-container.js"></script>
   <script src="vendor-scripts/vendor.js"></script>

@@ -1,0 +1,1968 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CRM Leads</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/scrollbar.css">
+  <link rel="stylesheet" href="styles/settings.css">
+  <link rel="stylesheet" href="styles/sidebar.css">
+  <link rel="stylesheet" href="styles/settings-responsive.css">
+  <link rel="stylesheet" href="styles/overview-responsive.css">
+  <link rel="stylesheet" href="styles/header.css">
+  <link rel="stylesheet" href="styles/common-table.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+</head>
+
+<body>
+
+
+  <!-- Top Header -->
+  <div class="top">
+
+    <div class="header-icons">
+
+      <div class="filter-btn-header">
+        <a href="filter-modal.html">
+          <i class="fa fa-filter fa-2x" style="color: #9885d1; cursor: pointer;" title="Filter"></i>
+        </a>
+
+      </div>
+
+      <!-- Static progress icon example (no logic) -->
+      <div class="demo-row" title="Profile Score">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px">
+          <div class="progress" style="--pct:72;"> <!-- change --pct value here to any number 0-100 -->
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+              <circle class="bg" cx="18" cy="18" r="15.9155"></circle>
+              <circle class="fg" cx="18" cy="18" r="15.9155"></circle>
+            </svg>
+            <div class="label">72%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Create Dropdown -->
+      <div class="create-dropdown">
+        <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false"
+          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
+
+        <div class="create-dropdown-menu" role="menu">
+          <!-- Category: Projects -->
+          <div class="create-category">
+            <button class="create-category-btn">Projects</button>
+            <ul class="create-category-list">
+              <li><a href="#">New Website</a></li>
+              <li><a href="#">Mobile App</a></li>
+              <li><a href="#">Dashboard</a></li>
+            </ul>
+          </div>
+
+          <!-- Category: Documents -->
+          <div class="create-category">
+            <button class="create-category-btn">Documents</button>
+            <ul class="create-category-list">
+              <li><a href="#">New Report</a></li>
+              <li><a href="#">Proposal</a></li>
+              <li><a href="#">Invoice</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
+
+      <!-- Bell dropdown -->
+      <div class="bell-section">
+        <details>
+
+          <summary aria-haspopup="true" aria-label="Notifications" title="Notifications">
+            <i class="fa fa-bell fa-2x" style="color: #9885d1; cursor: pointer;"></i>
+          </summary>
+
+
+          <nav class="bell-section-menu">
+            <!-- Tab Buttons -->
+            <div class="bell-tabs">
+              <button class="tab-btn active" data-tab="notification" title="Notifications">
+                <img src="images/notification-icon.png" alt="" width="10px">
+              </button>
+              <button class="tab-btn" data-tab="chats" title="Chats">
+                <img src="images/chats-icon.png" alt="" width="10px">
+              </button>
+              <button class="tab-btn" data-tab="announcements" title="Announcements">
+                <img src="images/announcement.png" alt="" width="10px">
+              </button>
+            </div>
+
+            <!-- Tab Content -->
+            <div class="bell-tab-content">
+              <!-- Example content inside Notifications tab -->
+              <div class="tab-panel notification-tab active">
+                <div class="notification-card">
+                  <p><strong>John Doe</strong> commented on your post.</p>
+                  <span class="time">5m ago</span>
+                </div>
+
+              </div>
+              <div class="tab-panel chats-tab">
+                <p>No new chats.</p>
+              </div>
+              <!-- Example content inside Announcements tab -->
+              <div class="tab-panel announcements-tab">
+                <div class="announcement-card">
+                  <h4>System Update</h4>
+                  <p>The platform will be down for maintenance tonight from 12 AM to 2 AM.</p>
+                  <span class="time">2h ago</span>
+                </div>
+
+              </div>
+            </div>
+          </nav>
+        </details>
+      </div>
+
+      <!-- Apps Dropdown -->
+      <div class="appsDropdown">
+        <button class="appsDropdownBtn">
+          <div class="menu-container">
+            <div class="dots-grid">
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+              <div class="dot"></div>
+            </div>
+          </div>
+        </button>
+
+        <div class="apps-menu">
+          <!-- Search Bar -->
+          <div class="apps-search">
+            <input type="text" placeholder="Search apps..." id="appsSearch" title="Search">
+            <button class="search-btn" title="Search">
+              <span class="sr-only">Search</span>
+            </button>
+            <button class="voice-btn" title="Voice Search" title="Voice Search">
+              <span class="sr-only">Voice Search</span>
+            </button>
+          </div>
+
+          <!-- Category 1 -->
+          <div class="apps-category">
+            <button class="apps-category-btn">Construction Hub</button>
+            <div class="apps-category-content">
+              <a href="#" data-app="gmail">
+                <img src="images/tenders-hub.png" alt="Gmail">
+                <span>Tenders Hub</span>
+              </a>
+              <a href="#" data-app="drive">
+                <img src="images/projects-hub.png" alt="Drive">
+                <span>Projects Hub</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="apps-category">
+            <button class="apps-category-btn"> Home </button>
+            <div class="apps-category-content">
+              <a href="#" data-app="docs">
+                <img src="images/bmh-logo.png" alt="Docs">
+                <span>BMH</span>
+              </a>
+              <a href="#" data-app="sheets">
+                <img src="images/sellers-logo.png" alt="Sheets">
+                <span>Sellers</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="apps-category">
+            <button class="apps-category-btn">Marketplace</button>
+            <div class="apps-category-content">
+              <a href="#" data-app="github">
+                <img src="images/Shopping.png" alt="GitHub">
+                <span>Shopping</span>
+              </a>
+              <a href="#" data-app="vscode">
+                <img src="images/Auctions.png" alt="VS Code">
+                <span>Auctions</span>
+              </a>
+              <a href="#" data-app="figma">
+                <img src="images/Scrap.png" alt="Figma">
+                <span>Scrap</span>
+              </a>
+              <a href="#" data-app="notion">
+                <img src="images/Surplus.png" alt="Notion">
+                <span>Surplus</span>
+              </a>
+              <a href="#" data-app="postman">
+                <img src="images/default.png" alt="Postman">
+                <span>Deals & Offers</span>
+              </a>
+              <a href="#" data-app="docker">
+                <img src="images/default.png" alt="Docker">
+                <span>Store Locator</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="apps-category">
+            <button class="apps-category-btn">Community</button>
+            <div class="apps-category-content">
+              <a href="#" data-app="postman">
+                <img src="images/default.png" alt="Postman">
+                <span>Events</span>
+              </a>
+              <a href="#" data-app="docker">
+                <img src="images/default.png" alt="Docker">
+                <span>Forum</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Category 5 -->
+          <div class="apps-category">
+            <button class="apps-category-btn">E-Learning</button>
+            <div class="apps-category-content">
+              <a href="#" data-app="postman">
+                <img src="images/default.png" alt="Postman">
+                <span>Courses</span>
+              </a>
+              <a href="#" data-app="docker">
+                <img src="images/default.png" alt="Docker">
+                <span>Blogs</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown-advanced">
+        <button class="dropdown-btn" aria-expanded="false">
+          <img src="images/user.png" alt="" class="account-img" style="cursor: pointer;">
+        </button>
+
+        <div class="dropdown-menu" role="menu">
+          <div class="dropdown-section">
+            <a href="#"><i class="fa fa-user"></i> Profile</a>
+            <a href="#"><i class="fa fa-building"></i> My Company</a>
+            <a href="#"><i class="fa fa-exchange"></i> Switch User</a>
+          </div>
+          <hr>
+          <div class="dropdown-section">
+            <a href="#"><i class="fa fa-question-circle"></i> Help</a>
+            <a href="#"><i class="fa fa-globe"></i> Language</a>
+          </div>
+          <hr>
+          <div class="dropdown-section">
+            <a href="#" class="logout"><i class="fa fa-sign-out"></i> Sign Out</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Top Header End -->
+  
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+
+    <div class="combobox" id="combobox">
+      <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+        <div class="selected-logo" id="selectedLogo">
+          <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+        </div>
+        <div class="caret" id="caret">
+          <i class="fa fa-chevron-down"
+            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+        </div>
+      </button>
+
+      <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company" hidden>
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+          </svg>
+          <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+        </div>
+        <div class="company-heading collapsed ">
+          <h2>Company</h2>
+        </div>
+        <div class="form-grid">
+          
+          <div class="company form-section">
+      
+            <div class="checkbox-group ">
+              <div class="section">
+                <h4>SAJMEP</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Company A</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Branch</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+              <div class="section">
+                <h4>Shop</h4>
+                <span>ID - 123342 243</span>
+
+              </div>
+
+            </div>
+
+          </div>
+          <a href="#" class="create-btn" onclick="openCreateCompanyModal()">+ Create Company</a>
+        </div>
+
+      </div>
+    </div>
+
+    <nav class="menu" role="menu" aria-label="Primary">
+
+      <div class="item has-submenu" id="orgItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- organization icon -->
+            <img src="images/organization.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Organization</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Organization</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/overview-icon.png" alt="" width="28px">
+                Overview
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="index.html">Dashboard</a></li>
+                  <li><a href="#">Reports</a></li>
+                  <li><a href="#">Customer satisfaction</a></li>
+                  <li><a href="#">Number of visitors</a></li>
+                  <li><a href="#">Number of followers</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/business-info-icon.png" alt="" width="28px">
+                Business Information
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Company Profile & Details</a></li>
+                  <li><a href="profile.html">Profile Page</a></li>
+                  <li><a href="#">Policies</a></li>
+                  <li><a href="#">Experiences</a></li>
+                  <li><a href="#">SOP</a></li>
+                  <li><a href="#">Documents</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/our-products-icon.png" alt="" width="28px">
+                Offering 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Design</a></li>
+                  <li><a href="#">Supply</a></li>
+                  <li><a href="#">Installation</a></li>
+                  <li><a href="#">Maintenance</a></li>
+                  <li><a href="#">Commissioning</a></li>
+                  <li><a href="#">Turnkey EPC</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  Marketing
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/assets-icon.png" alt="" width="28px">
+                  Assets
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/financial-icon.png" alt="" width="28px">
+                Finance
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Bills & Invoices</a></li>
+                  <li><a href="#">Payment & Received</a></li>
+                  <li><a href="#">Finance Settings</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/business-straegy-icon.png" alt="" width="28px">
+                Business & Strategy
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Business Model</a></li>
+                  <li><a href="#">SWOT analysis</a></li>
+                  <li><a href="#">Audit</a></li>
+                  <li><a href="#">Risk Management</a></li>
+                  <li><a href="#">RCA</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/hr-icon.png" alt="" width="28px">
+                HR & Workforce
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">HR Management</a></li>
+                  <li><a href="#">Payroll</a></li>
+                  <li><a href="#">Recruitments</a></li>
+                  <li><a href="#">Resource Allocation</a></li>
+                  <li><a href="#">Training</a></li>
+                  <li><a href="#">Compliance</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/crm-icon.png" alt="" width="28px">
+                CRM
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Leads</a></li>
+                  <li><a href="#">Opportunities</a></li>
+                  <li><a href="#">Visits</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/sales-icon.png" alt="" width="28px">
+                Sales
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Quotations</a></li>
+                  <li><a href="#">Sales Orders</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+
+                <img src="images/procurement.png" alt="" width="28px">
+
+                Procurements
+              </h2>
+              <!-- Company Name Box -->
+
+              <div class="checkbox-group collapsed ">
+
+                <ul class="subsubmenu">
+
+                  <li>
+                    <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
+                      <i class="fa fa-shopping-cart"></i>
+                      Purchase
+                    </a>
+                    <ul class="purchase-submenu">
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
+                        <i class="fa fa-file-text-o"></i>
+                        PR
+                        <span class="purchase-tab-count">12</span>
+                      </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
+                        <i class="fa fa-question-circle"></i>
+                        RFQ
+                        <span class="purchase-tab-count">8</span>
+                      </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
+                        <i class="fa fa-file-text"></i>
+                        PO
+                        <span class="purchase-tab-count">25</span>
+                      </a></li>
+                    </ul>
+                  </li>
+                  <li><a href="#">Tenders</a></li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="appsItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- apps icon -->
+            <img src="images/myapps.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Apps</span>
+        </button>
+
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="directoryItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- Directory icon -->
+            <img src="images/directory.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Directory</span>
+        </button>
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="quickLinksItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Quick Links</span>
+        </button>
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="item has-submenu" id="quickLinksItem">
+        <a href="inquiries.html">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <img src="images/quick-link.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Inquiries</span>
+        </button>
+        </a>
+      </div>
+
+    </nav>
+
+    <div class="bottom-area">
+      <div class="item has-submenu" id="supportItem">
+        <button class="btn" id="settingsBtn">
+          <span class="icon" aria-hidden>
+            <!-- settings icon -->
+            <img src="images/bmh-club.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">BMH Club</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">BMH Club</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="index.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/membership.png" alt="" width="28px">
+                  Membership
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/subscription.png" alt="" width="28px">
+                  Subscription
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/competition.png" alt="" width="28px">
+                  Competitions 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/media-center.png" alt="" width="28px">
+                Media Center 
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Blogs</a></li>
+                  <li><a href="#">e-Learning</a></li>
+                  <li><a href="#">Newsletters</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+      <div class="item has-submenu" id="supportItem">
+        <button class="btn" id="settingsBtn">
+          <span class="icon" aria-hidden>
+            <!-- settings icon -->
+            <img src="images/support.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Support</span>
+        </button>
+
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Support</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="index.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/live-chate-icon.png" alt="" width="28px">
+                  Live Chat
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/contact-support-icon.png" alt="" width="28px">
+                Contact Support
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Contact Us</a></li>
+                  <li><a href="#">Submit Ticket</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/help-ceneter-icon.png" alt="" width="28px">
+                Help Center
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
+                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/report-issue-icon.png" alt="" width="28px">
+                  Report Issue
+                </h2>
+              </a>
+            </div>
+
+          </div>
+
+          <div style="margin-top:auto">
+            <button
+              style="width:100%;padding:10px;border-radius:8px;border:0;background:var(--accent);color:white;cursor:pointer">Settings</button>
+          </div>
+        </div>
+      </div>
+      <a href="setting.html">
+        <div class="item has-submenu" id="supportItem">
+          <button class="btn" id="settingsBtn">
+            <span class="icon" aria-hidden>
+              <!-- settings icon -->
+              <img src="images/settings.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Settings</span>
+          </button>
+                  <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="setting.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/company-settings.png" alt="" width="28px">
+                  Company Setting
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="profile/profile.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/profile-settings.png" alt="" width="28px">
+                  Company Profile
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="profile/prequalification.html">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/company-prequalification.png" alt="" width="28px">
+                  Company Prequalification
+                </h2>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        </div>
+      </a>
+    </div>
+  </aside>
+  <!-- Sidebar End -->
+  
+  <!-- Main Content -->
+  <main class="content page" id="page">
+    <div class="main-content">
+    <!-- Common Page Header -->
+    <div class="toolbar">
+
+      <div class="toolbar-title">
+        <h2>Leads</h2>
+        <p>Explore leads with company details</p>
+      </div>
+      <div class="toolbar-controls">
+        <div class="toolbar-search">
+          <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
+          <i class="fa fa-search toolbar-search-icon"></i>
+          <i class="fa fa-times toolbar-search-close"></i>
+        </div>
+  
+        <div class="toolbar-actions">
+  
+          <div class="views-toggle">
+            <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+              <i class="fa fa-th-large views-toggle-icon"></i>
+              <i class="fa fa-chevron-down views-toggle-arrow"></i>
+            </button>
+            <div class="views-toggle-dropdown" id="viewsDropdown">
+              <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                <i class="fa fa-dashboard"></i>
+                <span>Dashboard View</span>
+              </div>
+              <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                <i class="fa fa-th-large"></i>
+                <span>Card View</span>
+              </div>
+              <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                <i class="fa fa-list"></i>
+                <span>List View</span>
+              </div>
+              <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                <i class="fa fa-calendar"></i>
+                <span>Calendar View</span>
+              </div>
+              <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                <i class="fa fa-map"></i>
+                <span>Map View</span>
+              </div>
+            </div>
+          </div>
+  
+          <div class="toolbar-group-by">
+            <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+              <i class="fa fa-sitemap"></i>
+              <span class="btn-text">Group By</span>
+            </button>
+            <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+              <!-- <div class="toolbar-group-by-item" data-value="status">
+                <i class="fa fa-flag"></i>
+                Status
+              </div>
+              <div class="toolbar-group-by-item" data-value="category">
+                <i class="fa fa-tags"></i>
+                Category
+              </div>
+              <div class="toolbar-group-by-item" data-value="location">
+                <i class="fa fa-map-marker"></i>
+                Location
+              </div> -->
+            </div>
+          </div>
+  
+          <button class="toolbar-filter-btn" title="Filter">
+            <i class="fa fa-filter"></i>
+            <span class="btn-text">Filter</span>
+          </button>
+  
+          <button class="toolbar-actions-btn" title="Actions">
+            <i class="fa fa-gear"></i>
+            <span class="btn-text">Actions</span>
+          </button>
+  
+          <button class="data-btn data-btn-primary" onclick="createPurchaseItem('pr')" title="Create PR">
+            <i class="fa fa-plus"></i>
+            <span class="btn-text">Add</span>
+          </button>
+  
+        </div>
+        
+      </div>
+      
+    </div>
+  
+
+      <!-- Inquiry Content -->
+      <div class="data-table-container">
+            <!-- Leads List Table -->
+            <div class="data-table-container" id="listView">
+              <div class="data-table-wrapper">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>
+                        <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                        <label for="selectAllPRs" class="data-checkbox-label"></label>
+                        <span class="data-checkbox-text"></span>
+                      </th>
+                      <th class="data-drag-header">--</th>
+                       <th class="col-pr-number">Lead ID</th>
+                       <th class="col-pr-type">Company Name</th>
+                       <th class="col-department">Contact Person</th>
+                       <th class="col-budget">Lead Source</th>
+                       <th class="col-created-on">Industry</th>
+                       <th class="col-requested-by">Location</th>
+                       <th class="col-created-on">Last Contact</th>
+                       <th class="col-priority-level">Status</th>
+                       <th class="col-status">Type</th>
+                      <th class="data-table-actions">
+                        <div class="data-columns-dropdown">
+                          <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                            <img src="images/add-column.png" alt="Columns" width="20px">
+                          </button>
+                          <div class="data-columns-dropdown-content" id="columnDropdown">
+                            <div class="data-columns-dropdown-header">
+                              <h4>Select Columns</h4>
+                            </div>
+                            <div class="data-columns-dropdown-body">
+                              <div class="data-column-options">
+                                 <label class="data-column-option fixed-column">
+                                   <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                   <span class="data-column-label">
+                                     Lead ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                   </span>
+                                 </label>
+                                 <label class="data-column-option">
+                                   <input type="checkbox" value="col-pr-type" checked>
+                                   <span class="data-column-label">Company Name</span>
+                                 </label>
+                                 <label class="data-column-option">
+                                   <input type="checkbox" value="col-department" checked>
+                                   <span class="data-column-label">Contact Person</span>
+                                 </label>
+                                 <label class="data-column-option">
+                                   <input type="checkbox" value="col-budget" checked>
+                                   <span class="data-column-label">Lead Source</span>
+                                 </label>
+                                 <label class="data-column-option fixed-column">
+                                   <input type="checkbox" value="col-created-on" checked disabled data-fixed="true">
+                                   <span class="data-column-label">
+                                     Industry <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                   </span>
+                                 </label>
+                                 <label class="data-column-option fixed-column">
+                                   <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                   <span class="data-column-label">
+                                     Location <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                   </span>
+                                 </label>
+                                 <label class="data-column-option">
+                                   <input type="checkbox" value="col-created-on" checked>
+                                   <span class="data-column-label">Last Contact</span>
+                                 </label>
+                                 <label class="data-column-option fixed-column">
+                                   <input type="checkbox" value="col-priority-level" checked disabled data-fixed="true">
+                                   <span class="data-column-label">
+                                     Status <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                   </span>
+                                 </label>
+                                 <label class="data-column-option fixed-column">
+                                   <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                   <span class="data-column-label">
+                                     Type <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                   </span>
+                                 </label>
+                              </div>
+                            </div>
+                            <div class="data-columns-dropdown-footer">
+                              <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                Cancel
+                              </button>
+                              <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="data-checkbox-cell">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-001">
+                        <label for="inq-001" class="data-checkbox-label"></label>
+                      </td>
+                       <td class="data-item-number col-pr-number">LEAD-2025-001</td>
+                       <td class="data-item-type col-pr-type">
+                         <span class="data-type-badge data-type-equipment">Tech Solutions Ltd</span>
+                       </td>
+                       <td class="data-title col-department">
+                         <div class="data-user-info clickable-user" data-user="ahmed">
+                           <div class="data-user-avatar">
+                             <img src="images/user.png" alt="Ahmed Hassan">
+                             <div class="data-user-status online"></div>
+                           </div>
+                           <span class="data-user-name">Ahmed Hassan</span>
+                         </div>
+                       </td>
+                       <td class="data-budget col-budget">Website</td>
+                       <td class="data-category col-created-on">IT Services → Software</td>
+                       <td class="data-created-by col-requested-by">Dubai, UAE</td>
+     
+                       <td class="data-created-on col-created-on">15/01/2025</td>
+                       <td class="purchase-list-priority col-priority-level">
+                         <div class="data-status-dropdown">
+                             <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                                 <span class="data-status-badge data-status-approved">Qualified</span>
+                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                             </button>
+                             <div class="data-status-dropdown-menu">
+                                 <button class="data-status-option" data-status="new" onclick="changeStatus(this, 'new')">
+                                     <i class="fa fa-plus-circle"></i>
+                                     New
+                                 </button>
+                                 <button class="data-status-option" data-status="contacted" onclick="changeStatus(this, 'contacted')">
+                                     <i class="fa fa-phone"></i>
+                                     Contacted
+                                 </button>
+                                 <button class="data-status-option" data-status="qualified" onclick="changeStatus(this, 'qualified')">
+                                     <i class="fa fa-check-circle"></i>
+                                     Qualified
+                                 </button>
+                                 <button class="data-status-option" data-status="converted" onclick="changeStatus(this, 'converted')">
+                                     <i class="fa fa-check-square"></i>
+                                     Converted
+                                 </button>
+                                 <button class="data-status-option" data-status="lost" onclick="changeStatus(this, 'lost')">
+                                     <i class="fa fa-times-circle"></i>
+                                     Lost
+                                 </button>
+                             </div>
+                         </div>
+                       </td>
+                       <td class="purchase-list-status col-status">
+                         <div class="data-status-dropdown">
+                             <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                                 <span class="data-status-badge data-status-approved">Hot</span>
+                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                             </button>
+                             <div class="data-status-dropdown-menu">
+                                 <button class="data-status-option" data-status="hot" onclick="changeStatus(this, 'hot')">
+                                     <i class="fa fa-fire"></i>
+                                     Hot
+                                 </button>
+                                 <button class="data-status-option" data-status="warm" onclick="changeStatus(this, 'warm')">
+                                     <i class="fa fa-sun-o"></i>
+                                     Warm
+                                 </button>
+                                 <button class="data-status-option" data-status="cold" onclick="changeStatus(this, 'cold')">
+                                     <i class="fa fa-snowflake-o"></i>
+                                     Cold
+                                 </button>
+                             </div>
+                         </div>
+                     </td>
+                      <td class="data-table-actions-cell"></td>
+                    </tr>
+                    <tr>
+                      <td class="data-checkbox-cell">
+                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-002">
+                        <label for="inq-002" class="data-checkbox-label"></label>
+                      </td>
+                       <td class="data-item-number col-pr-number">LEAD-2025-002</td>
+                       <td class="data-item-type col-pr-type">
+                         <span class="data-type-badge data-type-equipment">Construction Pro</span>
+                       </td>
+                       <td class="data-title col-department">
+                         <div class="data-user-info clickable-user" data-user="mohammed">
+                           <div class="data-user-avatar">
+                             <img src="images/sarah.pnh.png" alt="Mohammed Ali">
+                             <div class="data-user-status offline"></div>
+                           </div>
+                           <span class="data-user-name">Mohammed Ali</span>
+                         </div>
+                       </td>
+                       <td class="data-budget col-budget">Referral</td>
+                       <td class="data-category col-created-on">Construction → Materials</td>
+                       <td class="data-created-by col-requested-by">Abu Dhabi, UAE</td>
+                       <td class="data-created-on col-created-on">12/01/2025</td>
+                       <td class="purchase-list-priority col-priority-level">
+                         <div class="data-status-dropdown">
+                           <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                             <span class="data-status-badge data-status-submitted">Contacted</span>
+                             <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                           </button>
+                           <div class="data-status-dropdown-menu">
+                             <button class="data-status-option" data-status="new" onclick="changeStatus(this, 'new')">
+                               <i class="fa fa-plus-circle"></i>
+                               New
+                             </button>
+                             <button class="data-status-option" data-status="contacted"
+                               onclick="changeStatus(this, 'contacted')">
+                               <i class="fa fa-phone"></i>
+                               Contacted
+                             </button>
+                             <button class="data-status-option" data-status="qualified"
+                               onclick="changeStatus(this, 'qualified')">
+                               <i class="fa fa-check-circle"></i>
+                               Qualified
+                             </button>
+                             <button class="data-status-option" data-status="converted"
+                               onclick="changeStatus(this, 'converted')">
+                               <i class="fa fa-check-square"></i>
+                               Converted
+                             </button>
+                             <button class="data-status-option" data-status="lost"
+                               onclick="changeStatus(this, 'lost')">
+                               <i class="fa fa-times-circle"></i>
+                               Lost
+                             </button>
+                           </div>
+                         </div>
+                       </td>
+                       <td class="purchase-list-status col-status">
+                         <div class="data-status-dropdown">
+                           <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                             <span class="data-status-badge data-status-submitted">Warm</span>
+                             <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                           </button>
+                           <div class="data-status-dropdown-menu">
+                             <button class="data-status-option" data-status="hot" onclick="changeStatus(this, 'hot')">
+                               <i class="fa fa-fire"></i>
+                               Hot
+                             </button>
+                             <button class="data-status-option" data-status="warm"
+                               onclick="changeStatus(this, 'warm')">
+                               <i class="fa fa-sun-o"></i>
+                               Warm
+                             </button>
+                             <button class="data-status-option" data-status="cold"
+                               onclick="changeStatus(this, 'cold')">
+                               <i class="fa fa-snowflake-o"></i>
+                               Cold
+                             </button>
+                           </div>
+                         </div>
+                       </td>
+                      <td class="data-table-actions-cell"></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+    
+            <!-- PR Card View -->
+            <div class="data-card-container" id="cardView" style="display: none;">
+              <div class="data-card-grid">
+                <!-- Card 1 -->
+                <div class="data-card">
+                  <div class="data-card-header">
+                    <div class="data-card-checkbox">
+                      <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
+                      <label for="card-inq-001" class="data-checkbox-label"></label>
+                    </div>
+                     <div class="data-card-item-number">LEAD-2025-001</div>
+                     <div class="data-card-status">
+                       <span class="data-status-badge data-status-approved">Qualified</span>
+                     </div>
+                   </div>
+                   <div class="data-card-body">
+                     <div class="data-card-row">
+                       <span class="data-card-label">Company:</span>
+                       <span class="data-card-value">
+                         <span class="data-type-badge data-type-equipment">Tech Solutions Ltd</span>
+                       </span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Contact:</span>
+                       <span class="data-card-value">
+                         <div class="data-card-user-info">
+                           <div class="data-card-user-avatar">
+                             <img src="images/user.png" alt="Ahmed Hassan">
+                             <div class="data-user-status online"></div>
+                           </div>
+                           <span class="data-card-user-name">Ahmed Hassan</span>
+                         </div>
+                       </span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Lead Source:</span>
+                       <span class="data-card-value">Website</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Industry:</span>
+                       <span class="data-card-value">IT Services → Software</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Location:</span>
+                       <span class="data-card-value">Dubai, UAE</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Last Contact:</span>
+                       <span class="data-card-value">15/01/2025</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Type:</span>
+                       <span class="data-card-value">
+                         <span class="data-attachment-count">Hot</span>
+                       </span>
+                     </div>
+                  </div>
+                </div>
+    
+                <!-- Card 2 -->
+                <div class="data-card">
+                  <div class="data-card-header">
+                    <div class="data-card-checkbox">
+                      <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
+                      <label for="card-inq-002" class="data-checkbox-label"></label>
+                    </div>
+                     <div class="data-card-item-number">LEAD-2025-002</div>
+                     <div class="data-card-status">
+                       <span class="data-status-badge data-status-draft">Contacted</span>
+                     </div>
+                   </div>
+                   <div class="data-card-body">
+                     <div class="data-card-row">
+                       <span class="data-card-label">Company:</span>
+                       <span class="data-card-value">
+                         <span class="data-type-badge data-type-equipment">Construction Pro</span>
+                       </span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Contact:</span>
+                       <span class="data-card-value">
+                         <div class="data-card-user-info">
+                           <div class="data-card-user-avatar">
+                             <img src="images/sarah.pnh.png" alt="Mohammed Ali">
+                             <div class="data-user-status offline"></div>
+                           </div>
+                           <span class="data-card-user-name">Mohammed Ali</span>
+                         </div>
+                       </span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Lead Source:</span>
+                       <span class="data-card-value">Referral</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Industry:</span>
+                       <span class="data-card-value">Construction → Materials</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Location:</span>
+                       <span class="data-card-value">Abu Dhabi, UAE</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Last Contact:</span>
+                       <span class="data-card-value">12/01/2025</span>
+                     </div>
+                     <div class="data-card-row">
+                       <span class="data-card-label">Type:</span>
+                       <span class="data-card-value">
+                         <span class="data-attachment-count">Warm</span>
+                       </span>
+                     </div>
+                  </div>
+                </div>
+    
+              </div>
+            </div>
+      </div>
+
+    </div>
+  </main>
+  <!-- Main Content End -->
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- CustomEase plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+
+  <script src="script/script.js"></script>
+  <script src="script/settings.js"></script>
+  <script src="script/sidebar.js"></script>
+  <script src="script/filter-modal.js"></script>
+  <script src="script/header.js"></script>
+  <script src="script/common-table.js"></script>
+
+  
+  <!-- User Contact Popup -->
+  <div id="userContactPopup" class="user-contact-popup">
+    <div class="popup-content">
+      <div class="popup-header">
+        <div class="popup-user-info">
+          <div class="popup-user-avatar">
+            <img src="images/user.png" alt="User" id="popupUserImage">
+            <div class="popup-user-status" id="popupUserStatus"></div>
+          </div>
+          <h3 id="popupUserName">User Name</h3>
+        </div>
+        <button class="popup-close">&times;</button>
+      </div>
+      <div class="popup-body">
+        <div class="contact-item">
+          <i class="fa fa-comment"></i>
+          <a href="https://wa.me/1234567890" target="_blank" id="popupWhatsapp">+1234567890</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa fa-phone"></i>
+          <a href="tel:+1234567890" id="popupPhone">+1234567890</a>
+        </div>
+        <div class="contact-item">
+          <i class="fa fa-envelope"></i>
+          <a href="mailto:user@example.com" id="popupEmail">user@example.com</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- PR View Offcanvas -->
+    <div class="purchase-offcanvas" id="prOffcanvas">
+      <div class="purchase-offcanvas-backdrop" onclick="closePROffcanvas()"></div>
+      <div class="purchase-offcanvas-content">
+        <!-- Resize Button -->
+        <button class="purchase-offcanvas-resize-btn" onclick="toggleOffcanvasWidth()">
+          <i class="fa fa-chevron-left offcanvas-resize-icon"></i>
+        </button>
+  
+        <div class="purchase-offcanvas-header">
+          <h3>PR-3456222</h3>
+          <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
+            <i class="fa fa-times"></i>
+          </button>
+            <!-- Staging Section -->
+            <div class="pr-staging-section">
+              <div class="pr-staging-arrow">
+                <div class="pr-stage pr-stage-active">
+                  <div class="pr-stage-content">
+                    <div class="pr-stage-label">Draft</div>
+                  </div>
+                </div>
+                <div class="pr-arrow-connector"></div>
+                <div class="pr-stage">
+                  <div class="pr-stage-content">
+                    <div class="pr-stage-label">Submit</div>
+                  </div>
+                </div>
+                <div class="pr-arrow-connector"></div>
+                <div class="pr-stage">
+                  <div class="pr-stage-content">
+                    <div class="pr-stage-label">Approve</div>
+                  </div>
+                </div>
+                <div class="pr-arrow-connector"></div>
+                <div class="pr-stage">
+                  <div class="pr-stage-content">
+                    <div class="pr-stage-label">Done</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="purchase-offcanvas-body">
+  
+          <!-- Tabs Navigation -->
+          <div class="pr-tabs-container">
+            <div class="pr-tabs">
+              <button class="pr-tab-btn active" onclick="switchTab('pr')" data-tab="pr" data-title="PR-3456222">
+                <i class="fa fa-file-invoice"></i>
+                PR
+              </button>
+              <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="Create My PR">
+                <i class="fa fa-plus"></i>
+                Create
+              </button>
+              <button class="pr-tab-btn" onclick="switchTab('chat')" data-tab="chat" data-title="Chat">
+                <i class="fa fa-comments"></i>
+                Chat
+              </button>
+              <button class="pr-tab-btn" onclick="switchTab('log')" data-tab="log" data-title="Activity Log">
+                <i class="fa fa-list"></i>
+                Log
+              </button>
+            </div>
+          </div>
+  
+          <!-- Tab Content -->
+          <div class="pr-tab-content">
+            <div class="pr-tab-panel active" id="pr-panel">
+              <!-- PR Action Buttons -->
+              <div class="pr-action-buttons">
+                <div class="pr-action-buttons-group">
+                  <button class="pr-btn pr-btn-edit" type="button">
+                    <i class="fa fa-edit"></i>
+                    Edit
+                  </button>
+                  <button class="pr-btn pr-btn-submit" type="button">
+                    <i class="fa fa-paper-plane"></i>
+                    Submit
+                  </button>
+                </div>
+                <div class="pr-action-buttons-group">
+                  <button class="pr-btn pr-btn-approve" type="button">
+                    <i class="fa fa-check"></i>
+                    Approve
+                  </button>
+                  <button class="pr-btn pr-btn-reject" type="button">
+                    <i class="fa fa-times"></i>
+                    Reject
+                  </button>
+                </div>
+                <div class="pr-action-buttons-group">
+                  <button class="pr-btn pr-btn-cancel" type="button">
+                    <i class="fa fa-ban"></i>
+                    Cancel
+                  </button>
+                </div>
+              </div>
+  
+              <div class="pr-items-overview-section">
+  
+                <div class="pr-overview-section">
+                  <div class="pr-overview-header" onclick="togglePROverview()">
+                    <h4>PR Overview</h4>
+                    <i class="fa fa-chevron-down pr-overview-toggle-icon"></i>
+                  </div>
+                  <div class="pr-overview-content" id="prOverviewContent">
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">PR Number</div>
+                        <div class="pr-overview-value">PR-3456222</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Created By</div>
+                        <div class="pr-overview-value">
+                          <div class="data-user-info clickable-user" data-user="john">
+                            <div class="data-user-avatar">
+                              <img src="images/user.png" alt="John Smith">
+                              <div class="data-user-status online"></div>
+                            </div>
+                            <span class="data-user-name">John Smith</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Requested By</div>
+                        <div class="pr-overview-value">
+                          <div class="data-user-info clickable-user" data-user="sarah">
+                            <div class="data-user-avatar">
+                              <img src="images/sofia.png" alt="Sarah Johnson">
+                              <div class="data-user-status online"></div>
+                            </div>
+                            <span class="data-user-name">Sarah Johnson</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">PR Type</div>
+                        <div class="pr-overview-value pr-type-equipment">Equipment</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Department</div>
+                        <div class="pr-overview-value">Procurement</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Priority</div>
+                        <div class="pr-overview-value pr-priority-high">High</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Status</div>
+                        <div class="pr-overview-value pr-status-draft">Draft</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Created On</div>
+                        <div class="pr-overview-value">Dec 15, 2024</div>
+                      </div>
+                      <div class="pr-overview-item">
+                        <div class="pr-overview-label">Due Date</div>
+                        <div class="pr-overview-value">Dec 30, 2024</div>
+                      </div>
+                    </div>
+                    <div class="pr-overview-row">
+  
+                    </div>
+                  </div>
+                </div>
+  
+                <!-- Items Table Section -->
+                <div class="pr-items-section collapsed">
+                  <div class="pr-items-header" onclick="togglePRItems()">
+                    <h4>Items requested</h4>
+                    <i class="fa fa-chevron-down pr-items-toggle-icon"></i>
+                  </div>
+                  <div class="pr-items-table-container" id="prItemsContent">
+                    <table class="pr-items-table">
+                      <thead>
+                        <tr>
+                          <th class="pr-item-checkbox-header">
+                            <label for="selectAllItems" class="pr-item-checkbox-label"></label>
+                            <span class="pr-item-checkbox-text"></span>
+                          </th>
+                          <th class="pr-item-drag-header">--</th>
+                          <th>Item Desc</th>
+                          <th class="pr-item-unit-header">UOM</th>
+                          <th class="pr-item-quantity-header">Quantity</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td class="pr-item-checkbox">
+                            <input type="checkbox" class="pr-item-checkbox pr-item-checkbox-row" id="item-001">
+                            <label for="item-001" class="pr-item-checkbox-label"></label>
+                          </td>
+                          <td class="pr-item-drag-handle">
+                            <i class="fa fa-grip-vertical"></i>
+                          </td>
+                          <td class="pr-item-description">Laptop Computer - Dell Inspiron 15</td>
+                          <td class="pr-item-unit">PCS</td>
+                          <td class="pr-item-quantity">5</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-item-checkbox">
+                            <input type="checkbox" class="pr-item-checkbox pr-item-checkbox-row" id="item-002">
+                            <label for="item-002" class="pr-item-checkbox-label"></label>
+                          </td>
+                          <td class="pr-item-drag-handle">
+                            <i class="fa fa-grip-vertical"></i>
+                          </td>
+                          <td class="pr-item-description">Office Chair - Ergonomic Design</td>
+                          <td class="pr-item-unit">PCS</td>
+                          <td class="pr-item-quantity">10</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-item-checkbox">
+                            <input type="checkbox" class="pr-item-checkbox pr-item-checkbox-row" id="item-003">
+                            <label for="item-003" class="pr-item-checkbox-label"></label>
+                          </td>
+                          <td class="pr-item-drag-handle">
+                            <i class="fa fa-grip-vertical"></i>
+                          </td>
+                          <td class="pr-item-description">Printer Paper - A4 White 80gsm</td>
+                          <td class="pr-item-unit">REAMS</td>
+                          <td class="pr-item-quantity">50</td>
+                        </tr>
+                        <tr>
+                          <td class="pr-item-checkbox">
+                            <input type="checkbox" class="pr-item-checkbox pr-item-checkbox-row" id="item-004">
+                            <label for="item-004" class="pr-item-checkbox-label"></label>
+                          </td>
+                          <td class="pr-item-drag-handle">
+                            <i class="fa fa-grip-vertical"></i>
+                          </td>
+                          <td class="pr-item-description">Projector - HD 1080p Wireless</td>
+                          <td class="pr-item-unit">PCS</td>
+                          <td class="pr-item-quantity">2</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+  
+              </div>
+  
+              <!-- pr description section -->
+              <div class="pr-description-section collapsed">
+                <div class="pr-description-header" onclick="togglePRDescription()">
+                  <h4>Description</h4>
+                  <i class="fa fa-chevron-down pr-description-toggle-icon"></i>
+                </div>
+                <div class="pr-description-content" id="prDescriptionContent">
+                  <p class="pr-description">This request includes essential office equipment and supplies:
+  
+                    Laptop Computer (Dell Inspiron 15): For daily computing and productivity tasks.
+  
+                    Office Chair (Ergonomic Design): To provide comfort and support during long working hours.
+  
+                    Printer Paper (A4 White 80gsm): Standard paper for printing and documentation needs.
+  
+                    Projector (HD 1080p Wireless): For presentations, meetings, and training sessions.</p>
+                </div>
+              </div>
+  
+              <!-- pr justification section -->
+              <div class="pr-description-section collapsed">
+                <div class="pr-description-header" onclick="togglePRJustification()">
+                  <h4>Justification</h4>
+                  <i class="fa fa-chevron-down pr-description-toggle-icon"></i>
+                </div>
+                <div class="pr-description-content" id="prJustificationContent">
+                  <p class="pr-description">The requested items are necessary to support daily office operations and
+                    improve staff productivity. The laptop computer will be used for essential work tasks and project
+                    management. The ergonomic office chair is required to ensure employee comfort and reduce health risks
+                    during long working hours. The printer paper is needed for routine documentation and printing
+                    requirements. The HD projector will support presentations, meetings, and training sessions, enhancing
+                    collaboration and communication.</p>
+                </div>
+              </div>
+  
+              <!-- pr notes section -->
+              <div class="pr-description-section collapsed">
+                <div class="pr-description-header" onclick="togglePRNotes()">
+                  <h4>Additional Notes</h4>
+                  <i class="fa fa-chevron-down pr-description-toggle-icon"></i>
+                </div>
+                <div class="pr-description-content" id="prNotesContent">
+                  <p class="pr-description">All items are requested to enhance efficiency and maintain smooth office
+                    operations.
+  
+                    Preference for durable, reliable brands to reduce maintenance costs.
+  
+                    Delivery within the next two weeks is preferred to meet upcoming project deadlines.
+  
+                    Warranty and after-sales support should be included where applicable.</p>
+                </div>
+              </div>
+  
+            </div>
+            <div class="pr-tab-panel" id="chat-panel">
+              <p>Chat messages will be displayed here...</p>
+            </div>
+            <div class="pr-tab-panel" id="log-panel">
+              <p>Activity log will be displayed here...</p>
+            </div>
+  
+            <!-- Create PR Form Panel -->
+            <div class="pr-tab-panel" id="create-panel">
+              <!-- Staging Section -->
+              <div class="pr-staging-section">
+                <div class="pr-staging-arrow">
+                  <div class="pr-stage pr-stage-active">
+                    <div class="pr-stage-content">
+                      <div class="pr-stage-label">Draft</div>
+                    </div>
+                  </div>
+                  <div class="pr-arrow-connector"></div>
+                  <div class="pr-stage">
+                    <div class="pr-stage-content">
+                      <div class="pr-stage-label">Submit</div>
+                    </div>
+                  </div>
+                  <div class="pr-arrow-connector"></div>
+                  <div class="pr-stage">
+                    <div class="pr-stage-content">
+                      <div class="pr-stage-label">Approve</div>
+                    </div>
+                  </div>
+                  <div class="pr-arrow-connector"></div>
+                  <div class="pr-stage">
+                    <div class="pr-stage-content">
+                      <div class="pr-stage-label">Done</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="purchase-form-container">
+                <form class="purchase-form" data-type="pr">
+                  <!-- Row 1 -->
+                  <div class="purchase-form-row">
+                    <div class="purchase-form-group">
+                      <label for="prNumber">PR Number</label>
+                      <input type="text" id="prNumber" name="prNumber" readonly value="PR-2024-001">
+                      <small class="purchase-rfq-help-text">Auto-generated</small>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prRequesterName">Requested By</label>
+                      <input type="text" id="prRequesterName" name="requesterName" placeholder="Enter requested by"
+                        required>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prDepartment">Department</label>
+                      <select id="prDepartment" name="department" required>
+                        <option value="">Select Department</option>
+                        <option value="it">Information Technology</option>
+                        <option value="hr">Human Resources</option>
+                        <option value="finance">Finance</option>
+                        <option value="operations">Operations</option>
+                        <option value="marketing">Marketing</option>
+                        <option value="sales">Sales</option>
+                        <option value="procurement">Procurement</option>
+                      </select>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prPriority">Priority</label>
+                      <select id="prPriority" name="priority" required>
+                        <option value="">Select Priority</option>
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                        <option value="urgent">Urgent</option>
+                      </select>
+                    </div>
+                  </div>
+  
+                  <!-- Row 2 -->
+                  <div class="purchase-form-row">
+                    <div class="purchase-form-group">
+                      <label for="prRequiredDate">Required Date</label>
+                      <input type="date" id="prRequiredDate" name="requiredDate" required>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prDeliveryLocation">Delivery Location</label>
+                      <input type="text" id="prDeliveryLocation" name="deliveryLocation"
+                        placeholder="Enter delivery location" required>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prCurrency">Currency</label>
+                      <select id="prCurrency" name="currency">
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="SAR">SAR</option>
+                      </select>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="prType">PR Type</label>
+                      <select id="prType" name="prType" required>
+                        <option value="">Select PR Type</option>
+                        <option value="grocery">Grocery</option>
+                        <option value="stationary">Stationary</option>
+                        <option value="building-materials">Building Materials</option>
+                        <option value="consumables">Consumables</option>
+                        <option value="booking">Booking</option>
+                        <option value="rental">Rental</option>
+                        <option value="furniture">Furniture</option>
+                        <option value="contractor">Contractor</option>
+                        <option value="equipment">Equipment</option>
+                        <option value="services">Services</option>
+                        <option value="software">Software</option>
+                      </select>
+                    </div>
+                  </div>
+  
+                  <!-- Items Table Section -->
+                  <div class="purchase-form-group">
+                    <label>Items</label>
+                    <div class="purchase-items-table-container">
+                      <table class="purchase-items-table">
+                        <thead>
+                          <tr>
+                            <th>Text</th>
+                            <th>UOM</th>
+                            <th>Quantity</th>
+                            <th class="data-table-actions">
+                              <div class="data-columns-dropdown">
+                                <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                                  <img src="images/add-column.png" alt="Columns" width="20px">
+                                </button>
+                                <div class="data-columns-dropdown-content" id="columnDropdown">
+                                  <div class="data-columns-dropdown-header">
+                                    <h4>Select Columns</h4>
+                                  </div>
+                                  <div class="data-columns-dropdown-body">
+                                    <div class="data-column-options">
+                                      <label class="data-column-option fixed-column">
+                                        <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                        <span class="data-column-label">
+                                          Inquiry ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                      <label class="data-column-option">
+                                        <input type="checkbox" value="col-pr-type" checked>
+                                        <span class="data-column-label">Project</span>
+                                      </label>
+                                      <label class="data-column-option">
+                                        <input type="checkbox" value="col-department" checked>
+                                        <span class="data-column-label">Title</span>
+                                      </label>
+                                      <label class="data-column-option fixed-column">
+                                        <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                        <span class="data-column-label">
+                                          Category <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                      <label class="data-column-option fixed-column">
+                                        <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                                        <span class="data-column-label">
+                                          Visibility <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                      <label class="data-column-option">
+                                        <input type="checkbox" value="col-created-on" checked>
+                                        <span class="data-column-label">Status</span>
+                                      </label>
+                                      <label class="data-column-option fixed-column">
+                                        <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                                        <span class="data-column-label">
+                                          Created By <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                      <label class="data-column-option fixed-column">
+                                        <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                                        <span class="data-column-label">
+                                          Created On <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                      <label class="data-column-option">
+                                        <input type="checkbox" value="col-required-date" checked>
+                                        <span class="data-column-label">Attachments</span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                  <div class="data-columns-dropdown-footer">
+                                    <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                      Cancel
+                                    </button>
+                                    <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                      Save
+                                    </button>
+                                  </div>
+                                </div>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody id="purchaseItemsTableBody">
+                          <tr class="purchase-item-row">
+                            <td>
+                              <input type="text" class="purchase-item-input" placeholder="Enter text">
+                            </td>
+                            <td>
+                              <select class="purchase-item-select" name="itemUnit[]">
+                                <option value="">UOM</option>
+                                <option value="pcs">Pieces</option>
+                                <option value="m">Meters</option>
+                                <option value="l">Liters</option>
+                                <option value="box">Box</option>
+                                <option value="set">Set</option>
+                                <option value="hr">Hours</option>
+                                <option value="day">Days</option>
+                              </select>
+                            </td>
+                            <td>
+                              <input type="number" class="purchase-item-input purchase-quantity-input" placeholder="0"
+                                name="itemQuantity[]" min="0" step="0.01" onchange="calculateRowTotal(this)">
+                            </td>
+                            <td class="data-table-actions-cell"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+  
+                  <!-- Tabs Section -->
+                  <div class="purchase-form-group">
+                    <div class="purchase-tabs-section">
+                      <div class="purchase-tabs-nav">
+                        <button type="button" class="purchase-tab-nav-btn active"
+                          onclick="switchPurchaseFormTab('description', event)" data-tab="description">
+                          <i class="fa fa-file-text"></i>
+                          Description
+                        </button>
+                        <button type="button" class="purchase-tab-nav-btn"
+                          onclick="switchPurchaseFormTab('attachments', event)" data-tab="attachments">
+                          <i class="fa fa-paperclip"></i>
+                          Attachments
+                        </button>
+                      </div>
+  
+                      <div class="purchase-tab-content-wrapper">
+                        <!-- Description Tab -->
+                        <div class="purchase-tab-panel-content active" id="descriptionTab">
+                          <div class="purchase-form-group">
+                            <label for="prDescription">Description</label>
+                            <textarea id="prDescription" name="description" rows="4"
+                              placeholder="Enter detailed description of the purchase request..."></textarea>
+                          </div>
+  
+                          <div class="purchase-form-group">
+                            <label for="prJustification">Justification</label>
+                            <textarea id="prJustification" name="justification" rows="3"
+                              placeholder="Explain why this purchase is necessary..."></textarea>
+                          </div>
+  
+                          <div class="purchase-form-group">
+                            <label for="prNotes">Additional Notes</label>
+                            <textarea id="prNotes" name="notes" rows="2"
+                              placeholder="Any additional information or special requirements..."></textarea>
+                          </div>
+                        </div>
+  
+                        <!-- Attachments Tab -->
+                        <div class="purchase-tab-panel-content" id="attachmentsTab">
+                          <div class="purchase-form-group">
+                            <label for="prAttachments">Attachments</label>
+                            <div class="purchase-attachment-container">
+                              <input type="file" id="prAttachments" name="attachments" multiple
+                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt" style="display: none;"
+                                onchange="displaySelectedFiles(this)">
+                              <button type="button" class="purchase-upload-btn"
+                                onclick="document.getElementById('prAttachments').click()">
+                                <i class="fa fa-upload"></i>
+                                Upload Files
+                              </button>
+                              <div class="purchase-upload-popover">
+                                Images, or Justification documents
+                              </div>
+                            </div>
+                            <div class="purchase-files-list" id="prFilesList">
+                              <!-- Selected files will be displayed here -->
+                            </div>
+                          </div>
+  
+                          <div class="purchase-form-group">
+                            <label for="prLinks">Related Links</label>
+                            <div class="purchase-links-container">
+                              <div class="purchase-link-input-group">
+                                <input type="url" class="purchase-link-input" placeholder="Enter URL" id="prLinkInput">
+                                <button type="button" class="purchase-add-link-btn" onclick="addLink()">
+                                  <i class="fa fa-plus"></i>
+                                  Add Link
+                                </button>
+                              </div>
+                              <div class="purchase-links-list" id="prLinksList">
+                                <!-- Added links will be displayed here -->
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <!-- Form Actions -->
+                  <div class="purchase-form-actions">
+                    <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
+                      Cancel
+                    </button>
+                    <button type="submit" class="purchase-btn purchase-btn-primary">
+                      <i class="fa fa-save"></i>
+                      Save
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+</body>
+
+</html>
