@@ -2162,36 +2162,6 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-
-  <!-- CustomEase plugin -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
-
-  <script src="script/sidebar.js"></script>
-  <script src="script/header.js"></script>
-  <script src="script/common-table.js"></script>
-  <script src="script/common-offcanvas.js"></script>
-
-  <!-- Initialize select all functionality for this page -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      // Initialize select all functionality with the correct checkbox ID
-      initSelectAll('selectAllPRs', '.data-checkbox-row', function () {
-        // Update action dropdown visibility when selection changes
-        const selectedCheckboxes = document.querySelectorAll('.data-checkbox-row:checked');
-        const actionDropdown = document.querySelector('.page-header-action-dropdown');
-
-        if (selectedCheckboxes.length > 0) {
-          actionDropdown.style.display = 'inline-block';
-          actionDropdown.classList.add('show');
-        } else {
-          actionDropdown.style.display = 'none';
-          actionDropdown.classList.remove('show');
-        }
-      });
-    });
-  </script>
-
   <!-- User Contact Popup -->
   <div id="userContactPopup" class="user-contact-popup">
     <div class="popup-content">
@@ -2704,7 +2674,39 @@
     </div>
   </div>
 
-  <script src="script/rfq-company.js"></script>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+  <!-- CustomEase plugin -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
+
+  <script src="script/sidebar.js"></script>
+  <script src="script/header.js"></script>
+  <script src="script/common-table.js"></script>
+  <script src="script/common-offcanvas.js"></script>
+
+  <!-- Initialize select all functionality for this page -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Initialize select all functionality with the correct checkbox ID
+      initSelectAll('selectAllPRs', '.data-checkbox-row', function () {
+        // Update action dropdown visibility when selection changes
+        const selectedCheckboxes = document.querySelectorAll('.data-checkbox-row:checked');
+        const actionDropdown = document.querySelector('.page-header-action-dropdown');
+
+        if (selectedCheckboxes.length > 0) {
+          actionDropdown.style.display = 'inline-block';
+          actionDropdown.classList.add('show');
+        } else {
+          actionDropdown.style.display = 'none';
+          actionDropdown.classList.remove('show');
+        }
+      });
+    });
+  </script>
+
+
   <script src="script/chat.js"></script>
 
 </body>
