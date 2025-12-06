@@ -12,9 +12,11 @@
   <link rel="stylesheet" href="styles/settings-responsive.css">
   <link rel="stylesheet" href="styles/overview-responsive.css">
   <link rel="stylesheet" href="styles/purchase-offcanvas.css">
+  <link rel="stylesheet" href="styles/purchase.css">
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/common-table.css">
   <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
@@ -275,7 +277,7 @@
     </div>
   </div>
   <!-- Top Header End -->
-  
+
   <!-- Sidebar -->
   <aside class="sidebar" id="sidebar" aria-label="Main navigation">
 
@@ -285,8 +287,7 @@
           <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
-          <i class="fa fa-chevron-down"
-            style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+          <i class="fa fa-chevron-down" style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
         </div>
       </button>
 
@@ -303,9 +304,9 @@
           <h2>Company</h2>
         </div>
         <div class="form-grid">
-          
+
           <div class="company form-section">
-      
+
             <div class="checkbox-group ">
               <div class="section">
                 <h4>SAJMEP</h4>
@@ -397,7 +398,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/our-products-icon.png" alt="" width="28px">
-                Offering 
+                Offering
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -529,21 +530,24 @@
                       Purchase
                     </a>
                     <ul class="purchase-submenu">
-                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')" class="purchase-submenu-link active" data-tab="pr">
-                        <i class="fa fa-file-text-o"></i>
-                        PR
-                        <span class="purchase-tab-count">12</span>
-                      </a></li>
-                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link" data-tab="rfq">
-                        <i class="fa fa-question-circle"></i>
-                        RFQ
-                        <span class="purchase-tab-count">8</span>
-                      </a></li>
-                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link" data-tab="po">
-                        <i class="fa fa-file-text"></i>
-                        PO
-                        <span class="purchase-tab-count">25</span>
-                      </a></li>
+                      <li><a href="purchase.html#pr" onclick="switchPurchaseTab('pr')"
+                          class="purchase-submenu-link active" data-tab="pr">
+                          <i class="fa fa-file-text-o"></i>
+                          PR
+                          <span class="purchase-tab-count">12</span>
+                        </a></li>
+                      <li><a href="purchase.html#rfq" onclick="switchPurchaseTab('rfq')" class="purchase-submenu-link"
+                          data-tab="rfq">
+                          <i class="fa fa-question-circle"></i>
+                          RFQ
+                          <span class="purchase-tab-count">8</span>
+                        </a></li>
+                      <li><a href="purchase.html#po" onclick="switchPurchaseTab('po')" class="purchase-submenu-link"
+                          data-tab="po">
+                          <i class="fa fa-file-text"></i>
+                          PO
+                          <span class="purchase-tab-count">25</span>
+                        </a></li>
                     </ul>
                   </li>
                   <li><a href="#">Tenders</a></li>
@@ -613,12 +617,12 @@
 
       <div class="item has-submenu" id="quickLinksItem">
         <a href="inquiries.html">
-        <button class="btn" aria-haspopup="true" aria-expanded="false">
-          <span class="icon" aria-hidden>
-            <img src="images/quick-link.png" alt="" class="sidebar-icons">
-          </span>
-          <span class="label">Inquiries</span>
-        </button>
+          <button class="btn" aria-haspopup="true" aria-expanded="false">
+            <span class="icon" aria-hidden>
+              <img src="images/quick-link.png" alt="" class="sidebar-icons">
+            </span>
+            <span class="label">Inquiries</span>
+          </button>
         </a>
       </div>
 
@@ -664,7 +668,7 @@
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
                   <img src="images/competition.png" alt="" width="28px">
-                  Competitions 
+                  Competitions
                 </h2>
               </a>
             </div>
@@ -672,7 +676,7 @@
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/media-center.png" alt="" width="28px">
-                Media Center 
+                Media Center
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -741,9 +745,12 @@
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a></li>
-                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a></li>
-                  <li><a href="help-center.html#video-tutorials" onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
+                  <li><a href="help-center.html#faqs" onclick="HelpCenter.switchTab('faqs'); return false;">FAQs</a>
+                  </li>
+                  <li><a href="help-center.html#blogs" onclick="HelpCenter.switchTab('blogs'); return false;">Guides</a>
+                  </li>
+                  <li><a href="help-center.html#video-tutorials"
+                      onclick="HelpCenter.switchTab('video-tutorials'); return false;">Video Tutorials</a></li>
                 </ul>
               </div>
             </div>
@@ -774,517 +781,510 @@
             </span>
             <span class="label">Settings</span>
           </button>
-                  <!-- Submenu (full-height) -->
-        <div class="submenu" role="menu" aria-label="Organization submenu">
-          <div class="submenu-top">
-            <h3 style="margin:0;font-size:16px">All Settings</h3>
+          <!-- Submenu (full-height) -->
+          <div class="submenu" role="menu" aria-label="Organization submenu">
+            <div class="submenu-top">
+              <h3 style="margin:0;font-size:16px">All Settings</h3>
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="setting.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-settings.png" alt="" width="28px">
+                    Company Setting
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/profile.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/profile-settings.png" alt="" width="28px">
+                    Company Profile
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="profile/prequalification.html">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/company-prequalification.png" alt="" width="28px">
+                    Company Prequalification
+                  </h2>
+                </a>
+              </div>
+
+            </div>
           </div>
-
-          <div class="form-grid">
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="setting.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/company-settings.png" alt="" width="28px">
-                  Company Setting
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="profile/profile.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/profile-settings.png" alt="" width="28px">
-                  Company Profile
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="profile/prequalification.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/company-prequalification.png" alt="" width="28px">
-                  Company Prequalification
-                </h2>
-              </a>
-            </div>
-
-          </div>
-        </div>
         </div>
       </a>
     </div>
   </aside>
   <!-- Sidebar End -->
-  
+
   <!-- Main Content -->
   <main class="content page" id="page">
     <div class="main-content">
-    <!-- Common Page Header -->
-    <div class="toolbar">
+      <!-- Common Page Header -->
+      <div class="toolbar">
 
-      <div class="toolbar-title">
-        <h2>Leads</h2>
-        <p>Explore leads with company details</p>
-      </div>
-      <div class="toolbar-controls">
-        <div class="toolbar-search">
-          <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
-          <i class="fa fa-search toolbar-search-icon"></i>
-          <i class="fa fa-times toolbar-search-close"></i>
+        <div class="toolbar-title">
+          <h2>Leads</h2>
+          <p>Explore leads with company details</p>
         </div>
-  
-        <div class="toolbar-actions">
-  
-          <div class="views-toggle">
-            <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
-              <i class="fa fa-th-large views-toggle-icon"></i>
-              <i class="fa fa-chevron-down views-toggle-arrow"></i>
-            </button>
-            <div class="views-toggle-dropdown" id="viewsDropdown">
-              <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
-                <i class="fa fa-dashboard"></i>
-                <span>Dashboard View</span>
-              </div>
-              <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
-                <i class="fa fa-th-large"></i>
-                <span>Card View</span>
-              </div>
-              <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
-                <i class="fa fa-list"></i>
-                <span>List View</span>
-              </div>
-              <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
-                <i class="fa fa-calendar"></i>
-                <span>Calendar View</span>
-              </div>
-              <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
-                <i class="fa fa-map"></i>
-                <span>Map View</span>
+        <div class="toolbar-controls">
+          <div class="toolbar-search">
+            <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
+            <i class="fa fa-search toolbar-search-icon"></i>
+            <i class="fa fa-times toolbar-search-close"></i>
+          </div>
+
+          <div class="toolbar-actions">
+
+            <div class="views-toggle">
+              <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+                <i class="fa fa-th-large views-toggle-icon"></i>
+                <i class="fa fa-chevron-down views-toggle-arrow"></i>
+              </button>
+              <div class="views-toggle-dropdown" id="viewsDropdown">
+                <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                  <i class="fa fa-dashboard"></i>
+                  <span>Dashboard View</span>
+                </div>
+                <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                  <i class="fa fa-th-large"></i>
+                  <span>Card View</span>
+                </div>
+                <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                  <i class="fa fa-list"></i>
+                  <span>List View</span>
+                </div>
+                <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                  <i class="fa fa-calendar"></i>
+                  <span>Calendar View</span>
+                </div>
+                <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                  <i class="fa fa-map"></i>
+                  <span>Map View</span>
+                </div>
               </div>
             </div>
-          </div>
-  
-          <div class="toolbar-group-by">
-            <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
-              <i class="fa fa-sitemap"></i>
-              <span class="btn-text">Group By</span>
-            </button>
-            <div class="toolbar-group-by-dropdown" id="groupByDropdown">
-              <!-- <div class="toolbar-group-by-item" data-value="status">
-                <i class="fa fa-flag"></i>
-                Status
-              </div>
+
+            <div class="toolbar-group-by">
+              <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                <i class="fa fa-sitemap"></i>
+                <span class="btn-text">Group By</span>
+              </button>
+              <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+                <!-- <div class="toolbar-group-by-item" data-value="status">
+                  <i class="fa fa-flag"></i>
+                  Status
+                </div>
               <div class="toolbar-group-by-item" data-value="category">
-                <i class="fa fa-tags"></i>
-                Category
-              </div>
+                  <i class="fa fa-tags"></i>
+                  Category
+                </div>
               <div class="toolbar-group-by-item" data-value="location">
-                <i class="fa fa-map-marker"></i>
-                Location
+                  <i class="fa fa-map-marker"></i>
+                  Location
               </div> -->
+              </div>
             </div>
+
+            <button class="toolbar-filter-btn" title="Filter">
+              <i class="fa fa-filter"></i>
+              <span class="btn-text">Filter</span>
+            </button>
+
+            <button class="toolbar-actions-btn" title="Actions">
+              <i class="fa fa-gear"></i>
+              <span class="btn-text">Actions</span>
+            </button>
+
+            <button class="data-btn data-btn-primary" onclick="createLead()" title="Add Lead">
+              <i class="fa fa-plus"></i>
+              <span class="btn-text">Add Lead</span>
+            </button>
+
           </div>
-  
-          <button class="toolbar-filter-btn" title="Filter">
-            <i class="fa fa-filter"></i>
-            <span class="btn-text">Filter</span>
-          </button>
-  
-          <button class="toolbar-actions-btn" title="Actions">
-            <i class="fa fa-gear"></i>
-            <span class="btn-text">Actions</span>
-          </button>
-  
-          <button class="data-btn data-btn-primary" onclick="createLead()" title="Add Lead">
-            <i class="fa fa-plus"></i>
-            <span class="btn-text">Add Lead</span>
-          </button>
-  
+
         </div>
-        
+
       </div>
-      
-    </div>
-  
+
 
       <!-- Leads Content -->
       <div class="data-table-container">
-            <!-- Leads List Table -->
-            <div class="data-table-container" id="listView">
-              <div class="data-table-wrapper">
-                <table class="data-table">
-                  <thead>
-                    <tr>
-                      <th>
-                        <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
-                        <label for="selectAllPRs" class="data-checkbox-label"></label>
-                        <span class="data-checkbox-text"></span>
-                      </th>
-                      <th class="data-drag-header">--</th>
-                       <th class="col-pr-number">Lead ID</th>
-                       <th class="col-pr-type">Company Name</th>
-                       <th class="col-department">Contact Person</th>
-                       <th class="col-budget">Lead Source</th>
-                       <th class="col-created-on">Industry</th>
-                       <th class="col-requested-by">Location</th>
-                       <th class="col-created-on">Last Contact</th>
-                       <th class="col-priority-level">Status</th>
-                       <th class="col-status">Type</th>
-                      <th class="data-table-actions">
-                        <div class="data-columns-dropdown">
-                          <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
-                            <img src="images/add-column.png" alt="Columns" width="20px">
-                          </button>
-                          <div class="data-columns-dropdown-content" id="columnDropdown">
-                            <div class="data-columns-dropdown-header">
-                              <h4>Select Columns</h4>
-                            </div>
-                            <div class="data-columns-dropdown-body">
-                              <div class="data-column-options">
-                                 <label class="data-column-option fixed-column">
-                                   <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
-                                   <span class="data-column-label">
-                                     Lead ID <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                   </span>
-                                 </label>
-                                 <label class="data-column-option">
-                                   <input type="checkbox" value="col-pr-type" checked>
-                                   <span class="data-column-label">Company Name</span>
-                                 </label>
-                                 <label class="data-column-option">
-                                   <input type="checkbox" value="col-department" checked>
-                                   <span class="data-column-label">Contact Person</span>
-                                 </label>
-                                 <label class="data-column-option">
-                                   <input type="checkbox" value="col-budget" checked>
-                                   <span class="data-column-label">Lead Source</span>
-                                 </label>
-                                 <label class="data-column-option fixed-column">
-                                   <input type="checkbox" value="col-created-on" checked disabled data-fixed="true">
-                                   <span class="data-column-label">
-                                     Industry <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                   </span>
-                                 </label>
-                                 <label class="data-column-option fixed-column">
-                                   <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
-                                   <span class="data-column-label">
-                                     Location <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                   </span>
-                                 </label>
-                                 <label class="data-column-option">
-                                   <input type="checkbox" value="col-created-on" checked>
-                                   <span class="data-column-label">Last Contact</span>
-                                 </label>
-                                 <label class="data-column-option fixed-column">
-                                   <input type="checkbox" value="col-priority-level" checked disabled data-fixed="true">
-                                   <span class="data-column-label">
-                                     Status <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                   </span>
-                                 </label>
-                                 <label class="data-column-option fixed-column">
-                                   <input type="checkbox" value="col-status" checked disabled data-fixed="true">
-                                   <span class="data-column-label">
-                                     Type <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                   </span>
-                                 </label>
-                              </div>
-                            </div>
-                            <div class="data-columns-dropdown-footer">
-                              <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
-                                Cancel
-                              </button>
-                              <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
-                                Save
-                              </button>
-                            </div>
+        <!-- Leads List Table -->
+        <div class="data-table-container" id="listView">
+          <div class="data-table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>
+                    <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                    <label for="selectAllPRs" class="data-checkbox-label"></label>
+                    <span class="data-checkbox-text"></span>
+                  </th>
+                  <th class="data-drag-header">--</th>
+                  <th class="col-pr-number">Lead Name</th>
+                  <th class="col-pr-type">Contact Person</th>
+                  <th class="col-budget">Lead Source</th>
+                  <th class="col-created-on">Industry</th>
+                  <th class="col-requested-by">Location</th>
+                  <th class="col-created-on">Last Contact</th>
+                  <th class="col-priority-level">Status</th>
+                  <th class="col-status">Type</th>
+                  <th class="data-table-actions">
+                    <div class="data-columns-dropdown">
+                      <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
+                        <img src="images/add-column.png" alt="Columns" width="20px">
+                      </button>
+                      <div class="data-columns-dropdown-content" id="columnDropdown">
+                        <div class="data-columns-dropdown-header">
+                          <h4>Select Columns</h4>
+                        </div>
+                        <div class="data-columns-dropdown-body">
+                          <div class="data-column-options">
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Lead Name <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
+                            <label class="data-column-option">
+                              <input type="checkbox" value="col-pr-type" checked>
+                              <span class="data-column-label">Contact Person</span>
+                            </label>
+                            <label class="data-column-option">
+                              <input type="checkbox" value="col-budget" checked>
+                              <span class="data-column-label">Lead Source</span>
+                            </label>
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-created-on" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Industry <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Location <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
+                            <label class="data-column-option">
+                              <input type="checkbox" value="col-created-on" checked>
+                              <span class="data-column-label">Last Contact</span>
+                            </label>
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-priority-level" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Status <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Type <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
+                            </label>
                           </div>
                         </div>
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td class="data-checkbox-cell">
-                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-001">
-                        <label for="inq-001" class="data-checkbox-label"></label>
-                      </td>
-                      <td class="data-item-number col-pr-number">LEAD-2025-001</td>
-                       <td class="data-item-type col-pr-type">
-                         <span class="data-type-badge data-type-equipment">Tech Solutions Ltd</span>
-                       </td>
-                       <td class="data-title col-department">
-                         <div class="data-user-info clickable-user" data-user="ahmed">
-                           <div class="data-user-avatar">
-                             <img src="images/user.png" alt="Ahmed Hassan">
-                             <div class="data-user-status online"></div>
-                           </div>
-                           <span class="data-user-name">Ahmed Hassan</span>
-                         </div>
-                       </td>
-                       <td class="data-budget col-budget">Website</td>
-                       <td class="data-category col-created-on">IT Services → Software</td>
-                       <td class="data-created-by col-requested-by">Dubai, UAE</td>
-     
-                       <td class="data-created-on col-created-on">15/01/2025</td>
-                       <td class="purchase-list-priority col-priority-level">
-                         <div class="data-status-dropdown">
-                             <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
-                                 <span class="data-status-badge data-status-approved">Qualified</span>
-                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
-                             </button>
-                             <div class="data-status-dropdown-menu">
-                                 <button class="data-status-option" data-status="new" onclick="changeStatus(this, 'new')">
-                                     <i class="fa fa-plus-circle"></i>
-                                     New
-                                 </button>
-                                 <button class="data-status-option" data-status="contacted" onclick="changeStatus(this, 'contacted')">
-                                     <i class="fa fa-phone"></i>
-                                     Contacted
-                                 </button>
-                                 <button class="data-status-option" data-status="qualified" onclick="changeStatus(this, 'qualified')">
-                                     <i class="fa fa-check-circle"></i>
-                                     Qualified
-                                 </button>
-                                 <button class="data-status-option" data-status="converted" onclick="changeStatus(this, 'converted')">
-                                     <i class="fa fa-check-square"></i>
-                                     Converted
-                                 </button>
-                                 <button class="data-status-option" data-status="lost" onclick="changeStatus(this, 'lost')">
-                                     <i class="fa fa-times-circle"></i>
-                                     Lost
-                                 </button>
-                             </div>
-                         </div>
-                       </td>
-                       <td class="purchase-list-status col-status">
-                         <div class="data-status-dropdown">
-                             <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
-                                 <span class="data-status-badge data-status-approved">Hot</span>
-                                 <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
-                             </button>
-                             <div class="data-status-dropdown-menu">
-                                 <button class="data-status-option" data-status="hot" onclick="changeStatus(this, 'hot')">
-                                     <i class="fa fa-fire"></i>
-                                     Hot
-                                 </button>
-                                 <button class="data-status-option" data-status="warm" onclick="changeStatus(this, 'warm')">
-                                     <i class="fa fa-sun-o"></i>
-                                     Warm
-                                 </button>
-                                 <button class="data-status-option" data-status="cold" onclick="changeStatus(this, 'cold')">
-                                     <i class="fa fa-snowflake-o"></i>
-                                     Cold
-                                 </button>
-                             </div>
-                         </div>
-                     </td>
-                      <td class="data-table-actions-cell"></td>
-                    </tr>
-                    <tr>
-                      <td class="data-checkbox-cell">
-                        <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-002">
-                        <label for="inq-002" class="data-checkbox-label"></label>
-                      </td>
-                       <td class="data-item-number col-pr-number">LEAD-2025-002</td>
-                       <td class="data-item-type col-pr-type">
-                         <span class="data-type-badge data-type-equipment">Construction Pro</span>
-                       </td>
-                       <td class="data-title col-department">
-                         <div class="data-user-info clickable-user" data-user="mohammed">
-                           <div class="data-user-avatar">
-                             <img src="images/sarah.pnh.png" alt="Mohammed Ali">
-                             <div class="data-user-status offline"></div>
-                           </div>
-                           <span class="data-user-name">Mohammed Ali</span>
-                         </div>
-                       </td>
-                       <td class="data-budget col-budget">Referral</td>
-                       <td class="data-category col-created-on">Construction → Materials</td>
-                       <td class="data-created-by col-requested-by">Abu Dhabi, UAE</td>
-                       <td class="data-created-on col-created-on">12/01/2025</td>
-                       <td class="purchase-list-priority col-priority-level">
-                         <div class="data-status-dropdown">
-                           <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
-                             <span class="data-status-badge data-status-submitted">Contacted</span>
-                             <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
-                           </button>
-                           <div class="data-status-dropdown-menu">
-                             <button class="data-status-option" data-status="new" onclick="changeStatus(this, 'new')">
-                               <i class="fa fa-plus-circle"></i>
-                               New
-                             </button>
-                             <button class="data-status-option" data-status="contacted"
-                               onclick="changeStatus(this, 'contacted')">
-                               <i class="fa fa-phone"></i>
-                               Contacted
-                             </button>
-                             <button class="data-status-option" data-status="qualified"
-                               onclick="changeStatus(this, 'qualified')">
-                               <i class="fa fa-check-circle"></i>
-                               Qualified
-                             </button>
-                             <button class="data-status-option" data-status="converted"
-                               onclick="changeStatus(this, 'converted')">
-                               <i class="fa fa-check-square"></i>
-                               Converted
-                             </button>
-                             <button class="data-status-option" data-status="lost"
-                               onclick="changeStatus(this, 'lost')">
-                               <i class="fa fa-times-circle"></i>
-                               Lost
-                             </button>
-                           </div>
-                         </div>
-                       </td>
-                       <td class="purchase-list-status col-status">
-                         <div class="data-status-dropdown">
-                           <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
-                             <span class="data-status-badge data-status-submitted">Warm</span>
-                             <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
-                           </button>
-                           <div class="data-status-dropdown-menu">
-                             <button class="data-status-option" data-status="hot" onclick="changeStatus(this, 'hot')">
-                               <i class="fa fa-fire"></i>
-                               Hot
-                             </button>
-                             <button class="data-status-option" data-status="warm"
-                               onclick="changeStatus(this, 'warm')">
-                               <i class="fa fa-sun-o"></i>
-                               Warm
-                             </button>
-                             <button class="data-status-option" data-status="cold"
-                               onclick="changeStatus(this, 'cold')">
-                               <i class="fa fa-snowflake-o"></i>
-                               Cold
-                             </button>
-                           </div>
-                         </div>
-                       </td>
-                      <td class="data-table-actions-cell"></td>
-                    </tr>
-                  </tbody>
-                </table>
+                        <div class="data-columns-dropdown-footer">
+                          <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                            Cancel
+                          </button>
+                          <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="data-checkbox-cell">
+                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-001">
+                    <label for="inq-001" class="data-checkbox-label"></label>
+                  </td>
+                  <td class="data-item-number col-pr-number">
+                    <span class="data-type-badge data-type-equipment">Tech Solutions Ltd</span>
+                  </td>
+                  <td class="data-title col-pr-type">
+                    <div class="data-user-info clickable-user" data-user="ahmed">
+                      <div class="data-user-avatar">
+                        <img src="images/user.png" alt="Ahmed Hassan">
+                        <div class="data-user-status online"></div>
+                      </div>
+                      <span class="data-user-name">Ahmed Hassan</span>
+                    </div>
+                  </td>
+                  <td class="data-budget col-budget">Website</td>
+                  <td class="data-category col-created-on">IT Services → Software</td>
+                  <td class="data-created-by col-requested-by">Dubai, UAE</td>
+
+                  <td class="data-created-on col-created-on">15/01/2025</td>
+                  <td class="purchase-list-priority col-priority-level">
+                    <div class="data-status-dropdown">
+                      <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                        <span class="data-status-badge data-status-approved">Qualified</span>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                      </button>
+                      <div class="data-status-dropdown-menu">
+                        <button class="data-status-option" data-status="new" onclick="changeStatus(this, 'new')">
+                          <i class="fa fa-plus-circle"></i>
+                          New
+                        </button>
+                        <button class="data-status-option" data-status="contacted"
+                          onclick="changeStatus(this, 'contacted')">
+                          <i class="fa fa-phone"></i>
+                          Contacted
+                        </button>
+                        <button class="data-status-option" data-status="qualified"
+                          onclick="changeStatus(this, 'qualified')">
+                          <i class="fa fa-check-circle"></i>
+                          Qualified
+                        </button>
+                        <button class="data-status-option" data-status="converted"
+                          onclick="changeStatus(this, 'converted')">
+                          <i class="fa fa-check-square"></i>
+                          Converted
+                        </button>
+                        <button class="data-status-option" data-status="lost" onclick="changeStatus(this, 'lost')">
+                          <i class="fa fa-times-circle"></i>
+                          Lost
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="purchase-list-status col-status">
+                    <div class="data-status-dropdown">
+                      <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                        <span class="data-status-badge data-status-approved">Hot</span>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                      </button>
+                      <div class="data-status-dropdown-menu">
+                        <button class="data-status-option" data-status="hot" onclick="changeStatus(this, 'hot')">
+                          <i class="fa fa-fire"></i>
+                          Hot
+                        </button>
+                        <button class="data-status-option" data-status="warm" onclick="changeStatus(this, 'warm')">
+                          <i class="fa fa-sun-o"></i>
+                          Warm
+                        </button>
+                        <button class="data-status-option" data-status="cold" onclick="changeStatus(this, 'cold')">
+                          <i class="fa fa-snowflake-o"></i>
+                          Cold
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="data-table-actions-cell"></td>
+                </tr>
+                <tr>
+                  <td class="data-checkbox-cell">
+                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="inq-002">
+                    <label for="inq-002" class="data-checkbox-label"></label>
+                  </td>
+                  <td class="data-item-number col-pr-number">
+                    <span class="data-type-badge data-type-equipment">Construction Pro</span>
+                  </td>
+                  <td class="data-title col-pr-type">
+                    <div class="data-user-info clickable-user" data-user="mohammed">
+                      <div class="data-user-avatar">
+                        <img src="images/sarah.pnh.png" alt="Mohammed Ali">
+                        <div class="data-user-status offline"></div>
+                      </div>
+                      <span class="data-user-name">Mohammed Ali</span>
+                    </div>
+                  </td>
+                  <td class="data-budget col-budget">Referral</td>
+                  <td class="data-category col-created-on">Construction → Materials</td>
+                  <td class="data-created-by col-requested-by">Abu Dhabi, UAE</td>
+                  <td class="data-created-on col-created-on">12/01/2025</td>
+                  <td class="purchase-list-priority col-priority-level">
+                    <div class="data-status-dropdown">
+                      <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                        <span class="data-status-badge data-status-submitted">Contacted</span>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                      </button>
+                      <div class="data-status-dropdown-menu">
+                        <button class="data-status-option" data-status="new" onclick="changeStatus(this, 'new')">
+                          <i class="fa fa-plus-circle"></i>
+                          New
+                        </button>
+                        <button class="data-status-option" data-status="contacted"
+                          onclick="changeStatus(this, 'contacted')">
+                          <i class="fa fa-phone"></i>
+                          Contacted
+                        </button>
+                        <button class="data-status-option" data-status="qualified"
+                          onclick="changeStatus(this, 'qualified')">
+                          <i class="fa fa-check-circle"></i>
+                          Qualified
+                        </button>
+                        <button class="data-status-option" data-status="converted"
+                          onclick="changeStatus(this, 'converted')">
+                          <i class="fa fa-check-square"></i>
+                          Converted
+                        </button>
+                        <button class="data-status-option" data-status="lost" onclick="changeStatus(this, 'lost')">
+                          <i class="fa fa-times-circle"></i>
+                          Lost
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="purchase-list-status col-status">
+                    <div class="data-status-dropdown">
+                      <button class="data-status-dropdown-btn" onclick="toggleStatusDropdown(this)">
+                        <span class="data-status-badge data-status-submitted">Warm</span>
+                        <i class="fa fa-chevron-down" style="font-size: 10px;"></i>
+                      </button>
+                      <div class="data-status-dropdown-menu">
+                        <button class="data-status-option" data-status="hot" onclick="changeStatus(this, 'hot')">
+                          <i class="fa fa-fire"></i>
+                          Hot
+                        </button>
+                        <button class="data-status-option" data-status="warm" onclick="changeStatus(this, 'warm')">
+                          <i class="fa fa-sun-o"></i>
+                          Warm
+                        </button>
+                        <button class="data-status-option" data-status="cold" onclick="changeStatus(this, 'cold')">
+                          <i class="fa fa-snowflake-o"></i>
+                          Cold
+                        </button>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="data-table-actions-cell"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Leads Card View -->
+        <div class="data-card-container" id="cardView" style="display: none;">
+          <div class="data-card-grid">
+            <!-- Card 1 -->
+            <div class="data-card">
+              <div class="data-card-header">
+                <div class="data-card-checkbox">
+                  <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
+                  <label for="card-inq-001" class="data-checkbox-label"></label>
+                </div>
+                <div class="data-card-item-number">Tech Solutions Ltd</div>
+                <div class="data-card-status">
+                  <span class="data-status-badge data-status-approved">Qualified</span>
+                </div>
+              </div>
+              <div class="data-card-body">
+                <div class="data-card-row">
+                  <span class="data-card-label">Company:</span>
+                  <span class="data-card-value">
+                    <span class="data-type-badge data-type-equipment">Tech Solutions Ltd</span>
+                  </span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Contact:</span>
+                  <span class="data-card-value">
+                    <div class="data-card-user-info">
+                      <div class="data-card-user-avatar">
+                        <img src="images/user.png" alt="Ahmed Hassan">
+                        <div class="data-user-status online"></div>
+                      </div>
+                      <span class="data-card-user-name">Ahmed Hassan</span>
+                    </div>
+                  </span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Lead Source:</span>
+                  <span class="data-card-value">Website</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Industry:</span>
+                  <span class="data-card-value">IT Services → Software</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Location:</span>
+                  <span class="data-card-value">Dubai, UAE</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Last Contact:</span>
+                  <span class="data-card-value">15/01/2025</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Type:</span>
+                  <span class="data-card-value">
+                    <span class="data-attachment-count">Hot</span>
+                  </span>
+                </div>
               </div>
             </div>
-    
-            <!-- Leads Card View -->
-            <div class="data-card-container" id="cardView" style="display: none;">
-              <div class="data-card-grid">
-                <!-- Card 1 -->
-                <div class="data-card">
-                  <div class="data-card-header">
-                    <div class="data-card-checkbox">
-                      <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-001">
-                      <label for="card-inq-001" class="data-checkbox-label"></label>
-                    </div>
-                     <div class="data-card-item-number">LEAD-2025-001</div>
-                     <div class="data-card-status">
-                       <span class="data-status-badge data-status-approved">Qualified</span>
-                     </div>
-                   </div>
-                   <div class="data-card-body">
-                     <div class="data-card-row">
-                       <span class="data-card-label">Company:</span>
-                       <span class="data-card-value">
-                         <span class="data-type-badge data-type-equipment">Tech Solutions Ltd</span>
-                       </span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Contact:</span>
-                       <span class="data-card-value">
-                         <div class="data-card-user-info">
-                           <div class="data-card-user-avatar">
-                             <img src="images/user.png" alt="Ahmed Hassan">
-                             <div class="data-user-status online"></div>
-                           </div>
-                           <span class="data-card-user-name">Ahmed Hassan</span>
-                         </div>
-                       </span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Lead Source:</span>
-                       <span class="data-card-value">Website</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Industry:</span>
-                       <span class="data-card-value">IT Services → Software</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Location:</span>
-                       <span class="data-card-value">Dubai, UAE</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Last Contact:</span>
-                       <span class="data-card-value">15/01/2025</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Type:</span>
-                       <span class="data-card-value">
-                         <span class="data-attachment-count">Hot</span>
-                       </span>
-                     </div>
-                  </div>
+
+            <!-- Card 2 -->
+            <div class="data-card">
+              <div class="data-card-header">
+                <div class="data-card-checkbox">
+                  <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
+                  <label for="card-inq-002" class="data-checkbox-label"></label>
                 </div>
-    
-                <!-- Card 2 -->
-                <div class="data-card">
-                  <div class="data-card-header">
-                    <div class="data-card-checkbox">
-                      <input type="checkbox" class="data-checkbox data-checkbox-row" id="card-inq-002">
-                      <label for="card-inq-002" class="data-checkbox-label"></label>
-                    </div>
-                     <div class="data-card-item-number">LEAD-2025-002</div>
-                     <div class="data-card-status">
-                       <span class="data-status-badge data-status-draft">Contacted</span>
-                     </div>
-                   </div>
-                   <div class="data-card-body">
-                     <div class="data-card-row">
-                       <span class="data-card-label">Company:</span>
-                       <span class="data-card-value">
-                         <span class="data-type-badge data-type-equipment">Construction Pro</span>
-                       </span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Contact:</span>
-                       <span class="data-card-value">
-                         <div class="data-card-user-info">
-                           <div class="data-card-user-avatar">
-                             <img src="images/sarah.pnh.png" alt="Mohammed Ali">
-                             <div class="data-user-status offline"></div>
-                           </div>
-                           <span class="data-card-user-name">Mohammed Ali</span>
-                         </div>
-                       </span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Lead Source:</span>
-                       <span class="data-card-value">Referral</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Industry:</span>
-                       <span class="data-card-value">Construction → Materials</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Location:</span>
-                       <span class="data-card-value">Abu Dhabi, UAE</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Last Contact:</span>
-                       <span class="data-card-value">12/01/2025</span>
-                     </div>
-                     <div class="data-card-row">
-                       <span class="data-card-label">Type:</span>
-                       <span class="data-card-value">
-                         <span class="data-attachment-count">Warm</span>
-                       </span>
-                     </div>
-                  </div>
+                <div class="data-card-item-number">Construction Pro</div>
+                <div class="data-card-status">
+                  <span class="data-status-badge data-status-draft">Contacted</span>
                 </div>
-    
+              </div>
+              <div class="data-card-body">
+                <div class="data-card-row">
+                  <span class="data-card-label">Company:</span>
+                  <span class="data-card-value">
+                    <span class="data-type-badge data-type-equipment">Construction Pro</span>
+                  </span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Contact:</span>
+                  <span class="data-card-value">
+                    <div class="data-card-user-info">
+                      <div class="data-card-user-avatar">
+                        <img src="images/sarah.pnh.png" alt="Mohammed Ali">
+                        <div class="data-user-status offline"></div>
+                      </div>
+                      <span class="data-card-user-name">Mohammed Ali</span>
+                    </div>
+                  </span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Lead Source:</span>
+                  <span class="data-card-value">Referral</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Industry:</span>
+                  <span class="data-card-value">Construction → Materials</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Location:</span>
+                  <span class="data-card-value">Abu Dhabi, UAE</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Last Contact:</span>
+                  <span class="data-card-value">12/01/2025</span>
+                </div>
+                <div class="data-card-row">
+                  <span class="data-card-label">Type:</span>
+                  <span class="data-card-value">
+                    <span class="data-attachment-count">Warm</span>
+                  </span>
+                </div>
               </div>
             </div>
+
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1301,7 +1301,7 @@
       </button>
 
       <div class="purchase-offcanvas-header">
-        <h3>LEAD-2025-001</h3>
+        <h3>Tech Solutions Ltd</h3>
         <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
           <i class="fa fa-times"></i>
         </button>
@@ -1339,7 +1339,8 @@
         <!-- Tabs Navigation -->
         <div class="pr-tabs-container">
           <div class="pr-tabs">
-            <button class="pr-tab-btn active" onclick="switchTab('lead')" data-tab="lead" data-title="LEAD-2025-001">
+            <button class="pr-tab-btn active" onclick="switchTab('lead')" data-tab="lead"
+              data-title="Tech Solutions Ltd">
               <i class="fa fa-user"></i>
               Lead Details
             </button>
@@ -1393,12 +1394,12 @@
               <div class="pr-overview-content" id="prOverviewContent">
                 <div class="pr-overview-row">
                   <div class="pr-overview-item">
-                    <div class="pr-overview-label">Lead ID</div>
-                    <div class="pr-overview-value">LEAD-2025-001</div>
+                    <div class="pr-overview-label">Lead Name</div>
+                    <div class="pr-overview-value">Tech Solutions Ltd</div>
                   </div>
                   <div class="pr-overview-item">
-                    <div class="pr-overview-label">Company Name</div>
-                    <div class="pr-overview-value">Tech Solutions Ltd</div>
+                    <div class="pr-overview-label">Lead ID</div>
+                    <div class="pr-overview-value">LEAD-2025-001</div>
                   </div>
                 </div>
                 <div class="pr-overview-row">
@@ -1457,10 +1458,11 @@
             </div>
 
           </div>
-         
+
           <div class="pr-tab-panel" id="chat-panel">
             <div class="chat-panel-header">
-              <button type="button" class="create-message-btn" onclick="openCreateMessageModal()" title="Create Message">
+              <button type="button" class="create-message-btn" onclick="openCreateMessageModal()"
+                title="Create Message">
                 <i class="fa fa-envelope"></i>
                 <span>Bulk Message</span>
               </button>
@@ -1520,7 +1522,8 @@
                       <div class="chat-header-participants">4 participants · 2 from your company, 2 from vendor</div>
                     </div>
                     <div class="chat-header-members-dropdown">
-                      <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()" title="View Members">
+                      <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()"
+                        title="View Members">
                         <i class="fa fa-users"></i>
                       </button>
                       <div class="chat-header-members-menu" id="chatMembersMenu">
@@ -1633,7 +1636,8 @@
                           <span class="message-sender-company">Saudi Aramco</span>
                         </div>
                         <div class="message-bubble">
-                          <div class="message-text">Thank you for the quick response. We'll review and get back to you.</div>
+                          <div class="message-text">Thank you for the quick response. We'll review and get back to you.
+                          </div>
                           <div class="message-time">10:40 AM</div>
                         </div>
                       </div>
@@ -1662,7 +1666,7 @@
                 <!-- Row 1 -->
                 <div class="purchase-form-row">
                   <div class="purchase-form-group">
-                    <label for="leadCompanyName">Company Name</label>
+                    <label for="leadCompanyName">lead Name</label>
                     <input type="text" id="leadCompanyName" name="companyName" required>
                   </div>
                   <div class="purchase-form-group">
@@ -1786,7 +1790,7 @@
   </div>
 
 
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <!-- CustomEase plugin -->
@@ -1796,6 +1800,7 @@
   <script src="script/header.js"></script>
   <script src="script/common-table.js"></script>
   <script src="script/common-offcanvas.js"></script>
+  <script src="script/chat.js"></script>
 
   <!-- Leads functions -->
   <script>
