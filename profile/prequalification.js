@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Tab functionality
     let currentPrequalTabIndex = 0;
     const prequalTabs = [
-        { id: 'project-list', title: 'Project List' },
+        { id: 'project-list', title: 'Company Information' },
         { id: 'equipment-list', title: 'Equipment List' },
         { id: 'company-documents', title: 'Company Documents' },
         { id: 'certificate-documents', title: 'Certificate Documents' }
@@ -69,13 +69,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         function updatePrequalTab() {
             // Update title
-            currentTitle.textContent = prequalTabs[currentPrequalTabIndex].title;
+            if (currentTitle) {
+                currentTitle.textContent = prequalTabs[currentPrequalTabIndex].title;
+            }
             
-            // Update panels - only within the prequalification modal
+            // Update panels - look in the page content or modal
             const prequalModal = document.getElementById('companyPrequalificationModal');
-            if (prequalModal) {
-                prequalModal.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
-                const targetPanel = prequalModal.querySelector('#' + prequalTabs[currentPrequalTabIndex].id);
+            const prequalPageContent = document.querySelector('.prequalification-page-content');
+            const container = prequalModal || prequalPageContent;
+            
+            if (container) {
+                container.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+                const targetPanel = container.querySelector('#' + prequalTabs[currentPrequalTabIndex].id);
+                if (targetPanel) {
+                    targetPanel.classList.add('active');
+                }
+            } else {
+                // Fallback: search entire document
+                document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+                const targetPanel = document.getElementById(prequalTabs[currentPrequalTabIndex].id);
                 if (targetPanel) {
                     targetPanel.classList.add('active');
                 }

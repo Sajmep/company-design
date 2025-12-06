@@ -719,6 +719,7 @@ main.page {
   /* initial: only sidebar */
   transition: margin-left 220ms ease;
   padding: 28px;
+  height: calc(100vh - 55px);
 }
 
 
