@@ -9,10 +9,10 @@
   <link rel="stylesheet" href="../styles/sidebar.css">
   <link rel="stylesheet" href="../styles/header.css">
   <link rel="stylesheet" href="css/profile-page.css">
-  
+
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
-  
+
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 
 </head>
@@ -553,285 +553,285 @@
   </aside>
   <!-- Sidebar End -->
 
- 
+
   <!-- Main Content -->
   <main class="content page" id="page">
     <div class="main-content">
       <div class="profile-page-content">
         <h3>Profile Setup</h3>
         <p>Setup your profile</p>
+        <!-- Main Content End -->
+        <div class="tab-navigation">
+          <button class="tab-arrow" id="prevTab"><i class="fas fa-chevron-left"></i></button>
+          <div class="tab-title" id="currentTabTitle">Business Profile</div>
+          <button class="tab-arrow" id="nextTab"><i class="fas fa-chevron-right"></i></button>
+        </div>
 
-   
+        <div class="tab-content">
+          <div class="tab-panel active" id="personal">
+            <div class="profile-field-group">
+              <h2 class="section-title" onclick="toggleSection(this)">
+                Business Profile
+              </h2>
+              <div class="checkbox-group  ">
+                <div class="field">
+                  <label for="title">Title</label>
+                  <input id="title" type="text" placeholder="Enter title">
+                </div>
+                <div class="field">
+                  <label for="name">Description</label>
+                  <textarea id="description" placeholder="Enter description"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="profile-field-group">
+              <h2 class="section-title" onclick="toggleSection(this)">
+                SEO
+              </h2>
+              <div class="checkbox-group  ">
+
+                <div class="field">
+                  <label for="title">SEO Title</label>
+                  <input id="seo-title" type="text" placeholder="Enter SEO title">
+                </div>
+
+                <div class="field">
+                  <label for="title">SEO Description</label>
+                  <textarea id="seo-description" placeholder="Enter SEO description"></textarea>
+                </div>
+
+                <div class="seo-preview-container">
+
+                  <div class="seo-preview-fields">
+                    <div class="field banner-field">
+                      <label for="seo-banners">Logo</label>
+                      <div class="file-upload-container">
+                        <input id="seo-banners" type="file" accept="image/*" multiple class="file-input">
+                        <label for="seo-banners" class="file-upload-label">
+                          <div class="upload-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                          </div>
+                          <div class="upload-text">
+                            <span class="upload-title">Choose Logo</span>
+                            <span class="upload-subtitle">Click to browse or drag & drop</span>
+                          </div>
+                        </label>
+                        <small>Upload Logo (JPG, PNG, GIF)</small>
+                      </div>
+                    </div>
+                    <div class="field banner-preview-container">
+                      <label>Logo Preview</label>
+                      <div id="banner-preview" class="banner-preview-container has-images">
+                        <div class="banner-item">
+                          <img src="../images/gallery1.jpg" alt="Sample Banner 1" title="Sample Banner 1">
+                          <button type="button" class="remove-btn" title="Remove banner">
+                            <i class="fas fa-times"></i>
+                          </button>
+                        </div>
+                        <div class="banner-item">
+                          <img src="../images/gallery2.jpg" alt="Sample Banner 2" title="Sample Banner 2">
+                          <button type="button" class="remove-btn" title="Remove banner">
+                            <i class="fas fa-times"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="seo-preview-items">
+                    <div class="preview-card google-preview">
+                      <div class="preview-header">
+                        <span class="preview-title">Google Preview</span>
+                        <i class="fab fa-google"></i>
+                      </div>
+                      <div class="preview-content">
+                        <div class="preview-url">bmh.com.sa/partners/<span
+                            class="url-placeholder">company-name</span>/432211</div>
+                        <div class="preview-title-text">Your Company Name - Business Profile</div>
+                        <div class="preview-description">This is a preview of how your page will appear in Google search
+                          results. The title and description will be dynamically generated based on your profile
+                          information.</div>
+                      </div>
+                    </div>
+                    <div class="preview-card social-preview">
+                      <div class="preview-header">
+                        <span class="preview-title">Social Media Preview</span>
+                        <i class="fas fa-share-alt"></i>
+                      </div>
+                      <div class="preview-content">
+                        <div class="social-image-preview">
+                          <img src="../images/gallery1.jpg" alt="Preview" class="preview-img">
+                        </div>
+                        <div class="social-preview-text">
+                          <div class="preview-title-text">Your Company Name - Business Profile</div>
+                          <div class="preview-description">This is how your page will appear when shared on social media
+                            platforms like Facebook, Twitter, and LinkedIn.</div>
+                          <div class="preview-url">bmh.com.sa/partners/<span
+                              class="url-placeholder">company-name</span>/432211</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="field">
+                  <label for="title"> Custom URL</label>
+                  <div class="custom-url-container">
+                    <input type="text" value="pratners/" readonly>
+                    <input type="text" placeholder="Enter custom url eg. company-name">
+                    <input type="text" value="/432211" readonly>
+                  </div>
+                </div>
+                <div class="field">
+                  <label for="title"> Keywords</label>
+                  <input id="keywords" type="text" placeholder="Enter keywords">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="company">
+            <div class="profile-field-group">
+              <h2 class="section-title" onclick="toggleSection(this)">
+                Shop & Company Images
+              </h2>
+              <div class="checkbox-group  ">
+
+                <div class="field">
+                  <label for="seo-banners">Images</label>
+                  <div class="file-upload-container">
+                    <input id="seo-banners" type="file" accept="image/*" multiple class="file-input">
+                    <label for="seo-banners" class="file-upload-label">
+                      <div class="upload-icon">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                      </div>
+                      <div class="upload-text">
+                        <span class="upload-title">Choose Images</span>
+                        <span class="upload-subtitle">Click to browse or drag & drop</span>
+                      </div>
+                    </label>
+                    <small>Upload multiple banner (JPG, PNG, GIF)</small>
+                  </div>
+                </div>
+                <div class="field">
+                  <label>Banner Preview</label>
+                  <div id="banner-preview" class="banner-preview-container has-images">
+                    <div class="banner-item">
+                      <img src="../images/gallery1.jpg" alt="Sample Banner 1" title="Sample Banner 1">
+                      <button type="button" class="remove-btn" title="Remove banner">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <div class="banner-item">
+                      <img src="../images/gallery2.jpg" alt="Sample Banner 2" title="Sample Banner 2">
+                      <button type="button" class="remove-btn" title="Remove banner">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                    <div class="banner-item">
+                      <img src="../images/gallery3.jpg" alt="Sample Banner 3" title="Sample Banner 3">
+                      <button type="button" class="remove-btn" title="Remove banner">
+                        <i class="fas fa-times"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-panel active" id="settings">
+            <div class="profile-field-group">
+              <h2 class="section-title" onclick="toggleSection(this)">
+                Other Ecommerce
+              </h2>
+              <div class="checkbox-group  ">
+                <div class="field">
+                  <label for="title">Amazon</label>
+                  <input id="amazon" type="text" placeholder="Enter amazon">
+                </div>
+                <div class="field">
+                  <label for="title">Google Merchant</label>
+                  <input id="google-merchant" type="text" placeholder="Enter google merchant">
+                </div>
+                <div class="field">
+                  <label for="title">Shopify</label>
+                  <input id="shopify" type="text" placeholder="Enter shopify">
+                </div>
+                <div class="field">
+                  <label for="title">Salla</label>
+                  <input id="salla" type="text" placeholder="Enter salla">
+                </div>
+                <div class="field">
+                  <label for="title">Alibaba</label>
+                  <input id="alibaba" type="text" placeholder="Enter alibaba">
+                </div>
+                <div class="field">
+                  <label for="title">AliExpress</label>
+                  <input id="aliexpress" type="text" placeholder="Enter aliexpress">
+                </div>
+                <div class="field">
+                  <label for="title">Other Ecommerce</label>
+                  <input id="other-ecommerce" type="text" placeholder="Enter other ecommerce">
+                </div>
+              </div>
+            </div>
+            <div class="profile-field-group">
+              <h2 class="section-title" onclick="toggleSection(this)">
+                Social Media
+              </h2>
+              <div class="checkbox-group  ">
+                <div class="field">
+                  <label for="title">LinkedIn</label>
+                  <input id="amazon" type="text" placeholder="Enter linkedin">
+                </div>
+                <div class="field">
+                  <label for="title">Twitter</label>
+                  <input id="google-merchant" type="text" placeholder="Enter twitter">
+                </div>
+                <div class="field">
+                  <label for="title">Instagram</label>
+                  <input id="shopify" type="text" placeholder="Enter instagram">
+                </div>
+                <div class="field">
+                  <label for="title">Facebook</label>
+                  <input id="salla" type="text" placeholder="Enter facebook">
+                </div>
+                <div class="field">
+                  <label for="title">YouTube</label>
+                  <input id="alibaba" type="text" placeholder="Enter youtube">
+                </div>
+                <div class="field">
+                  <label for="title">Snapchat</label>
+                  <input id="aliexpress" type="text" placeholder="Enter snapchat">
+                </div>
+                <div class="field">
+                  <label for="title">TikTok</label>
+                  <input id="aliexpress" type="text" placeholder="Enter tiktok">
+                </div>
+                <div class="field">
+                  <label for="title">Other</label>
+                  <input id="other" type="text" placeholder="Enter other">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="btn btn-secondary" id="modalPrevBtn">
+            <i class="fas fa-chevron-left"></i>
+            Previous
+          </button>
+          <button class="btn btn-primary" id="modalNextBtn">
+            Next
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
       </div>
     </div>
   </main>
-  <!-- Main Content End -->
-  <div class="tab-navigation">
-    <button class="tab-arrow" id="prevTab"><i class="fas fa-chevron-left"></i></button>
-    <div class="tab-title" id="currentTabTitle">Business Profile</div>
-    <button class="tab-arrow" id="nextTab"><i class="fas fa-chevron-right"></i></button>
-  </div>
 
-  <div class="tab-content">
-    <div class="tab-panel active" id="personal">
-      <div class="profile-field-group">
-        <h2 class="section-title" onclick="toggleSection(this)">
-          Business Profile
-        </h2>
-        <div class="checkbox-group  ">
-          <div class="field">
-            <label for="title">Title</label>
-            <input id="title" type="text" placeholder="Enter title">
-          </div>
-          <div class="field">
-            <label for="name">Description</label>
-            <textarea id="description" placeholder="Enter description"></textarea>
-          </div>
-        </div>
-      </div>
-      <div class="profile-field-group">
-        <h2 class="section-title" onclick="toggleSection(this)">
-          SEO
-        </h2>
-        <div class="checkbox-group  ">
-
-          <div class="field">
-            <label for="title">SEO Title</label>
-            <input id="seo-title" type="text" placeholder="Enter SEO title">
-          </div>
-
-          <div class="field">
-            <label for="title">SEO Description</label>
-            <textarea id="seo-description" placeholder="Enter SEO description"></textarea>
-          </div>
-
-          <div class="seo-preview-container">
-
-            <div class="seo-preview-fields">
-              <div class="field banner-field">
-                <label for="seo-banners">Logo</label>
-                <div class="file-upload-container">
-                  <input id="seo-banners" type="file" accept="image/*" multiple class="file-input">
-                  <label for="seo-banners" class="file-upload-label">
-                    <div class="upload-icon">
-                      <i class="fas fa-cloud-upload-alt"></i>
-                    </div>
-                    <div class="upload-text">
-                      <span class="upload-title">Choose Logo</span>
-                      <span class="upload-subtitle">Click to browse or drag & drop</span>
-                    </div>
-                  </label>
-                  <small>Upload Logo (JPG, PNG, GIF)</small>
-                </div>
-              </div>
-              <div class="field banner-preview-container">
-                <label>Logo Preview</label>
-                <div id="banner-preview" class="banner-preview-container has-images">
-                  <div class="banner-item">
-                    <img src="../images/gallery1.jpg" alt="Sample Banner 1" title="Sample Banner 1">
-                    <button type="button" class="remove-btn" title="Remove banner">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                  <div class="banner-item">
-                    <img src="../images/gallery2.jpg" alt="Sample Banner 2" title="Sample Banner 2">
-                    <button type="button" class="remove-btn" title="Remove banner">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="seo-preview-items">
-              <div class="preview-card google-preview">
-                <div class="preview-header">
-                  <span class="preview-title">Google Preview</span>
-                  <i class="fab fa-google"></i>
-                </div>
-                <div class="preview-content">
-                  <div class="preview-url">bmh.com.sa/partners/<span
-                      class="url-placeholder">company-name</span>/432211</div>
-                  <div class="preview-title-text">Your Company Name - Business Profile</div>
-                  <div class="preview-description">This is a preview of how your page will appear in Google search
-                    results. The title and description will be dynamically generated based on your profile
-                    information.</div>
-                </div>
-              </div>
-              <div class="preview-card social-preview">
-                <div class="preview-header">
-                  <span class="preview-title">Social Media Preview</span>
-                  <i class="fas fa-share-alt"></i>
-                </div>
-                <div class="preview-content">
-                  <div class="social-image-preview">
-                    <img src="../images/gallery1.jpg" alt="Preview" class="preview-img">
-                  </div>
-                  <div class="social-preview-text">
-                    <div class="preview-title-text">Your Company Name - Business Profile</div>
-                    <div class="preview-description">This is how your page will appear when shared on social media
-                      platforms like Facebook, Twitter, and LinkedIn.</div>
-                    <div class="preview-url">bmh.com.sa/partners/<span
-                        class="url-placeholder">company-name</span>/432211</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="field">
-            <label for="title"> Custom URL</label>
-            <div class="custom-url-container">
-              <input type="text" value="pratners/" readonly>
-              <input type="text" placeholder="Enter custom url eg. company-name">
-              <input type="text" value="/432211" readonly>
-            </div>
-          </div>
-          <div class="field">
-            <label for="title"> Keywords</label>
-            <input id="keywords" type="text" placeholder="Enter keywords">
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-panel" id="company">
-      <div class="profile-field-group">
-        <h2 class="section-title" onclick="toggleSection(this)">
-          Shop & Company Images
-        </h2>
-        <div class="checkbox-group  ">
-
-          <div class="field">
-            <label for="seo-banners">Images</label>
-            <div class="file-upload-container">
-              <input id="seo-banners" type="file" accept="image/*" multiple class="file-input">
-              <label for="seo-banners" class="file-upload-label">
-                <div class="upload-icon">
-                  <i class="fas fa-cloud-upload-alt"></i>
-                </div>
-                <div class="upload-text">
-                  <span class="upload-title">Choose Images</span>
-                  <span class="upload-subtitle">Click to browse or drag & drop</span>
-                </div>
-              </label>
-              <small>Upload multiple banner (JPG, PNG, GIF)</small>
-            </div>
-          </div>
-          <div class="field">
-            <label>Banner Preview</label>
-            <div id="banner-preview" class="banner-preview-container has-images">
-              <div class="banner-item">
-                <img src="../images/gallery1.jpg" alt="Sample Banner 1" title="Sample Banner 1">
-                <button type="button" class="remove-btn" title="Remove banner">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-              <div class="banner-item">
-                <img src="../images/gallery2.jpg" alt="Sample Banner 2" title="Sample Banner 2">
-                <button type="button" class="remove-btn" title="Remove banner">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-              <div class="banner-item">
-                <img src="../images/gallery3.jpg" alt="Sample Banner 3" title="Sample Banner 3">
-                <button type="button" class="remove-btn" title="Remove banner">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="tab-panel active" id="settings">
-      <div class="profile-field-group">
-        <h2 class="section-title" onclick="toggleSection(this)">
-          Other Ecommerce
-        </h2>
-        <div class="checkbox-group  ">
-          <div class="field">
-            <label for="title">Amazon</label>
-            <input id="amazon" type="text" placeholder="Enter amazon">
-          </div>
-          <div class="field">
-            <label for="title">Google Merchant</label>
-            <input id="google-merchant" type="text" placeholder="Enter google merchant">
-          </div>
-          <div class="field">
-            <label for="title">Shopify</label>
-            <input id="shopify" type="text" placeholder="Enter shopify">
-          </div>
-          <div class="field">
-            <label for="title">Salla</label>
-            <input id="salla" type="text" placeholder="Enter salla">
-          </div>
-          <div class="field">
-            <label for="title">Alibaba</label>
-            <input id="alibaba" type="text" placeholder="Enter alibaba">
-          </div>
-          <div class="field">
-            <label for="title">AliExpress</label>
-            <input id="aliexpress" type="text" placeholder="Enter aliexpress">
-          </div>
-          <div class="field">
-            <label for="title">Other Ecommerce</label>
-            <input id="other-ecommerce" type="text" placeholder="Enter other ecommerce">
-          </div>
-        </div>
-      </div>
-      <div class="profile-field-group">
-        <h2 class="section-title" onclick="toggleSection(this)">
-          Social Media
-        </h2>
-        <div class="checkbox-group  ">
-          <div class="field">
-            <label for="title">LinkedIn</label>
-            <input id="amazon" type="text" placeholder="Enter linkedin">
-          </div>
-          <div class="field">
-            <label for="title">Twitter</label>
-            <input id="google-merchant" type="text" placeholder="Enter twitter">
-          </div>
-          <div class="field">
-            <label for="title">Instagram</label>
-            <input id="shopify" type="text" placeholder="Enter instagram">
-          </div>
-          <div class="field">
-            <label for="title">Facebook</label>
-            <input id="salla" type="text" placeholder="Enter facebook">
-          </div>
-          <div class="field">
-            <label for="title">YouTube</label>
-            <input id="alibaba" type="text" placeholder="Enter youtube">
-          </div>
-          <div class="field">
-            <label for="title">Snapchat</label>
-            <input id="aliexpress" type="text" placeholder="Enter snapchat">
-          </div>
-          <div class="field">
-            <label for="title">TikTok</label>
-            <input id="aliexpress" type="text" placeholder="Enter tiktok">
-          </div>
-          <div class="field">
-            <label for="title">Other</label>
-            <input id="other" type="text" placeholder="Enter other">
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="modal-footer">
-    <button class="btn btn-secondary" id="modalPrevBtn">
-      <i class="fas fa-chevron-left"></i>
-      Previous
-    </button>
-    <button class="btn btn-primary" id="modalNextBtn">
-      Next
-      <i class="fas fa-chevron-right"></i>
-    </button>
-  </div>
 
   <script src="../script/sidebar.js"></script>
   <script src="profile.js"></script>

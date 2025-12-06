@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Achievements</title>
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="css/achievements.css">
+  
+  <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+  
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+
+</head>
+
+<body>
+
+  <!-- Top Header -->
+  <div class="top">
+  </div>
+  <!-- Top Header End -->
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+  </aside>
+  <!-- Sidebar End -->
+
+  <!-- Main Content -->
+  <main class="content page" id="page">
+    <div class="achievements-container">
+
+      <!-- Page Header -->
+      <div class="achievements-header">
+        <div class="achievements-heading">
+          <h1><i class="fa fa-trophy achievements-icon"></i> Achievements</h1>
+        </div>
+      </div>
+
+      <!-- Summary Section -->
+      <div class="achievements-summary">
+        <!-- Total Achievements Card -->
+        <div class="summary-card">
+          <div class="summary-icon">
+            <i class="fa fa-trophy"></i>
+          </div>
+          <div class="summary-content">
+            <h3>Total Achievements</h3>
+            <div class="summary-value" data-achievements-total="0">0</div>
+            <p class="summary-label">Unlocked badges</p>
+          </div>
+        </div>
+
+        <!-- Current Level Card -->
+        <div class="summary-card">
+          <div class="summary-icon">
+            <i class="fa fa-star"></i>
+          </div>
+          <div class="summary-content">
+            <h3>Current Level</h3>
+            <div class="level-badge" data-level="beginner">Beginner</div>
+            <p class="summary-label">Vendor level</p>
+          </div>
+        </div>
+
+        <!-- Active Streaks Card -->
+        <div class="summary-card">
+          <div class="summary-icon">
+            <i class="fa fa-fire"></i>
+          </div>
+          <div class="summary-content">
+            <h3>Active Streaks</h3>
+            <div class="streak-value" data-streak-days="0">0 days</div>
+            <p class="summary-label">Current streak</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="achievements-tabs" role="tablist">
+        <button class="achievements-tab-btn active" data-filter="all" role="tab" aria-selected="true">
+          <i class="fa fa-list achievements-tab-icon"></i>
+          All
+        </button>
+        <button class="achievements-tab-btn" data-filter="monthly" role="tab" aria-selected="false">
+          <i class="fa fa-calendar achievements-tab-icon"></i>
+          Monthly
+        </button>
+        <button class="achievements-tab-btn" data-filter="quarterly" role="tab" aria-selected="false">
+          <i class="fa fa-calendar-check-o achievements-tab-icon"></i>
+          Quarterly
+        </button>
+        <button class="achievements-tab-btn" data-filter="yearly" role="tab" aria-selected="false">
+          <i class="fa fa-calendar-o achievements-tab-icon"></i>
+          Yearly
+        </button>
+      </div>
+
+      <!-- Achievements Grid Container -->
+      <div class="achievements-grid" id="achievementsGrid">
+        <!-- Achievement cards will be added here in next steps -->
+        <div class="achievements-empty-state">
+          <i class="fa fa-trophy"></i>
+          <p>No achievements to display</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+  <!-- Main Content End -->
+
+</body>
+
+</html>
+
