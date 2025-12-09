@@ -2445,7 +2445,7 @@
 /* Compact PR Form Styles */
 .purchase-form-row {
     display: flex;
-    gap: 12px;
+    gap: 22px;
     margin-bottom: 16px;
     flex-wrap: wrap;
 }

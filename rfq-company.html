@@ -1386,9 +1386,9 @@
               <i class="fa fa-question-circle"></i>
               RFQ
             </button>
-            <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="Create RFQ">
+            <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="New">
               <i class="fa fa-plus"></i>
-              Create RFQ
+              New
             </button>
             <button class="pr-tab-btn" onclick="switchTab('chat')" data-tab="chat" data-title="Chat">
               <i class="fa fa-comments"></i>
@@ -1521,7 +1521,8 @@
           </div>
           <div class="pr-tab-panel" id="chat-panel">
             <div class="chat-panel-header">
-              <button type="button" class="create-message-btn" onclick="openCreateMessageModal()" title="Create Message">
+              <button type="button" class="create-message-btn" onclick="openCreateMessageModal()"
+                title="Create Message">
                 <i class="fa fa-envelope"></i>
                 <span>Bulk Message</span>
               </button>
@@ -1581,7 +1582,8 @@
                       <div class="chat-header-participants">4 participants · 2 from your company, 2 from vendor</div>
                     </div>
                     <div class="chat-header-members-dropdown">
-                      <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()" title="View Members">
+                      <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()"
+                        title="View Members">
                         <i class="fa fa-users"></i>
                       </button>
                       <div class="chat-header-members-menu" id="chatMembersMenu">
@@ -1694,7 +1696,8 @@
                           <span class="message-sender-company">Saudi Aramco</span>
                         </div>
                         <div class="message-bubble">
-                          <div class="message-text">Thank you for the quick response. We'll review and get back to you.</div>
+                          <div class="message-text">Thank you for the quick response. We'll review and get back to you.
+                          </div>
                           <div class="message-time">10:40 AM</div>
                         </div>
                       </div>
@@ -1874,253 +1877,353 @@
           </div>
           <!-- Create PR Form Panel -->
           <div class="pr-tab-panel" id="create-panel">
-            <div class="purchase-form-container">
-              <form class="purchase-form" data-type="inq" style="gap: 2px;">
-                <!-- Row 1 -->
-                <div class="purchase-form-row">
-                  <div class="purchase-form-group">
-                    <label for="prRequesterName">Vendors</label>
-                    <select id="prProject" name="project" required>
-                      <option value="">Select Vendors</option>
-                      <option>Saudi Aramco</option>
-                      <option>Aramix</option>
-                      <option>Trade Link</option>
-                      <option>Saudi Aramco</option>
-                      <option>Saudi Aramco</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="rfqTitle">RFQ Number</label>
-                    <input type="text" id="rfqTitle" name="rfqTitle" value="RFQ-2025-001" disabled>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prRequesterName">Project</label>
-                    <select id="prProject" name="project" required>
-                      <option value="">Select Project</option>
-                      <option>Office Renovation</option>
-                      <option>IT Upgrade</option>
-                      <option>Road Project</option>
-                      <option>Event Planning</option>
-                      <option>Housing Project</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prProject">Currency</label>
-                    <select id="prProject" name="project" required>
-                      <option>SAR</option>
-                      <option>USD</option>
-                      <option>EUR</option>
-                      <option>BDT</option>
-                      <option>PKR</option>
-                      <option>INR</option>
-                      <option>GBP</option>
-                      <option>AED</option>
-                      <option>QAR</option>
-                      <option>KWD</option>
-                      <option>BHD</option>
-                      <option>OMR</option>
-                      <option>KWD</option>
-                      <option>BHD</option>
-                      <option>OMR</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prProject">Company</label>
-                    <select id="prProject" name="project" required>
-                      <option>Saudi Aramco</option>
-                      <option>Aramix</option>
-                      <option>Trade Link</option>
-                      <option>Saudi Aramco</option>
-                      <option>Saudi Aramco</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="">Order deadline?</label>
-                    <input type="datetime-local" id="orderDeadline" name="orderDeadline" value="2025-01-10T17:02">
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="">Expected Arrival</label>
-                    <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
-                  </div>
-                  <div class="purchase-form-group">
+            <!-- Nested Tabs Navigation -->
+            <div class="pr-tabs-container" style="margin-bottom: 20px;">
+              <div class="pr-tabs">
+                <button class="pr-tab-btn active" onclick="switchCreateTab('rfq')" data-create-tab="rfq">
+                  <i class="fa fa-file-invoice"></i>
+                  RFQ
+                </button>
+                <button class="pr-tab-btn" onclick="switchCreateTab('other-details')" data-create-tab="other-details">
+                  <i class="fa fa-info-circle"></i>
+                  Other Details
+                </button>
+              </div>
+            </div>
+
+            <!-- Nested Tab Content -->
+            <div class="create-tab-content">
+              <!-- RFQ Tab Panel -->
+              <div class="create-tab-panel active" id="create-rfq-panel">
+                <div class="purchase-form-container">
+                  <form class="purchase-form" data-type="inq" style="gap: 2px;">
+                    <!-- Row 1 -->
+                    <div class="purchase-form-row">
+                      <div class="purchase-form-group">
+                        <label for="prRequesterName">Vendors</label>
+                        <div class="autocomplete-container">
+                          <input type="text" id="AdvancedVendor" name="project" placeholder="Type to search projects..." autocomplete="off">
+                          <div class="autocomplete-dropdown" id="AdvancedVendorDropdown">
+                              <div class="autocomplete-item" data-value="residential-building">
+                                  <span>Saudi Aramco</span>
+                              </div>
+                              <div class="autocomplete-item" data-value="commercial-building">
+                                  <span>Aramix</span>
+                              </div>
+                              <div class="autocomplete-item" data-value="infrastructure">
+                                  <span>Trade Link</span>
+                              </div>
+                              <div class="autocomplete-item" data-value="renovation">
+                                  <span>Saudi Aramco</span>
+                              </div>
+                              <div class="autocomplete-item" data-value="industrial">
+                                  <span>Aramix</span>
+                              </div>
+                              <div class="autocomplete-item" data-value="hospitality">
+                                  <span>Trade Link</span>
+                              </div>
+                              <div class="autocomplete-item" data-value="healthcare">
+                                  <span>Saudi Aramco</span>
+                              </div>
+                              <div class="autocomplete-divider"></div>
+                              <div class="autocomplete-item create-project">
+                                  <span><i class="fa fa-plus"></i>Invite</span>
+                              </div>
+                          </div>
+                      </div>
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="prRequesterName">Project</label>
+                        <select id="prProject" name="project" required>
+                          <option value="">Select Project</option>
+                          <option>Office Renovation</option>
+                          <option>IT Upgrade</option>
+                          <option>Road Project</option>
+                          <option>Event Planning</option>
+                          <option>Housing Project</option>
+                        </select>
+                      </div>
+
+                      <div class="purchase-form-group">
+                        <label for="prProject">Company</label>
+                        <select id="prProject" name="project" required>
+                          <option>Saudi Aramco</option>
+                          <option>Aramix</option>
+                          <option>Trade Link</option>
+                          <option>Saudi Aramco</option>
+                          <option>Saudi Aramco</option>
+                        </select>
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="">Order deadline?</label>
+                        <input type="datetime-local" id="orderDeadline" name="orderDeadline" value="2025-01-10T17:02">
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="">Expected Arrival</label>
+                        <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
+                      </div>
+
+
+                      <div class="purchase-form-group">
+                        <label for="">Priority</label>
+                        <select id="priority" name="priority" required>
+                          <option value="">Select Priority</option>
+                          <option value="low">★</option>
+                          <option value="medium" selected>★★</option>
+                          <option value="high">★★★</option>
+                        </select>
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="attentionTo">Attention To</label>
+                        <select id="attentionTo" name="attentionTo" multiple required class="attention-to-select">
+                          <option value="" disabled selected>Select Attention To</option>
+                          <option value="sarah-johnson">Sarah Johnson</option>
+                          <option value="michael-brown">Ahmad Al-Qahtani</option>
+                          <option value="emily-davis">Mohammed Al-Qahtani</option>
+                          <option value="david-wilson">Ali Al-Qahtani</option>
+                          <option value="lisa-anderson">Ahmed Al-Qahtani</option>
+                          <option value="robert-taylor">Omar Al-Qahtani</option>
+                          <option value="jennifer-martinez">Yousef Al-Qahtani</option>
+                          <option value="jennifer-martinez">Yousef Al-Qahtani</option>
+                          <option value="jennifer-martinez">Yousef Al-Qahtani</option>
+                        </select>
+                        <small style="display: block; margin-top: 4px; color: #6b7280; font-size: 11px;">Hold Ctrl
+                          (Windows) or Cmd (Mac) to select multiple members</small>
+                      </div>
+                    </div>
+
+                    <!-- Action button group -->
+                    <div class="purchase-form-row" style="margin-top: 20px; ">
+                      <div class="purchase-form-group" style="text-align: right;">
+                        <button type="button" class="purchase-btn purchase-btn-secondary" style="width: 100px;">
+                          <i class="fa fa-ellipsis-v"></i>
+                          Actions
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="purchase-form-row">
+                      <div class="data-table-container" id="listView">
+                        <div class="data-table-wrapper">
+                          <table class="data-table">
+                            <thead>
+                              <tr>
+                                <th style="width: 32px !important; max-width: 32px !important;">
+                                  <input type="checkbox" class="data-checkbox">
+                                  <label for="" class="data-checkbox-label"></label>
+                                  <span class="data-checkbox-text"></span>
+                                </th>
+                                <th class="data-drag-header">--</th>
+                                <th class="col-brand" style="max-width: 134px !important;">Product Categories</th>
+                                <th class="col-product" style="max-width: 60px !important;">Product</th>
+                                <th class="col-qty" style="max-width: 60px !important;">Qty</th>
+                                <th class="col-uom" style="max-width: 60px !important;">UOM</th>
+                                <th class="data-table-actions" style="max-width: 32px !important;">
+                                  <div class="data-columns-dropdown">
+                                    <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                                      title="Show/Hide Columns">
+                                      <img src="images/add-column.png" alt="Columns" width="20px">
+                                    </button>
+                                    <div class="data-columns-dropdown-content" id="columnDropdown">
+                                      <div class="data-columns-dropdown-header">
+                                        <h4>Select Columns</h4>
+                                      </div>
+                                      <div class="data-columns-dropdown-body">
+                                        <div class="data-column-options">
+                                          <label class="data-column-option fixed-column">
+                                            <input type="checkbox" value="col-pr-number" checked disabled
+                                              data-fixed="true">
+                                            <span class="data-column-label">
+                                              Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                            </span>
+                                          </label>
+                                          <label class="data-column-option">
+                                            <input type="checkbox" value="col-pr-type" checked>
+                                            <span class="data-column-label">Product</span>
+                                          </label>
+                                          <label class="data-column-option">
+                                            <input type="checkbox" value="col-department" checked>
+                                            <span class="data-column-label">Qty</span>
+                                          </label>
+                                          <label class="data-column-option fixed-column">
+                                            <input type="checkbox" value="col-status" checked disabled
+                                              data-fixed="true">
+                                            <span class="data-column-label">
+                                              UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                            </span>
+                                          </label>
+                                        </div>
+                                      </div>
+                                      <div class="data-columns-dropdown-footer">
+                                        <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                          Cancel
+                                        </button>
+                                        <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                          Save
+                                        </button>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td class="data-checkbox-cell">
+                                  <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
+                                  <label for="rfq-001" class="data-checkbox-label"></label>
+                                </td>
+                                <td class="data-item-brand col-brand">
+                                  <span>-</span>
+                                </td>
+                                <td class="data-item-brand col-brand">
+                                  <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                                    <option value="" disabled selected>Product Categories</option>
+                                    <option value="brand1">Product Categories 1</option>
+                                    <option value="brand2">Product Categories 2</option>
+                                    <option value="brand3">Product Categories 3</option>
+                                  </select>
+                                </td>
+                                <td class="data-item-product col-product">
+                                  <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                                    <option value="" disabled selected>Add Product</option>
+                                    <option value="product1">Product 1</option>
+                                    <option value="product2">Product 2</option>
+                                    <option value="product3">Product 3</option>
+                                  </select>
+                                </td>
+                                <td class="data-item-qty col-qty">
+                                  <input type="number" placeholder="Qty">
+                                </td>
+                                <td class="data-item-uom col-uom">
+                                  <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                                    <option value="">Add</option>
+                                    <option value="uom1">UOM 1</option>
+                                    <option value="uom2">UOM 2</option>
+                                    <option value="uom3">UOM 3</option>
+                                  </select>
+                                </td>
+                                <td class="data-table-actions-cell"></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <!-- Add Product Button -->
+                        <div class="add-product-container">
+                          <button type="button" class="add-product-btn" onclick="addProductRow()">
+                            <i class="fa fa-plus"></i>
+                            Add Product
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+
+                    <div class="purchase-form-row">
+                      <label>Attachments</label>
+                      <div class="attachments-dropdown">
+                        <button type="button" class="attachments-dropdown-btn" onclick="toggleAttachmentsDropdown()">
+                          <i class="fa fa-paperclip"></i>
+                          <span>Attachment</span>
+                          <i class="fa fa-chevron-down"></i>
+                        </button>
+                        <div class="attachments-dropdown-menu" id="attachmentsDropdownMenu">
+                          <label class="attachments-dropdown-item" for="file-upload">
+                            <i class="fa fa-upload"></i>
+                            Upload File
+                            <input type="file" id="file-upload" style="display: none;" multiple
+                              onchange="displaySelectedFiles(this)">
+                          </label>
+                          <label class="attachments-dropdown-item" for="camera-capture">
+                            <i class="fa fa-camera"></i>
+                            Take Photo
+                            <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture
+                              onchange="displaySelectedFiles(this)">
+                          </label>
+                        </div>
+                      </div>
+                      <div class="attachments-files-list" id="attachmentsFilesList">
+                        <!-- Selected files will be displayed here -->
+                      </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="purchase-form-actions">
+                      <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
+                        Cancel
+                      </button>
+                      <button type="submit" class="purchase-btn purchase-btn-primary">
+                        <i class="fa fa-save"></i>
+                        Submit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Other Details Tab Panel -->
+              <div class="create-tab-panel" id="create-other-details-panel">
+                <div class="purchase-form-container">
+                  <form class="purchase-form" data-type="inq" style="gap: 2px;">
+                    <!-- Other Details Form Fields -->
+                    <div class="purchase-form-row">
+                      <div class="purchase-form-group">
+                        <label for="prProject">Currency</label>
+                        <select id="prProject" name="project" required>
+                          <option>SAR</option>
+                          <option>USD</option>
+                          <option>EUR</option>
+                          <option>BDT</option>
+                          <option>PKR</option>
+                          <option>INR</option>
+                          <option>GBP</option>
+                          <option>AED</option>
+                          <option>QAR</option>
+                          <option>KWD</option>
+                          <option>BHD</option>
+                          <option>OMR</option>
+                          <option>KWD</option>
+                          <option>BHD</option>
+                          <option>OMR</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="purchase-form-group">
                     <label for="">Phone</label>
                     <input type="text" id="phone" name="phone" value="2025-01-10">
                   </div>
-                  <div class="purchase-form-group">
-                    <label for="">Attention To</label>
-                    <input type="text" id="attentionTo" name="attentionTo" value="2025-01-10">
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="">Priority</label>
-                    <select id="priority" name="priority" required>
-                      <option value="">Select Priority</option>
-                      <option value="low">Low</option>
-                      <option value="medium" selected>Medium</option>
-                      <option value="high">High</option>
-                      <option value="urgent">Urgent</option>
-                    </select>
-                  </div>
-                </div>
 
-                <!-- Row 2 -->
-                <div class="purchase-form-row">
-                  <div class="purchase-form-group">
-                    <label for="prRequiredDate">Deliver to?</label>
-                    <textarea name="deliverTo" required placeholder="Enter deliver to..."
-                      style="margin-bottom: 0px;"></textarea>
-                  </div>
-                </div>
-
-                <div class="purchase-form-row">
-                  <label>Attachments</label>
-                  <div class="attachments-dropdown">
-                    <button type="button" class="attachments-dropdown-btn" onclick="toggleAttachmentsDropdown()">
-                      <i class="fa fa-paperclip"></i>
-                      <span>Attachment</span>
-                      <i class="fa fa-chevron-down"></i>
-                    </button>
-                    <div class="attachments-dropdown-menu" id="attachmentsDropdownMenu">
-                      <label class="attachments-dropdown-item" for="file-upload">
-                        <i class="fa fa-upload"></i>
-                        Upload File
-                        <input type="file" id="file-upload" style="display: none;" multiple
-                          onchange="displaySelectedFiles(this)">
-                      </label>
-                      <label class="attachments-dropdown-item" for="camera-capture">
-                        <i class="fa fa-camera"></i>
-                        Take Photo
-                        <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture
-                          onchange="displaySelectedFiles(this)">
-                      </label>
+                    <!-- Deliver to? -->
+                    <div class="purchase-form-row" style="margin-top: 20px;">
+                      <div class="purchase-form-group">
+                        <label for="prRequiredDate">Deliver to?</label>
+                        <textarea name="deliverTo" required placeholder="Enter deliver to..."
+                          style="margin-bottom: 0px;">This is the address from the selected project.</textarea>
+                      </div>
                     </div>
-                  </div>
-                  <div class="attachments-files-list" id="attachmentsFilesList">
-                    <!-- Selected files will be displayed here -->
-                  </div>
-                </div>
-
-                <div class="purchase-form-row">
-                  <div class="data-table-container" id="listView">
-                    <div class="data-table-wrapper">
-                      <table class="data-table">
-                        <thead>
-                          <tr>
-                            <th style="width: 32px !important; max-width: 32px !important;">
-                              <input type="checkbox" class="data-checkbox">
-                              <label for="" class="data-checkbox-label"></label>
-                              <span class="data-checkbox-text"></span>
-                            </th>
-                            <th class="data-drag-header">--</th>
-                            <th class="col-brand" style="max-width: 45px !important;">Brand</th>
-                            <th class="col-product" style="max-width: 60px !important;">Product</th>
-                            <th class="col-qty" style="max-width: 60px !important;">Qty</th>
-                            <th class="col-uom" style="max-width: 60px !important;">UOM</th>
-                            <th class="data-table-actions" style="max-width: 32px !important;">
-                              <div class="data-columns-dropdown">
-                                <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
-                                  title="Show/Hide Columns">
-                                  <img src="images/add-column.png" alt="Columns" width="20px">
-                                </button>
-                                <div class="data-columns-dropdown-content" id="columnDropdown">
-                                  <div class="data-columns-dropdown-header">
-                                    <h4>Select Columns</h4>
-                                  </div>
-                                  <div class="data-columns-dropdown-body">
-                                    <div class="data-column-options">
-                                      <label class="data-column-option fixed-column">
-                                        <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
-                                        <span class="data-column-label">
-                                          Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                      </label>
-                                      <label class="data-column-option">
-                                        <input type="checkbox" value="col-pr-type" checked>
-                                        <span class="data-column-label">Product</span>
-                                      </label>
-                                      <label class="data-column-option">
-                                        <input type="checkbox" value="col-department" checked>
-                                        <span class="data-column-label">Qty</span>
-                                      </label>
-                                      <label class="data-column-option fixed-column">
-                                        <input type="checkbox" value="col-status" checked disabled data-fixed="true">
-                                        <span class="data-column-label">
-                                          UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                        </span>
-                                      </label>
-                                    </div>
-                                  </div>
-                                  <div class="data-columns-dropdown-footer">
-                                    <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
-                                      Cancel
-                                    </button>
-                                    <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
-                                      Save
-                                    </button>
-                                  </div>
-                                </div>
-                              </div>
-                            </th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td class="data-checkbox-cell">
-                              <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
-                              <label for="rfq-001" class="data-checkbox-label"></label>
-                            </td>
-                            <td class="data-item-brand col-brand">
-                              <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
-                                <option value="">Add</option>
-                                <option value="brand1">Brand 1</option>
-                                <option value="brand2">Brand 2</option>
-                                <option value="brand3">Brand 3</option>
-                              </select>
-                            </td>
-                            <td class="data-item-product col-product">
-                              <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
-                                <option value="">Add Product</option>
-                                <option value="product1">Product 1</option>
-                                <option value="product2">Product 2</option>
-                                <option value="product3">Product 3</option>
-                              </select>
-                            </td>
-                            <td class="data-item-qty col-qty">
-                              <input type="number" placeholder="Qty">
-                            </td>
-                            <td class="data-item-uom col-uom">
-                              <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
-                                <option value="">Add</option>
-                                <option value="uom1">UOM 1</option>
-                                <option value="uom2">UOM 2</option>
-                                <option value="uom3">UOM 3</option>
-                              </select>
-                            </td>
-                            <td class="data-table-actions-cell"></td>
-                          </tr>
-                        </tbody>
-                      </table>
+                    <!-- Instructions -->
+                    <div class="purchase-form-row" style="margin-top: 20px;">
+                      <div class="purchase-form-group">
+                        <label for="prRequiredDate">Instructions</label>
+                        <textarea name="instructions" required placeholder="Enter instructions..."
+                          style="margin-bottom: 0px;">This is the instructions for the Vendor/Supplier.</textarea>
+                      </div>
                     </div>
-                    <!-- Add Product Button -->
-                    <div class="add-product-container">
-                      <button type="button" class="add-product-btn" onclick="addProductRow()">
-                        <i class="fa fa-plus"></i>
-                        Add Product
+
+                    <!-- Form Actions -->
+                    <div class="purchase-form-actions">
+                      <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
+                        Cancel
+                      </button>
+                      <button type="submit" class="purchase-btn purchase-btn-primary">
+                        <i class="fa fa-save"></i>
+                        Save
                       </button>
                     </div>
-                  </div>
+                  </form>
                 </div>
-
-                <!-- Form Actions -->
-                <div class="purchase-form-actions">
-                  <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
-                    Cancel
-                  </button>
-                  <button type="submit" class="purchase-btn purchase-btn-primary">
-                    <i class="fa fa-save"></i>
-                    Submit
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
 
@@ -2200,18 +2303,11 @@
   <div id="vendorModal" class="vendor-modal">
     <div class="vendor-modal-content">
       <div class="vendor-modal-header">
-        <h3>Select Vendor</h3>
+        <h3>Write a subject</h3>
         <span class="vendor-modal-close" onclick="closeVendorModal()">&times;</span>
       </div>
-      <div class="vendor-modal-body">
-        <select id="vendorSelect" class="vendor-select">
-          <option value="">-- Select a vendor --</option>
-          <option value="vendor1">Vendor 1</option>
-          <option value="vendor2">Vendor 2</option>
-          <option value="vendor3">Vendor 3</option>
-          <option value="vendor4">Vendor 4</option>
-          <option value="vendor5">Vendor 5</option>
-        </select>
+      <div class="vendor-modal-body" style="margin-top: 20px;">
+        <input type="text" id="subject" name="subject" placeholder="Enter subject...">
       </div>
       <div class="vendor-modal-footer">
         <button type="button" onclick="closeVendorModal()">Cancel</button>
@@ -2565,7 +2661,8 @@
           <div class="create-message-form-group">
             <label for="messageText">Message <span class="required">*</span></label>
             <div class="message-input-wrapper">
-              <textarea id="messageText" name="message" rows="6" placeholder="Type your message here..." required></textarea>
+              <textarea id="messageText" name="message" rows="6" placeholder="Type your message here..."
+                required></textarea>
               <div class="message-input-actions">
                 <button type="button" class="message-attachment-btn" title="Attach File">
                   <i class="fa fa-paperclip"></i>
@@ -2597,7 +2694,8 @@
           <label for="inviteMemberSearch">Search Member</label>
           <div class="invite-member-search-wrapper">
             <i class="fa fa-search invite-member-search-icon"></i>
-            <input type="text" id="inviteMemberSearch" class="invite-member-search-input" placeholder="Search by name, email, or role...">
+            <input type="text" id="inviteMemberSearch" class="invite-member-search-input"
+              placeholder="Search by name, email, or role...">
           </div>
         </div>
         <div class="invite-member-list" id="inviteMemberList">
@@ -2675,7 +2773,7 @@
   </div>
 
 
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
   <!-- CustomEase plugin -->
@@ -2685,6 +2783,7 @@
   <script src="script/header.js"></script>
   <script src="script/common-table.js"></script>
   <script src="script/common-offcanvas.js"></script>
+  <script src="script/rfq-company.js"></script>
 
   <!-- Initialize select all functionality for this page -->
   <script>

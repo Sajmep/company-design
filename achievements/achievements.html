@@ -101,11 +101,182 @@
 
       <!-- Achievements Grid Container -->
       <div class="achievements-grid" id="achievementsGrid">
-        <!-- Achievement cards will be added here in next steps -->
-        <div class="achievements-empty-state">
-          <i class="fa fa-trophy"></i>
-          <p>No achievements to display</p>
+        
+        <!-- Example: Completed Achievement -->
+        <div class="achievement-card" 
+             data-achievement-id="profile-visits"
+             data-status="completed"
+             data-period="monthly"
+             data-tier="gold">
+          
+          <div class="achievement-badge">
+            <div class="badge-icon-wrapper badge-gold">
+              <i class="fa fa-eye"></i>
+            </div>
+            <span class="badge-tier tier-gold">Gold</span>
+          </div>
+          
+          <div class="achievement-content">
+            <div class="achievement-header">
+              <h3 class="achievement-title">Profile Visits Champion</h3>
+              <span class="period-badge period-monthly">Monthly</span>
+            </div>
+            <p class="achievement-description">Reach 150 profile visits this month</p>
+            
+            <div class="achievement-progress">
+              <div class="progress-bar">
+                <div class="progress-fill progress-completed" 
+                     style="width: 100%"
+                     data-current="150"
+                     data-target="150"></div>
+              </div>
+              <div class="progress-text">
+                <span class="current-value">150</span> / 
+                <span class="target-value">150</span>
+                <span class="percentage">(100%)</span>
+              </div>
+            </div>
+            
+            <div class="achievement-status">
+              <span class="status-badge status-completed">
+                <i class="fa fa-check-circle"></i> Completed
+              </span>
+            </div>
+          </div>
         </div>
+
+        <!-- Example: In Progress Achievement -->
+        <div class="achievement-card" 
+             data-achievement-id="rfq-received"
+             data-status="in-progress"
+             data-period="monthly"
+             data-tier="silver">
+          
+          <div class="achievement-badge">
+            <div class="badge-icon-wrapper badge-silver">
+              <i class="fa fa-envelope"></i>
+            </div>
+            <span class="badge-tier tier-silver">Silver</span>
+          </div>
+          
+          <div class="achievement-content">
+            <div class="achievement-header">
+              <h3 class="achievement-title">RFQ Champion</h3>
+              <span class="period-badge period-monthly">Monthly</span>
+            </div>
+            <p class="achievement-description">Receive 20 RFQs this month</p>
+            
+            <div class="achievement-progress">
+              <div class="progress-bar">
+                <div class="progress-fill progress-in-progress" 
+                     style="width: 65%"
+                     data-current="13"
+                     data-target="20"></div>
+              </div>
+              <div class="progress-text">
+                <span class="current-value">13</span> / 
+                <span class="target-value">20</span>
+                <span class="percentage">(65%)</span>
+              </div>
+            </div>
+            
+            <div class="achievement-status">
+              <span class="status-badge status-in-progress">
+                <i class="fa fa-clock-o"></i> In Progress
+              </span>
+              <span class="status-message">7 more to unlock!</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example: Locked Achievement -->
+        <div class="achievement-card achievement-locked" 
+             data-achievement-id="sales-master"
+             data-status="locked"
+             data-period="yearly"
+             data-tier="gold">
+          
+          <div class="achievement-badge">
+            <div class="badge-icon-wrapper badge-locked">
+              <i class="fa fa-lock"></i>
+            </div>
+            <span class="badge-tier tier-gold">Gold</span>
+          </div>
+          
+          <div class="achievement-content">
+            <div class="achievement-header">
+              <h3 class="achievement-title">Sales Master</h3>
+              <span class="period-badge period-yearly">Yearly</span>
+            </div>
+            <p class="achievement-description">Reach 200 sales this year</p>
+            
+            <div class="achievement-progress">
+              <div class="progress-bar">
+                <div class="progress-fill progress-locked" 
+                     style="width: 0%"
+                     data-current="0"
+                     data-target="200"></div>
+              </div>
+              <div class="progress-text">
+                <span class="current-value">0</span> / 
+                <span class="target-value">200</span>
+                <span class="percentage">(0%)</span>
+              </div>
+            </div>
+            
+            <div class="achievement-status">
+              <span class="status-badge status-locked">
+                <i class="fa fa-lock"></i> Locked
+              </span>
+              <span class="status-message">Start making sales to unlock</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Example: In Progress Achievement (Bronze) -->
+        <div class="achievement-card" 
+             data-achievement-id="products-viewed"
+             data-status="in-progress"
+             data-period="quarterly"
+             data-tier="bronze">
+          
+          <div class="achievement-badge">
+            <div class="badge-icon-wrapper badge-bronze">
+              <i class="fa fa-cube"></i>
+            </div>
+            <span class="badge-tier tier-bronze">Bronze</span>
+          </div>
+          
+          <div class="achievement-content">
+            <div class="achievement-header">
+              <h3 class="achievement-title">Product Explorer</h3>
+              <span class="period-badge period-quarterly">Quarterly</span>
+            </div>
+            <p class="achievement-description">Get 500 product views this quarter</p>
+            
+            <div class="achievement-progress">
+              <div class="progress-bar">
+                <div class="progress-fill progress-in-progress" 
+                     style="width: 80%"
+                     data-current="400"
+                     data-target="500"></div>
+              </div>
+              <div class="progress-text">
+                <span class="current-value">400</span> / 
+                <span class="target-value">500</span>
+                <span class="percentage">(80%)</span>
+              </div>
+            </div>
+            
+            <div class="achievement-status">
+              <span class="status-badge status-in-progress">
+                <i class="fa fa-clock-o"></i> In Progress
+              </span>
+              <span class="status-message">Almost there! 100 more to go</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
     </div>

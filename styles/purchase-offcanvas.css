@@ -856,6 +856,29 @@
   text-align: center;
 }
 
+/* Nested Tabs in Create Panel */
+.create-tab-content {
+  min-height: 200px;
+}
+
+#create-panel .create-tab-panel {
+  display: none !important;
+  padding: 0;
+}
+
+#create-panel .create-tab-panel.active {
+  display: block !important;
+}
+
+/* Ensure nested tabs container is visible when create panel is active */
+#create-panel .pr-tabs-container {
+  display: block !important;
+}
+
+#create-panel.active .pr-tabs-container {
+  display: block !important;
+}
+
 .pr-description-section {
   margin-bottom: 16px;
   background-color: #fff;
