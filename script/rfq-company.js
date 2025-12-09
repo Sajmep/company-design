@@ -1,11 +1,9 @@
 
 function createRfq() {
-  // Open the offcanvas in create mode
   openPROffcanvas();
-  // Switch to create tab
   switchTab('create');
-  // Update header
-  updateOffcanvasHeader('Create RFQ');
+  updateOffcanvasHeader('New');
+  setTimeout(initializeAutocomplete, 200);
 }
 
 // Function to open rfq offcanvas for viewing
@@ -15,7 +13,7 @@ function openRfqOffcanvas(mode = 'view') {
   // Switch to appropriate tab
   if (mode === 'create') {
     switchTab('create');
-    updateOffcanvasHeader('Create RFQ');
+    updateOffcanvasHeader('New');
   } else {
     switchTab('rfq');
     updateOffcanvasHeader('RFQ-2025');
@@ -23,8 +21,41 @@ function openRfqOffcanvas(mode = 'view') {
   
 }
 
-
-
+// Function to switch nested tabs within create panel
+function switchCreateTab(tabName) {
+  // Get the create panel to scope our selections
+  const createPanel = document.getElementById('create-panel');
+  if (!createPanel) {
+    console.error('Create panel not found');
+    return;
+  }
+  
+  // Remove active class from all nested tabs and panels within create panel
+  createPanel.querySelectorAll('[data-create-tab]').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  createPanel.querySelectorAll('.create-tab-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
+  
+  // Add active class to selected tab and panel
+  const selectedTab = createPanel.querySelector(`[data-create-tab="${tabName}"]`);
+  const selectedPanel = createPanel.querySelector(`#create-${tabName}-panel`);
+  
+  if (selectedTab) {
+    selectedTab.classList.add('active');
+  } else {
+    console.error(`Tab button not found for: ${tabName}`);
+    return;
+  }
+  
+  if (selectedPanel) {
+    selectedPanel.classList.add('active');
+  } else {
+    console.error(`Tab panel not found for: create-${tabName}-panel`);
+  }
+}
 
 // Add Product Row functionality
 function addProductRow() {
@@ -228,4 +259,53 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   }
+
+  // Initialize autocomplete when page loads (if elements exist)
+  setTimeout(initializeAutocomplete, 300);
 });
+
+// Initialize autocomplete for vendors field
+function initializeAutocomplete() {
+  const input = document.getElementById('AdvancedVendor');
+  const dropdown = document.getElementById('AdvancedVendorDropdown');
+  
+  if (!input || !dropdown) return;
+  
+  // Prevent duplicate initialization
+  if (input.dataset.initialized) return;
+  input.dataset.initialized = 'true';
+  
+  // Show dropdown on focus/input
+  input.addEventListener('focus', () => {
+    dropdown.classList.add('show');
+    dropdown.querySelectorAll('.autocomplete-item').forEach(item => item.classList.remove('hidden'));
+  });
+  
+  // Filter items on input
+  input.addEventListener('input', function() {
+    const search = this.value.toLowerCase();
+    dropdown.querySelectorAll('.autocomplete-item:not(.autocomplete-divider)').forEach(item => {
+      item.classList.toggle('hidden', !item.textContent.toLowerCase().includes(search));
+    });
+    dropdown.classList.add('show');
+  });
+  
+  // Handle item selection
+  dropdown.querySelectorAll('.autocomplete-item:not(.autocomplete-divider)').forEach(item => {
+    item.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const text = this.querySelector('span')?.textContent || this.textContent;
+      if (text) {
+        input.value = text;
+        dropdown.classList.remove('show');
+      }
+    });
+  });
+  
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.autocomplete-container')) {
+      dropdown.classList.remove('show');
+    }
+  });
+}

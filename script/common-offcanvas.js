@@ -54,24 +54,36 @@ function switchTab(tabName) {
     if (selectedPanel) selectedPanel.classList.add('active');
     
     // Hide/show tabs container and other tabs based on current tab
-    const tabsContainer = document.querySelector('.pr-tabs-container');
-    const otherTabs = document.querySelectorAll('.pr-tab-btn:not([data-tab="create"])');
+    // Only target the main tabs container (direct child of purchase-offcanvas-body), not nested ones
+    const offcanvasBody = document.querySelector('.purchase-offcanvas-body');
+    const tabsContainer = offcanvasBody ? offcanvasBody.querySelector(':scope > .pr-tabs-container') : null;
+    const otherTabs = document.querySelectorAll('.pr-tab-btn[data-tab]:not([data-tab="create"])');
     
     if (tabName === 'create') {
-        // Hide tabs container and show create tab
+        // Hide main tabs container and show create tab
         if (tabsContainer) {
             tabsContainer.style.display = 'none';
-            
         }
-        document.querySelector('[data-tab="create"]').style.display = 'flex';
+        const createTab = document.querySelector('[data-tab="create"]');
+        if (createTab) createTab.style.display = 'flex';
         otherTabs.forEach(tab => tab.style.display = 'none');
+        
+        // Ensure nested tabs in create panel are visible
+        const createPanel = document.getElementById('create-panel');
+        if (createPanel) {
+            const nestedTabsContainer = createPanel.querySelector('.pr-tabs-container');
+            if (nestedTabsContainer) {
+                nestedTabsContainer.style.display = 'block';
+            }
+        }
     } else {
-        // Show tabs container and all tabs except create
+        // Show main tabs container and all tabs except create
         if (tabsContainer) {
             tabsContainer.style.display = 'block';
         }
         otherTabs.forEach(tab => tab.style.display = 'flex');
-        document.querySelector('[data-tab="create"]').style.display = 'none';
+        const createTab = document.querySelector('[data-tab="create"]');
+        if (createTab) createTab.style.display = 'none';
     }
     
     // Update header based on tab using data attribute

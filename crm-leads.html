@@ -1457,6 +1457,20 @@
               </div>
             </div>
 
+            <!-- Description Section -->
+            <div class="pr-overview-section">
+              <div class="pr-overview-header">
+                <h4>Description</h4>
+              </div>
+              <div class="pr-overview-content">
+                <div class="pr-overview-item" style="width: 100%;">
+                  <div class="pr-overview-value" style="font-weight: 400; font-size: 13px; line-height: 1.6; color: #374151;">
+                    Looking for enterprise software solutions for their digital transformation initiative. Interested in cloud-based ERP systems and customer relationship management tools.
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
 
           <div class="pr-tab-panel" id="chat-panel">
@@ -1711,6 +1725,24 @@
                     </select>
                   </div>
                   <div class="purchase-form-group">
+                    <label for="leadPhone">Phone</label>
+                    <input type="tel" id="leadPhone" name="phone">
+                  </div>
+                  <div class="purchase-form-group">
+                    <label for="leadEmail">Email</label>
+                    <input type="email" id="leadEmail" name="email">
+                  </div>
+                </div>
+                <!-- Row 2 - Description -->
+                <div class="purchase-form-row">
+                  <div class="purchase-form-group" style="width: 100%;">
+                    <label for="leadDescription">Description</label>
+                    <textarea id="leadDescription" name="description" rows="4" placeholder="Enter lead description or notes..."></textarea>
+                  </div>
+                </div>
+                <!-- Row 3 - Other fields -->
+                <div class="purchase-form-row">
+                  <div class="purchase-form-group">
                     <label for="prProject">Currency</label>
                     <select id="prProject" name="project" required>
                       <option>SAR</option>
@@ -1747,10 +1779,6 @@
                   <div class="purchase-form-group">
                     <label for="">Expected Arrival</label>
                     <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="">Phone</label>
-                    <input type="text" id="phone" name="phone" value="2025-01-10">
                   </div>
                   <div class="purchase-form-group">
                     <label for="">Attention To</label>

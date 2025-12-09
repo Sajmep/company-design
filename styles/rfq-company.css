@@ -236,7 +236,7 @@
 
 /* RFQ Modal Table Overrides - Compact Width */
 .purchase-form-row .data-table-container {
-  max-width: 100%;
+  width: 100%;
   overflow-x: auto;
 }
 
@@ -318,4 +318,156 @@
   display: flex;
   justify-content: flex-end;
   gap: 10px;
+}
+
+/* Attention To Multi-Select Styling */
+.attention-to-select {
+  width: 100%;
+  min-height: 80px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #374151;
+  background: #fff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.attention-to-select:focus {
+  outline: none;
+  border-color: #9885d1;
+  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+}
+
+.attention-to-select option {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.attention-to-select option:hover {
+  background: #f3f4f6;
+}
+
+.attention-to-select option:checked {
+  background: #e6f0ff;
+  color: #1d4ed8;
+  font-weight: 500;
+}
+
+
+.vendor-modal-body input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #374151;
+  background: #fff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+ 
+}
+
+.vendor-modal-footer {
+  margin-top: 20px;
+}
+
+.vendor-modal-footer button {
+  width: 100px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 14px;
+  color: #374151;
+  background: #fff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+
+/* Autocomplete Styles */
+.autocomplete-container {
+  position: relative;
+  width: 100%;
+}
+
+.autocomplete-container input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #374151;
+  background: #fff;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.autocomplete-container input:focus {
+  outline: none;
+  border-color: #9885d1;
+  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+}
+
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-top: none;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  max-height: 200px;
+  overflow-y: auto;
+  display: none;
+  margin-top: 2px;
+}
+
+.autocomplete-dropdown.show {
+  display: block;
+}
+
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.autocomplete-item:hover {
+  background: #f8f9fa;
+}
+
+.autocomplete-item i {
+  margin-right: 8px;
+  width: 16px;
+  text-align: center;
+  color: #666;
+}
+
+.autocomplete-item.create-project {
+  background: #f8f9fa;
+  color: #9885d1;
+  font-weight: 500;
+}
+
+.autocomplete-item.create-project:hover {
+  background: #e8e9ea;
+}
+
+.autocomplete-divider {
+  height: 1px;
+  background: #ddd;
+  margin: 4px 0;
+}
+
+.autocomplete-item.hidden {
+  display: none;
 }
