@@ -122,8 +122,13 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   width: 206px;
   position: absolute;
-  top: 48px;
-  right: 12px;
+  top: 10px;
+  right: 43px;
+}
+
+.purchase-offcanvas-content-full .pr-staging-section {
+  top: 50px;
+  right: 20px;
 }
 
 .pr-staging-arrow {
@@ -952,7 +957,18 @@
   top: 63px;
   background: none;
   padding: 0;
+  left: 147px;
+  border-bottom: 0;
+  background-color: none;
   
+}
+
+.purchase-offcanvas-content-full .pr-btn-edit span,
+ .purchase-offcanvas-content-full .pr-btn-submit span,
+  .purchase-offcanvas-content-full .pr-btn-approve span,
+   .purchase-offcanvas-content-full .pr-btn-reject span,
+    .purchase-offcanvas-content-full .pr-btn-approve span {
+  display: block;
 }
 
 .purchase-offcanvas-content-full .pr-overview-content{
@@ -1000,15 +1016,25 @@
 
 /* PR Action Buttons Styles */
 .pr-action-buttons {
-  padding: 16px 20px;
-  border-bottom: 1px solid #e5e7eb;
-  background: #f9fafb;
+  padding: 16px 0px;
+  background: none;
   display: flex;
   flex-direction: row;
   gap: 8px;
   margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: flex-start;
+  position: absolute;
+  top: 46px;
+  right: 12px;
+}
+
+.pr-btn-edit, .pr-btn-submit, .pr-btn-approve, .pr-btn-reject, .pr-btn-approve {
+  min-width: auto !important;
+}
+
+.pr-btn-edit span, .pr-btn-submit span, .pr-btn-approve span, .pr-btn-reject span, .pr-btn-approve span {
+  display: none;
 }
 
 .pr-action-buttons-group {
@@ -1111,6 +1137,7 @@
   .pr-action-buttons {
     padding: 16px;
     gap: 6px;
+
   }
   
   .pr-btn {
