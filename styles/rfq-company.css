@@ -323,7 +323,6 @@
 /* Attention To Multi-Select Styling */
 .attention-to-select {
   width: 100%;
-  min-height: 80px;
   padding: 8px 12px;
   border: 1px solid #d1d5db;
   border-radius: 6px;
@@ -470,4 +469,57 @@
 
 .autocomplete-item.hidden {
   display: none;
+}
+
+/* Table Select Dropdown Styles */
+.table-select-dropdown {
+  width: 100%;
+  padding: 6px 24px 6px 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background: #fff;
+  color: #374151;
+  font-size: 12px;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3E%3C/svg%3E");
+  background-position: right 6px center;
+  background-repeat: no-repeat;
+  background-size: 14px;
+}
+
+.table-select-dropdown:hover {
+  border-color: #9885d1;
+  background-color: #f8f9fa;
+}
+
+.table-select-dropdown:focus {
+  outline: none;
+  border-color: #9885d1;
+  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+  background-color: #fff;
+}
+
+.table-select-dropdown:disabled {
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.table-select-dropdown option {
+  padding: 8px;
+  background: #fff;
+}
+
+.table-select-dropdown option:checked {
+  background: #e6f0ff;
+  color: #1d4ed8;
+}
+
+.rfq-priority {
+  position: absolute;
+  top: 59px;
 }

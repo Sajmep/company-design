@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="styles/common-table.css">
   <link rel="stylesheet" href="styles/purchase-offcanvas.css">
   <link rel="stylesheet" href="styles/rfq-company.css">
+  <link rel="stylesheet" href="css/items-table.css">
   <link rel="stylesheet" href="styles/purchase.css">
   <link rel="stylesheet" href="css/rfq-offers.css">
   <link rel="stylesheet" href="css/chat.css">
@@ -887,11 +888,6 @@
               <span class="btn-text">Filter</span>
             </button>
 
-            <!-- Import Button -->
-            <button class="page-header-import-btn" onclick="importRfqs()" title="Import">
-              <i class="fa fa-upload"></i>
-              <span class="btn-text">Import</span>
-            </button>
 
             <!-- Action Dropdown (hidden by default) -->
             <div class="page-header-action-dropdown" id="rfqActionDropdown">
@@ -1345,9 +1341,41 @@
 
       <div class="purchase-offcanvas-header">
         <h3>RFQ-2025</h3>
+        <div class="pr-action-buttons">
+          <div class="pr-action-buttons-group">
+            <button class="pr-btn pr-btn-edit" type="button" title="Edit">
+              <i class="fa fa-edit"></i>
+              <span>Edit</span>
+            </button>
+            <button class="pr-btn pr-btn-submit" type="button" onclick="openVendorModal()" title="Send">
+              <i class="fa fa-paper-plane"></i>
+              <span>Send</span>
+            </button>
+          </div>
+          <div class="pr-action-buttons-group">
+            <button class="pr-btn pr-btn-approve" type="button" title="Approve">
+              <i class="fa fa-check"></i>
+              <span>Approve</span>
+            </button>
+            <button class="pr-btn pr-btn-reject" type="button" title="Reject">
+              <i class="fa fa-times"></i>
+              <span>Reject</span>
+            </button>
+          </div>
+        </div>
         <button class="purchase-offcanvas-close" onclick="closePROffcanvas()">
           <i class="fa fa-times"></i>
         </button>
+        
+
+        <div class="purchase-form-group rfq-priority" >
+          <select id="priority" name="priority" required>
+            <option value="" selected disabled>Select Priority</option>
+            <option value="low">★</option>
+            <option value="medium">★★</option>
+            <option value="high" >★★★</option>
+          </select>
+        </div>
         <!-- Staging Section -->
         <div class="pr-staging-section">
           <div class="pr-staging-arrow">
@@ -1410,34 +1438,7 @@
 
           <div class="pr-tab-panel active" id="rfq-panel">
 
-            <div class="pr-action-buttons">
-              <div class="pr-action-buttons-group">
-                <button class="pr-btn pr-btn-edit" type="button">
-                  <i class="fa fa-edit"></i>
-                  Edit
-                </button>
-                <button class="pr-btn pr-btn-submit" type="button" onclick="openVendorModal()">
-                  <i class="fa fa-paper-plane"></i>
-                  Send
-                </button>
-              </div>
-              <div class="pr-action-buttons-group">
-                <button class="pr-btn pr-btn-approve" type="button">
-                  <i class="fa fa-check"></i>
-                  Approve
-                </button>
-                <button class="pr-btn pr-btn-reject" type="button">
-                  <i class="fa fa-times"></i>
-                  Reject
-                </button>
-              </div>
-              <div class="pr-action-buttons-group">
-                <button class="pr-btn pr-btn-cancel" type="button">
-                  <i class="fa fa-ban"></i>
-                  Cancel
-                </button>
-              </div>
-            </div>
+           
             <div class="pr-overview-section">
               <div class="pr-overview-header" onclick="togglePROverview()">
                 <h4>RFQ Overview</h4>
@@ -1884,6 +1885,10 @@
                   <i class="fa fa-file-invoice"></i>
                   RFQ
                 </button>
+                <button class="pr-tab-btn" onclick="switchCreateTab('project-details')" data-create-tab="project-details">
+                  <i class="fa fa-folder"></i>
+                  Project Details
+                </button>
                 <button class="pr-tab-btn" onclick="switchCreateTab('other-details')" data-create-tab="other-details">
                   <i class="fa fa-info-circle"></i>
                   Other Details
@@ -1933,18 +1938,6 @@
                       </div>
                       </div>
                       <div class="purchase-form-group">
-                        <label for="prRequesterName">Project</label>
-                        <select id="prProject" name="project" required>
-                          <option value="">Select Project</option>
-                          <option>Office Renovation</option>
-                          <option>IT Upgrade</option>
-                          <option>Road Project</option>
-                          <option>Event Planning</option>
-                          <option>Housing Project</option>
-                        </select>
-                      </div>
-
-                      <div class="purchase-form-group">
                         <label for="prProject">Company</label>
                         <select id="prProject" name="project" required>
                           <option>Saudi Aramco</option>
@@ -1958,24 +1951,10 @@
                         <label for="">Order deadline?</label>
                         <input type="datetime-local" id="orderDeadline" name="orderDeadline" value="2025-01-10T17:02">
                       </div>
-                      <div class="purchase-form-group">
-                        <label for="">Expected Arrival</label>
-                        <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
-                      </div>
 
-
-                      <div class="purchase-form-group">
-                        <label for="">Priority</label>
-                        <select id="priority" name="priority" required>
-                          <option value="">Select Priority</option>
-                          <option value="low">★</option>
-                          <option value="medium" selected>★★</option>
-                          <option value="high">★★★</option>
-                        </select>
-                      </div>
                       <div class="purchase-form-group">
                         <label for="attentionTo">Attention To</label>
-                        <select id="attentionTo" name="attentionTo" multiple required class="attention-to-select">
+                        <select id="attentionTo" name="attentionTo" multiple required size="1" class="attention-to-select">
                           <option value="" disabled selected>Select Attention To</option>
                           <option value="sarah-johnson">Sarah Johnson</option>
                           <option value="michael-brown">Ahmad Al-Qahtani</option>
@@ -1987,8 +1966,6 @@
                           <option value="jennifer-martinez">Yousef Al-Qahtani</option>
                           <option value="jennifer-martinez">Yousef Al-Qahtani</option>
                         </select>
-                        <small style="display: block; margin-top: 4px; color: #6b7280; font-size: 11px;">Hold Ctrl
-                          (Windows) or Cmd (Mac) to select multiple members</small>
                       </div>
                     </div>
 
@@ -2003,62 +1980,62 @@
                     </div>
 
                     <div class="purchase-form-row">
-                      <div class="data-table-container" id="listView">
-                        <div class="data-table-wrapper">
-                          <table class="data-table">
+                      <div class="items-table-container" id="itemsListView">
+                        <div class="items-table-wrapper">
+                          <table class="items-table">
                             <thead>
                               <tr>
-                                <th style="width: 32px !important; max-width: 32px !important;">
-                                  <input type="checkbox" class="data-checkbox">
-                                  <label for="" class="data-checkbox-label"></label>
-                                  <span class="data-checkbox-text"></span>
+                                <th class="items-checkbox-header">
+                                  <input type="checkbox" class="items-checkbox">
+                                  <label for="" class="items-checkbox-label"></label>
+                                  <span class="items-checkbox-text"></span>
                                 </th>
-                                <th class="data-drag-header">--</th>
-                                <th class="col-brand" style="max-width: 134px !important;">Product Categories</th>
-                                <th class="col-product" style="max-width: 60px !important;">Product</th>
-                                <th class="col-qty" style="max-width: 60px !important;">Qty</th>
-                                <th class="col-uom" style="max-width: 60px !important;">UOM</th>
-                                <th class="data-table-actions" style="max-width: 32px !important;">
-                                  <div class="data-columns-dropdown">
-                                    <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                                <th class="items-drag-header">--</th>
+                                <th class="items-col-category">Product Categories</th>
+                                <th class="items-col-product">Product</th>
+                                <th class="items-col-qty">Qty</th>
+                                <th class="items-col-uom">UOM</th>
+                                <th class="items-table-actions">
+                                  <div class="items-columns-dropdown">
+                                    <button type="button" class="items-columns-btn-icon" onclick="ItemsTable.toggleColumnDropdown(); return false;"
                                       title="Show/Hide Columns">
                                       <img src="images/add-column.png" alt="Columns" width="20px">
                                     </button>
-                                    <div class="data-columns-dropdown-content" id="columnDropdown">
-                                      <div class="data-columns-dropdown-header">
+                                    <div class="items-columns-dropdown-content" id="itemsColumnDropdown">
+                                      <div class="items-columns-dropdown-header">
                                         <h4>Select Columns</h4>
                                       </div>
-                                      <div class="data-columns-dropdown-body">
-                                        <div class="data-column-options">
-                                          <label class="data-column-option fixed-column">
-                                            <input type="checkbox" value="col-pr-number" checked disabled
+                                      <div class="items-columns-dropdown-body">
+                                        <div class="items-column-options">
+                                          <label class="items-column-option fixed-column">
+                                            <input type="checkbox" value="items-col-category" checked disabled
                                               data-fixed="true">
-                                            <span class="data-column-label">
-                                              Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                            <span class="items-column-label">
+                                              Product Categories <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                             </span>
                                           </label>
-                                          <label class="data-column-option">
-                                            <input type="checkbox" value="col-pr-type" checked>
-                                            <span class="data-column-label">Product</span>
+                                          <label class="items-column-option">
+                                            <input type="checkbox" value="items-col-product" checked>
+                                            <span class="items-column-label">Product</span>
                                           </label>
-                                          <label class="data-column-option">
-                                            <input type="checkbox" value="col-department" checked>
-                                            <span class="data-column-label">Qty</span>
+                                          <label class="items-column-option">
+                                            <input type="checkbox" value="items-col-qty" checked>
+                                            <span class="items-column-label">Qty</span>
                                           </label>
-                                          <label class="data-column-option fixed-column">
-                                            <input type="checkbox" value="col-status" checked disabled
+                                          <label class="items-column-option fixed-column">
+                                            <input type="checkbox" value="items-col-uom" checked disabled
                                               data-fixed="true">
-                                            <span class="data-column-label">
+                                            <span class="items-column-label">
                                               UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                             </span>
                                           </label>
                                         </div>
                                       </div>
-                                      <div class="data-columns-dropdown-footer">
-                                        <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                                      <div class="items-columns-dropdown-footer">
+                                        <button type="button" class="items-btn items-btn-secondary" onclick="ItemsTable.closeColumnDropdown(); return false;">
                                           Cancel
                                         </button>
-                                        <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                                        <button type="button" class="items-btn items-btn-primary" onclick="ItemsTable.saveColumnVisibility(); return false;">
                                           Save
                                         </button>
                                       </div>
@@ -2068,49 +2045,49 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td class="data-checkbox-cell">
-                                  <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
-                                  <label for="rfq-001" class="data-checkbox-label"></label>
+                              <tr class="items-row">
+                                <td class="items-checkbox-cell">
+                                  <input type="checkbox" class="items-checkbox items-checkbox-row" id="item-001">
+                                  <label for="item-001" class="items-checkbox-label"></label>
                                 </td>
-                                <td class="data-item-brand col-brand">
+                                <td class="items-drag-cell">
                                   <span>-</span>
                                 </td>
-                                <td class="data-item-brand col-brand">
-                                  <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                                <td class="items-cell items-col-category">
+                                  <select class="table-select-dropdown" name="productCategory">
                                     <option value="" disabled selected>Product Categories</option>
                                     <option value="brand1">Product Categories 1</option>
                                     <option value="brand2">Product Categories 2</option>
                                     <option value="brand3">Product Categories 3</option>
                                   </select>
                                 </td>
-                                <td class="data-item-product col-product">
-                                  <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                                <td class="items-cell items-col-product">
+                                  <select class="table-select-dropdown" name="product">
                                     <option value="" disabled selected>Add Product</option>
                                     <option value="product1">Product 1</option>
                                     <option value="product2">Product 2</option>
                                     <option value="product3">Product 3</option>
                                   </select>
                                 </td>
-                                <td class="data-item-qty col-qty">
-                                  <input type="number" placeholder="Qty">
+                                <td class="items-cell items-col-qty">
+                                  <input type="number" placeholder="Qty" class="items-input">
                                 </td>
-                                <td class="data-item-uom col-uom">
-                                  <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                                <td class="items-cell items-col-uom">
+                                  <select class="table-select-dropdown" name="uom">
                                     <option value="">Add</option>
                                     <option value="uom1">UOM 1</option>
                                     <option value="uom2">UOM 2</option>
                                     <option value="uom3">UOM 3</option>
                                   </select>
                                 </td>
-                                <td class="data-table-actions-cell"></td>
+                                <td class="items-actions-cell"></td>
                               </tr>
                             </tbody>
                           </table>
                         </div>
                         <!-- Add Product Button -->
-                        <div class="add-product-container">
-                          <button type="button" class="add-product-btn" onclick="addProductRow()">
+                        <div class="items-add-container">
+                          <button type="button" class="items-add-btn" onclick="ItemsTable.addItemRow(); return false;">
                             <i class="fa fa-plus"></i>
                             Add Product
                           </button>
@@ -2154,7 +2131,66 @@
                       </button>
                       <button type="submit" class="purchase-btn purchase-btn-primary">
                         <i class="fa fa-save"></i>
-                        Submit
+                        Save
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Project Details Tab Panel -->
+              <div class="create-tab-panel" id="create-project-details-panel">
+                <div class="purchase-form-container">
+                  <form class="purchase-form" data-type="inq" style="gap: 2px;">
+                    <!-- Project Details Form Fields -->
+                    <div class="purchase-form-row">
+                      <div class="purchase-form-group">
+                        <label for="prProject">Select Project</label>
+                        <select id="prProject" name="project" required>
+                          <option value="">Select Project</option>
+                          <option>Office Renovation</option>
+                          <option>IT Upgrade</option>
+                          <option>Road Project</option>
+                          <option>Event Planning</option>
+                          <option>Housing Project</option>
+                        </select>
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" name="currency" required>
+                          <option>SAR</option>
+                          <option>USD</option>
+                          <option>EUR</option>
+                          <option>BDT</option>
+                          <option>PKR</option>
+                          <option>INR</option>
+                          <option>GBP</option>
+                          <option>AED</option>
+                          <option>QAR</option>
+                          <option>KWD</option>
+                          <option>BHD</option>
+                          <option>OMR</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <!-- Deliver to? -->
+                    <div class="purchase-form-row" style="margin-top: 20px;">
+                      <div class="purchase-form-group">
+                        <label for="deliverTo">Deliver to?</label>
+                        <textarea name="deliverTo" id="deliverTo" required placeholder="Enter deliver to..."
+                          style="margin-bottom: 0px;">This is the address from the selected project.</textarea>
+                      </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="purchase-form-actions">
+                      <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
+                        Cancel
+                      </button>
+                      <button type="submit" class="purchase-btn purchase-btn-primary">
+                        <i class="fa fa-save"></i>
+                        Save
                       </button>
                     </div>
                   </form>
@@ -2168,45 +2204,52 @@
                     <!-- Other Details Form Fields -->
                     <div class="purchase-form-row">
                       <div class="purchase-form-group">
-                        <label for="prProject">Currency</label>
-                        <select id="prProject" name="project" required>
-                          <option>SAR</option>
-                          <option>USD</option>
-                          <option>EUR</option>
-                          <option>BDT</option>
-                          <option>PKR</option>
-                          <option>INR</option>
-                          <option>GBP</option>
-                          <option>AED</option>
-                          <option>QAR</option>
-                          <option>KWD</option>
-                          <option>BHD</option>
-                          <option>OMR</option>
-                          <option>KWD</option>
-                          <option>BHD</option>
-                          <option>OMR</option>
+                        <label for="responsible">Responsible</label>
+                        <select id="responsible" name="responsible" required>
+                          <option value="">Select Responsible</option>
+                          <option>John Smith</option>
+                          <option>Sarah Johnson</option>
+                          <option>Michael Brown</option>
+                          <option>Emily Davis</option>
+                        </select>
+                      </div>
+                      
+                      <div class="purchase-form-group">
+                        <label for="">Expected Arrival</label>
+                        <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="createdBy">Created By</label>
+                        <input type="text" id="createdBy" name="createdBy" value="Current User" readonly>
+                      </div>
+                    </div>
+
+                    <div class="purchase-form-row">
+                      <div class="purchase-form-group">
+                        <label for="paymentTerms">Payment Terms</label>
+                        <select id="paymentTerms" name="paymentTerms" required>
+                          <option value="">Select Payment Terms</option>
+                          <option>30% advance, 70% on delivery (standard).</option>
+                          <option>Payments made via bank transfer only.</option>
+                          <option>Net 30 days credit available for approved vendors.</option>
+                        </select>
+                      </div>
+                      <div class="purchase-form-group">
+                        <label for="deliveryTerms">Delivery Terms</label>
+                        <select id="deliveryTerms" name="deliveryTerms" required>
+                          <option value="">Select Delivery Terms</option>
+                          <option>Delivery within 3–7 working days (unless otherwise agreed).</option>
+                          <option>Delivery to buyer’s warehouse or project site.</option>
+                          <option>Buyer must inspect goods within 48 hours of receipt.</option>
                         </select>
                       </div>
                     </div>
 
-                    <div class="purchase-form-group">
-                    <label for="">Phone</label>
-                    <input type="text" id="phone" name="phone" value="2025-01-10">
-                  </div>
-
-                    <!-- Deliver to? -->
-                    <div class="purchase-form-row" style="margin-top: 20px;">
-                      <div class="purchase-form-group">
-                        <label for="prRequiredDate">Deliver to?</label>
-                        <textarea name="deliverTo" required placeholder="Enter deliver to..."
-                          style="margin-bottom: 0px;">This is the address from the selected project.</textarea>
-                      </div>
-                    </div>
                     <!-- Instructions -->
                     <div class="purchase-form-row" style="margin-top: 20px;">
                       <div class="purchase-form-group">
-                        <label for="prRequiredDate">Instructions</label>
-                        <textarea name="instructions" required placeholder="Enter instructions..."
+                        <label for="instructions">Instructions</label>
+                        <textarea name="instructions" id="instructions" required placeholder="Enter instructions..."
                           style="margin-bottom: 0px;">This is the instructions for the Vendor/Supplier.</textarea>
                       </div>
                     </div>
@@ -2783,6 +2826,7 @@
   <script src="script/header.js"></script>
   <script src="script/common-table.js"></script>
   <script src="script/common-offcanvas.js"></script>
+  <script src="script/items-table.js"></script>
   <script src="script/rfq-company.js"></script>
 
   <!-- Initialize select all functionality for this page -->

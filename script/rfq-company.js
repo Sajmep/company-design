@@ -4,6 +4,12 @@ function createRfq() {
   switchTab('create');
   updateOffcanvasHeader('New');
   setTimeout(initializeAutocomplete, 200);
+  // Initialize drag and drop for items table
+  setTimeout(() => {
+    if (window.ItemsTable && window.ItemsTable.initDragDrop) {
+      window.ItemsTable.initDragDrop();
+    }
+  }, 300);
 }
 
 // Function to open rfq offcanvas for viewing
@@ -30,8 +36,8 @@ function switchCreateTab(tabName) {
     return;
   }
   
-  // Remove active class from all nested tabs and panels within create panel
-  createPanel.querySelectorAll('[data-create-tab]').forEach(btn => {
+  // Remove active class from all nested tabs (both in main tabs and in create panel)
+  document.querySelectorAll('[data-create-tab]').forEach(btn => {
     btn.classList.remove('active');
   });
   
@@ -39,8 +45,8 @@ function switchCreateTab(tabName) {
     panel.classList.remove('active');
   });
   
-  // Add active class to selected tab and panel
-  const selectedTab = createPanel.querySelector(`[data-create-tab="${tabName}"]`);
+  // Add active class to selected tab (in main tabs container)
+  const selectedTab = document.querySelector(`[data-create-tab="${tabName}"]`);
   const selectedPanel = createPanel.querySelector(`#create-${tabName}-panel`);
   
   if (selectedTab) {
@@ -56,6 +62,9 @@ function switchCreateTab(tabName) {
     console.error(`Tab panel not found for: create-${tabName}-panel`);
   }
 }
+
+// Make switchCreateTab available globally
+window.switchCreateTab = switchCreateTab;
 
 // Add Product Row functionality
 function addProductRow() {
