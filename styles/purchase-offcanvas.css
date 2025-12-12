@@ -794,7 +794,6 @@
 /* PR Offcanvas Tabs */
 .pr-tabs-container {
   border-bottom: 1px solid #e5e7eb;
-  margin-bottom: 20px;
 }
 
 /* Hide create tab by default */
@@ -833,7 +832,7 @@
 .pr-tab-btn.active {
   color: #1d4ed8;
   border-bottom-color: #1d4ed8;
-  background: #f8f9fa;
+  background: #ffffff;
 }
 
 .pr-tab-btn i {
@@ -957,7 +956,7 @@
   top: 63px;
   background: none;
   padding: 0;
-  left: 147px;
+  left: 90px;
   border-bottom: 0;
   background-color: none;
   
@@ -967,7 +966,9 @@
  .purchase-offcanvas-content-full .pr-btn-submit span,
   .purchase-offcanvas-content-full .pr-btn-approve span,
    .purchase-offcanvas-content-full .pr-btn-reject span,
-    .purchase-offcanvas-content-full .pr-btn-approve span {
+    .purchase-offcanvas-content-full .pr-btn-approve span,
+     .purchase-offcanvas-content-full .pr-btn-escalate span,
+     .purchase-offcanvas-content-full .pr-btn-delegate span {
   display: block;
 }
 
@@ -1029,11 +1030,17 @@
   right: 12px;
 }
 
-.pr-btn-edit, .pr-btn-submit, .pr-btn-approve, .pr-btn-reject, .pr-btn-approve {
+.pr-btn-edit, .pr-btn-submit, .pr-btn-approve, .pr-btn-reject, .pr-btn-approve, .pr-btn-escalate, .pr-btn-delegate {
   min-width: auto !important;
 }
 
-.pr-btn-edit span, .pr-btn-submit span, .pr-btn-approve span, .pr-btn-reject span, .pr-btn-approve span {
+.pr-btn-edit span,
+ .pr-btn-submit span,
+  .pr-btn-approve span,
+   .pr-btn-reject span,
+    .pr-btn-approve span,
+     .pr-btn-escalate span,
+     .pr-btn-delegate span {
   display: none;
 }
 
@@ -1082,6 +1089,33 @@
 .pr-btn-submit:hover {
   background: #2563eb;
   border-color: #1d4ed8;
+}
+
+
+/* Delegate Button */
+.pr-btn-delegate {
+  background: #000000;
+  color: white;
+  border: 1px solid #000000;
+}
+
+.pr-btn-delegate:hover {
+  background: #000000;
+  border-color: #000000;
+}
+
+
+
+/* Escalate Button */
+.pr-btn-escalate {
+  background: #f59e0b;
+  color: white;
+  border: 1px solid #d97706;
+}
+
+.pr-btn-escalate:hover {
+  background: #d97706;
+  border-color: #b45309;
 }
 
 /* Approve Button */

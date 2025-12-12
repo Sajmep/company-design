@@ -10,13 +10,9 @@ function openPROffcanvas() {
     
     offcanvas.style.display = 'block';
     
-    // Show all tabs except create when opening normally
+    // Show all tabs (RFQ, Chat, Offers, Log)
     document.querySelectorAll('.pr-tab-btn').forEach(tab => {
-        if (tab.dataset.tab === 'create') {
-            tab.style.display = 'none';
-        } else {
-            tab.style.display = 'flex';
-        }
+        tab.style.display = 'flex';
     });
     
     setTimeout(() => {
@@ -60,13 +56,14 @@ function switchTab(tabName) {
     const otherTabs = document.querySelectorAll('.pr-tab-btn[data-tab]:not([data-tab="create"])');
     
     if (tabName === 'create') {
-        // Hide main tabs container and show create tab
+         // Show main tabs container and all main tabs (RFQ, Chat, Offers, Log)
         if (tabsContainer) {
-            tabsContainer.style.display = 'none';
+            tabsContainer.style.display = 'block';
         }
+        // Show all main tabs including RFQ (create tab)
+        otherTabs.forEach(tab => tab.style.display = 'flex');
         const createTab = document.querySelector('[data-tab="create"]');
         if (createTab) createTab.style.display = 'flex';
-        otherTabs.forEach(tab => tab.style.display = 'none');
         
         // Ensure nested tabs in create panel are visible
         const createPanel = document.getElementById('create-panel');
@@ -77,13 +74,22 @@ function switchTab(tabName) {
             }
         }
     } else {
-        // Show main tabs container and all tabs except create
+        // Show main tabs container and all tabs
         if (tabsContainer) {
             tabsContainer.style.display = 'block';
         }
         otherTabs.forEach(tab => tab.style.display = 'flex');
         const createTab = document.querySelector('[data-tab="create"]');
-        if (createTab) createTab.style.display = 'none';
+        if (createTab) createTab.style.display = 'flex';
+        
+        // Hide nested tabs in create panel when not in create mode
+        const createPanel = document.getElementById('create-panel');
+        if (createPanel) {
+            const nestedTabsContainer = createPanel.querySelector('.pr-tabs-container');
+            if (nestedTabsContainer) {
+                nestedTabsContainer.style.display = 'none';
+            }
+        }
     }
     
     // Update header based on tab using data attribute

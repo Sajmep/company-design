@@ -234,6 +234,10 @@
 }
 
 
+.purchase-form-row{
+  overflow: hidden;
+}
+
 /* RFQ Modal Table Overrides - Compact Width */
 .purchase-form-row .data-table-container {
   width: 100%;
@@ -522,4 +526,72 @@
 .rfq-priority {
   position: absolute;
   top: 59px;
+  width: auto !important;
+
+}
+
+.purchase-form-group{
+  min-width: auto !important;
+}
+
+.purchase-form-container{
+  border: none !important;
+  border-radius: 0 !important;
+}
+
+/* Product/BOQ Toggle Button */
+.product-boq-toggle-button {
+  display: inline-flex;
+  background: #f3f4f6;
+  border-radius: 8px;
+  padding: 4px;
+  gap: 4px;
+  border: 1px solid #e5e7eb;
+  width: fit-content;
+}
+
+.product-boq-toggle-button button {
+  padding: 8px 20px;
+  border: none;
+  background: transparent;
+  color: #6b7280;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  position: relative;
+}
+
+.product-boq-toggle-button button:hover {
+  color: #374151;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.product-boq-toggle-button button:first-child {
+  margin-right: 0;
+}
+
+.product-boq-toggle-button button:last-child {
+  margin-left: 0;
+}
+
+.product-boq-toggle-button button.active {
+  background: #ffffff;
+  color: #012f6d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-weight: 600;
+}
+
+.product-boq-toggle-button button.active::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 2px;
+  background: #012f6d;
+  border-radius: 2px;
 }
