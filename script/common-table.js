@@ -1051,7 +1051,6 @@ function togglePriorityDropdown(button) {
         const buttonRect = button.getBoundingClientRect();
         
         menu.style.top = (buttonRect.bottom + 4) + 'px';
-        menu.style.left = buttonRect.left + 'px';
     }
 }
 
@@ -1069,17 +1068,15 @@ function changePriority(option, newPriority) {
     
     // Close dropdown
     dropdown.classList.remove('active');
-    
 }
 
 // ============================================================================
-    // user contact popup functionality
+// user contact popup functionality
 // ============================================================================
 // (Moved to main DOMContentLoaded listener above to prevent conflicts)
 
 // Export minimal functions
 window.toggleStatusDropdown = toggleStatusDropdown;
-
 window.changeStatus = changeStatus;
 window.toggleCardStatusDropdown = toggleCardStatusDropdown;
 window.changeCardStatus = changeCardStatus;

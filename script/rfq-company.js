@@ -13,18 +13,12 @@ function createRfq() {
 }
 
 // Function to open rfq offcanvas for viewing
-function openRfqOffcanvas(mode = 'view') {
+function openRfqOffcanvas(mode = 'create') {
   // Open the offcanvas
   openPROffcanvas();
-  // Switch to appropriate tab
-  if (mode === 'create') {
-    switchTab('create');
-    updateOffcanvasHeader('New');
-  } else {
-    switchTab('rfq');
-    updateOffcanvasHeader('RFQ-2025');
-  }
-  
+  // Switch to RFQ tab (which is now the create tab)
+  switchTab('create');
+  updateOffcanvasHeader('RFQ');
 }
 
 // Function to switch nested tabs within create panel
@@ -63,8 +57,18 @@ function switchCreateTab(tabName) {
   }
 }
 
-// Make switchCreateTab available globally
+// Function to update hidden priority input in form
+function changeFormPriority(priority) {
+  const priorityInput = document.getElementById('priority');
+  if (priorityInput) {
+    priorityInput.value = priority;
+  }
+}
+
+// Make functions available globally
 window.switchCreateTab = switchCreateTab;
+window.openRfqOffcanvas = openRfqOffcanvas;
+window.changeFormPriority = changeFormPriority;
 
 // Add Product Row functionality
 function addProductRow() {
