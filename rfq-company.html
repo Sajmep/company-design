@@ -919,7 +919,7 @@
             </div>
             <button class="page-header-primary-btn" onclick="createRfq()" title="Add RFQ">
               <i class="fa fa-plus"></i>
-              <span class="btn-text">RFQ</span>
+              <span class="btn-text">Add</span>
             </button>
 
           </div>
@@ -1451,18 +1451,27 @@
               <i class="fa fa-plus"></i>
               RFQ
             </button>
-            <button class="pr-tab-btn" onclick="switchTab('chat')" data-tab="chat" data-title="Chat">
-              <i class="fa fa-comments"></i>
-              Chat
-            </button>
-            <button class="pr-tab-btn" onclick="switchTab('offers')" data-tab="offers" data-title="Offers">
-              <i class="fa fa-comments"></i>
-              Offers
-            </button>
-            <button class="pr-tab-btn" onclick="switchTab('log')" data-tab="log" data-title="Activity Log">
-              <i class="fa fa-list"></i>
-              Log
-            </button>
+            <div class="pr-tab-dropdown">
+              <button class="pr-tab-btn pr-tab-dropdown-btn" onclick="toggleTabDropdown(event)" id="tabDropdownBtn">
+                <span id="tabDropdownText">More</span>
+                <i class="fa fa-chevron-down"></i>
+              </button>
+              <div class="pr-tab-dropdown-menu" id="tabDropdownMenu">
+                <div class="pr-tab-dropdown-item" onclick="selectTabFromDropdown('chat')" data-tab="chat" data-title="Chat">
+                  <i class="fa fa-comments"></i>
+                  <span>Chat</span>
+                </div>
+                <div class="pr-tab-dropdown-item" onclick="selectTabFromDropdown('offers')" data-tab="offers" data-title="Offers">
+                  <i class="fa fa-comments"></i>
+                  <span>Offers</span>
+                </div>
+                <div class="pr-tab-dropdown-item" onclick="selectTabFromDropdown('log')" data-tab="log" data-title="Activity Log">
+                  <i class="fa fa-list"></i>
+                  <span>Log</span>
+                </div>
+              </div>
+            </div>
+            
           </div>
         </div>
 
@@ -1471,753 +1480,758 @@
 
           <!-- Create PR Form Panel -->
           <div class="pr-tab-panel" id="create-panel">
-
-
-            <div class="purchase-form-container">
-              <form class="purchase-form" data-type="inq" style="gap: 12px;">
-                <!-- Row 1 -->
-                <div class="purchase-form-row">
-                  <div class="product-boq-toggle-button">
-                    <button class="active">
-                      Product
-                    </button>
-                    <button>
-                      BOQ
-                    </button>
-                  </div>
-                </div>
-                  <div class="purchase-form-group">
-                    <label for="prRequesterName">Vendors</label>
-                    <div class="autocomplete-container">
-                      <input type="text" id="AdvancedVendor" name="project" placeholder="Type to search vendors..."
-                        autocomplete="off">
-                      <div class="autocomplete-dropdown" id="AdvancedVendorDropdown">
-                        <div class="autocomplete-item" data-value="residential-building">
-                          <span>Saudi Aramco</span>
-                        </div>
-                        <div class="autocomplete-item" data-value="commercial-building">
-                          <span>Aramix</span>
-                        </div>
-                        <div class="autocomplete-item" data-value="infrastructure">
-                          <span>Trade Link</span>
-                        </div>
-                        <div class="autocomplete-item" data-value="renovation">
-                          <span>Saudi Aramco</span>
-                        </div>
-                        <div class="autocomplete-item" data-value="industrial">
-                          <span>Aramix</span>
-                        </div>
-                        <div class="autocomplete-item" data-value="hospitality">
-                          <span>Trade Link</span>
-                        </div>
-                        <div class="autocomplete-item" data-value="healthcare">
-                          <span>Saudi Aramco</span>
-                        </div>
-                        <div class="autocomplete-divider"></div>
-                        <div class="autocomplete-item create-project">
-                          <span><i class="fa fa-plus"></i>Invite</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="prProject">Company</label>
-                    <select id="prProject" name="project" required>
-                      <option>Saudi Aramco</option>
-                      <option>Aramix</option>
-                      <option>Trade Link</option>
-                      <option>Saudi Aramco</option>
-                      <option>Saudi Aramco</option>
-                    </select>
-                  </div>
-                  <div class="purchase-form-group">
-                    <label for="">Order deadline?</label>
-                    <input type="datetime-local" id="orderDeadline" name="orderDeadline" value="2025-01-10T17:02">
-                  </div>
-
-                  <div class="purchase-form-group">
-                    <label for="attentionTo">Attention To</label>
-                    <select id="attentionTo" name="attentionTo" multiple required size="1" class="attention-to-select">
-                      <option value="" disabled selected>Select Attention To</option>
-                      <option value="sarah-johnson">Sarah Johnson</option>
-                      <option value="michael-brown">Ahmad Al-Qahtani</option>
-                      <option value="emily-davis">Mohammed Al-Qahtani</option>
-                      <option value="david-wilson">Ali Al-Qahtani</option>
-                      <option value="lisa-anderson">Ahmed Al-Qahtani</option>
-                      <option value="robert-taylor">Omar Al-Qahtani</option>
-                      <option value="jennifer-martinez">Yousef Al-Qahtani</option>
-                      <option value="jennifer-martinez">Yousef Al-Qahtani</option>
-                      <option value="jennifer-martinez">Yousef Al-Qahtani</option>
-                    </select>
-                  </div>
-                </div>
-
-
-                <!-- Nested Tabs Navigation -->
-                <div class="pr-tabs-container">
-                  <div class="pr-tabs">
-                    <button class="pr-tab-btn active" onclick="switchCreateTab('products')" data-create-tab="products">
-                      <i class="fa fa-folder"></i>
-                      Products
-                    </button>
-                    <button class="pr-tab-btn" onclick="switchCreateTab('project-details')"
-                      data-create-tab="project-details">
-                      <i class="fa fa-folder"></i>
-                      Project Details
-                    </button>
-                    <button class="pr-tab-btn" onclick="switchCreateTab('other-details')"
-                      data-create-tab="other-details">
-                      <i class="fa fa-info-circle"></i>
-                      Other Details
-                    </button>
-                  </div> 
-                </div>
-
-                <!-- Nested Tab Content -->
-                <div class="create-tab-content">
-                  <!-- Products Tab Panel -->
-                  <div class="create-tab-panel active" id="create-products-panel">
-
-                    <!-- Action button group -->
-                    <div class="purchase-form-row" style="margin-top: 20px; ">
-                      <div class="purchase-form-group" style="text-align: right;">
-                        <button type="button" class="purchase-btn purchase-btn-secondary" style="width: 100px;">
-                          <i class="fa fa-ellipsis-v"></i>
-                          Actions
-                        </button>
-                      </div>
-                    </div>
-
-                    <div class="purchase-form-row">
-                      <div class="items-table-container" id="itemsListView">
-                        <div class="items-table-wrapper">
-                          <table class="items-table">
-                            <thead>
-                              <tr>
-                                <th class="items-checkbox-header">
-                                  <input type="checkbox" class="items-checkbox">
-                                  <label for="" class="items-checkbox-label"></label>
-                                  <span class="items-checkbox-text"></span>
-                                </th>
-                                <th class="items-drag-header">--</th>
-                                <th class="items-col-category">Product Categories</th>
-                                <th class="items-col-product">Product</th>
-                                <th class="items-col-qty">Qty</th>
-                                <th class="items-col-uom">UOM</th>
-                                <th class="items-table-actions">
-                                  <div class="items-columns-dropdown">
-                                    <button type="button" class="items-columns-btn-icon"
-                                      onclick="ItemsTable.toggleColumnDropdown(); return false;"
-                                      title="Show/Hide Columns">
-                                      <img src="images/add-column.png" alt="Columns" width="20px">
-                                    </button>
-                                    <div class="items-columns-dropdown-content" id="itemsColumnDropdown">
-                                      <div class="items-columns-dropdown-header">
-                                        <h4>Select Columns</h4>
-                                      </div>
-                                      <div class="items-columns-dropdown-body">
-                                        <div class="items-column-options">
-                                          <label class="items-column-option fixed-column">
-                                            <input type="checkbox" value="items-col-category" checked disabled
-                                              data-fixed="true">
-                                            <span class="items-column-label">
-                                              Product Categories <i class="fa fa-lock"
-                                                title="This column cannot be hidden"></i>
-                                            </span>
-                                          </label>
-                                          <label class="items-column-option">
-                                            <input type="checkbox" value="items-col-product" checked>
-                                            <span class="items-column-label">Product</span>
-                                          </label>
-                                          <label class="items-column-option">
-                                            <input type="checkbox" value="items-col-qty" checked>
-                                            <span class="items-column-label">Qty</span>
-                                          </label>
-                                          <label class="items-column-option fixed-column">
-                                            <input type="checkbox" value="items-col-uom" checked disabled
-                                              data-fixed="true">
-                                            <span class="items-column-label">
-                                              UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                                            </span>
-                                          </label>
-                                        </div>
-                                      </div>
-                                      <div class="items-columns-dropdown-footer">
-                                        <button type="button" class="items-btn items-btn-secondary"
-                                          onclick="ItemsTable.closeColumnDropdown(); return false;">
-                                          Cancel
-                                        </button>
-                                        <button type="button" class="items-btn items-btn-primary"
-                                          onclick="ItemsTable.saveColumnVisibility(); return false;">
-                                          Save
-                                        </button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr class="items-row">
-                                <td class="items-checkbox-cell">
-                                  <input type="checkbox" class="items-checkbox items-checkbox-row" id="item-001">
-                                  <label for="item-001" class="items-checkbox-label"></label>
-                                </td>
-                                <td class="items-drag-cell">
-                                  <span>-</span>
-                                </td>
-                                <td class="items-cell items-col-category">
-                                  <select class="table-select-dropdown" name="productCategory">
-                                    <option value="" disabled selected>Product Categories</option>
-                                    <option value="brand1">Product Categories 1</option>
-                                    <option value="brand2">Product Categories 2</option>
-                                    <option value="brand3">Product Categories 3</option>
-                                  </select>
-                                </td>
-                                <td class="items-cell items-col-product">
-                                  <select class="table-select-dropdown" name="product">
-                                    <option value="" disabled selected>Add Product</option>
-                                    <option value="product1">Product 1</option>
-                                    <option value="product2">Product 2</option>
-                                    <option value="product3">Product 3</option>
-                                  </select>
-                                </td>
-                                <td class="items-cell items-col-qty">
-                                  <input type="number" placeholder="Qty" class="items-input">
-                                </td>
-                                <td class="items-cell items-col-uom">
-                                  <select class="table-select-dropdown" name="uom">
-                                    <option value="">Add</option>
-                                    <option value="uom1">UOM 1</option>
-                                    <option value="uom2">UOM 2</option>
-                                    <option value="uom3">UOM 3</option>
-                                  </select>
-                                </td>
-                                <td class="items-actions-cell"></td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <!-- Add Product Button -->
-                        <div class="items-add-container">
-                          <button type="button" class="items-add-btn" onclick="ItemsTable.addItemRow(); return false;">
-                            <i class="fa fa-plus"></i>
-                            Add Product
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-
-
-                    <div class="purchase-form-row">
-                      <label>Attachments</label>
-                      <div class="attachments-dropdown">
-                        <button type="button" class="attachments-dropdown-btn" onclick="toggleAttachmentsDropdown()">
-                          <i class="fa fa-paperclip"></i>
-                          <span>Attachment</span>
-                          <i class="fa fa-chevron-down"></i>
-                        </button>
-                        <div class="attachments-dropdown-menu" id="attachmentsDropdownMenu">
-                          <label class="attachments-dropdown-item" for="file-upload">
-                            <i class="fa fa-upload"></i>
-                            Upload File
-                            <input type="file" id="file-upload" style="display: none;" multiple
-                              onchange="displaySelectedFiles(this)">
-                          </label>
-                          <label class="attachments-dropdown-item" for="camera-capture">
-                            <i class="fa fa-camera"></i>
-                            Take Photo
-                            <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture
-                              onchange="displaySelectedFiles(this)">
-                          </label>
-                        </div>
-                      </div>
-                      <div class="attachments-files-list" id="attachmentsFilesList">
-                        <!-- Selected files will be displayed here -->
-                      </div>
-                    </div>
-
-                  </div>
-
-                  <!-- Project Details Tab Panel -->
-                  <div class="create-tab-panel" id="create-project-details-panel">
-                    <div class="purchase-form-container" style="padding: 25px;">
-                      <!-- Project Details Form Fields -->
-                      <div class="purchase-form-row">
-                        <div class="purchase-form-group">
-                          <label for="prProject">Select Project</label>
-                          <select id="prProject" name="project" required>
-                            <option value="">Select Project</option>
-                            <option>Office Renovation</option>
-                            <option>IT Upgrade</option>
-                            <option>Road Project</option>
-                            <option>Event Planning</option>
-                            <option>Housing Project</option>
-                          </select>
-                        </div>
-                        <div class="purchase-form-group">
-                          <label for="currency">Currency</label>
-                          <select id="currency" name="currency" required>
-                            <option>SAR</option>
-                            <option>USD</option>
-                            <option>EUR</option>
-                            <option>BDT</option>
-                            <option>PKR</option>
-                            <option>INR</option>
-                            <option>GBP</option>
-                            <option>AED</option>
-                            <option>QAR</option>
-                            <option>KWD</option>
-                            <option>BHD</option>
-                            <option>OMR</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <!-- Deliver to? -->
-                      <div class="purchase-form-row" style="margin-top: 20px;">
-                        <div class="purchase-form-group">
-                          <label for="deliverTo">Deliver to?</label>
-                          <textarea name="deliverTo" id="deliverTo" required placeholder="Enter deliver to..."
-                            style="margin-bottom: 0px;">This is the address from the selected project.</textarea>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Other Details Tab Panel -->
-                  <div class="create-tab-panel" id="create-other-details-panel">
-                    <div class="purchase-form-container" style="padding: 25px;">
-                      <!-- Other Details Form Fields -->
-                      <div class="purchase-form-row">
-                        <div class="purchase-form-group">
-                          <label for="responsible">Responsible</label>
-                          <select id="responsible" name="responsible" required>
-                            <option value="">Select Responsible</option>
-                            <option>John Smith</option>
-                            <option>Sarah Johnson</option>
-                            <option>Michael Brown</option>
-                            <option>Emily Davis</option>
-                          </select>
-                        </div>
-
-                        <div class="purchase-form-group">
-                          <label for="">Expected Arrival</label>
-                          <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
-                        </div>
-                        <div class="purchase-form-group">
-                          <label for="createdBy">Created By</label>
-                          <input type="text" id="createdBy" name="createdBy" value="Current User" readonly>
-                        </div>
-                      </div>
-
-                      <div class="purchase-form-row">
-                        <div class="purchase-form-group">
-                          <label for="paymentTerms">Payment Terms</label>
-                          <select id="paymentTerms" name="paymentTerms" required>
-                            <option value="">Select Payment Terms</option>
-                            <option>30% advance, 70% on delivery (standard).</option>
-                            <option>Payments made via bank transfer only.</option>
-                            <option>Net 30 days credit available for approved vendors.</option>
-                          </select>
-                        </div>
-                        <div class="purchase-form-group">
-                          <label for="deliveryTerms">Delivery Terms</label>
-                          <select id="deliveryTerms" name="deliveryTerms" required>
-                            <option value="">Select Delivery Terms</option>
-                            <option>Delivery within 3–7 working days (unless otherwise agreed).</option>
-                            <option>Delivery to buyer’s warehouse or project site.</option>
-                            <option>Buyer must inspect goods within 48 hours of receipt.</option>
-                          </select>
-                        </div>
-                      </div>
-
-                      <!-- Instructions -->
-                      <div class="purchase-form-row" style="margin-top: 20px;">
-                        <div class="purchase-form-group">
-                          <label for="instructions">Instructions</label>
-                          <textarea name="instructions" id="instructions" required placeholder="Enter instructions..."
-                            style="margin-bottom: 0px;">This is the instructions for the Vendor/Supplier.</textarea>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Form Actions -->
-                <div class="purchase-form-actions">
-                  <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
-                    Cancel
-                  </button>
-                  <button type="submit" class="purchase-btn purchase-btn-primary">
-                    <i class="fa fa-save"></i>
-                    Save
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-
-          <div class="pr-tab-panel" id="chat-panel">
-            <div class="chat-panel-header">
-              <button type="button" class="create-message-btn" onclick="openCreateMessageModal()"
-                title="Create Message">
-                <i class="fa fa-envelope"></i>
-                <span>Bulk Message</span>
+    
+            <div class="product-boq-toggle-button">
+              <button class="active">
+                Product
+              </button>
+              <button>
+                BOQ
               </button>
             </div>
 
-            <!-- Chat View -->
-            <div class="chat-view active" id="chat-view">
-              <div class="chat-layout">
-                <div class="chat-sidebar">
-                  <div class="chat-sidebar-header">
-                    <h4>Vendors</h4>
+            <div class="purchase-form-container">
+              <div class="purchase-form-header" onclick="togglePurchaseForm(this)">
+                <span class="purchase-form-title">RFQ Details</span>
+                <i class="fa fa-chevron-down purchase-form-toggle-icon"></i>
+              </div>
+              <div class="purchase-form-content">
+                <form class="purchase-form" data-type="inq" style="gap: 12px;">
+                <!-- Row 1 -->
+                <div class="purchase-form-group">
+                  <label for="prRequesterName">Vendors</label>
+                  <div class="autocomplete-container">
+                    <input type="text" id="AdvancedVendor" name="project" placeholder="Type to search vendors..."
+                      autocomplete="off">
+                    <div class="autocomplete-dropdown" id="AdvancedVendorDropdown">
+                      <div class="autocomplete-item" data-value="residential-building">
+                        <span>Saudi Aramco</span>
+                      </div>
+                      <div class="autocomplete-item" data-value="commercial-building">
+                        <span>Aramix</span>
+                      </div>
+                      <div class="autocomplete-item" data-value="infrastructure">
+                        <span>Trade Link</span>
+                      </div>
+                      <div class="autocomplete-item" data-value="renovation">
+                        <span>Saudi Aramco</span>
+                      </div>
+                      <div class="autocomplete-item" data-value="industrial">
+                        <span>Aramix</span>
+                      </div>
+                      <div class="autocomplete-item" data-value="hospitality">
+                        <span>Trade Link</span>
+                      </div>
+                      <div class="autocomplete-item" data-value="healthcare">
+                        <span>Saudi Aramco</span>
+                      </div>
+                      <div class="autocomplete-divider"></div>
+                      <div class="autocomplete-item create-project">
+                        <span><i class="fa fa-plus"></i>Invite</span>
+                      </div>
+                    </div>
                   </div>
-                  <div class="vendor-list">
-                    <div class="vendor-item active">
-                      <img src="images/vendor.png" alt="Saudi Aramco">
-                      <div class="vendor-info">
-                        <div class="vendor-name">Saudi Aramco</div>
-                        <div class="vendor-status">Online</div>
-                      </div>
-                      <div class="vendor-time">10:30</div>
-                    </div>
-                    <div class="vendor-item">
-                      <img src="images/vendor2.jpg" alt="Aramix">
-                      <div class="vendor-info">
-                        <div class="vendor-name">Aramix</div>
-                        <div class="vendor-status">Last seen 2 hours ago</div>
-                      </div>
-                      <div class="vendor-time">08:15</div>
-                    </div>
-                    <div class="vendor-item">
-                      <img src="images/vendor3.png" alt="Trade Link">
-                      <div class="vendor-info">
-                        <div class="vendor-name">Trade Link</div>
-                        <div class="vendor-status">Last seen yesterday</div>
-                      </div>
-                      <div class="vendor-time">Yesterday</div>
-                    </div>
-                    <div class="vendor-item">
-                      <img src="images/vendor5.jpg" alt="Saudi Aramco">
-                      <div class="vendor-info">
-                        <div class="vendor-name">Saudi Aramco</div>
-                        <div class="vendor-status">Last seen 1 week ago</div>
-                      </div>
-                      <div class="vendor-time">1 week</div>
-                    </div>
-                    <button type="button" class="add-vendor-btn">
-                      <i class="fa fa-plus"></i>
-                      <span>Add</span>
+                </div>
+                
+                <div class="purchase-form-group">
+                  <label for="attentionTo">Attention To</label>
+                  <select id="attentionTo" name="attentionTo" multiple required size="1" class="attention-to-select">
+                    <option value="" disabled selected>Select Attention To</option>
+                    <option value="sarah-johnson">Sarah Johnson</option>
+                    <option value="michael-brown">Ahmad Al-Qahtani</option>
+                    <option value="emily-davis">Mohammed Al-Qahtani</option>
+                    <option value="david-wilson">Ali Al-Qahtani</option>
+                    <option value="lisa-anderson">Ahmed Al-Qahtani</option>
+                    <option value="robert-taylor">Omar Al-Qahtani</option>
+                    <option value="jennifer-martinez">Yousef Al-Qahtani</option>
+                    <option value="jennifer-martinez">Yousef Al-Qahtani</option>
+                    <option value="jennifer-martinez">Yousef Al-Qahtani</option>
+                  </select>
+                </div>
+                <div class="purchase-form-group">
+                  <label for="">Order deadline?</label>
+                  <input type="date" id="orderDeadline" name="orderDeadline" value="2025-01-10">
+                </div>
+
+              </form>
+              </div>
+            </div>
+
+
+            <!-- Nested Tabs Navigation -->
+            <div class="pr-tabs-container">
+              <div class="pr-tabs">
+                <button class="pr-tab-btn active" onclick="switchCreateTab('products')" data-create-tab="products">
+                  <i class="fa fa-folder"></i>
+                  Products
+                </button>
+                <button class="pr-tab-btn" onclick="switchCreateTab('project-details')"
+                  data-create-tab="project-details">
+                  <i class="fa fa-folder"></i>
+                  Project Details
+                </button>
+                <button class="pr-tab-btn" onclick="switchCreateTab('other-details')" data-create-tab="other-details">
+                  <i class="fa fa-info-circle"></i>
+                  Other Details
+                </button>
+                <button class="pr-tab-btn" onclick="switchCreateTab('flow')" data-create-tab="flow">
+                  <i class="fa fa-exchange"></i>
+                  Flow
+                </button>
+              </div>
+            </div>
+
+            <!-- Nested Tab Content -->
+            <div class="create-tab-content">
+              <!-- Products Tab Panel -->
+              <div class="create-tab-panel active" id="create-products-panel">
+
+                <!-- Action button group -->
+                <div class="purchase-form-row" id="itemsActionButtonContainer" style="margin-top: 20px; display: none;">
+                  <div class="purchase-form-group" style="text-align: right;">
+                    <button type="button" class="purchase-btn purchase-btn-secondary" style="width: 100px;">
+                      <i class="fa fa-ellipsis-v"></i>
+                      Actions
                     </button>
                   </div>
                 </div>
-                <div class="chat-content">
-                  <div class="chat-header">
-                    <img src="images/vendor.png" alt="Saudi Aramco" class="chat-header-company-logo">
-                    <div class="chat-header-info">
-                      <div class="chat-header-name">Saudi Aramco</div>
-                      <div class="chat-header-participants">4 participants · 2 from your company, 2 from vendor</div>
+
+                <div class="purchase-form-row">
+                  <div class="items-table-container" id="itemsListView">
+                    <div class="items-table-wrapper">
+                      <table class="items-table">
+                        <thead>
+                          <tr>
+                            <th class="items-checkbox-header">
+                              <input type="checkbox" class="items-checkbox" id="selectAllItems">
+                              <label for="selectAllItems" class="items-checkbox-label"></label>
+                              <span class="items-checkbox-text"></span>
+                            </th>
+                            <th class="items-drag-header">--</th>
+                            <th class="items-col-category">Product Categories</th>
+                            <th class="items-col-product">Product</th>
+                            <th class="items-col-qty">Qty</th>
+                            <th class="items-col-uom">UOM</th>
+                            <th class="items-table-actions">
+                              <div class="items-columns-dropdown">
+                                <button type="button" class="items-columns-btn-icon"
+                                  onclick="ItemsTable.toggleColumnDropdown(); return false;" title="Show/Hide Columns">
+                                  <img src="images/add-column.png" alt="Columns" width="20px">
+                                </button>
+                                <div class="items-columns-dropdown-content" id="itemsColumnDropdown">
+                                  <div class="items-columns-dropdown-header">
+                                    <h4>Select Columns</h4>
+                                  </div>
+                                  <div class="items-columns-dropdown-body">
+                                    <div class="items-column-options">
+                                      <label class="items-column-option fixed-column">
+                                        <input type="checkbox" value="items-col-category" checked disabled
+                                          data-fixed="true">
+                                        <span class="items-column-label">
+                                          Product Categories <i class="fa fa-lock"
+                                            title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                      <label class="items-column-option">
+                                        <input type="checkbox" value="items-col-product" checked>
+                                        <span class="items-column-label">Product</span>
+                                      </label>
+                                      <label class="items-column-option">
+                                        <input type="checkbox" value="items-col-qty" checked>
+                                        <span class="items-column-label">Qty</span>
+                                      </label>
+                                      <label class="items-column-option fixed-column">
+                                        <input type="checkbox" value="items-col-uom" checked disabled data-fixed="true">
+                                        <span class="items-column-label">
+                                          UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                        </span>
+                                      </label>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="items-row">
+                            <td class="items-checkbox-cell">
+                              <input type="checkbox" class="items-checkbox items-checkbox-row" id="item-001">
+                              <label for="item-001" class="items-checkbox-label"></label>
+                            </td>
+                            <td class="items-drag-cell">
+                              <span>-</span>
+                            </td>
+                            <td class="items-cell items-col-category">
+                              <select class="table-select-dropdown" name="productCategory">
+                                <option value="" disabled selected>Product Categories</option>
+                                <option value="brand1">Product Categories 1</option>
+                                <option value="brand2">Product Categories 2</option>
+                                <option value="brand3">Product Categories 3</option>
+                              </select>
+                            </td>
+                            <td class="items-cell items-col-product">
+                              <select class="table-select-dropdown" name="product">
+                                <option value="" disabled selected>Add Product</option>
+                                <option value="product1">Product 1</option>
+                                <option value="product2">Product 2</option>
+                                <option value="product3">Product 3</option>
+                              </select>
+                            </td>
+                            <td class="items-cell items-col-qty">
+                              <input type="number" placeholder="Qty" class="items-input">
+                            </td>
+                            <td class="items-cell items-col-uom">
+                              <select class="table-select-dropdown" name="uom">
+                                <option value="">Add</option>
+                                <option value="uom1">UOM 1</option>
+                                <option value="uom2">UOM 2</option>
+                                <option value="uom3">UOM 3</option>
+                              </select>
+                            </td>
+                            <td class="items-actions-cell"></td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
-                    <div class="chat-header-members-dropdown">
-                      <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()"
-                        title="View Members">
-                        <i class="fa fa-users"></i>
+                    <!-- Add Product Button -->
+                    <div class="items-add-container">
+                      <button type="button" class="items-add-btn" onclick="ItemsTable.addItemRow(); return false;">
+                        <i class="fa fa-plus"></i>
+                        Add Line
                       </button>
-                      <div class="chat-header-members-menu" id="chatMembersMenu">
-                        <div class="chat-members-header">
-                          <h4>Saudi Aramco Members</h4>
-                          <button class="chat-members-close" onclick="toggleChatMembersDropdown()">&times;</button>
-                        </div>
-                        <div class="chat-members-invite">
-                          <button class="chat-invite-member-btn" onclick="openInviteMemberModal()">
-                            <i class="fa fa-user-plus"></i>
-                            <span>Invite Member</span>
-                          </button>
-                        </div>
-                        <div class="chat-members-list">
-                          <div class="chat-member-item">
-                            <img src="images/vendor.png" alt="Ahmed Hassan" class="chat-member-avatar">
-                            <div class="chat-member-info">
-                              <div class="chat-member-name">Ahmed Hassan</div>
-                              <div class="chat-member-role">Project Manager</div>
-                            </div>
-                            <div class="chat-member-status online"></div>
-                          </div>
-                          <div class="chat-member-item">
-                            <img src="images/vendor2.jpg" alt="Muhammad Ali" class="chat-member-avatar">
-                            <div class="chat-member-info">
-                              <div class="chat-member-name">Muhammad Ali</div>
-                              <div class="chat-member-role">Sales Representative</div>
-                            </div>
-                            <div class="chat-member-status online"></div>
-                          </div>
-                          <div class="chat-member-item">
-                            <img src="images/user3.png" alt="Fatima Ahmed" class="chat-member-avatar">
-                            <div class="chat-member-info">
-                              <div class="chat-member-name">Fatima Ahmed</div>
-                              <div class="chat-member-role">Technical Lead</div>
-                            </div>
-                            <div class="chat-member-status offline"></div>
-                          </div>
-                        </div>
-                        <div class="chat-members-divider"></div>
-                        <div class="chat-members-header">
-                          <h4>My Company x Members</h4>
-                        </div>
-                        <div class="chat-members-list">
-                          <div class="chat-member-item">
-                            <img src="images/user.png" alt="John Smith" class="chat-member-avatar">
-                            <div class="chat-member-info">
-                              <div class="chat-member-name">John Smith</div>
-                              <div class="chat-member-role">Procurement Manager</div>
-                            </div>
-                            <div class="chat-member-status online"></div>
-                          </div>
-                          <div class="chat-member-item">
-                            <img src="images/sarah.pnh.png" alt="Sarah Khan" class="chat-member-avatar">
-                            <div class="chat-member-info">
-                              <div class="chat-member-name">Sarah Khan</div>
-                              <div class="chat-member-role">Buyer</div>
-                            </div>
-                            <div class="chat-member-status online"></div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
                   </div>
-                  <div class="chat-messages">
-                    <div class="chat-message">
-                      <img src="images/vendor.png" alt="Ahmed Hassan" class="message-avatar">
-                      <div class="message-content">
-                        <div class="message-sender-info">
-                          <span class="message-sender-name">Ahmed Hassan</span>
-                          <span class="message-sender-company">Saudi Aramco</span>
-                        </div>
-                        <div class="message-bubble">
-                          <div class="message-text">Hello, can you provide more details about the RFQ?</div>
-                          <div class="message-time">10:30 AM</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="chat-message sent">
-                      <img src="images/user.png" alt="John Smith" class="message-avatar">
-                      <div class="message-content">
-                        <div class="message-sender-info">
-                          <span class="message-sender-name">John Smith</span>
-                          <span class="message-sender-company">My Company x</span>
-                        </div>
-                        <div class="message-bubble">
-                          <div class="message-text">Sure, I'll send the details shortly.</div>
-                          <div class="message-time">10:35 AM</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="chat-message sent">
-                      <img src="images/sarah.pnh.png" alt="Sarah Khan" class="message-avatar">
-                      <div class="message-content">
-                        <div class="message-sender-info">
-                          <span class="message-sender-name">Sarah Khan</span>
-                          <span class="message-sender-company">My Company x</span>
-                        </div>
-                        <div class="message-bubble">
-                          <div class="message-text">I've also attached the technical specifications document.</div>
-                          <div class="message-time">10:36 AM</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="chat-message">
-                      <img src="images/vendor2.jpg" alt="Muhammad Ali" class="message-avatar">
-                      <div class="message-content">
-                        <div class="message-sender-info">
-                          <span class="message-sender-name">Muhammad Ali</span>
-                          <span class="message-sender-company">Saudi Aramco</span>
-                        </div>
-                        <div class="message-bubble">
-                          <div class="message-text">Thank you for the quick response. We'll review and get back to you.
-                          </div>
-                          <div class="message-time">10:40 AM</div>
-                        </div>
-                      </div>
+                </div>
+
+
+                <div class="purchase-form-row">
+                  <label>Attachments</label>
+                  <div class="attachments-dropdown">
+                    <button type="button" class="attachments-dropdown-btn" onclick="toggleAttachmentsDropdown()">
+                      <i class="fa fa-paperclip"></i>
+                      <span>Attachment</span>
+                      <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="attachments-dropdown-menu" id="attachmentsDropdownMenu">
+                      <label class="attachments-dropdown-item" for="file-upload">
+                        <i class="fa fa-upload"></i>
+                        Upload File
+                        <input type="file" id="file-upload" style="display: none;" multiple
+                          onchange="displaySelectedFiles(this)">
+                      </label>
+                      <label class="attachments-dropdown-item" for="camera-capture">
+                        <i class="fa fa-camera"></i>
+                        Take Photo
+                        <input type="file" id="camera-capture" style="display: none;" accept="image/*" capture
+                          onchange="displaySelectedFiles(this)">
+                      </label>
                     </div>
                   </div>
-                  <div class="chat-input-area">
-                    <input type="file" id="fileInput" style="display: none;" multiple>
-                    <input type="text" placeholder="Type a message" id="chatInput">
-                    <button type="button" class="attachment-btn"
-                      onclick="document.getElementById('fileInput').click()"><i class="fa fa-paperclip"></i></button>
-                    <button type="button" class="voice-btn" id="voiceBtn"><i class="fa fa-microphone"></i></button>
-                    <button type="button" class="send-btn" id="sendBtn" style="display: none;"><i
-                        class="fa fa-paper-plane"></i></button>
+                  <div class="attachments-files-list" id="attachmentsFilesList">
+                    <!-- Selected files will be displayed here -->
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Project Details Tab Panel -->
+              <div class="create-tab-panel" id="create-project-details-panel">
+                <div class="purchase-form-container" style="padding: 25px;">
+                  <!-- Project Details Form Fields -->
+                  <div class="purchase-form-row">
+                    <div class="purchase-form-group">
+                      <label for="prProject">Select Project</label>
+                      <select id="prProject" name="project" required>
+                        <option value="">Select Project</option>
+                        <option>Office Renovation</option>
+                        <option>IT Upgrade</option>
+                        <option>Road Project</option>
+                        <option>Event Planning</option>
+                        <option>Housing Project</option>
+                      </select>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="currency">Currency</label>
+                      <select id="currency" name="currency" required>
+                        <option>SAR</option>
+                        <option>USD</option>
+                        <option>EUR</option>
+                        <option>BDT</option>
+                        <option>PKR</option>
+                        <option>INR</option>
+                        <option>GBP</option>
+                        <option>AED</option>
+                        <option>QAR</option>
+                        <option>KWD</option>
+                        <option>BHD</option>
+                        <option>OMR</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Deliver to? -->
+                  <div class="purchase-form-row" style="margin-top: 20px;">
+                    <div class="purchase-form-group">
+                      <label for="deliverTo">Deliver to?</label>
+                      <textarea name="deliverTo" id="deliverTo" required placeholder="Enter deliver to..."
+                        style="margin-bottom: 0px;">This is the address from the selected project.</textarea>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="pr-tab-panel" id="offers-panel">
-            <div class="offers-view" id="offers-offers-view">
-              <div class="offers-container">
-                <div class="offers-header">
-                  <h4>All offers</h4>
-                  <div class="offers-header-actions">
-                    <div class="offers-group-by">
-                      <button class="offers-group-by-btn" title="Group By">
-                        <i class="fa fa-chevron-down"></i>
-                        <span class="btn-text">Group By</span>
-                      </button>
-                      <div class="offers-group-by-dropdown" id="offersGroupByDropdown">
-                        <div class="offers-group-by-item" data-value="status">
-                          <i class="fa fa-flag"></i>
-                          Status
-                        </div>
-                        <div class="offers-group-by-item" data-value="vendor">
-                          <i class="fa fa-building"></i>
-                          Vendor
-                        </div>
-                        <div class="offers-group-by-item" data-value="date">
-                          <i class="fa fa-calendar"></i>
-                          Date
-                        </div>
-                      </div>
+
+              <!-- Other Details Tab Panel -->
+              <div class="create-tab-panel" id="create-other-details-panel">
+                <div class="purchase-form-container" style="padding: 25px;">
+                  <!-- Other Details Form Fields -->
+
+                  <div class="purchase-form-row">
+
+                    <div class="purchase-form-group">
+                      <label for="company">Company</label>
+                      <select id="prProject" name="project" required>
+                        <option value="" disabled selected>Select Company</option>
+                        <option>Aramix</option>
+                        <option>Trade Link</option>
+                        <option>Saudi Aramco</option>
+                        <option>Saudi Aramco</option>
+                      </select>
                     </div>
 
-                    <button class="offers-filter-btn" title="Filter">
-                      <i class="fa fa-filter"></i>
-                      <span class="btn-text">Filter</span>
-                    </button>
-
-                    <button class="offers-import-btn" title="Import Offers">
-                      <i class="fa fa-upload"></i>
-                      <span class="btn-text">Import</span>
-                    </button>
-                    <div class="offers-action-dropdown">
-                      <button class="offers-action-dropdown-btn" title="Actions">
-                        <i class="fa fa-ellipsis-v"></i>
-                        <span class="btn-text">Actions</span>
-                        <i class="fa fa-chevron-down"></i>
-                      </button>
-                      <div class="offers-action-menu" id="offersActionMenu">
-                        <div class="offers-action-item">
-                          <i class="fa fa-download"></i>
-                          <span>Export</span>
-                        </div>
-                      </div>
+                    <div class="purchase-form-group">
+                      <label for="responsible">Responsible</label>
+                      <select id="responsible" name="responsible" required>
+                        <option value="">Select Responsible</option>
+                        <option>John Smith</option>
+                        <option>Sarah Johnson</option>
+                        <option>Michael Brown</option>
+                        <option>Emily Davis</option>
+                      </select>
                     </div>
-                    <button class="offers-create-btn" title="Create Offer">
-                      <i class="fa fa-plus"></i>
-                      <span class="btn-text">Offer</span>
-                    </button>
+
+                    <div class="purchase-form-group">
+                      <label for="">Expected Arrival</label>
+                      <input type="date" id="expectedArrival" name="expectedArrival" value="2025-01-10">
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="createdBy">Created By</label>
+                      <input type="text" id="createdBy" name="createdBy" value="Current User" readonly>
+                    </div>
+                  
+                  </div>
+
+                  <div class="purchase-form-row">
+                    <div class="purchase-form-group">
+                      <label for="paymentTerms">Payment Terms</label>
+                      <select id="paymentTerms" name="paymentTerms" required>
+                        <option value="">Select Payment Terms</option>
+                        <option>30% advance, 70% on delivery (standard).</option>
+                        <option>Payments made via bank transfer only.</option>
+                        <option>Net 30 days credit available for approved vendors.</option>
+                      </select>
+                    </div>
+                    <div class="purchase-form-group">
+                      <label for="deliveryTerms">Delivery Terms</label>
+                      <select id="deliveryTerms" name="deliveryTerms" required>
+                        <option value="">Select Delivery Terms</option>
+                        <option>Delivery within 3–7 working days (unless otherwise agreed).</option>
+                        <option>Delivery to buyer’s warehouse or project site.</option>
+                        <option>Buyer must inspect goods within 48 hours of receipt.</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!-- Instructions -->
+                  <div class="purchase-form-row" style="margin-top: 20px;">
+                    <div class="purchase-form-group">
+                      <label for="instructions">Instructions</label>
+                      <textarea name="instructions" id="instructions" required placeholder="Enter instructions..."
+                        style="margin-bottom: 0px;">This is the instructions for the Vendor/Supplier.</textarea>
+                    </div>
                   </div>
                 </div>
-                <div class="offers-list">
-                  <div class="offer-item">
-                    <div class="offer-vendor">
-                      <img src="images/vendor.png" alt="Saudi Aramco">
-                      <div class="offer-vendor-info">
-                        <div class="offer-vendor-name">Saudi Aramco</div>
-                        <div class="offer-date">Submitted: Jan 15, 2025 10:30 AM</div>
-                      </div>
-                    </div>
-                    <div class="offer-actions-group">
-                      <div class="offer-status accepted">Accepted</div>
-                      <div class="offer-actions">
-                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
-                          <i class="fa fa-eye"></i>
-                        </button>
-                        <button class="offer-compare-btn-icon" title="Compare">
-                          <i class="fa fa-columns"></i>
-                        </button>
-                        <button class="offer-download-btn" title="Download">
-                          <i class="fa fa-download"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="offer-item">
-                    <div class="offer-vendor">
-                      <img src="images/vendor2.jpg" alt="Aramix">
-                      <div class="offer-vendor-info">
-                        <div class="offer-vendor-name">Aramix</div>
-                        <div class="offer-date">Submitted: Jan 14, 2025 02:15 PM</div>
-                      </div>
-                    </div>
-                    <div class="offer-actions-group">
-                      <div class="offer-status pending">Pending</div>
-                      <div class="offer-actions">
-                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
-                          <i class="fa fa-eye"></i>
-                        </button>
-                        <button class="offer-compare-btn-icon" title="Compare">
-                          <i class="fa fa-columns"></i>
-                        </button>
-                        <button class="offer-download-btn" title="Download">
-                          <i class="fa fa-download"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="offer-item">
-                    <div class="offer-vendor">
-                      <img src="images/vendor3.png" alt="Trade Link">
-                      <div class="offer-vendor-info">
-                        <div class="offer-vendor-name">Trade Link</div>
-                        <div class="offer-date">Submitted: Jan 13, 2025 09:45 AM</div>
-                      </div>
-                    </div>
-                    <div class="offer-actions-group">
-                      <div class="offer-status accepted">Accepted</div>
-                      <div class="offer-actions">
-                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
-                          <i class="fa fa-eye"></i>
-                        </button>
-                        <button class="offer-compare-btn-icon" title="Compare">
-                          <i class="fa fa-columns"></i>
-                        </button>
-                        <button class="offer-download-btn" title="Download">
-                          <i class="fa fa-download"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="offer-item">
-                    <div class="offer-vendor">
-                      <img src="images/vendor5.jpg" alt="Saudi Aramco">
-                      <div class="offer-vendor-info">
-                        <div class="offer-vendor-name">Saudi Aramco</div>
-                        <div class="offer-date">Submitted: Jan 12, 2025 04:20 PM</div>
-                      </div>
-                    </div>
-                    <div class="offer-actions-group">
-                      <div class="offer-status rejected">Rejected</div>
-                      <div class="offer-actions">
-                        <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
-                          <i class="fa fa-eye"></i>
-                        </button>
-                        <button class="offer-compare-btn-icon" title="Compare">
-                          <i class="fa fa-columns"></i>
-                        </button>
-                        <button class="offer-download-btn" title="Download">
-                          <i class="fa fa-download"></i>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-
+              </div>
+              <!-- Flow Tab Panel -->
+              <div class="create-tab-panel" id="create-flow-panel">
+                <div class="purchase-form-container" style="padding: 25px;">
+                  <h3>Flow</h3>
                 </div>
               </div>
             </div>
-          </div>
-          <div class="pr-tab-panel" id="log-panel">
-            <p>Activity log will be displayed here...</p>
+
+            <!-- Form Actions -->
+            <div class="purchase-form-actions">
+              <button type="button" class="purchase-btn purchase-btn-secondary" onclick="closePROffcanvas()">
+                Cancel
+              </button>
+              <button type="submit" class="purchase-btn purchase-btn-primary">
+                <i class="fa fa-save"></i>
+                Save
+              </button>
+            </div>
+            </form>
           </div>
         </div>
 
+        <div class="pr-tab-panel" id="chat-panel">
+          <div class="chat-panel-header">
+            <button type="button" class="create-message-btn" onclick="openCreateMessageModal()" title="Create Message">
+              <i class="fa fa-envelope"></i>
+              <span>Bulk Message</span>
+            </button>
+          </div>
+
+          <!-- Chat View -->
+          <div class="chat-view active" id="chat-view">
+            <div class="chat-layout">
+              <div class="chat-sidebar">
+                <div class="chat-sidebar-header">
+                  <h4>Vendors</h4>
+                </div>
+                <div class="vendor-list">
+                  <div class="vendor-item active">
+                    <img src="images/vendor.png" alt="Saudi Aramco">
+                    <div class="vendor-info">
+                      <div class="vendor-name">Saudi Aramco</div>
+                      <div class="vendor-status">Online</div>
+                    </div>
+                    <div class="vendor-time">10:30</div>
+                  </div>
+                  <div class="vendor-item">
+                    <img src="images/vendor2.jpg" alt="Aramix">
+                    <div class="vendor-info">
+                      <div class="vendor-name">Aramix</div>
+                      <div class="vendor-status">Last seen 2 hours ago</div>
+                    </div>
+                    <div class="vendor-time">08:15</div>
+                  </div>
+                  <div class="vendor-item">
+                    <img src="images/vendor3.png" alt="Trade Link">
+                    <div class="vendor-info">
+                      <div class="vendor-name">Trade Link</div>
+                      <div class="vendor-status">Last seen yesterday</div>
+                    </div>
+                    <div class="vendor-time">Yesterday</div>
+                  </div>
+                  <div class="vendor-item">
+                    <img src="images/vendor5.jpg" alt="Saudi Aramco">
+                    <div class="vendor-info">
+                      <div class="vendor-name">Saudi Aramco</div>
+                      <div class="vendor-status">Last seen 1 week ago</div>
+                    </div>
+                    <div class="vendor-time">1 week</div>
+                  </div>
+                  <button type="button" class="add-vendor-btn">
+                    <i class="fa fa-plus"></i>
+                    <span>Add</span>
+                  </button>
+                </div>
+              </div>
+              <div class="chat-content">
+                <div class="chat-header">
+                  <img src="images/vendor.png" alt="Saudi Aramco" class="chat-header-company-logo">
+                  <div class="chat-header-info">
+                    <div class="chat-header-name">Saudi Aramco</div>
+                    <div class="chat-header-participants">4 participants · 2 from your company, 2 from vendor</div>
+                  </div>
+                  <div class="chat-header-members-dropdown">
+                    <button class="chat-header-members-btn" onclick="toggleChatMembersDropdown()" title="View Members">
+                      <i class="fa fa-users"></i>
+                    </button>
+                    <div class="chat-header-members-menu" id="chatMembersMenu">
+                      <div class="chat-members-header">
+                        <h4>Saudi Aramco Members</h4>
+                        <button class="chat-members-close" onclick="toggleChatMembersDropdown()">&times;</button>
+                      </div>
+                      <div class="chat-members-invite">
+                        <button class="chat-invite-member-btn" onclick="openInviteMemberModal()">
+                          <i class="fa fa-user-plus"></i>
+                          <span>Invite Member</span>
+                        </button>
+                      </div>
+                      <div class="chat-members-list">
+                        <div class="chat-member-item">
+                          <img src="images/vendor.png" alt="Ahmed Hassan" class="chat-member-avatar">
+                          <div class="chat-member-info">
+                            <div class="chat-member-name">Ahmed Hassan</div>
+                            <div class="chat-member-role">Project Manager</div>
+                          </div>
+                          <div class="chat-member-status online"></div>
+                        </div>
+                        <div class="chat-member-item">
+                          <img src="images/vendor2.jpg" alt="Muhammad Ali" class="chat-member-avatar">
+                          <div class="chat-member-info">
+                            <div class="chat-member-name">Muhammad Ali</div>
+                            <div class="chat-member-role">Sales Representative</div>
+                          </div>
+                          <div class="chat-member-status online"></div>
+                        </div>
+                        <div class="chat-member-item">
+                          <img src="images/user3.png" alt="Fatima Ahmed" class="chat-member-avatar">
+                          <div class="chat-member-info">
+                            <div class="chat-member-name">Fatima Ahmed</div>
+                            <div class="chat-member-role">Technical Lead</div>
+                          </div>
+                          <div class="chat-member-status offline"></div>
+                        </div>
+                      </div>
+                      <div class="chat-members-divider"></div>
+                      <div class="chat-members-header">
+                        <h4>My Company x Members</h4>
+                      </div>
+                      <div class="chat-members-list">
+                        <div class="chat-member-item">
+                          <img src="images/user.png" alt="John Smith" class="chat-member-avatar">
+                          <div class="chat-member-info">
+                            <div class="chat-member-name">John Smith</div>
+                            <div class="chat-member-role">Procurement Manager</div>
+                          </div>
+                          <div class="chat-member-status online"></div>
+                        </div>
+                        <div class="chat-member-item">
+                          <img src="images/sarah.pnh.png" alt="Sarah Khan" class="chat-member-avatar">
+                          <div class="chat-member-info">
+                            <div class="chat-member-name">Sarah Khan</div>
+                            <div class="chat-member-role">Buyer</div>
+                          </div>
+                          <div class="chat-member-status online"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-messages">
+                  <div class="chat-message">
+                    <img src="images/vendor.png" alt="Ahmed Hassan" class="message-avatar">
+                    <div class="message-content">
+                      <div class="message-sender-info">
+                        <span class="message-sender-name">Ahmed Hassan</span>
+                        <span class="message-sender-company">Saudi Aramco</span>
+                      </div>
+                      <div class="message-bubble">
+                        <div class="message-text">Hello, can you provide more details about the RFQ?</div>
+                        <div class="message-time">10:30 AM</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-message sent">
+                    <img src="images/user.png" alt="John Smith" class="message-avatar">
+                    <div class="message-content">
+                      <div class="message-sender-info">
+                        <span class="message-sender-name">John Smith</span>
+                        <span class="message-sender-company">My Company x</span>
+                      </div>
+                      <div class="message-bubble">
+                        <div class="message-text">Sure, I'll send the details shortly.</div>
+                        <div class="message-time">10:35 AM</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-message sent">
+                    <img src="images/sarah.pnh.png" alt="Sarah Khan" class="message-avatar">
+                    <div class="message-content">
+                      <div class="message-sender-info">
+                        <span class="message-sender-name">Sarah Khan</span>
+                        <span class="message-sender-company">My Company x</span>
+                      </div>
+                      <div class="message-bubble">
+                        <div class="message-text">I've also attached the technical specifications document.</div>
+                        <div class="message-time">10:36 AM</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="chat-message">
+                    <img src="images/vendor2.jpg" alt="Muhammad Ali" class="message-avatar">
+                    <div class="message-content">
+                      <div class="message-sender-info">
+                        <span class="message-sender-name">Muhammad Ali</span>
+                        <span class="message-sender-company">Saudi Aramco</span>
+                      </div>
+                      <div class="message-bubble">
+                        <div class="message-text">Thank you for the quick response. We'll review and get back to you.
+                        </div>
+                        <div class="message-time">10:40 AM</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="chat-input-area">
+                  <input type="file" id="fileInput" style="display: none;" multiple>
+                  <input type="text" placeholder="Type a message" id="chatInput">
+                  <button type="button" class="attachment-btn" onclick="document.getElementById('fileInput').click()"><i
+                      class="fa fa-paperclip"></i></button>
+                  <button type="button" class="voice-btn" id="voiceBtn"><i class="fa fa-microphone"></i></button>
+                  <button type="button" class="send-btn" id="sendBtn" style="display: none;"><i
+                      class="fa fa-paper-plane"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pr-tab-panel" id="offers-panel">
+          <div class="offers-view" id="offers-offers-view">
+            <div class="offers-container">
+              <div class="offers-header">
+                <h4>All offers</h4>
+                <div class="offers-header-actions">
+                  <div class="offers-group-by">
+                    <button class="offers-group-by-btn" title="Group By">
+                      <i class="fa fa-chevron-down"></i>
+                      <span class="btn-text">Group By</span>
+                    </button>
+                    <div class="offers-group-by-dropdown" id="offersGroupByDropdown">
+                      <div class="offers-group-by-item" data-value="status">
+                        <i class="fa fa-flag"></i>
+                        Status
+                      </div>
+                      <div class="offers-group-by-item" data-value="vendor">
+                        <i class="fa fa-building"></i>
+                        Vendor
+                      </div>
+                      <div class="offers-group-by-item" data-value="date">
+                        <i class="fa fa-calendar"></i>
+                        Date
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="offers-filter-btn" title="Filter">
+                    <i class="fa fa-filter"></i>
+                    <span class="btn-text">Filter</span>
+                  </button>
+
+                  <button class="offers-import-btn" title="Import Offers">
+                    <i class="fa fa-upload"></i>
+                    <span class="btn-text">Import</span>
+                  </button>
+                  <div class="offers-action-dropdown">
+                    <button class="offers-action-dropdown-btn" title="Actions">
+                      <i class="fa fa-ellipsis-v"></i>
+                      <span class="btn-text">Actions</span>
+                      <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="offers-action-menu" id="offersActionMenu">
+                      <div class="offers-action-item">
+                        <i class="fa fa-download"></i>
+                        <span>Export</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="offers-create-btn" title="Create Offer">
+                    <i class="fa fa-plus"></i>
+                    <span class="btn-text">Offer</span>
+                  </button>
+                </div>
+              </div>
+              <div class="offers-list">
+                <div class="offer-item">
+                  <div class="offer-vendor">
+                    <img src="images/vendor.png" alt="Saudi Aramco">
+                    <div class="offer-vendor-info">
+                      <div class="offer-vendor-name">Saudi Aramco</div>
+                      <div class="offer-date">Submitted: Jan 15, 2025 10:30 AM</div>
+                    </div>
+                  </div>
+                  <div class="offer-actions-group">
+                    <div class="offer-status accepted">Accepted</div>
+                    <div class="offer-actions">
+                      <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                        <span>View offer</span>
+                      </button>
+                      <button class="offer-compare-btn-icon" title="Compare">
+                        <i class="fa fa-columns"></i>
+                      </button>
+                      <button class="offer-download-btn" title="Download">
+                        <i class="fa fa-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="offer-item">
+                  <div class="offer-vendor">
+                    <img src="images/vendor2.jpg" alt="Aramix">
+                    <div class="offer-vendor-info">
+                      <div class="offer-vendor-name">Aramix</div>
+                      <div class="offer-date">Submitted: Jan 14, 2025 02:15 PM</div>
+                    </div>
+                  </div>
+                  <div class="offer-actions-group">
+                    <div class="offer-status pending">Pending</div>
+                    <div class="offer-actions">
+                      <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                        <i class="fa fa-eye"></i>
+                      </button>
+                      <button class="offer-compare-btn-icon" title="Compare">
+                        <i class="fa fa-columns"></i>
+                      </button>
+                      <button class="offer-download-btn" title="Download">
+                        <i class="fa fa-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="offer-item">
+                  <div class="offer-vendor">
+                    <img src="images/vendor3.png" alt="Trade Link">
+                    <div class="offer-vendor-info">
+                      <div class="offer-vendor-name">Trade Link</div>
+                      <div class="offer-date">Submitted: Jan 13, 2025 09:45 AM</div>
+                    </div>
+                  </div>
+                  <div class="offer-actions-group">
+                    <div class="offer-status accepted">Accepted</div>
+                    <div class="offer-actions">
+                      <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                        <i class="fa fa-eye"></i>
+                      </button>
+                      <button class="offer-compare-btn-icon" title="Compare">
+                        <i class="fa fa-columns"></i>
+                      </button>
+                      <button class="offer-download-btn" title="Download">
+                        <i class="fa fa-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="offer-item">
+                  <div class="offer-vendor">
+                    <img src="images/vendor5.jpg" alt="Saudi Aramco">
+                    <div class="offer-vendor-info">
+                      <div class="offer-vendor-name">Saudi Aramco</div>
+                      <div class="offer-date">Submitted: Jan 12, 2025 04:20 PM</div>
+                    </div>
+                  </div>
+                  <div class="offer-actions-group">
+                    <div class="offer-status rejected">Rejected</div>
+                    <div class="offer-actions">
+                      <button class="offer-view-btn" title="View offer" onclick="openofferModal(this)">
+                        <i class="fa fa-eye"></i>
+                      </button>
+                      <button class="offer-compare-btn-icon" title="Compare">
+                        <i class="fa fa-columns"></i>
+                      </button>
+                      <button class="offer-download-btn" title="Download">
+                        <i class="fa fa-download"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pr-tab-panel" id="log-panel">
+          <p>Activity log will be displayed here...</p>
+        </div>
       </div>
+
     </div>
+  </div>
   </div>
 
   <!-- Delete Confirmation Modal -->
