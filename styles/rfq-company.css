@@ -234,8 +234,15 @@
 }
 
 
+.purchase-form{
+  flex-direction: row !important;
+  flex-wrap: wrap !important;
+}
+
+
 .purchase-form-row{
   overflow: hidden;
+  margin: 16px 0 !important;
 }
 
 /* RFQ Modal Table Overrides - Compact Width */
@@ -329,7 +336,6 @@
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
   font-size: 12px;
   font-family: inherit;
   color: #374151;
@@ -400,7 +406,6 @@
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #d1d5db;
-  border-radius: 6px;
   font-size: 12px;
   color: #374151;
   background: #fff;
@@ -530,13 +535,56 @@
 
 }
 
-.purchase-form-group{
-  min-width: auto !important;
-}
 
 .purchase-form-container{
   border: none !important;
   border-radius: 0 !important;
+}
+
+/* Purchase Form Expand/Collapse */
+.purchase-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px 16px !important;
+  background: #e9edf0;
+  border: 1px solid #e5e7eb;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.purchase-form-header:hover {
+  background: #f1f3f5;
+  border-color: #d1d5db;
+}
+
+.purchase-form-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.purchase-form-toggle-icon {
+  font-size: 12px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+
+.purchase-form-content {
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  max-height: 2000px;
+  opacity: 1;
+}
+
+.purchase-form-content.collapsed {
+  max-height: 0;
+  opacity: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Product/BOQ Toggle Button */
@@ -544,8 +592,9 @@
   display: inline-flex;
   background: #f3f4f6;
   border-radius: 8px;
-  padding: 4px;
+  padding: 1px;
   gap: 4px;
+  margin: 7px 0;
   border: 1px solid #e5e7eb;
   width: fit-content;
 }

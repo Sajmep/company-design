@@ -68,6 +68,15 @@ const ItemsTable = {
     
     // Initialize drag and drop functionality for the new row
     this.initRowDragDrop(newRow, tbody);
+    
+    // Initialize checkbox for the new row
+    const newCheckbox = newRow.querySelector('.items-checkbox-row');
+    if (newCheckbox && !newCheckbox.dataset.listenerAdded) {
+      newCheckbox.dataset.listenerAdded = 'true';
+      newCheckbox.addEventListener('change', () => {
+        this.updateActionButtonVisibility();
+      });
+    }
   },
 
   // ============================================================================
@@ -175,6 +184,55 @@ const ItemsTable = {
       // Skip if already initialized to prevent duplicate event listeners
       if (row.dataset.dragInitialized === 'true') return;
       this.initRowDragDrop(row, tbody);
+    });
+  },
+
+  // ============================================================================
+  // ACTION BUTTON VISIBILITY
+  // ============================================================================
+
+  /**
+   * Update action button visibility based on selected rows
+   */
+  updateActionButtonVisibility() {
+    const actionButtonContainer = document.getElementById('itemsActionButtonContainer');
+    const selectedCheckboxes = document.querySelectorAll('.items-checkbox-row:checked');
+    
+    if (!actionButtonContainer) return;
+    
+    actionButtonContainer.style.display = selectedCheckboxes.length > 0 ? 'block' : 'none';
+  },
+
+  /**
+   * Initialize checkbox selection functionality
+   */
+  initCheckboxSelection() {
+    const tbody = document.querySelector('#prOffcanvas .items-table tbody');
+    if (!tbody) return;
+    
+    // Handle checkbox changes
+    const handleCheckboxChange = () => {
+      this.updateActionButtonVisibility();
+    };
+    
+    // Add listeners to existing checkboxes
+    tbody.querySelectorAll('.items-checkbox-row').forEach(checkbox => {
+      checkbox.addEventListener('change', handleCheckboxChange);
+    });
+    
+    // Watch for new rows and add listeners to their checkboxes
+    const observer = new MutationObserver(() => {
+      tbody.querySelectorAll('.items-checkbox-row').forEach(checkbox => {
+        if (!checkbox.dataset.listenerAdded) {
+          checkbox.dataset.listenerAdded = 'true';
+          checkbox.addEventListener('change', handleCheckboxChange);
+        }
+      });
+    });
+    
+    observer.observe(tbody, {
+      childList: true,
+      subtree: true
     });
   },
 
@@ -314,6 +372,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Initialize drag drop after a short delay to ensure table is rendered
   setTimeout(() => {
     ItemsTable.initDragDrop();
+    ItemsTable.initCheckboxSelection();
   }, 300);
 });
 
@@ -328,6 +387,7 @@ const observer = new MutationObserver(function(mutations) {
   if (createPanel && createPanel.classList.contains('active')) {
     setTimeout(() => {
       ItemsTable.initDragDrop();
+      ItemsTable.initCheckboxSelection();
     }, 200);
   }
 });

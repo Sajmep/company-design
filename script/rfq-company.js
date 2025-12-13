@@ -65,10 +65,30 @@ function changeFormPriority(priority) {
   }
 }
 
+// Toggle purchase form expand/collapse
+function togglePurchaseForm(headerElement) {
+  const container = headerElement.closest('.purchase-form-container');
+  const content = container.querySelector('.purchase-form-content');
+  const icon = headerElement.querySelector('.purchase-form-toggle-icon');
+  
+  if (content.classList.contains('collapsed')) {
+    content.classList.remove('collapsed');
+    headerElement.classList.remove('collapsed');
+    icon.classList.remove('fa-chevron-up');
+    icon.classList.add('fa-chevron-down');
+  } else {
+    content.classList.add('collapsed');
+    headerElement.classList.add('collapsed');
+    icon.classList.remove('fa-chevron-down');
+    icon.classList.add('fa-chevron-up');
+  }
+}
+
 // Make functions available globally
 window.switchCreateTab = switchCreateTab;
 window.openRfqOffcanvas = openRfqOffcanvas;
 window.changeFormPriority = changeFormPriority;
+window.togglePurchaseForm = togglePurchaseForm;
 
 // Add Product Row functionality
 function addProductRow() {

@@ -97,7 +97,110 @@ function switchTab(tabName) {
     if (activeTab && activeTab.dataset.title) {
         updateOffcanvasHeader(activeTab.dataset.title);
     }
+    
+    // Update dropdown button text and active state if tab is in dropdown
+    if (tabName === 'chat' || tabName === 'offers' || tabName === 'log') {
+        const dropdownText = document.getElementById('tabDropdownText');
+        const dropdownItem = document.querySelector(`.pr-tab-dropdown-item[data-tab="${tabName}"]`);
+        
+        if (dropdownText && dropdownItem) {
+            dropdownText.textContent = dropdownItem.dataset.title || dropdownItem.querySelector('span').textContent;
+        }
+        
+        // Update active state in dropdown items
+        document.querySelectorAll('.pr-tab-dropdown-item').forEach(item => {
+            item.classList.remove('active');
+        });
+        if (dropdownItem) {
+            dropdownItem.classList.add('active');
+        }
+        
+        // Make dropdown button active
+        const dropdownBtn = document.getElementById('tabDropdownBtn');
+        if (dropdownBtn) {
+            dropdownBtn.classList.add('active');
+        }
+    } else {
+        // Remove active state from dropdown button if switching to non-dropdown tab
+        const dropdownBtn = document.getElementById('tabDropdownBtn');
+        if (dropdownBtn) {
+            dropdownBtn.classList.remove('active');
+        }
+        document.querySelectorAll('.pr-tab-dropdown-item').forEach(item => {
+            item.classList.remove('active');
+        });
+    }
 }
+
+// Tab Dropdown Functions
+function toggleTabDropdown(event) {
+    if (event) {
+        event.stopPropagation();
+    }
+    
+    const dropdownMenu = document.getElementById('tabDropdownMenu');
+    const dropdownBtn = document.getElementById('tabDropdownBtn');
+    
+    if (!dropdownMenu || !dropdownBtn) return;
+    
+    const isOpen = dropdownMenu.classList.contains('show');
+    
+    // Close all other dropdowns
+    document.querySelectorAll('.pr-tab-dropdown-menu.show').forEach(menu => {
+        if (menu !== dropdownMenu) {
+            menu.classList.remove('show');
+            const btn = menu.previousElementSibling;
+            if (btn) btn.classList.remove('active');
+        }
+    });
+    
+    if (isOpen) {
+        dropdownMenu.classList.remove('show');
+        dropdownBtn.classList.remove('active');
+    } else {
+        dropdownMenu.classList.add('show');
+        dropdownBtn.classList.add('active');
+    }
+}
+
+function selectTabFromDropdown(tabName) {
+    // Close dropdown
+    const dropdownMenu = document.getElementById('tabDropdownMenu');
+    const dropdownBtn = document.getElementById('tabDropdownBtn');
+    const dropdownText = document.getElementById('tabDropdownText');
+    
+    if (dropdownMenu) dropdownMenu.classList.remove('show');
+    if (dropdownBtn) dropdownBtn.classList.remove('active');
+    
+    // Update dropdown button text to show selected tab
+    const selectedItem = document.querySelector(`.pr-tab-dropdown-item[data-tab="${tabName}"]`);
+    if (selectedItem && dropdownText) {
+        const tabTitle = selectedItem.dataset.title || selectedItem.querySelector('span').textContent;
+        dropdownText.textContent = tabTitle;
+    }
+    
+    // Update active state in dropdown items
+    document.querySelectorAll('.pr-tab-dropdown-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    if (selectedItem) {
+        selectedItem.classList.add('active');
+    }
+    
+    // Switch to the selected tab
+    switchTab(tabName);
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', function(e) {
+    const dropdown = document.querySelector('.pr-tab-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) {
+        const dropdownMenu = document.getElementById('tabDropdownMenu');
+        const dropdownBtn = document.getElementById('tabDropdownBtn');
+        if (dropdownMenu) dropdownMenu.classList.remove('show');
+        if (dropdownBtn) dropdownBtn.classList.remove('active');
+    }
+});
 
 // Offcanvas Resize Function
 function toggleOffcanvasWidth() {
@@ -119,10 +222,12 @@ function toggleOffcanvasWidth() {
     offcanvas.classList.toggle('purchase-offcanvas-content-full');
     resizeBtn.classList.toggle('purchase-offcanvas-resize-btn-full');
     
-    // Change arrow direction based on state
+    // Change arrow direction based on state - preserve existing classes
     if (offcanvas.classList.contains('purchase-offcanvas-content-full')) {
-        icon.className = 'fa-solid fa-chevron-right offcanvas-resize-icon';
+        icon.classList.remove('fa-chevron-left');
+        icon.classList.add('fa-chevron-right');
     } else {
-        icon.className = 'fa-solid fa-chevron-left offcanvas-resize-icon';
+        icon.classList.remove('fa-chevron-right');
+        icon.classList.add('fa-chevron-left');
     }
 }
