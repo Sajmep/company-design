@@ -1,0 +1,178 @@
+/* Send Popup Modal */
+.send-popup-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  .send-popup-modal-content {
+    background-color: #fff;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+
+    .send-popup-modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #e5e7eb;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8f9fa;
+
+      h3 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1f2937;
+      }
+
+      .send-popup-heading {
+        margin: 2px 0 0 0;
+        font-size: 12px;
+        font-weight: 500;
+        color: #6b7280;
+      }
+
+      .send-popup-modal-close {
+        font-size: 24px;
+        font-weight: 300;
+        color: #6b7280;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 0;
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s ease;
+
+        &:hover {
+          color: #1f2937;
+          background: #e5e7eb;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    .send-popup-modal-body {
+      padding: 16px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .send-recipients {
+      .send-recipients-label {
+        font-weight: 600;
+        color: #374151;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .send-select-all-btn {
+        padding: 6px 12px;
+        background: #f3f4f6;
+        border: 1px solid #d1d5db;
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 500;
+        color: #374151;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: #e5e7eb;
+          border-color: #9ca3af;
+        }
+      }
+
+      .send-recipients-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 10px;
+
+        .send-recipient-item {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          padding: 10px 12px;
+          border: 2px solid #e5e7eb;
+          border-radius: 6px;
+          background: #f9fafb;
+          font-size: 12px;
+          color: #374151;
+          transition: all 0.2s ease;
+          cursor: pointer;
+          border-top-right-radius: 2px;
+          position: relative;
+
+          &.selected {
+            border-color: #2563eb;
+            background: #eff6ff;
+          }
+
+          .send-recipient-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+
+            .send-recipient-avatar {
+              width: 36px;
+              height: 36px;
+              border-radius: 50%;
+              object-fit: cover;
+              border: 1px solid #e5e7eb;
+            }
+
+            .send-recipient-text {
+              display: flex;
+              flex-direction: column;
+              gap: 2px;
+
+              .send-recipient-name {
+                font-weight: 600;
+                color: #1f2937;
+              }
+
+              .send-recipient-desc {
+                font-size: 11px;
+                color: #6b7280;
+              }
+            }
+          }
+
+          .send-recipient-checkbox {
+            width: 18px;
+            height: 18px;
+            accent-color: #2563eb;
+            cursor: pointer;
+            position: absolute;
+            top: -2px;
+            right: -1px;
+            flex-shrink: 0;
+            opacity: 0;
+            pointer-events: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .send-popup-modal {
+    .send-popup-modal-content {
+      max-width: 90%;
+    }
+  }
+}

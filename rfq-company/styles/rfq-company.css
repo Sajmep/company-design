@@ -588,7 +588,7 @@
 }
 
 /* Product/BOQ Toggle Button */
-.product-boq-toggle-button {
+.rfq-bulk-toggle-button {
   display: inline-flex;
   background: #f3f4f6;
   border-radius: 8px;
@@ -599,7 +599,7 @@
   width: fit-content;
 }
 
-.product-boq-toggle-button button {
+.rfq-bulk-toggle-button button {
   padding: 8px 20px;
   border: none;
   background: transparent;
@@ -613,34 +613,166 @@
   position: relative;
 }
 
-.product-boq-toggle-button button:hover {
+.rfq-bulk-toggle-button button:hover {
   color: #374151;
   background: rgba(255, 255, 255, 0.5);
 }
 
-.product-boq-toggle-button button:first-child {
+.rfq-bulk-toggle-button button:first-child {
   margin-right: 0;
 }
 
-.product-boq-toggle-button button:last-child {
+.rfq-bulk-toggle-button button:last-child {
   margin-left: 0;
 }
 
-.product-boq-toggle-button button.active {
+.rfq-bulk-toggle-button button.active {
   background: #ffffff;
   color: #012f6d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   font-weight: 600;
 }
 
-.product-boq-toggle-button button.active::before {
+.rfq-bulk-toggle-button button.active::before {
   content: '';
   position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 2px;
-  background: #012f6d;
-  border-radius: 2px;
+}
+
+/* Duplicate RFQ Button */
+.duplicate-rfq-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.duplicate-rfq-btn:hover {
+  background: #f8f9fa;
+  border-color: #9ca3af;
+  color: #1f2937;
+}
+
+.duplicate-rfq-btn i {
+  font-size: 11px;
+}
+
+/* Download RFQ Button */
+.offer-view-download-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.offer-view-download-btn:hover {
+  background: #f8f9fa;
+  border-color: #9ca3af;
+  color: #1f2937;
+}
+
+.offer-view-download-btn i {
+  font-size: 11px;
+}
+
+/* Negotiate RFQ Button */
+.offer-negotiate-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  color: #374151;
+  font-size: 12px;
+  font-weight: 500; 
+}
+
+.offer-negotiate-btn:hover {
+  background: #f8f9fa;
+  border-color: #9ca3af;
+  color: #1f2937;
+}
+
+.offer-negotiate-btn i {
+  font-size: 11px;
+}
+
+.offer-approve-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.offer-approve-btn i {
+  font-size: 11px;
+}
+
+.offer-approve-btn:hover {
+  background: #f8f9fa;
+  border-color: #9ca3af;
+  color: #1f2937;
+}
+
+.offer-approve-btn i {
+  font-size: 11px;
+}
+
+.offer-reject-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.offer-reject-btn i {
+  font-size: 11px;
+}
+
+.offer-reject-btn:hover {
+  background: #f8f9fa;
+  border-color: #9ca3af;
+  color: #1f2937;
+} 
+.offer-modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.offer-modal-close:hover {
+  background: #f8f9fa;
+  color: #1f2937;
 }

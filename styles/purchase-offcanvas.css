@@ -1108,15 +1108,15 @@
   right: 12px;
 }
 
-.pr-btn-edit, .pr-btn-submit, .pr-btn-approve, .pr-btn-reject, .pr-btn-approve, .pr-btn-escalate, .pr-btn-delegate {
+.pr-btn-edit, .pr-btn-submit, .pr-btn-verify, .pr-btn-reject, .pr-btn-verify, .pr-btn-escalate, .pr-btn-delegate {
   min-width: auto !important;
 }
 
 .pr-btn-edit span,
- .pr-btn-submit span,
-  .pr-btn-approve span,
+  .pr-btn-submit span,
+    .pr-btn-verify span,
    .pr-btn-reject span,
-    .pr-btn-approve span,
+   .pr-btn-verify span,
      .pr-btn-escalate span,
      .pr-btn-delegate span {
   display: none;
@@ -1196,14 +1196,14 @@
   border-color: #b45309;
 }
 
-/* Approve Button */
-.pr-btn-approve {
+/* Verify Button */
+.pr-btn-verify {
   background: #10b981;
   color: white;
   border: 1px solid #059669;
 }
 
-.pr-btn-approve:hover {
+.pr-btn-verify:hover {
   background: #059669;
   border-color: #047857;
 }

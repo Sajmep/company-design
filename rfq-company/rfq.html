@@ -5,16 +5,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RFQ Company</title>
-  <link rel="stylesheet" href="styles/scrollbar.css">
-  <link rel="stylesheet" href="styles/sidebar.css">
-  <link rel="stylesheet" href="styles/header.css">
-  <link rel="stylesheet" href="styles/common-page-header.css">
-  <link rel="stylesheet" href="./lib/fontawesome/css/font-awesome.css">
-  <link rel="stylesheet" href="styles/common-table.css">
-  <link rel="stylesheet" href="styles/purchase-offcanvas.css">
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../styles/sidebar.css">
+  <link rel="stylesheet" href="../styles/header.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../styles/common-table.css">
+  <link rel="stylesheet" href="../styles/purchase-offcanvas.css">
   <link rel="stylesheet" href="styles/rfq-company.css">
   <link rel="stylesheet" href="css/items-table.css">
-  <link rel="stylesheet" href="styles/purchase.css">
+  <link rel="stylesheet" href="css/create-popup.css">
+  <link rel="stylesheet" href="css/send-popup.css">
+  <link rel="stylesheet" href="../styles/purchase.css">
   <link rel="stylesheet" href="css/rfq-offers.css">
   <link rel="stylesheet" href="css/chat.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
@@ -47,36 +49,6 @@
         </div>
       </div>
 
-      <!-- Create Dropdown -->
-      <div class="create-dropdown">
-        <i class="fa fa-plus-circle fa-2x create-dropdown-btn" aria-expanded="false"
-          style="color: #9885d1; cursor: pointer;" title="Add New"></i>
-
-        <div class="create-dropdown-menu" role="menu">
-          <!-- Category: Projects -->
-          <div class="create-category">
-            <button class="create-category-btn">Projects</button>
-            <ul class="create-category-list">
-              <li><a href="#">New Website</a></li>
-              <li><a href="#">Mobile App</a></li>
-              <li><a href="#">Dashboard</a></li>
-            </ul>
-          </div>
-
-          <!-- Category: Documents -->
-          <div class="create-category">
-            <button class="create-category-btn">Documents</button>
-            <ul class="create-category-list">
-              <li><a href="#">New Report</a></li>
-              <li><a href="#">Proposal</a></li>
-              <li><a href="#">Invoice</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <i class="fa fa-clock-o fa-2x" style="color: #9885d1; cursor: pointer;" title="Activity"></i>
-
       <!-- Bell dropdown -->
       <div class="bell-section">
         <details>
@@ -90,13 +62,13 @@
             <!-- Tab Buttons -->
             <div class="bell-tabs">
               <button class="tab-btn active" data-tab="notification" title="Notifications">
-                <img src="images/notification-icon.png" alt="" width="10px">
+                <img src="../images/notification-icon.png" alt="" width="10px">
               </button>
               <button class="tab-btn" data-tab="chats" title="Chats">
-                <img src="images/chats-icon.png" alt="" width="10px">
+                <img src="../images/chats-icon.png" alt="" width="10px">
               </button>
               <button class="tab-btn" data-tab="announcements" title="Announcements">
-                <img src="images/announcement.png" alt="" width="10px">
+                <img src="../images/announcement.png" alt="" width="10px">
               </button>
             </div>
 
@@ -162,11 +134,11 @@
             <button class="apps-category-btn">Construction Hub</button>
             <div class="apps-category-content">
               <a href="#" data-app="gmail">
-                <img src="images/tenders-hub.png" alt="Gmail">
+                <img src="../images/tenders-hub.png" alt="Gmail">
                 <span>Tenders Hub</span>
               </a>
               <a href="#" data-app="drive">
-                <img src="images/projects-hub.png" alt="Drive">
+                <img src="../images/projects-hub.png" alt="Drive">
                 <span>Projects Hub</span>
               </a>
             </div>
@@ -177,11 +149,11 @@
             <button class="apps-category-btn"> Home </button>
             <div class="apps-category-content">
               <a href="#" data-app="docs">
-                <img src="images/bmh-logo.png" alt="Docs">
+                <img src="../images/bmh-logo.png" alt="Docs">
                 <span>BMH</span>
               </a>
               <a href="#" data-app="sheets">
-                <img src="images/sellers-logo.png" alt="Sheets">
+                <img src="../images/sellers-logo.png" alt="Sheets">
                 <span>Sellers</span>
               </a>
             </div>
@@ -192,27 +164,27 @@
             <button class="apps-category-btn">Marketplace</button>
             <div class="apps-category-content">
               <a href="#" data-app="github">
-                <img src="images/Shopping.png" alt="GitHub">
+                <img src="../images/Shopping.png" alt="GitHub">
                 <span>Shopping</span>
               </a>
               <a href="#" data-app="vscode">
-                <img src="images/Auctions.png" alt="VS Code">
+                <img src="../images/Auctions.png" alt="VS Code">
                 <span>Auctions</span>
               </a>
               <a href="#" data-app="figma">
-                <img src="images/Scrap.png" alt="Figma">
+                <img src="../images/Scrap.png" alt="Figma">
                 <span>Scrap</span>
               </a>
               <a href="#" data-app="notion">
-                <img src="images/Surplus.png" alt="Notion">
+                <img src="../images/Surplus.png" alt="Notion">
                 <span>Surplus</span>
               </a>
               <a href="#" data-app="postman">
-                <img src="images/default.png" alt="Postman">
+                <img src="../images/default.png" alt="Postman">
                 <span>Deals & Offers</span>
               </a>
               <a href="#" data-app="docker">
-                <img src="images/default.png" alt="Docker">
+                <img src="../images/default.png" alt="Docker">
                 <span>Store Locator</span>
               </a>
             </div>
@@ -223,11 +195,11 @@
             <button class="apps-category-btn">Community</button>
             <div class="apps-category-content">
               <a href="#" data-app="postman">
-                <img src="images/default.png" alt="Postman">
+                <img src="../images/default.png" alt="Postman">
                 <span>Events</span>
               </a>
               <a href="#" data-app="docker">
-                <img src="images/default.png" alt="Docker">
+                <img src="../images/default.png" alt="Docker">
                 <span>Forum</span>
               </a>
             </div>
@@ -238,11 +210,11 @@
             <button class="apps-category-btn">E-Learning</button>
             <div class="apps-category-content">
               <a href="#" data-app="postman">
-                <img src="images/default.png" alt="Postman">
+                <img src="../images/default.png" alt="Postman">
                 <span>Courses</span>
               </a>
               <a href="#" data-app="docker">
-                <img src="images/default.png" alt="Docker">
+                <img src="../images/default.png" alt="Docker">
                 <span>Blogs</span>
               </a>
             </div>
@@ -250,33 +222,10 @@
         </div>
       </div>
 
-      <button class="login-btn">
-        <a href="vendors.html">Vendors</a>
-      </button>
-
-
-
       <div class="dropdown-advanced">
         <button class="dropdown-btn" aria-expanded="false">
-          <img src="images/user.png" alt="" class="account-img" style="cursor: pointer;">
+          <img src="../images/user.png" alt="" class="account-img" style="cursor: pointer;">
         </button>
-
-        <div class="dropdown-menu" role="menu">
-          <div class="dropdown-section">
-            <a href="#"><i class="fa fa-user"></i> Profile</a>
-            <a href="#"><i class="fa fa-building"></i> My Company</a>
-            <a href="#"><i class="fa fa-exchange"></i> Switch User</a>
-          </div>
-          <hr>
-          <div class="dropdown-section">
-            <a href="#"><i class="fa fa-question-circle"></i> Help</a>
-            <a href="#"><i class="fa fa-globe"></i> Language</a>
-          </div>
-          <hr>
-          <div class="dropdown-section">
-            <a href="#" class="logout"><i class="fa fa-sign-out"></i> Sign Out</a>
-          </div>
-        </div>
       </div>
 
     </div>
@@ -289,7 +238,7 @@
     <div class="combobox" id="combobox">
       <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
         <div class="selected-logo" id="selectedLogo">
-          <img src="images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+          <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
         </div>
         <div class="caret" id="caret">
           <i class="fa fa-chevron-down" style="color: #ffffffd6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
@@ -352,7 +301,7 @@
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
             <!-- organization icon -->
-            <img src="images/organization.png" alt="" class="sidebar-icons">
+            <img src="../images/organization.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Organization</span>
         </button>
@@ -367,7 +316,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/overview-icon.png" alt="" width="28px">
+                <img src="../images/overview-icon.png" alt="" width="28px">
                 Overview
               </h2>
 
@@ -384,7 +333,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/business-info-icon.png" alt="" width="28px">
+                <img src="../images/business-info-icon.png" alt="" width="28px">
                 Business Information
               </h2>
 
@@ -402,7 +351,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/our-products-icon.png" alt="" width="28px">
+                <img src="../images/our-products-icon.png" alt="" width="28px">
                 Offering
               </h2>
 
@@ -421,7 +370,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  <img src="../images/marketing-icon.png" alt="" width="28px">
                   Marketing
                 </h2>
               </a>
@@ -430,7 +379,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/assets-icon.png" alt="" width="28px">
+                  <img src="../images/assets-icon.png" alt="" width="28px">
                   Assets
                 </h2>
               </a>
@@ -438,7 +387,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/financial-icon.png" alt="" width="28px">
+                <img src="../images/financial-icon.png" alt="" width="28px">
                 Finance
               </h2>
 
@@ -453,7 +402,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/business-straegy-icon.png" alt="" width="28px">
+                <img src="../images/business-straegy-icon.png" alt="" width="28px">
                 Business & Strategy
               </h2>
 
@@ -470,7 +419,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/hr-icon.png" alt="" width="28px">
+                <img src="../images/hr-icon.png" alt="" width="28px">
                 HR & Workforce
               </h2>
 
@@ -488,7 +437,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/crm-icon.png" alt="" width="28px">
+                <img src="../images/crm-icon.png" alt="" width="28px">
                 CRM
               </h2>
 
@@ -503,7 +452,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/sales-icon.png" alt="" width="28px">
+                <img src="../images/sales-icon.png" alt="" width="28px">
                 Sales
               </h2>
 
@@ -519,7 +468,7 @@
 
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
 
-                <img src="images/procurement.png" alt="" width="28px">
+                <img src="../images/procurement.png" alt="" width="28px">
 
                 Procurements
               </h2>
@@ -576,7 +525,7 @@
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
             <!-- apps icon -->
-            <img src="images/myapps.png" alt="" class="sidebar-icons">
+            <img src="../images/myapps.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Apps</span>
         </button>
@@ -593,7 +542,7 @@
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
             <!-- Directory icon -->
-            <img src="images/directory.png" alt="" class="sidebar-icons">
+            <img src="../images/directory.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Directory</span>
         </button>
@@ -608,7 +557,7 @@
       <div class="item has-submenu" id="quickLinksItem">
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
-            <img src="images/quick-link.png" alt="" class="sidebar-icons">
+            <img src="../images/quick-link.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Quick Links</span>
         </button>
@@ -624,7 +573,7 @@
         <a href="rfq-company.html">
           <button class="btn" aria-haspopup="true" aria-expanded="false">
             <span class="icon" aria-hidden>
-              <img src="images/quick-link.png" alt="" class="sidebar-icons">
+              <img src="../images/quick-link.png" alt="" class="sidebar-icons">
             </span>
             <span class="label">RFQs</span>
           </button>
@@ -638,7 +587,7 @@
         <button class="btn" id="settingsBtn">
           <span class="icon" aria-hidden>
             <!-- settings icon -->
-            <img src="images/bmh-club.png" alt="" class="sidebar-icons">
+            <img src="../images/bmh-club.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">BMH Club</span>
         </button>
@@ -654,7 +603,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="index.html">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/membership.png" alt="" width="28px">
+                  <img src="../images/membership.png" alt="" width="28px">
                   Membership
                 </h2>
               </a>
@@ -663,7 +612,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/subscription.png" alt="" width="28px">
+                  <img src="../images/subscription.png" alt="" width="28px">
                   Subscription
                 </h2>
               </a>
@@ -672,7 +621,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/competition.png" alt="" width="28px">
+                  <img src="../images/competition.png" alt="" width="28px">
                   Competitions
                 </h2>
               </a>
@@ -680,7 +629,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/media-center.png" alt="" width="28px">
+                <img src="../images/media-center.png" alt="" width="28px">
                 Media Center
               </h2>
 
@@ -706,7 +655,7 @@
         <button class="btn" id="settingsBtn">
           <span class="icon" aria-hidden>
             <!-- settings icon -->
-            <img src="images/support.png" alt="" class="sidebar-icons">
+            <img src="../images/support.png" alt="" class="sidebar-icons">
           </span>
           <span class="label">Support</span>
         </button>
@@ -722,7 +671,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="index.html">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/live-chate-icon.png" alt="" width="28px">
+                  <img src="../images/live-chate-icon.png" alt="" width="28px">
                   Live Chat
                 </h2>
               </a>
@@ -730,7 +679,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/contact-support-icon.png" alt="" width="28px">
+                <img src="../images/contact-support-icon.png" alt="" width="28px">
                 Contact Support
               </h2>
 
@@ -744,7 +693,7 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/help-ceneter-icon.png" alt="" width="28px">
+                <img src="../images/help-ceneter-icon.png" alt="" width="28px">
                 Help Center
               </h2>
 
@@ -763,7 +712,7 @@
             <div class="form-section submenu-uncollapsed">
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/report-issue-icon.png" alt="" width="28px">
+                  <img src="../images/report-issue-icon.png" alt="" width="28px">
                   Report Issue
                 </h2>
               </a>
@@ -782,7 +731,7 @@
           <button class="btn" id="settingsBtn">
             <span class="icon" aria-hidden>
               <!-- settings icon -->
-              <img src="images/settings.png" alt="" class="sidebar-icons">
+              <img src="../images/settings.png" alt="" class="sidebar-icons">
             </span>
             <span class="label">Settings</span>
           </button>
@@ -797,7 +746,7 @@
               <div class="form-section submenu-uncollapsed">
                 <a href="setting.html">
                   <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                    <img src="images/company-settings.png" alt="" width="28px">
+                    <img src="../images/company-settings.png" alt="" width="28px">
                     Company Setting
                   </h2>
                 </a>
@@ -806,7 +755,7 @@
               <div class="form-section submenu-uncollapsed">
                 <a href="profile/profile.html">
                   <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                    <img src="images/profile-settings.png" alt="" width="28px">
+                    <img src="../images/profile-settings.png" alt="" width="28px">
                     Company Profile
                   </h2>
                 </a>
@@ -815,7 +764,7 @@
               <div class="form-section submenu-uncollapsed">
                 <a href="profile/prequalification.html">
                   <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                    <img src="images/company-prequalification.png" alt="" width="28px">
+                    <img src="../images/company-prequalification.png" alt="" width="28px">
                     Company Prequalification
                   </h2>
                 </a>
@@ -917,10 +866,10 @@
                 </div>
               </div>
             </div>
-            <button class="page-header-primary-btn" onclick="createRfq()" title="Add RFQ">
-              <i class="fa fa-plus"></i>
-              <span class="btn-text">Add</span>
-            </button>
+         
+
+            <button class="page-header-primary-btn" onclick="openAddPopup()"> <i class="fa fa-plus"></i> Add</button>
+
 
           </div>
         </div>
@@ -964,7 +913,7 @@
                   <th class="data-table-actions">
                     <div class="data-columns-dropdown">
                       <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
-                        <img src="images/add-column.png" alt="Columns" width="20px">
+                        <img src="../images/add-column.png" alt="Columns" width="20px">
                       </button>
                       <div class="data-columns-dropdown-content" id="columnDropdown">
                         <div class="data-columns-dropdown-header">
@@ -1052,7 +1001,7 @@
                   <td class="data-created-by col-requested-by">
                     <div class="data-user-info clickable-user" data-user="john">
                       <div class="data-user-avatar">
-                        <img src="images/user.png" alt="John Smith">
+                        <img src="../images/user.png" alt="John Smith">
                         <div class="data-user-status online"></div>
                       </div>
                       <span class="data-user-name">John Smith</span>
@@ -1141,7 +1090,7 @@
                   <td class="data-created-by col-requested-by">
                     <div class="data-user-info clickable-user" data-user="john">
                       <div class="data-user-avatar">
-                        <img src="images/sarah.pnh.png" alt="Sarah Khan">
+                        <img src="../images/sarah.pnh.png" alt="Sarah Khan">
                         <div class="data-user-status offline"></div>
                       </div>
                       <span class="data-user-name">Sarah Khan</span>
@@ -1316,7 +1265,7 @@
                   <span class="data-card-value">
                     <div class="data-card-user-info">
                       <div class="data-card-user-avatar">
-                        <img src="images/sarah.pnh.png" alt="Sarah Khan">
+                        <img src="../images/sarah.pnh.png" alt="Sarah Khan">
                       </div>
                       <span class="data-card-user-name">Sarah Khan</span>
                     </div>
@@ -1356,7 +1305,7 @@
         <h3>RFQ-2025</h3>
         <div class="pr-action-buttons">
           <div class="pr-action-buttons-group">
-            <button class="pr-btn pr-btn-submit" type="button" onclick="openVendorModal()" title="Send">
+            <button class="pr-btn pr-btn-submit" type="button" onclick="openSendPopup()" title="Send">
               <i class="fa fa-paper-plane"></i>
               <span>Send</span>
             </button>
@@ -1366,9 +1315,9 @@
             </button>
           </div>
           <div class="pr-action-buttons-group">
-            <button class="pr-btn pr-btn-approve" type="button" title="Approve">
+            <button class="pr-btn pr-btn-verify" type="button" title="Verify">
               <i class="fa fa-check"></i>
-              <span>Approve</span>
+              <span>Varify</span>
             </button>
             <button class="pr-btn pr-btn-reject" type="button" title="Reject">
               <i class="fa fa-times"></i>
@@ -1481,12 +1430,18 @@
           <!-- Create PR Form Panel -->
           <div class="pr-tab-panel" id="create-panel">
     
-            <div class="product-boq-toggle-button">
-              <button class="active">
-                Product
-              </button>
-              <button>
-                BOQ
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+              <div class="rfq-bulk-toggle-button">
+                <button class="active" onclick="toggleRfqBulkMode('rfq')" data-mode="rfq">
+                  RFQ
+                </button>
+                <button onclick="toggleRfqBulkMode('bulk')" data-mode="bulk">
+                  Bulk RFQ
+                </button>
+              </div>
+              <button class="duplicate-rfq-btn" id="duplicateRfqBtn" style="display: none;" onclick="duplicateRfq()">
+                <i class="fa fa-copy"></i>
+                Duplicate RFQ
               </button>
             </div>
 
@@ -1526,9 +1481,14 @@
                         <span>Saudi Aramco</span>
                       </div>
                       <div class="autocomplete-divider"></div>
+                      
+                      <div class="autocomplete-item create-project">
+                        <span><i class="fa fa-search"></i>Search</span>
+                      </div>
                       <div class="autocomplete-item create-project">
                         <span><i class="fa fa-plus"></i>Invite</span>
                       </div>
+
                     </div>
                   </div>
                 </div>
@@ -1550,7 +1510,7 @@
                 </div>
                 <div class="purchase-form-group">
                   <label for="">Order deadline?</label>
-                  <input type="date" id="orderDeadline" name="orderDeadline" value="2025-01-10">
+                  <input type="datetime-local" id="orderDeadline" name="orderDeadline" value="2025-01-10 9:00 AM">
                 </div>
 
               </form>
@@ -1576,7 +1536,7 @@
                 </button>
                 <button class="pr-tab-btn" onclick="switchCreateTab('flow')" data-create-tab="flow">
                   <i class="fa fa-exchange"></i>
-                  Flow
+                  Workflow
                 </button>
               </div>
             </div>
@@ -1609,6 +1569,7 @@
                             </th>
                             <th class="items-drag-header">--</th>
                             <th class="items-col-category">Product Categories</th>
+                            <th class="items-col-global-products">Global products</th>
                             <th class="items-col-product">Product</th>
                             <th class="items-col-qty">Qty</th>
                             <th class="items-col-uom">UOM</th>
@@ -1616,7 +1577,7 @@
                               <div class="items-columns-dropdown">
                                 <button type="button" class="items-columns-btn-icon"
                                   onclick="ItemsTable.toggleColumnDropdown(); return false;" title="Show/Hide Columns">
-                                  <img src="images/add-column.png" alt="Columns" width="20px">
+                                  <img src="../images/add-column.png" alt="Columns" width="20px">
                                 </button>
                                 <div class="items-columns-dropdown-content" id="itemsColumnDropdown">
                                   <div class="items-columns-dropdown-header">
@@ -1646,7 +1607,21 @@
                                           UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
                                         </span>
                                       </label>
+                                      <label class="items-column-option">
+                                        <input type="checkbox" value="items-col-global-products" checked>
+                                        <span class="items-column-label">Global products</span>
+                                      </label>
                                     </div>
+                                  </div>
+                                  <div class="items-columns-dropdown-footer">
+                                    <button type="button" class="items-btn items-btn-secondary"
+                                      onclick="ItemsTable.closeColumnDropdown(); return false;">
+                                      Cancel
+                                    </button>
+                                    <button type="button" class="items-btn items-btn-primary"
+                                      onclick="ItemsTable.saveColumnVisibility(); return false;">
+                                      Save
+                                    </button>
                                   </div>
                                 </div>
                               </div>
@@ -1668,6 +1643,14 @@
                                 <option value="brand1">Product Categories 1</option>
                                 <option value="brand2">Product Categories 2</option>
                                 <option value="brand3">Product Categories 3</option>
+                              </select>
+                            </td>
+                            <td class="items-cell items-col-global-products">
+                              <select class="table-select-dropdown" name="globalProduct">
+                                <option value="" disabled selected>Select Global Product</option>
+                                <option value="global1">Global Product 1</option>
+                                <option value="global2">Global Product 2</option>
+                                <option value="global3">Global Product 3</option>
                               </select>
                             </td>
                             <td class="items-cell items-col-product">
@@ -1774,8 +1757,15 @@
                   <div class="purchase-form-row" style="margin-top: 20px;">
                     <div class="purchase-form-group">
                       <label for="deliverTo">Deliver to?</label>
-                      <textarea name="deliverTo" id="deliverTo" required placeholder="Enter deliver to..."
-                        style="margin-bottom: 0px;">This is the address from the selected project.</textarea>
+                      <select name="deliverTo" id="deliverTo" required>
+                        <option value="" disabled selected>Select Delivery Address</option>
+                        <option value="project-address">Project Address</option>
+                        <option value="company-address">Company Address</option>
+                        <option value="warehouse-address">Warehouse Address</option>
+                        <option value="branch-address">Branch Address</option>
+                        <option value="site-address">Site Address</option>
+                        <option value="distribution-address">Distribution Address</option>
+                      </select>
                     </div>
                   </div>
                 </div>
@@ -1891,7 +1881,7 @@
                 </div>
                 <div class="vendor-list">
                   <div class="vendor-item active">
-                    <img src="images/vendor.png" alt="Saudi Aramco">
+                    <img src="../images/vendor.png" alt="Saudi Aramco">
                     <div class="vendor-info">
                       <div class="vendor-name">Saudi Aramco</div>
                       <div class="vendor-status">Online</div>
@@ -1899,7 +1889,7 @@
                     <div class="vendor-time">10:30</div>
                   </div>
                   <div class="vendor-item">
-                    <img src="images/vendor2.jpg" alt="Aramix">
+                    <img src="../images/vendor2.jpg" alt="Aramix">
                     <div class="vendor-info">
                       <div class="vendor-name">Aramix</div>
                       <div class="vendor-status">Last seen 2 hours ago</div>
@@ -1907,7 +1897,7 @@
                     <div class="vendor-time">08:15</div>
                   </div>
                   <div class="vendor-item">
-                    <img src="images/vendor3.png" alt="Trade Link">
+                    <img src="../images/vendor3.png" alt="Trade Link">
                     <div class="vendor-info">
                       <div class="vendor-name">Trade Link</div>
                       <div class="vendor-status">Last seen yesterday</div>
@@ -1915,7 +1905,7 @@
                     <div class="vendor-time">Yesterday</div>
                   </div>
                   <div class="vendor-item">
-                    <img src="images/vendor5.jpg" alt="Saudi Aramco">
+                    <img src="../images/vendor5.jpg" alt="Saudi Aramco">
                     <div class="vendor-info">
                       <div class="vendor-name">Saudi Aramco</div>
                       <div class="vendor-status">Last seen 1 week ago</div>
@@ -1930,7 +1920,7 @@
               </div>
               <div class="chat-content">
                 <div class="chat-header">
-                  <img src="images/vendor.png" alt="Saudi Aramco" class="chat-header-company-logo">
+                  <img src="../images/vendor.png" alt="Saudi Aramco" class="chat-header-company-logo">
                   <div class="chat-header-info">
                     <div class="chat-header-name">Saudi Aramco</div>
                     <div class="chat-header-participants">4 participants · 2 from your company, 2 from vendor</div>
@@ -1952,7 +1942,7 @@
                       </div>
                       <div class="chat-members-list">
                         <div class="chat-member-item">
-                          <img src="images/vendor.png" alt="Ahmed Hassan" class="chat-member-avatar">
+                          <img src="../images/vendor.png" alt="Ahmed Hassan" class="chat-member-avatar">
                           <div class="chat-member-info">
                             <div class="chat-member-name">Ahmed Hassan</div>
                             <div class="chat-member-role">Project Manager</div>
@@ -1960,7 +1950,7 @@
                           <div class="chat-member-status online"></div>
                         </div>
                         <div class="chat-member-item">
-                          <img src="images/vendor2.jpg" alt="Muhammad Ali" class="chat-member-avatar">
+                          <img src="../images/vendor2.jpg" alt="Muhammad Ali" class="chat-member-avatar">
                           <div class="chat-member-info">
                             <div class="chat-member-name">Muhammad Ali</div>
                             <div class="chat-member-role">Sales Representative</div>
@@ -1968,7 +1958,7 @@
                           <div class="chat-member-status online"></div>
                         </div>
                         <div class="chat-member-item">
-                          <img src="images/user3.png" alt="Fatima Ahmed" class="chat-member-avatar">
+                          <img src="../images/user3.png" alt="Fatima Ahmed" class="chat-member-avatar">
                           <div class="chat-member-info">
                             <div class="chat-member-name">Fatima Ahmed</div>
                             <div class="chat-member-role">Technical Lead</div>
@@ -1982,7 +1972,7 @@
                       </div>
                       <div class="chat-members-list">
                         <div class="chat-member-item">
-                          <img src="images/user.png" alt="John Smith" class="chat-member-avatar">
+                          <img src="../images/user.png" alt="John Smith" class="chat-member-avatar">
                           <div class="chat-member-info">
                             <div class="chat-member-name">John Smith</div>
                             <div class="chat-member-role">Procurement Manager</div>
@@ -1990,7 +1980,7 @@
                           <div class="chat-member-status online"></div>
                         </div>
                         <div class="chat-member-item">
-                          <img src="images/sarah.pnh.png" alt="Sarah Khan" class="chat-member-avatar">
+                          <img src="../images/sarah.pnh.png" alt="Sarah Khan" class="chat-member-avatar">
                           <div class="chat-member-info">
                             <div class="chat-member-name">Sarah Khan</div>
                             <div class="chat-member-role">Buyer</div>
@@ -2003,7 +1993,7 @@
                 </div>
                 <div class="chat-messages">
                   <div class="chat-message">
-                    <img src="images/vendor.png" alt="Ahmed Hassan" class="message-avatar">
+                    <img src="../images/vendor.png" alt="Ahmed Hassan" class="message-avatar">
                     <div class="message-content">
                       <div class="message-sender-info">
                         <span class="message-sender-name">Ahmed Hassan</span>
@@ -2016,7 +2006,7 @@
                     </div>
                   </div>
                   <div class="chat-message sent">
-                    <img src="images/user.png" alt="John Smith" class="message-avatar">
+                    <img src="../images/user.png" alt="John Smith" class="message-avatar">
                     <div class="message-content">
                       <div class="message-sender-info">
                         <span class="message-sender-name">John Smith</span>
@@ -2029,7 +2019,7 @@
                     </div>
                   </div>
                   <div class="chat-message sent">
-                    <img src="images/sarah.pnh.png" alt="Sarah Khan" class="message-avatar">
+                    <img src="../images/sarah.pnh.png" alt="Sarah Khan" class="message-avatar">
                     <div class="message-content">
                       <div class="message-sender-info">
                         <span class="message-sender-name">Sarah Khan</span>
@@ -2042,7 +2032,7 @@
                     </div>
                   </div>
                   <div class="chat-message">
-                    <img src="images/vendor2.jpg" alt="Muhammad Ali" class="message-avatar">
+                    <img src="../images/vendor2.jpg" alt="Muhammad Ali" class="message-avatar">
                     <div class="message-content">
                       <div class="message-sender-info">
                         <span class="message-sender-name">Muhammad Ali</span>
@@ -2127,7 +2117,7 @@
               <div class="offers-list">
                 <div class="offer-item">
                   <div class="offer-vendor">
-                    <img src="images/vendor.png" alt="Saudi Aramco">
+                    <img src="../images/vendor.png" alt="Saudi Aramco">
                     <div class="offer-vendor-info">
                       <div class="offer-vendor-name">Saudi Aramco</div>
                       <div class="offer-date">Submitted: Jan 15, 2025 10:30 AM</div>
@@ -2151,7 +2141,7 @@
 
                 <div class="offer-item">
                   <div class="offer-vendor">
-                    <img src="images/vendor2.jpg" alt="Aramix">
+                    <img src="../images/vendor2.jpg" alt="Aramix">
                     <div class="offer-vendor-info">
                       <div class="offer-vendor-name">Aramix</div>
                       <div class="offer-date">Submitted: Jan 14, 2025 02:15 PM</div>
@@ -2175,7 +2165,7 @@
 
                 <div class="offer-item">
                   <div class="offer-vendor">
-                    <img src="images/vendor3.png" alt="Trade Link">
+                    <img src="../images/vendor3.png" alt="Trade Link">
                     <div class="offer-vendor-info">
                       <div class="offer-vendor-name">Trade Link</div>
                       <div class="offer-date">Submitted: Jan 13, 2025 09:45 AM</div>
@@ -2199,7 +2189,7 @@
 
                 <div class="offer-item">
                   <div class="offer-vendor">
-                    <img src="images/vendor5.jpg" alt="Saudi Aramco">
+                    <img src="../images/vendor5.jpg" alt="Saudi Aramco">
                     <div class="offer-vendor-info">
                       <div class="offer-vendor-name">Saudi Aramco</div>
                       <div class="offer-date">Submitted: Jan 12, 2025 04:20 PM</div>
@@ -2272,7 +2262,7 @@
       <div class="popup-header">
         <div class="popup-user-info">
           <div class="popup-user-avatar">
-            <img src="images/user.png" alt="User" id="popupUserImage">
+            <img src="../images/user.png" alt="User" id="popupUserImage">
             <div class="popup-user-status" id="popupUserStatus"></div>
           </div>
           <h3 id="popupUserName">User Name</h3>
@@ -2323,8 +2313,12 @@
       <div class="offer-modal-header">
         <h3>Offer from <span id="offerModalVendorName">Saudi Aramco</span></h3>
         <div class="offer-modal-actions">
-          <button type="button" class="offer-compare-btn">Compare</button>
-          <span class="offer-modal-close" onclick="closeofferModal()">&times;</span>
+          <button type="button" class="offer-compare-btn"><i class="fa fa-columns"></i> Compare</button>
+          <button type="button" class="offer-view-download-btn"><i class="fa fa-download"></i> Download</button>
+          <button type="button" class="offer-negotiate-btn"><i class="fa fa-comments"></i> Negotiate</button>
+          <button type="button" class="offer-approve-btn"><i class="fa fa-check"></i> Approve</button>
+          <button type="button" class="offer-reject-btn"><i class="fa fa-times"></i> Reject</button>
+          <button type="button" class="offer-modal-close" onclick="closeofferModal()">&times;</button>
         </div>
       </div>
       <div class="offer-modal-body">
@@ -2346,7 +2340,7 @@
             </div>
             <div class="offer-overview-item">
               <div class="offer-overview-label">Order Deadline</div>
-              <div class="offer-overview-value" id="offerDeadline">10/09/2025</div>
+              <div class="offer-overview-value" id="offerDeadline">10/09/2025 9:00 AM</div>
             </div>
             <div class="offer-overview-item">
               <div class="offer-overview-label">Priority</div>
@@ -2454,7 +2448,7 @@
     <div class="offers-compare-dropdown" id="offersCompareDropdown">
       <div class="selected-offers-list" id="selectedoffersList">
         <div class="selected-offer-item">
-          <img class="selected-offer-avatar" src="images/vendor.png" alt="Saudi Aramco">
+          <img class="selected-offer-avatar" src="../images/vendor.png" alt="Saudi Aramco">
           <div class="selected-offer-details">
             <div class="selected-offer-name">Saudi Aramco</div>
             <div class="selected-offer-meta">Submitted: Jan 15, 2025 10:30 AM</div>
@@ -2464,7 +2458,7 @@
           </button>
         </div>
         <div class="selected-offer-item">
-          <img class="selected-offer-avatar" src="images/vendor2.jpg" alt="Aramix">
+          <img class="selected-offer-avatar" src="../images/vendor2.jpg" alt="Aramix">
           <div class="selected-offer-details">
             <div class="selected-offer-name">Aramix</div>
             <div class="selected-offer-meta">Submitted: Jan 14, 2025 02:15 PM</div>
@@ -2496,13 +2490,13 @@
                 <th class="comparison-field-header">Field</th>
                 <th class="comparison-vendor-header">
                   <div class="comparison-vendor-info">
-                    <img src="images/vendor.png" alt="Saudi Aramco" class="comparison-vendor-avatar">
+                    <img src="../images/vendor.png" alt="Saudi Aramco" class="comparison-vendor-avatar">
                     <span>Saudi Aramco</span>
                   </div>
                 </th>
                 <th class="comparison-vendor-header">
                   <div class="comparison-vendor-info">
-                    <img src="images/vendor2.jpg" alt="Aramix" class="comparison-vendor-avatar">
+                    <img src="../images/vendor2.jpg" alt="Aramix" class="comparison-vendor-avatar">
                     <span>Aramix</span>
                   </div>
                 </th>
@@ -2631,28 +2625,28 @@
               <div class="vendor-selection-item">
                 <input type="checkbox" id="vendor-saudi-aramco-1" name="vendors" value="saudi-aramco-1">
                 <label for="vendor-saudi-aramco-1" class="vendor-selection-label">
-                  <img src="images/vendor.png" alt="Saudi Aramco" class="vendor-selection-avatar">
+                  <img src="../images/vendor.png" alt="Saudi Aramco" class="vendor-selection-avatar">
                   <span class="vendor-selection-name">Saudi Aramco</span>
                 </label>
               </div>
               <div class="vendor-selection-item">
                 <input type="checkbox" id="vendor-aramix" name="vendors" value="aramix">
                 <label for="vendor-aramix" class="vendor-selection-label">
-                  <img src="images/vendor2.jpg" alt="Aramix" class="vendor-selection-avatar">
+                  <img src="../images/vendor2.jpg" alt="Aramix" class="vendor-selection-avatar">
                   <span class="vendor-selection-name">Aramix</span>
                 </label>
               </div>
               <div class="vendor-selection-item">
                 <input type="checkbox" id="vendor-trade-link" name="vendors" value="trade-link">
                 <label for="vendor-trade-link" class="vendor-selection-label">
-                  <img src="images/vendor3.png" alt="Trade Link" class="vendor-selection-avatar">
+                  <img src="../images/vendor3.png" alt="Trade Link" class="vendor-selection-avatar">
                   <span class="vendor-selection-name">Trade Link</span>
                 </label>
               </div>
               <div class="vendor-selection-item">
                 <input type="checkbox" id="vendor-saudi-aramco-2" name="vendors" value="saudi-aramco-2">
                 <label for="vendor-saudi-aramco-2" class="vendor-selection-label">
-                  <img src="images/vendor5.jpg" alt="Saudi Aramco" class="vendor-selection-avatar">
+                  <img src="../images/vendor5.jpg" alt="Saudi Aramco" class="vendor-selection-avatar">
                   <span class="vendor-selection-name">Saudi Aramco</span>
                 </label>
               </div>
@@ -2702,7 +2696,7 @@
         <div class="invite-member-list" id="inviteMemberList">
           <div class="invite-member-option">
             <div class="invite-member-option-info">
-              <img src="images/user3.png" alt="Ali Raza" class="invite-member-option-avatar">
+              <img src="../images/user3.png" alt="Ali Raza" class="invite-member-option-avatar">
               <div class="invite-member-option-details">
                 <div class="invite-member-option-name">Ali Raza</div>
                 <div class="invite-member-option-role">Finance Manager · Saudi Aramco</div>
@@ -2715,7 +2709,7 @@
           </div>
           <div class="invite-member-option">
             <div class="invite-member-option-info">
-              <img src="images/vendor3.png" alt="Omar Hassan" class="invite-member-option-avatar">
+              <img src="../images/vendor3.png" alt="Omar Hassan" class="invite-member-option-avatar">
               <div class="invite-member-option-details">
                 <div class="invite-member-option-name">Omar Hassan</div>
                 <div class="invite-member-option-role">Operations Lead · Saudi Aramco</div>
@@ -2728,7 +2722,7 @@
           </div>
           <div class="invite-member-option">
             <div class="invite-member-option-info">
-              <img src="images/user.png" alt="David Lee" class="invite-member-option-avatar">
+              <img src="../images/user.png" alt="David Lee" class="invite-member-option-avatar">
               <div class="invite-member-option-details">
                 <div class="invite-member-option-name">David Lee</div>
                 <div class="invite-member-option-role">Quality Assurance · My Company x</div>
@@ -2741,7 +2735,7 @@
           </div>
           <div class="invite-member-option">
             <div class="invite-member-option-info">
-              <img src="images/vendor2.jpg" alt="Sara Al-Mansoori" class="invite-member-option-avatar">
+              <img src="../images/vendor2.jpg" alt="Sara Al-Mansoori" class="invite-member-option-avatar">
               <div class="invite-member-option-details">
                 <div class="invite-member-option-name">Sara Al-Mansoori</div>
                 <div class="invite-member-option-role">Legal Advisor · Saudi Aramco</div>
@@ -2754,7 +2748,7 @@
           </div>
           <div class="invite-member-option">
             <div class="invite-member-option-info">
-              <img src="images/sarah.pnh.png" alt="Michael Chen" class="invite-member-option-avatar">
+              <img src="../images/sarah.pnh.png" alt="Michael Chen" class="invite-member-option-avatar">
               <div class="invite-member-option-details">
                 <div class="invite-member-option-name">Michael Chen</div>
                 <div class="invite-member-option-role">IT Support · My Company x</div>
@@ -2780,12 +2774,95 @@
   <!-- CustomEase plugin -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/CustomEase.min.js"></script>
 
-  <script src="script/sidebar.js"></script>
-  <script src="script/header.js"></script>
-  <script src="script/common-table.js"></script>
-  <script src="script/common-offcanvas.js"></script>
+  <script src="../script/sidebar.js"></script>
+  <script src="../script/header.js"></script>
+  <script src="../script/common-table.js"></script>
+  <script src="../script/common-offcanvas.js"></script>
   <script src="script/items-table.js"></script>
+  <script src="script/send-popup.js"></script>
   <script src="script/rfq-company.js"></script>
+
+  <!-- Send Popup -->
+  <div id="sendPopupModal" class="send-popup-modal" style="display: none;">
+    <div class="send-popup-modal-content">
+      <div class="send-popup-modal-header">
+        <div>
+          <h3>Send RFQ</h3>
+          <p class="send-popup-heading">Provide subject and recipients</p>
+        </div>
+        <button class="send-popup-modal-close" onclick="closeSendPopup()">&times;</button>
+      </div>
+      <div class="send-popup-modal-body">
+        <div class="purchase-form-group" style="width:100%;">
+          <label for="sendSubject">Subject</label>
+          <input type="text" id="sendSubject" name="sendSubject" placeholder="Enter subject" style="width:100%;">
+        </div>
+        <div class="purchase-form-group" style="width:100%; display:flex; align-items:center; gap:8px; flex-direction: row;">
+          <input type="checkbox" id="sendByEmail" onchange="toggleSendRecipients()">
+          <label for="sendByEmail" style="margin:0;">Send by Email</label>
+        </div>
+        <div id="sendRecipientsContainer" class="send-recipients" style="display:none;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <label class="send-recipients-label">Select recipients</label>
+            <button type="button" class="send-select-all-btn" onclick="toggleSelectAllRecipients()">Select All</button>
+          </div>
+          <div class="send-recipients-list">
+            <div class="send-recipient-item" data-recipient-id="sarah" onclick="toggleRecipientItem(this)">
+              <div class="send-recipient-info">
+                <img src="../images/sarah.pnh.png" alt="Sarah Johnson" class="send-recipient-avatar">
+                <div class="send-recipient-text">
+                  <span class="send-recipient-name">Sarah Johnson</span>
+                  <span class="send-recipient-desc">sarah@company.com</span>
+                </div>
+              </div>
+              <input type="checkbox" class="send-recipient-checkbox">
+            </div>
+            <div class="send-recipient-item" data-recipient-id="ahmad" onclick="toggleRecipientItem(this)">
+              <div class="send-recipient-info">
+                <img src="../images/user.png" alt="Ahmad Al-Qahtani" class="send-recipient-avatar">
+                <div class="send-recipient-text">
+                  <span class="send-recipient-name">Ahmad Al-Qahtani</span>
+                  <span class="send-recipient-desc">ahmad@company.com</span>
+                </div>
+              </div>
+              <input type="checkbox" class="send-recipient-checkbox">
+            </div>
+            <div class="send-recipient-item" data-recipient-id="mohammed" onclick="toggleRecipientItem(this)">
+              <div class="send-recipient-info">
+                <img src="../images/mike.png" alt="Mohammed Al-Qahtani" class="send-recipient-avatar">
+                <div class="send-recipient-text">
+                  <span class="send-recipient-name">Mohammed Al-Qahtani</span>
+                  <span class="send-recipient-desc">mohammed@company.com</span>
+                </div>
+              </div>
+              <input type="checkbox" class="send-recipient-checkbox">
+            </div>
+            <div class="send-recipient-item" data-recipient-id="ali" onclick="toggleRecipientItem(this)">
+              <div class="send-recipient-info">
+                <img src="../images/sofia.png" alt="Ali Al-Qahtani" class="send-recipient-avatar">
+                <div class="send-recipient-text">
+                  <span class="send-recipient-name">Ali Al-Qahtani</span>
+                  <span class="send-recipient-desc">ali@company.com</span>
+                </div>
+              </div>
+              <input type="checkbox" class="send-recipient-checkbox">
+            </div>
+          </div>
+        </div>
+        <div id="scheduleDateTimeContainer" style="display:none; margin: 10px 0;">
+          <div class="purchase-form-group" style="width:100%;">
+            <label for="scheduleDateTime">Schedule Date & Time</label>
+            <input type="datetime-local" id="scheduleDateTime" name="scheduleDateTime" style="width:100%;">
+          </div>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px;">
+          <button type="button" class="page-header-primary-btn" style="background:#6b7280;" onclick="closeSendPopup()">Cancel</button>
+          <button type="button" class="page-header-primary-btn" onclick="closeSendPopup()">Send</button>
+          <button type="button" class="page-header-primary-btn" onclick="toggleScheduleDateTime()">Schedule send</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Initialize select all functionality for this page -->
   <script>
@@ -2807,8 +2884,45 @@
     });
   </script>
 
-
   <script src="script/chat.js"></script>
+
+  <!-- Add Popup Modal -->
+  <div id="addPopupModal" class="add-popup-modal" style="display: none;">
+    <div class="add-popup-modal-content">
+      <div class="add-popup-modal-header">
+        <div>
+          <h3>Add RFQ</h3>
+          <p class="add-popup-heading">How would you like to start</p>
+        </div>
+        <button class="add-popup-modal-close" onclick="closeAddPopup()">&times;</button>
+      </div>
+     
+      <div class="add-popup-modal-body">
+        <div class="add-popup-options-container">
+          <div class="add-popup-option" onclick="createRfq(); closeAddPopup();" title="Add RFQ">
+            <i class="fa fa-plus"></i>
+            <span class="add-popup-option-title">Create</span> 
+            <span class="add-popup-option-desc">Blank from scratch</span>
+          </div>
+          <div class="add-popup-option">
+            <i class="fa fa-upload"></i>
+            <span class="add-popup-option-title">Import</span>
+            <span class="add-popup-option-desc">From sheet revit planswift</span>
+          </div>
+          <div class="add-popup-option">
+            <i class="fa fa-file-text"></i>
+            <span class="add-popup-option-title">Template</span>
+            <span class="add-popup-option-desc">Choose from library</span>
+          </div>
+          <div class="add-popup-option">
+            <i class="fa fa-copy"></i>
+            <span class="add-popup-option-title">Duplicate</span>
+            <span class="add-popup-option-desc">From existing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 </body>
 
