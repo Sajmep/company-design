@@ -12,6 +12,37 @@ function createRfq() {
   }, 300);
 }
 
+// Toggle between RFQ and Bulk RFQ mode
+function toggleRfqBulkMode(mode) {
+  const buttons = document.querySelectorAll('.rfq-bulk-toggle-button button');
+  const duplicateBtn = document.getElementById('duplicateRfqBtn');
+  
+  // Update active state on buttons
+  buttons.forEach(btn => {
+    if (btn.dataset.mode === mode) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+  });
+  
+  // Show/hide duplicate button based on mode
+  if (duplicateBtn) {
+    if (mode === 'bulk') {
+      duplicateBtn.style.display = 'flex';
+    } else {
+      duplicateBtn.style.display = 'none';
+    }
+  }
+}
+
+// Duplicate RFQ function
+function duplicateRfq() {
+  // Add your duplicate RFQ logic here
+  console.log('Duplicate RFQ clicked');
+  // You can add functionality to duplicate the current RFQ form data
+}
+
 // Function to open rfq offcanvas for viewing
 function openRfqOffcanvas(mode = 'create') {
   // Open the offcanvas
@@ -84,11 +115,40 @@ function togglePurchaseForm(headerElement) {
   }
 }
 
+// Add Popup Functions
+function openAddPopup() {
+  const modal = document.getElementById('addPopupModal');
+  if (modal) {
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeAddPopup() {
+  const modal = document.getElementById('addPopupModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+}
+
+// Close popup when clicking outside
+window.addEventListener('click', function(event) {
+  const modal = document.getElementById('addPopupModal');
+  if (modal && event.target === modal) {
+    closeAddPopup();
+  }
+});
+
 // Make functions available globally
 window.switchCreateTab = switchCreateTab;
 window.openRfqOffcanvas = openRfqOffcanvas;
 window.changeFormPriority = changeFormPriority;
 window.togglePurchaseForm = togglePurchaseForm;
+window.toggleRfqBulkMode = toggleRfqBulkMode;
+window.duplicateRfq = duplicateRfq;
+window.openAddPopup = openAddPopup;
+window.closeAddPopup = closeAddPopup;
 
 // Add Product Row functionality
 function addProductRow() {

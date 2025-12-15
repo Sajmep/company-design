@@ -1,0 +1,178 @@
+/* Add Popup Modal */
+.add-popup-modal {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.add-popup-modal .add-popup-modal-content {
+  background-color: #fff;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f8f9fa;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-header p {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  color: #1f2937;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-header .add-popup-modal-close {
+  font-size: 24px;
+  font-weight: 300;
+  color: #6b7280;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-header .add-popup-modal-close:hover {
+  color: #1f2937;
+  background: #e5e7eb;
+  border-radius: 4px;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body {
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-heading {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  align-items: stretch;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 20px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  min-width: 120px;
+  flex: 1;
+  border: 1px solid transparent;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option .add-popup-option-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option .add-popup-option-desc {
+  font-size: 11px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.4;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option i {
+  font-size: 32px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option {
+  /* Create option - Blue */
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(1) {
+  background-color: #eff6ff;
+  border-color: #bfdbfe;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(1) i {
+  color: #2563eb;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(1):hover {
+  background-color: #dbeafe;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option {
+  /* Import option - Green */
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(2) {
+  background-color: #f0fdf4;
+  border-color: #bbf7d0;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(2) i {
+  color: #16a34a;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(2):hover {
+  background-color: #dcfce7;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option {
+  /* Template option - Purple */
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(3) {
+  background-color: #faf5ff;
+  border-color: #e9d5ff;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(3) i {
+  color: #9333ea;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(3):hover {
+  background-color: #f3e8ff;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option {
+  /* Duplicate option - Orange */
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(4) {
+  background-color: #fff7ed;
+  border-color: #fed7aa;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(4) i {
+  color: #ea580c;
+}
+.add-popup-modal .add-popup-modal-content .add-popup-modal-body .add-popup-options-container .add-popup-option:nth-child(4):hover {
+  background-color: #ffedd5;
+}
+
+@media (max-width: 768px) {
+  .add-popup-modal .add-popup-modal-content .add-popup-options-container {
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+
+/*# sourceMappingURL=create-popup.css.map */
