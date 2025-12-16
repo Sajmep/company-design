@@ -9,3 +9,97 @@ glass effect
     backdrop-filter: blur(14px) saturate(180%);
     -webkit-backdrop-filter: blur(14px) saturate(180%);
     border: 1px solid rgba(255, 255, 255, 0.4);
+
+
+    /* Responsive Design for List View */
+@media (max-width: 768px) {
+  .bmh-list-view {
+    padding: 12px;
+  }
+
+  .bmh-list-view .list-view-header,
+  .bmh-list-view .list-view-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .bmh-list-view .list-view-header-item {
+    display: none;
+  }
+
+  .bmh-list-view .list-view-cell {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 8px 0;
+  }
+
+  .bmh-list-view .list-view-cell::before {
+    content: attr(data-label);
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .bmh-list-view .list-view-company {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 480px) {
+  .bmh-list-view {
+    padding: 8px;
+  }
+
+  .bmh-list-view .list-view-row {
+    padding: 12px;
+  }
+}
+
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bmh-card-view {
+    padding: 2px;
+    justify-content: space-around;
+  }
+  
+  .bmh-card-view .bmh-card {
+    max-width: 100%;
+  }
+  
+  .bmh-card-view .card-view-content-container {
+    padding: 12px;
+  }
+  
+  .bmh-card-view .card-view-content-container h3 {
+    font-size: 16px;
+  }
+  
+ 
+}
+
+@media (max-width: 480px) {
+  .bmh-card-view .card-view-content-container {
+    padding: 16px;
+  }
+  
+  .bmh-card-view .card-view-content-container h3 {
+    font-size: 15px;
+  }
+  
+  .bmh-card-view{
+    margin-bottom: 30px;
+  }
+}
+
+
+/* max width 1200px */
+@media screen and (min-width:1600px){
+  .bmh-card-view .bmh-card{
+    max-width: 350px;
+  }
+}

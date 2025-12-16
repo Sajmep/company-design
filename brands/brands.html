@@ -1,0 +1,494 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Brands</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="styles/views-container.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+</head>
+
+<body>
+  <!-- Main Content -->
+
+  <!-- Common Page Header -->
+  <div class="toolbar">
+
+    <div class="company-selector" id="companySelector">
+      <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+        <div class="selected-logo" id="selectedLogo">
+          <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+        </div>
+        <div class="caret" id="caret">
+          <i class="fa fa-chevron-down" style="color: #000000d6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+        </div>
+      </button>
+
+      <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company">
+        <div class="search">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+              stroke-linejoin="round"></path>
+            <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+          </svg>
+          <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+        </div>
+
+        <!-- Enterprise Section -->
+        <div class="section-group">
+          <div class="section-heading" onclick="toggleCompanySection(this)">
+            <h2>Enterprise</h2>
+            <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+          </div>
+          <div class="section-content">
+            <div class="section-actions">
+              <a href="#" class="combobox-view-all-btn" onclick="viewAllCompanies(); return false;">
+                <i class="fa fa-list" aria-hidden="true"></i> View All
+              </a>
+            </div>
+            <div class="company form-section">
+              <div class="checkbox-group">
+                <div class="section-item active" data-company="SAJMEP"
+                  onclick="selectCompany('SAJMEP', 'images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png', this)">
+                  <div class="item-logo">
+                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="SAJMEP" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>SAJMEP</h4>
+                    <span>ID - 123342 243</span>
+                  </div>
+                </div>
+
+                <div class="section-item" data-company="Company A"
+                  onclick="selectCompany('Company A', 'images/bmh-logo.png', this)">
+                  <div class="item-logo">
+                    <img src="../images/bmh-logo.png" alt="Company A" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>Company A</h4>
+                    <span>ID - 123342 244</span>
+                  </div>
+                </div>
+
+                <div class="section-item" data-company="Company B"
+                  onclick="selectCompany('Company B', 'images/sellers-logo.png', this)">
+                  <div class="item-logo">
+                    <img src="../images/sellers-logo.png" alt="Company B" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>Company B</h4>
+                    <span>ID - 123342 245</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="combobox-create-btn" onclick="openCreateCompanyModal(); return false;">+ Company</a>
+          </div>
+        </div>
+
+        <!-- Individual Section -->
+        <div class="section-group">
+          <div class="section-heading" onclick="toggleCompanySection(this)">
+            <h2>Individual</h2>
+            <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+          </div>
+          <div class="section-content">
+            <div class="company form-section">
+              <div class="checkbox-group">
+                <div class="section-item" data-company="Fazli"
+                  onclick="selectCompany('Fazli', 'images/user.png', this)">
+                  <div class="item-avatar">
+                    <img src="../images/user.png" alt="Fazli" width="100%">
+                  </div>
+                  <div class="item-info">
+                    <h4>Fazli</h4>
+                    <span>ID - 123342 246</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="toolbar-title">
+      <h2>Brands</h2>
+      <p>Explore brands with company details</p>
+    </div>
+    <div class="toolbar-controls">
+      <div class="toolbar-search">
+        <input type="text" class="toolbar-search-input" placeholder="Search brands...">
+        <i class="fa fa-search toolbar-search-icon"></i>
+        <i class="fa fa-times toolbar-search-close"></i>
+      </div>
+
+      <div class="toolbar-actions">
+
+        <div class="views-toggle">
+          <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+            <i class="fa fa-th-large views-toggle-icon"></i>
+            <i class="fa fa-chevron-down views-toggle-arrow"></i>
+          </button>
+          <div class="views-toggle-dropdown" id="viewsDropdown">
+            <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard View</span>
+            </div>
+            <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+              <i class="fa fa-th-large"></i>
+              <span>Card View</span>
+            </div>
+            <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+              <i class="fa fa-list"></i>
+              <span>List View</span>
+            </div>
+            <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+              <i class="fa fa-calendar"></i>
+              <span>Calendar View</span>
+            </div>
+            <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+              <i class="fa fa-map"></i>
+              <span>Map View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar-group-by">
+          <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+            <i class="fa fa-sitemap"></i>
+            <span class="btn-text">Group By</span>
+          </button>
+          <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+            <!-- <div class="toolbar-group-by-item" data-value="status">
+              <i class="fa fa-flag"></i>
+              Status
+            </div>
+            <div class="toolbar-group-by-item" data-value="category">
+              <i class="fa fa-tags"></i>
+              Category
+            </div>
+            <div class="toolbar-group-by-item" data-value="location">
+              <i class="fa fa-map-marker"></i>
+              Location
+            </div> -->
+          </div>
+        </div>
+
+        <button class="toolbar-filter-btn" title="Filter">
+          <i class="fa fa-filter"></i>
+          <span class="btn-text">Filter</span>
+        </button>
+
+
+        <button class="toolbar-primary-btn" title="Add Brand">
+          <i class="fa fa-plus"></i>
+          <span class="btn-text">Add</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="views-container">
+    <!-- Card View -->
+    <div class="bmh-card-view">
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="images/brand-banner6.png" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo"
+              title="Sakhrat Al Janoub Contracting Co. - SAJMEP">
+          </div>
+          <div class="card-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="company-name">Sakhrat Al Janoub Contracting Co.</div>
+          <!-- Location -->
+          <div class="card-location">
+            <i class="fa fa-map-marker"></i>
+            <span>Saudi Arabia, Riyadh</span>
+          </div>
+          <!-- Stats -->
+          <div class="card-stats">
+            <div class="card-stat-item">
+              <i class="fa fa-cube"></i>
+              <span>24 Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="images/brand-banner2.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/bmh-logo.png" alt="Company Logo" title="Al-Mansour Engineering Group">
+          </div>
+          <div class="card-views">
+            <i class="fa fa-eye"></i>
+            <span>856</span>
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="company-name">Al-Mansour Engineering Group</div>
+          <!-- Location -->
+          <div class="card-location">
+            <i class="fa fa-map-marker"></i>
+            <span>Saudi Arabia, Jeddah</span>
+          </div>
+          <!-- Stats -->
+          <div class="card-stats">
+            <div class="card-stat-item">
+              <i class="fa fa-cube"></i>
+              <span>18 Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="images/brand-banner3.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo"
+              title="Gulf Construction Solutions">
+          </div>
+          <div class="card-views">
+            <i class="fa fa-eye"></i>
+            <span>642</span>
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="company-name">Gulf Construction Solutions</div>
+          <!-- Location -->
+          <div class="card-location">
+            <i class="fa fa-map-marker"></i>
+            <span>Saudi Arabia, Dammam</span>
+          </div>
+          <!-- Stats -->
+          <div class="card-stats">
+            <div class="card-stat-item">
+              <i class="fa fa-cube"></i>
+              <span>15 Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="images/brand-banner4.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/projects-hub.png" alt="Company Logo" title="TechBuild Industries">
+          </div>
+          <div class="card-views">
+            <i class="fa fa-eye"></i>
+            <span>2.5K</span>
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="company-name">TechBuild Industries</div>
+          <!-- Location -->
+          <div class="card-location">
+            <i class="fa fa-map-marker"></i>
+            <span>Saudi Arabia, Medina</span>
+          </div>
+          <!-- Stats -->
+          <div class="card-stats">
+            <div class="card-stat-item">
+              <i class="fa fa-cube"></i>
+              <span>32 Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="bmh-card">
+        <div class="card-view-image-container">
+          <img src="images/brand-banner.jpg" alt="Company Image">
+          <div class="card-view-company-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo"
+              title="Royal Builders Ltd">
+          </div>
+          <div class="card-views">
+            <i class="fa fa-eye"></i>
+            <span>934</span>
+          </div>
+        </div>
+        <div class="card-view-content-container">
+          <div class="company-name">Royal Builders Ltd</div>
+          <!-- Location -->
+          <div class="card-location">
+            <i class="fa fa-map-marker"></i>
+            <span>Saudi Arabia, Riyadh</span>
+          </div>
+          <!-- Stats -->
+          <div class="card-stats">
+            <div class="card-stat-item">
+              <i class="fa fa-cube"></i>
+              <span>21 Products</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- Card View End -->
+
+    <!-- List View -->
+    <div class="bmh-list-view">
+      <div class="list-view-header">
+        <div class="list-view-header-item">Brand</div>
+        <div class="list-view-header-item">Location</div>
+        <div class="list-view-header-item">Products</div>
+        <div class="list-view-header-item">Views</div>
+      </div>
+
+      <div class="list-view-row">
+        <div class="list-view-cell list-view-company">
+          <div class="list-view-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
+          </div>
+          <div class="list-view-company-name">Sakhrat Al Janoub Contracting Co.</div>
+        </div>
+        <div class="list-view-cell list-view-location">
+          <i class="fa fa-map-marker"></i>
+          <span>Saudi Arabia, Riyadh</span>
+        </div>
+        <div class="list-view-cell list-view-products">
+          <i class="fa fa-cube"></i>
+          <span>24 Products</span>
+        </div>
+        <div class="list-view-cell list-view-views">
+          <i class="fa fa-eye"></i>
+          <span>1.2K</span>
+        </div>
+      </div>
+
+      <div class="list-view-row">
+        <div class="list-view-cell list-view-company">
+          <div class="list-view-logo">
+            <img src="../images/bmh-logo.png" alt="Company Logo">
+          </div>
+          <div class="list-view-company-name">Al-Mansour Engineering Group</div>
+        </div>
+        <div class="list-view-cell list-view-location">
+          <i class="fa fa-map-marker"></i>
+          <span>Saudi Arabia, Jeddah</span>
+        </div>
+        <div class="list-view-cell list-view-products">
+          <i class="fa fa-cube"></i>
+          <span>18 Products</span>
+        </div>
+        <div class="list-view-cell list-view-views">
+          <i class="fa fa-eye"></i>
+          <span>856</span>
+        </div>
+      </div>
+
+      <div class="list-view-row">
+        <div class="list-view-cell list-view-company">
+          <div class="list-view-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
+          </div>
+          <div class="list-view-company-name">Gulf Construction Solutions</div>
+        </div>
+        <div class="list-view-cell list-view-location">
+          <i class="fa fa-map-marker"></i>
+          <span>Saudi Arabia, Dammam</span>
+        </div>
+        <div class="list-view-cell list-view-products">
+          <i class="fa fa-cube"></i>
+          <span>15 Products</span>
+        </div>
+        <div class="list-view-cell list-view-views">
+          <i class="fa fa-eye"></i>
+          <span>642</span>
+        </div>
+      </div>
+
+      <div class="list-view-row">
+        <div class="list-view-cell list-view-company">
+          <div class="list-view-logo">
+            <img src="../images/projects-hub.png" alt="Company Logo">
+          </div>
+          <div class="list-view-company-name">TechBuild Industries</div>
+        </div>
+        <div class="list-view-cell list-view-location">
+          <i class="fa fa-map-marker"></i>
+          <span>Saudi Arabia, Medina</span>
+        </div>
+        <div class="list-view-cell list-view-products">
+          <i class="fa fa-cube"></i>
+          <span>32 Products</span>
+        </div>
+        <div class="list-view-cell list-view-views">
+          <i class="fa fa-eye"></i>
+          <span>2.5K</span>
+        </div>
+      </div>
+
+      <div class="list-view-row">
+        <div class="list-view-cell list-view-company">
+          <div class="list-view-logo">
+            <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
+          </div>
+          <div class="list-view-company-name">Royal Builders Ltd</div>
+        </div>
+        <div class="list-view-cell list-view-location">
+          <i class="fa fa-map-marker"></i>
+          <span>Saudi Arabia, Riyadh</span>
+        </div>
+        <div class="list-view-cell list-view-products">
+          <i class="fa fa-cube"></i>
+          <span>21 Products</span>
+        </div>
+        <div class="list-view-cell list-view-views">
+          <i class="fa fa-eye"></i>
+          <span>934</span>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- List View End -->
+
+    <!-- Dashboard View -->
+    <div class="bmh-dashboard-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+          soon!</span></h2>
+    </div>
+    <!-- Dashboard View End -->
+
+    <!-- Calendar View -->
+    <div class="bmh-calendar-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+          soon!</span></h2>
+    </div>
+    <!-- Calendar View End -->
+
+    <!-- Map View -->
+    <div class="bmh-map-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+    </div>
+    <!-- Map View End -->
+
+  </div>
+  <!-- Main Content End -->
+
+  <script src="scripts/toolbar.js"></script>
+  <script src="scripts/views-container.js"></script>
+</body>
+
+</html>
