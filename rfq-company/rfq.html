@@ -903,9 +903,9 @@
                   <th class="data-drag-header">--</th>
                   <th class="col-rfq-number">RFQ Number</th>
                   <th class="col-rfq-project">Project</th>
-                  <th class="col-company">Company</th>
+                  <th class="col-company hidden">Company</th>
                   <th class="col-vendor">Vendors</th>
-                  <th class="col-created-on">Order deadline</th>
+                  <th class="col-order-deadline">Order deadline</th>
                   <th class="col-requested-by">Created By</th>
                   <th class="col-created-on">Created On</th>
                   <th class="col-priority-level">Priority</th>
@@ -922,50 +922,52 @@
                         <div class="data-columns-dropdown-body">
                           <div class="data-column-options">
                             <label class="data-column-option fixed-column">
-                              <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                              <input type="checkbox" value="col-rfq-number" checked disabled data-fixed="true">
                               <span class="data-column-label">
                                 RFQ Number <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option">
-                              <input type="checkbox" value="col-pr-type" checked>
+                              <input type="checkbox" value="col-rfq-project" checked>
                               <span class="data-column-label">Project</span>
                             </label>
                             <label class="data-column-option">
-                              <input type="checkbox" value="col-department" checked>
-                              <span class="data-column-label">Project</span>
-                            </label>
-                            <label class="data-column-option fixed-column">
-                              <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                              <input type="checkbox" value="col-company">
                               <span class="data-column-label">
-                                Company <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                Company
                               </span>
                             </label>
                             <label class="data-column-option fixed-column">
-                              <input type="checkbox" value="col-created-by" checked disabled data-fixed="true">
+                              <input type="checkbox" value="col-vendor" checked disabled data-fixed="true">
                               <span class="data-column-label">
                                 Vendors <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
                             <label class="data-column-option">
-                              <input type="checkbox" value="col-created-on" checked>
+                              <input type="checkbox" value="col-order-deadline" checked>
                               <span class="data-column-label">Order deadline</span>
                             </label>
                             <label class="data-column-option fixed-column">
                               <input type="checkbox" value="col-requested-by" checked disabled data-fixed="true">
                               <span class="data-column-label">
-                                Created On <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                Created By <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
+                            <label class="data-column-option">
+                              <input type="checkbox" value="col-created-on" checked>
+                              <span class="data-column-label">Created On</span>
+                            </label>
                             <label class="data-column-option fixed-column">
-                              <input type="checkbox" value="col-priority" checked disabled data-fixed="true">
+                              <input type="checkbox" value="col-priority-level" checked disabled data-fixed="true">
                               <span class="data-column-label">
                                 Priority <i class="fa fa-lock" title="This column cannot be hidden"></i>
                               </span>
                             </label>
-                            <label class="data-column-option">
-                              <input type="checkbox" value="col-required-date" checked>
-                              <span class="data-column-label">Status</span>
+                            <label class="data-column-option fixed-column">
+                              <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                              <span class="data-column-label">
+                                Status <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                              </span>
                             </label>
                           </div>
                         </div>
@@ -992,10 +994,10 @@
                     <a href="javascript:void(0)" onclick="openRfqOffcanvas('view')" class="data-item-link"
                       title="View RFQ">RFQ-2025</a>
                   </td>
-                  <td class="data-item-type col-pr-type">
+                  <td class="data-item-type col-rfq-project">
                     <span class="data-type-badge data-type-equipment">Office Renovation</span>
                   </td>
-                  <td class="data-title col-company">Saudi Aramco</td>
+                  <td class="data-title col-company hidden">Saudi Aramco</td>
                   <td class="data-budget col-vendor">Saudi Aramco</td>
                   <td class="data-category col-order-deadline">10/09/2025</td>
                   <td class="data-created-by col-requested-by">
@@ -1009,7 +1011,7 @@
                   </td>
 
                   <td class="data-created-on col-created-on">10/09/2025</td>
-                  <td class="purchase-list-priority col-priority">
+                  <td class="purchase-list-priority col-priority-level">
                     <div class="data-priority-dropdown">
                       <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
                         <span class="data-priority-badge data-priority-medium" title="Medium Priority">
@@ -1081,10 +1083,10 @@
                     <a href="javascript:void(0)" onclick="openRfqOffcanvas('view')" class="data-item-link"
                       title="View RFQ">RFQ-2025-001</a>
                   </td>
-                  <td class="data-item-type col-pr-type">
+                  <td class="data-item-type col-rfq-project">
                     <span class="data-type-badge data-type-equipment">Residential Complex</span>
                   </td>
-                  <td class="data-title col-company">Saudi Aramco</td>
+                  <td class="data-title col-company hidden">Saudi Aramco</td>
                   <td class="data-budget col-vendor">Saudi Aramco</td>
                   <td class="data-category col-order-deadline">10/09/2025</td>
                   <td class="data-created-by col-requested-by">
@@ -1097,7 +1099,7 @@
                     </div>
                   </td>
                   <td class="data-created-on col-created-on">10/09/2025</td>
-                  <td class="purchase-list-priority col-priority">
+                  <td class="purchase-list-priority col-priority-level">
                     <div class="data-priority-dropdown">
                       <button class="data-priority-dropdown-btn" onclick="togglePriorityDropdown(this)">
                         <span class="data-priority-badge data-priority-high" title="High Priority">
@@ -1302,7 +1304,7 @@
       </button>
 
       <div class="purchase-offcanvas-header">
-        <h3>RFQ-2025</h3>
+        <h3 title="Pre configured vendor sequence">RFQ-2025-1234</h3>
         <div class="pr-action-buttons">
           <div class="pr-action-buttons-group">
             <button class="pr-btn pr-btn-submit" type="button" onclick="openSendPopup()" title="Send">
@@ -1396,7 +1398,7 @@
         <!-- Tabs Navigation -->
         <div class="pr-tabs-container">
           <div class="pr-tabs">
-            <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="New">
+            <button class="pr-tab-btn" onclick="switchTab('create')" data-tab="create" data-title="RFQ">
               <i class="fa fa-plus"></i>
               RFQ
             </button>
@@ -2797,6 +2799,10 @@
           <label for="sendSubject">Subject</label>
           <input type="text" id="sendSubject" name="sendSubject" placeholder="Enter subject" style="width:100%;">
         </div>
+        <!-- <div class="purchase-form-group" style="width:100%;">
+          <label for="sendContext">Context</label>
+          <textarea id="sendContext" name="sendContext" placeholder="Enter email context/message..." rows="4" style="width:100%; resize:vertical;"></textarea>
+        </div> -->
         <div class="purchase-form-group" style="width:100%; display:flex; align-items:center; gap:8px; flex-direction: row;">
           <input type="checkbox" id="sendByEmail" onchange="toggleSendRecipients()">
           <label for="sendByEmail" style="margin:0;">Send by Email</label>
@@ -2855,10 +2861,12 @@
             <input type="datetime-local" id="scheduleDateTime" name="scheduleDateTime" style="width:100%;">
           </div>
         </div>
-        <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <div style="display:flex; justify-content:space-between; gap:10px;">
+          <button type="button" class="page-header-primary-btn" onclick="toggleScheduleDateTime()">Schedule send</button>
+          <div style="display:flex; gap:10px;">
           <button type="button" class="page-header-primary-btn" style="background:#6b7280;" onclick="closeSendPopup()">Cancel</button>
           <button type="button" class="page-header-primary-btn" onclick="closeSendPopup()">Send</button>
-          <button type="button" class="page-header-primary-btn" onclick="toggleScheduleDateTime()">Schedule send</button>
+          </div>
         </div>
       </div>
     </div>

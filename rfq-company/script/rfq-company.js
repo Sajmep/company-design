@@ -2,7 +2,7 @@
 function createRfq() {
   openPROffcanvas();
   switchTab('create');
-  updateOffcanvasHeader('New');
+  updateOffcanvasHeader('RFQ-2025-1234');
   setTimeout(initializeAutocomplete, 200);
   // Initialize drag and drop for items table
   setTimeout(() => {
