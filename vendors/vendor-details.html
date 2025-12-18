@@ -79,13 +79,44 @@
 
             <div class="vendor-banner-status">
               <span class="vendor-status-badge online">Online</span>
-              <span class="vendor-save-btn">Save as favorite</span>
+              <span class="vendor-save-btn" title="Save as favorite"> <i class="fa fa-heart"></i> <span class="vendor-save-btn-text">Save as favorite</span></span>
             </div>
 
           </div>
         </div>
         
         <div class="vendor-banner-right">
+          <!-- Mobile Dropdown Button -->
+          <button class="vendor-actions-dropdown-btn" onclick="toggleActionsDropdown()">
+            <i class="fa fa-ellipsis-v"></i>
+            <span class="vendor-actions-dropdown-btn-text">Actions</span>
+          </button>
+          
+          <!-- Actions Dropdown Menu (Mobile) -->
+          <div class="vendor-actions-dropdown" id="actionsDropdown">
+            <button class="vendor-action-btn primary" onclick="createRFQ()">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-comments"></i>
+              Chat
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-phone"></i>
+              Call
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-map-marker"></i>
+              Navigate
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-user-plus"></i>
+              Follow
+            </button>
+          </div>
+          
+          <!-- Desktop Actions (Hidden on Mobile) -->
           <div class="vendor-banner-actions">
             <button class="vendor-action-btn primary" onclick="createRFQ()">
               <i class="fa fa-envelope"></i>
@@ -132,28 +163,27 @@
     <div class="vendor-details-section">
       <div class="vendor-details-sidebar">
         <div class="vendor-details-tabs">
-          
-          <button class="vendor-tab-btn active" data-tab="about">
+          <button class="vendor-tab-btn active" data-tab="about" onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-info"></i>
             <span>About</span>
           </button>
-          <button class="vendor-tab-btn" data-tab="company-details">
+          <button class="vendor-tab-btn" data-tab="company-details" onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-building"></i>
             <span>Company Details</span>
           </button>
-          <button class="vendor-tab-btn" data-tab="contact-details">
+          <button class="vendor-tab-btn" data-tab="contact-details" onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-user"></i>
             <span>Contact Details</span>
           </button>
-          <button class="vendor-tab-btn" data-tab="area-of-expertise">
+          <button class="vendor-tab-btn" data-tab="area-of-expertise" onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-star"></i>
             <span>Area of Expertise</span>
           </button>
-          <button class="vendor-tab-btn" data-tab="shop-branches">
+          <button class="vendor-tab-btn" data-tab="shop-branches" onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-building"></i>
             <span>Shop / Branches</span>
           </button>
-          <button class="vendor-tab-btn" data-tab="gallery">
+          <button class="vendor-tab-btn" data-tab="gallery" style="border-radius: 0 0 12px 12px;" onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-image"></i>
             <span>Gallery</span>
           </button>
@@ -1306,6 +1336,22 @@
         reportModal.style.display = 'none';
       }
     }
+    
+    // Toggle Actions Dropdown (Mobile)
+    function toggleActionsDropdown() {
+      var dropdown = document.getElementById('actionsDropdown');
+      dropdown.classList.toggle('active');
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      var dropdown = document.getElementById('actionsDropdown');
+      var dropdownBtn = document.querySelector('.vendor-actions-dropdown-btn');
+      if (dropdown && !dropdown.contains(event.target) && !dropdownBtn.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+    
   </script>
 </body>
  

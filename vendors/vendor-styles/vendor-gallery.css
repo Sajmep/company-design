@@ -251,8 +251,8 @@
 /* Responsive Design for Gallery */
 @media (max-width: 768px) {
   .gallery-tabs {
-    flex-direction: column;
     gap: 4px;
+    overflow-x: auto;
   }
   
   .gallery-tab-btn {
@@ -267,9 +267,6 @@
     border-bottom-color: transparent;
   }
   
-  .gallery-grid {
-    flex-direction: column;
-  }
   
   .gallery-item {
     width: 100%;
@@ -290,6 +287,10 @@
   .album-item {
     min-width: 100%;
     max-width: 100%;
+  }
+
+  .gallery-tab-btn.active {
+    border-left-color: transparent !important;
   }
 }
 

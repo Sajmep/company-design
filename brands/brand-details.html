@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 
-<head>
+<head> 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Brand Name</title>
@@ -54,27 +54,27 @@
     <!-- Sidebar Menu -->
     <aside class="brand-sidebar">
       <nav class="sidebar-menu">
-        <div class="menu-item active">
+        <div class="menu-item active" data-tab="overview">
           <i class="fa fa-info-circle"></i>
           <span>Overview</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-tab="products">
           <i class="fa fa-cube"></i>
           <span>Products</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-tab="vendors">
           <i class="fa fa-users"></i>
           <span>Vendors</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-tab="manufacturers">
           <i class="fa fa-industry"></i>
           <span>Manufacturers</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-tab="documents">
           <i class="fa fa-file-text"></i>
           <span>Documents</span>
         </div>
-        <div class="menu-item">
+        <div class="menu-item" data-tab="gallery">
           <i class="fa fa-image"></i>
           <span>Gallery</span>
         </div>
@@ -84,11 +84,11 @@
     <!-- Content Section -->
     <main class="brand-content">
       <div class="content-header">
-        <h2>Overview</h2>
-        <p>Brand information and details</p>
+        <h2 id="content-title">Overview</h2>
+        <p id="content-subtitle">Brand information and details</p>
       </div>
 
-      <div class="content-body">
+      <div class="content-body" data-tab-content="overview">
         <div class="content-card">
           <h3>About</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
@@ -96,6 +96,7 @@
 
         <div class="content-card">
           <h3>Contact Information</h3>
+          <div class="contact-info-container">
           <div class="info-item">
             <i class="fa fa-envelope"></i>
             <span>contact@company.com</span>
@@ -107,6 +108,7 @@
           <div class="info-item">
             <i class="fa fa-map-marker"></i>
             <span>Saudi Arabia, Riyadh</span>
+          </div>
           </div>
         </div>
 
@@ -143,9 +145,52 @@
           </div>
         </div>
       </div>
+
+      <div class="content-body" data-tab-content="products" style="display: none;">
+        <div class="content-card">
+          <p>Coming Soon</p>
+        </div>
+      </div>
+
+      <div class="content-body" data-tab-content="vendors" style="display: none;">
+        <div class="content-card">
+          <p>Coming Soon</p>
+        </div>
+      </div>
+
+      <div class="content-body" data-tab-content="manufacturers" style="display: none;">
+        <div class="content-card">
+          <p>Coming Soon</p>
+        </div>
+      </div>
+
+      <div class="content-body" data-tab-content="documents" style="display: none;">
+        <div class="content-card">
+          <p>Coming Soon</p>
+        </div>
+      </div>
+
+      <div class="content-body" data-tab-content="gallery" style="display: none;">
+        <div class="content-card">
+          <p>Coming Soon</p>
+        </div>
+      </div>
     </main>
   </div>
   <!-- Main Content Section End -->
+
+  <script>
+    document.querySelectorAll('.menu-item').forEach(item => {
+      item.addEventListener('click', () => {
+        const tab = item.dataset.tab;
+        document.querySelectorAll('.menu-item').forEach(m => m.classList.remove('active'));
+        item.classList.add('active');
+        document.querySelectorAll('[data-tab-content]').forEach(c => c.style.display = 'none');
+        document.querySelector(`[data-tab-content="${tab}"]`).style.display = 'flex';
+        document.getElementById('content-title').textContent = item.querySelector('span').textContent;
+      });
+    });
+  </script>
 
 </body>
 
