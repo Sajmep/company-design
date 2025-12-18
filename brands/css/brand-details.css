@@ -15,24 +15,24 @@ header h1 {
 }
 
 /* Brand Banner Section */
-.brand-banner-section {
+brand-banner-section {
   position: relative;
   width: 100%;
   height: 400px;
   overflow: hidden;
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
 }
-.brand-banner-section .brand-banner-image {
+brand-banner-section .brand-banner-image {
   width: 100%;
   height: 100%;
   position: relative;
 }
-.brand-banner-section .brand-banner-image img {
+brand-banner-section .brand-banner-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-.brand-banner-section .brand-banner-overlay {
+brand-banner-section .brand-banner-overlay {
   position: absolute;
   top: 0;
   left: 0;
@@ -43,7 +43,7 @@ header h1 {
   align-items: center;
   justify-content: center;
 }
-.brand-banner-section .brand-banner-content {
+brand-banner-section .brand-banner-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ header h1 {
   text-align: center;
   z-index: 2;
 }
-.brand-banner-section .brand-logo {
+brand-banner-section .brand-logo {
   width: 120px;
   height: 120px;
   background: #fff;
@@ -64,24 +64,24 @@ header h1 {
   justify-content: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.brand-banner-section .brand-logo:hover {
+brand-banner-section .brand-logo:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 }
-.brand-banner-section .brand-logo img {
+brand-banner-section .brand-logo img {
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: 6px;
 }
-.brand-banner-section .brand-name {
+brand-banner-section .brand-name {
   font-size: 32px;
   font-weight: 700;
   color: #ffffff;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.5px;
 }
-.brand-banner-section .brand-stats {
+brand-banner-section .brand-stats {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -89,7 +89,7 @@ header h1 {
   margin-top: 8px;
   flex-wrap: wrap;
 }
-.brand-banner-section .brand-stats .brand-stat-item {
+brand-banner-section .brand-stats .brand-stat-item {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -100,24 +100,24 @@ header h1 {
   border: 1px solid rgba(255, 255, 255, 0.3);
   transition: background 0.3s ease, transform 0.2s ease;
 }
-.brand-banner-section .brand-stats .brand-stat-item:hover {
+brand-banner-section .brand-stats .brand-stat-item:hover {
   background: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
 }
-.brand-banner-section .brand-stats .brand-stat-item i {
+brand-banner-section .brand-stats .brand-stat-item i {
   font-size: 16px;
   color: #ffffff;
 }
-.brand-banner-section .brand-stats .brand-stat-item:nth-child(1) i {
+brand-banner-section .brand-stats .brand-stat-item:nth-child(1) i {
   color: #e6bb01;
 }
-.brand-banner-section .brand-stats .brand-stat-item:nth-child(2) i {
+brand-banner-section .brand-stats .brand-stat-item:nth-child(2) i {
   color: #db0000;
 }
-.brand-banner-section .brand-stats .brand-stat-item:nth-child(3) i {
+brand-banner-section .brand-stats .brand-stat-item:nth-child(3) i {
   color: #e6bb01;
 }
-.brand-banner-section .brand-stats .brand-stat-item span {
+brand-banner-section .brand-stats .brand-stat-item span {
   font-size: 14px;
   font-weight: 600;
   color: #ffffff;
@@ -182,7 +182,7 @@ header h1 {
   }
 }
 /* Main Content Section */
-.brand-main-content {
+brand-main-content {
   display: flex;
   width: 100%;
   min-height: calc(100vh - 400px);
@@ -193,7 +193,6 @@ header h1 {
 /* Sidebar Menu */
 .brand-sidebar {
   width: 280px;
-  background: #ffffff;
   border-right: 1px solid #e5e7eb;
   padding: 24px 0;
   position: sticky;
@@ -230,11 +229,118 @@ header h1 {
   color: #012f6d;
 }
 .brand-sidebar .sidebar-menu .menu-item.active {
-  background: #f7f7f7;
-  color: #4d4545;
+  background: #012f6d;
+  color: #ffffff;
 }
 .brand-sidebar .sidebar-menu .menu-item.active i {
   color: #ffffff;
+}
+
+/* Content Section */
+.brand-content {
+  flex: 1;
+  padding: 32px;
+}
+.brand-content .content-header {
+  margin-bottom: 24px;
+}
+.brand-content .content-header h2 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+.brand-content .content-header p {
+  font-size: 14px;
+  color: #6b7280;
+}
+.brand-content .content-body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.brand-content .content-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.brand-content .content-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #f3f4f6;
+}
+.brand-content .content-card p {
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.6;
+}
+.brand-content .content-card .info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #4b5563;
+}
+.brand-content .content-card .info-item i {
+  font-size: 16px;
+  color: #012f6d;
+  width: 20px;
+}
+.brand-content .content-card .info-item:not(:last-child) {
+  border-bottom: 1px solid #f3f4f6;
+}
+.brand-content .content-card .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+.brand-content .content-card .stats-grid .stat-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+.brand-content .content-card .stats-grid .stat-box:hover {
+  border-color: #012f6d;
+  box-shadow: 0 2px 8px rgba(1, 47, 109, 0.1);
+}
+.brand-content .content-card .stats-grid .stat-box .stat-icon {
+  width: 48px;
+  height: 48px;
+  background: #012f6d;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-content .content-card .stats-grid .stat-box .stat-icon i {
+  font-size: 20px;
+  color: #ffffff;
+}
+.brand-content .content-card .stats-grid .stat-box .stat-info {
+  flex: 1;
+}
+.brand-content .content-card .stats-grid .stat-box .stat-info .stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f2937;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.brand-content .content-card .stats-grid .stat-box .stat-info .stat-label {
+  font-size: 12px;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* Responsive Design for Main Content */
