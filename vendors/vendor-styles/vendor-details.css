@@ -16,7 +16,6 @@
   min-height: 300px;
   margin: 20px;
   border-radius: 20px;
-  overflow: hidden;
 }
 
 .vendor-banner-background {
@@ -123,8 +122,8 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  width: 40px;
-  height: 40px;
+  width: 60px;
+  height: 60px;
   background: rgba(255, 255, 255, 0.95);
   border-radius: 8px;
   padding: 8px;
@@ -236,6 +235,66 @@
   box-shadow: 0 4px 12px rgba(100, 116, 139, 0.3);
 }
 
+/* Mobile Dropdown Button */
+.vendor-actions-dropdown-btn {
+  display: none;
+  padding: 12px 20px;
+  background: #9885d1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.vendor-actions-dropdown-btn i {
+  font-size: 16px;
+}
+
+.vendor-actions-dropdown-btn:hover {
+  background: #7c3aed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.4);
+}
+
+/* Mobile Dropdown Menu */
+.vendor-actions-dropdown {
+  display: none;
+  position: absolute;
+  top: 52px;
+  margin-top: 8px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  min-width: 200px;
+  z-index: 100;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.vendor-actions-dropdown.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.vendor-actions-dropdown .vendor-action-btn {
+  width: 100%;
+  justify-content: flex-start;
+  margin: 0;
+}
+
 .vendor-banner-stats {
   display: flex;
   gap: 32px;
@@ -274,6 +333,11 @@
     text-align: center;
     padding: 30px 20px;
   }
+
+  .vendor-banner-image {
+    width: 298px;
+    height: 179px;
+  }
   
   .vendor-banner-left {
     flex-direction: column;
@@ -283,10 +347,16 @@
   .vendor-banner-right {
     align-items: center;
     width: 100%;
+    position: relative;
+  }
+  
+  .vendor-actions-dropdown-btn {
+    display: flex;
+    margin-top: 16px;
   }
   
   .vendor-banner-actions {
-    justify-content: center;
+    display: none;
   }
   
   .vendor-company-name {
@@ -304,6 +374,17 @@
   .vendor-banner-stats {
     gap: 20px;
   }
+
+  
+  .vendor-banner-status {
+    position: absolute;
+    top: 17px;
+    right: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;   
+  }
 }
 
 @media (max-width: 480px) {
@@ -317,28 +398,46 @@
   }
   
   .vendor-banner-image {
-    width: 100px;
-    height: 100px;
+    width: 93%;
+    height: 214px;
   }
   
   .vendor-company-name {
     font-size: 20px;
   }
   
-  .vendor-banner-actions {
-    flex-direction: column;
-    width: 100%;
-  }
-  
-  .vendor-action-btn {
+  .vendor-actions-dropdown-btn {
     width: 100%;
     justify-content: center;
   }
   
+  .vendor-actions-dropdown {
+    width: 100%;
+    right: 0;
+    left: 0;
+  }
+  
   .vendor-banner-stats {
-    flex-direction: column;
+    justify-content: space-between;
     gap: 16px;
     width: 100%;
+  }
+
+  .vendor-banner-status {
+    position: absolute;
+    top: 17px;
+    right: 33px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;   
+  }
+  .vendor-save-btn-text {
+    display: none;
+  }
+
+  .vendor-banner-meta {
+    margin-bottom: 10px;
   }
 }
 
@@ -354,11 +453,12 @@
 }
 
 .vendor-details-sidebar {
-  width: 250px;
+  width: 100%;
   background: #f8fafc;
   border-right: 1px solid #e5e7eb;
   flex-shrink: 0;
 }
+
 
 .vendor-details-tabs {
   padding: 20px 0;
@@ -432,8 +532,10 @@
     width: 100%;
     border-right: none;
     border-bottom: 1px solid #e5e7eb;
+    border-radius: 12px;
   }
   
+ 
   .vendor-details-tabs {
     display: flex;
     overflow-x: auto;
@@ -446,6 +548,7 @@
     border-left: none;
     border-bottom: 3px solid transparent;
     white-space: nowrap;
+    width: auto !important;
   }
   
   .vendor-tab-btn.active {
