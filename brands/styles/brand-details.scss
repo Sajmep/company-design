@@ -15,7 +15,7 @@ header { /* This will be replaced with the BMH Header Section */
 }
 
 /* Brand Banner Section */
-.brand-banner-section {
+brand-banner-section {
   position: relative;
   width: 100%;
   height: 400px;
@@ -214,7 +214,7 @@ header { /* This will be replaced with the BMH Header Section */
 }
 
 /* Main Content Section */
-.brand-main-content {
+brand-main-content {
   display: flex;
   width: 100%;
   min-height: calc(100vh - 400px);
@@ -225,7 +225,6 @@ header { /* This will be replaced with the BMH Header Section */
 /* Sidebar Menu */
 .brand-sidebar {
   width: 280px;
-  background: #ffffff;
   border-right: 1px solid #e5e7eb;
   padding: 24px 0;
   position: sticky;
@@ -264,8 +263,8 @@ header { /* This will be replaced with the BMH Header Section */
       }
 
       &.active {
-        background: #f7f7f7;
-        color: #4d4545;
+        background: #012f6d;
+        color: #ffffff;
 
         i {
           color: #ffffff;
@@ -275,7 +274,130 @@ header { /* This will be replaced with the BMH Header Section */
   }
 }
 
+/* Content Section */
+.brand-content {
+  flex: 1;
+  padding: 32px;
 
+  .content-header {
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #1f2937;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #6b7280;
+    }
+  }
+
+  .content-body {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .content-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+    h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f2937;
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #f3f4f6;
+    }
+
+    p {
+      font-size: 14px;
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      font-size: 14px;
+      color: #4b5563;
+
+      i {
+        font-size: 16px;
+        color: #012f6d;
+        width: 20px;
+      }
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #f3f4f6;
+      }
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+
+      .stat-box {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px;
+        background: #f9fafb;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+        transition: all 0.2s ease;
+
+        &:hover {
+          border-color: #012f6d;
+          box-shadow: 0 2px 8px rgba(1, 47, 109, 0.1);
+        }
+
+        .stat-icon {
+          width: 48px;
+          height: 48px;
+          background: #012f6d;
+          border-radius: 8px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          i {
+            font-size: 20px;
+            color: #ffffff;
+          }
+        }
+
+        .stat-info {
+          flex: 1;
+
+          .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1f2937;
+            line-height: 1;
+            margin-bottom: 4px;
+          }
+
+          .stat-label {
+            font-size: 12px;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+          }
+        }
+      }
+    }
+  }
+}
 
 /* Responsive Design for Main Content */
 @media (max-width: 1024px) {
