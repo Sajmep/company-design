@@ -2,465 +2,458 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inquiries Frontend</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inquiries Frontend</title>
 
-    <link rel="stylesheet" href="../styles/scrollbar.css">
-    <link rel="stylesheet" href="../vendors/vendor-styles/views-container.css">
-    <link rel="stylesheet" href="../styles/common-page-header.css">
-    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
-    <link rel="stylesheet" href="inquiries-styles/inquiries-frontend.css">
-    <link rel="stylesheet" href="../css/inquiry-card.css">
-    <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../vendors/vendor-styles/views-container.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="inquiries-styles/inquiries-frontend.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="../rfq-company/css/create-popup.css">
+  <link rel="stylesheet" href="../css/inquiry-card.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 
 </head>
 
 <body>
-    <div class="inquiries-container">
-        <!-- Page Header -->
+  <div class="inquiries-container">
 
+    <!-- Common Page Header -->
+    <div class="toolbar">
 
-        <!-- Common Page Header -->
-        <div class="page-header">
-            <div class="page-header-title">
-                <h2>Inquiries</h2>
-                <p>Manage and track all your inquiries</p>
-            </div>
-            <div class="page-header-controls">
-                <div class="page-header-search">
-                    <input type="text" class="page-header-search-input" placeholder="Search directory...">
-                    <i class="fa fa-search page-header-search-icon"></i>
-                </div>
-
-                <div class="page-header-actions">
-                    <div class="page-header-group-by">
-                        <button class="page-header-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
-                            <i class="fa fa-chevron-down"></i>
-                            <span class="btn-text">Group By</span>
-                        </button>
-                        <div class="page-header-group-by-dropdown" id="groupByDropdown">
-                            <div class="page-header-group-by-item" data-value="status">
-                                <i class="fa fa-flag"></i>
-                                Status
-                            </div>
-                            <div class="page-header-group-by-item" data-value="category">
-                                <i class="fa fa-tags"></i>
-                                Category
-                            </div>
-                            <div class="page-header-group-by-item" data-value="location">
-                                <i class="fa fa-map-marker"></i>
-                                Location
-                            </div>
-                        </div>
-                    </div>
-
-                    <button class="page-header-filter-btn" title="Filter">
-                        <i class="fa fa-filter"></i>
-                        <span class="btn-text">Filter</span>
-                    </button>
-
-                    <!-- Import Button -->
-                    <button class="page-header-import-btn" title="Import">
-                        <i class="fa fa-upload"></i>
-                        <span class="btn-text">Import</span>
-                    </button>
-
-                    <!-- Action Dropdown (hidden by default) -->
-                    <div class="page-header-action-dropdown" id="inquiriesActionDropdown">
-                        <button class="page-header-action-dropdown-btn"
-                            onclick="toggleActionDropdown('inquiriesActionDropdown')" title="Actions">
-                            <i class="fa fa-ellipsis-v"></i>
-                            <span class="btn-text">Actions</span>
-                            <i class="fa fa-chevron-down"></i>
-                        </button>
-                        <div class="page-header-action-menu" id="inquiriesActionMenu">
-                            <div class="page-header-action-item">
-                                <i class="fa fa-download"></i>
-                                <span>Export</span>
-                            </div>
-                            <div class="page-header-action-item">
-                                <i class="fa fa-edit"></i>
-                                <span>Edit</span>
-                            </div>
-                            <div class="page-header-action-item">
-                                <i class="fa fa-copy"></i>
-                                <span>Duplicate</span>
-                            </div>
-                            <div class="page-header-action-divider"></div>
-                            <div class="page-header-action-item danger">
-                                <i class="fa fa-trash"></i>
-                                <span>Delete</span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="page-header-primary-btn" onclick="createInquiry()" title="Create Inquiry">
-                        <i class="fa fa-plus"></i>
-                        <span class="btn-text">Inquiry</span>
-                    </button>
-
-                </div>
-            </div>
+      <div class="toolbar-title">
+        <h2>Inquiries</h2>
+        <p>Explore inquiries with company details</p>
+      </div>
+      <div class="toolbar-controls">
+        <div class="toolbar-search">
+          <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
+          <i class="fa fa-search toolbar-search-icon"></i>
+          <i class="fa fa-times toolbar-search-close"></i>
         </div>
 
-        <div class="views-container">
+        <div class="toolbar-actions">
 
-            <div class="views-toggle">
-                <button class="data-view-btn" title="Dashboard View">
-                    <i class="fa fa-dashboard"></i>
-                </button>
-                <button class="data-view-btn" title="Card View">
-                    <i class="fa fa-th-large"></i>
-                </button>
-                <button class="data-view-btn" title="List View">
-                    <i class="fa fa-list"></i>
-                </button>
-                <button class="data-view-btn" title="Calendar View">
-                    <i class="fa fa-calendar"></i>
-                </button>
-                <button class="data-view-btn" title="Map View">
-                    <i class="fa fa-map"></i>
-                </button>
+          <div class="views-toggle">
+            <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+              <i class="fa fa-th-large views-toggle-icon"></i>
+              <i class="fa fa-chevron-down views-toggle-arrow"></i>
+            </button>
+            <div class="views-toggle-dropdown" id="viewsDropdown">
+              <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                <i class="fa fa-dashboard"></i>
+                <span>Dashboard View</span>
+              </div>
+              <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                <i class="fa fa-th-large"></i>
+                <span>Card View</span>
+              </div>
+              <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                <i class="fa fa-list"></i>
+                <span>List View</span>
+              </div>
+              <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                <i class="fa fa-calendar"></i>
+                <span>Calendar View</span>
+              </div>
+              <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                <i class="fa fa-map"></i>
+                <span>Map View</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="toolbar-group-by">
+            <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+              <i class="fa fa-sitemap"></i>
+              <span class="btn-text">Group By</span>
+            </button>
+            <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+              <!-- <div class="toolbar-group-by-item" data-value="status">
+                    <i class="fa fa-flag"></i>
+                    Status
+                  </div>
+                <div class="toolbar-group-by-item" data-value="category">
+                    <i class="fa fa-tags"></i>
+                    Category
+                  </div>
+                <div class="toolbar-group-by-item" data-value="location">
+                    <i class="fa fa-map-marker"></i>
+                    Location
+                </div> -->
+            </div>
+          </div>
+
+          <button class="toolbar-filter-btn" title="Filter">
+            <i class="fa fa-filter"></i>
+            <span class="btn-text">Filter</span>
+          </button>
+
+          <button class="toolbar-actions-btn" title="Actions">
+            <i class="fa fa-gear"></i>
+            <span class="btn-text">Actions</span>
+          </button>
+
+          <button class="toolbar-primary-btn" onclick="openAddPopup()" title="Add Inquiry">
+            <i class="fa fa-plus"></i>
+            <span class="btn-text">Add</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="views-container">
+      <!-- Card View -->
+      <div class="bmh-card-view">
+        <div class="inquiries-cards">
+          <!-- Inquiries Cards -->
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
             </div>
 
-            <!-- Card View -->
-            <div class="bmh-card-view">
-                <div class="inquiries-cards">
-                    <!-- Inquiries Cards -->
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                    <div class="inquiry-card">
-                        <div class="header">
-                          <div class="avatar-square">
-                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
-                              <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
-                            </svg>
-                          </div>
-                          <div class="title">Website Development Inquiry</div>
-                          <div class="status-badge">Pending</div>
-                        </div>
-                    
-                        <p class="desc">
-                          Looking for a complete website development solution for our business.
-                          Need modern design with e-commerce functionality.
-                        </p>
-                    
-                        <div class="hr"></div>
-                    
-                        <div class="meta">
-                          <div class="user">
-                            <div class="avatar-circle">JS</div>
-                            <div class="username">John Smith</div>
-                          </div>
-                          <div class="date">
-                            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-                              <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
-                            </svg>
-                            <span>Dec 15, 2024</span>
-                          </div>
-                        </div>
-                    
-                        <div class="buttons">
-                          <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
-                          <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Pagination -->
-                <div class="pagination" style="width: 100%;">
-                    <button class="pagination-btn" disabled>
-                        <i class="fa fa-chevron-left"></i>
-                    </button>
-                    <button class="pagination-btn active">1</button>
-                    <button class="pagination-btn">2</button>
-                    <button class="pagination-btn">3</button>
-                    <span class="pagination-dots">...</span>
-                    <button class="pagination-btn">8</button>
-                    <button class="pagination-btn">9</button>
-                    <button class="pagination-btn">10</button>
-                    <button class="pagination-btn">
-                        <i class="fa fa-chevron-right"></i>
-                    </button>
-                    <span class="pagination-info">Page 1 of 10</span>
-                </div>
-                <!-- Pagination End -->
-            </div>
-            <!-- Card View End -->
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
 
-            <!-- List View -->
-            <div class="bmh-list-view">
-                <h2 style="padding: 40px 20px;
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+          <div class="inquiry-card">
+            <div class="header">
+              <div class="avatar-square">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="4" y="6" width="14" height="11" rx="1" fill="#F1E6C9"></rect>
+                  <path d="M7 3h6v4H7z" fill="#D9B76A"></path>
+                </svg>
+              </div>
+              <div class="title">Website Development Inquiry</div>
+              <div class="status-badge">Pending</div>
+            </div>
+
+            <p class="desc">
+              Looking for a complete website development solution for our business.
+              Need modern design with e-commerce functionality.
+            </p>
+
+            <div class="hr"></div>
+
+            <div class="meta">
+              <div class="user">
+                <div class="avatar-circle">JS</div>
+                <div class="username">John Smith</div>
+              </div>
+              <div class="date">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5 8h14M7 4v4M17 4v4" stroke="#9aa6b3" stroke-width="1.2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <rect x="4" y="7" width="16" height="13" rx="1" stroke="#e0e5ea" fill="#f7f9fb"></rect>
+                </svg>
+                <span>Dec 15, 2024</span>
+              </div>
+            </div>
+
+            <div class="buttons">
+              <button class="btn btn-details"> <i class="fa fa-reply"></i> Reply</button>
+              <button class="btn btn-view"> <i class="fa fa-eye"></i> View Inquiry</button>
+            </div>
+          </div>
+        </div>
+        <!-- Pagination -->
+        <div class="pagination" style="width: 100%;">
+          <button class="pagination-btn" disabled>
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <span class="pagination-dots">...</span>
+          <button class="pagination-btn">8</button>
+          <button class="pagination-btn">9</button>
+          <button class="pagination-btn">10</button>
+          <button class="pagination-btn">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+          <span class="pagination-info">Page 1 of 10</span>
+        </div>
+        <!-- Pagination End -->
+      </div>
+      <!-- Card View End -->
+
+      <!-- List View -->
+      <div class="bmh-list-view">
+        <h2 style="padding: 40px 20px;
                 text-align: center;
                 background: #f8fafc;
                 border-radius: 8px;
                 margin-top: 20px;">Comming Soon...</h2>
-                <!--<div class="bmh-list-view-item">
+        <!--<div class="bmh-list-view-item">
                 <div class="bmh-list-view-item-content">
                   <img src="../images/vendor.png" alt="Company" class="bmh-list-view-item-image">
                   <div class="bmh-list-view-item-details">
@@ -595,312 +588,380 @@
                 <span class="pagination-info">Page 1 of 10</span>
               </div> -->
 
-            </div>
-            <!-- List View End -->
+      </div>
+      <!-- List View End -->
 
-            <!-- Dashboard View -->
-            <div class="bmh-dashboard-view">
-                <h2>Comming Soon...</h2>
-            </div>
-            <!-- Dashboard View End -->
+      <!-- Dashboard View -->
+      <div class="bmh-dashboard-view">
+        <h2>Comming Soon...</h2>
+      </div>
+      <!-- Dashboard View End -->
 
-            <!-- Calendar View -->
-            <div class="bmh-calendar-view">
-                <h2>Comming Soon...</h2>
-            </div>
-            <!-- Calendar View End -->
+      <!-- Calendar View -->
+      <div class="bmh-calendar-view">
+        <h2>Comming Soon...</h2>
+      </div>
+      <!-- Calendar View End -->
 
-            <!-- Map View -->
-            <div class="bmh-map-view">
-                <h2 style="padding: 40px 20px;
+      <!-- Map View -->
+      <div class="bmh-map-view">
+        <h2 style="padding: 40px 20px;
                 text-align: center;
                 background: #f8fafc;
                 border-radius: 8px;
                 margin-top: 20px;">Comming Soon...</h2>
-            </div>
-            <!-- Map View End -->
+      </div>
+      <!-- Map View End -->
 
-        </div>
     </div>
 
-    <!-- Create Inquiry Modal -->
-    <div class="modal-overlay" id="createInquiryModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3>Create New Inquiry</h3>
-                <button class="modal-close" onclick="closeCreateInquiryModal()">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="tabs">
-                    <button class="tab-btn active" onclick="showTab('quick')">Quick Inquiry</button>
-                    <button class="tab-btn" onclick="showTab('advanced')">Advanced Inquiry</button>
-                </div>
+  </div>
 
-                <!-- Quick Inquiry Tab -->
-                <div id="quickInquiryTab" class="tab-content active">
-                    <form id="quickInquiryForm">
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="quickTitle">Title *</label>
-                                <input type="text" id="quickTitle" name="title" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="quickProject">Select Project</label>
-                                <div class="autocomplete-container">
-                                    <input type="text" id="quickProject" name="project" placeholder="Type to search projects..." autocomplete="off">
-                                    <div class="autocomplete-dropdown" id="quickProjectDropdown">
-                                        <div class="autocomplete-item" data-value="residential-building">
-                                            <span>Residential Building Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="commercial-building">
-                                            <span>Commercial Building Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="infrastructure">
-                                            <span>Infrastructure Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="renovation">
-                                            <span>Renovation Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="industrial">
-                                            <span>Industrial Construction</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="hospitality">
-                                            <span>Hospitality Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="healthcare">
-                                            <span>Healthcare Facility</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="educational">
-                                            <span>Educational Facility</span>
-                                        </div>
-                                        <div class="autocomplete-divider"></div>
-                                        <div class="autocomplete-item create-project">
-                                            <span><i class="fa fa-plus"></i> Create</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group">
-                                <label for="quickCategory">Select Category *</label>
-                                <select id="quickCategory" name="category" required>
-                                    <option value="">Select Category</option>
-                                    <option value="web-development">Web Development</option>
-                                    <option value="mobile-app">Mobile App Development</option>
-                                    <option value="seo">SEO Services</option>
-                                    <option value="graphic-design">Graphic Design</option>
-                                    <option value="database">Database Services</option>
-                                    <option value="ecommerce">E-commerce Solutions</option>
-                                    <option value="consulting">IT Consulting</option>
-                                    <option value="maintenance">Maintenance & Support</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="quickBudget">Budget (*in SR) *</label>
-                                <input type="number" id="quickBudget" name="budget" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="quickDescription">Description *</label>
-                            <textarea id="quickDescription" name="description" rows="3" required></textarea>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="quickAttachment">Attachments</label>
-                            <input type="file" id="quickAttachment" name="attachment"
-                                accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
-                        </div>
-                    </form>
-                </div>
-
-                <!-- Advanced Inquiry Tab -->
-                <div id="advancedInquiryTab" class="tab-content">
-                    <form id="advancedInquiryForm">
-
-                        <div class="form-grid">
-                            <div class="form-group" data-field="inquiryTitle">
-                                <label for="inquiryTitle">Title *</label>
-                                <input type="text" id="inquiryTitle" name="title" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="advancedProject">Select Project</label>
-                                <div class="autocomplete-container">
-                                    <input type="text" id="advancedProject" name="project" placeholder="Type to search projects..." autocomplete="off">
-                                    <div class="autocomplete-dropdown" id="advancedProjectDropdown">
-                                        <div class="autocomplete-item" data-value="residential-building">
-                                            <span>Residential Building Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="commercial-building">
-                                            <span>Commercial Building Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="infrastructure">
-                                            <span>Infrastructure Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="renovation">
-                                            <span>Renovation Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="industrial">
-                                            <span>Industrial Construction</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="hospitality">
-                                            <span>Hospitality Project</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="healthcare">
-                                            <span>Healthcare Facility</span>
-                                        </div>
-                                        <div class="autocomplete-item" data-value="educational">
-                                            <span>Educational Facility</span>
-                                        </div>
-                                        <div class="autocomplete-divider"></div>
-                                        <div class="autocomplete-item create-project">
-                                            <span><i class="fa fa-plus"></i> Create</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group" data-field="inquiryStatus">
-                                <label for="inquiryStatus">Status *</label>
-                                <select id="inquiryStatus" name="status" required>
-                                    <option value="">Select Status</option>
-                                    <option value="pending">Pending</option>
-                                    <option value="in-progress">In Progress</option>
-                                    <option value="completed">Completed</option>
-                                    <option value="cancelled">Cancelled</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group" data-field="inquiryPriority">
-                                <label for="inquiryPriority">Priority *</label>
-                                <select id="inquiryPriority" name="priority" required>
-                                    <option value="">Select Priority</option>
-                                    <option value="low">Low Priority</option>
-                                    <option value="medium">Medium Priority</option>
-                                    <option value="high">High Priority</option>
-                                    <option value="urgent">Urgent</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group" data-field="inquiryEmail">
-                                <label for="inquiryEmail">Email *</label>
-                                <input type="email" id="inquiryEmail" name="email" required>
-                            </div>
-
-                            <div class="form-group" data-field="inquiryPhone">
-                                <label for="inquiryPhone">Phone *</label>
-                                <input type="tel" id="inquiryPhone" name="phone" required>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group" data-field="inquiryBudget">
-                                <label for="inquiryBudget">Budget (*in SR) *</label>
-                                <input type="number" id="inquiryBudget" name="budget" required>
-                            </div>
-
-                            <div class="form-group" data-field="estStartDate">
-                                <label for="estStartDate">Estd. Start Date *</label>
-                                <input type="date" id="estStartDate" name="startDate" required>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group" data-field="serviceCity">
-                                <label for="serviceCity">Service City *</label>
-                                <input type="text" id="serviceCity" name="serviceCity" required>
-                            </div>
-
-                            <div class="form-group" data-field="serviceZip">
-                                <label for="serviceZip">ZIP *</label>
-                                <input type="text" id="serviceZip" name="zip" required>
-                            </div>
-                        </div>
-
-                        <div class="form-grid">
-                            <div class="form-group" data-field="serviceState">
-                                <label for="serviceState">State *</label>
-                                <select id="serviceState" name="state" required>
-                                    <option value="">Select State</option>
-                                    <option value="riyadh">Riyadh</option>
-                                    <option value="makkah">Makkah</option>
-                                    <option value="eastern">Eastern Province</option>
-                                    <option value="asir">Asir</option>
-                                    <option value="jazan">Jazan</option>
-                                    <option value="medina">Medina</option>
-                                    <option value="qassim">Qassim</option>
-                                    <option value="tabuk">Tabuk</option>
-                                    <option value="hail">Hail</option>
-                                    <option value="northern">Northern Borders</option>
-                                    <option value="jazan">Jazan</option>
-                                    <option value="najran">Najran</option>
-                                    <option value="al-baha">Al Baha</option>
-                                    <option value="al-jouf">Al Jouf</option>
-                                </select>
-                            </div>
-
-                            <div class="form-group" data-field="serviceCountry">
-                                <label for="serviceCountry">Country *</label>
-                                <select id="serviceCountry" name="country" required>
-                                    <option value="">Select Country</option>
-                                    <option value="saudi-arabia">Saudi Arabia</option>
-                                    <option value="uae">United Arab Emirates</option>
-                                    <option value="kuwait">Kuwait</option>
-                                    <option value="qatar">Qatar</option>
-                                    <option value="bahrain">Bahrain</option>
-                                    <option value="oman">Oman</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="serviceCategory">Service Category *</label>
-                            <select id="serviceCategory" name="category" required>
-                                <option value="">Select Category</option>
-                                <option value="web-development">Web Development</option>
-                                <option value="mobile-app">Mobile App Development</option>
-                                <option value="seo">SEO Services</option>
-                                <option value="graphic-design">Graphic Design</option>
-                                <option value="database">Database Services</option>
-                                <option value="ecommerce">E-commerce Solutions</option>
-                                <option value="consulting">IT Consulting</option>
-                                <option value="maintenance">Maintenance & Support</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        <div class="form-group full-width">
-                            <label for="inquiryDescription">Inquiry Description *</label>
-                            <textarea id="inquiryDescription" name="description" rows="3" required></textarea>
-                        </div>
-
-                        <div class="form-group full-width">
-                            <label for="quickAttachment">Attachments</label>
-                            <input type="file" id="quickAttachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn-secondary" onclick="closeCreateInquiryModal()">Cancel</button>
-                <button type="button" class="btn-primary" onclick="submitInquiry()">Create Inquiry</button>
-            </div>
+  <!-- Create Inquiry Modal -->
+  <div class="modal-overlay" id="createInquiryModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Create New Inquiry</h3>
+        <button class="modal-close" onclick="closeCreateInquiryModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="tabs">
+          <button class="tab-btn active" onclick="showTab('quick')">Quick Inquiry</button>
+          <button class="tab-btn" onclick="showTab('advanced')">Advanced Inquiry</button>
         </div>
+
+        <!-- Quick Inquiry Tab -->
+        <div id="quickInquiryTab" class="tab-content active">
+          <form id="quickInquiryForm">
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="quickTitle">Title *</label>
+                <input type="text" id="quickTitle" name="title" required>
+              </div>
+
+              <div class="form-group">
+                <label for="quickProject">Select Project</label>
+                <div class="autocomplete-container">
+                  <input type="text" id="quickProject" name="project" placeholder="Type to search projects..."
+                    autocomplete="off">
+                  <div class="autocomplete-dropdown" id="quickProjectDropdown">
+                    <div class="autocomplete-item" data-value="residential-building">
+                      <span>Residential Building Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="commercial-building">
+                      <span>Commercial Building Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="infrastructure">
+                      <span>Infrastructure Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="renovation">
+                      <span>Renovation Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="industrial">
+                      <span>Industrial Construction</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="hospitality">
+                      <span>Hospitality Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="healthcare">
+                      <span>Healthcare Facility</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="educational">
+                      <span>Educational Facility</span>
+                    </div>
+                    <div class="autocomplete-divider"></div>
+                    <div class="autocomplete-item create-project">
+                      <span><i class="fa fa-plus"></i> Create</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="quickCategory">Select Category *</label>
+                <select id="quickCategory" name="category" required>
+                  <option value="">Select Category</option>
+                  <option value="web-development">Web Development</option>
+                  <option value="mobile-app">Mobile App Development</option>
+                  <option value="seo">SEO Services</option>
+                  <option value="graphic-design">Graphic Design</option>
+                  <option value="database">Database Services</option>
+                  <option value="ecommerce">E-commerce Solutions</option>
+                  <option value="consulting">IT Consulting</option>
+                  <option value="maintenance">Maintenance & Support</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="quickBudget">Budget (*in SR) *</label>
+                <input type="number" id="quickBudget" name="budget" required>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="quickDescription">Description *</label>
+              <textarea id="quickDescription" name="description" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="quickAttachment">Attachments</label>
+              <input type="file" id="quickAttachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
+            </div>
+          </form>
+        </div>
+
+        <!-- Advanced Inquiry Tab -->
+        <div id="advancedInquiryTab" class="tab-content">
+          <form id="advancedInquiryForm">
+
+            <div class="form-grid">
+              <div class="form-group" data-field="inquiryTitle">
+                <label for="inquiryTitle">Title *</label>
+                <input type="text" id="inquiryTitle" name="title" required>
+              </div>
+              <div class="form-group">
+                <label for="advancedProject">Select Project</label>
+                <div class="autocomplete-container">
+                  <input type="text" id="advancedProject" name="project" placeholder="Type to search projects..."
+                    autocomplete="off">
+                  <div class="autocomplete-dropdown" id="advancedProjectDropdown">
+                    <div class="autocomplete-item" data-value="residential-building">
+                      <span>Residential Building Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="commercial-building">
+                      <span>Commercial Building Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="infrastructure">
+                      <span>Infrastructure Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="renovation">
+                      <span>Renovation Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="industrial">
+                      <span>Industrial Construction</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="hospitality">
+                      <span>Hospitality Project</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="healthcare">
+                      <span>Healthcare Facility</span>
+                    </div>
+                    <div class="autocomplete-item" data-value="educational">
+                      <span>Educational Facility</span>
+                    </div>
+                    <div class="autocomplete-divider"></div>
+                    <div class="autocomplete-item create-project">
+                      <span><i class="fa fa-plus"></i> Create</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group" data-field="inquiryStatus">
+                <label for="inquiryStatus">Status *</label>
+                <select id="inquiryStatus" name="status" required>
+                  <option value="">Select Status</option>
+                  <option value="pending">Pending</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                  <option value="cancelled">Cancelled</option>
+                </select>
+              </div>
+
+              <div class="form-group" data-field="inquiryPriority">
+                <label for="inquiryPriority">Priority *</label>
+                <select id="inquiryPriority" name="priority" required>
+                  <option value="">Select Priority</option>
+                  <option value="low">Low Priority</option>
+                  <option value="medium">Medium Priority</option>
+                  <option value="high">High Priority</option>
+                  <option value="urgent">Urgent</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group" data-field="inquiryEmail">
+                <label for="inquiryEmail">Email *</label>
+                <input type="email" id="inquiryEmail" name="email" required>
+              </div>
+
+              <div class="form-group" data-field="inquiryPhone">
+                <label for="inquiryPhone">Phone *</label>
+                <input type="tel" id="inquiryPhone" name="phone" required>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group" data-field="inquiryBudget">
+                <label for="inquiryBudget">Budget (*in SR) *</label>
+                <input type="number" id="inquiryBudget" name="budget" required>
+              </div>
+
+              <div class="form-group" data-field="estStartDate">
+                <label for="estStartDate">Estd. Start Date *</label>
+                <input type="date" id="estStartDate" name="startDate" required>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group" data-field="serviceCity">
+                <label for="serviceCity">Service City *</label>
+                <input type="text" id="serviceCity" name="serviceCity" required>
+              </div>
+
+              <div class="form-group" data-field="serviceZip">
+                <label for="serviceZip">ZIP *</label>
+                <input type="text" id="serviceZip" name="zip" required>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div class="form-group" data-field="serviceState">
+                <label for="serviceState">State *</label>
+                <select id="serviceState" name="state" required>
+                  <option value="">Select State</option>
+                  <option value="riyadh">Riyadh</option>
+                  <option value="makkah">Makkah</option>
+                  <option value="eastern">Eastern Province</option>
+                  <option value="asir">Asir</option>
+                  <option value="jazan">Jazan</option>
+                  <option value="medina">Medina</option>
+                  <option value="qassim">Qassim</option>
+                  <option value="tabuk">Tabuk</option>
+                  <option value="hail">Hail</option>
+                  <option value="northern">Northern Borders</option>
+                  <option value="jazan">Jazan</option>
+                  <option value="najran">Najran</option>
+                  <option value="al-baha">Al Baha</option>
+                  <option value="al-jouf">Al Jouf</option>
+                </select>
+              </div>
+
+              <div class="form-group" data-field="serviceCountry">
+                <label for="serviceCountry">Country *</label>
+                <select id="serviceCountry" name="country" required>
+                  <option value="">Select Country</option>
+                  <option value="saudi-arabia">Saudi Arabia</option>
+                  <option value="uae">United Arab Emirates</option>
+                  <option value="kuwait">Kuwait</option>
+                  <option value="qatar">Qatar</option>
+                  <option value="bahrain">Bahrain</option>
+                  <option value="oman">Oman</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="serviceCategory">Service Category *</label>
+              <select id="serviceCategory" name="category" required>
+                <option value="">Select Category</option>
+                <option value="web-development">Web Development</option>
+                <option value="mobile-app">Mobile App Development</option>
+                <option value="seo">SEO Services</option>
+                <option value="graphic-design">Graphic Design</option>
+                <option value="database">Database Services</option>
+                <option value="ecommerce">E-commerce Solutions</option>
+                <option value="consulting">IT Consulting</option>
+                <option value="maintenance">Maintenance & Support</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group full-width">
+              <label for="inquiryDescription">Inquiry Description *</label>
+              <textarea id="inquiryDescription" name="description" rows="3" required></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="quickAttachment">Attachments</label>
+              <input type="file" id="quickAttachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.txt">
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn-secondary" onclick="closeCreateInquiryModal()">Cancel</button>
+        <button type="button" class="btn-primary" onclick="submitInquiry()">Create Inquiry</button>
+      </div>
     </div>
+  </div>
+
+  <!-- Add Popup Modal -->
+  <div id="addPopupModal" class="add-popup-modal" style="display: none;">
+    <div class="add-popup-modal-content">
+      <div class="add-popup-modal-header">
+        <div>
+          <h3>Add RFQ</h3>
+          <p class="add-popup-heading">How would you like to start</p>
+        </div>
+        <button class="add-popup-modal-close" onclick="closeAddPopup()">&times;</button>
+      </div>
+
+      <div class="add-popup-modal-body">
+        <div class="add-popup-options-container">
+          <div class="add-popup-option" onclick="createRfq(); closeAddPopup();" title="Add RFQ">
+            <i class="fa fa-plus"></i>
+            <span class="add-popup-option-title">Create</span>
+            <span class="add-popup-option-desc">Blank from scratch</span>
+          </div>
+          <div class="add-popup-option">
+            <i class="fa fa-upload"></i>
+            <span class="add-popup-option-title">Import</span>
+            <span class="add-popup-option-desc">From sheet revit planswift</span>
+          </div>
+          <div class="add-popup-option">
+            <i class="fa fa-file-text"></i>
+            <span class="add-popup-option-title">Template</span>
+            <span class="add-popup-option-desc">Choose from library</span>
+          </div>
+          <div class="add-popup-option">
+            <i class="fa fa-copy"></i>
+            <span class="add-popup-option-title">Duplicate</span>
+            <span class="add-popup-option-desc">From existing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <script src="../vendors/vendor-scripts/views-container.js"></script>
-    <script src="inquiries-scripts/inquiries-frontend-js"></script>
+  <script src="../vendors/vendor-scripts/views-container.js"></script>
+  <script src="inquiries-scripts/inquiries-frontend-js"></script>
+  <script src="inquiries-scripts/toolbar.js"></script>
+
+  <script>
+    // Add Popup Functions
+    function openAddPopup() {
+      const modal = document.getElementById('addPopupModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeAddPopup() {
+      const modal = document.getElementById('addPopupModal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Close popup when clicking outside
+    window.addEventListener('click', function (event) {
+      const modal = document.getElementById('addPopupModal');
+      if (modal && event.target === modal) {
+        closeAddPopup();
+      }
+    });
+  </script>
 
 </body>
 

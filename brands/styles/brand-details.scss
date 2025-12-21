@@ -445,6 +445,11 @@ header { /* This will be replaced with the BMH Header Section */
       }
     }
 
+    .contact-info-container {
+      flex-direction: column;
+      gap: 10px;
+    }
+
     .content-card {
       padding: 16px;
 

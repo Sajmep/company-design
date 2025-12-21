@@ -1,0 +1,324 @@
+// Variables
+$brand-blue: #012f6d;
+
+// Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+// Body
+body {
+    height: 100vh;
+    position: relative;
+    font-family: Arial, sans-serif;
+
+    // Header
+    .header {
+        height: 80px;
+        border-bottom: 1px solid lightgray;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        justify-content: flex-end;
+        background-color: white;
+        position: relative;
+        z-index: 998;
+
+        .menu-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            margin-right: 24px;
+            transition: all 0.3s ease;
+            position: relative;
+
+            span {
+                width: 100%;
+                height: 3px;
+                background-color: #333;
+                border-radius: 2px;
+                transition: all 0.3s ease;
+            }
+        }
+    }
+
+    // Highlight menu icon when menu popover is active
+    .header.highlighted,
+    .header .menu-icon.highlighted {
+        z-index: 1002;
+    }
+
+    .header {
+        &.highlighted {
+            z-index: 1002;
+            background-color: white;
+        }
+    }
+
+    .menu-icon.highlighted {
+        transform: scale(1.2);
+        z-index: 1002;
+
+        span {
+            background-color: $brand-blue;
+            box-shadow: 0 0 8px rgba(1, 47, 109, 0.5);
+        }
+    }
+
+    // Search Section
+    .search-section {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        max-width: 600px;
+        padding: 0 20px;
+        z-index: 998;
+
+        input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+    }
+
+    // Highlight search input when search popover is active
+    .search-section.highlighted {
+        z-index: 1002;
+    }
+
+    .search-section input.highlighted {
+        border: 2px solid $brand-blue;
+        box-shadow: 0 0 12px rgba(1, 47, 109, 0.4);
+        transform: scale(1.02);
+        z-index: 1002;
+    }
+
+    // Explore Button
+    .explore {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        position: fixed;
+        bottom: 80px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 998;
+
+        .icon-placeholder {
+            font-size: 20px;
+        }
+    }
+
+    // Highlight explore button when explore popover is active
+    .explore.highlighted {
+        border: 2px solid $brand-blue;
+        box-shadow: 0 0 12px rgba(1, 47, 109, 0.4);
+        transform: scale(1.15);
+        z-index: 1002;
+    }
+
+    // Chatbot Button
+    .chatbot {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 1px solid gray;
+        position: fixed;
+        bottom: 20px;
+        right: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: white;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 998;
+
+        .icon-placeholder {
+            font-size: 20px;
+        }
+    }
+
+    // Highlight chatbot button when chatbot popover is active
+    .chatbot.highlighted {
+        border: 2px solid $brand-blue;
+        box-shadow: 0 0 12px rgba(1, 47, 109, 0.4);
+        transform: scale(1.15);
+        z-index: 1002;
+    }
+}
+
+// Arrow mixin
+@mixin popover-arrow($position, $side, $offset) {
+    &::before {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: white;
+        z-index: 1;
+        #{$side}: $offset;
+        transform: rotate(45deg);
+
+        @if $position == 'top' {
+            top: -10px;
+            border-left: 2px solid $brand-blue;
+            border-top: 2px solid $brand-blue;
+        } @else if $position == 'bottom' {
+            bottom: -11px;
+            border-right: 2px solid $brand-blue;
+            border-bottom: 2px solid $brand-blue;
+        } @else if $position == 'right' {
+            right: 28px;
+            border-right: 2px solid $brand-blue;
+            border-top: 2px solid $brand-blue;
+        }
+    }
+}
+
+// Popover Styles
+.popover {
+    position: fixed;
+    z-index: 1002;
+    display: none;
+    width: 360px;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 0;
+    border: 2px solid $brand-blue;
+
+    &.active {
+        display: block;
+    }
+
+
+    .popover-content {
+        padding: 24px;
+        margin-bottom: 0;
+        background: white;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+
+        h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: $brand-blue;
+            margin-bottom: 14px;
+            line-height: 1.3;
+            letter-spacing: -0.3px;
+        }
+
+        p {
+            font-size: 14px;
+            color: #4a4a4a;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+    }
+
+    .popover-button {
+        width: 100%;
+        padding: 14px 24px;
+        background: $brand-blue;
+        color: white;
+        border: none;
+        border-bottom-left-radius: 16px;
+        border-bottom-right-radius: 16px;
+        font-size: 15px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        position: relative;
+        background: darken($brand-blue, 5%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(1, 47, 109, 0.4);
+
+        &:hover {
+            background: darken($brand-blue, 10%);
+            &::before {
+                left: 100%;
+            }
+        }
+
+        &:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 8px rgba(1, 47, 109, 0.3);
+        }
+    }
+
+    // Individual Popover Variants
+    &.menu-popover {
+        top: 67px;
+        right: 20px;
+        @include popover-arrow('top', 'right', 24px);
+    }
+
+    &.search-popover {
+        top: calc(50% - 268px);
+        left: 50%;
+        transform: translateX(-50%);
+        @include popover-arrow('bottom', 'left', 50%);
+        
+        &::before {
+            transform: translateX(-50%) rotate(45deg); 
+        }
+
+       
+    }
+
+    &.explore-popover {
+        bottom: 140px;
+        right: 16px;
+        @include popover-arrow('right', 'bottom', 24px);
+        &::before {
+            bottom: -8px;
+            transform: translateX(-50%) rotate(133deg);
+        }
+    }
+
+    &.chatbot-popover {
+        bottom: 11px;
+        right: 90px;
+        @include popover-arrow('right', 'bottom', 24px);
+
+        &::before {
+            right: -12px;
+        }
+    }
+}
+
+// Overlay
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}

@@ -1,0 +1,294 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+body .header {
+  height: 80px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: flex-end;
+  background-color: white;
+  position: relative;
+  z-index: 998;
+}
+body .header .menu-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-right: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+body .header .menu-icon span {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+body .header.highlighted,
+body .header .menu-icon.highlighted {
+  z-index: 1002;
+}
+body .header.highlighted {
+  z-index: 1002;
+  background-color: white;
+}
+body .menu-icon.highlighted {
+  transform: scale(1.2);
+  z-index: 1002;
+}
+body .menu-icon.highlighted span {
+  background-color: #012f6d;
+  box-shadow: 0 0 8px rgba(1, 47, 109, 0.5);
+}
+body .search-section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 600px;
+  padding: 0 20px;
+  z-index: 998;
+}
+body .search-section input {
+  width: 100%;
+  padding: 15px 20px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+body .search-section.highlighted {
+  z-index: 1002;
+}
+body .search-section input.highlighted {
+  border: 2px solid #012f6d;
+  box-shadow: 0 0 12px rgba(1, 47, 109, 0.4);
+  transform: scale(1.02);
+  z-index: 1002;
+}
+body .explore {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  position: fixed;
+  bottom: 80px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+body .explore .icon-placeholder {
+  font-size: 20px;
+}
+body .explore.highlighted {
+  border: 2px solid #012f6d;
+  box-shadow: 0 0 12px rgba(1, 47, 109, 0.4);
+  transform: scale(1.15);
+  z-index: 1002;
+}
+body .chatbot {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+body .chatbot .icon-placeholder {
+  font-size: 20px;
+}
+body .chatbot.highlighted {
+  border: 2px solid #012f6d;
+  box-shadow: 0 0 12px rgba(1, 47, 109, 0.4);
+  transform: scale(1.15);
+  z-index: 1002;
+}
+
+.popover {
+  position: fixed;
+  z-index: 1002;
+  display: none;
+  width: 360px;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0;
+  border: 2px solid #012f6d;
+}
+.popover.active {
+  display: block;
+}
+.popover .popover-content {
+  padding: 24px;
+  margin-bottom: 0;
+  background: white;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+.popover .popover-content h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #012f6d;
+  margin-bottom: 14px;
+  line-height: 1.3;
+  letter-spacing: -0.3px;
+}
+.popover .popover-content p {
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+.popover .popover-button {
+  width: 100%;
+  padding: 14px 24px;
+  background: #012f6d;
+  color: white;
+  border: none;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  background: rgb(0.7681818182, 36.1045454545, 83.7318181818);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(1, 47, 109, 0.4);
+}
+.popover .popover-button:hover {
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
+}
+.popover .popover-button:hover::before {
+  left: 100%;
+}
+.popover .popover-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(1, 47, 109, 0.3);
+}
+.popover.menu-popover {
+  top: 67px;
+  right: 20px;
+}
+.popover.menu-popover::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  z-index: 1;
+  right: 24px;
+  transform: rotate(45deg);
+  top: -10px;
+  border-left: 2px solid #012f6d;
+  border-top: 2px solid #012f6d;
+}
+.popover.search-popover {
+  top: calc(50% - 268px);
+  left: 50%;
+  transform: translateX(-50%);
+}
+.popover.search-popover::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  z-index: 1;
+  left: 50%;
+  transform: rotate(45deg);
+  bottom: -11px;
+  border-right: 2px solid #012f6d;
+  border-bottom: 2px solid #012f6d;
+}
+.popover.search-popover::before {
+  transform: translateX(-50%) rotate(45deg);
+}
+.popover.explore-popover {
+  bottom: 140px;
+  right: 16px;
+}
+.popover.explore-popover::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  z-index: 1;
+  bottom: 24px;
+  transform: rotate(45deg);
+  right: 28px;
+  border-right: 2px solid #012f6d;
+  border-top: 2px solid #012f6d;
+}
+.popover.explore-popover::before {
+  bottom: -8px;
+  transform: translateX(-50%) rotate(133deg);
+}
+.popover.chatbot-popover {
+  bottom: 11px;
+  right: 90px;
+}
+.popover.chatbot-popover::before {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: white;
+  z-index: 1;
+  bottom: 24px;
+  transform: rotate(45deg);
+  right: 28px;
+  border-right: 2px solid #012f6d;
+  border-top: 2px solid #012f6d;
+}
+.popover.chatbot-popover::before {
+  right: -12px;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  display: none;
+}
+.overlay.active {
+  display: block;
+}
+
+/*# sourceMappingURL=home.css.map */
