@@ -380,6 +380,10 @@ header h1 {
   .brand-content .content-header h2 {
     font-size: 24px;
   }
+  .brand-content .contact-info-container {
+    flex-direction: column;
+    gap: 10px;
+  }
   .brand-content .content-card {
     padding: 16px;
   }
