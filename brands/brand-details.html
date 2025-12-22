@@ -21,6 +21,9 @@
 
   <!-- Brand Banner Section -->
   <div class="brand-banner-section">
+    <button class="brand-favorite-btn" id="brandFavoriteBtn" title="Save as favorite">
+      <i class="fa fa-heart-o"></i>
+    </button>
     <div class="brand-banner-image">
       <img src="images/brand-banner4.jpg" alt="Brand Banner">
     </div>
@@ -172,6 +175,22 @@
         document.getElementById('content-title').textContent = item.querySelector('span').textContent;
       });
     });
+
+    // Favorite button toggle
+    const favoriteBtn = document.getElementById('brandFavoriteBtn');
+    if (favoriteBtn) {
+      favoriteBtn.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        this.classList.toggle('favorited');
+        if (this.classList.contains('favorited')) {
+          icon.classList.remove('fa-heart-o');
+          icon.classList.add('fa-heart');
+        } else {
+          icon.classList.remove('fa-heart');
+          icon.classList.add('fa-heart-o');
+        }
+      });
+    }
   </script>
 
 </body>

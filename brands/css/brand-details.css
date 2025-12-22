@@ -23,6 +23,56 @@ header h1 {
   background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
   margin-bottom: 10px;
 }
+.brand-banner-section .brand-favorite-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border: none;
+  border-radius: 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+.brand-banner-section .brand-favorite-btn:hover {
+  background: rgb(255, 255, 255);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+.brand-banner-section .brand-favorite-btn i {
+  font-size: 16px;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+.brand-banner-section .brand-favorite-btn .brand-favorite-btn-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: #6b7280;
+  transition: all 0.3s ease;
+}
+.brand-banner-section .brand-favorite-btn:hover i, .brand-banner-section .brand-favorite-btn:hover .brand-favorite-btn-text {
+  color: #db0000;
+}
+.brand-banner-section .brand-favorite-btn.favorited {
+  background: rgba(219, 0, 0, 0.9);
+}
+.brand-banner-section .brand-favorite-btn.favorited i {
+  color: #ffffff;
+}
+.brand-banner-section .brand-favorite-btn.favorited .brand-favorite-btn-text {
+  color: #ffffff;
+}
+.brand-banner-section .brand-favorite-btn.favorited:hover {
+  background: rgb(219, 0, 0);
+}
 .brand-banner-section .brand-banner-image {
   width: 100%;
   height: 100%;
@@ -130,6 +180,18 @@ header h1 {
   .brand-banner-section {
     height: 300px;
   }
+  .brand-banner-section .brand-favorite-btn {
+    padding: 8px 12px;
+    top: 12px;
+    right: 12px;
+    gap: 6px;
+  }
+  .brand-banner-section .brand-favorite-btn i {
+    font-size: 14px;
+  }
+  .brand-banner-section .brand-favorite-btn .brand-favorite-btn-text {
+    font-size: 12px;
+  }
   .brand-banner-section .brand-banner-content {
     gap: 16px;
   }
@@ -157,6 +219,18 @@ header h1 {
 @media (max-width: 480px) {
   .brand-banner-section {
     height: 250px;
+  }
+  .brand-banner-section .brand-favorite-btn {
+    padding: 6px 10px;
+    top: 10px;
+    right: 10px;
+    gap: 4px;
+  }
+  .brand-banner-section .brand-favorite-btn i {
+    font-size: 12px;
+  }
+  .brand-banner-section .brand-favorite-btn .brand-favorite-btn-text {
+    font-size: 11px;
   }
   .brand-banner-section .brand-banner-content {
     gap: 12px;
