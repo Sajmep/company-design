@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/home.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="styles/popup.css">
+
+</head>
+<body>
+
+    <div class="welcome-popup">
+        <div class="welcome-popup-content">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <h1>Company setup wizard</h1>
+            <div class="welcome-popup-contents">
+                <div class="welcome-popup-content-image">
+                <img src="../images/WELCOME.png" alt="Company setup wizard WELCOME IMAGE">
+                </div>
+                <div class="welcome-popup-content-text">
+                    <p>Thanks for your choosing BMH marketplace to power
+                        your online business</p>
+                </div>
+            </div>
+
+            <div class="welcome-popup-buttons">
+                <button class="remind-later-btn" onclick="closePopup()">
+                    <i class="fa fa-clock-o"></i> Remind me later
+                </button>
+                <button class="let-go-btn" onclick="closePopup()">
+                    Let's go <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const popup = document.querySelector('.welcome-popup');
+        
+        function openPopup() {
+            popup.style.display = 'block';
+        }
+
+        function closePopup() {
+            popup.style.display = 'none';
+        }
+
+        // Open popup on page load
+        openPopup();
+    </script>
+      
+</body>
+</html>

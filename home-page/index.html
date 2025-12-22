@@ -22,6 +22,10 @@
         </div>
     </div>
 
+    <button class="reopen-guide-btn" title="Reopen Guide">
+        <i class="fa fa-question-circle"></i>
+    </button>
+
     <div class="search-section">
         <input type="text" placeholder="Search...">
     </div>
@@ -36,6 +40,7 @@
 
     <!-- Popovers moved outside parent containers -->
     <div class="popover menu-popover">
+        <button class="popover-close">&times;</button>
         <div class="popover-content">
             <h3>Explore All BMH Apps</h3>
             <p>Welcome to BMH!
@@ -46,6 +51,7 @@
     </div>
 
     <div class="popover search-popover">
+        <button class="popover-close">&times;</button>
         <div class="popover-content">
             <h3>Search Anything</h3>
             <p>Looking for projects, tenders, vendors, inquiries, or solutions?
@@ -55,6 +61,7 @@
     </div>
 
     <div class="popover explore-popover">
+        <button class="popover-close">&times;</button>
         <div class="popover-content">
             <h3>Explore & Learn</h3>
             <p>Use Explore to discover everything you can do on BMH:
@@ -68,6 +75,7 @@
     </div>
 
     <div class="popover chatbot-popover">
+        <button class="popover-close">&times;</button>
         <div class="popover-content">
             <h3>Chatbot</h3>
             <p>Get instant help and answers to your questions with our AI assistant.</p>
@@ -111,6 +119,22 @@
             }
         }
 
+        function closeAllPopovers() {
+            popovers.forEach(popover => popover.classList.remove('active'));
+            overlay.classList.remove('active');
+            currentIndex = popovers.length; // Set to end so no popover is active
+            updateHighlightedElement();
+        }
+
+        function reopenPopovers() {
+            currentIndex = 0;
+            if (popovers.length > 0) {
+                popovers[0].classList.add('active');
+                overlay.classList.add('active');
+                updateHighlightedElement();
+            }
+        }
+
         // Show first popover on load
         if (popovers.length > 0) {
             popovers[0].classList.add('active');
@@ -134,6 +158,22 @@
                 }
             });
         });
+
+        // Handle Close button clicks
+        document.querySelectorAll('.popover-close').forEach((closeBtn) => {
+            closeBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                closeAllPopovers();
+            });
+        });
+
+        // Handle Reopen button click
+        const reopenBtn = document.querySelector('.reopen-guide-btn');
+        if (reopenBtn) {
+            reopenBtn.addEventListener('click', () => {
+                reopenPopovers();
+            });
+        }
     </script>
 </body>
 </html>
