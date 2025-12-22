@@ -32,6 +32,27 @@ document.addEventListener('DOMContentLoaded', function() {
     window.switchView = function(viewType) {
         showView(viewType);
     };
+
+    // Favorite button toggle functionality
+    function toggleFavorite(button) {
+        const icon = button.querySelector('i');
+        button.classList.toggle('favorited');
+        if (button.classList.contains('favorited')) {
+            icon.classList.remove('fa-heart-o');
+            icon.classList.add('fa-heart');
+        } else {
+            icon.classList.remove('fa-heart');
+            icon.classList.add('fa-heart-o');
+        }
+    }
+
+    // Add event listeners to all favorite buttons
+    document.querySelectorAll('.card-favorite-btn, .list-favorite-btn').forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleFavorite(this);
+        });
+    });
 });
   
 
