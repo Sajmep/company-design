@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Apps Hub</title>
+
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="css/views-container.css">
+    <link rel="stylesheet" href="css/toolbar.css">
+
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+</head>
+
+<body>
+    <!-- Main Content -->
+
+    <!-- Common Page Header -->
+    <div class="toolbar">
+
+        <div class="company-selector" id="companySelector">
+            <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+                <div class="selected-logo" id="selectedLogo">
+                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+                </div>
+                <div class="caret" id="caret">
+                    <i class="fa fa-chevron-down"
+                        style="color: #000000d6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+                </div>
+            </button>
+
+            <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company">
+                <div class="search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                        <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round"></path>
+                        <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+                    </svg>
+                    <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+                </div>
+
+                <!-- Enterprise Section -->
+                <div class="section-group">
+                    <div class="section-heading" onclick="toggleCompanySection(this)">
+                        <h2>Enterprise</h2>
+                        <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="section-content">
+                        <div class="section-actions">
+                            <a href="#" class="combobox-view-all-btn" onclick="viewAllCompanies(); return false;">
+                                <i class="fa fa-list" aria-hidden="true"></i> View All
+                            </a>
+                        </div>
+                        <div class="company form-section">
+                            <div class="checkbox-group">
+                                <div class="section-item active" data-company="SAJMEP"
+                                    onclick="selectCompany('SAJMEP', 'images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png', this)">
+                                    <div class="item-logo">
+                                        <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="SAJMEP"
+                                            width="100%">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4>SAJMEP</h4>
+                                        <span>ID - 123342 243</span>
+                                    </div>
+                                </div>
+
+                                <div class="section-item" data-company="Company A"
+                                    onclick="selectCompany('Company A', 'images/bmh-logo.png', this)">
+                                    <div class="item-logo">
+                                        <img src="../images/bmh-logo.png" alt="Company A" width="100%">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4>Company A</h4>
+                                        <span>ID - 123342 244</span>
+                                    </div>
+                                </div>
+
+                                <div class="section-item" data-company="Company B"
+                                    onclick="selectCompany('Company B', 'images/sellers-logo.png', this)">
+                                    <div class="item-logo">
+                                        <img src="../images/sellers-logo.png" alt="Company B" width="100%">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4>Company B</h4>
+                                        <span>ID - 123342 245</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="combobox-create-btn" onclick="openCreateCompanyModal(); return false;">+
+                            Company</a>
+                    </div>
+                </div>
+
+                <!-- Individual Section -->
+                <div class="section-group">
+                    <div class="section-heading" onclick="toggleCompanySection(this)">
+                        <h2>Individual</h2>
+                        <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="section-content">
+                        <div class="company form-section">
+                            <div class="checkbox-group">
+                                <div class="section-item" data-company="Fazli"
+                                    onclick="selectCompany('Fazli', 'images/user.png', this)">
+                                    <div class="item-avatar">
+                                        <img src="../images/user.png" alt="Fazli" width="100%">
+                                    </div>
+                                    <div class="item-info">
+                                        <h4>Fazli</h4>
+                                        <span>ID - 123342 246</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="toolbar-title">
+            <h2>Apps Hub</h2>
+            <p>Explore apps Based on your needs</p>
+        </div>
+        <div class="toolbar-controls">
+            <div class="toolbar-search">
+                <input type="text" class="toolbar-search-input" placeholder="Search apps...">
+                <i class="fa fa-search toolbar-search-icon"></i>
+                <i class="fa fa-times toolbar-search-close"></i>
+            </div>
+
+            <div class="toolbar-actions">
+
+                <div class="views-toggle">
+                    <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+                        <i class="fa fa-th-large views-toggle-icon"></i>
+                        <i class="fa fa-chevron-down views-toggle-arrow"></i>
+                    </button>
+                    <div class="views-toggle-dropdown" id="viewsDropdown">
+                        <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard View</span>
+                        </div>
+                        <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                            <i class="fa fa-th-large"></i>
+                            <span>Card View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                            <i class="fa fa-list"></i>
+                            <span>List View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                            <i class="fa fa-calendar"></i>
+                            <span>Calendar View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                            <i class="fa fa-map"></i>
+                            <span>Map View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toolbar-group-by">
+                    <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                        <i class="fa fa-sitemap"></i>
+                        <span class="btn-text">Group By</span>
+                    </button>
+                    <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+                        <!-- <div class="toolbar-group-by-item" data-value="status">
+              <i class="fa fa-flag"></i>
+              Status
+            </div>
+            <div class="toolbar-group-by-item" data-value="category">
+              <i class="fa fa-tags"></i>
+              Category
+            </div>
+            <div class="toolbar-group-by-item" data-value="location">
+              <i class="fa fa-map-marker"></i>
+              Location
+            </div> -->
+                    </div>
+                </div>
+
+                <button class="toolbar-filter-btn" title="Filter">
+                    <i class="fa fa-filter"></i>
+                    <span class="btn-text">Filter</span>
+                </button>
+
+
+                <button class="toolbar-primary-btn" title="Add App">
+                    <i class="fa fa-plus"></i>
+                    <span class="btn-text">Add</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="views-container">
+        <!-- Card View -->
+        <div class="bmh-card-view">
+
+            <div class="bmh-card">
+                <div class="app-actions">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-heart"></i>
+                    <div class="num-views-container">
+                        <i class="fa fa-eye"></i>
+                        <span class="views-count">1.2k</span>
+                    </div>
+                </div>
+                <div class="app-icon">
+                    <img src="images/overview-icon.png" alt="Building-Management-icon">
+                </div>
+                <div class="app-name">Building Management</div>
+                <div class="app-type">Facility Management</div>
+                <div class="app-desc">
+                    Building Management System is a system that manages the building and its assets.
+                </div>
+            </div>
+
+            <div class="bmh-card">
+                <div class="app-actions">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-heart"></i>
+                    <div class="num-views-container">
+                        <i class="fa fa-eye"></i>
+                        <span class="views-count">1.2k</span>
+                    </div>
+                </div>
+                <div class="app-icon">
+                    <img src="images/settings.jpg" alt="SEO-icon">
+                </div>
+                <div class="app-name">SEO Management</div>
+                <div class="app-type">SEO Optimization</div>
+                <div class="app-desc">
+                    Manage your SEO campaigns and track your SEO performance.
+                </div>
+            </div>
+
+            <div class="bmh-card">
+                <div class="app-actions">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-heart"></i>
+                    <div class="num-views-container">
+                        <i class="fa fa-eye"></i>
+                        <span class="views-count">1.2k</span>
+                    </div>
+                </div>
+                <div class="app-icon">
+                    <img src="images/sellers-logo.png" alt="Vendors-icon">
+                </div>
+                <div class="app-name">RFQs</div>
+                <div class="app-type">Quote Management</div>
+                <div class="app-desc">
+                    Create, manage, and track RFQs from vendors to streamline your procurement process.
+                </div>
+            </div>
+
+            <div class="bmh-card">
+                <div class="app-actions">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-heart"></i>
+                    <div class="num-views-container">
+                        <i class="fa fa-eye"></i>
+                        <span class="views-count">1.2k</span>
+                    </div>
+                </div>
+                <div class="app-icon">
+                    <img src="images/sellers-logo.png" alt="Vendors-icon">
+                </div>
+                <div class="app-name">Vendors Management</div>
+                <div class="app-type">Business Operations</div>
+                <div class="app-desc">
+                    Vendors Management System is a system that manages the vendors and its assets.
+                </div>
+            </div>
+
+            <div class="bmh-card">
+                <div class="app-actions">
+                    <i class="fa fa-ellipsis-v"></i>
+                    <i class="fa fa-heart"></i>
+                    <div class="num-views-container">
+                        <i class="fa fa-eye"></i>
+                        <span class="views-count">1.2k</span>
+                    </div>
+                </div>
+                <div class="app-icon">
+                    <img src="images/tenders-hub.png" alt="Tenders-icon">
+                </div>
+                <div class="app-name">Tenders</div>
+                <div class="app-type">Procurement Platform</div>
+                <div class="app-desc">
+                    Tenders Management System is a system that manages the tenders and its assets.
+                </div>
+            </div>
+
+        </div>
+        <!-- Card View End -->
+
+        <!-- List View -->
+        <div class="bmh-list-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span></h2>
+        </div>
+        <!-- List View End -->
+
+        <!-- Dashboard View -->
+        <div class="bmh-dashboard-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span>
+            </h2>
+        </div>
+        <!-- Dashboard View End -->
+
+        <!-- Calendar View -->
+        <div class="bmh-calendar-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span></h2>
+        </div>
+        <!-- Calendar View End -->
+
+        <!-- Map View -->
+        <div class="bmh-map-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+        </div>
+        <!-- Map View End -->
+
+    </div>
+    <!-- Main Content End -->
+
+    <script src="scripts/toolbar.js"></script>
+    <script src="scripts/views-container.js"></script>
+</body>
+
+</html>
