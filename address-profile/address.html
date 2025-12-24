@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Your Addresses</title>
+    <link rel="stylesheet" href="styles/address.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+</head>
+<body>
+    <header>
+        <button class="add-new-address-btn" onclick="openPopup()">add new</button>
+    </header>
+    <div class="addresses-container">
+        <h1>Your Addresses</h1>
+        
+        <div class="addresses-grid">
+            <div class="address-box">
+                <div class="address-header">
+                    <span class="default-badge">Default</span>
+                </div>
+                <div class="address-content">
+                    <p><strong>Name:</strong> Office Address</p>
+                    <p><strong>Street:</strong> Olaya Street</p>
+                    <p><strong>Building/Company/Floor:</strong> Sakhrat Al Janob Contracting Co Sajmep 3rd floor</p>
+                    <p><strong>City/Region:</strong> Riyadh Riyadh Al Olaya</p>
+                    <p><strong>Country:</strong> Saudi Arabia</p>
+                    <p><strong>Phone number:</strong> +966530562962</p>
+                </div>
+                <div class="address-actions">
+                    <a href="#" class="action-link">Edit</a>
+                    <span class="divider">|</span>
+                    <a href="#" class="action-link">Remove</a>
+                </div>
+            </div>
+
+            <div class="address-box">
+                <div class="address-content">
+                    <p><strong>Name:</strong> Home Address</p>
+                    <p><strong>Street:</strong> Al-Faisaliyah Street</p>
+                    <p><strong>Building/Company/Floor:</strong> Al-Faisaliyah Tower 10th floor</p>
+                    <p><strong>City/Region:</strong> Riyadh Riyadh Al Faisaliyah</p>
+                    <p><strong>Country:</strong> Saudi Arabia</p>
+                    <p><strong>Phone number:</strong> +966530568963</p>
+                </div>
+                <div class="address-actions">
+                    <a href="#" class="action-link">Edit</a>
+                    <span class="divider">|</span>
+                    <a href="#" class="action-link">Remove</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Popup -->
+    <div class="popup-overlay" id="popupOverlay" onclick="closePopup()">
+        <div class="popup-content" onclick="event.stopPropagation()">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <h2>Add a new address</h2>
+            
+            <form>
+                <div>
+                    <label>Country/region</label>
+                    <select>
+                        <option>Saudi Arabia</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label>Name of the address</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label>Mobile number</label>
+                    <div>
+                        <select>
+                            <option>🇸🇦 +966</option>
+                        </select>
+                        <input type="text" placeholder="e.g. 05XXXXXXXX">
+                    </div>
+                    <small>May be used to assist delivery</small>
+                </div>
+
+                <div>
+                    <label>Street name</label>
+                    <input type="text" placeholder="e.g. Al Oruba Street">
+                </div>
+
+                <div>
+                    <label>Building name/no</label>
+                    <input type="text" placeholder="e.g. Princess Tower">
+                </div>
+
+                <div>
+                    <label>City</label>
+                    <input type="text" placeholder="E.g. Riyadh, Jeddah, Makkah, Al Ahsa">
+                    <small>Can't find your city? Try a different spelling</small>
+                </div>
+
+                <div>
+                    <label>Area</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label>Province</label>
+                    <input type="text">
+                </div>
+
+                <div>
+                    <label>Nearest landmark</label>
+                    <input type="text" placeholder="e.g. Galleria Mall">
+                </div>
+
+                <div>
+                    <strong>Add delivery instructions</strong>
+                    <div>
+                        <label>Address type</label>
+                        <div>
+                            <input type="radio" name="addressType" value="home">
+                            <label>Home (7am-9pm, all days)</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="addressType" value="office">
+                            <label>Office (9am-6pm, Weekdays)</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <input type="checkbox" id="defaultAddress">
+                    <label for="defaultAddress">Use as my default address</label>
+                </div>
+
+                <button type="submit">Add address</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openPopup() {
+            document.getElementById('popupOverlay').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
+

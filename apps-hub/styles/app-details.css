@@ -1,0 +1,286 @@
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 40px;
+  color: #111;
+}
+
+.app-details-container {
+  display: flex;
+  gap: 30px;
+  padding: 30px;
+  max-width: 1400px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+/* Left Column - App Details Guide */
+.app-details-column {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.app-details-header {
+  display: flex;
+  gap: 20px;
+  padding-bottom: 21px;
+}
+
+.section-navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.nav-btn {
+  padding: 4px 12px;
+  background: #ffffff;
+  border: 1px solid #012f6d;
+  border-radius: 13px;
+  text-decoration: none;
+  color: #012f6d;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.nav-btn:hover {
+  background: #012f6d;
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(1, 47, 109, 0.2);
+}
+.nav-btn:active {
+  transform: translateY(0);
+}
+
+.app-details-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  padding: 12px;
+  border: 1px solid #012f6d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.app-details-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.app-details-title h1 {
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 8px 0;
+}
+.app-details-title .app-type {
+  font-size: 14px;
+  color: #012f6d;
+  font-weight: 600;
+  margin: 0;
+}
+
+.guide-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.docs-links {
+  display: flex;
+  gap: 12px;
+}
+
+/* Reviews Section */
+.reviews-summary {
+  margin-bottom: 30px;
+}
+
+.rating-score {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+.rating-stars {
+  margin-bottom: 8px;
+}
+.rating-stars i {
+  color: #e6bb01;
+  font-size: 20px;
+  margin: 0 2px;
+}
+
+.rating-count {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.reviewer-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 4px;
+}
+
+.review-date {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.review-content p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+}
+
+/* Right Column - Subscribe Flow */
+.subscribe-column {
+  width: 400px;
+  flex-shrink: 0;
+}
+
+.subscribe-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 20px;
+}
+.subscribe-card h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 30px 0;
+  text-align: center;
+  border-bottom: 3px solid #e6bb01;
+  padding-bottom: 12px;
+}
+
+.subscription-plan {
+  border: 2px solid #012f6d;
+  border-radius: 12px;
+  padding: 30px;
+  background: #f8f9ff;
+  margin-bottom: 30px;
+}
+
+.plan-price {
+  text-align: center;
+  margin-bottom: 24px;
+}
+.plan-price .currency {
+  font-size: 24px;
+  color: #6b7280;
+  vertical-align: top;
+}
+.plan-price .amount {
+  font-size: 48px;
+  font-weight: 700;
+  color: #000000;
+}
+.plan-price .period {
+  font-size: 18px;
+  color: #6b7280;
+}
+
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+.plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  color: #374151;
+}
+.plan-features li i {
+  color: #012f6d;
+  font-size: 14px;
+}
+
+.subscribe-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #db0000;
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(219, 0, 0, 0.3);
+  border: 2px solid #000000;
+}
+.subscribe-btn:hover {
+  background: #b80000;
+  box-shadow: 0 6px 16px rgba(219, 0, 0, 0.4);
+  transform: translateY(-2px);
+}
+
+.payment-info {
+  padding-top: 20px;
+  border-top: 1px solid #e5e7eb;
+  text-align: center;
+}
+.payment-info p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #6b7280;
+  margin: 8px 0;
+}
+.payment-info p i {
+  color: #e6bb01;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .app-details-container {
+    flex-direction: column;
+  }
+  .subscribe-column {
+    width: 100%;
+  }
+  .subscribe-card {
+    position: static;
+  }
+}
+@media (max-width: 768px) {
+  .app-details-container {
+    padding: 20px;
+  }
+  .app-details-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+/*# sourceMappingURL=app-details.css.map */
