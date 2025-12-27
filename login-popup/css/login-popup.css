@@ -1,0 +1,231 @@
+:root {
+  --yellow: #e6bb01;
+  --muted: #9aa3ad;
+  --input-bg: #eceff1;
+  --card-bg: #ffffff;
+  --radius: 20px;
+  --shadow: 0 18px 30px rgba(16, 24, 40, 0.15);
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: linear-gradient(180deg, #f6f7f9, #fff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  color: #12202b;
+}
+
+/* Open button */
+.open-btn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  background: var(--yellow);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Overlay and modal */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.overlay.show {
+  display: flex;
+}
+
+.login-modal {
+  width: 820px;
+  max-width: 92%;
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  /* Left area with logo */
+}
+.login-modal-left {
+  width: 46%;
+  min-width: 320px;
+  padding: 36px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-right: 1px solid rgba(0, 0, 0, 0.04);
+  background: linear-gradient(180deg, #fff, #fbfbfb);
+}
+.login-modal-left .brand-box {
+  width: 95%;
+  height: 95%;
+  border-radius: 16px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.login-modal-left .brand-box img {
+  max-width: 90%;
+  height: auto;
+  display: block;
+}
+.login-modal {
+  /* Right form */
+}
+.login-modal-right {
+  flex: 1;
+  padding: 28px 36px;
+}
+.login-modal-right .title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.login-modal-right .subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 18px;
+}
+.login-modal-right .field {
+  background: var(--input-bg);
+  padding: 12px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.login-modal-right .field input {
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+.login-modal-right .checkbox-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 8px 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.login-modal-right .login-btn {
+  display: inline-block;
+  color: #fff;
+  background: var(--yellow);
+  border-radius: 22px;
+  padding: 10px 36px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 12px;
+  width: 100%;
+}
+.login-modal-right .divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.login-modal-right .divider .line {
+  height: 1px;
+  background: #e7e9ec;
+  flex: 1;
+}
+.login-modal-right .social {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.login-modal-right .social .s {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background: #fff;
+  border: 1px solid #e8eaec;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.login-modal-right .social .s:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.login-modal-right .social .s img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.login-modal-right .social .s .google-logo {
+  transform: scale(0.8);
+}
+.login-modal-right .signup-link {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 13px;
+}
+.login-modal-right .signup-link .signup-text {
+  color: #4a5568;
+}
+.login-modal-right .signup-link .signup-link-text {
+  color: #2563eb;
+  text-decoration: underline;
+  margin-left: 4px;
+  transition: color 0.2s;
+}
+.login-modal-right .signup-link .signup-link-text:hover {
+  color: #1d4ed8;
+}
+.login-modal {
+  /* Responsive */
+}
+@media (max-width: 760px) {
+  .login-modal {
+    flex-direction: column;
+  }
+  .login-modal-left {
+    width: 100%;
+    border-right: 0;
+    padding: 22px;
+  }
+  .login-modal-left .brand-box {
+    width: 170px;
+    height: 170px;
+  }
+  .login-modal-right {
+    padding: 22px;
+  }
+}
+
+/* Small icons styles */
+.icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+}
+
+/*# sourceMappingURL=login-popup.css.map */
