@@ -200,26 +200,6 @@ body {
 .login-modal-right .signup-link .signup-link-text:hover {
   color: #1d4ed8;
 }
-.login-modal {
-  /* Responsive */
-}
-@media (max-width: 760px) {
-  .login-modal {
-    flex-direction: column;
-  }
-  .login-modal-left {
-    width: 100%;
-    border-right: 0;
-    padding: 22px;
-  }
-  .login-modal-left .brand-box {
-    width: 170px;
-    height: 170px;
-  }
-  .login-modal-right {
-    padding: 22px;
-  }
-}
 
 /* Small icons styles */
 .icon {
