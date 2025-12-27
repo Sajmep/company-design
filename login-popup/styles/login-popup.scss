@@ -220,25 +220,7 @@ body {
         }
     }
 
-    /* Responsive */
-    @media (max-width: 760px) {
-        flex-direction: column;
-
-        &-left {
-            width: 100%;
-            border-right: 0;
-            padding: 22px;
-
-            .brand-box {
-                width: 170px;
-                height: 170px;
-            }
-        }
-
-        &-right {
-            padding: 22px;
-        }
-    }
+  
 }
 
 /* Small icons styles */
