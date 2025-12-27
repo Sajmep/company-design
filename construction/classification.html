@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Classification</title>
+    <link rel="stylesheet" href="styles/classification.css">
+</head>
+<body>
+    <div class="classification-container">
+        <!-- Left Side - Classification Systems -->
+        <div class="classification-sidebar">
+            <div class="header-controls">
+                <h2>Construction Classification</h2>
+                <select class="version-dropdown">
+                    <option>Version 2024</option>
+                    <option>Version 2020</option>
+                    <option>Version 2016</option>
+                </select>
+            </div>
+            <div class="classification-list">
+                <div class="classification-item">
+                    <h3 onclick="toggleItem(this)">MasterFormat <span class="toggle-icon">▼</span></h3>
+                    <div class="levels-list" style="display: none;">
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 1 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">01 - General Requirements</div>
+                                <div class="division-item">02 - Existing Conditions</div>
+                                <div class="division-item">03 - Concrete</div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 2 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">04 - Masonry</div>
+                                <div class="division-item">05 - Metals</div>
+                                <div class="division-item">06 - Wood, Plastics, and Composites</div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 3 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">07 - Thermal and Moisture Protection</div>
+                                <div class="division-item">08 - Openings</div>
+                                <div class="division-item">09 - Finishes</div>
+                                <div class="division-item">10 - Specialties</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="classification-item">
+                    <h3 onclick="toggleItem(this)">UniFormat <span class="toggle-icon">▼</span></h3>
+                    <div class="levels-list" style="display: none;">
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 1 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">A - Substructure</div>
+                                <div class="division-item">B - Shell</div>
+                                <div class="division-item">C - Interiors</div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 2 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">D - Services</div>
+                                <div class="division-item">E - Equipment & Furnishings</div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 3 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">F - Special Construction</div>
+                                <div class="division-item">G - Building Sitework</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="classification-item">
+                    <h3 onclick="toggleItem(this)">OmniClass <span class="toggle-icon">▼</span></h3>
+                    <div class="levels-list" style="display: none;">
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 1 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">11 - Entities</div>
+                                <div class="division-item">21 - Elements</div>
+                                <div class="division-item">23 - Products</div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 2 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">31 - Phases</div>
+                                <div class="division-item">32 - Services</div>
+                                <div class="division-item">33 - Disciplines</div>
+                            </div>
+                        </div>
+                        <div class="level-item">
+                            <h4 onclick="toggleItem(this)">Level 3 <span class="toggle-icon">▼</span></h4>
+                            <div class="divisions-list" style="display: none;">
+                                <div class="division-item">41 - Materials</div>
+                                <div class="division-item">45 - Tools</div>
+                                <div class="division-item">49 - Properties</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side - Products -->
+        <div class="products-section">
+            <h2>Products</h2>
+            <div class="products-grid">
+                <div class="product-box">
+                    <div class="product-image">
+                        <img src="../images/product-placeholder.png" alt="Product" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-info">
+                        <h4>Product Name</h4>
+                        <p>Product description</p>
+                    </div>
+                </div>
+
+                <div class="product-box">
+                    <div class="product-image">
+                        <img src="../images/product-placeholder.png" alt="Product" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-info">
+                        <h4>Product Name</h4>
+                        <p>Product description</p>
+                    </div>
+                </div>
+
+                <div class="product-box">
+                    <div class="product-image">
+                        <img src="../images/product-placeholder.png" alt="Product" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-info">
+                        <h4>Product Name</h4>
+                        <p>Product description</p>
+                    </div>
+                </div>
+
+                <div class="product-box">
+                    <div class="product-image">
+                        <img src="../images/product-placeholder.png" alt="Product" onerror="this.style.display='none'">
+                    </div>
+                    <div class="product-info">
+                        <h4>Product Name</h4>
+                        <p>Product description</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleItem(element) {
+            const nextSibling = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            
+            if (nextSibling && nextSibling.classList.contains('levels-list') || nextSibling.classList.contains('divisions-list')) {
+                if (nextSibling.style.display === 'none') {
+                    nextSibling.style.display = 'block';
+                    icon.textContent = '▲';
+                } else {
+                    nextSibling.style.display = 'none';
+                    icon.textContent = '▼';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
+
