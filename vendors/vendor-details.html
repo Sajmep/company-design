@@ -16,26 +16,26 @@
 
 <body>
 
-    <!-- Common Page Header -->
-    <div class="page-header">
-      <!-- Breadcrumb -->
-      <nav class="breadcrumb" aria-label="Breadcrumb">
-        <ol>
-          <li>
-            <a href="#" title="Enterprise">Home</a>
-          </li>
-          <li>
-            <a href="vendor.html" title="Vendors">
+  <!-- Common Page Header -->
+  <div class="page-header">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li>
+          <a href="#" title="Enterprise">Home</a>
+        </li>
+        <li>
+          <a href="vendor.html" title="Vendors">
             <span title="Vendors">Vendors</span>
-            </a>
-          </li>
-          <li>
-            <span aria-current="page" >Sakhrat Al Janoub Contracting Co.</span>
-          </li>
-        </ol>
-      </nav>
-      <!-- breadcrumb end -->
-    </div>
+          </a>
+        </li>
+        <li>
+          <span aria-current="page">Sakhrat Al Janoub Contracting Co.</span>
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumb end -->
+  </div>
 
   <!-- Main Content -->
   <main class="content page" id="page">
@@ -44,7 +44,7 @@
       <div class="vendor-banner-background">
         <div class="vendor-banner-overlay"></div>
       </div>
-      
+
       <div class="vendor-banner-content">
         <div class="vendor-banner-left">
           <div class="vendor-banner-image">
@@ -53,11 +53,11 @@
               <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
             </div>
           </div>
-          
+
           <div class="vendor-banner-info">
             <h1 class="vendor-company-name">Sakhrat Al Janoub Contracting Co.</h1>
             <p class="vendor-company-slogan">"Your Trusted Construction Partner"</p>
-            
+
             <div class="vendor-banner-meta">
               <div class="vendor-meta-item">
                 <i class="fa fa-map-marker"></i>
@@ -79,19 +79,22 @@
 
             <div class="vendor-banner-status">
               <span class="vendor-status-badge online">Online</span>
-              <span class="vendor-save-btn" title="Save as favorite"> <i class="fa fa-heart"></i> <span class="vendor-save-btn-text">Save as favorite</span></span>
+              <button class="vendor-save-btn" id="vendorSaveBtn" title="Save as favorite">
+                <i class="fa fa-heart-o"></i>
+                <span class="vendor-save-btn-text">Save as favorite</span>
+              </button>
             </div>
 
           </div>
         </div>
-        
+
         <div class="vendor-banner-right">
           <!-- Mobile Dropdown Button -->
           <button class="vendor-actions-dropdown-btn" onclick="toggleActionsDropdown()">
             <i class="fa fa-ellipsis-v"></i>
             <span class="vendor-actions-dropdown-btn-text">Actions</span>
           </button>
-          
+
           <!-- Actions Dropdown Menu (Mobile) -->
           <div class="vendor-actions-dropdown" id="actionsDropdown">
             <button class="vendor-action-btn primary" onclick="createRFQ()">
@@ -115,7 +118,7 @@
               Follow
             </button>
           </div>
-          
+
           <!-- Desktop Actions (Hidden on Mobile) -->
           <div class="vendor-banner-actions">
             <button class="vendor-action-btn primary" onclick="createRFQ()">
@@ -139,7 +142,7 @@
               Follow
             </button>
           </div>
-          
+
           <div class="vendor-banner-stats">
             <div class="vendor-stat-item">
               <div class="vendor-stat-number">10</div>
@@ -183,7 +186,8 @@
             <i class="fa fa-building"></i>
             <span>Shop / Branches</span>
           </button>
-          <button class="vendor-tab-btn" data-tab="gallery" style="border-radius: 0 0 12px 12px;" onclick="closeVendorDetailsSidebar()">
+          <button class="vendor-tab-btn" data-tab="gallery" style="border-radius: 0 0 12px 12px;"
+            onclick="closeVendorDetailsSidebar()">
             <i class="fa fa-image"></i>
             <span>Gallery</span>
           </button>
@@ -191,92 +195,95 @@
       </div>
 
       <div class="vendor-details-content">
-        
-         <div class="vendor-tab-content active" id="about">
-           <h2>About Sakhrat Al Janoub Contracting Co.</h2>
-           
-           <div class="about-hero-section">
-             <div class="about-hero-content">
-               <div class="about-hero-text">
-                 <h3>"Your Trusted Construction Partner"</h3>
-                 <p class="about-description">
-                   Sakhrat Al Janoub Contracting Co. is a leading construction company specializing in road infrastructure, 
-                   building design, and comprehensive construction solutions. With over 6 years of experience, we have 
-                   established ourselves as a reliable partner in the Saudi construction industry.
-                 </p>
-                 <div class="about-highlights">
-                   <div class="highlight-item">
-                     <i class="fa fa-award"></i>
-                     <span>6+ Years Experience</span>
-                   </div>
-                   <div class="highlight-item">
-                     <i class="fa fa-users"></i>
-                     <span>1-10 Employees</span>
-                   </div>
-                   <div class="highlight-item">
-                     <i class="fa fa-map-marker"></i>
-                     <span>Riyadh, Saudi Arabia</span>
-                   </div>
-                 </div>
-               </div>
-               <div class="about-hero-image">
-                 <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Overview">
-                 <div class="about-image-overlay">
-                   <div class="about-status-indicator online">
-                     <i class="fa fa-circle"></i>
-                     <span>Active</span>
-                   </div>
-                 </div>
-               </div>
-             </div>
-           </div>
 
-           <div class="about-sections">
-             <div class="about-section">
-               <div class="about-section-header">
-                 <i class="fa fa-star"></i>
-                 <h3>Our Mission</h3>
-               </div>
-               <p>To deliver exceptional construction services that exceed client expectations while maintaining the highest standards of quality, safety, and innovation in every project we undertake.</p>
-             </div>
+        <div class="vendor-tab-content active" id="about">
+          <h2>About Sakhrat Al Janoub Contracting Co.</h2>
 
-             <div class="about-section">
-               <div class="about-section-header">
-                 <i class="fa fa-eye"></i>
-                 <h3>Our Vision</h3>
-               </div>
-               <p>To become the most trusted and preferred construction partner in Saudi Arabia, known for our commitment to excellence, sustainability, and client satisfaction.</p>
-             </div>
+          <div class="about-hero-section">
+            <div class="about-hero-content">
+              <div class="about-hero-text">
+                <h3>"Your Trusted Construction Partner"</h3>
+                <p class="about-description">
+                  Sakhrat Al Janoub Contracting Co. is a leading construction company specializing in road
+                  infrastructure,
+                  building design, and comprehensive construction solutions. With over 6 years of experience, we have
+                  established ourselves as a reliable partner in the Saudi construction industry.
+                </p>
+                <div class="about-highlights">
+                  <div class="highlight-item">
+                    <i class="fa fa-award"></i>
+                    <span>6+ Years Experience</span>
+                  </div>
+                  <div class="highlight-item">
+                    <i class="fa fa-users"></i>
+                    <span>1-10 Employees</span>
+                  </div>
+                  <div class="highlight-item">
+                    <i class="fa fa-map-marker"></i>
+                    <span>Riyadh, Saudi Arabia</span>
+                  </div>
+                </div>
+              </div>
+              <div class="about-hero-image">
+                <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Overview">
+                <div class="about-image-overlay">
+                  <div class="about-status-indicator online">
+                    <i class="fa fa-circle"></i>
+                    <span>Active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-             <div class="about-section">
-               <div class="about-section-header">
-                 <i class="fa fa-heart"></i>
-                 <h3>Our Values</h3>
-               </div>
-               <div class="values-grid">
-                 <div class="value-item">
-                   <i class="fa fa-shield"></i>
-                   <span>Quality</span>
-                 </div>
-                 <div class="value-item">
-                   <i class="fa fa-handshake-o"></i>
-                   <span>Integrity</span>
-                 </div>
-                 <div class="value-item">
-                   <i class="fa fa-lightbulb-o"></i>
-                   <span>Innovation</span>
-                 </div>
-                 <div class="value-item">
-                   <i class="fa fa-users"></i>
-                   <span>Teamwork</span>
-                 </div>
-               </div>
-             </div>
-           </div>
-         </div>
+          <div class="about-sections">
+            <div class="about-section">
+              <div class="about-section-header">
+                <i class="fa fa-star"></i>
+                <h3>Our Mission</h3>
+              </div>
+              <p>To deliver exceptional construction services that exceed client expectations while maintaining the
+                highest standards of quality, safety, and innovation in every project we undertake.</p>
+            </div>
+
+            <div class="about-section">
+              <div class="about-section-header">
+                <i class="fa fa-eye"></i>
+                <h3>Our Vision</h3>
+              </div>
+              <p>To become the most trusted and preferred construction partner in Saudi Arabia, known for our commitment
+                to excellence, sustainability, and client satisfaction.</p>
+            </div>
+
+            <div class="about-section">
+              <div class="about-section-header">
+                <i class="fa fa-heart"></i>
+                <h3>Our Values</h3>
+              </div>
+              <div class="values-grid">
+                <div class="value-item">
+                  <i class="fa fa-shield"></i>
+                  <span>Quality</span>
+                </div>
+                <div class="value-item">
+                  <i class="fa fa-handshake-o"></i>
+                  <span>Integrity</span>
+                </div>
+                <div class="value-item">
+                  <i class="fa fa-lightbulb-o"></i>
+                  <span>Innovation</span>
+                </div>
+                <div class="value-item">
+                  <i class="fa fa-users"></i>
+                  <span>Teamwork</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="vendor-tab-content" id="company-details">
           <h2>Company Details</h2>
-          
+
           <div class="company-info-section">
             <div class="company-info-grid">
               <div class="company-info-item">
@@ -331,12 +338,12 @@
                 <div class="company-info-label">Operating Years</div>
                 <div class="company-info-value">6 years, 4 months, 9 days</div>
               </div>
-            </div>          
+            </div>
           </div>
         </div>
         <div class="vendor-tab-content" id="contact-details">
           <h2>Contact Details</h2>
-          
+
           <div class="contact-details-section">
             <div class="contact-info-grid">
               <div class="contact-info-card">
@@ -413,7 +420,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="social-item">
                       <div class="social-icon twitter">
                         <i class="fa fa-twitter"></i>
@@ -426,7 +433,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="social-item">
                       <div class="social-icon facebook">
                         <i class="fa fa-facebook"></i>
@@ -439,7 +446,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="social-item">
                       <div class="social-icon instagram">
                         <i class="fa fa-instagram"></i>
@@ -452,7 +459,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="social-item">
                       <div class="social-icon whatsapp">
                         <i class="fa fa-whatsapp"></i>
@@ -488,7 +495,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="ecommerce-item">
                       <div class="ecommerce-icon amazon">
                         <i class="fa fa-amazon"></i>
@@ -501,7 +508,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="ecommerce-item">
                       <div class="ecommerce-icon noon">
                         <i class="fa fa-sun-o"></i>
@@ -514,7 +521,7 @@
                         <i class="fa fa-external-link"></i>
                       </a>
                     </div>
-                    
+
                     <div class="ecommerce-item">
                       <div class="ecommerce-icon souq">
                         <i class="fa fa-shopping-cart"></i>
@@ -661,23 +668,26 @@
         </div>
         <div class="vendor-tab-content" id="area-of-expertise">
           <h2>Area of Expertise</h2>
-          
+
           <div class="expertise-tabs">
             <button class="expertise-tab-btn active" data-expertise-tab="products">Products</button>
             <button class="expertise-tab-btn" data-expertise-tab="services">Services</button>
             <button class="expertise-tab-btn" data-expertise-tab="brands">Brands</button>
           </div>
-          
+
           <div class="expertise-tab-content active" id="expertise-products">
-            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h3>
+            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                soon!</span></h3>
           </div>
-          
+
           <div class="expertise-tab-content" id="expertise-services">
-            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h3>
+            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                soon!</span></h3>
           </div>
-          
+
           <div class="expertise-tab-content" id="expertise-brands">
-            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h3>
+            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                soon!</span></h3>
           </div>
         </div>
         <div class="vendor-tab-content" id="products">
@@ -691,11 +701,12 @@
         </div>
         <div class="vendor-tab-content" id="shop-branches">
           <h2>Shop / Branches</h2>
-          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h3>
+          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+              soon!</span></h3>
         </div>
         <div class="vendor-tab-content" id="gallery">
           <h2>Gallery</h2>
-          
+
           <div class="gallery-section">
             <div class="gallery-tabs">
               <!-- Gallery Tabs -->
@@ -720,7 +731,7 @@
                 <span>360 Images</span>
               </button>
             </div>
-            
+
             <div class="gallery-content">
 
               <div class="gallery-tab-content active" id="gallery-all">
@@ -729,7 +740,8 @@
                     <img src="../images/gallery1.jpg">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
-                      <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery1')">
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery1')">
                         <i class="fa fa-comment"></i>
                       </button>
                       <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery1')">
@@ -743,7 +755,8 @@
                     <img src="../images/gallery4.jpg" alt="">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
-                      <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery4')">
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery4')">
                         <i class="fa fa-comment"></i>
                       </button>
                       <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery4')">
@@ -757,7 +770,8 @@
                     <img src="../images/gallery3.jpg" alt="">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
-                      <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery3')">
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery3')">
                         <i class="fa fa-comment"></i>
                       </button>
                       <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery3')">
@@ -771,7 +785,8 @@
                     <img src="../images/gallery2.jpg" alt="">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
-                      <button class="gallery-comment-btn" onclick="event.stopPropagation(); openCommentModal('gallery2')">
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery2')">
                         <i class="fa fa-comment"></i>
                       </button>
                       <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery2')">
@@ -800,7 +815,7 @@
 
               <div class="gallery-tab-content" id="gallery-images">
                 <div class="gallery-grid">
-                  <div class="gallery-item" >
+                  <div class="gallery-item">
                     <img src="../images/gallery1.jpg">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
@@ -821,7 +836,7 @@
                     </div>
                     <div class="gallery-caption">Building Infrastructure</div>
                   </div>
-                  <div class="gallery-item" >
+                  <div class="gallery-item">
                     <img src="../images/gallery1.jpg">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
@@ -842,7 +857,7 @@
                     </div>
                     <div class="gallery-caption">Project Progress Update</div>
                   </div>
-                  <div class="gallery-item" >
+                  <div class="gallery-item">
                     <img src="../images/gallery1.jpg">
                     <div class="gallery-overlay">
                       <i class="fa fa-search-plus"></i>
@@ -860,448 +875,454 @@
               </div>
 
               <div class="gallery-tab-content" id="gallery-videos">
-               <span style="font-size: 20px; font-weight: 600; color: #9885d1;text-decoration: underline;">Coming Soon</span>
+                <span style="font-size: 20px; font-weight: 600; color: #9885d1;text-decoration: underline;">Coming
+                  Soon</span>
               </div>
-              
+
               <div class="gallery-tab-content" id="gallery-albums">
                 <!--  <div class="albums-grid"> -->
-                  <div class="album-item">
-                    <div class="album-cover">
-                      <img src="../images/vendor.png" alt="Project Gallery">
-                      <div class="album-overlay">
-                        <i class="fa fa-folder-open"></i>
-                      </div>
-                    </div>
-                    <div class="album-info">
-                      <h3>Project Gallery</h3>
-                      <p>12 photos</p>
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/vendor.png" alt="Project Gallery">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
                     </div>
                   </div>
-                  
-                  <div class="album-item">
-                    <div class="album-cover">
-                      <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Office Photos">
-                      <div class="album-overlay">
-                        <i class="fa fa-folder-open"></i>
-                      </div>
-                    </div>
-                    <div class="album-info">
-                      <h3>Office Photos</h3>
-                      <p>8 photos</p>
+                  <div class="album-info">
+                    <h3>Project Gallery</h3>
+                    <p>12 photos</p>
+                  </div>
+                </div>
+
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Office Photos">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
                     </div>
                   </div>
-                  
-                  <div class="album-item">
-                    <div class="album-cover">
-                      <img src="../images/vendor.png" alt="Team Photos">
-                      <div class="album-overlay">
-                        <i class="fa fa-folder-open"></i>
-                      </div>
-                    </div>
-                    <div class="album-info">
-                      <h3>Team Photos</h3>
-                      <p>15 photos</p>
+                  <div class="album-info">
+                    <h3>Office Photos</h3>
+                    <p>8 photos</p>
+                  </div>
+                </div>
+
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/vendor.png" alt="Team Photos">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
                     </div>
                   </div>
-                  
-                  <div class="album-item">
-                    <div class="album-cover">
-                      <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Equipment">
-                      <div class="album-overlay">
-                        <i class="fa fa-folder-open"></i>
-                      </div>
-                    </div>
-                    <div class="album-info">
-                      <h3>Equipment</h3>
-                      <p>6 photos</p>
+                  <div class="album-info">
+                    <h3>Team Photos</h3>
+                    <p>15 photos</p>
+                  </div>
+                </div>
+
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Equipment">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
                     </div>
                   </div>
-                </div> 
+                  <div class="album-info">
+                    <h3>Equipment</h3>
+                    <p>6 photos</p>
+                  </div>
+                </div>
               </div>
-
-              <div class="gallery-tab-content" id="gallery-360-images">
-                <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming soon!</span></h3>
-               </div>
-
             </div>
+
+            <div class="gallery-tab-content" id="gallery-360-images">
+              <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                  soon!</span></h3>
+            </div>
+
           </div>
         </div>
       </div>
+    </div>
     </div>
     <!-- Details Section End -->
   </main>
   <!--Main Content End-->
 
-    <!-- RFQ Modal -->
-    <div id="rfqModal" class="rfq-modal">
-      <div class="rfq-modal-content">
-        <div class="rfq-modal-header">
-          <h3>Send RFQ</h3>
-          <button class="rfq-modal-close" onclick="closeRFQModal()">&times;</button>
+  <!-- RFQ Modal -->
+  <div id="rfqModal" class="rfq-modal">
+    <div class="rfq-modal-content">
+      <div class="rfq-modal-header">
+        <h3>Send RFQ</h3>
+        <button class="rfq-modal-close" onclick="closeRFQModal()">&times;</button>
+      </div>
+      <div class="rfq-modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vendor</label>
+            <input type="text" value="Sakhrat Al Janoub Contracting Co." disabled
+              style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
+          </div>
+          <div class="form-group">
+            <label>RFQ Number</label>
+            <input type="text" value="RFQ-2024-001" disabled
+              style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
+          </div>
         </div>
-        <div class="rfq-modal-body">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Vendor</label>
-              <input type="text" value="Sakhrat Al Janoub Contracting Co." disabled style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
-            </div>
-            <div class="form-group">
-              <label>RFQ Number</label>
-              <input type="text" value="RFQ-2024-001" disabled style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
-            </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Select Project</label>
+            <select>
+              <option value="">Choose a project</option>
+              <option value="project1">Website Development</option>
+              <option value="project2">Mobile App Development</option>
+              <option value="project3">E-commerce Platform</option>
+              <option value="project4">Database Migration</option>
+              <option value="project5">SEO Services</option>
+            </select>
           </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label>Select Project</label>
-              <select>
-                <option value="">Choose a project</option>
-                <option value="project1">Website Development</option>
-                <option value="project2">Mobile App Development</option>
-                <option value="project3">E-commerce Platform</option>
-                <option value="project4">Database Migration</option>
-                <option value="project5">SEO Services</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Company</label>
-              <select>
-                <option value="">Choose a company</option>
-                <option value="company1">Smith Enterprises</option>
-                <option value="company2">Johnson & Associates</option>
-                <option value="company3">Tech Solutions Inc</option>
-                <option value="company4" selected>Sakhrat Al Janoub Contracting Co.</option>
-                <option value="company5">Global Services Ltd</option>
-              </select>
-            </div>
+          <div class="form-group">
+            <label>Company</label>
+            <select>
+              <option value="">Choose a company</option>
+              <option value="company1">Smith Enterprises</option>
+              <option value="company2">Johnson & Associates</option>
+              <option value="company3">Tech Solutions Inc</option>
+              <option value="company4" selected>Sakhrat Al Janoub Contracting Co.</option>
+              <option value="company5">Global Services Ltd</option>
+            </select>
           </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label>Currency</label>
-              <select>
-                <option value="SAR" selected>SAR</option>
-                <option value="USD">USD</option>
-                <option value="EUR">EUR</option>
-                <option value="GBP">GBP</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Order Deadline?</label>
-              <input type="datetime-local" value="2025-01-10T17:02">
-            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Currency</label>
+            <select>
+              <option value="SAR" selected>SAR</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
           </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label>Expected Arrival?</label>
-              <input type="date">
-            </div>
-            <div class="form-group">
-              <label>Product Name</label>
-              <input type="text" placeholder="Enter product name">
-            </div>
+          <div class="form-group">
+            <label>Order Deadline?</label>
+            <input type="datetime-local" value="2025-01-10T17:02">
           </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label>Attention To</label>
-              <input type="text" placeholder="Enter contact person or department">
-            </div>
-            <div class="form-group">
-              <label>Priority</label>
-              <select>
-                <option value="">Select Priority</option>
-                <option value="low">Low</option>
-                <option value="medium" selected>Medium</option>
-                <option value="high">High</option>
-                <option value="urgent">Urgent</option>
-              </select>
-            </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expected Arrival?</label>
+            <input type="date">
           </div>
-          
-          <div class="form-group full-width">
-            <label>Deliver To?</label>
-            <textarea placeholder="Enter delivery address"></textarea>
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" placeholder="Enter product name">
           </div>
-          
-          <div class="form-group full-width">
-            <label>Attachments</label>
-            <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png" class="file-input">
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Attention To</label>
+            <input type="text" placeholder="Enter contact person or department">
           </div>
-          
-          <div class="form-group full-width">
-                   <!-- Inquiry List Table -->
-        <div class="data-table-container" id="listView">
-          <div class="data-table-wrapper">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th style="width: 32px !important; max-width: 32px !important;">
-                    <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
-                    <label for="selectAllPRs" class="data-checkbox-label"></label>
-                    <span class="data-checkbox-text"></span>
-                  </th>
-                  <th class="data-drag-header">--</th>
-                  <th class="col-brand" style="max-width: 45px !important;">Brand</th>
-                  <th class="col-product" style="max-width: 60px !important;">Product</th>
-                  <th class="col-qty" style="max-width: 60px !important;">Qty</th>
-                  <th class="col-uom" style="max-width: 60px !important;">UOM</th>
-                  <th class="data-table-actions" style="max-width: 32px !important;">
-                    <div class="data-columns-dropdown">
-                      <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()" title="Show/Hide Columns">
-                        <img src="../images/add-column.png" alt="Columns" width="20px">
-                      </button>
-                      <div class="data-columns-dropdown-content" id="columnDropdown">
-                        <div class="data-columns-dropdown-header">
-                          <h4>Select Columns</h4>
-                        </div>
-                        <div class="data-columns-dropdown-body">
-                          <div class="data-column-options">
-                            <label class="data-column-option fixed-column">
-                              <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
-                              <span class="data-column-label">
-                                Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                              </span>
-                            </label>
-                            <label class="data-column-option">
-                              <input type="checkbox" value="col-pr-type" checked>
-                              <span class="data-column-label">Product</span>
-                            </label>
-                            <label class="data-column-option">
-                              <input type="checkbox" value="col-department" checked>
-                              <span class="data-column-label">Qty</span>
-                            </label>
-                            <label class="data-column-option fixed-column">
-                              <input type="checkbox" value="col-status" checked disabled data-fixed="true">
-                              <span class="data-column-label">
-                                UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
-                              </span>
-                            </label>
+          <div class="form-group">
+            <label>Priority</label>
+            <select>
+              <option value="">Select Priority</option>
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Deliver To?</label>
+          <textarea placeholder="Enter delivery address"></textarea>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Attachments</label>
+          <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+            class="file-input">
+        </div>
+
+        <div class="form-group full-width">
+          <!-- Inquiry List Table -->
+          <div class="data-table-container" id="listView">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th style="width: 32px !important; max-width: 32px !important;">
+                      <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                      <label for="selectAllPRs" class="data-checkbox-label"></label>
+                      <span class="data-checkbox-text"></span>
+                    </th>
+                    <th class="data-drag-header">--</th>
+                    <th class="col-brand" style="max-width: 45px !important;">Brand</th>
+                    <th class="col-product" style="max-width: 60px !important;">Product</th>
+                    <th class="col-qty" style="max-width: 60px !important;">Qty</th>
+                    <th class="col-uom" style="max-width: 60px !important;">UOM</th>
+                    <th class="data-table-actions" style="max-width: 32px !important;">
+                      <div class="data-columns-dropdown">
+                        <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                          title="Show/Hide Columns">
+                          <img src="../images/add-column.png" alt="Columns" width="20px">
+                        </button>
+                        <div class="data-columns-dropdown-content" id="columnDropdown">
+                          <div class="data-columns-dropdown-header">
+                            <h4>Select Columns</h4>
+                          </div>
+                          <div class="data-columns-dropdown-body">
+                            <div class="data-column-options">
+                              <label class="data-column-option fixed-column">
+                                <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                <span class="data-column-label">
+                                  Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                </span>
+                              </label>
+                              <label class="data-column-option">
+                                <input type="checkbox" value="col-pr-type" checked>
+                                <span class="data-column-label">Product</span>
+                              </label>
+                              <label class="data-column-option">
+                                <input type="checkbox" value="col-department" checked>
+                                <span class="data-column-label">Qty</span>
+                              </label>
+                              <label class="data-column-option fixed-column">
+                                <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                <span class="data-column-label">
+                                  UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="data-columns-dropdown-footer">
+                            <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                              Cancel
+                            </button>
+                            <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                              Save
+                            </button>
                           </div>
                         </div>
-                        <div class="data-columns-dropdown-footer">
-                          <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
-                            Cancel
-                          </button>
-                          <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
-                            Save
-                          </button>
-                        </div>
                       </div>
-                    </div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td class="data-checkbox-cell">
-                    <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
-                    <label for="rfq-001" class="data-checkbox-label"></label>
-                  </td>
-                  <td class="data-item-brand col-brand">
-                    <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
-                      <option value="">Add</option>
-                      <option value="brand1">Brand 1</option>
-                      <option value="brand2">Brand 2</option>
-                      <option value="brand3">Brand 3</option>
-                    </select>
-                  </td>
-                  <td class="data-item-product col-product">
-                    <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
-                      <option value="">Add Product</option>
-                      <option value="product1">Product 1</option>
-                      <option value="product2">Product 2</option>
-                      <option value="product3">Product 3</option>
-                    </select>
-                  </td>
-                  <td class="data-item-qty col-qty">
-                    <input type="number" placeholder="Qty">
-                  </td>
-                  <td class="data-item-uom col-uom">
-                    <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
-                      <option value="">Add</option>
-                      <option value="uom1">UOM 1</option>
-                      <option value="uom2">UOM 2</option>
-                      <option value="uom3">UOM 3</option>
-                    </select>
-                  </td>
-                  <td class="data-table-actions-cell"></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-          </div>
-         
-        </div>
-        <div class="rfq-modal-actions">
-          <button class="rfq-action-btn secondary" onclick="closeRFQModal()">Cancel</button>
-          <button class="rfq-action-btn primary">Send RFQ</button>
-        </div>
-      </div>
-    </div>
-    <!-- RFQ Modal End -->
-
-    <!-- Image Preview Modal -->
-    <div id="imagePreviewModal" class="image-preview-modal">
-      <div class="image-preview-modal-content">
-        <div class="image-preview-modal-header">
-          <h3>Image Preview</h3>
-          <button class="image-preview-modal-close" onclick="closeImagePreviewModal()">&times;</button>
-        </div>
-        <div class="image-preview-modal-body">
-          <div class="image-preview-container">
-            <button class="image-preview-arrow image-preview-arrow-left" onclick="previousImage()">
-              <i class="fa fa-chevron-left"></i>
-            </button>
-            <img id="previewImage" src="../images/gallery1.jpg" alt="Preview Image">
-            <button class="image-preview-arrow image-preview-arrow-right" onclick="nextImage()">
-              <i class="fa fa-chevron-right"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Image Preview Modal End -->
-
-    <!-- Comment Modal -->
-    <div id="commentModal" class="comment-modal">
-      <div class="comment-modal-content">
-        <div class="comment-modal-header">
-          <h3>Comments</h3>
-          <button class="comment-modal-close" onclick="closeCommentModal()">&times;</button>
-        </div>
-        <div class="comment-modal-body">
-          <div class="comment-image-preview">
-            <img id="commentImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
-          </div>
-          
-          <div class="comment-section">
-            <div class="comment-form">
-              <h4>Add a Comment</h4>
-              <form>
-                <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                  <label>Comment</label>
-                  <textarea placeholder="Write your comment here..." rows="4" required></textarea>
-                </div>
-                <button type="submit" class="comment-submit-btn">Post Comment</button>
-              </form>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="data-checkbox-cell">
+                      <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
+                      <label for="rfq-001" class="data-checkbox-label"></label>
+                    </td>
+                    <td class="data-item-brand col-brand">
+                      <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                        <option value="">Add</option>
+                        <option value="brand1">Brand 1</option>
+                        <option value="brand2">Brand 2</option>
+                        <option value="brand3">Brand 3</option>
+                      </select>
+                    </td>
+                    <td class="data-item-product col-product">
+                      <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                        <option value="">Add Product</option>
+                        <option value="product1">Product 1</option>
+                        <option value="product2">Product 2</option>
+                        <option value="product3">Product 3</option>
+                      </select>
+                    </td>
+                    <td class="data-item-qty col-qty">
+                      <input type="number" placeholder="Qty">
+                    </td>
+                    <td class="data-item-uom col-uom">
+                      <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                        <option value="">Add</option>
+                        <option value="uom1">UOM 1</option>
+                        <option value="uom2">UOM 2</option>
+                        <option value="uom3">UOM 3</option>
+                      </select>
+                    </td>
+                    <td class="data-table-actions-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            
-            <div class="comments-list">
-              <h4>Comments (3)</h4>
-              <div class="comment-item">
-                <div class="comment-author">
-                  <div class="comment-avatar">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="comment-author-info">
-                    <div class="comment-author-name">Ahmed Al-Rashid</div>
-                    <div class="comment-date">2 days ago</div>
-                  </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="rfq-modal-actions">
+        <button class="rfq-action-btn secondary" onclick="closeRFQModal()">Cancel</button>
+        <button class="rfq-action-btn primary">Send RFQ</button>
+      </div>
+    </div>
+  </div>
+  <!-- RFQ Modal End -->
+
+  <!-- Image Preview Modal -->
+  <div id="imagePreviewModal" class="image-preview-modal">
+    <div class="image-preview-modal-content">
+      <div class="image-preview-modal-header">
+        <h3>Image Preview</h3>
+        <button class="image-preview-modal-close" onclick="closeImagePreviewModal()">&times;</button>
+      </div>
+      <div class="image-preview-modal-body">
+        <div class="image-preview-container">
+          <button class="image-preview-arrow image-preview-arrow-left" onclick="previousImage()">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <img id="previewImage" src="../images/gallery1.jpg" alt="Preview Image">
+          <button class="image-preview-arrow image-preview-arrow-right" onclick="nextImage()">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Image Preview Modal End -->
+
+  <!-- Comment Modal -->
+  <div id="commentModal" class="comment-modal">
+    <div class="comment-modal-content">
+      <div class="comment-modal-header">
+        <h3>Comments</h3>
+        <button class="comment-modal-close" onclick="closeCommentModal()">&times;</button>
+      </div>
+      <div class="comment-modal-body">
+        <div class="comment-image-preview">
+          <img id="commentImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
+        </div>
+
+        <div class="comment-section">
+          <div class="comment-form">
+            <h4>Add a Comment</h4>
+            <form>
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label>Comment</label>
+                <textarea placeholder="Write your comment here..." rows="4" required></textarea>
+              </div>
+              <button type="submit" class="comment-submit-btn">Post Comment</button>
+            </form>
+          </div>
+
+          <div class="comments-list">
+            <h4>Comments (3)</h4>
+            <div class="comment-item">
+              <div class="comment-author">
+                <div class="comment-avatar">
+                  <i class="fa fa-user"></i>
                 </div>
-                <div class="comment-text">
-                  Great construction work! The quality looks excellent and the progress is impressive.
+                <div class="comment-author-info">
+                  <div class="comment-author-name">Ahmed Al-Rashid</div>
+                  <div class="comment-date">2 days ago</div>
                 </div>
               </div>
-              
-              <div class="comment-item">
-                <div class="comment-author">
-                  <div class="comment-avatar">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="comment-author-info">
-                    <div class="comment-author-name">Sarah Al-Mansouri</div>
-                    <div class="comment-date">1 week ago</div>
-                  </div>
+              <div class="comment-text">
+                Great construction work! The quality looks excellent and the progress is impressive.
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <div class="comment-author">
+                <div class="comment-avatar">
+                  <i class="fa fa-user"></i>
                 </div>
-                <div class="comment-text">
-                  Very professional team and excellent project management. Highly recommended!
+                <div class="comment-author-info">
+                  <div class="comment-author-name">Sarah Al-Mansouri</div>
+                  <div class="comment-date">1 week ago</div>
                 </div>
               </div>
-              
-              <div class="comment-item">
-                <div class="comment-author">
-                  <div class="comment-avatar">
-                    <i class="fa fa-user"></i>
-                  </div>
-                  <div class="comment-author-info">
-                    <div class="comment-author-name">Mohammed Al-Zahrani</div>
-                    <div class="comment-date">2 weeks ago</div>
-                  </div>
+              <div class="comment-text">
+                Very professional team and excellent project management. Highly recommended!
+              </div>
+            </div>
+
+            <div class="comment-item">
+              <div class="comment-author">
+                <div class="comment-avatar">
+                  <i class="fa fa-user"></i>
                 </div>
-                <div class="comment-text">
-                  Outstanding work on this project. The attention to detail is remarkable.
+                <div class="comment-author-info">
+                  <div class="comment-author-name">Mohammed Al-Zahrani</div>
+                  <div class="comment-date">2 weeks ago</div>
                 </div>
+              </div>
+              <div class="comment-text">
+                Outstanding work on this project. The attention to detail is remarkable.
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <!-- Comment Modal End -->
+  </div>
+  <!-- Comment Modal End -->
 
-    <!-- Report Modal -->
-    <div id="reportModal" class="report-modal">
-      <div class="report-modal-content">
-        <div class="report-modal-header">
-          <h3>Report Image</h3>
-          <button class="report-modal-close" onclick="closeReportModal()">&times;</button>
+  <!-- Report Modal -->
+  <div id="reportModal" class="report-modal">
+    <div class="report-modal-content">
+      <div class="report-modal-header">
+        <h3>Report Image</h3>
+        <button class="report-modal-close" onclick="closeReportModal()">&times;</button>
+      </div>
+      <div class="report-modal-body">
+        <div class="report-image-preview">
+          <img id="reportImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
         </div>
-        <div class="report-modal-body">
-          <div class="report-image-preview">
-            <img id="reportImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
-          </div>
-          <div class="report-section">
-            <div class="report-form">
-              <h4>Report this image</h4>
-              <form>
-                <div class="form-group">
-                  <label>Reason for reporting</label>
-                  <select required>
-                    <option value="">Select a reason</option>
-                    <option value="inappropriate">Inappropriate content</option>
-                    <option value="spam">Spam or misleading</option>
-                    <option value="copyright">Copyright violation</option>
-                    <option value="quality">Poor quality</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>Your name</label>
-                  <input type="text" placeholder="Your name" required>
-                </div>
-                <div class="form-group">
-                  <label>Email</label>
-                  <input type="email" placeholder="your@email.com" required>
-                </div>
-                <div class="form-group">
-                  <label>Additional details</label>
-                  <textarea placeholder="Please provide more details about your report..." rows="4"></textarea>
-                </div>
-                <button type="submit" class="report-submit-btn">Submit Report</button>
-              </form>
-            </div>
+        <div class="report-section">
+          <div class="report-form">
+            <h4>Report this image</h4>
+            <form>
+              <div class="form-group">
+                <label>Reason for reporting</label>
+                <select required>
+                  <option value="">Select a reason</option>
+                  <option value="inappropriate">Inappropriate content</option>
+                  <option value="spam">Spam or misleading</option>
+                  <option value="copyright">Copyright violation</option>
+                  <option value="quality">Poor quality</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Your name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label>Additional details</label>
+                <textarea placeholder="Please provide more details about your report..." rows="4"></textarea>
+              </div>
+              <button type="submit" class="report-submit-btn">Submit Report</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-    <!-- Report Modal End -->
+  </div>
+  <!-- Report Modal End -->
 
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <script src="vendor-scripts/vendor-details.js"></script>
   <script src="vendor-scripts/vendor-gallery.js"></script>
   <script src="../script/common-table.js"></script>
-  
+
   <script>
     // Comment Modal Functions
     function openCommentModal(imageId) {
@@ -1309,24 +1330,24 @@
       // Update the image preview in the modal
       document.getElementById('commentImagePreview').src = '../images/' + imageId + '.jpg';
     }
-    
+
     function closeCommentModal() {
       document.getElementById('commentModal').style.display = 'none';
     }
-    
+
     // Report Modal Functions
     function openReportModal(imageId) {
       document.getElementById('reportModal').style.display = 'block';
       // Update the image preview in the modal
       document.getElementById('reportImagePreview').src = '../images/' + imageId + '.jpg';
     }
-    
+
     function closeReportModal() {
       document.getElementById('reportModal').style.display = 'none';
     }
-    
+
     // Close modal when clicking outside
-    window.onclick = function(event) {
+    window.onclick = function (event) {
       var commentModal = document.getElementById('commentModal');
       var reportModal = document.getElementById('reportModal');
       if (event.target == commentModal) {
@@ -1336,23 +1357,24 @@
         reportModal.style.display = 'none';
       }
     }
-    
+
     // Toggle Actions Dropdown (Mobile)
     function toggleActionsDropdown() {
       var dropdown = document.getElementById('actionsDropdown');
       dropdown.classList.toggle('active');
     }
-    
+
     // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
       var dropdown = document.getElementById('actionsDropdown');
       var dropdownBtn = document.querySelector('.vendor-actions-dropdown-btn');
       if (dropdown && !dropdown.contains(event.target) && !dropdownBtn.contains(event.target)) {
         dropdown.classList.remove('active');
       }
     });
-    
+
+
   </script>
 </body>
- 
-</html> 
+
+</html>

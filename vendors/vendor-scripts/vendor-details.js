@@ -94,3 +94,19 @@ function createRFQ() {
 function sendRFQ() {
     openRFQModal();
 }
+
+// Favorite Button
+document.addEventListener('DOMContentLoaded', function() {
+    const btn = document.getElementById('vendorSaveBtn');
+    if (!btn) return;
+
+    btn.addEventListener('click', function() {
+        const icon = this.querySelector('i');
+        const text = this.querySelector('.vendor-save-btn-text');
+        const isFavorited = this.classList.toggle('favorited');
+
+        icon.className = isFavorited ? 'fa fa-heart' : 'fa fa-heart-o';
+        if (text) text.textContent = isFavorited ? 'Saved' : 'Save as favorite';
+        this.title = isFavorited ? 'Saved' : 'Save as favorite';
+    });
+});
