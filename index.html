@@ -15,6 +15,7 @@
   <link rel="stylesheet" href="styles/header.css">
   <link rel="stylesheet" href="styles/filter-modal.css">
   <link rel="stylesheet" href="styles/add-app.css">
+  <link rel="stylesheet" href="styles/custom-list.css">
   <script src="https://kit.fontawesome.com/be478a590c.js" crossorigin="anonymous"></script>
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <style>
@@ -583,7 +584,6 @@
           </span>
           <span class="label">Organization</span>
         </button>
-
         <!-- Submenu (full-height) -->
         <div class="submenu" role="menu" aria-label="Organization submenu">
           <div class="submenu-top">
@@ -788,7 +788,6 @@
             </div>
 
           </div>
-
           
         </div>
       </div>
@@ -820,8 +819,109 @@
         </button>
         <div class="submenu" role="menu" aria-label="Apps submenu">
           <div class="submenu-top">
-            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
+            <h3 style="margin:0;font-size:16px">Directory</h3>
           </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title">
+                  <img src="images/contact-lists.png" alt="" width="28px">
+                  Contacts List
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title">
+                  <img src="images/follower.png" alt="" width="28px">
+                  Followers 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title">
+                  <img src="images/following.png" alt="" width="28px">
+                  Following 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title">
+                  <img src="images/favourite-list.png" alt="" width="28px">
+                  Favorites
+                </h2>
+              </a>
+            </div>
+            
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title">
+                  <img src="images/blacklist.png" alt="" width="28px">
+                  Blocked List 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/custom-list.png" alt="" width="28px">
+                Custom Lists
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu custom-list-menu">
+                  <li class="custom-list-item">
+                    <a href="#">List 1</a>
+                    <div class="list-actions">
+                      <button class="list-action-btn edit-btn" title="Edit list">
+                        <i class="fa fa-pencil"></i>
+                      </button>
+                      <button class="list-action-btn delete-btn" title="Delete list">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="custom-list-item">
+                    <a href="#">List 2</a>
+                    <div class="list-actions">
+                      <button class="list-action-btn edit-btn" title="Edit list">
+                        <i class="fa fa-pencil"></i>
+                      </button>
+                      <button class="list-action-btn delete-btn" title="Delete list">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="custom-list-item">
+                    <a href="#">List 3</a>
+                    <div class="list-actions">
+                      <button class="list-action-btn edit-btn" title="Edit list">
+                        <i class="fa fa-pencil"></i>
+                      </button>
+                      <button class="list-action-btn delete-btn" title="Delete list">
+                        <i class="fa fa-trash"></i>
+                      </button>
+                    </div>
+                  </li>
+                  <li class="create-new-list">
+                    <button class="create-list-btn">
+                      <i class="fa fa-plus"></i>
+                      <span>Create New List</span>
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+          
 
         </div>
       </div>

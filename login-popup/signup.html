@@ -4,10 +4,10 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Login Popup</title>
+    <title>Signup Popup</title>
 
     <link rel="stylesheet" href="../styles/scrollbar.css">
-    <link rel="stylesheet" href="css/login-popup.css">
+    <link rel="stylesheet" href="css/signup-popup.css">
 
     <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
     <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
@@ -16,68 +16,133 @@
 
 <body>
 
-    <button class="open-btn" id="openBtn" style="position:static">Open Login Popup</button>
-
+    <button class="open-btn" id="openBtn" style="position:static">Open Signup Popup</button>
 
     <!-- overlay + modal -->
     <div class="overlay" id="overlay" aria-hidden>
-        <div class="login-modal" role="dialog" aria-modal="true">
-            <div class="login-modal-left">
+        <div class="signup-modal" role="dialog" aria-modal="true">
+            <div class="signup-modal-left">
                 <div class="brand-box">
-                    <img src="../images/user.png" alt="logo" />
+                    <img src="../images/bmh-logo.png" alt="logo" />
                 </div>
             </div>
-            <div class="login-modal-right">
-                <div class="title">Login To Your Account</div>
-                <div class="subtitle">Sign in with your email address.</div>
+            <div class="signup-modal-right">
+                <button class="language-switcher" title="Change Language">
+                    <i class="fa fa-globe"></i>
+                </button>
+                
+                <div class="title">Create Your Account, Its Free !!</div>
+                <div class="subtitle">Don't buy for reason, Shop for emotion.</div>
 
-                <div class="field">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 12a4 4 0 100-8 4 4 0 000 8z" stroke="#6b7280" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                        <path d="M20 21v-1a4 4 0 00-4-4H8a4 4 0 00-4 4v1" stroke="#6b7280" stroke-width="1.5"
-                            stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    <input type="text" placeholder="Username or Email" />
+                <!-- Account Type Selector -->
+                <div class="account-type-selector">
+                    <button class="account-type-btn active" data-type="personal" title="for user who is standalone">Personal</button>
+                    <button class="account-type-btn" data-type="business" title="For user who is working in a company ">Professional</button>
                 </div>
 
-                <div class="field">
-                    <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="3" y="11" width="18" height="11" rx="2" stroke="#6b7280" stroke-width="1.5" />
-                        <path d="M7 11V8a5 5 0 0110 0v3" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
-                    <input type="password" placeholder="Password" />
-                    <button title="toggle"
-                        style="border:0;background:transparent;cursor:pointer;padding:0;margin-left:6px;font-size:14px">👁️</button>
+                <form class="signup-form">
+                    <!-- Name Field -->
+                    <div class="field">
+                        <i class="fa fa-user icon"></i>
+                        <input type="text" placeholder="Enter Your Name" required />
+                    </div>
+
+                    <!-- Email Field -->
+                    <div class="field">
+                        <i class="fa fa-envelope icon"></i>
+                        <input type="email" placeholder="yourname@gmail.com" required />
+                    </div>
+
+                    <!-- Country Field -->
+                    <div class="field">
+                        <i class="fa fa-globe icon"></i>
+                        <select class="field-select" required>
+                            <option value="">Select Country</option>
+                            <option value="sa">Saudi Arabia</option>
+                            <option value="ae">United Arab Emirates</option>
+                            <option value="us">United States</option>
+                        </select>
+                    </div>
+
+                    <!-- Time Zone Field -->
+                    <div class="field">
+                        <i class="fa fa-clock-o icon"></i>
+                        <select class="field-select" required>
+                            <option value="">Select Time Zone</option>
+                            <option value="utc+3">UTC+3 (Riyadh)</option>
+                            <option value="utc+4">UTC+4 (Dubai)</option>
+                            <option value="utc-5">UTC-5 (New York)</option>
+                        </select>
+                    </div>
+
+                    <!-- Mobile Number Field -->
+                    <div class="field mobile-field">
+                        <div class="country-code">
+                            <span class="flag">🇸🇦</span>
+                            <select class="country-code-select">
+                                <option value="+966">+966</option>
+                                <option value="+971">+971</option>
+                                <option value="+1">+1</option>
+                            </select>
+                        </div>
+                        <input type="tel" placeholder="Mobile Number" required />
+                    </div>
+
+                    <!-- Password Field -->
+                    <div class="field">
+                        <i class="fa fa-lock icon"></i>
+                        <input type="password" placeholder="Password" class="password-input" required />
+                        <button type="button" class="password-toggle" title="Toggle password visibility">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div class="field">
+                        <i class="fa fa-lock icon"></i>
+                        <input type="password" placeholder="Confirm password" class="password-input" required />
+                        <button type="button" class="password-toggle" title="Toggle password visibility">
+                            <i class="fa fa-eye"></i>
+                        </button>
+                    </div>
+
+                    <!-- Terms and Conditions -->
+                    <div class="terms-checkbox">
+                        <label>
+                            <input type="checkbox" required />
+                            <span>I agree to the <a href="#" class="terms-link">Terms and Conditions</a></span>
+                        </label>
+                    </div>
+
+                    <!-- Sign Up Button -->
+                    <button type="submit" class="signup-btn">SignUp</button>
+                </form>
+
+                <div class="login-link">
+                    <span class="login-text">Already have an account!</span>
+                    <a href="#" class="login-link-text">Login Here</a>
                 </div>
 
-                <div class="checkbox-row">
-                    <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" /> Remember Me</label>
-                    <a href="#" style="color:var(--muted);text-decoration:none">Forgot Password?</a>
+                
+                <!-- Social Login -->
+                <div class="social-divider">
+                    <span class="line"></span>
+                    <span>or Continue with</span>
+                    <span class="line"></span>
                 </div>
 
-                <button class="login-btn">Log in</button>
-
-                <div class="divider"><span class="line"></span><span>or Login with</span><span class="line"></span>
-                </div>
-
-                <div class="social">
-                    <div class="s">
+                <div class="social-login">
+                    <button type="button" class="social-btn facebook" title="Continue with Google">
                         <img src="../images/google-logo.png" alt="google" class="google-logo"/>
-                    </div>
-                    <div class="s">
-                        <img src="../images/odoo-logo.jpeg" alt="Odoo" />
-                    </div>
-                    <div class="s">
-                        <img src="../images/whatsapp-logo.jpeg" alt="Whatsapp" />
-                    </div>
+                    </button>
+                    <button type="button" class="social-btn google" title="Continue with Google">
+                        <img src="../images/odoo-logo.jpeg" alt="Odoo" class="google-logo" />
+                    </button>
+                    <button type="button" class="social-btn outlook" title="Continue with Outlook">
+                        <img src="../images/whatsapp-logo.jpeg" alt="Whatsapp" class="google-logo" />
+                    </button>
                 </div>
 
-                <div class="signup-link">
-                    <span class="signup-text">Don't have an account!</span>
-                    <a href="#" class="signup-link-text">Sign Up Here</a>
-                </div>
 
             </div>
         </div>
@@ -93,11 +158,10 @@
         overlay.addEventListener('click', (e) => {
             if (e.target === overlay) overlay.classList.remove('show');
         })
-        // allow escape key to close
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('show') })
     </script>
 
-    <script src="script/login-popup.js"></script>
+    <script src="script/signup-popup.js"></script>
 
 </body>
 

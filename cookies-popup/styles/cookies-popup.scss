@@ -1,0 +1,113 @@
+:root {
+    --primary: #e6bb01;
+    --dark: #0f172a;
+    --muted: #64748b;
+    --bg: #ffffff;
+    --border: #e5e7eb;
+    --radius: 16px;
+    --shadow: 0 25px 50px rgba(15, 23, 42, .25);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* trigger button */
+.cookies-popup-open-btn {
+    background: var(--primary);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* overlay */
+.cookies-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, .55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+
+    &.cookies-popup-show {
+        display: flex;
+    }
+
+    /* popup card */
+    .cookies-popup-card {
+        width: 420px;
+        max-width: 92%;
+        background: var(--bg);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 28px 26px 24px;
+        text-align: center;
+
+        .cookies-popup-icon {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            background: rgba(242, 194, 0, .15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 14px;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+            }
+        }
+
+        .cookies-popup-heading {
+            margin: 0 0 8px;
+            font-size: 20px;
+            color: var(--dark);
+        }
+
+        .cookies-popup-description {
+            margin: 0 0 18px;
+            font-size: 14px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .cookies-popup-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+
+            .cookies-popup-btn {
+                padding: 10px 16px;
+                border-radius: 999px;
+                font-size: 14px;
+                font-weight: 600;
+                cursor: pointer;
+                border: 1px solid var(--border);
+                background: #fff;
+                color: var(--dark);
+
+                &.cookies-popup-btn-primary {
+                    background: var(--primary);
+                    border-color: var(--primary);
+                }
+            }
+        }
+
+        .cookies-popup-link {
+            display: block;
+            margin-top: 14px;
+            font-size: 13px;
+            color: var(--muted);
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}

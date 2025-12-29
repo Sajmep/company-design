@@ -1,0 +1,106 @@
+/* Custom List Styles */
+.custom-list-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.custom-list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+}
+
+.custom-list-item:hover {
+    background-color: #f3f4f6;
+}
+
+.custom-list-item a {
+    flex: 1;
+    text-decoration: none;
+    color: #374151;
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.custom-list-item a:hover {
+    color: #667eea;
+}
+
+.list-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.custom-list-item:hover .list-actions {
+    opacity: 1;
+}
+
+.list-action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px 6px;
+    border-radius: 4px;
+    color: #6b7280;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.list-action-btn:hover {
+    background-color: #e5e7eb;
+    color: #374151;
+}
+
+.list-action-btn.edit-btn:hover {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.list-action-btn.delete-btn:hover {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.create-new-list {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.create-list-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px dashed #cbd5e1;
+    border-radius: 6px;
+    color: #6b7280;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.create-list-btn:hover {
+    background-color: #f9fafb;
+    border-color: #667eea;
+    color: #667eea;
+}
+
+.create-list-btn i {
+    font-size: 12px;
+}
+
