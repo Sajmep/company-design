@@ -1,0 +1,291 @@
+:root {
+  --yellow: #e6bb01;
+  --muted: #9aa3ad;
+  --input-bg: #eceff1;
+  --green: #10b981;
+}
+
+body {
+  background: #f6f7f9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  margin: 0;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+.open-btn {
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  background: var(--yellow);
+  border: none;
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+}
+.overlay.show {
+  display: flex;
+}
+
+.signup-modal {
+  width: 820px;
+  max-width: 92%;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  overflow: hidden;
+}
+.signup-modal-left {
+  width: 46%;
+  padding: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+.signup-modal-left .brand-box {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-modal-left .brand-box img {
+  max-width: 100%;
+  height: auto;
+}
+.signup-modal-right {
+  flex: 1;
+  padding: 28px 36px;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.signup-modal-right .language-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+}
+.signup-modal-right .title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.signup-modal-right .subtitle {
+  color: var(--muted);
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.signup-modal-right .account-type-selector {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 20px;
+  background: var(--input-bg);
+  border-radius: 20px;
+  padding: 4px;
+}
+.signup-modal-right .account-type-selector .account-type-btn {
+  flex: 1;
+  padding: 10px 20px;
+  border: none;
+  background: transparent;
+  border-radius: 16px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--muted);
+}
+.signup-modal-right .account-type-selector .account-type-btn.active {
+  background: var(--yellow);
+  color: #000;
+}
+.signup-modal-right .signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.signup-modal-right .field {
+  border: 1px solid var(--input-bg);
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.signup-modal-right .field input, .signup-modal-right .field .field-select {
+  border: 0;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+}
+.signup-modal-right .field .field-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%239aa3ad' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  padding-right: 30px;
+}
+.signup-modal-right .field.mobile-field {
+  padding: 0;
+}
+.signup-modal-right .field.mobile-field .country-code {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+}
+.signup-modal-right .field.mobile-field .country-code .country-code-select {
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  cursor: pointer;
+  appearance: none;
+  padding-right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cpath fill='%239aa3ad' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.signup-modal-right .field.mobile-field input {
+  flex: 1;
+  padding: 12px 14px;
+}
+.signup-modal-right .field .password-toggle {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 16px;
+}
+.signup-modal-right .terms-checkbox {
+  margin: 8px 0 18px;
+  font-size: 13px;
+}
+.signup-modal-right .terms-checkbox label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.signup-modal-right .terms-checkbox label .terms-link {
+  text-decoration: none;
+}
+.signup-modal-right .signup-btn {
+  width: 100%;
+  padding: 12px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.signup-modal-right .social-divider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 20px 0 15px;
+  color: var(--muted);
+  font-size: 13px;
+}
+.signup-modal-right .social-login {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.signup-modal-right .social-login .social-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #e8eaec;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 0;
+}
+.signup-modal-right .social-login .social-btn .google-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(0.8);
+}
+.signup-modal-right .login-link {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 13px;
+  color: #4a5568;
+}
+.signup-modal-right .login-link .login-link-text {
+  color: #2563eb;
+  text-decoration: underline;
+  margin-left: 4px;
+}
+@media (max-width: 760px) {
+  .signup-modal {
+    flex-direction: column;
+    max-height: 95vh;
+    overflow: hidden;
+  }
+  .signup-modal-left {
+    width: 100%;
+    border-right: 0;
+    padding: 20px;
+    min-height: auto;
+    flex-shrink: 0;
+  }
+  .signup-modal-left .brand-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .signup-modal-left .brand-box img {
+    max-width: 120px;
+    height: auto;
+  }
+  .signup-modal-right {
+    padding: 22px;
+    max-height: calc(95vh - 180px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    flex: 1;
+    min-height: 0;
+  }
+}
+
+.icon {
+  font-size: 16px;
+  color: var(--muted);
+  flex-shrink: 0;
+}
+
+/*# sourceMappingURL=signup-popup.css.map */

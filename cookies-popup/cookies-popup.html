@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cookies Popup</title>
+    <link rel="stylesheet" href="css/cookies-popup.css">
+</head>
+
+<body>
+
+    <button class="cookies-popup-open-btn" id="open">Open Cookies Popup</button>
+
+    <div class="cookies-popup-overlay" id="cookies-popup-overlay">
+        <div class="cookies-popup-card" role="dialog" aria-modal="true">
+            <div class="cookies-popup-icon">
+                <img src="../images/bmh-logo.png" alt="website Icon">
+            </div>
+            <h2 class="cookies-popup-heading">Your privacy matters</h2>
+            <p class="cookies-popup-description">
+                We use cookies to improve your experience, analyze traffic, and personalize content.
+                You can accept all cookies or manage your preferences.
+            </p>
+
+            <div class="cookies-popup-actions">
+                <button class="cookies-popup-btn">Essential only</button>
+                <button class="cookies-popup-btn cookies-popup-btn-primary">Accept all</button>
+            </div>
+
+            <a href="#" class="cookies-popup-link">View Cookie Policy</a>
+        </div>
+    </div>
+
+    <script>
+        const open = document.getElementById('open');
+        const overlay = document.getElementById('cookies-popup-overlay');
+
+        open.onclick = () => overlay.classList.add('cookies-popup-show');
+        overlay.onclick = e => { if (e.target === overlay) overlay.classList.remove('cookies-popup-show'); };
+    </script>   
+
+</body>
+
+</html>

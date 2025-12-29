@@ -1,0 +1,172 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.views-container {
+  background: #ffffff;
+}
+
+/* ==================== Card View Styles ==================== */
+.bmh-card-view {
+  padding: 20px;
+  padding-top: 8px;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: center;
+ 
+  .bmh-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    max-width: 350px;
+    max-height: 222px;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-1px);
+    }
+
+    // Gallery Card Specific Styles
+    &.gallery-card {
+      padding: 0;
+      max-width: 350px;
+      max-height: none;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+
+      .gallery-image-container {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        background: #f3f4f6;
+
+        .gallery-image {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover .gallery-image {
+          transform: scale(1.05);
+        }
+
+        .gallery-actions {
+          position: absolute;
+          bottom: 12px;
+          left: 12px;
+          right: 12px;
+          display: flex;
+          gap: 8px;
+          align-items: center;
+          justify-content: flex-start;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        }
+
+        &:hover .gallery-actions {
+          opacity: 1;
+        }
+
+        .gallery-action-btn {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 12px;
+          background: rgba(255, 255, 255, 0.95);
+          border: none;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          font-size: 13px;
+          color: #6b7280;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          backdrop-filter: blur(10px);
+
+          i {
+            font-size: 14px;
+          }
+
+          .views-count {
+            font-size: 12px;
+            font-weight: 600;
+            color: #6b7280;
+          }
+
+          &:hover {
+            background: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+          }
+
+          &.favorite-btn {
+            &:hover {
+              color: #db0000;
+              background: rgba(219, 0, 0, 0.1);
+
+              i {
+                color: #db0000;
+              }
+            }
+
+            &.active {
+              color: #db0000;
+              background: rgba(219, 0, 0, 0.1);
+
+              i {
+                color: #db0000;
+              }
+            }
+          }
+
+          &.views-btn {
+            &:hover {
+              color: #012f6d;
+
+              i,
+              .views-count {
+                color: #012f6d;
+              }
+            }
+          }
+
+          &.comment-btn {
+            &:hover {
+              color: #012f6d;
+            }
+          }
+
+          &.share-btn {
+            &:hover {
+              color: #012f6d;
+            }
+          }
+        }
+      }
+
+      .gallery-caption {
+        padding: 16px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: #374151;
+        background: #fff;
+        border-top: 1px solid #f3f4f6;
+      }
+    }
+
+  }
+
+}
+

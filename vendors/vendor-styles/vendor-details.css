@@ -488,7 +488,6 @@
 }
 
 .vendor-details-sidebar {
-  width: 100%;
   background: #f8fafc;
   border-right: 1px solid #e5e7eb;
   flex-shrink: 0;

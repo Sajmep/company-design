@@ -1,0 +1,106 @@
+:root {
+  --primary: #e6bb01;
+  --dark: #0f172a;
+  --muted: #64748b;
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --radius: 16px;
+  --shadow: 0 25px 50px rgba(15, 23, 42, .25);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* trigger button */
+.cookies-popup-open-btn {
+  background: var(--primary);
+  border: none;
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* overlay */
+.cookies-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.cookies-popup-overlay.cookies-popup-show {
+  display: flex;
+}
+.cookies-popup-overlay {
+  /* popup card */
+}
+.cookies-popup-overlay .cookies-popup-card {
+  width: 420px;
+  max-width: 92%;
+  background: var(--bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 26px 24px;
+  text-align: center;
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: rgba(242, 194, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  overflow: hidden;
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-heading {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: var(--dark);
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-description {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-actions .cookies-popup-btn {
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--border);
+  background: #fff;
+  color: var(--dark);
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-actions .cookies-popup-btn.cookies-popup-btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-link {
+  display: block;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.cookies-popup-overlay .cookies-popup-card .cookies-popup-link:hover {
+  text-decoration: underline;
+}
+
+/*# sourceMappingURL=cookies-popup.css.map */
