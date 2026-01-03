@@ -8,6 +8,8 @@
 
     <link rel="stylesheet" href="../styles/scrollbar.css">
     <link rel="stylesheet" href="css/views-container.css">
+    <link rel="stylesheet" href="css/image-preview.css">
+    <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/toolbar.css">
 
     <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
@@ -203,14 +205,466 @@
 
     </div>
 
+    <!-- Category Filter Cards -->
+    <div class="gallery-tabs">
+        <div class="gallery-tabs-list" id="galleryTabsList">
+            <div class="gallery-tab active">
+                <i class="fa fa-star"></i>
+                <span>All</span>
+            </div>
+            <div class="gallery-tab">
+                <i class="fa fa-image"></i>
+                <span>Images</span>
+            </div>
+            <div class="gallery-tab">
+                <i class="fa fa-video"></i>
+                <span>Videos</span>
+            </div>
+            <div class="gallery-tab">
+                <i class="fa fa-folder"></i>
+                <span>Albums</span>
+            </div>
+            <div class="gallery-tab">
+                <i class="fa fa-image"></i>
+                <span>360 Images</span>
+            </div>
+            <div class="gallery-tab">
+                <i class="fa fa-heart"></i>
+                <span>Followings</span>
+            </div>
+        </div>
+        <button class="gallery-tabs-scroll" id="galleryTabsScroll">
+            <i class="fa fa-chevron-right"></i>
+        </button>
+    </div>
 
+    <div class="gallery-views-container">
+        <!-- Card View -->
+        <div class="gallery-card-view">
 
-            <!-- Main Content End -->
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/gallery4.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="images/4d Engineering Consultants.png" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">4D Engineering</div>
+                            <div class="gallery-post-date">12 hours ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">1.2k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <script src="scripts/toolbar.js"></script>
-            <script src="scripts/views-container.js"></script>
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/gallery1.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="../images/user.png" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">Fazli Company</div>
+                            <div class="gallery-post-date">2 days ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">120</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/gallery2.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="../images/zoia.jpg" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">Sajmeb Contracting</div>
+                            <div class="gallery-post-date">3 days ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">12k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/gallery3.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="../images/bmh-logo.png" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">BMH Company</div>
+                            <div class="gallery-post-date">4 days ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">1.2k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/gallery5.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="images/A.D.G ENGINEERING CONSULTANT.png" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">A.D.G Engineering Consultant</div>
+                            <div class="gallery-post-date">12 hours ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">1.2k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/sajmep.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">Sakhrat Al Janoub Contracting Co.</div>
+                            <div class="gallery-post-date">12 hours ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">1.2k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="../images/gallery2.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="images/ADVANCED BASES.png" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">Advanced Bases</div>
+                            <div class="gallery-post-date">12 hours ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">1.2k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="gallery-card">
+                <div class="gallery-image-container">
+                    <img src="images/gallery4.jpg" alt="Gallery Image" class="gallery-image">
+                    <div class="gallery-actions">
+                        <button class="gallery-action-btn share-btn" title="Share">
+                            <i class="fa fa-share-alt"></i>
+                        </button>
+                        <button class="gallery-action-btn save-btn" title="Save">
+                            <i class="fa fa-bookmark"></i>
+                        </button>
+                    </div>
+                    <div class="gallery-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                </div>
+                <div class="gallery-card-info">
+                    <div class="gallery-user-info">
+                        <img src="../images/zoia.jpg" alt="User" class="gallery-user-avatar">
+                        <div class="gallery-user-details">
+                            <div class="gallery-company-name">Tech Solutions Inc.</div>
+                            <div class="gallery-post-date">12 hours ago</div>
+                        </div>
+                        <div class="gallery-action-icons">
+                            <button class="gallery-icon-btn favorite-btn" title="Like">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <button class="gallery-icon-btn views-btn" title="Views">
+                                <i class="fa fa-eye"></i>
+                                <span class="gallery-views-count">1.2k</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Card View End -->
+
+        <!-- List View -->
+        <div class="gallery-list-view">
+            <h2>We're working on something exciting. <span style="color: #9885d1;text-decoration: underline;">Coming
+                    soon!</span></h2>
+        </div>
+        <!-- List View End -->
+
+        <!-- Dashboard View -->
+        <div class="gallery-dashboard-view">
+            <h2>We're working on something exciting. <span style="color: #9885d1;text-decoration: underline;">Coming
+                    soon!</span></h2>
+        </div>
+        <!-- Dashboard View End -->
+
+        <!-- Calendar View -->
+        <div class="gallery-calendar-view">
+            <h2>We're working on something exciting. <span style="color: #9885d1;text-decoration: underline;">Coming
+                    soon!</span></h2>
+        </div>
+        <!-- Calendar View End -->
+
+        <!-- Map View -->
+        <div class="gallery-map-view">
+            <h2>We're working on something exciting. <span style="color: #9885d1;text-decoration: underline;">Coming
+                    soon!</span></h2>
+        </div>
+        <!-- Map View End -->
+
+    </div>
+    <!-- Main Content End -->
+
+    <!-- Image Preview Modal -->
+    <div class="gallery-image-preview-modal" id="imagePreviewModal">
+        <div class="gallery-image-preview-modal-overlay"></div>
+        <div class="gallery-image-preview-modal-content">
+            <div class="gallery-image-preview-modal-header">
+              <div class="gallery-image-preview-modal-header-left">
+                <img src="images/4d Engineering Consultants.png" alt="Company Logo" class="gallery-modal-company-logo">
+                <span class="gallery-modal-company-name">4D Engineering</span>
+              </div>
+              <div class="gallery-image-preview-modal-header-right">
+                <button class="gallery-image-preview-modal-close" id="closeImageModal" aria-label="Close modal">
+                    <i class="fa fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="gallery-modal-two-column">
+                <!-- Left Column - Image -->
+                <div class="gallery-modal-image-column">
+                    <img src="images/gallery-preview.jpg" alt="Preview Image" class="gallery-preview-image">
+                </div>
+                <!-- Right Column - Actions -->
+                <div class="gallery-modal-actions-column">
+                    <div class="gallery-modal-company">
+                        <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-modal-company-img">
+                        <button class="gallery-modal-follow-btn">
+                            <i class="fa fa-plus"></i>
+                            <span>Follow</span>
+                        </button>
+                    </div>
+                    <div class="gallery-modal-action-buttons">
+                        <div class="gallery-modal-action-item">
+                            <button class="gallery-modal-action-btn favorite-btn">
+                                <i class="fa fa-heart"></i>
+                            </button>
+                            <span class="gallery-modal-action-label">Like</span>
+                        </div>
+                        <div class="gallery-modal-action-item">
+                            <button class="gallery-modal-action-btn save-btn">
+                                <i class="fa fa-bookmark"></i>
+                            </button>
+                            <span class="gallery-modal-action-label">Save</span>
+                        </div>
+                        <div class="gallery-modal-action-item">
+                            <button class="gallery-modal-action-btn">
+                                <i class="fa fa-share-alt"></i>
+                            </button>
+                            <span class="gallery-modal-action-label">Share</span>
+                        </div>
+                        <div class="gallery-modal-action-item">
+                            <button class="gallery-modal-action-btn">
+                                <i class="fa fa-comment"></i>
+                            </button>
+                            <span class="gallery-modal-action-label">
+                                <a href="#gallery-modal-comment-section" class="gallery-modal-comment-link">Comment</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-modal-content">
+                <div class="gallery-modal-content-left">
+                    <div class="gallery-modal-caption">
+                        Beautiful building architecture showcasing modern design and sustainable construction practices.
+                    </div>
+                    <div class="gallery-modal-comment-section" id="gallery-modal-comment-section">
+                        <textarea type="text" class="gallery-modal-comment-input" placeholder="Write a comment..."></textarea>
+                        <button class="gallery-modal-comment-submit-btn" id="gallery-modal-comment-submit-btn">Post Comment</button>
+                    </div>
+                    <div class="gallery-modal-comments-list">
+                        <div class="gallery-comment-item">
+                            <img src="../images/sarah.pnh.png" alt="User" class="gallery-comment-avatar">
+                            <div class="gallery-comment-content">
+                                <div class="gallery-comment-author">John Doe</div>
+                                <div class="gallery-comment-text">This is a great design! Love the modern architecture.</div>
+                            </div>
+                        </div>
+                        <div class="gallery-comment-item">
+                            <img src="../images/sofia.png" alt="User" class="gallery-comment-avatar">
+                            <div class="gallery-comment-content">
+                                <div class="gallery-comment-author">Jane Smith</div>
+                                <div class="gallery-comment-text">Amazing work! The sustainable practices are impressive.</div>
+                            </div>
+                        </div>
+                        <div class="gallery-comment-item">
+                            <img src="../images/user.png" alt="User" class="gallery-comment-avatar">
+                            <div class="gallery-comment-content">
+                                <div class="gallery-comment-author">Mike Johnson</div>
+                                <div class="gallery-comment-text">Beautiful building! Would love to see more details.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-modal-content-right">
+                    <div class="gallery-modal-more-title">More from 4D Engineering</div>
+                    <div class="gallery-modal-more-images">
+                        <img src="images/gallery2.jpg" alt="Gallery" class="gallery-modal-more-img">
+                        <img src="images/gallery3.jpg" alt="Gallery" class="gallery-modal-more-img">
+                        <img src="images/gallery4.jpg" alt="Gallery" class="gallery-modal-more-img">
+                        <img src="images/gallery5.jpg" alt="Gallery" class="gallery-modal-more-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/toolbar.js"></script>
+    <script src="scripts/views-container.js"></script>
+    <script src="scripts/image-preview-modal.js"></script>
+    <script src="scripts/share-popup.js"></script>
 </body>
-
-</html>
 
 </html>
