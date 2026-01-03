@@ -1,0 +1,71 @@
+/* ==================== Gallery Tabs ==================== */
+.gallery-tabs {
+  position: relative;
+  padding: 20px;
+  padding-bottom: 16px;
+  overflow: hidden;
+}
+
+.gallery-tabs-list {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.gallery-tabs-list::-webkit-scrollbar {
+  display: none;
+}
+
+.gallery-tab {
+  min-width: 120px;
+  height: 45px;
+  border-radius: 6px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 0 16px;
+  background: #f3f4f6;
+  color: #374151;
+  font-size: 13px;
+  font-weight: 600;
+}
+.gallery-tab.active {
+  background: #012f6d;
+  color: #ffffff;
+}
+.gallery-tab i {
+  font-size: 16px;
+}
+
+.gallery-tabs-scroll {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.gallery-tabs-scroll i {
+  color: #374151;
+  font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .gallery-tabs-scroll {
+    display: flex;
+  }
+}
+
+/*# sourceMappingURL=gallery.css.map */
