@@ -16,7 +16,7 @@
     <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 
 </head>
-
+ 
 <body>
     <!-- Main Content -->
 
@@ -44,7 +44,6 @@
                     <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
                 </div>
 
-                <!-- Enterprise Section -->
                 <div class="section-group">
                     <div class="section-heading" onclick="toggleCompanySection(this)">
                         <h2>Enterprise</h2>
@@ -99,7 +98,6 @@
                     </div>
                 </div>
 
-                <!-- Individual Section -->
                 <div class="section-group">
                     <div class="section-heading" onclick="toggleCompanySection(this)">
                         <h2>Individual</h2>
@@ -174,18 +172,7 @@
                         <span class="btn-text">Group By</span>
                     </button>
                     <div class="toolbar-group-by-dropdown" id="groupByDropdown">
-                        <!-- <div class="toolbar-group-by-item" data-value="status">
-              <i class="fa fa-flag"></i>
-              Status
-            </div>
-            <div class="toolbar-group-by-item" data-value="category">
-              <i class="fa fa-tags"></i>
-              Category
-            </div>
-            <div class="toolbar-group-by-item" data-value="location">
-              <i class="fa fa-map-marker"></i>
-              Location
-            </div> -->
+             
                     </div>
                 </div>
 
@@ -206,37 +193,12 @@
     </div>
 
     <!-- Category Filter Cards -->
-    <div class="gallery-tabs">
-        <div class="gallery-tabs-list" id="galleryTabsList">
-            <div class="gallery-tab active">
-                <i class="fa fa-star"></i>
-                <span>All</span>
-            </div>
-            <div class="gallery-tab">
-                <i class="fa fa-image"></i>
-                <span>Images</span>
-            </div>
-            <div class="gallery-tab">
-                <i class="fa fa-video"></i>
-                <span>Videos</span>
-            </div>
-            <div class="gallery-tab">
-                <i class="fa fa-folder"></i>
-                <span>Albums</span>
-            </div>
-            <div class="gallery-tab">
-                <i class="fa fa-image"></i>
-                <span>360 Images</span>
-            </div>
-            <div class="gallery-tab">
-                <i class="fa fa-heart"></i>
-                <span>Followings</span>
-            </div>
-        </div>
+    <!-- <div class="gallery-tabs">
+       
         <button class="gallery-tabs-scroll" id="galleryTabsScroll">
             <i class="fa fa-chevron-right"></i>
         </button>
-    </div>
+    </div> -->
 
     <div class="gallery-views-container">
         <!-- Card View -->
@@ -527,8 +489,282 @@
 
         <!-- List View -->
         <div class="gallery-list-view">
-            <h2>We're working on something exciting. <span style="color: #9885d1;text-decoration: underline;">Coming
-                    soon!</span></h2>
+            <div class="gallery-list-view-container">
+                <!-- Left Column - Action Buttons -->
+                <div class="gallery-list-left-column">
+                    <div class="gallery-list-actions-box">
+                        <div class="gallery-list-nav-menu">
+                            <div class="gallery-list-nav-item active">
+                                <i class="fa fa-home"></i>
+                                <span>Quick View</span>
+                            </div>
+                            <div class="gallery-list-nav-item" onclick="switchView('card')">
+                                <i class="fa fa-compass"></i>
+                                <span>Explore</span>
+                            </div>
+                            <div class="gallery-list-nav-item">
+                                <i class="fa fa-image"></i>
+                                <span>Images</span>
+                            </div>
+                            <div class="gallery-list-nav-item">
+                                <i class="fa fa-tv"></i>
+                                <span>Videos</span>
+                            </div>
+                            <div class="gallery-list-nav-item">
+                                <i class="fa fa-users"></i>
+                                <span>Following</span>
+                            </div>
+                            <div class="gallery-list-nav-item">
+                                <i class="fa fa-users"></i>
+                                <span>Profiles</span>
+                            </div>
+                            <div class="gallery-list-nav-item">
+                                <i class="fa fa-ellipsis-h"></i>
+                                <span>More</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Middle Column - Media Showcase -->
+                <div class="gallery-list-middle-column">
+                    <div class="gallery-list-media-box">
+
+                        <!-- Post Container -->
+                        <div class="gallery-list-view-post">
+
+                            <div class="gallery-list-view-post-container">
+                                <div class="gallery-list-view-post-player">
+                                    <!-- Video will be displayed here -->
+                                    <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
+                                    <video src="images/snaptik_7585277147078544652_v2.mp4" alt="Video" controls autoplay muted loop class="gallery-list-view-post-video"></video>
+                                </div>
+                                
+                                <!-- Overlay Info - Company Name and Caption -->
+                                <div class="gallery-list-view-post-overlay-info">
+                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
+                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side Actions -->
+                            <div class="gallery-post-right-actions">
+                                <div class="gallery-post-company-logo">
+                                    <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-post-logo-img">
+                                    <div class="gallery-post-follow-badge">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <span>11.3K</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-comment"></i>
+                                    </div>
+                                    <span>143</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <span>925</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-share-alt"></i>
+                                    </div>
+                                    <span>3.7K</span>
+                                </button>
+                               
+                            </div>
+
+                        </div>
+                        
+                        <!-- Post Container -->
+                        <div class="gallery-list-view-post">
+
+                            <div class="gallery-list-view-post-container">
+                                <div class="gallery-list-view-post-player">
+                                    <!-- Video will be displayed here -->
+                                    <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
+                                    <video src="images/123.mp4" alt="Video" controls autoplay muted loop class="gallery-list-view-post-video"></video>
+                                </div>
+                                
+                                <!-- Overlay Info - Company Name and Caption -->
+                                <div class="gallery-list-view-post-overlay-info">
+                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
+                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side Actions -->
+                            <div class="gallery-post-right-actions">
+                                <div class="gallery-post-company-logo">
+                                    <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-post-logo-img">
+                                    <div class="gallery-post-follow-badge">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <span>62.3K</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-comment"></i>
+                                    </div>
+                                    <span>1436</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <span>9251</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-share-alt"></i>
+                                    </div>
+                                    <span>34.7K</span>
+                                </button>
+                               
+                            </div>
+
+                        </div>
+                        
+                        <!-- Post Container -->
+                        <div class="gallery-list-view-post">
+
+                            <div class="gallery-list-view-post-container">
+                                <div class="gallery-list-view-post-player">
+                                    <!-- Video will be displayed here -->
+                                    <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
+                                    <video src="images/111.mp4" alt="Video" controls autoplay muted loop class="gallery-list-view-post-video"></video>
+                                </div>
+                                
+                                <!-- Overlay Info - Company Name and Caption -->
+                                <div class="gallery-list-view-post-overlay-info">
+                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
+                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side Actions -->
+                            <div class="gallery-post-right-actions">
+                                <div class="gallery-post-company-logo">
+                                    <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-post-logo-img">
+                                    <div class="gallery-post-follow-badge">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <span>62.3K</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-comment"></i>
+                                    </div>
+                                    <span>1436</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <span>9251</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-share-alt"></i>
+                                    </div>
+                                    <span>34.7K</span>
+                                </button>
+                               
+                            </div>
+
+                        </div>
+
+                        <!-- Post Container -->
+                        <div class="gallery-list-view-post">
+
+                            <div class="gallery-list-view-post-container">
+                                <div class="gallery-list-view-post-player">
+                                    <!-- Video will be displayed here -->
+                                    <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
+                                    <img src="images/gallery1.jpg" alt="Image" class="gallery-list-view-post-image">
+                                </div>
+                                
+                                <!-- Overlay Info - Company Name and Caption -->
+                                <div class="gallery-list-view-post-overlay-info">
+                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
+                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Right Side Actions -->
+                            <div class="gallery-post-right-actions">
+                                <div class="gallery-post-company-logo">
+                                    <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-post-logo-img">
+                                    <div class="gallery-post-follow-badge">
+                                        <i class="fa fa-plus"></i>
+                                    </div>
+                                </div>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-heart"></i>
+                                    </div>
+                                    <span>62.3K</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-comment"></i>
+                                    </div>
+                                    <span>1436</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-bookmark"></i>
+                                    </div>
+                                    <span>9251</span>
+                                </button>
+                                <button class="gallery-post-action-btn">
+                                    <div class="gallery-post-action-icon">
+                                        <i class="fa fa-share-alt"></i>
+                                    </div>
+                                    <span>34.7K</span>
+                                </button>
+                               
+                            </div>
+
+                        </div>
+                        
+                    </div>
+                </div>
+                
+                <div class="gallery-list-navigation-buttons">
+                    <button class="gallery-list-navigation-button">
+                        <i class="fa fa-chevron-up"></i>
+                    </button>
+                    <button class="gallery-list-navigation-button">
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                </div>
+                
+                <!-- Right Column - Comments -->
+                <div class="gallery-list-right-column">
+                    <div class="gallery-list-comments-box">
+                        <!-- Comments will go here -->
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- List View End -->
 
@@ -566,6 +802,9 @@
                 <span class="gallery-modal-company-name">4D Engineering</span>
               </div>
               <div class="gallery-image-preview-modal-header-right">
+                <button class="gallery-modal-actions-toggle" id="toggleActionsColumn" aria-label="Toggle actions">
+                    <i class="fa fa-ellipsis-v"></i>
+                </button>
                 <button class="gallery-image-preview-modal-close" id="closeImageModal" aria-label="Close modal">
                     <i class="fa fa-times"></i>
                 </button>
@@ -577,7 +816,7 @@
                     <img src="images/gallery-preview.jpg" alt="Preview Image" class="gallery-preview-image">
                 </div>
                 <!-- Right Column - Actions -->
-                <div class="gallery-modal-actions-column">
+                <div class="gallery-modal-actions-column" id="actionsColumn">
                     <div class="gallery-modal-company">
                         <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-modal-company-img">
                         <button class="gallery-modal-follow-btn">
