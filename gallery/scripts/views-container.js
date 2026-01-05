@@ -26,12 +26,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize: show card view by default
-    showView('card');
+    showView('list');
 
     // Override switchView function from toolbar.js
     window.switchView = function(viewType) {
         showView(viewType);
     };
+
+    // Gallery List View Post Navigation (Reels Style)
+    const mediaBox = document.querySelector('.gallery-list-media-box');
+    const posts = document.querySelectorAll('.gallery-list-view-post');
+    const buttons = document.querySelectorAll('.gallery-list-navigation-button');
+    
+    if (mediaBox && posts.length > 0) {
+        const getCurrentIndex = () => {
+            const scrollTop = mediaBox.scrollTop;
+            const containerHeight = mediaBox.clientHeight;
+            return Math.round(scrollTop / containerHeight);
+        };
+
+        const scrollToPost = (index) => {
+            if (index < 0) index = posts.length - 1;
+            if (index >= posts.length) index = 0;
+            posts[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+        };
+
+        // Up button - previous post
+        if (buttons[0]) {
+            buttons[0].addEventListener('click', () => {
+                scrollToPost(getCurrentIndex() - 1);
+            });
+        }
+
+        // Down button - next post
+        if (buttons[1]) {
+            buttons[1].addEventListener('click', () => {
+                scrollToPost(getCurrentIndex() + 1);
+            });
+        }
+    }
 });
   
 
