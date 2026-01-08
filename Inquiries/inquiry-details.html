@@ -24,10 +24,61 @@
 
         <!-- Inquiry Details Header -->
         <div class="details-header">
-            <h1>Website Development Inquiry</h1>
-            <div class="status-badge">Pending</div>
-        </div>
+            <div class="details-header-info">
+                <h1>Website Development Inquiry</h1>
+                <div class="status-badge">Pending</div>
+            </div>
+            <div class="details-header-actions">
+                <!-- Action Buttons -->
+                <div class="action-buttons">
+                    <button class="btn-action btn-send">
+                        <i class="fa fa-paper-plane"></i> Send
+                    </button>
+                    <button class="btn-action btn-escalate">
+                        <i class="fa fa-arrow-up"></i> Escalate
+                    </button>
+                    <button class="btn-action btn-verify">
+                        <i class="fa fa-check"></i> Verify
+                    </button>
+                    <button class="btn-action btn-reject">
+                        <i class="fa fa-times"></i> Reject
+                    </button>
+                    <button class="btn-action btn-delegate">
+                        <i class="fa fa-user-plus"></i> Delegate
+                    </button>
+                </div>
 
+                <!-- Staging Section -->
+                <div class="inquiry-staging-section">
+                    <div class="inquiry-staging-arrow">
+                        <div class="inquiry-stage inquiry-stage-active">
+                            <div class="inquiry-stage-content">
+                                <div class="inquiry-stage-label">Draft</div>
+                            </div>
+                        </div>
+                        <div class="inquiry-arrow-connector"></div>
+                        <div class="inquiry-stage">
+                            <div class="inquiry-stage-content">
+                                <div class="inquiry-stage-label">Submit</div>
+                            </div>
+                        </div>
+                        <div class="inquiry-arrow-connector"></div>
+                        <div class="inquiry-stage">
+                            <div class="inquiry-stage-content">
+                                <div class="inquiry-stage-label">Approve</div>
+                            </div>
+                        </div>
+                        <div class="inquiry-arrow-connector"></div>
+                        <div class="inquiry-stage">
+                            <div class="inquiry-stage-content">
+                                <div class="inquiry-stage-label">Done</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
         <!-- Inquiry Information -->
         <div class="details-content">
             <div class="info-section">
@@ -77,7 +128,9 @@
             <div class="info-section">
                 <h3>Project Description</h3>
                 <div class="description">
-                    <p>Looking for a complete website development solution for our business. We need a modern, responsive website with e-commerce functionality. The website should include:</p>
+                    <p>Looking for a complete website development solution for our business. We need a modern,
+                        responsive
+                        website with e-commerce functionality. The website should include:</p>
                     <ul>
                         <li>Homepage with company overview</li>
                         <li>Product catalog with search functionality</li>
@@ -86,7 +139,9 @@
                         <li>Admin panel for product management</li>
                         <li>Mobile responsive design</li>
                     </ul>
-                    <p>Our budget is around $15,000 and we need the project completed within 3 months. We prefer a clean, modern design with good user experience.</p>
+                    <p>Our budget is around $15,000 and we need the project completed within 3 months. We prefer a
+                        clean,
+                        modern design with good user experience.</p>
                 </div>
             </div>
 
@@ -115,7 +170,8 @@
                         <i class="fa fa-file-pdf-o"></i>
                         <span>Project Requirements.pdf</span>
                         <div class="attachment-actions">
-                            <button class="preview-btn" data-pdf="../images/job description.pdf" data-title="Project Requirements">Preview</button>
+                            <button class="preview-btn" data-pdf="../images/job description.pdf"
+                                data-title="Project Requirements">Preview</button>
                             <a href="../images/job description.pdf" class="download-btn" download>Download</a>
                         </div>
                     </div>
@@ -123,7 +179,8 @@
                         <i class="fa fa-file-image-o"></i>
                         <span>Design Mockups.jpg</span>
                         <div class="attachment-actions">
-                            <button class="preview-btn" data-image="../images/gallery1.jpg" data-title="Design Mockups">Preview</button>
+                            <button class="preview-btn" data-image="../images/gallery1.jpg"
+                                data-title="Design Mockups">Preview</button>
                             <a href="../images/gallery1.jpg" class="download-btn" download>Download</a>
                         </div>
                     </div>
@@ -131,13 +188,19 @@
             </div>
         </div>
 
-        <!-- Action Buttons -->
-        <div class="action-buttons">
-            <button class="btn-primary">Reply to Client</button>
-            <button class="btn-secondary">Update Status</button>
-            <button class="btn-secondary">Add Note</button>
-            <button class="btn-secondary">Assign to Team</button>
+        <div class="tabs-container">
+            <div class="tabs-header">
+                <div class="tab-item">
+                    <i class="fa fa-comments"></i>
+                    <span>Chat</span>
+                </div>
+                <div class="tab-item">
+                    <i class="fa fa-list"></i>
+                    <span>Log</span>
+                </div>
+            </div>
         </div>
+
     </div>
 
     <!-- PDF Viewer Overlay -->
