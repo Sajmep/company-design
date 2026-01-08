@@ -1,27 +1,27 @@
-/* Announcement Popup Styles */
-
+/* Announcement Popup Styles - SCSS */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Inter, Segoe UI, system-ui, Arial;
-}
-header {
-    background: #fff;
-    padding: 10px 20px;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Segoe UI, system-ui, Arial;
 }
 
+header {
+  background: #ffffff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 header h1 {
-    font-size: 20px;
+  font-size: 20px;
+  color: #000000;
 }
 
 .announcement-popup-open-button {
   padding: 8px 16px;
-  background: #9885d1;
+  background: #012f6d;
   color: #ffffff;
   border: none;
   border-radius: 6px;
@@ -33,13 +33,11 @@ header h1 {
   gap: 8px;
   transition: all 0.2s ease;
 }
-
 .announcement-popup-open-button:hover {
-  background: #7c3aed;
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
   transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(152, 133, 209, 0.3);
+  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.3);
 }
-
 .announcement-popup-open-button i {
   font-size: 14px;
 }
@@ -56,8 +54,7 @@ header h1 {
   justify-content: center;
   z-index: 1000;
 }
-
-.announcement-popup-content {
+.announcement-popup .announcement-popup-content {
   background: #ffffff;
   border-radius: 12px;
   width: 90%;
@@ -68,32 +65,35 @@ header h1 {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   overflow: hidden;
 }
-
-.announcement-popup-header {
+.announcement-popup .announcement-popup-content .announcement-popup-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 24px 20px 6px 20px;
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e0e0e0;
   position: relative;
   flex-direction: column;
   gap: 8px;
-  
 }
-
-.announcement-popup-header h3 {
+.announcement-popup .announcement-popup-content .announcement-popup-header h3 {
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color: #111827;
+  color: #000000;
 }
-
-.announcement-popup-close {
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  justify-content: space-between;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-left .announcement-popup-close {
   background: none;
   border: none;
   font-size: 28px;
   cursor: pointer;
-  color: #6b7280;
+  color: #666666;
   padding: 0;
   width: 32px;
   height: 32px;
@@ -103,74 +103,187 @@ header h1 {
   border-radius: 6px;
   transition: all 0.2s ease;
 }
-
-.announcement-popup-close:hover {
-  background: #f3f4f6;
-  color: #374151;
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-left .announcement-popup-close:hover {
+  background: #f5f5f5;
+  color: #000000;
 }
-
-.announcement-popup-body {
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  justify-content: space-between;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section {
+  padding: 8px;
+  background: #f5f5f5;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 206px;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage {
+  position: relative;
+  flex: 1;
+  z-index: 2;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage .announcement-popup-stage-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 10px 6px 6px;
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 3;
+  clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 0% 100%);
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage .announcement-popup-stage-content .announcement-popup-stage-label {
+  font-size: 9px;
+  font-weight: 500;
+  color: #666666;
+  text-align: center;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage .announcement-popup-stage-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 3px;
+  transition: all 0.3s ease;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage .announcement-popup-stage-icon i {
+  font-size: 10px;
+  color: #666666;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage.announcement-popup-stage-active .announcement-popup-stage-content {
+  background: #012f6d;
+  box-shadow: 0 4px 12px rgba(1, 47, 109, 0.3);
+  transform: scale(1.05);
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage.announcement-popup-stage-active .announcement-popup-stage-icon {
+  background: rgba(255, 255, 255, 0.2);
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage.announcement-popup-stage-active .announcement-popup-stage-icon i {
+  color: #ffffff;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-stage.announcement-popup-stage-active .announcement-popup-stage-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-staging-section .announcement-popup-staging-arrow .announcement-popup-arrow-connector {
+  width: 8px;
+  height: 2px;
+  background: #e0e0e0;
+  position: relative;
+  z-index: 1;
+  margin: 0 -1px;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-send-dropdown {
+  flex-shrink: 0;
+  min-width: 160px;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-send-dropdown select {
+  width: 100%;
+  padding: 10px 32px 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  background: #ffffff;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-send-dropdown select:hover {
+  border-color: #012f6d;
+}
+.announcement-popup .announcement-popup-content .announcement-popup-header .announcement-popup-header-right .announcement-popup-send-dropdown select:focus {
+  outline: none;
+  border-color: #012f6d;
+  box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+}
+.announcement-popup .announcement-popup-content .announcement-popup-body {
   padding: 24px 28px;
   overflow-y: auto;
   flex: 1;
 }
-
-.announcement-popup-form-group {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group {
   margin-bottom: 20px;
 }
-
-.announcement-popup-form-group:last-of-type {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group:last-of-type {
   margin-bottom: 0;
 }
-
-.announcement-popup-form-group label {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group label {
   display: block;
   margin-bottom: 8px;
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: #000000;
 }
-
-.announcement-popup-form-group input[type="text"],
-.announcement-popup-form-group textarea,
-.announcement-popup-form-group select {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group input[type=text] {
   width: 100%;
   padding: 10px 12px;
-  border: 1px solid #d1d5db;
+  border: 1px solid #e0e0e0;
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
-  color: #111827;
+  color: #000000;
   background: #ffffff;
   box-sizing: border-box;
   transition: all 0.2s ease;
 }
-
-.announcement-popup-form-group input[type="text"]:focus,
-.announcement-popup-form-group textarea:focus,
-.announcement-popup-form-group select:focus {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group input[type=text]:focus {
   outline: none;
-  border-color: #9885d1;
-  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
+  border-color: #012f6d;
+  box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
 }
-
-.announcement-popup-form-group textarea {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: #000000;
+  background: #ffffff;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
   resize: vertical;
   min-height: 120px;
   line-height: 1.5;
 }
-
-.announcement-popup-footer {
+.announcement-popup .announcement-popup-content .announcement-popup-body form .announcement-popup-form-group textarea:focus {
+  outline: none;
+  border-color: #012f6d;
+  box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+}
+.announcement-popup .announcement-popup-content .announcement-popup-footer {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
   padding: 10px 28px;
-  border-top: 1px solid #e5e7eb;
-  background: #f9fafb;
+  border-top: 1px solid #e0e0e0;
+  background: #f5f5f5;
 }
-
-.announcement-popup-cancel-button,
-.announcement-popup-save-button {
+.announcement-popup .announcement-popup-content .announcement-popup-footer .announcement-popup-cancel-button {
   padding: 8px 24px;
   border: none;
   border-radius: 8px;
@@ -179,171 +292,31 @@ header h1 {
   cursor: pointer;
   transition: all 0.2s ease;
   min-width: 100px;
-}
-
-.announcement-popup-cancel-button {
   background: transparent;
-  color: #6b7280;
+  color: #666666;
   border: 1px solid transparent;
 }
-
-.announcement-popup-cancel-button:hover {
-  color: #374151;
-  background: #f3f4f6;
+.announcement-popup .announcement-popup-content .announcement-popup-footer .announcement-popup-cancel-button:hover {
+  color: #000000;
+  background: #f5f5f5;
 }
-
-.announcement-popup-save-button {
-  background: #9885d1;
+.announcement-popup .announcement-popup-content .announcement-popup-footer .announcement-popup-save-button {
+  padding: 8px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 100px;
+  background: #012f6d;
   color: #ffffff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
-
-.announcement-popup-save-button:hover {
-  background: #7c3aed;
+.announcement-popup .announcement-popup-content .announcement-popup-footer .announcement-popup-save-button:hover {
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transform: translateY(-1px);
 }
 
-.announcement-popup-header-left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  justify-content: space-between;
-}
-
-.announcement-popup-header-right {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  width: 100%;
-  justify-content: space-between;
-  gap: 8px;
-}
-
-/* Announcement Popup Staging Section */
-.announcement-popup-staging-section {
-  padding: 8px;
-  background: #f8fafc;
-  border-radius: 6px;
-  border: 1px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 206px;
-}
-
-.announcement-popup-staging-arrow {
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.announcement-popup-stage {
-  position: relative;
-  flex: 1;
-  z-index: 2;
-}
-
-.announcement-popup-stage-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 6px 10px 6px 6px;
-  background: white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  position: relative;
-  z-index: 3;
-  clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 0% 100%);
-}
-
-.announcement-popup-stage-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: #e5e7eb;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 3px;
-  transition: all 0.3s ease;
-}
-
-.announcement-popup-stage-icon i {
-  font-size: 10px;
-  color: #6b7280;
-}
-
-.announcement-popup-stage-label {
-  font-size: 9px;
-  font-weight: 500;
-  color: #6b7280;
-  text-align: center;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-}
-
-.announcement-popup-arrow-connector {
-  width: 8px;
-  height: 2px;
-  background: #e2e8f0;
-  position: relative;
-  z-index: 1;
-  margin: 0 -1px;
-}
-
-.announcement-popup-stage-active .announcement-popup-stage-content {
-  background: #3b82f6;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
-  transform: scale(1.05);
-}
-
-.announcement-popup-stage-active .announcement-popup-stage-icon {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-.announcement-popup-stage-active .announcement-popup-stage-icon i {
-  color: white;
-}
-
-.announcement-popup-stage-active .announcement-popup-stage-label {
-  color: white;
-  font-weight: 600;
-}
-
-/* Announcement Popup Send Dropdown */
-.announcement-popup-send-dropdown {
-  flex-shrink: 0;
-  min-width: 160px;
-}
-
-.announcement-popup-send-dropdown select {
-  width: 100%;
-  padding: 10px 32px 10px 12px;
-  border: 1px solid #d1d5db;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #374151;
-  background: #ffffff;
-  cursor: pointer;
-  appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  transition: all 0.2s ease;
-}
-
-.announcement-popup-send-dropdown select:hover {
-  border-color: #9885d1;
-}
-
-.announcement-popup-send-dropdown select:focus {
-  outline: none;
-  border-color: #9885d1;
-  box-shadow: 0 0 0 3px rgba(152, 133, 209, 0.1);
-}
-  
-
-
-
+/*# sourceMappingURL=announcement-popup.css.map */

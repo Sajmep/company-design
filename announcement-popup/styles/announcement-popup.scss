@@ -1,444 +1,401 @@
 /* Announcement Popup Styles - SCSS */
 
-// Variables
-$primary-color: #9885d1;
-$primary-color-hover: #7c3aed;
-$active-stage-color: #3b82f6;
-$white: #ffffff;
+// Colors
+$blue: #012f6d;
+$red: #db0000;
+$yellow: #e6bb01;
 $black: #000000;
-
-// Grays
-$gray-50: #f9fafb;
-$gray-100: #f3f4f6;
-$gray-200: #e5e7eb;
-$gray-300: #d1d5db;
-$gray-400: #9ca3af;
-$gray-500: #6b7280;
-$gray-600: #4b5563;
-$gray-700: #374151;
-$gray-800: #1f2937;
-$gray-900: #111827;
-
-// Border colors
-$border-light: #e5e7eb;
-$border-medium: #d1d5db;
-$border-dark: #ddd;
-$border-staging: #e2e8f0;
-
-// Background colors
-$bg-staging: #f8fafc;
-$bg-overlay: rgba(0, 0, 0, 0.5);
-
-// Spacing
-$spacing-xs: 6px;
-$spacing-sm: 8px;
-$spacing-md: 12px;
-$spacing-lg: 16px;
-$spacing-xl: 20px;
-$spacing-2xl: 24px;
-$spacing-3xl: 28px;
-
-// Border radius
-$radius-sm: 6px;
-$radius-md: 8px;
-$radius-lg: 12px;
-
-// Transitions
-$transition-fast: 0.2s ease;
-$transition-normal: 0.3s ease;
-
-// Shadows
-$shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$shadow-md: 0 1px 3px rgba(0, 0, 0, 0.1);
-$shadow-lg: 0 2px 8px rgba(0, 0, 0, 0.1);
-$shadow-xl: 0 4px 12px rgba(59, 130, 246, 0.3);
-$shadow-popup: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-$shadow-button-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-$shadow-focus: 0 0 0 3px rgba(152, 133, 209, 0.1);
-
-// Typography
-$font-family: Inter, Segoe UI, system-ui, Arial;
-$font-size-xs: 9px;
-$font-size-sm: 10px;
-$font-size-base: 14px;
-$font-size-lg: 20px;
-$font-size-xl: 28px;
-
-$font-weight-normal: 500;
-$font-weight-semibold: 600;
-
-// Z-index
-$z-index-base: 1;
-$z-index-stacked: 2;
-$z-index-dropdown: 3;
-$z-index-sticky: 4;
-$z-index-overlay: 1000;
-
-// Mixins
-@mixin flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-@mixin flex-between {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-@mixin button-base {
-  padding: $spacing-sm $spacing-2xl;
-  border: none;
-  border-radius: $radius-md;
-  font-size: $font-size-base;
-  font-weight: $font-weight-semibold;
-  cursor: pointer;
-  transition: all $transition-fast;
-  min-width: 100px;
-}
-
-@mixin input-base {
-  width: 100%;
-  padding: 10px $spacing-md;
-  border: 1px solid $border-medium;
-  border-radius: $radius-md;
-  font-size: $font-size-base;
-  font-family: inherit;
-  color: $gray-900;
-  background: $white;
-  box-sizing: border-box;
-  transition: all $transition-fast;
-}
-
-@mixin focus-state {
-  outline: none;
-  border-color: $primary-color;
-  box-shadow: $shadow-focus;
-}
+$white: #ffffff;
+$gray-light: #f5f5f5;
+$gray-medium: #e0e0e0;
+$gray-dark: #666666;
 
 // Global Reset
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: $font-family;
+  font-family: Inter, Segoe UI, system-ui, Arial;
 }
 
 // Header
 header {
   background: $white;
-  padding: 10px $spacing-xl;
-  border-bottom: 1px solid $border-dark;
-  @include flex-between;
+  padding: 10px 20px;
+  border-bottom: 1px solid $gray-medium;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   h1 {
-    font-size: $font-size-lg;
+    font-size: 20px;
+    color: $black;
   }
 }
 
 // Open Button
 .announcement-popup-open-button {
-  padding: $spacing-sm $spacing-lg;
-  background: $primary-color;
+  padding: 8px 16px;
+  background: $blue;
   color: $white;
   border: none;
-  border-radius: $radius-sm;
-  font-size: $font-size-base;
-  font-weight: $font-weight-normal;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: $spacing-sm;
-  transition: all $transition-fast;
+  gap: 8px;
+  transition: all 0.2s ease;
 
   &:hover {
-    background: $primary-color-hover;
+    background: darken($blue, 10%);
     transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(152, 133, 209, 0.3);
+    box-shadow: 0 2px 4px rgba(1, 47, 109, 0.3);
   }
 
   i {
-    font-size: $font-size-base;
+    font-size: 14px;
   }
 }
 
-// Popup Overlay
+// Popup Container
 .announcement-popup {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: $bg-overlay;
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: $z-index-overlay;
-}
+  z-index: 1000;
 
-// Popup Content
-.announcement-popup-content {
-  background: $white;
-  border-radius: $radius-lg;
-  width: 90%;
-  max-width: 600px;
-  max-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  box-shadow: $shadow-popup;
-  overflow: hidden;
-}
-
-// Popup Header
-.announcement-popup-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: $spacing-2xl $spacing-xl $spacing-xs $spacing-xl;
-  border-bottom: 1px solid $border-light;
-  position: relative;
-  flex-direction: column;
-  gap: $spacing-sm;
-
-  h3 {
-    margin: 0;
-    font-size: $font-size-lg;
-    font-weight: $font-weight-semibold;
-    color: $gray-900;
-  }
-
-  &-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    width: 100%;
-    @include flex-between;
-  }
-
-  &-right {
-    display: flex;
-    align-items: center;
-    gap: $spacing-sm;
-    width: 100%;
-    @include flex-between;
-  }
-}
-
-// Close Button
-.announcement-popup-close {
-  background: none;
-  border: none;
-  font-size: $font-size-xl;
-  cursor: pointer;
-  color: $gray-500;
-  padding: 0;
-  width: 32px;
-  height: 32px;
-  @include flex-center;
-  border-radius: $radius-sm;
-  transition: all $transition-fast;
-
-  &:hover {
-    background: $gray-100;
-    color: $gray-700;
-  }
-}
-
-// Popup Body
-.announcement-popup-body {
-  padding: $spacing-2xl $spacing-3xl;
-  overflow-y: auto;
-  flex: 1;
-}
-
-// Form Group
-.announcement-popup-form-group {
-  margin-bottom: $spacing-xl;
-
-  &:last-of-type {
-    margin-bottom: 0;
-  }
-
-  label {
-    display: block;
-    margin-bottom: $spacing-sm;
-    font-size: $font-size-base;
-    font-weight: $font-weight-normal;
-    color: $gray-700;
-  }
-
-  input[type="text"],
-  textarea,
-  select {
-    @include input-base;
-  }
-
-  input[type="text"]:focus,
-  textarea:focus,
-  select:focus {
-    @include focus-state;
-  }
-
-  textarea {
-    resize: vertical;
-    min-height: 120px;
-    line-height: 1.5;
-  }
-}
-
-// Popup Footer
-.announcement-popup-footer {
-  display: flex;
-  justify-content: flex-end;
-  gap: $spacing-md;
-  padding: 10px $spacing-3xl;
-  border-top: 1px solid $border-light;
-  background: $gray-50;
-}
-
-// Buttons
-.announcement-popup-cancel-button,
-.announcement-popup-save-button {
-  @include button-base;
-}
-
-.announcement-popup-cancel-button {
-  background: transparent;
-  color: $gray-500;
-  border: 1px solid transparent;
-
-  &:hover {
-    color: $gray-700;
-    background: $gray-100;
-  }
-}
-
-.announcement-popup-save-button {
-  background: $primary-color;
-  color: $white;
-  box-shadow: $shadow-sm;
-
-  &:hover {
-    background: $primary-color-hover;
-    box-shadow: $shadow-button-hover;
-    transform: translateY(-1px);
-  }
-}
-
-// Staging Section
-.announcement-popup-staging-section {
-  padding: $spacing-sm;
-  background: $bg-staging;
-  border-radius: $radius-sm;
-  border: 1px solid $border-staging;
-  box-shadow: $shadow-lg;
-  width: 206px;
-}
-
-.announcement-popup-staging-arrow {
-  display: flex;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.announcement-popup-stage {
-  position: relative;
-  flex: 1;
-  z-index: $z-index-stacked;
-
-  &-content {
+  // Popup Content 
+  .announcement-popup-content {
+    background: $white;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding: $spacing-xs 10px $spacing-xs $spacing-xs;
-    background: $white;
-    box-shadow: $shadow-md;
-    transition: all $transition-normal;
-    position: relative;
-    z-index: $z-index-dropdown;
-    clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 0% 100%);
-  }
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
 
-  &-icon {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background: $gray-200;
-    @include flex-center;
-    margin-bottom: 3px;
-    transition: all $transition-normal;
+    // Popup Header 
+    .announcement-popup-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 20px 6px 20px;
+      border-bottom: 1px solid $gray-medium;
+      position: relative;
+      flex-direction: column;
+      gap: 8px;
 
-    i {
-      font-size: $font-size-sm;
-      color: $gray-500;
-    }
-  }
+      h3 {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 600;
+        color: $black;
+      }
 
-  &-label {
-    font-size: $font-size-xs;
-    font-weight: $font-weight-normal;
-    color: $gray-500;
-    text-align: center;
-    transition: all $transition-normal;
-    white-space: nowrap;
-  }
+      // Header Left 
+      .announcement-popup-header-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 100%;
+        justify-content: space-between;
 
-  &-active {
-    .announcement-popup-stage-content {
-      background: $active-stage-color;
-      box-shadow: $shadow-xl;
-      transform: scale(1.05);
-    }
+        // Close Button 
+        .announcement-popup-close {
+          background: none;
+          border: none;
+          font-size: 28px;
+          cursor: pointer;
+          color: $gray-dark;
+          padding: 0;
+          width: 32px;
+          height: 32px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 6px;
+          transition: all 0.2s ease;
 
-    .announcement-popup-stage-icon {
-      background: rgba(255, 255, 255, 0.2);
+          &:hover {
+            background: $gray-light;
+            color: $black;
+          }
+        }
+      }
 
-      i {
-        color: $white;
+      // Header Right 
+      .announcement-popup-header-right {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        justify-content: space-between;
+
+        // Staging Section 
+        .announcement-popup-staging-section {
+          padding: 8px;
+          background: $gray-light;
+          border-radius: 6px;
+          border: 1px solid $gray-medium;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          width: 206px;
+
+          // Staging Arrow 
+          .announcement-popup-staging-arrow {
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+
+            // Stage 
+            .announcement-popup-stage {
+              position: relative;
+              flex: 1;
+              z-index: 2;
+
+              // Stage Content 
+              .announcement-popup-stage-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 6px 10px 6px 6px;
+                background: $white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                position: relative;
+                z-index: 3;
+                clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 0% 100%);
+
+                // Stage Label 
+                .announcement-popup-stage-label {
+                  font-size: 9px;
+                  font-weight: 500;
+                  color: $gray-dark;
+                  text-align: center;
+                  transition: all 0.3s ease;
+                  white-space: nowrap;
+                }
+              }
+
+              // Stage Icon 
+              .announcement-popup-stage-icon {
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background: $gray-medium;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-bottom: 3px;
+                transition: all 0.3s ease;
+
+                i {
+                  font-size: 10px;
+                  color: $gray-dark;
+                }
+              }
+
+              // Active State 
+              &.announcement-popup-stage-active {
+                .announcement-popup-stage-content {
+                  background: $blue;
+                  box-shadow: 0 4px 12px rgba(1, 47, 109, 0.3);
+                  transform: scale(1.05);
+                }
+
+                .announcement-popup-stage-icon {
+                  background: rgba(255, 255, 255, 0.2);
+
+                  i {
+                    color: $white;
+                  }
+                }
+
+                .announcement-popup-stage-label {
+                  color: $white;
+                  font-weight: 600;
+                }
+              }
+            }
+
+            // Arrow Connector 
+            .announcement-popup-arrow-connector {
+              width: 8px;
+              height: 2px;
+              background: $gray-medium;
+              position: relative;
+              z-index: 1;
+              margin: 0 -1px;
+            }
+          }
+        }
+
+        // Send Dropdown 
+        .announcement-popup-send-dropdown {
+          flex-shrink: 0;
+          min-width: 160px;
+
+          select {
+            width: 100%;
+            padding: 10px 32px 10px 12px;
+            border: 1px solid $gray-medium;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: $black;
+            background: $white;
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            transition: all 0.2s ease;
+            box-sizing: border-box;
+
+            &:hover {
+              border-color: $blue;
+            }
+
+            &:focus {
+              outline: none;
+              border-color: $blue;
+              box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+            }
+          }
+        }
       }
     }
 
-    .announcement-popup-stage-label {
-      color: $white;
-      font-weight: $font-weight-semibold;
+    // Popup Body 
+    .announcement-popup-body {
+      padding: 24px 28px;
+      overflow-y: auto;
+      flex: 1;
+
+      // Form 
+      form {
+        // Form Group 
+        .announcement-popup-form-group {
+          margin-bottom: 20px;
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+
+          // Label 
+          label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            color: $black;
+          }
+
+          // Input 
+          input[type="text"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid $gray-medium;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            color: $black;
+            background: $white;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+
+            &:focus {
+              outline: none;
+              border-color: $blue;
+              box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+            }
+          }
+
+          // Textarea 
+          textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid $gray-medium;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            color: $black;
+            background: $white;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
+            resize: vertical;
+            min-height: 120px;
+            line-height: 1.5;
+
+            &:focus {
+              outline: none;
+              border-color: $blue;
+              box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+            }
+          }
+        }
+      }
+    }
+
+    // Popup Footer 
+    .announcement-popup-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      padding: 10px 28px;
+      border-top: 1px solid $gray-medium;
+      background: $gray-light;
+
+      // Cancel Button 
+      .announcement-popup-cancel-button {
+        padding: 8px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 100px;
+        background: transparent;
+        color: $gray-dark;
+        border: 1px solid transparent;
+
+        &:hover {
+          color: $black;
+          background: $gray-light;
+        }
+      }
+
+      // Save Button 
+      .announcement-popup-save-button {
+        padding: 8px 24px;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        min-width: 100px;
+        background: $blue;
+        color: $white;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+        &:hover {
+          background: darken($blue, 10%);
+          box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          transform: translateY(-1px);
+        }
+      }
     }
   }
 }
-
-.announcement-popup-arrow-connector {
-  width: $spacing-sm;
-  height: 2px;
-  background: $border-staging;
-  position: relative;
-  z-index: $z-index-base;
-  margin: 0 -1px;
-}
-
-// Send Dropdown
-.announcement-popup-send-dropdown {
-  flex-shrink: 0;
-  min-width: 160px;
-
-  select {
-    @include input-base;
-    padding: 10px 32px 10px $spacing-md;
-    font-weight: $font-weight-normal;
-    color: $gray-700;
-    cursor: pointer;
-    appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right $spacing-md center;
-
-    &:hover {
-      border-color: $primary-color;
-    }
-
-    &:focus {
-      @include focus-state;
-    }
-  }
-}
-
