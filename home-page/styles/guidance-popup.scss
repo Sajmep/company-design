@@ -1,0 +1,352 @@
+/* Guidance Popup Styles - SCSS */
+
+// Colors
+$blue: #012f6d;
+$black: #000000;
+$white: #ffffff;
+$gray-light: #f5f5f5;
+$gray-medium: #e0e0e0;
+$gray-dark: #666666;
+$yellow: #e6bb01;
+
+// Global Reset
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, Segoe UI, system-ui, Arial;
+}
+
+// Header
+header {
+    background: $white;
+    padding: 10px 20px;
+    border-bottom: 1px solid $gray-medium;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        font-size: 20px;
+        color: $black;
+    }
+}
+
+// Open Button
+.guidance-popup-open-button {
+    padding: 8px 16px;
+    background: $blue;
+    color: $white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: darken($blue, 10%);
+        transform: translateY(-1px);
+    }
+
+    i {
+        font-size: 14px;
+    }
+}
+
+// Popup Overlay
+.guidance-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+
+    // Popup Content
+    .guidance-popup-content {
+        background: $white;
+        border-radius: 16px;
+        width: 90%;
+        max-width: 950px;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        overflow: hidden;
+        position: relative;
+        padding: 40px;
+
+        // Close Button
+        .guidance-popup-close {
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+            color: $gray-dark;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+
+            &:hover {
+                background: $gray-light;
+                color: $black;
+                transform: scale(1.2);
+            }
+        }
+
+        // Popup Body
+        .guidance-popup-body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        // First Slide - Keep Original Structure
+        .guidance-popup-first-slide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+
+            .guidance-popup-icon-wrapper {
+                margin-bottom: 30px;
+            }
+
+            .guidance-popup-icon-circle {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                border: 3px dashed $yellow;
+                background: $gray-light;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                position: relative;
+            }
+
+            .guidance-popup-logo {
+                width: 70px;
+                height: 70px;
+                object-fit: contain;
+            }
+
+            .guidance-popup-title {
+                font-size: 32px;
+                font-weight: 700;
+                color: $black;
+                margin: 0 0 24px 0;
+                line-height: 1.2;
+            }
+
+            .guidance-popup-description {
+                border: 2px dashed $blue;
+                border-radius: 12px;
+                padding: 20px 24px;
+                margin-bottom: 32px;
+                background: #fafbfc;
+                max-width: 500px;
+
+                p {
+                    font-size: 16px;
+                    color: $gray-dark;
+                    line-height: 1.6;
+                    margin: 0;
+                }
+            }
+
+            .guidance-popup-get-started-btn {
+                padding: 14px 32px;
+                background: $blue;
+                color: $white;
+                border: none;
+                border-radius: 35px;
+                font-size: 16px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                min-width: 180px;
+
+                &:hover {
+                    background: darken($blue, 10%);
+                    transform: translateY(-2px);
+                }
+
+                &:active {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        // Slide Indicators
+        .guidance-popup-slides-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+
+        .guidance-popup-slide-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: $gray-medium;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+                background: $blue;
+                width: 32px;
+                border-radius: 6px;
+            }
+        }
+
+        // Slides Container
+        .guidance-popup-slides-container {
+            position: relative;
+            width: 100%;
+            min-height: 400px;
+            margin-bottom: 40px;
+        }
+
+        // Slide - Image Only Slides
+        .guidance-popup-slide {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            animation: fadeIn 0.3s ease;
+
+            &.active {
+                display: flex;
+            }
+
+            // Image-Only Slides
+            .guidance-popup-slide-image {
+                width: 100%;
+                max-width: 100%;
+                height: 500px;
+                border-radius: 12px;
+                overflow: hidden;
+                background: $gray-light;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                    padding: 20px;
+                }
+            }
+        }
+
+        // Navigation
+        .guidance-popup-navigation {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+        }
+
+        // Navigation Buttons
+        .guidance-popup-prev-btn,
+        .guidance-popup-next-btn,
+        .guidance-popup-get-started-btn {
+            padding: 14px 32px;
+            background: $blue;
+            color: $white;
+            border: none;
+            border-radius: 35px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            &:hover {
+                background: darken($blue, 10%);
+                transform: translateY(-2px);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+
+            i {
+                font-size: 14px;
+            }
+        }
+
+        .guidance-popup-prev-btn {
+            background: $gray-medium;
+            color: $black;
+
+            &:hover {
+                background: $gray-dark;
+                color: $white;
+            }
+        }
+
+        .guidance-popup-finish-btn {
+            padding: 14px 32px;
+            background: $blue;
+            color: $white;
+            border: none;
+            border-radius: 35px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            min-width: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+
+            &:hover {
+                background: darken($blue, 10%);
+                transform: translateY(-2px);
+            }
+
+            &:active {
+                transform: translateY(0);
+            }
+        }
+
+        // Animation
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

@@ -1,0 +1,299 @@
+/* Guidance Popup Styles - SCSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Segoe UI, system-ui, Arial;
+}
+
+header {
+  background: #ffffff;
+  padding: 10px 20px;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  font-size: 20px;
+  color: #000000;
+}
+
+.guidance-popup-open-button {
+  padding: 8px 16px;
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+.guidance-popup-open-button:hover {
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
+  transform: translateY(-1px);
+}
+.guidance-popup-open-button i {
+  font-size: 14px;
+}
+
+.guidance-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.guidance-popup .guidance-popup-content {
+  background: #ffffff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 950px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  position: relative;
+  padding: 40px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-close {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666666;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-close:hover {
+  background: #f5f5f5;
+  color: #000000;
+  transform: scale(1.2);
+}
+.guidance-popup .guidance-popup-content .guidance-popup-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-icon-wrapper {
+  margin-bottom: 30px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-icon-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px dashed #e6bb01;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0 0 24px 0;
+  line-height: 1.2;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-description {
+  border: 2px dashed #012f6d;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+  background: #fafbfc;
+  max-width: 500px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-description p {
+  font-size: 16px;
+  color: #666666;
+  line-height: 1.6;
+  margin: 0;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-get-started-btn {
+  padding: 14px 32px;
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+  border-radius: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 180px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-get-started-btn:hover {
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
+  transform: translateY(-2px);
+}
+.guidance-popup .guidance-popup-content .guidance-popup-first-slide .guidance-popup-get-started-btn:active {
+  transform: translateY(0);
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slides-indicator {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 40px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slide-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slide-dot.active {
+  background: #012f6d;
+  width: 32px;
+  border-radius: 6px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slides-container {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  margin-bottom: 40px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slide {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slide.active {
+  display: flex;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slide .guidance-popup-slide-image {
+  width: 100%;
+  max-width: 100%;
+  height: 500px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-slide .guidance-popup-slide-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  width: 100%;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-prev-btn,
+.guidance-popup .guidance-popup-content .guidance-popup-next-btn,
+.guidance-popup .guidance-popup-content .guidance-popup-get-started-btn {
+  padding: 14px 32px;
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+  border-radius: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-prev-btn:hover,
+.guidance-popup .guidance-popup-content .guidance-popup-next-btn:hover,
+.guidance-popup .guidance-popup-content .guidance-popup-get-started-btn:hover {
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
+  transform: translateY(-2px);
+}
+.guidance-popup .guidance-popup-content .guidance-popup-prev-btn:active,
+.guidance-popup .guidance-popup-content .guidance-popup-next-btn:active,
+.guidance-popup .guidance-popup-content .guidance-popup-get-started-btn:active {
+  transform: translateY(0);
+}
+.guidance-popup .guidance-popup-content .guidance-popup-prev-btn i,
+.guidance-popup .guidance-popup-content .guidance-popup-next-btn i,
+.guidance-popup .guidance-popup-content .guidance-popup-get-started-btn i {
+  font-size: 14px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-prev-btn {
+  background: #e0e0e0;
+  color: #000000;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-prev-btn:hover {
+  background: #666666;
+  color: #ffffff;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-finish-btn {
+  padding: 14px 32px;
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+  border-radius: 35px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.guidance-popup .guidance-popup-content .guidance-popup-finish-btn:hover {
+  background: rgb(0.5363636364, 25.2090909091, 58.4636363636);
+  transform: translateY(-2px);
+}
+.guidance-popup .guidance-popup-content .guidance-popup-finish-btn:active {
+  transform: translateY(0);
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*# sourceMappingURL=guidance-popup.css.map */

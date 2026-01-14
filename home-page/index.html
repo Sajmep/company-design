@@ -1,179 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <title>Document</title>
 
-    <link rel="stylesheet" href="css/home.css">
-  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
-  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
-  <link rel="stylesheet" href="../styles/scrollbar.css">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Detailed Search Results</title>
+
+    <link rel="stylesheet" href="css/home-bmh.css">
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/search-details.css">
 
 </head>
+
 <body>
 
-    <div class="header">
-        <div class="menu-icon" title="Menu">
-            <span></span>
-            <span></span>
-            <span></span>
+    <header>
+        <h1>BMH Header - Home Page</h1>
+    </header>
+
+        <div class="bmh-home-page-container">
+            <img src="images/bmh-logo.png" alt="BMH Logo" class="bmh-home-page-logo">
+    
+            <div class="bmh-home-page-search-box">
+                <span class="bmh-home-page-icon left"><i class="fa fa-search"></i></span>
+                <input type="text" placeholder="Search Google or type a URL">
+                <span class="bmh-home-page-icon right"><i class="fa fa-microphone"></i></span>
+                <span class="bmh-home-page-icon right"><i class="fa fa-camera"></i></span>
+            </div>
+    
+            <div class="bmh-home-page-shortcut">
+                <div class="bmh-home-page-circle">
+                    +
+                </div>
+                <p>Add shortcut</p>
+            </div>
         </div>
-    </div>
+    
+    
 
-    <button class="reopen-guide-btn" title="Reopen Guide">
-        <i class="fa fa-question-circle"></i>
-    </button>
-
-    <div class="search-section">
-        <input type="text" placeholder="Search...">
-    </div>
-
-    <div class="explore" title="Explore">
-        <span class="icon-placeholder">🔍</span>
-    </div>
-
-    <div class="chatbot" title="Chatbot">
-        <span class="icon-placeholder">💬</span>
-    </div>
-
-    <!-- Popovers moved outside parent containers -->
-    <div class="popover menu-popover">
-        <button class="popover-close">&times;</button>
-        <div class="popover-content">
-            <h3>Explore All BMH Apps</h3>
-            <p>Welcome to BMH!
-                Click here to access all our Websites and Apps, like Projects, Vendors, Tenders, Products, Workspace, and more.
-                Everything you need for construction management is just one click away.</p>
-        </div>
-        <button class="popover-button">Next</button>
-    </div>
-
-    <div class="popover search-popover">
-        <button class="popover-close">&times;</button>
-        <div class="popover-content">
-            <h3>Search Anything</h3>
-            <p>Looking for projects, tenders, vendors, inquiries, or solutions?
-                Use the Global search bar to quickly find what you need across the entire BMH platform.</p>
-        </div>
-        <button class="popover-button">Next</button>
-    </div>
-
-    <div class="popover explore-popover">
-        <button class="popover-close">&times;</button>
-        <div class="popover-content">
-            <h3>Explore & Learn</h3>
-            <p>Use Explore to discover everything you can do on BMH:
-                • Search across all sections
-                • FAQs for quick answers
-                • Tutorials to learn how features work
-                • Create your own projects, inquiries, tenders, and more
-                Your journey starts here.</p>
-        </div>
-        <button class="popover-button">Next</button>
-    </div>
-
-    <div class="popover chatbot-popover">
-        <button class="popover-close">&times;</button>
-        <div class="popover-content">
-            <h3>Chatbot</h3>
-            <p>Get instant help and answers to your questions with our AI assistant.</p>
-        </div>
-        <button class="popover-button">Next</button>
-    </div>
-
-    <div class="overlay"></div>
-      
-    <script>
-        const popovers = document.querySelectorAll('.popover');
-        const overlay = document.querySelector('.overlay');
-        const menuIcon = document.querySelector('.menu-icon');
-        const header = document.querySelector('.header');
-        const searchSection = document.querySelector('.search-section');
-        const searchInput = document.querySelector('.search-section input');
-        const exploreBtn = document.querySelector('.explore');
-        const chatbotBtn = document.querySelector('.chatbot');
-        let currentIndex = 0;
-
-        function updateHighlightedElement() {
-            // Remove all highlights
-            menuIcon?.classList.remove('highlighted');
-            header?.classList.remove('highlighted');
-            searchSection?.classList.remove('highlighted');
-            searchInput?.classList.remove('highlighted');
-            exploreBtn?.classList.remove('highlighted');
-            chatbotBtn?.classList.remove('highlighted');
-
-            // Add highlight based on active popover
-            if (popovers[currentIndex]?.classList.contains('menu-popover')) {
-                menuIcon?.classList.add('highlighted');
-                header?.classList.add('highlighted');
-            } else if (popovers[currentIndex]?.classList.contains('search-popover')) {
-                searchSection?.classList.add('highlighted');
-                searchInput?.classList.add('highlighted');
-            } else if (popovers[currentIndex]?.classList.contains('explore-popover')) {
-                exploreBtn?.classList.add('highlighted');
-            } else if (popovers[currentIndex]?.classList.contains('chatbot-popover')) {
-                chatbotBtn?.classList.add('highlighted');
-            }
-        }
-
-        function closeAllPopovers() {
-            popovers.forEach(popover => popover.classList.remove('active'));
-            overlay.classList.remove('active');
-            currentIndex = popovers.length; // Set to end so no popover is active
-            updateHighlightedElement();
-        }
-
-        function reopenPopovers() {
-            currentIndex = 0;
-            if (popovers.length > 0) {
-                popovers[0].classList.add('active');
-                overlay.classList.add('active');
-                updateHighlightedElement();
-            }
-        }
-
-        // Show first popover on load
-        if (popovers.length > 0) {
-            popovers[0].classList.add('active');
-            overlay.classList.add('active');
-            updateHighlightedElement();
-        }
-
-        // Handle Next button clicks
-        document.querySelectorAll('.popover-button').forEach((button, index) => {
-            button.addEventListener('click', () => {
-                popovers[currentIndex].classList.remove('active');
-                currentIndex++;
-                
-                if (currentIndex < popovers.length) {
-                    popovers[currentIndex].classList.add('active');
-                    overlay.classList.add('active');
-                    updateHighlightedElement();
-                } else {
-                    overlay.classList.remove('active');
-                    updateHighlightedElement();
-                }
-            });
-        });
-
-        // Handle Close button clicks
-        document.querySelectorAll('.popover-close').forEach((closeBtn) => {
-            closeBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                closeAllPopovers();
-            });
-        });
-
-        // Handle Reopen button click
-        const reopenBtn = document.querySelector('.reopen-guide-btn');
-        if (reopenBtn) {
-            reopenBtn.addEventListener('click', () => {
-                reopenPopovers();
-            });
-        }
-    </script>
 </body>
 </html>
