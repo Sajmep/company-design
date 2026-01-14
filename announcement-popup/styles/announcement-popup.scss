@@ -243,34 +243,151 @@ header {
         // Send Dropdown 
         .announcement-popup-send-dropdown {
           flex-shrink: 0;
-          min-width: 160px;
+          min-width: 180px;
+          position: relative;
 
-          select {
-            width: 100%;
-            padding: 10px 32px 10px 12px;
+          // Dropdown Toggle
+          .announcement-popup-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 4px 12px;
             border: 1px solid $gray-medium;
             border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            color: $black;
             background: $white;
             cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
             transition: all 0.2s ease;
-            box-sizing: border-box;
 
             &:hover {
               border-color: $blue;
             }
 
-            &:focus {
-              outline: none;
-              border-color: $blue;
-              box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+            .announcement-popup-dropdown-selected {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              flex: 1;
             }
+
+            i {
+              font-size: 12px;
+              color: $gray-dark;
+              transition: transform 0.2s ease;
+            }
+
+            &.active i {
+              transform: rotate(180deg);
+            }
+          }
+
+          // Dropdown Menu
+          .announcement-popup-dropdown-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 4px);
+            left: 0;
+            right: 0;
+            background: $white;
+            border: 1px solid $gray-medium;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            max-height: 250px;
+            overflow-y: auto;
+            z-index: 1000;
+
+            &.active {
+              display: block;
+            }
+
+            // Dropdown Item
+            .announcement-popup-dropdown-item {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              padding: 10px 12px;
+              cursor: pointer;
+              transition: all 0.2s ease;
+
+              &:hover {
+                background: $gray-light;
+              }
+
+              &:first-child {
+                border-radius: 8px 8px 0 0;
+              }
+            }
+
+            // Last dropdown item before actions
+            .announcement-popup-dropdown-item:last-of-type {
+              border-radius: 0;
+            }
+
+            // Dropdown Actions
+            .announcement-popup-dropdown-actions {
+              display: flex;
+              gap: 8px;
+              padding: 8px;
+              flex-direction: column;
+              border-top: 1px solid $gray-medium;
+              background: $gray-light;
+              border-radius: 0 0 8px 8px;
+
+              // Action Button
+              .announcement-popup-dropdown-action-btn {
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 6px;
+                padding: 8px 12px;
+                border: 1px solid $gray-medium;
+                border-radius: 6px;
+                background: $white;
+                color: $black;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                i {
+                  font-size: 12px;
+                  color: $gray-dark;
+                }
+
+                &:hover {
+                  background: $blue;
+                  color: $white;
+                  border-color: $blue;
+
+                  i {
+                    color: $white;
+                  }
+                }
+
+                &:active {
+                  transform: scale(0.98);
+                }
+              }
+            }
+          }
+
+          // User Avatar
+          .announcement-popup-user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0;
+          }
+
+          // User Name
+          .announcement-popup-user-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: $black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
           }
         }
       }
@@ -341,6 +458,165 @@ header {
               outline: none;
               border-color: $blue;
               box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+            }
+          }
+        }
+
+        // Settings 
+        .announcement-popup-seetings {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 15px;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          padding: 15px;
+          border-top: 1px solid $gray-medium;
+          border-bottom: 1px solid $gray-medium;
+          margin: 20px 0;
+          background: $gray-light;
+          border-radius: 8px;
+
+          // Form Group 
+          .announcement-popup-form-group {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 0;
+
+            // Label 
+            label {
+              display: block;
+              margin-bottom: 8px;
+              font-size: 14px;
+              font-weight: 500;
+              color: $black;
+            }
+
+            // Select
+            select {
+              width: 100%;
+              padding: 10px 32px 10px 12px;
+              border: 1px solid $gray-medium;
+              border-radius: 8px;
+              font-size: 14px;
+              font-family: inherit;
+              color: $black;
+              background: $white;
+              cursor: pointer;
+              appearance: none;
+              background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666666' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+              background-repeat: no-repeat;
+              background-position: right 12px center;
+              transition: all 0.2s ease;
+              box-sizing: border-box;
+
+              &:hover {
+                border-color: $blue;
+              }
+
+              &:focus {
+                outline: none;
+                border-color: $blue;
+                box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+              }
+            }
+
+            // Date Input
+            input[type="date"] {
+              width: 100%;
+              padding: 10px 12px;
+              border: 1px solid $gray-medium;
+              border-radius: 8px;
+              font-size: 14px;
+              font-family: inherit;
+              color: $black;
+              background: $white;
+              box-sizing: border-box;
+              transition: all 0.2s ease;
+              cursor: pointer;
+
+              &:hover {
+                border-color: $blue;
+              }
+
+              &:focus {
+                outline: none;
+                border-color: $blue;
+                box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+              }
+            }
+
+            // File Input
+            input[type="file"] {
+              width: 100%;
+              padding: 10px 12px;
+              border: 1px solid $gray-medium;
+              border-radius: 8px;
+              font-size: 14px;
+              font-family: inherit;
+              color: $black;
+              background: $white;
+              box-sizing: border-box;
+              transition: all 0.2s ease;
+              cursor: pointer;
+
+              &:hover {
+                border-color: $blue;
+              }
+
+              &:focus {
+                outline: none;
+                border-color: $blue;
+                box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+              }
+
+              &::file-selector-button {
+                padding: 6px 12px;
+                margin-right: 12px;
+                border: 1px solid $gray-medium;
+                border-radius: 6px;
+                background: $gray-light;
+                color: $black;
+                font-size: 13px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+
+                &:hover {
+                  background: $gray-medium;
+                  border-color: $blue;
+                }
+              }
+            }
+
+            // Checkbox Label
+            .announcement-popup-checkbox-label {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              cursor: pointer;
+              margin-bottom: 0;
+
+              input[type="checkbox"] {
+                width: 18px;
+                height: 18px;
+                cursor: pointer;
+                accent-color: $blue;
+                flex-shrink: 0;
+              }
+
+              span {
+                font-size: 14px;
+                font-weight: 500;
+                color: $black;
+                user-select: none;
+              }
+
+              &:hover {
+                span {
+                  color: $blue;
+                }
+              }
             }
           }
         }
