@@ -42,10 +42,10 @@ header h1 {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  padding: 15px 23px;
+  padding: 13px 23px;
   border-radius: 30px;
   border: 1px solid #dfe1e5;
-  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.2784313725);
+  box-shadow: 0 1px 5px 0 rgba(32, 33, 36, 0.2784313725);
   gap: 16px;
 }
 
@@ -58,7 +58,7 @@ header h1 {
 }
 
 .bmh-home-page-icon {
-  font-size: 16px;
+  font-size: 15px;
   cursor: pointer;
 }
 
