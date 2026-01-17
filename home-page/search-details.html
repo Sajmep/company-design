@@ -44,7 +44,6 @@
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">All</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -94,12 +93,14 @@
                         </button>
                     </div>
                 </div>
+                <div class="search-results-show-more-container">
+                    <a href="#" class="search-results-show-more">Show more</a>
+                </div>
             </div>
             <div class="search-results-main-content" id="search-results-brands">
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Brands</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -149,13 +150,15 @@
                         </button>
                     </div>
                 </div>
+                <div class="search-results-show-more-container">
+                    <a href="#" class="search-results-show-more">Show more</a>
+                </div>
             </div>
 
             <div class="search-results-main-content" id="search-results-vendors">
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Vendors</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -206,13 +209,15 @@
                         </button>
                     </div>
                 </div>
+                <div class="search-results-show-more-container">
+                    <a href="#" class="search-results-show-more">Show more</a>
+                </div>
             </div>
 
             <div class="search-results-main-content" id="search-results-manufacturers">
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Manufacturers</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -268,7 +273,6 @@
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Products</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -324,7 +328,6 @@
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Tenders</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -380,7 +383,6 @@
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Projects</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -436,7 +438,6 @@
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Inquiries</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -492,7 +493,6 @@
                 <!-- Header -->
                 <div class="search-results-header">
                     <h2 class="search-results-title">Documents</h2>
-                    <a href="#" class="search-results-show-more">Show more</a>
                 </div>
 
                 <!-- Results Cards -->
@@ -542,6 +542,9 @@
                         </button>
                     </div>
                 </div>
+                <div class="search-results-show-more-container">
+                    <a href="#" class="search-results-show-more">Show more</a>
+                </div>
             </div>
 
         </main>
@@ -549,29 +552,34 @@
 
     <script>
         const links = document.querySelectorAll('.search-results-sidebar-link');
-        const main = document.querySelector('.search-results-main');
         const sections = document.querySelectorAll('.search-results-main-content');
 
-        // Click handler - smooth scroll
+        // Hide all sections except the first one on load
+        sections.forEach((section, index) => {
+            if (index !== 0) {
+                section.style.display = 'none';
+            }
+        });
+
+        // Tab click handler
         links.forEach(link => {
             link.addEventListener('click', e => {
                 e.preventDefault();
-                const target = document.querySelector(link.getAttribute('href'));
-                if (target) {
+                const targetId = link.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    // Remove active class from all links
                     links.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Scroll handler - update active link
-        main.addEventListener('scroll', () => {
-            const scrollTop = main.scrollTop + 100;
-            sections.forEach(section => {
-                if (scrollTop >= section.offsetTop && scrollTop < section.offsetTop + section.offsetHeight) {
-                    links.forEach(l => l.classList.remove('active'));
-                    document.querySelector(`a[href="#${section.id}"]`)?.classList.add('active');
+                    
+                    // Hide all sections
+                    sections.forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    
+                    // Show target section
+                    targetSection.style.display = 'block';
                 }
             });
         });

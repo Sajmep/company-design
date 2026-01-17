@@ -122,6 +122,19 @@ header h1 {
   text-decoration: underline;
   color: rgb(0.5363636364, 25.2090909091, 58.4636363636);
 }
+.search-results-container .search-results-main .search-results-main-content .search-results-show-more-container {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 16px;
+}
+.search-results-container .search-results-main .search-results-main-content .search-results-show-more-container .search-results-show-more {
+  color: #012f6d;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  text-decoration: underline;
+}
 .search-results-container .search-results-main .search-results-main-content .search-results-cards {
   display: flex;
   flex-direction: column;
