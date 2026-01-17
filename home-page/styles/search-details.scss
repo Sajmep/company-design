@@ -159,6 +159,22 @@ header {
 
             }
 
+            // Show More Container
+            .search-results-show-more-container {
+                display: flex;
+                justify-content: flex-end;
+                padding-top: 16px;
+
+                .search-results-show-more {
+                    color: $blue;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-weight: 500;
+                    transition: all 0.2s ease;
+                    text-decoration: underline;
+                }
+            }
+
             // Results Cards Container
             .search-results-cards {
                 display: flex;
