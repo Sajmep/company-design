@@ -21,115 +21,116 @@
 
 <body>
   <!-- Main Content -->
-
-  <!-- Common Page Header -->
-  <div class="toolbar">
-
-    <div class="company-selector" id="companySelector">
-      <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
-        <div class="selected-logo" id="selectedLogo">
-          <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
-        </div>
-        <div class="caret" id="caret">
-          <i class="fa fa-chevron-down"
-            style="color: #000000d6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
-        </div>
-      </button>
-
-      <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company" >
-        <div class="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-            <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round"></path>
-            <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
-          </svg>
-          <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
-        </div>
-        
-        <!-- Enterprise Section -->
-        <div class="section-group">
-          <div class="section-heading" onclick="toggleCompanySection(this)">
-            <h2>Enterprise</h2>
-            <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
-          </div>
-          <div class="section-content">
-            <div class="section-actions">
-              <a href="#" class="combobox-view-all-btn" onclick="viewAllCompanies(); return false;">
-                <i class="fa fa-list" aria-hidden="true"></i> View All
-              </a>
-            </div>
-            <div class="company form-section">
-              <div class="checkbox-group">
-                <div class="section-item active" data-company="SAJMEP" onclick="selectCompany('SAJMEP', 'images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png', this)">
-                  <div class="item-logo">
-                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="SAJMEP" width="100%">
-                  </div>
-                  <div class="item-info">
-                    <h4>SAJMEP</h4>
-                    <span>ID - 123342 243</span>
-                  </div>
-                </div>
-
-                <div class="section-item" data-company="Company A" onclick="selectCompany('Company A', 'images/bmh-logo.png', this)">
-                  <div class="item-logo">
-                    <img src="../images/bmh-logo.png" alt="Company A" width="100%">
-                  </div>
-                  <div class="item-info">
-                    <h4>Company A</h4>
-                    <span>ID - 123342 244</span>
-                  </div>
-                </div>
-
-                <div class="section-item" data-company="Company B" onclick="selectCompany('Company B', 'images/sellers-logo.png', this)">
-                  <div class="item-logo">
-                    <img src="../images/sellers-logo.png" alt="Company B" width="100%">
-                  </div>
-                  <div class="item-info">
-                    <h4>Company B</h4>
-                    <span>ID - 123342 245</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-          <a href="#" class="combobox-create-btn" onclick="openCreateCompanyModal(); return false;">+ Company</a>
-          </div>
-        </div>
-
-        <!-- Individual Section -->
-        <div class="section-group">
-          <div class="section-heading" onclick="toggleCompanySection(this)">
-            <h2>Individual</h2>
-            <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
-          </div>
-          <div class="section-content">
-            <div class="company form-section">
-              <div class="checkbox-group">
-                <div class="section-item" data-company="Fazli" onclick="selectCompany('Fazli', 'images/user.png', this)">
-                  <div class="item-avatar">
-                    <img src="../images/user.png" alt="Fazli" width="100%">
-                  </div>
-                  <div class="item-info">
-                    <h4>Fazli</h4>
-                    <span>ID - 123342 246</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+  <!-- <div class="company-selector" id="companySelector">
+    <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+      <div class="selected-logo" id="selectedLogo">
+        <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
       </div>
+      <div class="caret" id="caret">
+        <i class="fa fa-chevron-down"
+          style="color: #000000d6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+      </div>
+    </button>
+
+    <div class="sidebar-panel" id="panel" role="dialog" aria-label="Select Your Company" >
+      <div class="search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+          <path d="M21 21l-4.35-4.35" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <circle cx="11" cy="11" r="6" stroke="#6b7280" stroke-width="1.5"></circle>
+        </svg>
+        <input id="searchInput" placeholder="Search for a business asset" aria-label="Search" />
+      </div>
+      
+      <div class="section-group">
+        <div class="section-heading" onclick="toggleCompanySection(this)">
+          <h2>Enterprise</h2>
+          <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+        </div>
+        <div class="section-content">
+          <div class="section-actions">
+            <a href="#" class="combobox-view-all-btn" onclick="viewAllCompanies(); return false;">
+              <i class="fa fa-list" aria-hidden="true"></i> View All
+            </a>
+          </div>
+          <div class="company form-section">
+            <div class="checkbox-group">
+              <div class="section-item active" data-company="SAJMEP" onclick="selectCompany('SAJMEP', 'images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png', this)">
+                <div class="item-logo">
+                  <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="SAJMEP" width="100%">
+                </div>
+                <div class="item-info">
+                  <h4>SAJMEP</h4>
+                  <span>ID - 123342 243</span>
+                </div>
+              </div>
+
+              <div class="section-item" data-company="Company A" onclick="selectCompany('Company A', 'images/bmh-logo.png', this)">
+                <div class="item-logo">
+                  <img src="../images/bmh-logo.png" alt="Company A" width="100%">
+                </div>
+                <div class="item-info">
+                  <h4>Company A</h4>
+                  <span>ID - 123342 244</span>
+                </div>
+              </div>
+
+              <div class="section-item" data-company="Company B" onclick="selectCompany('Company B', 'images/sellers-logo.png', this)">
+                <div class="item-logo">
+                  <img src="../images/sellers-logo.png" alt="Company B" width="100%">
+                </div>
+                <div class="item-info">
+                  <h4>Company B</h4>
+                  <span>ID - 123342 245</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+        <a href="#" class="combobox-create-btn" onclick="openCreateCompanyModal(); return false;">+ Company</a>
+        </div>
+      </div>
+
+      <div class="section-group">
+        <div class="section-heading" onclick="toggleCompanySection(this)">
+          <h2>Individual</h2>
+          <i class="fa fa-chevron-down section-toggle-icon" aria-hidden="true"></i>
+        </div>
+        <div class="section-content">
+          <div class="company form-section">
+            <div class="checkbox-group">
+              <div class="section-item" data-company="Fazli" onclick="selectCompany('Fazli', 'images/user.png', this)">
+                <div class="item-avatar">
+                  <img src="../images/user.png" alt="Fazli" width="100%">
+                </div>
+                <div class="item-info">
+                  <h4>Fazli</h4>
+                  <span>ID - 123342 246</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div> -->
+
+  <div class="toolbar">
 
     <div class="toolbar-title">
       <h2>Vendors</h2>
-      <p>Explore vendor profiles with company details</p>
     </div>
     <div class="toolbar-controls">
       <div class="toolbar-search">
         <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
         <i class="fa fa-search toolbar-search-icon"></i>
+        <button class="toolbar-search-voice-btn" type="button" title="Voice Search">
+          <i class="fa fa-microphone"></i>
+        </button>
+        <button class="toolbar-search-image-btn" type="button" title="Image Search">
+          <i class="fa fa-camera"></i>
+        </button>
         <i class="fa fa-times toolbar-search-close"></i>
       </div>
 
@@ -163,6 +164,23 @@
             </div>
           </div>
         </div>
+        <!-- sort by -->
+        <div class="sort-by-toggle">
+          <button class="toolbar-sort-by-btn" onclick="toggleSortByDropdown()" title="Sort by">
+            <i class="fa fa-sort-alpha-asc"></i>
+            <i class="fa fa-chevron-down toolbar-sort-by-arrow"></i>
+          </button>
+          <!-- <div class="sort-by-dropdown" id="sortByDropdown">
+            <div class="sort-by-item" data-value="name">
+              <i class="fa fa-sort-alpha-asc"></i>
+              Name
+            </div>
+            <div class="sort-by-item" data-value="created_at">
+              <i class="fa fa-sort-amount-asc"></i>
+              Created At
+            </div>
+          </div> -->
+        </div>
 
         <div class="toolbar-group-by">
           <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
@@ -183,6 +201,13 @@
               Location
             </div> -->
           </div>
+          <button class="toolbar-time-group-by-btn" title="Time Group By">
+            <i class="fa fa-calendar"></i>
+            <span class="btn-text">Time</span>
+          </button>
+          <button class="toolbar-clear-group-by-btn" onclick="clearGroupBy()" title="Clear Group By">
+            <i class="fa fa-times"></i>
+          </button>
         </div>
 
         <button class="toolbar-filter-btn" title="Filter">
@@ -190,22 +215,47 @@
           <span class="btn-text">Filter</span>
         </button>
 
+        <button class="toolbar-expand-btn" title="Expand">
+          <i class="fa fa-expand"></i>
+        </button>
 
         <button class="toolbar-primary-btn" title="Add RFQ">
           <i class="fa fa-plus"></i>
-          <span class="btn-text">RFQ</span>
+          <span class="btn-text">Add</span>
         </button>
 
       </div>
-      
+
+       
+
     </div>
-    
+     <div class="toolbar-pagination" aria-label="Pagination">
+      <button class="pagination-btn prev" type="button" title="Previous">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+      </button>
+
+      <div class="pagination-range">
+
+        <input class="pagination-input" type="text" value="1-80" aria-label="Current range">
+
+        <span class="pagination-sep" aria-hidden="true">/</span>
+        <span class="pagination-total">Tot. <span class="pagination-total-value">3322+</span></span>
+
+      </div>
+
+      <button class="pagination-btn next" type="button" title="Next">
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </button>
+    </div>
+    <!-- <div class="toolbar-applied-filters">
+      <div class="toolbar-applied-filter-item">
+        <span class="toolbar-applied-filter-item-label">Status</span>
+        <span class="toolbar-applied-filter-item-value">Open</span>
+      </div>
+    </div> -->
   </div>
 
   <div class="views-container">
-
-
-
     <!-- Card View -->
     <div class="bmh-card-view">
       <div class="bmh-card" onclick="openVendorPopup()">
@@ -496,7 +546,7 @@
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
               <i class="fa fa-plus"></i>
-               RFQ
+              RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
@@ -528,7 +578,7 @@
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
               <i class="fa fa-plus"></i>
-               RFQ
+              RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
@@ -590,7 +640,7 @@
           <div class="bmh-list-view-item-actions">
             <button class="bmh-list-view-action-btn primary">
               <i class="fa fa-plus"></i>
-               RFQ
+              RFQ
             </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
@@ -953,7 +1003,7 @@
   <!-- Vendor Overview Sidebar -->
   <div class="vendor-sidebar-overlay" id="vendorSidebarOverlay" onclick="closeVendorPopup()"></div>
   <div class="vendor-overview-sidebar" id="vendorPopup">
-   
+
     <div class="vendor-sidebar-body">
 
       <button class="vendor-sidebar-close" onclick="closeVendorPopup()" aria-label="Close sidebar">
@@ -969,10 +1019,10 @@
             <div class="vendor-sidebar-company-logo">
               <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
             </div>
-              <!-- Status Badge -->
-          <div class="vendor-sidebar-status">
-            <span class="vendor-sidebar-status-badge online">Open</span>
-          </div>
+            <!-- Status Badge -->
+            <div class="vendor-sidebar-status">
+              <span class="vendor-sidebar-status-badge online">Open</span>
+            </div>
           </div>
         </div>
 
@@ -980,7 +1030,7 @@
         <div class="vendor-sidebar-info">
           <h2 class="vendor-sidebar-company-name">Sakhrat Al Janoub Contracting Co.</h2>
           <p class="vendor-sidebar-slogan">"Your Trusted Construction Partner"</p>
-          
+
           <!-- Meta Information -->
           <div class="vendor-sidebar-meta">
             <div class="vendor-sidebar-meta-item">
@@ -1029,7 +1079,7 @@
           <div class="vendor-sidebar-actions">
             <button class="vendor-sidebar-action-btn primary" onclick="createRFQ()">
               <i class="fa fa-plus  "></i>
-               RFQ
+              RFQ
             </button>
             <button class="vendor-sidebar-action-btn secondary">
               <i class="fa fa-comments"></i>

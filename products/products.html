@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Products</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+  
+  <style>
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    
+    .product-card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      transition: border-color 0.2s;
+    }
+    
+    .product-card.selected {
+      border-color: #012f6d;
+      border-width: 2px;
+    }
+    
+    .product-checkbox {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 10;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+    
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: #f0f0f0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .product-info {
+      padding: 15px;
+    }
+    
+    .product-title {
+      margin: 0 0 10px 0;
+      font-size: 18px;
+    }
+    
+    .product-description {
+      margin: 0 0 10px 0;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .product-price {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="toolbar">
+
+    <div class="toolbar-title">
+      <h2>Products</h2>
+    </div>
+    <div class="toolbar-controls">
+      <div class="toolbar-search">
+        <input type="text" class="toolbar-search-input" placeholder="Search brands...">
+        <i class="fa fa-search toolbar-search-icon"></i>
+        <i class="fa fa-times toolbar-search-close"></i>
+      </div>
+
+      <div class="toolbar-actions">
+
+        <div class="views-toggle">
+          <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+            <i class="fa fa-th-large views-toggle-icon"></i>
+            <i class="fa fa-chevron-down views-toggle-arrow"></i>
+          </button>
+          <div class="views-toggle-dropdown" id="viewsDropdown">
+            <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+              <i class="fa fa-dashboard"></i>
+              <span>Dashboard View</span>
+            </div>
+            <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+              <i class="fa fa-th-large"></i>
+              <span>Card View</span>
+            </div>
+            <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+              <i class="fa fa-list"></i>
+              <span>List View</span>
+            </div>
+            <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+              <i class="fa fa-calendar"></i>
+              <span>Calendar View</span>
+            </div>
+            <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+              <i class="fa fa-map"></i>
+              <span>Map View</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="toolbar-group-by">
+          <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+            <i class="fa fa-sitemap"></i>
+            <span class="btn-text">Group By</span>
+          </button>
+          <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+            <!-- <div class="toolbar-group-by-item" data-value="status">
+              <i class="fa fa-flag"></i>
+              Status
+            </div>
+            <div class="toolbar-group-by-item" data-value="category">
+              <i class="fa fa-tags"></i>
+              Category
+            </div>
+            <div class="toolbar-group-by-item" data-value="location">
+              <i class="fa fa-map-marker"></i>
+              Location
+            </div> -->
+          </div>
+        </div>
+
+        <button class="toolbar-filter-btn" title="Filter">
+          <i class="fa fa-filter"></i>
+          <span class="btn-text">Filter</span>
+        </button>
+
+
+        <button class="toolbar-primary-btn" title="Add Brand">
+          <i class="fa fa-plus"></i>
+          <span class="btn-text">Add</span>
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="products-container">
+    <div class="product-card" onclick="toggleCardSelection(this)">
+      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+      <div class="product-image">Image</div>
+      <div class="product-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-description">Product description text</p>
+        <div class="product-price">$99.99</div>
+      </div>
+    </div>
+    
+    <div class="product-card" onclick="toggleCardSelection(this)">
+      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+      <div class="product-image">Image</div>
+      <div class="product-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-description">Product description text</p>
+        <div class="product-price">$99.99</div>
+      </div>
+    </div>
+    
+    <div class="product-card" onclick="toggleCardSelection(this)">
+      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+      <div class="product-image">Image</div>
+      <div class="product-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-description">Product description text</p>
+        <div class="product-price">$99.99</div>
+      </div>
+    </div>
+    
+    <div class="product-card" onclick="toggleCardSelection(this)">
+      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+      <div class="product-image">Image</div>
+      <div class="product-info">
+        <h3 class="product-title">Product Name</h3>
+        <p class="product-description">Product description text</p>
+        <div class="product-price">$99.99</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="scripts/toolbar.js"></script>
+  <script>
+    function toggleCardSelection(card) {
+      const checkbox = card.querySelector('.product-checkbox');
+      checkbox.checked = !checkbox.checked;
+      card.classList.toggle('selected', checkbox.checked);
+    }
+  </script>
+
+</body>
+
+</html>

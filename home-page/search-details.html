@@ -9,11 +9,12 @@
     <link rel="stylesheet" href="../styles/scrollbar.css">
     <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
     <link rel="stylesheet" href="css/search-details.css">
+    <link rel="stylesheet" href="css/toolbar.css">
 
 </head>
 
 <body>
- 
+
     <header>
         <h1>BMH Header - Detailed Search Results</h1>
     </header>
@@ -22,17 +23,43 @@
         <!-- Left Sidebar -->
         <aside class="search-results-sidebar">
             <div class="search-results-sidebar-content">
-                <h2 class="search-results-sidebar-title">Easy Filters</h2>
                 <nav class="search-results-sidebar-nav">
-                    <a href="#search-results-all" class="search-results-sidebar-link active">All</a>
-                    <a href="#search-results-brands" class="search-results-sidebar-link">Brands</a>
-                    <a href="#search-results-vendors" class="search-results-sidebar-link">Vendors</a>
-                    <a href="#search-results-manufacturers" class="search-results-sidebar-link">Manufacturers</a>
-                    <a href="#search-results-products" class="search-results-sidebar-link">Products</a>
-                    <a href="#search-results-tenders" class="search-results-sidebar-link">Tenders</a>
-                    <a href="#search-results-projects" class="search-results-sidebar-link">Projects</a>
-                    <a href="#search-results-inquiries" class="search-results-sidebar-link">Inquiries</a>
-                    <a href="#search-results-documents" class="search-results-sidebar-link">Documents</a>
+                    <a href="#search-results-all" class="search-results-sidebar-link active">
+                        <span class="search-results-sidebar-count">150</span>
+                        <span>All</span>
+                    </a>
+                    <a href="#search-results-brands" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">25</span>
+                        <span>Brands</span>
+                    </a>
+                    <a href="#search-results-vendors" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">42</span>
+                        <span>Vendors</span>
+                    </a>
+                    <a href="#search-results-manufacturers" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">18</span>
+                        <span>Manufacturers</span>
+                    </a>
+                    <a href="#search-results-products" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">89</span>
+                        <span>Products</span>
+                    </a>
+                    <a href="#search-results-tenders" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">12</span>
+                        <span>Tenders</span>
+                    </a>
+                    <a href="#search-results-projects" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">35</span>
+                        <span>Projects</span>
+                    </a>
+                    <a href="#search-results-inquiries" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">67</span>
+                        <span>Inquiries</span>
+                    </a>
+                    <a href="#search-results-documents" class="search-results-sidebar-link">
+                        <span class="search-results-sidebar-count">28</span>
+                        <span>Documents</span>
+                    </a>
                 </nav>
             </div>
         </aside>
@@ -40,12 +67,68 @@
         <!-- Right Content Area -->
         <main class="search-results-main">
 
-            <div class="search-results-main-content" id="search-results-all">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">All</h2>
+            <!-- Header -->
+            <div class="toolbar">
+
+                <div class="toolbar-controls">
+
+                    <div class="toolbar-search">
+                        <input type="text" class="toolbar-search-input" value="Premium concrete mix"
+                            placeholder="Search brands...">
+                        <i class="fa fa-search toolbar-search-icon"></i>
+                        <i class="fa fa-microphone toolbar-search-voice" title="Voice search"></i>
+                        <i class="fa fa-camera toolbar-search-image" title="Image search"></i>
+                        <i class="fa fa-times toolbar-search-close"></i>
+                    </div>
+
+                    <div class="toolbar-actions">
+
+                        <div class="views-toggle">
+                            <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+                                <i class="fa fa-th-large views-toggle-icon"></i>
+                                <i class="fa fa-chevron-down views-toggle-arrow"></i>
+                            </button>
+                            <div class="views-toggle-dropdown" id="viewsDropdown">
+                                <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                                    <i class="fa fa-dashboard"></i>
+                                    <span>Dashboard View</span>
+                                </div>
+                                <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                                    <i class="fa fa-th-large"></i>
+                                    <span>Card View</span>
+                                </div>
+                                <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                                    <i class="fa fa-list"></i>
+                                    <span>List View</span>
+                                </div>
+                                <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                                    <i class="fa fa-calendar"></i>
+                                    <span>Calendar View</span>
+                                </div>
+                                <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                                    <i class="fa fa-map"></i>
+                                    <span>Map View</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <button class="toolbar-filter-btn" title="Filter">
+                            <i class="fa fa-sort"></i>
+                            <span class="btn-text">Sort by</span>
+                        </button>
+
+                        <button class="toolbar-filter-btn" title="Filter">
+                            <i class="fa fa-filter"></i>
+                            <span class="btn-text">Filter</span>
+                        </button>
+
+                    </div>
+
                 </div>
 
+            </div>
+
+            <div class="search-results-main-content" id="search-results-all">
                 <!-- Results Cards -->
                 <div class="search-results-cards">
                     <!-- Card 1 -->
@@ -98,10 +181,6 @@
                 </div>
             </div>
             <div class="search-results-main-content" id="search-results-brands">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">Brands</h2>
-                </div>
 
                 <!-- Results Cards -->
                 <div class="search-results-cards">
@@ -156,10 +235,6 @@
             </div>
 
             <div class="search-results-main-content" id="search-results-vendors">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">Vendors</h2>
-                </div>
 
                 <!-- Results Cards -->
                 <div class="search-results-cards">
@@ -215,10 +290,6 @@
             </div>
 
             <div class="search-results-main-content" id="search-results-manufacturers">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">Manufacturers</h2>
-                </div>
 
                 <!-- Results Cards -->
                 <div class="search-results-cards">
@@ -270,10 +341,6 @@
             </div>
 
             <div class="search-results-main-content" id="search-results-products">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">Products</h2>
-                </div>
 
                 <!-- Results Cards -->
                 <div class="search-results-cards">
@@ -325,10 +392,6 @@
             </div>
 
             <div class="search-results-main-content" id="search-results-tenders">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">Tenders</h2>
-                </div>
 
                 <!-- Results Cards -->
                 <div class="search-results-cards">
@@ -380,10 +443,6 @@
             </div>
 
             <div class="search-results-main-content" id="search-results-projects">
-                <!-- Header -->
-                <div class="search-results-header">
-                    <h2 class="search-results-title">Projects</h2>
-                </div>
 
                 <!-- Results Cards -->
                 <div class="search-results-cards">
@@ -567,17 +626,17 @@
                 e.preventDefault();
                 const targetId = link.getAttribute('href');
                 const targetSection = document.querySelector(targetId);
-                
+
                 if (targetSection) {
                     // Remove active class from all links
                     links.forEach(l => l.classList.remove('active'));
                     link.classList.add('active');
-                    
+
                     // Hide all sections
                     sections.forEach(section => {
                         section.style.display = 'none';
                     });
-                    
+
                     // Show target section
                     targetSection.style.display = 'block';
                 }

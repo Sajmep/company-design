@@ -7,42 +7,6 @@
 }
 
 
-.views-container {
-  background: #ffffff;
-  width: 92%;
-  margin: auto;
-}
-
-.views-toggle {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-  gap: 8px;
-}
-
-.data-view-btn {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 6px;
-  padding: 6px 10px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  color: #6b7280;
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 36px;
-  height: 36px;
-}
-
-.data-view-btn-active {
-  background: #9885d1;
-  border-color: #9885d1;
-  color: #fff;
-}
-
-
 /* ==================== Card View Styles ==================== */
 .bmh-card-view {
   padding: 20px;
