@@ -33,13 +33,13 @@
   flex: 1;
   justify-content: flex-end;
 }
-.toolbar .toolbar-search {
+.toolbar .toolbar-controls .toolbar-search {
   position: relative;
   min-width: 250px;
   flex: 1;
   max-width: 430px;
 }
-.toolbar .toolbar-search .toolbar-search-input {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input {
   width: 100%;
   padding: 10px 90px 10px 40px;
   border: 1px solid #d1d5db;
@@ -49,23 +49,23 @@
   background: #ffffff;
   transition: all 0.2s ease;
 }
-.toolbar .toolbar-search .toolbar-search-input::placeholder {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input::placeholder {
   color: #9ca3af;
 }
-.toolbar .toolbar-search .toolbar-search-input:focus {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input:focus {
   outline: none;
   border-color: #012f6d;
   box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
 }
-.toolbar .toolbar-search .toolbar-search-input:hover {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input:hover {
   border-color: #9ca3af;
 }
-.toolbar .toolbar-search .toolbar-search-close {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-close {
   display: none;
   opacity: 0;
   visibility: hidden;
 }
-.toolbar .toolbar-search .toolbar-search-icon {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-icon {
   position: absolute;
   left: 14px;
   top: 50%;
@@ -75,8 +75,8 @@
   pointer-events: none;
   transition: color 0.2s ease;
 }
-.toolbar .toolbar-search .toolbar-search-voice-btn,
-.toolbar .toolbar-search .toolbar-search-image-btn {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn {
   position: absolute;
   right: 50px;
   top: 50%;
@@ -93,40 +93,40 @@
   padding: 0;
   z-index: 1;
 }
-.toolbar .toolbar-search .toolbar-search-voice-btn i,
-.toolbar .toolbar-search .toolbar-search-image-btn i {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn i,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn i {
   font-size: 14px;
   color: #6b7280;
   transition: color 0.2s ease;
 }
-.toolbar .toolbar-search .toolbar-search-voice-btn:hover i,
-.toolbar .toolbar-search .toolbar-search-image-btn:hover i {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn:hover i,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn:hover i {
   color: #012f6d;
 }
-.toolbar .toolbar-search .toolbar-search-voice-btn:active,
-.toolbar .toolbar-search .toolbar-search-image-btn:active {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn:active,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn:active {
   transform: translateY(-50%) scale(0.95);
 }
-.toolbar .toolbar-search .toolbar-search-image-btn {
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn {
   right: 16px;
 }
-.toolbar .toolbar-search:focus-within .toolbar-search-icon {
+.toolbar .toolbar-controls .toolbar-search:focus-within .toolbar-search-icon {
   color: #012f6d;
 }
-.toolbar .toolbar-actions {
+.toolbar .toolbar-controls .toolbar-actions {
   display: flex;
   align-items: center;
   gap: 8px;
   flex-wrap: wrap;
 }
-.toolbar .toolbar-group-by-btn,
-.toolbar .toolbar-time-group-by-btn,
-.toolbar .toolbar-filter-btn,
-.toolbar .toolbar-sort-by-btn,
-.toolbar .toolbar-actions-btn,
-.toolbar .toolbar-clear-group-by-btn,
-.toolbar .toolbar-expand-btn,
-.toolbar .toolbar-primary-btn {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -141,97 +141,220 @@
   color: #374151;
   white-space: nowrap;
 }
-.toolbar .toolbar-group-by-btn i,
-.toolbar .toolbar-time-group-by-btn i,
-.toolbar .toolbar-filter-btn i,
-.toolbar .toolbar-sort-by-btn i,
-.toolbar .toolbar-actions-btn i,
-.toolbar .toolbar-clear-group-by-btn i,
-.toolbar .toolbar-expand-btn i,
-.toolbar .toolbar-primary-btn i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn i {
   font-size: 14px;
   color: #6b7280;
 }
-.toolbar .toolbar-group-by-btn .btn-text,
-.toolbar .toolbar-time-group-by-btn .btn-text,
-.toolbar .toolbar-filter-btn .btn-text,
-.toolbar .toolbar-sort-by-btn .btn-text,
-.toolbar .toolbar-actions-btn .btn-text,
-.toolbar .toolbar-clear-group-by-btn .btn-text,
-.toolbar .toolbar-expand-btn .btn-text,
-.toolbar .toolbar-primary-btn .btn-text {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .btn-text {
   color: #000000;
 }
-.toolbar .toolbar-group-by-btn:hover,
-.toolbar .toolbar-time-group-by-btn:hover,
-.toolbar .toolbar-filter-btn:hover,
-.toolbar .toolbar-sort-by-btn:hover,
-.toolbar .toolbar-actions-btn:hover,
-.toolbar .toolbar-clear-group-by-btn:hover,
-.toolbar .toolbar-expand-btn:hover,
-.toolbar .toolbar-primary-btn:hover {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover {
   background: #f9fafb;
   border-color: #012f6d;
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
 }
-.toolbar .toolbar-group-by-btn:hover i,
-.toolbar .toolbar-time-group-by-btn:hover i,
-.toolbar .toolbar-filter-btn:hover i,
-.toolbar .toolbar-sort-by-btn:hover i,
-.toolbar .toolbar-actions-btn:hover i,
-.toolbar .toolbar-clear-group-by-btn:hover i,
-.toolbar .toolbar-expand-btn:hover i,
-.toolbar .toolbar-primary-btn:hover i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover i {
   color: #012f6d;
 }
-.toolbar .toolbar-group-by-btn:active,
-.toolbar .toolbar-time-group-by-btn:active,
-.toolbar .toolbar-filter-btn:active,
-.toolbar .toolbar-sort-by-btn:active,
-.toolbar .toolbar-actions-btn:active,
-.toolbar .toolbar-clear-group-by-btn:active,
-.toolbar .toolbar-expand-btn:active,
-.toolbar .toolbar-primary-btn:active {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:active {
   transform: translateY(0);
   box-shadow: none;
 }
-.toolbar .toolbar-clear-group-by-btn i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i {
   color: #db0000 !important;
 }
-.toolbar .toolbar-group-by {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by {
   position: relative;
   display: flex;
   align-items: center;
   gap: 4px;
 }
-.toolbar .toolbar-group-by .toolbar-group-by-btn {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by .toolbar-group-by-btn {
   position: relative;
 }
-.toolbar .toolbar-filter-btn i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn i {
   color: #6b7280;
 }
-.toolbar .toolbar-filter-btn:hover i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:hover i {
   color: #012f6d;
 }
-.toolbar .toolbar-primary-btn {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn {
   background: #012f6d;
   color: #ffffff;
   border: none;
 }
-.toolbar .toolbar-primary-btn:hover {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover {
   background: #012f6d;
   color: #ffffff;
   border: none;
 }
-.toolbar .toolbar-primary-btn .btn-text {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .btn-text {
   color: #ffffff;
 }
-.toolbar .toolbar-primary-btn i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn i {
   color: #ffffff;
 }
-.toolbar .toolbar-primary-btn:hover i {
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover i {
   color: #ffffff;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle {
+  position: relative;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #374151;
+  white-space: nowrap;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-icon {
+  font-size: 16px;
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-arrow {
+  font-size: 10px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn:hover {
+  background: #f9fafb;
+  border-color: #012f6d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn:hover .views-toggle-arrow {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  color: #374151;
+  font-size: 14px;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item i {
+  font-size: 16px;
+  color: #6b7280;
+  width: 20px;
+  text-align: center;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item span {
+  flex: 1;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:hover {
+  background: #f9fafb;
+  color: #000000;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:hover i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:active {
+  background: #f3f4f6;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item.active {
+  background: rgba(1, 47, 109, 0.1);
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item.active i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn.active .views-toggle-arrow {
+  transform: rotate(180deg);
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle {
+  position: relative;
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle .toolbar-sort-by-btn {
+  gap: 6px;
+  padding: 10px 14px;
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle .toolbar-sort-by-btn i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle .toolbar-sort-by-btn .toolbar-sort-by-arrow {
+  font-size: 10px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
 }
 .toolbar .toolbar-pagination {
   display: flex;
@@ -311,131 +434,8 @@
   color: #374151;
   font-weight: 600;
 }
-.toolbar .views-toggle {
-  position: relative;
-}
-.toolbar .views-toggle .views-toggle-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 10px 14px;
-  border: 1px solid #d1d5db;
-  border-radius: 5px;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  background: #ffffff;
-  color: #374151;
-  white-space: nowrap;
-}
-.toolbar .views-toggle .views-toggle-btn .views-toggle-icon {
-  font-size: 16px;
-  color: #012f6d;
-}
-.toolbar .views-toggle .views-toggle-btn .views-toggle-arrow {
-  font-size: 10px;
-  color: #6b7280;
-  transition: transform 0.2s ease;
-}
-.toolbar .views-toggle .views-toggle-btn:hover {
-  background: #f9fafb;
-  border-color: #012f6d;
-  transform: translateY(-1px);
-  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
-}
-.toolbar .views-toggle .views-toggle-btn:hover .views-toggle-arrow {
-  color: #012f6d;
-}
-.toolbar .views-toggle .views-toggle-btn:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-.toolbar .views-toggle .views-toggle-dropdown {
-  position: absolute;
-  top: calc(100% + 8px);
-  right: 0;
-  min-width: 200px;
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.2s ease;
-  overflow: hidden;
-}
-.toolbar .views-toggle .views-toggle-dropdown.show {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px 16px;
-  cursor: pointer;
-  transition: background 0.15s ease;
-  color: #374151;
-  font-size: 14px;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item i {
-  font-size: 16px;
-  color: #6b7280;
-  width: 20px;
-  text-align: center;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item span {
-  flex: 1;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item:hover {
-  background: #f9fafb;
-  color: #000000;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item:hover i {
-  color: #012f6d;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item:active {
-  background: #f3f4f6;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item.active {
-  background: rgba(1, 47, 109, 0.1);
-  color: #012f6d;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item.active i {
-  color: #012f6d;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item:first-child {
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-.toolbar .views-toggle .views-toggle-dropdown .views-toggle-item:last-child {
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
-}
-.toolbar .views-toggle .views-toggle-btn.active .views-toggle-arrow {
-  transform: rotate(180deg);
-}
-.toolbar .sort-by-toggle {
-  position: relative;
-}
-.toolbar .sort-by-toggle .toolbar-sort-by-btn {
-  gap: 6px;
-  padding: 10px 14px;
-}
-.toolbar .sort-by-toggle .toolbar-sort-by-btn i {
-  color: #012f6d;
-}
-.toolbar .sort-by-toggle .toolbar-sort-by-btn .toolbar-sort-by-arrow {
-  font-size: 10px;
-  color: #6b7280;
-  transition: transform 0.2s ease;
-}
 
-@media (max-width: 1401px) {
+@media (max-width: 1501px) {
   .toolbar {
     align-items: flex-start;
   }
@@ -447,7 +447,7 @@
     gap: 3px;
   }
 }
-@media (max-width: 1115px) {
+@media (max-width: 1212px) {
   .toolbar {
     padding: 12px 16px 20px 16px;
     padding-bottom: calc(12px + env(safe-area-inset-bottom));
@@ -472,16 +472,7 @@
     right: 0;
     z-index: 1000;
   }
-  .toolbar .toolbar-pagination {
-    position: absolute;
-    top: 11px;
-    right: 0;
-    z-index: 1001;
-    justify-content: center;
-    margin: 0 auto;
-    width: fit-content;
-  }
-  .toolbar .toolbar-search {
+  .toolbar .toolbar-controls .toolbar-search {
     position: relative;
     min-width: auto;
     max-width: none;
@@ -499,7 +490,7 @@
     box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
     padding: 7px;
   }
-  .toolbar .toolbar-search::before {
+  .toolbar .toolbar-controls .toolbar-search::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -509,7 +500,7 @@
     filter: saturate(120%) brightness(1.15);
     border-radius: inherit;
   }
-  .toolbar .toolbar-search::after {
+  .toolbar .toolbar-controls .toolbar-search::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -518,7 +509,7 @@
     border-radius: inherit;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
   }
-  .toolbar .toolbar-search .toolbar-search-input {
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-input {
     width: 0;
     padding: 10px 0;
     opacity: 0;
@@ -531,7 +522,7 @@
     transform: translateY(-50%);
     pointer-events: none;
   }
-  .toolbar .toolbar-search .toolbar-search-icon {
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-icon {
     position: relative;
     transform: none;
     pointer-events: auto !important;
@@ -552,26 +543,26 @@
     -webkit-user-select: none;
     user-select: none;
   }
-  .toolbar .toolbar-search .toolbar-search-icon:hover {
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-icon:hover {
     color: #012f6d;
     transform: translateY(-1px);
   }
-  .toolbar .toolbar-search .toolbar-search-icon:active {
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-icon:active {
     background: rgba(255, 255, 255, 0.4);
     transform: scale(0.96) translateY(0);
   }
-  .toolbar .toolbar-search .toolbar-search-close {
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-close {
     display: none;
     opacity: 0;
     visibility: hidden;
   }
-  .toolbar .toolbar-search .toolbar-search-voice-btn,
-  .toolbar .toolbar-search .toolbar-search-image-btn {
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn,
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn {
     display: none;
     opacity: 0;
     visibility: hidden;
   }
-  .toolbar .toolbar-search.expanded {
+  .toolbar .toolbar-controls .toolbar-search.expanded {
     position: absolute;
     right: 16px;
     left: 16px;
@@ -581,7 +572,7 @@
     cursor: default;
     padding: 11px;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-input {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-input {
     width: 100%;
     padding: 10px 128px 10px 40px;
     opacity: 1;
@@ -593,13 +584,13 @@
     transform: none;
     pointer-events: auto;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-input:focus {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-input:focus {
     border: none;
     box-shadow: none;
     outline: none;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-voice-btn,
-  .toolbar .toolbar-search.expanded .toolbar-search-image-btn {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn {
     display: inline-flex;
     opacity: 1;
     visibility: visible;
@@ -615,32 +606,32 @@
     border: none;
     padding: 0;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-voice-btn i,
-  .toolbar .toolbar-search.expanded .toolbar-search-image-btn i {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn i,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn i {
     font-size: 16px;
     color: #012f6d;
     transition: all 0.2s ease;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-voice-btn:hover i,
-  .toolbar .toolbar-search.expanded .toolbar-search-image-btn:hover i {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn:hover i,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn:hover i {
     color: #012f6d;
     transform: scale(1.1);
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-voice-btn:active,
-  .toolbar .toolbar-search.expanded .toolbar-search-image-btn:active {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn:active,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn:active {
     transform: translateY(-50%) scale(0.95);
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-voice-btn:active i,
-  .toolbar .toolbar-search.expanded .toolbar-search-image-btn:active i {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn:active i,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn:active i {
     transform: scale(0.9);
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-voice-btn {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn {
     right: 78px;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-image-btn {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn {
     right: 46px;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-close {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-close {
     display: flex;
     opacity: 1;
     visibility: visible;
@@ -661,15 +652,15 @@
     pointer-events: auto;
     touch-action: manipulation;
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-close:hover {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-close:hover {
     background: rgba(1, 47, 109, 0.1);
     transform: translateY(-50%) scale(1.08);
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-close:active {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-close:active {
     background: rgba(1, 47, 109, 0.2);
     transform: translateY(-50%) scale(0.95);
   }
-  .toolbar .toolbar-search.expanded .toolbar-search-icon {
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-icon {
     position: absolute;
     left: 14px;
     top: 50%;
@@ -681,7 +672,7 @@
     color: #012f6d;
     z-index: 3;
   }
-  .toolbar .toolbar-actions {
+  .toolbar .toolbar-controls .toolbar-actions {
     display: flex;
     flex-direction: row;
     gap: 8px;
@@ -704,17 +695,17 @@
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
   }
-  .toolbar .toolbar-actions::-webkit-scrollbar {
+  .toolbar .toolbar-controls .toolbar-actions::-webkit-scrollbar {
     height: 6px;
   }
-  .toolbar .toolbar-actions::-webkit-scrollbar-track {
+  .toolbar .toolbar-controls .toolbar-actions::-webkit-scrollbar-track {
     background: transparent;
   }
-  .toolbar .toolbar-actions::-webkit-scrollbar-thumb {
+  .toolbar .toolbar-controls .toolbar-actions::-webkit-scrollbar-thumb {
     background: rgba(1, 47, 109, 0.2);
     border-radius: 999px;
   }
-  .toolbar .toolbar-actions::before {
+  .toolbar .toolbar-controls .toolbar-actions::before {
     content: "";
     position: absolute;
     inset: 0;
@@ -724,7 +715,7 @@
     background: none;
     box-shadow: none;
   }
-  .toolbar .toolbar-actions::after {
+  .toolbar .toolbar-controls .toolbar-actions::after {
     content: "";
     position: absolute;
     inset: 0;
@@ -732,20 +723,16 @@
     background: none;
     border-radius: inherit;
   }
-  .toolbar .toolbar-search.expanded ~ .toolbar-actions {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-  .toolbar .toolbar-group-by-btn,
-  .toolbar .toolbar-sort-by-btn,
-  .toolbar .toolbar-clear-group-by-btn,
-  .toolbar .toolbar-filter-btn,
-  .toolbar .toolbar-actions-btn,
-  .toolbar .toolbar-time-group-by-btn,
-  .toolbar .toolbar-clear-group-by-btn,
-  .toolbar .toolbar-primary-btn,
-  .toolbar .toolbar-expand-btn,
-  .toolbar .views-toggle-btn {
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn {
     flex-direction: column;
     padding: 7px 8px;
     font-size: 11px;
@@ -763,16 +750,16 @@
     position: relative;
     z-index: 3;
   }
-  .toolbar .toolbar-group-by-btn .btn-text,
-  .toolbar .toolbar-sort-by-btn .btn-text,
-  .toolbar .toolbar-clear-group-by-btn .btn-text,
-  .toolbar .toolbar-filter-btn .btn-text,
-  .toolbar .toolbar-actions-btn .btn-text,
-  .toolbar .toolbar-time-group-by-btn .btn-text,
-  .toolbar .toolbar-clear-group-by-btn .btn-text,
-  .toolbar .toolbar-primary-btn .btn-text,
-  .toolbar .toolbar-expand-btn .btn-text,
-  .toolbar .views-toggle-btn .btn-text {
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn .btn-text {
     display: block;
     font-size: 10px;
     line-height: 1.2;
@@ -780,50 +767,50 @@
     margin-top: 2px;
     color: #000000;
   }
-  .toolbar .toolbar-group-by-btn i,
-  .toolbar .toolbar-sort-by-btn i,
-  .toolbar .toolbar-clear-group-by-btn i,
-  .toolbar .toolbar-filter-btn i,
-  .toolbar .toolbar-actions-btn i,
-  .toolbar .toolbar-time-group-by-btn i,
-  .toolbar .toolbar-clear-group-by-btn i,
-  .toolbar .toolbar-primary-btn i,
-  .toolbar .toolbar-expand-btn i,
-  .toolbar .views-toggle-btn i {
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn i {
     font-size: 26px;
     margin: 0;
     display: block;
     color: #012f6d;
   }
-  .toolbar .toolbar-group-by-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-sort-by-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-clear-group-by-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-filter-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-actions-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-time-group-by-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-clear-group-by-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-primary-btn .toolbar-sort-by-arrow,
-  .toolbar .toolbar-expand-btn .toolbar-sort-by-arrow,
-  .toolbar .views-toggle-btn .toolbar-sort-by-arrow {
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn .toolbar-sort-by-arrow {
     display: none;
   }
-  .toolbar .views-toggle .views-toggle-dropdown {
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown {
     top: auto;
     bottom: calc(100% + 8px);
     right: auto;
     left: 0;
   }
-  .toolbar .views-toggle .views-toggle-btn {
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn {
     padding: 0;
     gap: 0px;
   }
-  .toolbar .views-toggle .views-toggle-btn .views-toggle-arrow {
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-arrow {
     display: none;
   }
-  .toolbar .views-toggle .views-toggle-btn .views-toggle-icon {
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-icon {
     font-size: 24px !important;
   }
-  .toolbar .views-toggle .views-toggle-btn::after {
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn::after {
     content: "Views";
     display: block;
     font-size: 10px;
@@ -831,6 +818,19 @@
     text-align: center;
     margin-top: 2px;
     color: #000000;
+  }
+  .toolbar .toolbar-pagination {
+    position: absolute;
+    top: 11px;
+    right: 0;
+    z-index: 1001;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+  }
+  .toolbar .toolbar-search.expanded ~ .toolbar-actions {
+    opacity: 0.3;
+    pointer-events: none;
   }
 }
 @media (max-width: 390px) {
