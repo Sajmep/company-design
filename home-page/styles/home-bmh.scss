@@ -17,20 +17,7 @@ $yellow: #e6bb01;
     font-family: Inter, Segoe UI, system-ui, Arial;
 }
 
-// Header
-header {
-    background: $white;
-    padding: 10px 20px;
-    border-bottom: 1px solid $gray-medium;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
 
-    h1 {
-        font-size: 20px;
-        color: $black;
-    }
-}
 
 
 .bmh-home-page-container {
@@ -252,3 +239,202 @@ header {
     }
 
 }
+
+// Bottom Right Compass Button
+.bmh-home-page-explore-wrapper {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 1000;
+}
+
+.bmh-home-page-explore-btn {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: $blue;
+    border: none;
+    color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    box-shadow: 0 4px 12px rgba(1, 47, 109, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    position: relative;
+
+}
+
+.bmh-home-page-explore-tooltip {
+    position: absolute;
+    bottom: calc(100% + 16px);
+    right: 0;
+    background: $white;
+    border: 2px solid $yellow;
+    border-radius: 12px;
+    padding: 20px;
+    min-width: 320px;
+    max-width: 380px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15), 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    pointer-events: none;
+    z-index: 1001;
+    overflow: visible;
+
+    &.hidden {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .tooltip-close {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background: transparent;
+        border: none;
+        color: $yellow;
+        font-size: 18px;
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.2s ease;
+        pointer-events: auto;
+        z-index: 10;
+
+        &:hover {
+            background: rgba(230, 187, 1, 0.1);
+            color: darken($yellow, 10%);
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+    }
+
+    .tooltip-navigation {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 12px;
+        gap: 8px;
+        pointer-events: auto;
+    }
+
+    .tooltip-nav-btn {
+        background: $yellow;
+        border: none;
+        color: $white;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.2s ease;
+        flex: 1;
+
+        &:hover {
+            background: darken($yellow, 10%);
+            transform: scale(1.1);
+        }
+
+        &:active {
+            transform: scale(0.95);
+        }
+
+        &:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+    }
+
+    // Arrow pointing down to button
+    &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 12px solid $yellow;
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 10px solid $white;
+        margin-top: -2px;
+    }
+
+    .bmh-home-page-explore-tooltip-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: $blue;
+        margin-bottom: 8px;
+        line-height: 1.3;
+    }
+
+    .bmh-home-page-explore-tooltip-content {
+        font-size: 14px;
+        color: $gray-dark;
+        margin-bottom: 12px;
+        line-height: 1.5;
+    }
+
+    .bmh-home-page-explore-tooltip-list {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 12px 0;
+
+        li {
+            font-size: 13px;
+            color: $gray-dark;
+            line-height: 1.6;
+            margin-bottom: 6px;
+            padding-left: 16px;
+            position: relative;
+
+            &::before {
+                content: "•";
+                position: absolute;
+                left: 0;
+                color: $yellow;
+                font-weight: bold;
+                font-size: 16px;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .bmh-home-page-explore-tooltip-footer {
+        font-size: 13px;
+        color: $blue;
+        font-weight: 600;
+        font-style: italic;
+        margin-top: 8px;
+        padding-top: 8px;
+        border-top: 1px solid $gray-medium;
+    }
+}
+
+
+  

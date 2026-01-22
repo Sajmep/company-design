@@ -7,6 +7,10 @@
 }
 
 
+.views-container {
+  padding: 0 5%;
+}
+
 /* ==================== Card View Styles ==================== */
 .bmh-card-view {
   padding: 20px;
