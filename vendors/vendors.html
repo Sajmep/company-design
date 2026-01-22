@@ -121,6 +121,7 @@
     <div class="toolbar-title">
       <h2>Vendors</h2>
     </div>
+
     <div class="toolbar-controls">
       <div class="toolbar-search">
         <input type="text" class="toolbar-search-input" placeholder="Search Vendors...">
@@ -231,8 +232,8 @@
 
       </div>
     </div>
-    
-     <div class="toolbar-pagination" aria-label="Pagination">
+
+    <div class="toolbar-pagination" aria-label="Pagination">
       <button class="pagination-btn prev" type="button" title="Previous">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
       </button>
@@ -250,7 +251,81 @@
         <i class="fa fa-chevron-right" aria-hidden="true"></i>
       </button>
     </div>
-   
+
+    <div class="toolbar-applied-controls" aria-label="Applied group by and filters">
+      <!-- Applied Group By (Simple breadcrumb/tab style) -->
+      <div class="applied-groupby" aria-label="Applied group by">
+        <div class="applied-groupby-tab" title="Group by: Country > Company">
+          <i class="fa fa-sitemap" aria-hidden="true"></i>
+          <span class="applied-groupby-tab-text">
+            <span class="applied-groupby-tab-item">Country</span>
+            <span class="applied-groupby-tab-sep" aria-hidden="true">&gt;</span>
+            <span class="applied-groupby-tab-item">Company</span>
+            <span class="applied-groupby-tab-sep" aria-hidden="true">&gt;</span>
+            <span class="applied-groupby-tab-item">Salesperson</span>
+            <span class="applied-groupby-tab-sep" aria-hidden="true">&gt;</span>
+            <span class="applied-groupby-tab-item">Active</span>
+          </span>
+        </div>
+      </div>
+
+      <!-- Applied Filters (same chip concept as group by) -->
+      <div class="applied-filters" aria-label="Applied filters">
+        <div class="filters-section-outside">
+          <select>
+            <option selected disabled>Saved filters</option>
+            <option value="construction-riyadh">Construction - Riyadh</option>
+            <option value="last-week-open">Last Week - Open Tenders</option>
+            <option value="government-large">Government - Large Projects</option>
+            <option value="supply-services">Supply & Services</option>
+            <option value="remote-work-allowed">Remote Work Allowed</option>
+          </select>
+          
+          <div class="filter-applied-items" id="appliedFilters">
+            <div class="applied-filter-item">
+              <span class="applied-filter-item-label">Status:</span>
+              <span class="applied-filter-item-value">Open</span>
+              <button class="applied-filter-item-remove" type="button" aria-label="Remove filter Status">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="applied-filter-item">
+              <span class="applied-filter-item-label">Company:</span>
+              <span class="applied-filter-item-value">SAJMEP</span>
+              <button class="applied-filter-item-remove" type="button" aria-label="Remove filter Company">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="applied-filter-item">
+              <span class="applied-filter-item-label">Salesperson:</span>
+              <span class="applied-filter-item-value">Fazli</span>
+              <button class="applied-filter-item-remove" type="button" aria-label="Remove filter Salesperson">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="applied-filter-item">
+              <span class="applied-filter-item-label">Status:</span>
+              <span class="applied-filter-item-value">Open</span>
+              <button class="applied-filter-item-remove" type="button" aria-label="Remove filter Status">
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+
+          
+          <button class="filter-clear-all-btn" id="clearAllAppliedFilters">
+            <i class="fa fa-times"></i>
+            Clear All
+          </button>
+          
+          <button class="filter-save-favorite-btn">
+            <i class="fa fa-star"></i>
+            Save as Favorite
+          </button>
+          </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="views-container">
@@ -497,28 +572,6 @@
           </div>
         </div>
       </div>
-
-
-
-
-      <!-- Pagination -->
-      <div class="pagination" style="width: 100%;">
-        <button class="pagination-btn" disabled>
-          <i class="fa fa-chevron-left"></i>
-        </button>
-        <button class="pagination-btn active">1</button>
-        <button class="pagination-btn">2</button>
-        <button class="pagination-btn">3</button>
-        <span class="pagination-dots">...</span>
-        <button class="pagination-btn">8</button>
-        <button class="pagination-btn">9</button>
-        <button class="pagination-btn">10</button>
-        <button class="pagination-btn">
-          <i class="fa fa-chevron-right"></i>
-        </button>
-        <span class="pagination-info">Page 1 of 10</span>
-      </div>
-      <!-- Pagination End -->
     </div>
     <!-- Card View End -->
 
@@ -542,10 +595,7 @@
             </div>
           </div>
           <div class="bmh-list-view-item-actions">
-            <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-plus"></i>
-              RFQ
-            </button>
+
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
                 <i class="fa fa-eye"></i>
@@ -565,7 +615,7 @@
             <h3 class="bmh-list-view-item-title">Al-Mansour Engineering Group</h3>
             <p class="bmh-list-view-item-subtitle">"Innovation in Every Project"</p>
             <div class="bmh-list-view-item-meta">
-              <span class="bmh-list-view-item-status busy">busy</span>
+              <span class="bmh-list-view-item-status coming-soon">closed</span>
               <span class="bmh-list-view-item-contact">Type: Consultant</span>
               <span class="bmh-list-view-item-location">
                 <i class="fa fa-map-marker"></i>
@@ -574,10 +624,6 @@
             </div>
           </div>
           <div class="bmh-list-view-item-actions">
-            <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-plus"></i>
-              RFQ
-            </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
                 <i class="fa fa-eye"></i>
@@ -597,7 +643,7 @@
             <h3 class="bmh-list-view-item-title">Gulf Construction Solutions</h3>
             <p class="bmh-list-view-item-subtitle">"Quality First, Always"</p>
             <div class="bmh-list-view-item-meta">
-              <span class="bmh-list-view-item-status vacation">vacation</span>
+              <span class="bmh-list-view-item-status coming-soon">closed</span>
               <span class="bmh-list-view-item-contact">Type: Supplier</span>
               <span class="bmh-list-view-item-location">
                 <i class="fa fa-map-marker"></i>
@@ -606,10 +652,6 @@
             </div>
           </div>
           <div class="bmh-list-view-item-actions">
-            <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-plus"></i>
-              RFQ
-            </button>
             <button class="bmh-list-view-action-btn">
               <i class="fa fa-eye"></i>
               View
@@ -627,7 +669,7 @@
             <h3 class="bmh-list-view-item-title">TechBuild Industries</h3>
             <p class="bmh-list-view-item-subtitle">"Excellence Through Technology"</p>
             <div class="bmh-list-view-item-meta">
-              <span class="bmh-list-view-item-status coming-soon">coming soon</span>
+              <span class="bmh-list-view-item-status closed">closed</span>
               <span class="bmh-list-view-item-contact">Type: Service Provider</span>
               <span class="bmh-list-view-item-location">
                 <i class="fa fa-map-marker"></i>
@@ -636,10 +678,6 @@
             </div>
           </div>
           <div class="bmh-list-view-item-actions">
-            <button class="bmh-list-view-action-btn primary">
-              <i class="fa fa-plus"></i>
-              RFQ
-            </button>
             <button class="bmh-list-view-action-btn">
               <a href="vendor-details.html" target="_blank">
                 <i class="fa fa-eye"></i>
@@ -649,26 +687,6 @@
           </div>
         </div>
       </div>
-
-      <!-- Pagination -->
-      <div class="pagination">
-        <button class="pagination-btn" disabled>
-          <i class="fa fa-chevron-left"></i>
-        </button>
-        <button class="pagination-btn active">1</button>
-        <button class="pagination-btn">2</button>
-        <button class="pagination-btn">3</button>
-        <span class="pagination-dots">...</span>
-        <button class="pagination-btn">8</button>
-        <button class="pagination-btn">9</button>
-        <button class="pagination-btn">10</button>
-        <button class="pagination-btn">
-          <i class="fa fa-chevron-right"></i>
-        </button>
-        <span class="pagination-info">Page 1 of 10</span>
-      </div>
-      <!-- Pagination End -->
-
     </div>
     <!-- List View End -->
 
@@ -996,7 +1014,7 @@
       </div>
     </div>
   </div>
-  <!-- RFQ Modal End -->
+
 
   <!-- Vendor Overview Sidebar -->
   <div class="vendor-sidebar-overlay" id="vendorSidebarOverlay" onclick="closeVendorPopup()"></div>

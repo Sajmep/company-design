@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="vendor-styles/vendor-details.css">
   <link rel="stylesheet" href="vendor-styles/vendor-gallery.css">
+  <link rel="stylesheet" href="css/image-preview.css">
   <link rel="stylesheet" href="../styles/common-table.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 </head>
@@ -113,9 +114,9 @@
               <i class="fa fa-map-marker"></i>
               Navigate
             </button>
-            <button class="vendor-action-btn secondary">
+            <button class="vendor-action-btn secondary" data-tooltip="Do you want to become a vendor for <u>Sajmep</u>?">
               <i class="fa fa-user-plus"></i>
-              Add to my contacts
+              Add to Contacts
             </button>
           </div>
 
@@ -133,9 +134,9 @@
               <i class="fa fa-phone"></i>
               Call
             </button>
-            <button class="vendor-action-btn secondary" title="Add the vendor to my contacts">
+            <button class="vendor-action-btn secondary" title="Add the vendor to my contacts" data-tooltip="Do you want to become a vendor for Sajmep?">
               <i class="fa fa-user-plus"></i>
-              Add to my contacts
+              Add to Contacts
             </button>
           </div>
           <div class="vendor-banner-actions">
@@ -1183,112 +1184,141 @@
   </div>
   <!-- RFQ Modal End -->
 
-  <!-- Image Preview Modal -->
-  <div id="imagePreviewModal" class="image-preview-modal">
-    <div class="image-preview-modal-content">
-      <div class="image-preview-modal-header">
-        <h3>Image Preview</h3>
-        <button class="image-preview-modal-close" onclick="closeImagePreviewModal()">&times;</button>
-      </div>
-      <div class="image-preview-modal-body">
-        <div class="image-preview-container">
-          <button class="image-preview-arrow image-preview-arrow-left" onclick="previousImage()">
-            <i class="fa fa-chevron-left"></i>
-          </button>
-          <img id="previewImage" src="../images/gallery1.jpg" alt="Preview Image">
-          <button class="image-preview-arrow image-preview-arrow-right" onclick="nextImage()">
-            <i class="fa fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Image Preview Modal End -->
 
-  <!-- Comment Modal -->
-  <div id="commentModal" class="comment-modal">
-    <div class="comment-modal-content">
-      <div class="comment-modal-header">
-        <h3>Comments</h3>
-        <button class="comment-modal-close" onclick="closeCommentModal()">&times;</button>
-      </div>
-      <div class="comment-modal-body">
-        <div class="comment-image-preview">
-          <img id="commentImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
-        </div>
-
-        <div class="comment-section">
-          <div class="comment-form">
-            <h4>Add a Comment</h4>
-            <form>
-              <div class="form-group">
-                <label>Name</label>
-                <input type="text" placeholder="Your name" required>
-              </div>
-              <div class="form-group">
-                <label>Email</label>
-                <input type="email" placeholder="your@email.com" required>
-              </div>
-              <div class="form-group">
-                <label>Comment</label>
-                <textarea placeholder="Write your comment here..." rows="4" required></textarea>
-              </div>
-              <button type="submit" class="comment-submit-btn">Post Comment</button>
-            </form>
-          </div>
-
-          <div class="comments-list">
-            <h4>Comments (3)</h4>
-            <div class="comment-item">
-              <div class="comment-author">
-                <div class="comment-avatar">
-                  <i class="fa fa-user"></i>
-                </div>
-                <div class="comment-author-info">
-                  <div class="comment-author-name">Ahmed Al-Rashid</div>
-                  <div class="comment-date">2 days ago</div>
-                </div>
-              </div>
-              <div class="comment-text">
-                Great construction work! The quality looks excellent and the progress is impressive.
-              </div>
+    <!-- Image Preview Modal -->
+    <div class="gallery-image-preview-modal" id="imagePreviewModal">
+      <div class="gallery-image-preview-modal-overlay"></div>
+      <div class="gallery-image-preview-modal-content">
+          <div class="gallery-image-preview-modal-header">
+            <div class="gallery-image-preview-modal-header-left">
+              <img src="images/4d Engineering Consultants.png" alt="Company Logo" class="gallery-modal-company-logo">
+              <span class="gallery-modal-company-name">4D Engineering</span>
             </div>
-
-            <div class="comment-item">
-              <div class="comment-author">
-                <div class="comment-avatar">
-                  <i class="fa fa-user"></i>
-                </div>
-                <div class="comment-author-info">
-                  <div class="comment-author-name">Sarah Al-Mansouri</div>
-                  <div class="comment-date">1 week ago</div>
-                </div>
-              </div>
-              <div class="comment-text">
-                Very professional team and excellent project management. Highly recommended!
-              </div>
-            </div>
-
-            <div class="comment-item">
-              <div class="comment-author">
-                <div class="comment-avatar">
-                  <i class="fa fa-user"></i>
-                </div>
-                <div class="comment-author-info">
-                  <div class="comment-author-name">Mohammed Al-Zahrani</div>
-                  <div class="comment-date">2 weeks ago</div>
-                </div>
-              </div>
-              <div class="comment-text">
-                Outstanding work on this project. The attention to detail is remarkable.
-              </div>
+            <div class="gallery-image-preview-modal-header-right">
+              <button class="gallery-modal-actions-toggle" id="toggleActionsColumn" aria-label="Toggle actions">
+                  <i class="fa fa-ellipsis-v"></i>
+              </button>
+              <button class="gallery-image-preview-modal-close" id="closeImageModal" aria-label="Close modal">
+                  <i class="fa fa-times"></i>
+              </button>
             </div>
           </div>
-        </div>
+          <div class="gallery-modal-two-column">
+              <!-- Left Column - Image -->
+              <!-- <div class="gallery-modal-image-column">
+                  <img src="images/gallery-preview.jpg" alt="Preview Image" class="gallery-preview-image">
+              </div> -->
+              <div class="gallery-modal-image-column">
+                  <div class="gallery-album-name">
+                      Cafe shop Adham Ala'z
+                  </div>
+                  <div class="gallery-album-images">
+                      <img src="images/gallery1.jpg" alt="Album Image 1" class="album-image-clickable">
+                      <img src="images/gallery2.jpg" alt="Album Image 2" class="album-image-clickable">
+                      <img src="images/gallery3.jpg" alt="Album Image 3" class="album-image-clickable">
+                      <img src="images/gallery4.jpg" alt="Album Image 4" class="album-image-clickable">
+                      <img src="images/gallery5.jpg" alt="Album Image 5" class="album-image-clickable">
+                      <img src="images/sajmep.jpg" alt="Album Image 6" class="album-image-clickable">
+                      <img src="images/gallery1.jpg" alt="Album Image 7" class="album-image-clickable">
+                      <img src="images/gallery2.jpg" alt="Album Image 8" class="album-image-clickable">
+                      <img src="images/gallery3.jpg" alt="Album Image 9" class="album-image-clickable">
+                      <div class="gallery-album-image-preview" id="albumImagePreview">
+                          <button class="gallery-album-preview-close">&times;</button>
+                          <button class="gallery-album-preview-prev">
+                              <i class="fa fa-chevron-left"></i>
+                          </button>
+                          <button class="gallery-album-preview-next">
+                              <i class="fa fa-chevron-right"></i>
+                          </button>
+                          <img src="" alt="Preview" class="gallery-album-preview-img">
+                          <div class="gallery-album-preview-dots" id="albumPreviewDots"></div>
+                      </div>
+                  </div>
+              </div>
+              <!-- Right Column - Actions -->
+              <div class="gallery-modal-actions-column" id="actionsColumn">
+                  <div class="gallery-modal-company">
+                      <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-modal-company-img">
+                      <button class="gallery-modal-follow-btn">
+                          <i class="fa fa-plus"></i>
+                          <span>Follow</span>
+                      </button>
+                  </div>
+                  <div class="gallery-modal-action-buttons">
+                      <div class="gallery-modal-action-item">
+                          <button class="gallery-modal-action-btn favorite-btn">
+                              <i class="fa fa-heart"></i>
+                          </button>
+                          <span class="gallery-modal-action-label">Like</span>
+                      </div>
+                      <div class="gallery-modal-action-item">
+                          <button class="gallery-modal-action-btn save-btn">
+                              <i class="fa fa-bookmark"></i>
+                          </button>
+                          <span class="gallery-modal-action-label">Save</span>
+                      </div>
+                      <div class="gallery-modal-action-item">
+                          <button class="gallery-modal-action-btn">
+                              <i class="fa fa-share-alt"></i>
+                          </button>
+                          <span class="gallery-modal-action-label">Share</span>
+                      </div>
+                      <div class="gallery-modal-action-item">
+                          <button class="gallery-modal-action-btn">
+                              <i class="fa fa-comment"></i>
+                          </button>
+                          <span class="gallery-modal-action-label">
+                              <a href="#gallery-modal-comment-section" class="gallery-modal-comment-link">Comment</a>
+                          </span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="gallery-modal-content">
+              <div class="gallery-modal-content-left">
+                  <div class="gallery-modal-caption">
+                      Beautiful building architecture showcasing modern design and sustainable construction practices.
+                  </div>
+                  <div class="gallery-modal-comment-section" id="gallery-modal-comment-section">
+                      <textarea type="text" class="gallery-modal-comment-input" placeholder="Write a comment..."></textarea>
+                      <button class="gallery-modal-comment-submit-btn" id="gallery-modal-comment-submit-btn">Post Comment</button>
+                  </div>
+                  <div class="gallery-modal-comments-list">
+                      <div class="gallery-comment-item">
+                          <img src="../images/sarah.pnh.png" alt="User" class="gallery-comment-avatar">
+                          <div class="gallery-comment-content">
+                              <div class="gallery-comment-author">John Doe</div>
+                              <div class="gallery-comment-text">This is a great design! Love the modern architecture.</div>
+                          </div>
+                      </div>
+                      <div class="gallery-comment-item">
+                          <img src="../images/sofia.png" alt="User" class="gallery-comment-avatar">
+                          <div class="gallery-comment-content">
+                              <div class="gallery-comment-author">Jane Smith</div>
+                              <div class="gallery-comment-text">Amazing work! The sustainable practices are impressive.</div>
+                          </div>
+                      </div>
+                      <div class="gallery-comment-item">
+                          <img src="../images/user.png" alt="User" class="gallery-comment-avatar">
+                          <div class="gallery-comment-content">
+                              <div class="gallery-comment-author">Mike Johnson</div>
+                              <div class="gallery-comment-text">Beautiful building! Would love to see more details.</div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="gallery-modal-content-right">
+                  <div class="gallery-modal-more-title">More from 4D Engineering</div>
+                  <div class="gallery-modal-more-images">
+                      <img src="images/gallery2.jpg" alt="Gallery" class="gallery-modal-more-img">
+                      <img src="images/gallery3.jpg" alt="Gallery" class="gallery-modal-more-img">
+                      <img src="images/gallery4.jpg" alt="Gallery" class="gallery-modal-more-img">
+                      <img src="images/gallery5.jpg" alt="Gallery" class="gallery-modal-more-img">
+                  </div>
+              </div>
+          </div>
       </div>
-    </div>
   </div>
-  <!-- Comment Modal End -->
 
   <!-- Report Modal -->
   <div id="reportModal" class="report-modal">
@@ -1341,18 +1371,9 @@
   <script src="vendor-scripts/vendor-details.js"></script>
   <script src="vendor-scripts/vendor-gallery.js"></script>
   <script src="../script/common-table.js"></script>
+  <script src="vendor-scripts/image-preview-modal.js"></script>
 
   <script>
-    // Comment Modal Functions
-    function openCommentModal(imageId) {
-      document.getElementById('commentModal').style.display = 'block';
-      // Update the image preview in the modal
-      document.getElementById('commentImagePreview').src = '../images/' + imageId + '.jpg';
-    }
-
-    function closeCommentModal() {
-      document.getElementById('commentModal').style.display = 'none';
-    }
 
     // Report Modal Functions
     function openReportModal(imageId) {

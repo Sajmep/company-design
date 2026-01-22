@@ -1246,12 +1246,6 @@
 
 /* Responsive Design for Action Buttons */
 @media (max-width: 768px) {
-  .pr-action-buttons {
-    padding: 16px;
-    gap: 6px;
-
-  }
-  
   .pr-btn {
     flex: 1;
     min-width: 60px;
@@ -1261,11 +1255,11 @@
 }
 
 @media (max-width: 480px) {
-  .pr-action-buttons {
-    padding: 12px;
-    flex-direction: column;
-    gap: 8px;
+
+  .pr-staging-section{
+    top: 18px;
   }
+
   
   .pr-btn {
     width: 100%;

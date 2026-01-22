@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize: show card view by default
-    showView('list');
+    showView('card');
 
     // Override switchView function from toolbar.js
     window.switchView = function(viewType) {

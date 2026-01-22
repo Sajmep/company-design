@@ -70,3 +70,44 @@ if (toggleActionsBtn && actionsColumn) {
     });
 }
 
+// Album Image Preview
+const albumImagePreview = document.getElementById('albumImagePreview');
+const albumPreviewImg = albumImagePreview?.querySelector('.gallery-album-preview-img');
+const albumPreviewClose = albumImagePreview?.querySelector('.gallery-album-preview-close');
+
+function openAlbumImagePreview(imageSrc) {
+    if (albumImagePreview && albumPreviewImg) {
+        albumPreviewImg.src = imageSrc;
+        albumImagePreview.classList.add('active');
+    }
+}
+
+function closeAlbumImagePreview() {
+    if (albumImagePreview) {
+        albumImagePreview.classList.remove('active');
+    }
+}
+
+// Add click handlers to album images
+document.querySelectorAll('.album-image-clickable').forEach(img => {
+    img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openAlbumImagePreview(img.src);
+    });
+});
+
+// Close preview
+if (albumPreviewClose) {
+    albumPreviewClose.addEventListener('click', (e) => {
+        e.stopPropagation();
+        closeAlbumImagePreview();
+    });
+}
+
+if (albumImagePreview) {
+    albumImagePreview.addEventListener('click', (e) => {
+        if (e.target === albumImagePreview) {
+            closeAlbumImagePreview();
+        }
+    });
+}

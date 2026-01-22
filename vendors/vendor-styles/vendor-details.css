@@ -243,6 +243,59 @@
   color: white;
 }
 
+/* Tooltip (uses data-tooltip attr) */
+.vendor-action-btn[data-tooltip] {
+  position: relative;
+}
+
+.vendor-action-btn[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 4%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #111827;
+  border: 2px solid #e6bb01;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  min-width: 240px;
+  max-width: 320px;
+  white-space: normal;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.vendor-action-btn[data-tooltip]::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 4px);
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid #e6bb01;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.vendor-action-btn[data-tooltip]:hover::after,
+.vendor-action-btn[data-tooltip]:hover::before {
+  opacity: 1;
+  visibility: visible;
+}
+
 .vendor-action-btn.primary {
   background: #9885d1;
   border: 2px solid #9885d1;
