@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="../styles/common-page-header.css">
   <link rel="stylesheet" href="vendor-styles/vendor-details.css">
   <link rel="stylesheet" href="vendor-styles/vendor-gallery.css">
+  <link rel="stylesheet" href="vendor-styles/login-first-popup.css">
   <link rel="stylesheet" href="css/image-preview.css">
   <link rel="stylesheet" href="../styles/common-table.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
@@ -134,7 +135,7 @@
               <i class="fa fa-phone"></i>
               Call
             </button>
-            <button class="vendor-action-btn secondary" title="Add the vendor to my contacts" data-tooltip="Do you want to become a vendor for Sajmep?">
+            <button class="vendor-action-btn secondary" id="addToContactsBtn" data-tooltip="Do you want to become a vendor for Sajmep?">
               <i class="fa fa-user-plus"></i>
               Add to Contacts
             </button>
@@ -1184,7 +1185,6 @@
   </div>
   <!-- RFQ Modal End -->
 
-
     <!-- Image Preview Modal -->
     <div class="gallery-image-preview-modal" id="imagePreviewModal">
       <div class="gallery-image-preview-modal-overlay"></div>
@@ -1234,7 +1234,7 @@
                           <div class="gallery-album-preview-dots" id="albumPreviewDots"></div>
                       </div>
                   </div>
-              </div>
+              </div> 
               <!-- Right Column - Actions -->
               <div class="gallery-modal-actions-column" id="actionsColumn">
                   <div class="gallery-modal-company">
@@ -1367,11 +1367,14 @@
   </div>
   <!-- Report Modal End -->
 
+
+
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
   <script src="vendor-scripts/vendor-details.js"></script>
   <script src="vendor-scripts/vendor-gallery.js"></script>
   <script src="../script/common-table.js"></script>
   <script src="vendor-scripts/image-preview-modal.js"></script>
+  <script src="vendor-scripts/login-first-popup.js"></script>
 
   <script>
 

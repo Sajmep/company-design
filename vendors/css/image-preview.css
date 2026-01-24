@@ -141,7 +141,6 @@
   width: 200px;
   height: 200px;
   object-fit: cover;
-  border-radius: 6px;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -159,6 +158,7 @@
   overflow: hidden;
   border: 1px solid lightgray;
   border-radius: 8px;
+  position: relative;
 }
 .gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column .gallery-album-images .gallery-album-image-preview.active {
   display: flex !important;
@@ -222,7 +222,6 @@
   width: auto;
   height: auto;
   object-fit: contain;
-  border-radius: 8px;
   display: block !important;
   position: relative;
   z-index: 1001;
@@ -234,11 +233,17 @@
 .gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column .gallery-album-images .gallery-album-image-preview .gallery-album-preview-dots {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 8px;
   margin-top: auto;
-  padding-top: 10px;
+  padding-top: 15px;
   z-index: 1002;
   flex-shrink: 0;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
 }
 .gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column .gallery-album-images .gallery-album-image-preview .gallery-album-preview-dots .dot {
   width: 10px;
@@ -247,6 +252,8 @@
   background: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: background 0.2s ease;
+  display: block;
+  flex-shrink: 0;
 }
 .gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column .gallery-album-images .gallery-album-image-preview .gallery-album-preview-dots .dot.active {
   background: rgb(255, 255, 255);
@@ -256,11 +263,6 @@
 }
 .gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column .gallery-album-images:has(.gallery-album-image-preview.active) img {
   display: none;
-}
-.gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column .gallery-preview-image {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
 }
 @media (max-width: 768px) {
   .gallery-image-preview-modal .gallery-image-preview-modal-content .gallery-modal-two-column .gallery-modal-image-column {
