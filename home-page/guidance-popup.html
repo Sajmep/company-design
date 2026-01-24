@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Guidance Popup</title>
+
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/guidance-popup.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1>BMH Header - Guidance Popup</h1>
+        <button class="guidance-popup-open-button" onclick="openGuidancePopup()">
+            <i class="fa fa-bullhorn"></i> Guidance Popup
+        </button>
+    </header>
+
+    <div class="guidance-popup" style="display: none;">
+        <div class="guidance-popup-content">
+            <button class="guidance-popup-close" onclick="closeGuidancePopup()">&times;</button>
+            <div class="guidance-popup-body">
+
+                <!-- First Slide - Keep Original Structure -->
+                <div class="guidance-popup-first-slide">
+                    <div class="guidance-popup-icon-wrapper">
+                        <div class="guidance-popup-icon-circle">
+                            <img src="../images/bmh-logo.png" alt="Logo" class="guidance-popup-logo">
+                        </div>
+                    </div>
+
+                    <h2 class="guidance-popup-title">Easy Guide to BMH!</h2>
+
+                    <div class="guidance-popup-description">
+                        <p>Follow this quick walkthrough to learn how to navigate the platform, complete your setup, and start using BMH effectively.</p>
+                    </div>
+
+                    <button class="guidance-popup-get-started-btn" onclick="nextSlide()">Get started</button>
+                </div>
+
+                <!-- Slide Indicators -->
+                <div class="guidance-popup-slides-indicator" style="display: none;">
+                    <div class="guidance-popup-slide-dot active" data-slide="0"></div>
+                    <div class="guidance-popup-slide-dot" data-slide="1"></div>
+                    <div class="guidance-popup-slide-dot" data-slide="2"></div>
+                </div>
+
+                <!-- Slides Content - Image Only Slides -->
+                <div class="guidance-popup-slides-container" style="display: none;">
+                    <!-- Slide 2 - Image Only -->
+                    <div class="guidance-popup-slide active" data-slide="0">
+                        <div class="guidance-popup-slide-image">
+                            <img src="images/guidance-image-1.png" alt="Slide 2">
+                        </div>
+                    </div>
+ 
+                    <!-- Slide 3 - Image Only -->
+                    <div class="guidance-popup-slide" data-slide="1">
+                        <div class="guidance-popup-slide-image">
+                            <img src="images/guidance-image-2.png" alt="Slide 3">
+                        </div>
+                    </div>
+
+                    <!-- Slide 4 - Image Only -->
+                    <div class="guidance-popup-slide" data-slide="2">
+                        <div class="guidance-popup-slide-image">
+                            <img src="../images/bmh-logo.png" alt="Slide 4">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Buttons -->
+                <div class="guidance-popup-navigation" style="display: none;">
+                    <button class="guidance-popup-prev-btn" onclick="previousSlide()">
+                        <i class="fa fa-chevron-left"></i> Previous
+                    </button>
+                    <button class="guidance-popup-next-btn" onclick="nextSlide()">
+                        Next <i class="fa fa-chevron-right"></i>
+                    </button>
+                    <button class="guidance-popup-finish-btn" onclick="closeGuidancePopup()" style="display: none;">
+                        Get started
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/guidance-popup.js"></script>
+</body>
+
+</html>

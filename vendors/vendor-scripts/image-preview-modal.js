@@ -47,14 +47,28 @@ document.addEventListener('DOMContentLoaded', () => {
         actionsColumn?.classList.toggle('active');
     });
 
-    // Album image preview (inside the modal)
+    // Album image preview (inside the modal) - open/close only
     const albumImagePreview = $('#albumImagePreview');
     const albumPreviewImg = $('.gallery-album-preview-img', albumImagePreview || undefined);
     const albumPreviewClose = $('.gallery-album-preview-close', albumImagePreview || undefined);
+    const albumPreviewDots = $('#albumPreviewDots');
+    const albumImages = $$('.album-image-clickable');
+
+    // Create static dots for design (no interaction)
+    if (albumPreviewDots && albumImages.length > 0) {
+        albumImages.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            if (index === 0) dot.classList.add('active');
+            albumPreviewDots.appendChild(dot);
+        });
+    }
 
     const setAlbumPreviewOpen = (open, src = '') => {
         if (!albumImagePreview || !albumPreviewImg) return;
-        if (open) albumPreviewImg.src = src;
+        if (open && src) {
+            albumPreviewImg.src = src;
+        }
         albumImagePreview.classList.toggle('active', open);
     };
 
