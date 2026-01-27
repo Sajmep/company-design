@@ -20,6 +20,7 @@
   <link rel="stylesheet" href="css/rfq-offers.css">
   <link rel="stylesheet" href="css/chat.css">
   <link rel="stylesheet" href="css/search-more-popup.css">
+  <link rel="stylesheet" href="css/item-view-modal.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 </head>
 
@@ -1675,7 +1676,11 @@
                                 <option value="uom3">UOM 3</option>
                               </select>
                             </td>
-                            <td class="items-actions-cell"></td>
+                            <td class="items-actions-cell">
+                              <button type="button" class="items-view-btn" title="View" onclick="openItemViewModal()">
+                                <i class="fa fa-eye"></i>
+                              </button>
+                            </td>
                           </tr>
                         </tbody>
                       </table>
@@ -2997,6 +3002,105 @@
       </div>
     </div>
   </div>
+
+  <!-- Item View Modal -->
+  <div id="itemViewModal" class="item-view-modal" style="display: none;">
+    <div class="item-view-modal-overlay" onclick="closeItemViewModal()"></div>
+    <div class="item-view-modal-content">
+      <div class="item-view-modal-header">
+        <h3>Item Details</h3>
+        <button type="button" class="item-view-modal-close" onclick="closeItemViewModal()">&times;</button>
+      </div>
+      <div class="item-view-modal-tabs">
+        <button class="item-view-tab-btn active" data-tab="item-details">Item Details</button>
+        <button class="item-view-tab-btn" data-tab="tasks">Tasks</button>
+        <button class="item-view-tab-btn" data-tab="wbs">WBS</button>
+        <button class="item-view-tab-btn" data-tab="boq">BOQ</button>
+        <button class="item-view-tab-btn" data-tab="work-area">Work Area</button>
+        <button class="item-view-tab-btn" data-tab="takeoff">Takeoff</button>
+        <button class="item-view-tab-btn" data-tab="cost-estimation">Cost Estimation</button>
+        <button class="item-view-tab-btn" data-tab="budget">Budget</button>
+      </div>
+      <div class="item-view-modal-body">
+        <div class="item-view-tab-content">
+          <div class="item-view-tab-panel active" id="item-details-panel">
+            <div class="item-view-details">
+              <div class="item-view-row">
+                <div class="item-view-label">Product Category:</div>
+                <div class="item-view-value">Product Categories 1</div>
+              </div>
+              <div class="item-view-row">
+                <div class="item-view-label">Global Product:</div>
+                <div class="item-view-value">Global Product 1</div>
+              </div>
+              <div class="item-view-row">
+                <div class="item-view-label">Product:</div>
+                <div class="item-view-value">Product 1</div>
+              </div>
+              <div class="item-view-row">
+                <div class="item-view-label">Quantity:</div>
+                <div class="item-view-value">10</div>
+              </div>
+              <div class="item-view-row">
+                <div class="item-view-label">Unit of Measure:</div>
+                <div class="item-view-value">UOM 1</div>
+              </div>
+            </div>
+          </div>
+          <div class="item-view-tab-panel" id="tasks-panel">
+            <p>Tasks content will go here</p>
+          </div>
+          <div class="item-view-tab-panel" id="wbs-panel">
+            <p>WBS content will go here</p>
+          </div>
+          <div class="item-view-tab-panel" id="boq-panel">
+            <p>BOQ content will go here</p>
+          </div>
+          <div class="item-view-tab-panel" id="work-area-panel">
+            <p>Work Area content will go here</p>
+          </div>
+          <div class="item-view-tab-panel" id="takeoff-panel">
+            <p>Takeoff content will go here</p>
+          </div>
+          <div class="item-view-tab-panel" id="cost-estimation-panel">
+            <p>Cost Estimation content will go here</p>
+          </div>
+          <div class="item-view-tab-panel" id="budget-panel">
+            <p>Budget content will go here</p>
+          </div>
+        </div>
+      </div>
+      <div class="item-view-modal-footer">
+        <button type="button" class="item-view-modal-close-btn" onclick="closeItemViewModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Item View Modal Functions
+    function openItemViewModal() {
+      const modal = document.getElementById('itemViewModal');
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeItemViewModal() {
+      const modal = document.getElementById('itemViewModal');
+      if (modal) {
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeItemViewModal();
+      }
+    });
+  </script>
 
 </body>
 

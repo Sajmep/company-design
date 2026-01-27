@@ -8,71 +8,10 @@
 
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="css/toolbar.css">
+  <link rel="stylesheet" href="css/views-container.css">
+  <link rel="stylesheet" href="css/products.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
-
-  
-  <style>
-    .products-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-    
-    .product-card {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      transition: border-color 0.2s;
-    }
-    
-    .product-card.selected {
-      border-color: #012f6d;
-      border-width: 2px;
-    }
-    
-    .product-checkbox {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      z-index: 10;
-      width: 18px;
-      height: 18px;
-      cursor: pointer;
-    }
-    
-    .product-image {
-      width: 100%;
-      height: 200px;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    
-    .product-info {
-      padding: 15px;
-    }
-    
-    .product-title {
-      margin: 0 0 10px 0;
-      font-size: 18px;
-    }
-    
-    .product-description {
-      margin: 0 0 10px 0;
-      color: #666;
-      font-size: 14px;
-    }
-    
-    .product-price {
-      font-weight: bold;
-      font-size: 16px;
-    }
-  </style>
 
 </head>
 
@@ -159,55 +98,408 @@
 
   </div>
 
-  <div class="products-container">
-    <div class="product-card" onclick="toggleCardSelection(this)">
-      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
-      <div class="product-image">Image</div>
-      <div class="product-info">
-        <h3 class="product-title">Product Name</h3>
-        <p class="product-description">Product description text</p>
-        <div class="product-price">$99.99</div>
+  <div class="views-container">
+    <!-- Card View -->
+    <div class="bmh-products-card-view">
+      
+      <div class="product-card" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox">
+        <div class="product-image-container">
+          <div class="product-image">Image</div>
+          <button class="product-favorite-btn" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-title-row">
+            <button class="product-menu-btn">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <h3 class="product-title">Product Name</h3>
+            <div class="product-menu-dropdown">
+              <button class="menu-item">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-building"></i> Add to project
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to RFQ
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to Tender
+              </button>
+            </div>
+          </div>
+          <div class="product-price">$99.99</div>
+        </div>
       </div>
-    </div>
-    
-    <div class="product-card" onclick="toggleCardSelection(this)">
-      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
-      <div class="product-image">Image</div>
-      <div class="product-info">
-        <h3 class="product-title">Product Name</h3>
-        <p class="product-description">Product description text</p>
-        <div class="product-price">$99.99</div>
+
+      <div class="product-card" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox">
+        <div class="product-image-container">
+          <div class="product-image">Image</div>
+          <button class="product-favorite-btn" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-title-row">
+            <button class="product-menu-btn">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <h3 class="product-title">Product Name</h3>
+            <div class="product-menu-dropdown">
+              <button class="menu-item">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-building"></i> Add to project
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to RFQ
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to Tender
+              </button>
+            </div>
+          </div>
+          <div class="product-price">$99.99</div>
+        </div>
       </div>
-    </div>
-    
-    <div class="product-card" onclick="toggleCardSelection(this)">
-      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
-      <div class="product-image">Image</div>
-      <div class="product-info">
-        <h3 class="product-title">Product Name</h3>
-        <p class="product-description">Product description text</p>
-        <div class="product-price">$99.99</div>
+
+      <div class="product-card" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox">
+        <div class="product-image-container">
+          <div class="product-image">Image</div>
+          <button class="product-favorite-btn" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-title-row">
+            <button class="product-menu-btn">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <h3 class="product-title">Product Name</h3>
+            <div class="product-menu-dropdown">
+              <button class="menu-item">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-building"></i> Add to project
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to RFQ
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to Tender
+              </button>
+            </div>
+          </div>
+          <div class="product-price">$99.99</div>
+        </div>
       </div>
-    </div>
-    
-    <div class="product-card" onclick="toggleCardSelection(this)">
-      <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
-      <div class="product-image">Image</div>
-      <div class="product-info">
-        <h3 class="product-title">Product Name</h3>
-        <p class="product-description">Product description text</p>
-        <div class="product-price">$99.99</div>
+
+      <div class="product-card" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox">
+        <div class="product-image-container">
+          <div class="product-image">Image</div>
+          <button class="product-favorite-btn" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-title-row">
+            <button class="product-menu-btn">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <h3 class="product-title">Product Name</h3>
+            <div class="product-menu-dropdown">
+              <button class="menu-item">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-building"></i> Add to project
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to RFQ
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to Tender
+              </button>
+            </div>
+          </div>
+          <div class="product-price">$99.99</div>
+        </div>
       </div>
+
+      <div class="product-card" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox">
+        <div class="product-image-container">
+          <div class="product-image">Image</div>
+          <button class="product-favorite-btn" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-content">
+          <div class="product-title-row">
+            <button class="product-menu-btn">
+              <i class="fa fa-ellipsis-v"></i>
+            </button>
+            <h3 class="product-title">Product Name</h3>
+            <div class="product-menu-dropdown">
+              <button class="menu-item">
+                <i class="fa fa-shopping-cart"></i> Add to Cart
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-building"></i> Add to project
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to RFQ
+              </button>
+              <button class="menu-item">
+                <i class="fa fa-file-text-o"></i> Add to Tender
+              </button>
+            </div>
+          </div>
+          <div class="product-price">$99.99</div>
+        </div>
+      </div>
+      
     </div>
+
+    <!-- List View -->
+    <!-- <div class="bmh-products-list-view">
+      <div class="product-list-item" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+        <div class="product-list-image">
+          <div class="product-image">Wall Clock</div>
+          <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-list-content">
+          <h3 class="product-list-title">Wall Clock</h3>
+          <div class="product-list-price">40.00 SR</div>
+          <div class="product-list-actions">
+            <button class="action-btn">
+              <i class="fa fa-shopping-cart"></i> Add To Cart
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-folder"></i> Add To Project
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To RFQ
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To Tender
+            </button>
+          </div>
+          <div class="product-list-tags">
+            <span class="tag">Docs</span>
+            <span class="tag">Model</span>
+            <span class="tag">Data Sheet</span>
+            <span class="tag">Brand: Acme</span>
+            <span class="tag">Vendor: TimeVendor</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-list-item" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+        <div class="product-list-image">
+          <div class="product-image">Wall Clock</div>
+          <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-list-content">
+          <h3 class="product-list-title">Wall Clock</h3>
+          <div class="product-list-price">40.00 SR</div>
+          <div class="product-list-actions">
+            <button class="action-btn">
+              <i class="fa fa-shopping-cart"></i> Add To Cart
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-folder"></i> Add To Project
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To RFQ
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To Tender
+            </button>
+          </div>
+          <div class="product-list-tags">
+            <span class="tag">Docs</span>
+            <span class="tag">Model</span>
+            <span class="tag">Data Sheet</span>
+            <span class="tag">Brand: Acme</span>
+            <span class="tag">Vendor: TimeVendor</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-list-item" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+        <div class="product-list-image">
+          <div class="product-image">Wall Clock</div>
+          <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-list-content">
+          <h3 class="product-list-title">Wall Clock</h3>
+          <div class="product-list-price">40.00 SR</div>
+          <div class="product-list-actions">
+            <button class="action-btn">
+              <i class="fa fa-shopping-cart"></i> Add To Cart
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-folder"></i> Add To Project
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To RFQ
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To Tender
+            </button>
+          </div>
+          <div class="product-list-tags">
+            <span class="tag">Docs</span>
+            <span class="tag">Model</span>
+            <span class="tag">Data Sheet</span>
+            <span class="tag">Brand: Acme</span>
+            <span class="tag">Vendor: TimeVendor</span>
+          </div>
+        </div>
+      </div>
+      <div class="product-list-item" onclick="toggleCardSelection(this)">
+        <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
+        <div class="product-list-image">
+          <div class="product-image">Wall Clock</div>
+          <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
+            <i class="fa fa-heart-o"></i>
+          </button>
+          <div class="product-views">
+            <i class="fa fa-eye"></i>
+            <span>1.2K</span>
+          </div>
+        </div>
+        <div class="product-list-content">
+          <h3 class="product-list-title">Wall Clock</h3>
+          <div class="product-list-price">40.00 SR</div>
+          <div class="product-list-actions">
+            <button class="action-btn">
+              <i class="fa fa-shopping-cart"></i> Add To Cart
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-folder"></i> Add To Project
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To RFQ
+            </button>
+            <button class="action-btn">
+              <i class="fa fa-file-text-o"></i> Add To Tender
+            </button>
+          </div>
+          <div class="product-list-tags">
+            <span class="tag">Docs</span>
+            <span class="tag">Model</span>
+            <span class="tag">Data Sheet</span>
+            <span class="tag">Brand: Acme</span>
+            <span class="tag">Vendor: TimeVendor</span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Dashboard View -->
+    <div class="bmh-products-dashboard-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+          soon!</span>
+      </h2>
+    </div>
+
+    <!-- Calendar View -->
+    <div class="bmh-products-calendar-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+          soon!</span></h2>
+    </div>
+
+    <!-- Map View -->
+    <div class="bmh-products-map-view">
+      <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+    </div>
+
   </div>
 
   <script src="scripts/toolbar.js"></script>
+  <script src="scripts/views-container.js"></script>
   <script>
     function toggleCardSelection(card) {
       const checkbox = card.querySelector('.product-checkbox');
       checkbox.checked = !checkbox.checked;
       card.classList.toggle('selected', checkbox.checked);
     }
+
+    function toggleProductMenu(event, button) {
+      event.stopPropagation();
+      const dropdown = button.nextElementSibling.nextElementSibling;
+      const allDropdowns = document.querySelectorAll('.product-menu-dropdown');
+      
+      // Close all other dropdowns
+      allDropdowns.forEach(d => {
+        if (d !== dropdown) d.classList.remove('active');
+      });
+      
+      // Toggle current dropdown
+      dropdown.classList.toggle('active');
+    }
+
+    function handleMenuAction(action) {
+      console.log('Action:', action);
+      // Close dropdown
+      document.querySelectorAll('.product-menu-dropdown').forEach(d => d.classList.remove('active'));
+    }
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!e.target.closest('.product-menu-btn') && !e.target.closest('.product-menu-dropdown')) {
+        document.querySelectorAll('.product-menu-dropdown').forEach(d => d.classList.remove('active'));
+      }
+    });
   </script>
 
 </body>
