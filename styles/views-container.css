@@ -1,0 +1,88 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+.views-container {
+  background: #ffffff;
+}
+
+/* ==================== Card View Styles ==================== */
+.bmh-products-card-view {
+  padding: 20px;
+  padding-top: 8px;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: center;
+}
+.bmh-products-card-view .product-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  max-width: 280px;
+  width: 100%;
+}
+.bmh-products-card-view .product-card:hover {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.bmh-products-card-view .product-card.selected {
+  border-color: #012f6d;
+  border-width: 2px;
+}
+.bmh-products-card-view .product-card .product-checkbox {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+.bmh-products-card-view .product-card .product-image-container {
+  width: 100%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+.bmh-products-card-view .product-card .product-image-container .product-image {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9ca3af;
+  font-size: 14px;
+}
+.bmh-products-card-view .product-card .product-content {
+  padding: 16px;
+}
+.bmh-products-card-view .product-card .product-content .product-title {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+}
+.bmh-products-card-view .product-card .product-content .product-description {
+  margin: 0 0 12px 0;
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.4;
+}
+.bmh-products-card-view .product-card .product-content .product-price {
+  font-weight: 600;
+  font-size: 18px;
+  color: #012f6d;
+}
+
+/* ==================== List View Styles ==================== */
+
+/*# sourceMappingURL=views-container.css.map */
