@@ -30,6 +30,15 @@
       </div>
 
       <div class="toolbar-actions">
+        <div class="toolbar-selection-dropdown" id="selectionActions" style="display: none;">
+          <button class="selection-dropdown-btn">Actions</button>
+          <div class="selection-dropdown-menu">
+            <div class="dropdown-item">Add to Cart</div>
+            <div class="dropdown-item">Add to Project</div>
+            <div class="dropdown-item" onclick="openRFQPopup()">Add to RFQ</div>
+            <div class="dropdown-item">Add to Tender</div>
+          </div>
+        </div>
 
         <div class="views-toggle">
           <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
@@ -290,11 +299,11 @@
     </div>
 
     <!-- List View -->
-    <!-- <div class="bmh-products-list-view">
+    <div class="bmh-products-list-view">
       <div class="product-list-item" onclick="toggleCardSelection(this)">
         <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
         <div class="product-list-image">
-          <div class="product-image">Wall Clock</div>
+          <img src="images/product1.jpg" alt="Wall Clock" class="product-image">
           <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
             <i class="fa fa-heart-o"></i>
           </button>
@@ -304,35 +313,52 @@
           </div>
         </div>
         <div class="product-list-content">
-          <h3 class="product-list-title">Wall Clock</h3>
-          <div class="product-list-price">40.00 SR</div>
-          <div class="product-list-actions">
-            <button class="action-btn">
-              <i class="fa fa-shopping-cart"></i> Add To Cart
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-folder"></i> Add To Project
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To RFQ
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To Tender
-            </button>
+          <h3 class="product-list-title">Construction Safety Shoes</h3>
+          <div class="product-list-description">
+            <p>Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! 
+              <button class="read-more-btn">
+                Read more <i class="fa fa-arrow-right"></i>
+              </button>
+            </p>
+           
           </div>
-          <div class="product-list-tags">
-            <span class="tag">Docs</span>
-            <span class="tag">Model</span>
-            <span class="tag">Data Sheet</span>
-            <span class="tag">Brand: Acme</span>
-            <span class="tag">Vendor: TimeVendor</span>
+          <div class="product-list-separator"></div>
+          <div class="product-list-info">
+            <div class="info-item">
+              <img src="images/product-list-view-icons/docs-icon.png" alt="Docs">
+              <span>Docs</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/model-icon.png" alt="Model">
+              <span>Model</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/data-sheet-icon.png" alt="Data Sheet">
+              <span>Data Sheet</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/brand-icon.png" alt="Brand">
+              <span>Brand</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/acm-icon.png" alt="Acme">
+              <span>Acme</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/vendor-icon.png" alt="Vendor">
+              <span>Vendor</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/time-vendor-icon.png" alt="Time Vendor">
+              <span>Time vendor</span>
+            </div>
           </div>
         </div>
       </div>
       <div class="product-list-item" onclick="toggleCardSelection(this)">
         <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
         <div class="product-list-image">
-          <div class="product-image">Wall Clock</div>
+          <img src="images/product2.jpg" alt="Wall Clock" class="product-image">
           <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
             <i class="fa fa-heart-o"></i>
           </button>
@@ -342,35 +368,52 @@
           </div>
         </div>
         <div class="product-list-content">
-          <h3 class="product-list-title">Wall Clock</h3>
-          <div class="product-list-price">40.00 SR</div>
-          <div class="product-list-actions">
-            <button class="action-btn">
-              <i class="fa fa-shopping-cart"></i> Add To Cart
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-folder"></i> Add To Project
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To RFQ
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To Tender
-            </button>
+          <h3 class="product-list-title">Artistic Paper</h3>
+          <div class="product-list-description">
+            <p>Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! 
+              <button class="read-more-btn">
+                Read more <i class="fa fa-arrow-right"></i>
+              </button>
+            </p>
+           
           </div>
-          <div class="product-list-tags">
-            <span class="tag">Docs</span>
-            <span class="tag">Model</span>
-            <span class="tag">Data Sheet</span>
-            <span class="tag">Brand: Acme</span>
-            <span class="tag">Vendor: TimeVendor</span>
+          <div class="product-list-separator"></div>
+          <div class="product-list-info">
+            <div class="info-item">
+              <img src="images/product-list-view-icons/docs-icon.png" alt="Docs">
+              <span>Docs</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/model-icon.png" alt="Model">
+              <span>Model</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/data-sheet-icon.png" alt="Data Sheet">
+              <span>Data Sheet</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/brand-icon.png" alt="Brand">
+              <span>Brand</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/acm-icon.png" alt="Acme">
+              <span>Acme</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/vendor-icon.png" alt="Vendor">
+              <span>Vendor</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/time-vendor-icon.png" alt="Time Vendor">
+              <span>Time vendor</span>
+            </div>
           </div>
         </div>
       </div>
       <div class="product-list-item" onclick="toggleCardSelection(this)">
         <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
         <div class="product-list-image">
-          <div class="product-image">Wall Clock</div>
+          <img src="images/product3.jpg" alt="Wall Clock" class="product-image">
           <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
             <i class="fa fa-heart-o"></i>
           </button>
@@ -380,35 +423,52 @@
           </div>
         </div>
         <div class="product-list-content">
-          <h3 class="product-list-title">Wall Clock</h3>
-          <div class="product-list-price">40.00 SR</div>
-          <div class="product-list-actions">
-            <button class="action-btn">
-              <i class="fa fa-shopping-cart"></i> Add To Cart
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-folder"></i> Add To Project
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To RFQ
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To Tender
-            </button>
+          <h3 class="product-list-title">Professional Styling</h3>
+          <div class="product-list-description">
+            <p>Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! 
+              <button class="read-more-btn">
+                Read more <i class="fa fa-arrow-right"></i>
+              </button>
+            </p>
+           
           </div>
-          <div class="product-list-tags">
-            <span class="tag">Docs</span>
-            <span class="tag">Model</span>
-            <span class="tag">Data Sheet</span>
-            <span class="tag">Brand: Acme</span>
-            <span class="tag">Vendor: TimeVendor</span>
+          <div class="product-list-separator"></div>
+          <div class="product-list-info">
+            <div class="info-item">
+              <img src="images/product-list-view-icons/docs-icon.png" alt="Docs">
+              <span>Docs</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/model-icon.png" alt="Model">
+              <span>Model</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/data-sheet-icon.png" alt="Data Sheet">
+              <span>Data Sheet</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/brand-icon.png" alt="Brand">
+              <span>Brand</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/acm-icon.png" alt="Acme">
+              <span>Acme</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/vendor-icon.png" alt="Vendor">
+              <span>Vendor</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/time-vendor-icon.png" alt="Time Vendor">
+              <span>Time vendor</span>
+            </div>
           </div>
         </div>
       </div>
       <div class="product-list-item" onclick="toggleCardSelection(this)">
         <input type="checkbox" class="product-checkbox" onclick="event.stopPropagation()">
         <div class="product-list-image">
-          <div class="product-image">Wall Clock</div>
+          <img src="images/product4.jpg" alt="Wall Clock" class="product-image">
           <button class="product-favorite-btn" onclick="toggleFavorite(event, this)" title="Save as favorite">
             <i class="fa fa-heart-o"></i>
           </button>
@@ -418,32 +478,49 @@
           </div>
         </div>
         <div class="product-list-content">
-          <h3 class="product-list-title">Wall Clock</h3>
-          <div class="product-list-price">40.00 SR</div>
-          <div class="product-list-actions">
-            <button class="action-btn">
-              <i class="fa fa-shopping-cart"></i> Add To Cart
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-folder"></i> Add To Project
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To RFQ
-            </button>
-            <button class="action-btn">
-              <i class="fa fa-file-text-o"></i> Add To Tender
-            </button>
+          <h3 class="product-list-title">Customized Digital Printer</h3>
+          <div class="product-list-description">
+            <p>Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! Find your individual look with our bomber jackets, lace skirts, denim dresses, and more at the best prices! 
+              <button class="read-more-btn">
+                Read more <i class="fa fa-arrow-right"></i>
+              </button>
+            </p>
+           
           </div>
-          <div class="product-list-tags">
-            <span class="tag">Docs</span>
-            <span class="tag">Model</span>
-            <span class="tag">Data Sheet</span>
-            <span class="tag">Brand: Acme</span>
-            <span class="tag">Vendor: TimeVendor</span>
+          <div class="product-list-separator"></div>
+          <div class="product-list-info">
+            <div class="info-item">
+              <img src="images/product-list-view-icons/docs-icon.png" alt="Docs">
+              <span>Docs</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/model-icon.png" alt="Model">
+              <span>Model</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/data-sheet-icon.png" alt="Data Sheet">
+              <span>Data Sheet</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/brand-icon.png" alt="Brand">
+              <span>Brand</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/acm-icon.png" alt="Acme">
+              <span>Acme</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/vendor-icon.png" alt="Vendor">
+              <span>Vendor</span>
+            </div>
+            <div class="info-item">
+              <img src="images/product-list-view-icons/time-vendor-icon.png" alt="Time Vendor">
+              <span>Time vendor</span>
+            </div>
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
 
     <!-- Dashboard View -->
     <div class="bmh-products-dashboard-view">
@@ -465,6 +542,23 @@
 
   </div>
 
+  <!-- <div id="rfqPopup" style="display: none;">
+    <div class="popup-overlay" onclick="closeRFQPopup()"></div>
+    <div class="popup-content">
+      <div class="popup-header">
+        <h3>Add to RFQ</h3>
+        <button onclick="closeRFQPopup()">×</button>
+      </div>
+      <div class="popup-body">
+        <p>Add selected products to RFQ</p>
+      </div>
+      <div class="popup-footer">
+        <button onclick="closeRFQPopup()">Cancel</button>
+        <button onclick="confirmRFQ()">Add</button>
+      </div>
+    </div>
+  </div> -->
+
   <script src="scripts/toolbar.js"></script>
   <script src="scripts/views-container.js"></script>
   <script>
@@ -472,7 +566,43 @@
       const checkbox = card.querySelector('.product-checkbox');
       checkbox.checked = !checkbox.checked;
       card.classList.toggle('selected', checkbox.checked);
+      document.getElementById('selectionActions').style.display = document.querySelectorAll('.selected').length > 0 ? 'flex' : 'none';
     }
+
+    document.addEventListener('change', function(e) {
+      if (e.target.classList.contains('product-checkbox')) {
+        e.target.closest('.product-card, .product-list-item').classList.toggle('selected', e.target.checked);
+        document.getElementById('selectionActions').style.display = document.querySelectorAll('.selected').length > 0 ? 'flex' : 'none';
+      }
+    });
+
+    function handleBulkAction(action) {
+      console.log(action);
+      document.querySelector('.selection-dropdown-menu').classList.remove('active');
+    }
+
+    // function openRFQPopup() {
+    //   document.getElementById('rfqPopup').style.display = 'block';
+    //   document.querySelector('.selection-dropdown-menu').classList.remove('active');
+    // }
+
+    // function closeRFQPopup() {
+    //   document.getElementById('rfqPopup').style.display = 'none';
+    // }
+
+    // function confirmRFQ() {
+    //   const selected = document.querySelectorAll('.selected');
+    //   console.log('Adding to RFQ:', selected.length);
+    //   closeRFQPopup();
+    // }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('selection-dropdown-btn')) {
+        document.querySelector('.selection-dropdown-menu').classList.toggle('active');
+      } else {
+        document.querySelector('.selection-dropdown-menu').classList.remove('active');
+      }
+    });
 
     function toggleProductMenu(event, button) {
       event.stopPropagation();
