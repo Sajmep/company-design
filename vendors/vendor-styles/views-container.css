@@ -6,9 +6,20 @@
   font-family: Arial, sans-serif;
 }
 
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
 
 .views-container {
   padding: 0 5%;
+  height: 80%;
+  overflow-y: auto;
+
+  @media (max-width: 768px) {
+    height: 80%;
+  }
 }
 
 /* ==================== Card View Styles ==================== */

@@ -16,7 +16,7 @@
 
     h2 {
       margin: 0 0 4px 0;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 600;
       color: #012f6d;
       line-height: 1.2;
@@ -24,7 +24,7 @@
 
     p {
       margin: 0;
-      font-size: 14px;
+      font-size: 12px;
       color: #6b7280;
       line-height: 1.4;
     }
@@ -52,7 +52,7 @@
       padding: 10px 16px 10px 40px;
       border: 1px solid #d1d5db;
       border-radius: 8px;
-      font-size: 14px;
+      font-size: 12px;
       color: #374151;
       background: #ffffff;
       transition: all 0.2s ease;
@@ -92,6 +92,36 @@
 
     &:focus-within .toolbar-search-icon {
       color: #012f6d;
+    }
+  }
+
+  .toolbar-selection-dropdown {
+    position: relative;
+
+    .selection-dropdown-btn {
+      padding: 8px 16px;
+      background: #012f6d;
+      color: #ffffff;
+      border: none;
+      cursor: pointer;
+    }
+
+    .selection-dropdown-menu {
+      position: absolute;
+      top: 100%;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      display: none;
+      z-index: 1000;
+
+      &.active {
+        display: block;
+      }
+
+      .dropdown-item {
+        padding: 8px 12px;
+        cursor: pointer;
+      }
     }
   }
 

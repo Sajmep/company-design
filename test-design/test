@@ -1,0 +1,69 @@
+  <!-- Report Modal End -->
+
+  <!-- Login First Modal -->
+  <div id="loginFirstModal" class="login-first-modal">
+    <div class="login-first-modal-content">
+      <button class="login-first-close" onclick="closeLoginFirstModal()" aria-label="Close modal">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="login-first-icon">
+        <img src="images/bmh-logo.png" alt="Login First Icon">
+      </div>
+      <p class="login-first-text">
+        This is a convincing piece of copy to<br>
+        describe and sell your product. Make<br>
+        it as convincing as possible!
+      </p>
+      <div class="login-first-buttons">
+        <button class="login-first-btn signup-btn" onclick="window.location.href='#'">SIGN UP</button>
+        <button class="login-first-btn login-btn" onclick="window.location.href='#'">LOGIN</button>
+      </div>
+    </div>
+  </div>
+  <!-- Login First Modal End -->
+
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    padding: 16px;
+
+    .product-list-item {
+      flex-direction: column;
+      padding: 12px;
+      gap: 12px;
+    }
+
+    .product-list-image {
+      width: 100%;
+      height: 200px;
+    }
+
+    .product-list-content {
+      .product-list-title {
+        font-size: 18px;
+      }
+
+      .product-list-description p {
+        max-width: none;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    .product-list-item {
+      box-shadow: 6px 6px 0 0 #012f6d;
+    }
+
+    .product-list-info {
+      gap: 10px;
+
+      .info-item {
+        font-size: 12px;
+
+        img {
+          width: 16px;
+          height: 16px;
+        }
+      }
+    }
+  }
