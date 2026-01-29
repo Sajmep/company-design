@@ -16,7 +16,7 @@
 
     h2 {
       margin: 0 0 4px 0;
-      font-size: 24px;
+      font-size: 18px;
       font-weight: 600;
       color: #012f6d;
       line-height: 1.2;
@@ -407,30 +407,31 @@
     position: relative;
 
     .pagination-btn {
-      width: 34px;
-      height: 34px;
+      width: 21px;
+      height: 21px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 6px;
       background: #f3f4f6;
       cursor: pointer;
       transition: all 0.2s ease;
       box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
       border: none;
+      border-radius: 50%;
 
       &.prev {
         position: absolute;
-        left: 1px;
+        left: -9px;
       }
 
       &.next {
         position: absolute;
-        right: 1px;
+        right: -9px;
       }
 
       i {
-        font-size: 12px;
+        font-size: 10px;
+        margin-top: 3px;
         color: #6b7280;
       }
 
@@ -452,18 +453,18 @@
     .pagination-range {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 8px 45px;
+      gap: 2px;
+      padding: 8px 12px;
       border: 1px solid #d1d5db;
       border-radius: 5px;
       background: #ffffff;
       height: 36px;
 
       .pagination-input {
-        width: 60px;
+        max-width: 45px;
         border: none;
         outline: none;
-        font-size: 14px;
+        font-size: 12px;
         font-weight: 600;
         color: #374151;
         background: transparent;
@@ -476,12 +477,12 @@
 
       .pagination-sep {
         color: #9ca3af;
-        font-size: 14px;
+        font-size: 12px;
       }
 
       .pagination-total {
         color: #6b7280;
-        font-size: 14px;
+        font-size: 12px;
         white-space: nowrap;
 
         .pagination-total-value {
@@ -1283,7 +1284,7 @@
     .toolbar-pagination {
       position: absolute;
       top: 11px;
-      right: 0;
+      right: 10px;
       z-index: 1001;
       justify-content: center;
       margin: 0 auto;
@@ -1318,11 +1319,9 @@
       padding: 0;
     }
 
-    .toolbar-pagination {
-      position: unset;
-
-      .pagination-range {
-        padding: 8px 3px;
+    .toolbar-title{
+      h2{
+        margin-top: 5px;
       }
     }
 

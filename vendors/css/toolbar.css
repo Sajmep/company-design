@@ -14,7 +14,7 @@
 }
 .toolbar .toolbar-title h2 {
   margin: 0 0 4px 0;
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 600;
   color: #012f6d;
   line-height: 1.2;
@@ -363,28 +363,29 @@
   position: relative;
 }
 .toolbar .toolbar-pagination .pagination-btn {
-  width: 34px;
-  height: 34px;
+  width: 21px;
+  height: 21px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px;
   background: #f3f4f6;
   cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   border: none;
+  border-radius: 50%;
 }
 .toolbar .toolbar-pagination .pagination-btn.prev {
   position: absolute;
-  left: 1px;
+  left: -9px;
 }
 .toolbar .toolbar-pagination .pagination-btn.next {
   position: absolute;
-  right: 1px;
+  right: -9px;
 }
 .toolbar .toolbar-pagination .pagination-btn i {
-  font-size: 12px;
+  font-size: 10px;
+  margin-top: 3px;
   color: #6b7280;
 }
 .toolbar .toolbar-pagination .pagination-btn:hover {
@@ -401,18 +402,18 @@
 .toolbar .toolbar-pagination .pagination-range {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 45px;
+  gap: 2px;
+  padding: 8px 12px;
   border: 1px solid #d1d5db;
   border-radius: 5px;
   background: #ffffff;
   height: 36px;
 }
 .toolbar .toolbar-pagination .pagination-range .pagination-input {
-  width: 60px;
+  max-width: 45px;
   border: none;
   outline: none;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   color: #374151;
   background: transparent;
@@ -423,11 +424,11 @@
 }
 .toolbar .toolbar-pagination .pagination-range .pagination-sep {
   color: #9ca3af;
-  font-size: 14px;
+  font-size: 12px;
 }
 .toolbar .toolbar-pagination .pagination-range .pagination-total {
   color: #6b7280;
-  font-size: 14px;
+  font-size: 12px;
   white-space: nowrap;
 }
 .toolbar .toolbar-pagination .pagination-range .pagination-total .pagination-total-value {
@@ -1120,7 +1121,7 @@
   .toolbar .toolbar-pagination {
     position: absolute;
     top: 11px;
-    right: 0;
+    right: 10px;
     z-index: 1001;
     justify-content: center;
     margin: 0 auto;
@@ -1144,11 +1145,8 @@
   .toolbar .views-toggle {
     padding: 0;
   }
-  .toolbar .toolbar-pagination {
-    position: unset;
-  }
-  .toolbar .toolbar-pagination .pagination-range {
-    padding: 8px 3px;
+  .toolbar .toolbar-title h2 {
+    margin-top: 5px;
   }
   .toolbar .toolbar-applied-controls {
     padding: 8px 12px 10px 12px;
