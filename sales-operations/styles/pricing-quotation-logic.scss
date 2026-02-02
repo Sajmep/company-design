@@ -1,4 +1,4 @@
-// Commercial Terms Styles
+// Pricing & Quotation Logic Styles
 
 // Variables
 $primary-color: #012f6d;
@@ -20,7 +20,7 @@ $font-button-text: 12px;
 $font-description: 12px;
 $font-icon: 14px;
 
-.commercial-terms-container {
+.pricing-quotation-container {
   margin: 0 auto;
   background: $bg-white;
   border-radius: $border-radius-lg;
@@ -32,7 +32,7 @@ $font-icon: 14px;
 }
 
 .page-header {
-  margin-bottom: 5px;
+  margin-bottom: 40px;
   padding-bottom: 20px;
   border-bottom: 2px solid $border-color;
 
@@ -48,7 +48,7 @@ $font-icon: 14px;
   display: flex;
   gap: 32px;
   align-items: flex-start;
-  height: 80%;
+  height: 100%;
   padding-right: 12px;
   overflow-y: auto;
 }
@@ -67,35 +67,8 @@ $font-icon: 14px;
 .section-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
-  margin: 24px 0;
-  cursor: pointer;
-  user-select: none;
-  transition: $transition;
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.section-toggle-icon {
-  font-size: $font-icon;
-  color: $text-muted;
-  transition: $transition;
-}
-
-.section.collapsed .section-toggle-icon {
-  transform: rotate(0deg);
-}
-
-.section:not(.collapsed) .section-toggle-icon {
-  transform: rotate(180deg);
-}
-
-.section-content {
-  display: block;
-  transition: opacity 0.2s ease;
+  margin-bottom: 24px;
 }
 
 .section-title {
@@ -147,7 +120,7 @@ $font-icon: 14px;
     border-color: $primary-color;
     background: $bg-hover;
   }
- 
+
   &::before {
     content: '';
     width: 20px;
@@ -215,6 +188,7 @@ $font-icon: 14px;
   color: $text-color;
   transition: $transition;
   background: $bg-white;
+  font-family: inherit;
 
   &:focus {
     outline: none;
@@ -225,6 +199,11 @@ $font-icon: 14px;
   &::placeholder {
     color: #94a3b8;
   }
+}
+
+textarea.input-field {
+  resize: vertical;
+  min-height: 80px;
 }
 
 .select-field {
@@ -243,41 +222,6 @@ $font-icon: 14px;
     border-color: $primary-color;
     box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
   }
-}
-
-.net-terms-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.net-term-option {
-  position: relative;
-
-  input[type="checkbox"] {
-    position: absolute;
-    opacity: 0;
-  }
-}
-
-.net-term-label {
-  display: inline-block;
-  padding: 10px 20px;
-  background: $bg-light;
-  border: 2px solid $border-color;
-  border-radius: $border-radius;
-  cursor: pointer;
-  transition: $transition;
-  font-size: $font-button-text;
-  font-weight: normal;
-  color: $text-color;
-}
-
-.net-term-option input[type="checkbox"]:checked + .net-term-label {
-  background: $primary-color;
-  color: $bg-white;
-  border-color: $primary-color;
 }
 
 .info-badge {
@@ -311,7 +255,7 @@ $font-icon: 14px;
 
 // Media Queries
 @media (max-width: 768px) {
-  .commercial-terms-container {
+  .pricing-quotation-container {
     padding: 24px;
   }
 
@@ -322,7 +266,6 @@ $font-icon: 14px;
 
   .section-column {
     gap: 32px;
-    width: 100%;
   }
 
   .section {
@@ -330,12 +273,7 @@ $font-icon: 14px;
   }
 
   .options-group {
-    grid-template-columns: 1fr !important;
-  }
-
-  .info-badge
-  {
-    margin-top: 5px;
+    grid-template-columns: 1fr;
   }
 
   .input-row {

@@ -1,4 +1,4 @@
-.commercial-terms-container {
+.pricing-quotation-container {
   margin: 0 auto;
   background: #ffffff;
   border-radius: 12px;
@@ -10,7 +10,7 @@
 }
 
 .page-header {
-  margin-bottom: 5px;
+  margin-bottom: 40px;
   padding-bottom: 20px;
   border-bottom: 2px solid #e2e8f0;
 }
@@ -25,7 +25,7 @@
   display: flex;
   gap: 32px;
   align-items: flex-start;
-  height: 80%;
+  height: 100%;
   padding-right: 12px;
   overflow-y: auto;
 }
@@ -44,34 +44,8 @@
 .section-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 12px;
-  margin: 24px 0;
-  cursor: pointer;
-  user-select: none;
-  transition: all 0.2s ease;
-}
-.section-header:hover {
-  opacity: 0.8;
-}
-
-.section-toggle-icon {
-  font-size: 14px;
-  color: #64748b;
-  transition: all 0.2s ease;
-}
-
-.section.collapsed .section-toggle-icon {
-  transform: rotate(0deg);
-}
-
-.section:not(.collapsed) .section-toggle-icon {
-  transform: rotate(180deg);
-}
-
-.section-content {
-  display: block;
-  transition: opacity 0.2s ease;
+  margin-bottom: 24px;
 }
 
 .section-title {
@@ -189,6 +163,7 @@
   color: #0f172a;
   transition: all 0.2s ease;
   background: #ffffff;
+  font-family: inherit;
 }
 .input-field:focus {
   outline: none;
@@ -197,6 +172,11 @@
 }
 .input-field::placeholder {
   color: #94a3b8;
+}
+
+textarea.input-field {
+  resize: vertical;
+  min-height: 80px;
 }
 
 .select-field {
@@ -214,40 +194,6 @@
   outline: none;
   border-color: #012f6d;
   box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
-}
-
-.net-terms-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 12px;
-}
-
-.net-term-option {
-  position: relative;
-}
-.net-term-option input[type=checkbox] {
-  position: absolute;
-  opacity: 0;
-}
-
-.net-term-label {
-  display: inline-block;
-  padding: 10px 20px;
-  background: #f8fafc;
-  border: 2px solid #e2e8f0;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  font-size: 12px;
-  font-weight: normal;
-  color: #0f172a;
-}
-
-.net-term-option input[type=checkbox]:checked + .net-term-label {
-  background: #012f6d;
-  color: #ffffff;
-  border-color: #012f6d;
 }
 
 .info-badge {
@@ -279,7 +225,7 @@
 }
 
 @media (max-width: 768px) {
-  .commercial-terms-container {
+  .pricing-quotation-container {
     padding: 24px;
   }
   .sections-wrapper {
@@ -288,16 +234,12 @@
   }
   .section-column {
     gap: 32px;
-    width: 100%;
   }
   .section {
     margin-bottom: 48px;
   }
   .options-group {
-    grid-template-columns: 1fr !important;
-  }
-  .info-badge {
-    margin-top: 5px;
+    grid-template-columns: 1fr;
   }
   .input-row {
     flex-direction: column;
@@ -308,4 +250,4 @@
   }
 }
 
-/*# sourceMappingURL=commercial-terms.css.map */
+/*# sourceMappingURL=pricing-quotation-logic.css.map */

@@ -33,6 +33,24 @@
                 </button>
                 <div class="title">Login To Your Account</div>
                 <div class="subtitle">Select one of the multiple Login options below, which you already signed up with Earlier.</div>
+                
+                <div class="login-type-dropdown">
+                    <button class="login-type-toggle" id="loginTypeToggle">
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="#6b7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="login-type-selected">Select Login Type</span>
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="login-type-menu" id="loginTypeMenu">
+                        <ul>
+                            <li><a href="#" data-value="email-password">Email & Password</a></li>
+                            <li><a href="#" data-value="email-otp">Email & OTP</a></li>
+                            <li><a href="#" data-value="mobile-otp">Mobile/Whatsapp & OTP</a></li>
+                        </ul>
+                    </div>
+                </div>
 
                 <div class="field">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -43,6 +61,7 @@
                     </svg>
                     <input type="text" placeholder="Username or Email" />
                 </div>
+
 
                 <div class="field">
                     <svg class="icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,10 +76,21 @@
 
                 <div class="checkbox-row">
                     <label style="display:flex;align-items:center;gap:8px"><input type="checkbox" /> Remember Me</label>
-                    <div class="forgot-password-container">
-                        <a href="#" style="color:var(--muted);text-decoration:none">Forgot Password?</a>
-                        <a href="#" style="color:var(--muted);text-decoration:none">Forgot Password?</a>
+                   
+                    
+                <div class="forgot-password-dropdown">
+                    <button class="forgot-password-toggle" id="forgotPasswordToggle">
+                        Forgot Password?
+                        <i class="fa fa-chevron-down"></i>
+                    </button>
+                    <div class="forgot-password-menu" id="forgotPasswordMenu">
+                        <div class="forgot-password-text">Reset password using:</div>
+                        <ul>
+                            <li><a href="#">Email</a></li>
+                            <li><a href="#">Whatsapp</a></li>
+                        </ul>
                     </div>
+                </div>
                 </div>
 
                 <button class="login-btn">Log in</button>
@@ -76,13 +106,8 @@
                         <img src="../images/odoo-logo.jpeg" alt="Odoo" />
                     </div>
                     <div class="s">
-                        <img src="../images/whatsapp-logo.jpeg" alt="Whatsapp" />
+                        <img src="../images/facebook-icon.png" alt="Facebook" />
                     </div>
-                </div>
-
-                <div class="email-otp-link">
-                    <span class="email-otp-text">Forgot Your Password?</span>
-                    <a href="#" class="email-otp-link-text"> Login With Email OTP Here</a>
                 </div>
 
                 <div class="signup-link">
@@ -108,6 +133,7 @@
         document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('show') })
     </script>
 
+    <script src="script/dropdown.js"></script>
     <script src="script/login-popup.js"></script>
 
 </body>

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --yellow: #e6bb01;
   --muted: #9aa3ad;
@@ -128,6 +129,79 @@ body {
   font-size: 13px;
   margin-bottom: 18px;
 }
+.login-modal-right .login-type-dropdown {
+  position: relative;
+  margin-bottom: 12px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.login-modal-right .login-type-dropdown .login-type-toggle {
+  background: var(--input-bg);
+  border: none;
+  border-radius: 20px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.login-modal-right .login-type-dropdown .login-type-toggle:hover {
+  background: #e0e4e7;
+}
+.login-modal-right .login-type-dropdown .login-type-toggle .icon {
+  width: 18px;
+  height: 18px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+.login-modal-right .login-type-dropdown .login-type-toggle .login-type-selected {
+  flex: 1;
+  text-align: left;
+  font-size: 14px;
+  color: #12202b;
+}
+.login-modal-right .login-type-dropdown .login-type-toggle i {
+  font-size: 10px;
+  color: var(--muted);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.login-modal-right .login-type-dropdown .login-type-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 8px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+.login-modal-right .login-type-dropdown .login-type-menu.show {
+  display: block;
+}
+.login-modal-right .login-type-dropdown .login-type-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.login-modal-right .login-type-dropdown .login-type-menu ul li {
+  margin: 0;
+}
+.login-modal-right .login-type-dropdown .login-type-menu ul li a {
+  display: block;
+  padding: 10px 16px;
+  color: #12202b;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+.login-modal-right .login-type-dropdown .login-type-menu ul li a:hover {
+  background-color: var(--input-bg);
+}
 .login-modal-right .field {
   background: var(--input-bg);
   padding: 12px 14px;
@@ -144,6 +218,37 @@ body {
   font-size: 14px;
   width: 100%;
 }
+.login-modal-right .field select {
+  border: 0;
+  background: transparent;
+  outline: none;
+  font-size: 14px;
+  width: 100%;
+  color: #12202b;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+.login-modal-right .field select option {
+  background: var(--card-bg);
+  color: #12202b;
+}
+.login-modal-right .field.dropdown-field {
+  position: relative;
+  float: right;
+  width: 155px;
+}
+.login-modal-right .field.dropdown-field::after {
+  content: "▼";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--muted);
+  font-size: 10px;
+}
 .login-modal-right .checkbox-row {
   display: flex;
   align-items: center;
@@ -151,6 +256,69 @@ body {
   margin: 8px 0 18px;
   color: var(--muted);
   font-size: 13px;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown {
+  position: relative;
+  margin-bottom: 12px;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-toggle {
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-toggle:hover {
+  color: #12202b;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-toggle i {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: var(--card-bg);
+  border-radius: 8px;
+  padding: 12px 16px;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu.show {
+  display: block;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu .forgot-password-text {
+  color: #12202b;
+  font-size: 12px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 0;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu ul li {
+  margin-bottom: 6px;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu ul li a {
+  color: #12202b;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.2s;
+}
+.login-modal-right .checkbox-row .forgot-password-dropdown .forgot-password-menu ul li a:hover {
+  color: #2563eb;
+  text-decoration: underline;
 }
 .login-modal-right .login-btn {
   display: inline-block;
@@ -209,22 +377,28 @@ body {
 .login-modal-right .social .s .google-logo {
   transform: scale(0.8);
 }
-.login-modal-right .email-otp-link {
-  text-align: center;
-  font-size: 13px;
-  margin-top: 20px;
+.login-modal-right .forgot-password-container {
+  padding: 10px 0;
 }
-.login-modal-right .email-otp-link .email-otp-text {
-  color: #4a5568;
-}
-.login-modal-right .email-otp-link .email-otp-link-text {
-  color: #2563eb;
+.login-modal-right .forgot-password-container a {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
   text-decoration: underline;
+}
+.login-modal-right .forgot-password-container ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 5px 0 0 0;
+  font-size: 12px;
+}
+.login-modal-right .forgot-password-container ul li {
+  margin-bottom: 5px;
 }
 .login-modal-right .signup-link {
   text-align: center;
-  margin-top: 5px;
-  font-size: 13px;
+  margin-top: 10px;
+  font-size: 12px;
 }
 .login-modal-right .signup-link .signup-text {
   color: #4a5568;
