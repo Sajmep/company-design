@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>RFQ Company</title>
+  <title>Commercial Terms (Money)</title>
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="../styles/sidebar.css">
   <link rel="stylesheet" href="../styles/header.css">
@@ -28,216 +28,248 @@
     <div class="main-content" style="height: 100%;">
       <div class="commercial-terms-container">
         <div class="page-header">
-          <h1>Commercial Terms (Money)</h1> 
+          <h1>Commercial Terms (Money)</h1>
         </div>
 
         <div class="sections-wrapper">
           <div class="section-column">
             <!-- A.1 Payment Methods -->
             <div class="section">
-          <div class="section-header">
-            <div>
-              <div class="section-title">Payment Methods</div>
-            </div>
-          </div>
+              <div class="section-header" onclick="toggleSection(this)">
+                <div>
+                  <div class="section-title">Payment Methods</div>
+                </div>
+                <i class="fa fa-chevron-down section-toggle-icon"></i>
+              </div>
 
-          <div class="options-group">
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-cash">
-              <label for="payment-cash" class="option-label">Cash / Advance</label>
-            </div>
+              <div class="section-content">
+                <div class="options-group">
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-cash">
+                  <label for="payment-cash" class="option-label">Cash / Advance</label>
+                </div>
 
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-bank">
-              <label for="payment-bank" class="option-label">Bank transfer</label>
-            </div>
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-bank">
+                  <label for="payment-bank" class="option-label">Bank transfer</label>
+                </div>
 
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-credit">
-              <label for="payment-credit" class="option-label">Credit terms</label>
-            </div>
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-credit">
+                  <label for="payment-credit" class="option-label">Credit terms</label>
+                </div>
 
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-lc">
-              <label for="payment-lc" class="option-label">Letter of Credit (LC)</label>
-            </div>
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-lc">
+                  <label for="payment-lc" class="option-label">Letter of Credit (LC)</label>
+                </div>
 
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-escrow">
-              <label for="payment-escrow" class="option-label">Escrow <span style="color: #94a3b8; font-size: 12px;">(future)</span></label>
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-escrow">
+                  <label for="payment-escrow" class="option-label">Escrow <span
+                      style="color: #94a3b8; font-size: 12px;">(future)</span></label>
+                </div>
+              </div>
             </div>
-          </div>
-          </div>
 
             <!-- A.3 Currency Handling -->
             <div class="section">
-          <div class="section-header">
-            <div>
-              <div class="section-title">Currency Handling</div>
+              <div class="section-header" onclick="toggleSection(this)">
+                <div>
+                  <div class="section-title">Currency Handling</div>
+                </div>
+                <i class="fa fa-chevron-down section-toggle-icon"></i>
+              </div>
+
+              <div class="section-content">
+                <!-- Supported Currencies -->
+                <div class="input-group">
+                <label class="input-label" style="margin-bottom: 12px; display: block;">Supported currencies:</label>
+                <div class="options-group">
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-usd">
+                    <label for="currency-usd" class="option-label">USD ($)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-eur">
+                    <label for="currency-eur" class="option-label">EUR (€)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-gbp">
+                    <label for="currency-gbp" class="option-label">GBP (£)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-sar">
+                    <label for="currency-sar" class="option-label">SAR (﷼)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-aed">
+                    <label for="currency-aed" class="option-label">AED (د.إ)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-kwd">
+                    <label for="currency-kwd" class="option-label">KWD (د.ك)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-jpy">
+                    <label for="currency-jpy" class="option-label">JPY (¥)</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="checkbox" class="option-checkbox" id="currency-cny">
+                    <label for="currency-cny" class="option-label">CNY (¥)</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Exchange Rate Responsibility -->
+              <div class="input-group" style="margin-top: 32px;">
+                <label class="input-label" style="margin-bottom: 16px; display: block;">Exchange rate
+                  responsibility:</label>
+                <div class="options-group" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
+                  <div class="option-item">
+                    <input type="radio" class="option-radio" name="exchange-rate" id="exchange-buyer">
+                    <label for="exchange-buyer" class="option-label">Buyer</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="radio" class="option-radio" name="exchange-rate" id="exchange-seller">
+                    <label for="exchange-seller" class="option-label">Seller</label>
+                  </div>
+
+                  <div class="option-item">
+                    <input type="radio" class="option-radio" name="exchange-rate" id="exchange-invoice-date">
+                    <label for="exchange-invoice-date" class="option-label">Agreed on invoice date</label>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </div>
             </div>
-          </div>
-
-          <!-- Supported Currencies -->
-          <div class="input-group">
-            <label class="input-label" style="margin-bottom: 12px; display: block;">Supported currencies:</label>
-            <div class="options-group">
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-usd">
-                <label for="currency-usd" class="option-label">USD ($)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-eur">
-                <label for="currency-eur" class="option-label">EUR (€)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-gbp">
-                <label for="currency-gbp" class="option-label">GBP (£)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-sar">
-                <label for="currency-sar" class="option-label">SAR (﷼)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-aed">
-                <label for="currency-aed" class="option-label">AED (د.إ)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-kwd">
-                <label for="currency-kwd" class="option-label">KWD (د.ك)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-jpy">
-                <label for="currency-jpy" class="option-label">JPY (¥)</label>
-              </div>
-
-              <div class="option-item">
-                <input type="checkbox" class="option-checkbox" id="currency-cny">
-                <label for="currency-cny" class="option-label">CNY (¥)</label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Exchange Rate Responsibility -->
-          <div class="input-group" style="margin-top: 32px;">
-            <label class="input-label" style="margin-bottom: 16px; display: block;">Exchange rate responsibility:</label>
-            <div class="options-group" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));">
-              <div class="option-item">
-                <input type="radio" class="option-radio" name="exchange-rate" id="exchange-buyer">
-                <label for="exchange-buyer" class="option-label">Buyer</label>
-              </div>
-
-              <div class="option-item">
-                <input type="radio" class="option-radio" name="exchange-rate" id="exchange-seller">
-                <label for="exchange-seller" class="option-label">Seller</label>
-              </div>
-
-              <div class="option-item">
-                <input type="radio" class="option-radio" name="exchange-rate" id="exchange-invoice-date">
-                <label for="exchange-invoice-date" class="option-label">Agreed on invoice date</label>
-              </div>
-            </div>
-          </div>
-          </div>
           </div>
 
           <!-- A.2 Payment Terms -->
           <div class="section-column">
             <div class="section">
-          <div class="section-header">
-            <div>
-              <div class="section-title">Payment Terms</div>
-              <div class="section-subtitle">
-                VERY IMPORTANT
-                <span class="info-badge">
-                  <i class="fa fa-exclamation-circle"></i>
-                  Selectable per RFQ / quotation
-                </span>
+              <div class="section-header" onclick="toggleSection(this)">
+                <div>
+                  <div class="section-title">Payment Terms</div>
+                  <div class="section-subtitle">
+                    VERY IMPORTANT
+                    <span class="info-badge">
+                      <i class="fa fa-exclamation-circle"></i>
+                      Selectable per RFQ / quotation
+                    </span>
+                  </div>
+                </div>
+                <i class="fa fa-chevron-down section-toggle-icon"></i>
+              </div>
+
+              <div class="section-content">
+                <!-- Advance % -->
+                <div class="input-group">
+                <div class="input-row">
+                  <label class="input-label">Advance %</label>
+                  <input type="text" class="input-field" placeholder="e.g. 30%">
+                </div>
+              </div>
+
+              <!-- Net Terms -->
+              <div class="input-group">
+                <label class="input-label">Net terms:</label>
+                <div class="net-terms-group">
+                  <div class="net-term-option">
+                    <input type="checkbox" id="net-15">
+                    <label for="net-15" class="net-term-label">Net 15</label>
+                  </div>
+                  <div class="net-term-option">
+                    <input type="checkbox" id="net-30">
+                    <label for="net-30" class="net-term-label">Net 30</label>
+                  </div>
+                  <div class="net-term-option">
+                    <input type="checkbox" id="net-45">
+                    <label for="net-45" class="net-term-label">Net 45</label>
+                  </div>
+                  <div class="net-term-option">
+                    <input type="checkbox" id="net-60">
+                    <label for="net-60" class="net-term-label">Net 60</label>
+                  </div>
+                  <div class="net-term-option">
+                    <input type="checkbox" id="net-90">
+                    <label for="net-90" class="net-term-label">Net 90</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Other Payment Options -->
+              <div class="options-group" style="margin-top: 24px;">
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-milestone">
+                  <label for="payment-milestone" class="option-label">Milestone-based payments</label>
+                </div>
+
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-delivery">
+                  <label for="payment-delivery" class="option-label">On delivery</label>
+                </div>
+
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-commissioning">
+                  <label for="payment-commissioning" class="option-label">On commissioning / completion</label>
+                </div>
+
+                <div class="option-item">
+                  <input type="checkbox" class="option-checkbox" id="payment-retention">
+                  <label for="payment-retention" class="option-label">Retention % <span
+                      style="color: #94a3b8; font-size: 12px;">(construction-specific)</span></label>
+                </div>
+              </div>
+
+              <!-- Retention % Input (if selected) -->
+              <div class="input-group" style="margin-top: 20px;">
+                <div class="input-row">
+                  <label class="input-label">Retention %</label>
+                  <input type="text" class="input-field" placeholder="Enter retention percentage">
+                </div>
+              </div>
+
+              <div class="note-text">
+                <strong>Note:</strong> These terms must be selectable per RFQ / quotation, not fixed globally.
+              </div>
               </div>
             </div>
           </div>
-
-          <!-- Advance % -->
-          <div class="input-group">
-            <div class="input-row">
-              <label class="input-label">Advance %</label>
-              <input type="text" class="input-field" placeholder="e.g. 30%">
-            </div>
-          </div>
-
-          <!-- Net Terms -->
-          <div class="input-group">
-            <label class="input-label">Net terms:</label>
-            <div class="net-terms-group">
-              <div class="net-term-option">
-                <input type="checkbox" id="net-15">
-                <label for="net-15" class="net-term-label">Net 15</label>
-              </div>
-              <div class="net-term-option">
-                <input type="checkbox" id="net-30">
-                <label for="net-30" class="net-term-label">Net 30</label>
-              </div>
-              <div class="net-term-option">
-                <input type="checkbox" id="net-45">
-                <label for="net-45" class="net-term-label">Net 45</label>
-              </div>
-              <div class="net-term-option">
-                <input type="checkbox" id="net-60">
-                <label for="net-60" class="net-term-label">Net 60</label>
-              </div>
-              <div class="net-term-option">
-                <input type="checkbox" id="net-90">
-                <label for="net-90" class="net-term-label">Net 90</label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Other Payment Options -->
-          <div class="options-group" style="margin-top: 24px;">
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-milestone">
-              <label for="payment-milestone" class="option-label">Milestone-based payments</label>
-            </div>
-
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-delivery">
-              <label for="payment-delivery" class="option-label">On delivery</label>
-            </div>
-
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-commissioning">
-              <label for="payment-commissioning" class="option-label">On commissioning / completion</label>
-            </div>
-
-            <div class="option-item">
-              <input type="checkbox" class="option-checkbox" id="payment-retention">
-              <label for="payment-retention" class="option-label">Retention % <span style="color: #94a3b8; font-size: 12px;">(construction-specific)</span></label>
-            </div>
-          </div>
-
-          <!-- Retention % Input (if selected) -->
-          <div class="input-group" style="margin-top: 20px;">
-            <div class="input-row">
-              <label class="input-label">Retention %</label>
-              <input type="text" class="input-field" placeholder="Enter retention percentage">
-            </div>
-          </div>
-
-          <div class="note-text">
-            <strong>Note:</strong> These terms must be selectable per RFQ / quotation, not fixed globally.
-          </div>
-            </div>
-          </div>
-      </div>
+        </div>
       </div>
     </div>
   </main>
   <!-- Main Content End -->
+
+  <script>
+    function toggleSection(header) {
+      const section = header.closest('.section');
+      const content = section.querySelector('.section-content');
+      const icon = header.querySelector('.section-toggle-icon');
+      
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+        section.classList.remove('collapsed');
+      } else {
+        content.style.display = 'none';
+        icon.classList.remove('fa-chevron-down');
+        icon.classList.add('fa-chevron-up');
+        section.classList.add('collapsed');
+      }
+    }
+  </script>
 
 </body>
 
