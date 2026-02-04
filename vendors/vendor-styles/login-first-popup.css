@@ -91,7 +91,11 @@
 
 .login-first-text {
   text-align: center;
+<<<<<<< HEAD
   font-size: 14px;
+=======
+  font-size: 16px;
+>>>>>>> 6ff2d41ea13c926605df2d6e72a957527044292e
   line-height: 1.6;
   color: #666666;
   margin: 0;
@@ -110,7 +114,11 @@
   width: 100%;
   padding: 14px 24px;
   border-radius: 50px;
+<<<<<<< HEAD
   font-size: 12px;
+=======
+  font-size: 14px;
+>>>>>>> 6ff2d41ea13c926605df2d6e72a957527044292e
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
