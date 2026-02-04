@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Message</title>
+    <link rel="stylesheet" href="css/alerts.css">
+    <style>
+        body { /*this style is just for testing purposes*/
+            margin: 0;
+            padding: 0;
+            background-color: #2a2a2a;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .alert-banner{
+            max-width: 1200px; /*this style is just for testing purposes*/
+        }
+    </style>
+</head>
+
+<body>
+    <div class="alert-banner">
+        <div class="alert-banner__icon">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18 2L2 10L9 11L18 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                <path d="M18 2L12 18L9 11L2 10L18 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+        <div class="alert-banner__content">
+            <div class="alert-banner__content-wrapper">
+                <div class="alert-banner__content-inner">
+                    <div class="alert-banner__content-item">
+                        <a href="#" class="alert-banner__link">Please create you company to continue </a>
+                        <span class="alert-banner__separator">|</span>
+                        <a href="#" class="alert-banner__link">Setup you company</a>
+                        <span class="alert-banner__separator">|</span>
+                        <a href="#" class="alert-banner__link">Complete your company profile setup</a>
+                    </div>
+                    <div class="alert-banner__content-item" aria-hidden="true">
+                        <a href="#" class="alert-banner__link">Please create you company to continue </a>
+                        <span class="alert-banner__separator">|</span>
+                        <a href="#" class="alert-banner__link">Setup you company</a>
+                        <span class="alert-banner__separator">|</span>
+                        <a href="#" class="alert-banner__link">Complete your company profile setup</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            (function () {
+                const contentWrapper = document.querySelector('.alert-banner__content-wrapper');
+                const contentInner = document.querySelector('.alert-banner__content-inner');
+
+                function checkOverflow() {
+                    if (contentWrapper && contentInner) {
+                        const wrapperWidth = contentWrapper.offsetWidth;
+                        const innerWidth = contentInner.scrollWidth;
+
+                        if (innerWidth > wrapperWidth) {
+                            contentInner.classList.add('is-overflowing');
+                        } else {
+                            contentInner.classList.remove('is-overflowing');
+                        }
+                    }
+                }
+
+                // Check on load
+                checkOverflow();
+
+                // Check on resize
+                window.addEventListener('resize', checkOverflow);
+
+                // Check after a short delay to ensure layout is complete
+                setTimeout(checkOverflow, 100);
+            })();
+        </script>
+        <button class="alert-banner__close" aria-label="Close">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </button>
+    </div>
+</body>
+
+</html>

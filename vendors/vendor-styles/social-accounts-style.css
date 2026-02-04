@@ -1,0 +1,178 @@
+/* Social Accounts & E-commerce Styling */
+.social-card,
+.ecommerce-card {
+  min-width: 100% !important;
+}
+
+.social-accounts,
+.ecommerce-accounts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.social-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+  min-width: 320px;
+  position: relative;
+}
+
+.social-item:hover {
+  background: #f1f5f9;
+  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.1);
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 16px;
+}
+
+.social-icon.linkedin {
+  background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
+}
+
+.social-icon.twitter {
+  background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);
+}
+
+.social-icon.facebook {
+  background: linear-gradient(135deg, #4267b2 0%, #365899 100%);
+}
+
+.social-icon.instagram {
+  background: linear-gradient(135deg, #e4405f 0%, #c13584 100%);
+}
+
+.social-icon.whatsapp {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+}
+
+.social-details {
+  flex: 1;
+}
+
+.social-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+
+.social-value {
+  font-size: 13px;
+  font-weight: 500;
+  color: #1e293b;
+}
+
+.social-link {
+  color: #9885d1;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background: #9885d1;
+  color: white;
+}
+
+.social-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-qr-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.social-qr-trigger {
+  color: #9885d1;
+  text-decoration: none;
+  padding: 8px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.social-qr-trigger:hover {
+  background: rgba(152, 133, 209, 0.12);
+}
+
+.social-qr-popover {
+  display: block;
+  width: 120px;
+  height: 120px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  flex-shrink: 0;
+}
+
+.social-qr-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+
+
+/* Responsive Design for Contact Details */
+@media (max-width: 768px) {
+
+    
+  .social-card{
+    width: 100%;
+  }
+  
+  .social-accounts {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .social-item{
+    min-width: 100%;
+    padding: 12px;
+  }  
+}
+
+@media (max-width: 480px) {
+  .social-item{
+    padding: 12px;
+    flex-direction: column;
+  }
+  
+  .social-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .social-link{
+    position: absolute;
+    top: 12px;
+    right: 12px;
+  }
+}

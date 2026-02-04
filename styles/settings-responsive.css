@@ -131,13 +131,6 @@
     }
   }
 
-/* max Heigt 750px */
-  @media screen and (max-height: 750px) {
-    main.page{
-      overflow-y: auto;
-    }
-  }
-
 /* max Heigt 500px */
   @media screen and (max-height: 500px) {
    body{

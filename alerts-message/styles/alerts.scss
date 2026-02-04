@@ -1,0 +1,181 @@
+// Variables
+$primary-color: #012f6d;
+$yellow-color: #e6bb01;
+$red-color: #db0000;
+$text-color: #0f172a;
+$text-muted: #64748b;
+$border-color: #e2e8f0;
+$bg-light: #f8fafc;
+$bg-white: #ffffff;
+$bg-hover: #f0f4f9;
+$border-radius: 8px;
+$border-radius-lg: 12px;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+$transition: all 0.2s ease;
+
+// Font Sizes (following guidelines)
+$font-toolbar-heading: 18px;
+$font-item-title: 14px;
+$font-button-text: 12px;
+$font-description: 12px;
+$font-icon: 14px;
+
+// Alert Banner Colors
+$alert-bg: #1e3a5f;
+$alert-bg-dark: #2a2a2a;
+$alert-text-white: #ffffff;
+
+// Alert Banner Styles
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $alert-bg-dark;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.alert-banner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: $alert-bg;
+    padding: 16px 20px;
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    box-sizing: border-box;
+
+
+    .alert-banner__icon {
+        color: $alert-text-white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .alert-banner__content {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        overflow: hidden;
+        position: relative;
+        min-width: 0; // Allows flex item to shrink below content size
+
+        .alert-banner__content-wrapper {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .alert-banner__content-inner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            white-space: nowrap;
+            will-change: transform;
+
+            // Only animate when content overflows
+            &.is-overflowing {
+                animation: slide-left 30s linear infinite;
+                
+                // Pause animation on hover
+                &:hover {
+                    animation-play-state: paused;
+                }
+            }
+
+            .alert-banner__content-item {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+
+        .alert-banner__link {
+            color: $alert-text-white;
+            text-decoration: underline;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+
+            &:hover {
+                opacity: 0.8;
+                text-decoration: none;
+            }
+        }
+
+        .alert-banner__separator {
+            color: $alert-text-white;
+            font-size: 14px;
+            opacity: 0.6;
+            user-select: none;
+            flex-shrink: 0;
+        }
+        
+    }
+
+    // Keyframe animation for sliding left
+    @keyframes slide-left {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(-50%);
+        }
+    }
+
+    .alert-banner__close {
+        background: none;
+        border: none;
+        color: $alert-text-white;
+        cursor: pointer;
+        padding: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s ease;
+        flex-shrink: 0;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .alert-banner {
+        padding: 12px 16px;
+        gap: 12px;
+
+
+        .alert-banner__separator {
+            font-size: 13px;
+        }
+
+        .alert-banner__link {
+            font-size: 13px;
+        }
+    }
+}
