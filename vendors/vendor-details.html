@@ -1,0 +1,1486 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Vendors Details</title>
+
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../styles/common-page-header.css">
+  <link rel="stylesheet" href="vendor-styles/vendor-details.css">
+  <link rel="stylesheet" href="vendor-styles/vendor-gallery.css">
+  <link rel="stylesheet" href="vendor-styles/social-accounts-style.css">
+  <link rel="stylesheet" href="css/image-preview.css">
+  <link rel="stylesheet" href="../styles/common-table.css">
+  <link rel="stylesheet" href="vendor-styles/login-first-popup.css">
+  <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+</head>
+
+<body>
+
+  <!-- Common Page Header -->
+  <div class="page-header">
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <ol>
+        <li>
+          <a href="#" title="Enterprise">Home</a>
+        </li>
+        <li>
+          <a href="vendor.html" title="Vendors">
+            <span title="Vendors">Vendors</span>
+          </a>
+        </li>
+        <li>
+          <span aria-current="page">Sakhrat Al Janoub Contracting Co.</span>
+        </li>
+      </ol>
+    </nav>
+    <!-- breadcrumb end -->
+  </div>
+
+  <!-- Main Content -->
+  <main class="content page" id="page">
+    <!-- Vendor Details Banner -->
+    <div class="vendor-details-banner">
+      <div class="vendor-banner-background">
+        <div class="vendor-banner-overlay"></div>
+      </div>
+
+      <div class="vendor-banner-content">
+        <div class="vendor-banner-left">
+          <div class="vendor-banner-image">
+            <img src="../images/vendor.png" alt="Company Image">
+            <div class="vendor-company-logo">
+              <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
+            </div>
+          </div>
+
+          <div class="vendor-banner-info">
+            <h1 class="vendor-company-name">Sakhrat Al Janoub Contracting Co.</h1>
+            <p class="vendor-company-slogan">"Your Trusted Construction Partner"</p>
+
+            <div class="vendor-banner-meta">
+              <div class="vendor-meta-item">
+                <i class="fa fa-map-marker"></i>
+                <span>Riyadh, Saudi Arabia</span>
+              </div>
+              <div class="vendor-meta-item">
+                <i class="fa fa-building"></i>
+                <span>Construction</span>
+              </div>
+              <div class="vendor-meta-item">
+                <i class="fa fa-tag"></i>
+                <span>Contractor</span>
+              </div>
+              <div class="vendor-meta-item">
+                <i class="fa fa-calendar"></i>
+                <span>Est. 2015</span>
+              </div>
+            </div>
+
+            <div class="vendor-banner-status">
+              <span class="vendor-status-badge online">Online</span>
+              <button class="vendor-save-btn" id="vendorSaveBtn" title="Save as favorite">
+                <i class="fa fa-heart-o"></i>
+                <span class="vendor-save-btn-text">Save as favorite</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="vendor-banner-right">
+          <!-- Mobile Dropdown Button -->
+          <button class="vendor-actions-dropdown-btn" onclick="toggleActionsDropdown()">
+            <i class="fa fa-ellipsis-v"></i>
+            <span class="vendor-actions-dropdown-btn-text">Actions</span>
+          </button>
+
+          <!-- Actions Dropdown Menu (Mobile) -->
+          <div class="vendor-actions-dropdown" id="actionsDropdown">
+            <button class="vendor-action-btn primary" onclick="createRFQ()">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-comments"></i>
+              Chat
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-phone"></i>
+              Call
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-map-marker"></i>
+              Navigate
+            </button>
+            <button class="vendor-action-btn secondary"
+              data-tooltip="Do you want to become a vendor for <u>Sajmep</u>?">
+              <i class="fa fa-user-plus"></i>
+              Add to Contacts
+            </button>
+          </div>
+
+          <!-- Desktop Actions (Hidden on Mobile) -->
+          <div class="vendor-banner-actions">
+            <button class="vendor-action-btn primary" onclick="createRFQ()">
+              <i class="fa fa-envelope"></i>
+              Send RFQ
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-comments"></i>
+              Chat
+            </button>
+            <button class="vendor-action-btn secondary">
+              <i class="fa fa-phone"></i>
+              Call
+            </button>
+            <button class="vendor-action-btn secondary" id="addToContactsBtn"
+              data-tooltip="Do you want to become a vendor for Sajmep?">
+              <i class="fa fa-user-plus"></i>
+              Add to Contacts
+            </button>
+          </div>
+          <div class="vendor-banner-actions">
+
+            <button class="vendor-action-btn secondary" title="Navigate to the vendor's location">
+              <i class="fa fa-map-marker"></i>
+            </button>
+            <button class="vendor-action-btn secondary" title="Share the vendor's information">
+              <i class="fa fa-share-alt"></i>
+
+            </button>
+          </div>
+
+          <div class="vendor-banner-stats">
+            <div class="vendor-stat-item">
+              <div class="vendor-stat-number">10</div>
+              <div class="vendor-stat-label">Products</div>
+            </div>
+            <div class="vendor-stat-item">
+              <div class="vendor-stat-number">20</div>
+              <div class="vendor-stat-label">Projects</div>
+            </div>
+            <div class="vendor-stat-item">
+              <div class="vendor-stat-number">90%</div>
+              <div class="vendor-stat-label">Success Rate</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Vendor Details Banner End -->
+
+    <!-- Details Section -->
+    <div class="vendor-details-section">
+      <div class="vendor-details-sidebar">
+        <div class="vendor-details-tabs">
+          <button class="vendor-tab-btn active" data-tab="about" onclick="closeVendorDetailsSidebar()">
+            <i class="fa fa-info"></i>
+            <span>About</span>
+          </button>
+          <button class="vendor-tab-btn" data-tab="company-details" onclick="closeVendorDetailsSidebar()">
+            <i class="fa fa-building"></i>
+            <span>Company Details</span>
+          </button>
+          <button class="vendor-tab-btn" data-tab="contact-details" onclick="closeVendorDetailsSidebar()">
+            <i class="fa fa-user"></i>
+            <span>Contact Details</span>
+          </button>
+          <button class="vendor-tab-btn" data-tab="area-of-expertise" onclick="closeVendorDetailsSidebar()">
+            <i class="fa fa-star"></i>
+            <span>Area of Expertise</span>
+          </button>
+          <button class="vendor-tab-btn" data-tab="shop-branches" onclick="closeVendorDetailsSidebar()">
+            <i class="fa fa-building"></i>
+            <span>Shop / Branches</span>
+          </button>
+          <button class="vendor-tab-btn" data-tab="documents">
+            <i class="fa fa-file-text"></i>
+            <span>Documents</span>
+          </button>
+          <button class="vendor-tab-btn" data-tab="gallery" style="border-radius: 0 0 12px 12px;"
+            onclick="closeVendorDetailsSidebar()">
+            <i class="fa fa-image"></i>
+            <span>Gallery</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="vendor-details-content">
+
+        <div class="vendor-tab-content active" id="about">
+          <h2>About Sakhrat Al Janoub Contracting Co.</h2>
+
+          <div class="about-hero-section">
+            <div class="about-hero-content">
+              <div class="about-hero-text">
+                <h3>"Your Trusted Construction Partner"</h3>
+                <p class="about-description">
+                  Sakhrat Al Janoub Contracting Co. is a leading construction company specializing in road
+                  infrastructure,
+                  building design, and comprehensive construction solutions. With over 6 years of experience, we have
+                  established ourselves as a reliable partner in the Saudi construction industry.
+                </p>
+                <div class="about-highlights">
+                  <div class="highlight-item">
+                    <i class="fa fa-award"></i>
+                    <span>6+ Years Experience</span>
+                  </div>
+                  <div class="highlight-item">
+                    <i class="fa fa-users"></i>
+                    <span>1-10 Employees</span>
+                  </div>
+                  <div class="highlight-item">
+                    <i class="fa fa-map-marker"></i>
+                    <span>Riyadh, Saudi Arabia</span>
+                  </div>
+                </div>
+              </div>
+              <div class="about-hero-image">
+                <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Overview">
+                <div class="about-image-overlay">
+                  <div class="about-status-indicator online">
+                    <i class="fa fa-circle"></i>
+                    <span>Active</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-sections">
+            <div class="about-section">
+              <div class="about-section-header">
+                <i class="fa fa-star"></i>
+                <h3>Our Mission</h3>
+              </div>
+              <p>To deliver exceptional construction services that exceed client expectations while maintaining the
+                highest standards of quality, safety, and innovation in every project we undertake.</p>
+            </div>
+
+            <div class="about-section">
+              <div class="about-section-header">
+                <i class="fa fa-eye"></i>
+                <h3>Our Vision</h3>
+              </div>
+              <p>To become the most trusted and preferred construction partner in Saudi Arabia, known for our commitment
+                to excellence, sustainability, and client satisfaction.</p>
+            </div>
+
+            <div class="about-section">
+              <div class="about-section-header">
+                <i class="fa fa-heart"></i>
+                <h3>Our Values</h3>
+              </div>
+              <div class="values-grid">
+                <div class="value-item">
+                  <i class="fa fa-shield"></i>
+                  <span>Quality</span>
+                </div>
+                <div class="value-item">
+                  <i class="fa fa-handshake-o"></i>
+                  <span>Integrity</span>
+                </div>
+                <div class="value-item">
+                  <i class="fa fa-lightbulb-o"></i>
+                  <span>Innovation</span>
+                </div>
+                <div class="value-item">
+                  <i class="fa fa-users"></i>
+                  <span>Teamwork</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vendor-tab-content" id="company-details">
+          <h2>Company Details</h2>
+
+          <div class="company-info-section">
+            <div class="company-info-grid">
+              <div class="company-info-item">
+                <div class="company-info-label">CR Number</div>
+                <div class="company-info-value">1009047222</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">VAT Number</div>
+                <div class="company-info-value">311132598100003</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Entity Number</div>
+                <div class="company-info-value">0493869234860923</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Company ID</div>
+                <div class="company-info-value">1009047222</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">DUNS Number</div>
+                <div class="company-info-value">7040526241</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Company Size</div>
+                <div class="company-info-value">1-10 employees</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Company Structure</div>
+                <div class="company-info-value">Headquarter</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Industry</div>
+                <div class="company-info-value">Construction</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">National Unified No.</div>
+                <div class="company-info-value">7040526241</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Building Environment</div>
+                <div class="company-info-value">Roads</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Issued Year</div>
+                <div class="company-info-value">2019-01-01</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Annual Revenue Range</div>
+                <div class="company-info-value">34,568,880.0 SAR</div>
+              </div>
+              <div class="company-info-item">
+                <div class="company-info-label">Operating Years</div>
+                <div class="company-info-value">6 years, 4 months, 9 days</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vendor-tab-content" id="contact-details">
+          <h2>Contact Details</h2>
+
+          <div class="contact-details-section">
+            <div class="contact-info-grid">
+              <div class="contact-info-card">
+                <div class="contact-info-header">
+                  <i class="fa fa-phone"></i>
+                  <h3>Phone Numbers</h3>
+                </div>
+                <div class="contact-info-content">
+                  <div class="contact-item">
+                    <div class="contact-label">Phone</div>
+                    <div class="contact-value">
+                      <a href="tel:+966569400876">+966 56 940 0876</a>
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <div class="contact-item">
+                    <div class="contact-label">Mobile</div>
+                    <div class="contact-value">
+                      <a href="tel:+966920014993">+966 9200 14993</a>
+                      <i class="fa fa-mobile"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-info-header">
+                  <i class="fa fa-envelope"></i>
+                  <h3>Email Address</h3>
+                </div>
+                <div class="contact-info-content">
+                  <div class="contact-item">
+                    <div class="contact-label">Business Email</div>
+                    <div class="contact-value">
+                      <a href="mailto:info@bmh.com.sa">info@bmh.com.sa</a>
+                      <i class="fa fa-envelope"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-card">
+                <div class="contact-info-header">
+                  <i class="fa fa-globe"></i>
+                  <h3>Website</h3>
+                </div>
+                <div class="contact-info-content">
+                  <div class="contact-item">
+                    <div class="contact-label">Official Website</div>
+                    <div class="contact-value">
+                      <a href="http://bmh.com.sa" target="_blank" rel="noopener">https:/sajmep.com</a>
+                      <i class="fa fa-external-link"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-card social-card">
+                <div class="contact-info-header">
+                  <i class="fa fa-share-alt"></i>
+                  <h3>Social Accounts</h3>
+                </div>
+                <div class="contact-info-content">
+                  <div class="social-accounts">
+                    <div class="social-item">
+                      <div class="social-icon linkedin">
+                        <i class="fa fa-linkedin"></i>
+                      </div>
+                      <div class="social-details">
+                        <div class="social-label">LinkedIn</div>
+                      </div>
+                      <div class="social-actions">
+                        <a href="#" class="social-link" aria-label="Open LinkedIn">
+                          <i class="fa fa-external-link"></i>
+                        </a>
+                        <div class="social-qr-container">
+                          <div class="social-qr-popover">
+                            <img class="social-qr-img"
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fwww.linkedin.com%2F"
+                              alt="LinkedIn QR code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="social-item">
+                      <div class="social-icon twitter">
+                        <i class="fa fa-twitter"></i>
+                      </div>
+                      <div class="social-details">
+                        <div class="social-label">Twitter</div>
+                      </div>
+                      <div class="social-actions">
+                        <a href="#" class="social-link" aria-label="Open Twitter">
+                          <i class="fa fa-external-link"></i>
+                        </a>
+                        <div class="social-qr-container">
+                          <div class="social-qr-popover">
+                            <img class="social-qr-img"
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Ftwitter.com%2F"
+                              alt="Twitter QR code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="social-item">
+                      <div class="social-icon facebook">
+                        <i class="fa fa-facebook"></i>
+                      </div>
+                      <div class="social-details">
+                        <div class="social-label">Facebook</div>
+                      </div>
+                      <div class="social-actions">
+                        <a href="#" class="social-link" aria-label="Open Facebook">
+                          <i class="fa fa-external-link"></i>
+                        </a>
+                        <div class="social-qr-container">
+                          <div class="social-qr-popover">
+                            <img class="social-qr-img"
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fwww.facebook.com%2F"
+                              alt="Facebook QR code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="social-item">
+                      <div class="social-icon instagram">
+                        <i class="fa fa-instagram"></i>
+                      </div>
+                      <div class="social-details">
+                        <div class="social-label">Instagram</div>
+                      </div>
+                      <div class="social-actions">
+                        <a href="#" class="social-link" aria-label="Open Instagram">
+                          <i class="fa fa-external-link"></i>
+                        </a>
+                        <div class="social-qr-container">
+                          <div class="social-qr-popover">
+                            <img class="social-qr-img"
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fwww.instagram.com%2F"
+                              alt="Instagram QR code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="social-item">
+                      <div class="social-icon whatsapp">
+                        <i class="fa fa-whatsapp"></i>
+                      </div>
+                      <div class="social-details">
+                        <div class="social-label">WhatsApp</div>
+                      </div>
+                      <div class="social-actions"><a href="https://wa.me/966569400876" class="social-link"
+                          aria-label="Open WhatsApp">
+                          <i class="fa fa-external-link"></i>
+                        </a>
+                        <div class="social-qr-container">
+
+                          <div class="social-qr-popover">
+                            <img class="social-qr-img"
+                              src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=https%3A%2F%2Fwa.me%2F966569400876"
+                              alt="WhatsApp QR code">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-card ecommerce-card">
+                <div class="contact-info-header">
+                  <i class="fa fa-shopping-cart"></i>
+                  <h3>E-commerce Platforms</h3>
+                </div>
+                <div class="contact-info-content">
+                  <div class="ecommerce-accounts">
+                    <div class="ecommerce-item">
+                      <div class="ecommerce-icon shopify">
+                        <i class="fa fa-shopping-bag"></i>
+                      </div>
+                      <div class="ecommerce-details">
+                        <div class="ecommerce-label">Shopify</div>
+                        <div class="ecommerce-value">sakhrat-janoub.myshopify.com</div>
+                      </div>
+                      <a href="#" class="ecommerce-link">
+                        <i class="fa fa-external-link"></i>
+                      </a>
+                    </div>
+
+                    <div class="ecommerce-item">
+                      <div class="ecommerce-icon amazon">
+                        <i class="fa fa-amazon"></i>
+                      </div>
+                      <div class="ecommerce-details">
+                        <div class="ecommerce-label">Amazon</div>
+                        <div class="ecommerce-value">Sakhrat Al Janoub Store</div>
+                      </div>
+                      <a href="#" class="ecommerce-link">
+                        <i class="fa fa-external-link"></i>
+                      </a>
+                    </div>
+
+                    <div class="ecommerce-item">
+                      <div class="ecommerce-icon noon">
+                        <i class="fa fa-sun-o"></i>
+                      </div>
+                      <div class="ecommerce-details">
+                        <div class="ecommerce-label">Noon</div>
+                        <div class="social-value">Sakhrat Al Janoub</div>
+                      </div>
+                      <a href="#" class="ecommerce-link">
+                        <i class="fa fa-external-link"></i>
+                      </a>
+                    </div>
+
+                    <div class="ecommerce-item">
+                      <div class="ecommerce-icon souq">
+                        <i class="fa fa-shopping-cart"></i>
+                      </div>
+                      <div class="ecommerce-details">
+                        <div class="ecommerce-label">Souq</div>
+                        <div class="ecommerce-value">Sakhrat Al Janoub Co.</div>
+                      </div>
+                      <a href="#" class="ecommerce-link">
+                        <i class="fa fa-external-link"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="contact-info-card related-contacts-card">
+                <div class="contact-info-header">
+                  <i class="fa fa-users"></i>
+                  <h3>Related Contacts</h3>
+                </div>
+                <div class="contact-info-content">
+                  <div class="related-contacts-grid">
+                    <div class="related-contact-item">
+                      <div class="contact-avatar">
+                        <img src="../images/user3.png" alt="Ahmed Al-Rashid">
+                      </div>
+                      <div class="contact-details">
+                        <div class="contact-name">Ahmed Al-Rashid</div>
+                        <div class="contact-position">Project Manager</div>
+                        <div class="contact-phone">
+                          <i class="fa fa-phone"></i>
+                          <a href="tel:+966501234567">+966 50 123 4567</a>
+                        </div>
+                        <div class="contact-email">
+                          <i class="fa fa-envelope"></i>
+                          <a href="mailto:ahmed.rashid@sajmep.com">ahmed.rashid@sajmep.com</a>
+                        </div>
+                      </div>
+                      <div class="contact-actions">
+                        <button class="contact-action-btn" title="Call">
+                          <i class="fa fa-phone"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Email">
+                          <i class="fa fa-envelope"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Chat">
+                          <i class="fa fa-comments"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="related-contact-item">
+                      <div class="contact-avatar">
+                        <img src="../images/sofia.png" alt="Sarah Al-Mansouri">
+                      </div>
+                      <div class="contact-details">
+                        <div class="contact-name">Sarah Al-Mansouri</div>
+                        <div class="contact-position">Sales Director</div>
+                        <div class="contact-phone">
+                          <i class="fa fa-phone"></i>
+                          <a href="tel:+966502345678">+966 50 234 5678</a>
+                        </div>
+                        <div class="contact-email">
+                          <i class="fa fa-envelope"></i>
+                          <a href="mailto:sarah.mansouri@sajmep.com">sarah.mansouri@sajmep.com</a>
+                        </div>
+                      </div>
+                      <div class="contact-actions">
+                        <button class="contact-action-btn" title="Call">
+                          <i class="fa fa-phone"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Email">
+                          <i class="fa fa-envelope"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Chat">
+                          <i class="fa fa-comments"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="related-contact-item">
+                      <div class="contact-avatar">
+                        <img src="../images/user.png" alt="Mohammed Al-Zahrani">
+                      </div>
+                      <div class="contact-details">
+                        <div class="contact-name">Mohammed Al-Zahrani</div>
+                        <div class="contact-position">Technical Director</div>
+                        <div class="contact-phone">
+                          <i class="fa fa-phone"></i>
+                          <a href="tel:+966503456789">+966 50 345 6789</a>
+                        </div>
+                        <div class="contact-email">
+                          <i class="fa fa-envelope"></i>
+                          <a href="mailto:mohammed.zahrani@sajmep.com">mohammed.zahrani@sajmep.com</a>
+                        </div>
+                      </div>
+                      <div class="contact-actions">
+                        <button class="contact-action-btn" title="Call">
+                          <i class="fa fa-phone"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Email">
+                          <i class="fa fa-envelope"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Chat">
+                          <i class="fa fa-comments"></i>
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="related-contact-item">
+                      <div class="contact-avatar">
+                        <img src="../images/sarah.pnh.png" alt="Fatima Al-Sheikh">
+                      </div>
+                      <div class="contact-details">
+                        <div class="contact-name">Fatima Al-Sheikh</div>
+                        <div class="contact-position">Finance Manager</div>
+                        <div class="contact-phone">
+                          <i class="fa fa-phone"></i>
+                          <a href="tel:+966504567890">+966 50 456 7890</a>
+                        </div>
+                        <div class="contact-email">
+                          <i class="fa fa-envelope"></i>
+                          <a href="mailto:fatima.sheikh@sajmep.com">fatima.sheikh@sajmep.com</a>
+                        </div>
+                      </div>
+                      <div class="contact-actions">
+                        <button class="contact-action-btn" title="Call">
+                          <i class="fa fa-phone"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Email">
+                          <i class="fa fa-envelope"></i>
+                        </button>
+                        <button class="contact-action-btn" title="Chat">
+                          <i class="fa fa-comments"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="vendor-tab-content" id="area-of-expertise">
+          <h2>Area of Expertise</h2>
+
+          <div class="expertise-tabs">
+            <button class="expertise-tab-btn active" data-expertise-tab="products">Products</button>
+            <button class="expertise-tab-btn" data-expertise-tab="services">Services</button>
+            <button class="expertise-tab-btn" data-expertise-tab="brands">Brands</button>
+          </div>
+
+          <div class="expertise-tab-content active" id="expertise-products">
+            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                soon!</span></h3>
+          </div>
+
+          <div class="expertise-tab-content" id="expertise-services">
+            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                soon!</span></h3>
+          </div>
+
+          <div class="expertise-tab-content" id="expertise-brands">
+            <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                soon!</span></h3>
+          </div>
+        </div>
+        <div class="vendor-tab-content" id="products">
+          <h2>Products</h2>
+          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+              soon!</span></h3>
+        </div>
+        <div class="vendor-tab-content" id="documents">
+          <h2>Documents</h2>
+          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+              soon!</span></h3>
+        </div>
+        <div class="vendor-tab-content" id="services">
+          <h2>Services</h2>
+          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+        </div>
+        <div class="vendor-tab-content" id="brands">
+          <h2>Brands</h2>
+          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+        </div>
+        <div class="vendor-tab-content" id="shop-branches">
+          <h2>Shop / Branches</h2>
+          <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+              soon!</span></h3>
+        </div>
+        <div class="vendor-tab-content" id="gallery">
+          <h2>Gallery</h2>
+
+          <div class="gallery-section">
+            <div class="gallery-tabs">
+              <!-- Gallery Tabs -->
+              <button class="gallery-tab-btn active" data-gallery-tab="all">
+                <i class="fa fa-th"></i>
+                <span>All</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="images">
+                <i class="fa fa-image"></i>
+                <span>Images</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="videos">
+                <i class="fa fa-video-camera"></i>
+                <span>Videos</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="albums">
+                <i class="fa fa-folder"></i>
+                <span>Albums</span>
+              </button>
+              <button class="gallery-tab-btn" data-gallery-tab="360-images">
+                <i class="fa fa-folder"></i>
+                <span>360 Images</span>
+              </button>
+            </div>
+
+            <div class="gallery-content">
+
+              <div class="gallery-tab-content active" id="gallery-all">
+                <div class="gallery-grid">
+                  <div class="gallery-item all-image-item">
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery1')">
+                        <i class="fa fa-comment"></i>
+                      </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery1')">
+                        <i class="fa fa-flag"></i>
+                      </button>
+                    </div>
+                    <div class="gallery-caption">Construction Site Overview</div>
+                    <div class="gallery-comment-count">3 comments</div>
+                  </div>
+                  <div class="gallery-item all-image-item">
+                    <img src="../images/gallery4.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery4')">
+                        <i class="fa fa-comment"></i>
+                      </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery4')">
+                        <i class="fa fa-flag"></i>
+                      </button>
+                    </div>
+                    <div class="gallery-caption">Road Construction Project</div>
+                    <div class="gallery-comment-count">1 comment</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery3.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery3')">
+                        <i class="fa fa-comment"></i>
+                      </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery3')">
+                        <i class="fa fa-flag"></i>
+                      </button>
+                    </div>
+                    <div class="gallery-caption">Building Infrastructure</div>
+                    <div class="gallery-comment-count">0 comments</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery2.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                      <button class="gallery-comment-btn"
+                        onclick="event.stopPropagation(); openCommentModal('gallery2')">
+                        <i class="fa fa-comment"></i>
+                      </button>
+                      <button class="gallery-report-btn" onclick="event.stopPropagation(); openReportModal('gallery2')">
+                        <i class="fa fa-flag"></i>
+                      </button>
+                    </div>
+                    <div class="gallery-caption">Heavy Machinery in Action</div>
+                    <div class="gallery-comment-count">2 comments</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Project Progress Update</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery5.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Completed Construction</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gallery-tab-content" id="gallery-images">
+                <div class="gallery-grid">
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Construction Site Overview</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery4.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Road Construction Project</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery3.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Building Infrastructure</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Project Progress Update</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery2.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Heavy Machinery in Action</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Project Progress Update</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery1.jpg">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Construction Site Overview</div>
+                  </div>
+                  <div class="gallery-item">
+                    <img src="../images/gallery5.jpg" alt="">
+                    <div class="gallery-overlay">
+                      <i class="fa fa-search-plus"></i>
+                    </div>
+                    <div class="gallery-caption">Completed Construction</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="gallery-tab-content" id="gallery-videos">
+                <span style="font-size: 20px; font-weight: 600; color: #9885d1;text-decoration: underline;">Coming
+                  Soon</span>
+              </div>
+
+              <div class="gallery-tab-content" id="gallery-albums">
+                <!--  <div class="albums-grid"> -->
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/vendor.png" alt="Project Gallery">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
+                    </div>
+                  </div>
+                  <div class="album-info">
+                    <h3>Project Gallery</h3>
+                    <p>12 photos</p>
+                  </div>
+                </div>
+
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Office Photos">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
+                    </div>
+                  </div>
+                  <div class="album-info">
+                    <h3>Office Photos</h3>
+                    <p>8 photos</p>
+                  </div>
+                </div>
+
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/vendor.png" alt="Team Photos">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
+                    </div>
+                  </div>
+                  <div class="album-info">
+                    <h3>Team Photos</h3>
+                    <p>15 photos</p>
+                  </div>
+                </div>
+
+                <div class="album-item">
+                  <div class="album-cover">
+                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Equipment">
+                    <div class="album-overlay">
+                      <i class="fa fa-folder-open"></i>
+                    </div>
+                  </div>
+                  <div class="album-info">
+                    <h3>Equipment</h3>
+                    <p>6 photos</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="gallery-tab-content" id="gallery-360-images">
+              <h3>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                  soon!</span></h3>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <!-- Details Section End -->
+  </main>
+  <!--Main Content End-->
+
+  <!-- RFQ Modal -->
+  <div id="rfqModal" class="rfq-modal">
+    <div class="rfq-modal-content">
+      <div class="rfq-modal-header">
+        <h3>Send RFQ</h3>
+        <button class="rfq-modal-close" onclick="closeRFQModal()">&times;</button>
+      </div>
+      <div class="rfq-modal-body">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Vendor</label>
+            <input type="text" value="Sakhrat Al Janoub Contracting Co." disabled
+              style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
+          </div>
+          <div class="form-group">
+            <label>RFQ Number</label>
+            <input type="text" value="RFQ-2024-001" disabled
+              style="background-color: #f3f4f6; color: #374151; border: 1px solid #d1d5db; border-radius: 4px; padding: 8px 12px; font-size: 14px;">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Select Project</label>
+            <select>
+              <option value="">Choose a project</option>
+              <option value="project1">Website Development</option>
+              <option value="project2">Mobile App Development</option>
+              <option value="project3">E-commerce Platform</option>
+              <option value="project4">Database Migration</option>
+              <option value="project5">SEO Services</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <select>
+              <option value="">Choose a company</option>
+              <option value="company1">Smith Enterprises</option>
+              <option value="company2">Johnson & Associates</option>
+              <option value="company3">Tech Solutions Inc</option>
+              <option value="company4" selected>Sakhrat Al Janoub Contracting Co.</option>
+              <option value="company5">Global Services Ltd</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Currency</label>
+            <select>
+              <option value="SAR" selected>SAR</option>
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Order Deadline?</label>
+            <input type="datetime-local" value="2025-01-10T17:02">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Expected Arrival?</label>
+            <input type="date">
+          </div>
+          <div class="form-group">
+            <label>Product Name</label>
+            <input type="text" placeholder="Enter product name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Attention To</label>
+            <input type="text" placeholder="Enter contact person or department">
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <select>
+              <option value="">Select Priority</option>
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Deliver To?</label>
+          <textarea placeholder="Enter delivery address"></textarea>
+        </div>
+
+        <div class="form-group full-width">
+          <label>Attachments</label>
+          <input type="file" id="fileInput" multiple accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png"
+            class="file-input">
+        </div>
+
+        <div class="form-group full-width">
+          <!-- Inquiry List Table -->
+          <div class="data-table-container" id="listView">
+            <div class="data-table-wrapper">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th style="width: 32px !important; max-width: 32px !important;">
+                      <input type="checkbox" class="data-checkbox data-checkbox-header" id="selectAllPRs">
+                      <label for="selectAllPRs" class="data-checkbox-label"></label>
+                      <span class="data-checkbox-text"></span>
+                    </th>
+                    <th class="data-drag-header">--</th>
+                    <th class="col-brand" style="max-width: 45px !important;">Brand</th>
+                    <th class="col-product" style="max-width: 60px !important;">Product</th>
+                    <th class="col-qty" style="max-width: 60px !important;">Qty</th>
+                    <th class="col-uom" style="max-width: 60px !important;">UOM</th>
+                    <th class="data-table-actions" style="max-width: 32px !important;">
+                      <div class="data-columns-dropdown">
+                        <button class="data-columns-btn-icon" onclick="toggleColumnDropdown()"
+                          title="Show/Hide Columns">
+                          <img src="../images/add-column.png" alt="Columns" width="20px">
+                        </button>
+                        <div class="data-columns-dropdown-content" id="columnDropdown">
+                          <div class="data-columns-dropdown-header">
+                            <h4>Select Columns</h4>
+                          </div>
+                          <div class="data-columns-dropdown-body">
+                            <div class="data-column-options">
+                              <label class="data-column-option fixed-column">
+                                <input type="checkbox" value="col-pr-number" checked disabled data-fixed="true">
+                                <span class="data-column-label">
+                                  Brand <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                </span>
+                              </label>
+                              <label class="data-column-option">
+                                <input type="checkbox" value="col-pr-type" checked>
+                                <span class="data-column-label">Product</span>
+                              </label>
+                              <label class="data-column-option">
+                                <input type="checkbox" value="col-department" checked>
+                                <span class="data-column-label">Qty</span>
+                              </label>
+                              <label class="data-column-option fixed-column">
+                                <input type="checkbox" value="col-status" checked disabled data-fixed="true">
+                                <span class="data-column-label">
+                                  UOM <i class="fa fa-lock" title="This column cannot be hidden"></i>
+                                </span>
+                              </label>
+                            </div>
+                          </div>
+                          <div class="data-columns-dropdown-footer">
+                            <button class="data-btn data-btn-secondary" onclick="closeColumnDropdown()">
+                              Cancel
+                            </button>
+                            <button class="data-btn data-btn-primary" onclick="saveColumnVisibility()">
+                              Save
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="data-checkbox-cell">
+                      <input type="checkbox" class="data-checkbox data-checkbox-row" id="rfq-001">
+                      <label for="rfq-001" class="data-checkbox-label"></label>
+                    </td>
+                    <td class="data-item-brand col-brand">
+                      <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                        <option value="">Add</option>
+                        <option value="brand1">Brand 1</option>
+                        <option value="brand2">Brand 2</option>
+                        <option value="brand3">Brand 3</option>
+                      </select>
+                    </td>
+                    <td class="data-item-product col-product">
+                      <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                        <option value="">Add Product</option>
+                        <option value="product1">Product 1</option>
+                        <option value="product2">Product 2</option>
+                        <option value="product3">Product 3</option>
+                      </select>
+                    </td>
+                    <td class="data-item-qty col-qty">
+                      <input type="number" placeholder="Qty">
+                    </td>
+                    <td class="data-item-uom col-uom">
+                      <select style="border: none; background: rgb(248, 248, 248); cursor: pointer;">
+                        <option value="">Add</option>
+                        <option value="uom1">UOM 1</option>
+                        <option value="uom2">UOM 2</option>
+                        <option value="uom3">UOM 3</option>
+                      </select>
+                    </td>
+                    <td class="data-table-actions-cell"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="rfq-modal-actions">
+        <button class="rfq-action-btn secondary" onclick="closeRFQModal()">Cancel</button>
+        <button class="rfq-action-btn primary">Send RFQ</button>
+      </div>
+    </div>
+  </div>
+  <!-- RFQ Modal End -->
+
+  <!-- Image Preview Modal -->
+  <div class="gallery-image-preview-modal" id="imagePreviewModal">
+    <div class="gallery-image-preview-modal-overlay"></div>
+    <div class="gallery-image-preview-modal-content">
+      <div class="gallery-image-preview-modal-header">
+        <div class="gallery-image-preview-modal-header-left">
+          <img src="images/4d Engineering Consultants.png" alt="Company Logo" class="gallery-modal-company-logo">
+          <span class="gallery-modal-company-name">4D Engineering</span>
+        </div>
+        <div class="gallery-image-preview-modal-header-right">
+          <button class="gallery-modal-actions-toggle" id="toggleActionsColumn" aria-label="Toggle actions">
+            <i class="fa fa-ellipsis-v"></i>
+          </button>
+          <button class="gallery-image-preview-modal-close" id="closeImageModal" aria-label="Close modal">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </div>
+      <div class="gallery-modal-two-column">
+        <!-- Left Column - Image -->
+        <!-- <div class="gallery-modal-image-column">
+                  <img src="images/gallery-preview.jpg" alt="Preview Image" class="gallery-preview-image">
+              </div> -->
+        <div class="gallery-modal-image-column">
+          <div class="gallery-album-name">
+            Cafe shop Adham Ala'z
+          </div>
+          <div class="gallery-album-images">
+            <img src="images/gallery1.jpg" alt="Album Image 1" class="album-image-clickable">
+            <img src="images/gallery2.jpg" alt="Album Image 2" class="album-image-clickable">
+            <img src="images/gallery3.jpg" alt="Album Image 3" class="album-image-clickable">
+            <img src="images/gallery4.jpg" alt="Album Image 4" class="album-image-clickable">
+            <img src="images/gallery5.jpg" alt="Album Image 5" class="album-image-clickable">
+            <img src="images/sajmep.jpg" alt="Album Image 6" class="album-image-clickable">
+            <img src="images/gallery1.jpg" alt="Album Image 7" class="album-image-clickable">
+            <img src="images/gallery2.jpg" alt="Album Image 8" class="album-image-clickable">
+            <img src="images/gallery3.jpg" alt="Album Image 9" class="album-image-clickable">
+            <div class="gallery-album-image-preview" id="albumImagePreview">
+              <button class="gallery-album-preview-close">&times;</button>
+              <button class="gallery-album-preview-prev">
+                <i class="fa fa-chevron-left"></i>
+              </button>
+              <button class="gallery-album-preview-next">
+                <i class="fa fa-chevron-right"></i>
+              </button>
+              <img src="" alt="Preview" class="gallery-album-preview-img">
+              <div class="gallery-album-preview-dots" id="albumPreviewDots"></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right Column - Actions -->
+        <div class="gallery-modal-actions-column" id="actionsColumn">
+          <div class="gallery-modal-company">
+            <img src="images/4d Engineering Consultants.png" alt="Company" class="gallery-modal-company-img">
+            <button class="gallery-modal-follow-btn">
+              <i class="fa fa-plus"></i>
+              <span>Follow</span>
+            </button>
+          </div>
+          <div class="gallery-modal-action-buttons">
+            <div class="gallery-modal-action-item">
+              <button class="gallery-modal-action-btn favorite-btn">
+                <i class="fa fa-heart"></i>
+              </button>
+              <span class="gallery-modal-action-label">Like</span>
+            </div>
+            <div class="gallery-modal-action-item">
+              <button class="gallery-modal-action-btn save-btn">
+                <i class="fa fa-bookmark"></i>
+              </button>
+              <span class="gallery-modal-action-label">Save</span>
+            </div>
+            <div class="gallery-modal-action-item">
+              <button class="gallery-modal-action-btn">
+                <i class="fa fa-share-alt"></i>
+              </button>
+              <span class="gallery-modal-action-label">Share</span>
+            </div>
+            <div class="gallery-modal-action-item">
+              <button class="gallery-modal-action-btn">
+                <i class="fa fa-comment"></i>
+              </button>
+              <span class="gallery-modal-action-label">
+                <a href="#gallery-modal-comment-section" class="gallery-modal-comment-link">Comment</a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-modal-content">
+        <div class="gallery-modal-content-left">
+          <div class="gallery-modal-caption">
+            Beautiful building architecture showcasing modern design and sustainable construction practices.
+          </div>
+          <div class="gallery-modal-comment-section" id="gallery-modal-comment-section">
+            <textarea type="text" class="gallery-modal-comment-input" placeholder="Write a comment..."></textarea>
+            <button class="gallery-modal-comment-submit-btn" id="gallery-modal-comment-submit-btn">Post Comment</button>
+          </div>
+          <div class="gallery-modal-comments-list">
+            <div class="gallery-comment-item">
+              <img src="../images/sarah.pnh.png" alt="User" class="gallery-comment-avatar">
+              <div class="gallery-comment-content">
+                <div class="gallery-comment-author">John Doe</div>
+                <div class="gallery-comment-text">This is a great design! Love the modern architecture.</div>
+              </div>
+            </div>
+            <div class="gallery-comment-item">
+              <img src="../images/sofia.png" alt="User" class="gallery-comment-avatar">
+              <div class="gallery-comment-content">
+                <div class="gallery-comment-author">Jane Smith</div>
+                <div class="gallery-comment-text">Amazing work! The sustainable practices are impressive.</div>
+              </div>
+            </div>
+            <div class="gallery-comment-item">
+              <img src="../images/user.png" alt="User" class="gallery-comment-avatar">
+              <div class="gallery-comment-content">
+                <div class="gallery-comment-author">Mike Johnson</div>
+                <div class="gallery-comment-text">Beautiful building! Would love to see more details.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-modal-content-right">
+          <div class="gallery-modal-more-title">More from 4D Engineering</div>
+          <div class="gallery-modal-more-images">
+            <img src="images/gallery2.jpg" alt="Gallery" class="gallery-modal-more-img">
+            <img src="images/gallery3.jpg" alt="Gallery" class="gallery-modal-more-img">
+            <img src="images/gallery4.jpg" alt="Gallery" class="gallery-modal-more-img">
+            <img src="images/gallery5.jpg" alt="Gallery" class="gallery-modal-more-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Report Modal -->
+  <div id="reportModal" class="report-modal">
+    <div class="report-modal-content">
+      <div class="report-modal-header">
+        <h3>Report Image</h3>
+        <button class="report-modal-close" onclick="closeReportModal()">&times;</button>
+      </div>
+      <div class="report-modal-body">
+        <div class="report-image-preview">
+          <img id="reportImagePreview" src="../images/gallery1.jpg" alt="Image Preview">
+        </div>
+        <div class="report-section">
+          <div class="report-form">
+            <h4>Report this image</h4>
+            <form>
+              <div class="form-group">
+                <label>Reason for reporting</label>
+                <select required>
+                  <option value="">Select a reason</option>
+                  <option value="inappropriate">Inappropriate content</option>
+                  <option value="spam">Spam or misleading</option>
+                  <option value="copyright">Copyright violation</option>
+                  <option value="quality">Poor quality</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Your name</label>
+                <input type="text" placeholder="Your name" required>
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" placeholder="your@email.com" required>
+              </div>
+              <div class="form-group">
+                <label>Additional details</label>
+                <textarea placeholder="Please provide more details about your report..." rows="4"></textarea>
+              </div>
+              <button type="submit" class="report-submit-btn">Submit Report</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Report Modal End -->
+
+  <!-- Login First Modal -->
+  <div id="loginFirstModal" class="login-first-modal">
+    <div class="login-first-modal-content">
+      <button class="login-first-close" onclick="closeLoginFirstModal()" aria-label="Close modal">
+        <i class="fa fa-times"></i>
+      </button>
+      <div class="login-first-icon">
+        <img src="images/bmh-logo.png" alt="Login First Icon">
+      </div>
+      <p class="login-first-text">
+        Log in or register to access exclusive tools and project features.
+      </p>
+      <div class="login-first-buttons">
+        <button class="login-first-btn login-btn" onclick="window.location.href='#'">LOGIN</button>
+        <button class="login-first-btn signup-btn" onclick="window.location.href='#'">SIGN UP</button>
+      </div>
+    </div>
+  </div>
+  <!-- Login First Modal End -->
+
+
+  <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+  <script src="vendor-scripts/vendor-details.js"></script>
+  <script src="vendor-scripts/vendor-gallery.js"></script>
+  <script src="../script/common-table.js"></script>
+  <script src="vendor-scripts/image-preview-modal.js"></script>
+  <script src="vendor-scripts/login-first-popup.js"></script>
+
+  <script>
+
+    // Report Modal Functions
+    function openReportModal(imageId) {
+      document.getElementById('reportModal').style.display = 'block';
+      // Update the image preview in the modal
+      document.getElementById('reportImagePreview').src = '../images/' + imageId + '.jpg';
+    }
+
+    function closeReportModal() {
+      document.getElementById('reportModal').style.display = 'none';
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function (event) {
+      var commentModal = document.getElementById('commentModal');
+      var reportModal = document.getElementById('reportModal');
+      if (event.target == commentModal) {
+        commentModal.style.display = 'none';
+      }
+      if (event.target == reportModal) {
+        reportModal.style.display = 'none';
+      }
+    });
+
+    // Toggle Actions Dropdown (Mobile)
+    function toggleActionsDropdown() {
+      var dropdown = document.getElementById('actionsDropdown');
+      dropdown.classList.toggle('active');
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function (event) {
+      var dropdown = document.getElementById('actionsDropdown');
+      var dropdownBtn = document.querySelector('.vendor-actions-dropdown-btn');
+      if (dropdown && !dropdown.contains(event.target) && !dropdownBtn.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>
