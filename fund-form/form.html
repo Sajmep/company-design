@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Application Form - Contractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #000;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 60px;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            margin-top: 5px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            margin-bottom: 5px;
+        }
+
+        .signature-section {
+            margin-top: 15px;
+        }
+
+        .signature-section .form-group {
+            display: inline-block;
+            width: 30%;
+            margin-right: 3%;
+        }
+
+        .declaration {
+            border: 1px solid #000;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .declaration-item {
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            border: 1px solid #000;
+            background: #fff;
+            font-size: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> Fund Application Form (Contractor)</h1>
+
+        <form id="fundForm">
+            <!-- Section 1: Applicant Details -->
+            <div class="section">
+                <div class="section-title">1 Applicant Details (Contractor Info)</div>
+                
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="crNumber">Commercial Registration (CR) Number</label>
+                    <input type="text" id="crNumber" name="crNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vatNumber">VAT Number</label>
+                    <input type="text" id="vatNumber" name="vatNumber">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyAddress">Company Address</label>
+                    <textarea id="companyAddress" name="companyAddress" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="cityCountry">City / Country</label>
+                    <input type="text" id="cityCountry" name="cityCountry" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactPerson">Contact Person Name</label>
+                    <input type="text" id="contactPerson" name="contactPerson" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name="designation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+            </div>
+
+            <!-- Section 2: Business & Project Information -->
+            <div class="section">
+                <div class="section-title">2 Business & Project Information</div>
+                
+                <div class="form-group">
+                    <label>Business Type</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="contractor" name="businessType" value="Contractor">
+                            <label for="contractor">Contractor</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="subContractor" name="businessType" value="Sub-Contractor">
+                            <label for="subContractor">Sub-Contractor</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="supplier" name="businessType" value="Supplier">
+                            <label for="supplier">Supplier</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectLocation">Project Location</label>
+                    <input type="text" id="projectLocation" name="projectLocation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientName">Client Name (End Client)</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectStartDate">Project Start Date</label>
+                    <input type="date" id="projectStartDate" name="projectStartDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectCompletionDate">Project Expected Completion Date</label>
+                    <input type="date" id="projectCompletionDate" name="projectCompletionDate" required>
+                </div>
+            </div>
+
+            <!-- Section 3: Supplier Quotation Details -->
+            <div class="section">
+                <div class="section-title">3 Supplier Quotation Details (QTN)</div>
+                
+                <div class="form-group">
+                    <label for="supplierCompanyName">Supplier Company Name</label>
+                    <input type="text" id="supplierCompanyName" name="supplierCompanyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quotationNumber">Quotation Number</label>
+                    <input type="text" id="quotationNumber" name="quotationNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quotationDate">Quotation Date</label>
+                    <input type="date" id="quotationDate" name="quotationDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quotationAmount">Quotation Total Amount</label>
+                    <input type="number" id="quotationAmount" name="quotationAmount" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <select id="currency" name="currency" required>
+                        <option value="">Select Currency</option>
+                        <option value="SAR">SAR</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="AED">AED</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentTerms">Payment Terms (from supplier)</label>
+                    <input type="text" id="paymentTerms" name="paymentTerms" placeholder="e.g. 30 days, 60 days, milestone-based" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="supplierQuotation">Upload Supplier Quotation (PDF/Image) ⬆ Required</label>
+                    <input type="file" id="supplierQuotation" name="supplierQuotation" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+            </div>
+
+            <!-- Section 4: Funding Request Details -->
+            <div class="section">
+                <div class="section-title">4 Funding Request Details</div>
+                
+                <div class="form-group">
+                    <label for="fundingAmount">Funding Amount Requested</label>
+                    <input type="number" id="fundingAmount" name="fundingAmount" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Funding Purpose</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeMaterial" name="fundingPurpose" value="Material Purchase">
+                            <label for="purposeMaterial">Material Purchase</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeEquipment" name="fundingPurpose" value="Equipment">
+                            <label for="purposeEquipment">Equipment</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeManpower" name="fundingPurpose" value="Manpower">
+                            <label for="purposeManpower">Manpower</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeCashFlow" name="fundingPurpose" value="Project Cash Flow">
+                            <label for="purposeCashFlow">Project Cash Flow</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeOther" name="fundingPurpose" value="Other">
+                            <label for="purposeOther">Other (Specify)</label>
+                        </div>
+                    </div>
+                    <input type="text" id="purposeOtherSpecify" name="purposeOtherSpecify" placeholder="Please specify" style="margin-top: 10px; display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Funding Duration</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="duration30" name="fundingDuration" value="30 Days">
+                            <label for="duration30">30 Days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="duration60" name="fundingDuration" value="60 Days">
+                            <label for="duration60">60 Days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="duration90" name="fundingDuration" value="90 Days">
+                            <label for="duration90">90 Days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="durationCustom" name="fundingDuration" value="Custom">
+                            <label for="durationCustom">Custom (Specify)</label>
+                        </div>
+                    </div>
+                    <input type="text" id="durationCustomSpecify" name="durationCustomSpecify" placeholder="Please specify" style="margin-top: 10px; display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Expected Repayment Source</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="repaymentClient" name="repaymentSource" value="Client Payment">
+                            <label for="repaymentClient">Client Payment</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="repaymentMilestone" name="repaymentSource" value="Project Milestone">
+                            <label for="repaymentMilestone">Project Milestone</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="repaymentRetention" name="repaymentSource" value="Retention Release">
+                            <label for="repaymentRetention">Retention Release</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Financial & Eligibility Information -->
+            <div class="section">
+                <div class="section-title">5 Financial & Eligibility Information</div>
+                
+                <div class="form-group">
+                    <label for="monthlyRevenue">Monthly Average Revenue</label>
+                    <input type="number" id="monthlyRevenue" name="monthlyRevenue" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Existing Loans or Funding</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="existingLoansYes" name="existingLoans" value="Yes">
+                            <label for="existingLoansYes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="existingLoansNo" name="existingLoans" value="No">
+                            <label for="existingLoansNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="existingLoansDetails" style="display: none;">
+                    <div class="form-group">
+                        <label for="fundingCompanyName">Funding Company Name</label>
+                        <input type="text" id="fundingCompanyName" name="fundingCompanyName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="outstandingAmount">Outstanding Amount</label>
+                        <input type="number" id="outstandingAmount" name="outstandingAmount" step="0.01">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bankName">Bank Name</label>
+                    <input type="text" id="bankName" name="bankName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="iban">IBAN / Account Number</label>
+                    <input type="text" id="iban" name="iban" required>
+                </div>
+            </div>
+
+            <!-- Section 6: Supporting Documents Upload -->
+            <div class="section">
+                <div class="section-title">6 Supporting Documents Upload</div>
+                
+                <div class="form-group">
+                    <label for="crDocument">Commercial Registration (CR)</label>
+                    <input type="file" id="crDocument" name="crDocument" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vatCertificate">VAT Certificate</label>
+                    <input type="file" id="vatCertificate" name="vatCertificate" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+
+                <div class="form-group">
+                    <label for="bankStatement">Bank Statement (Last 3–6 Months)</label>
+                    <input type="file" id="bankStatement" name="bankStatement" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signatoryId">Authorized Signatory ID</label>
+                    <input type="file" id="signatoryId" name="signatoryId" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="supplierQuotationDoc">Supplier Quotation (mandatory)</label>
+                    <input type="file" id="supplierQuotationDoc" name="supplierQuotationDoc" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+            </div>
+
+            <!-- Section 7: Declaration & Consent -->
+            <div class="section">
+                <div class="section-title">7 Declaration & Consent</div>
+                
+                <div class="declaration">
+                    <div class="declaration-item">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="declaration1" name="declaration1" required>
+                            <label for="declaration1">I confirm that all information provided is true and accurate.</label>
+                        </div>
+                    </div>
+
+                    <div class="declaration-item">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="declaration2" name="declaration2" required>
+                            <label for="declaration2">I authorize the funding company to verify my company details and financial information.</label>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <div class="form-group">
+                            <label for="applicantName">Applicant Name:</label>
+                            <input type="text" id="applicantName" name="applicantName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signature">Signature:</label>
+                            <input type="text" id="signature" name="signature" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide conditional fields
+        document.getElementById('purposeOther').addEventListener('change', function() {
+            document.getElementById('purposeOtherSpecify').style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('durationCustom').addEventListener('change', function() {
+            document.getElementById('durationCustomSpecify').style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('existingLoansYes').addEventListener('change', function() {
+            document.getElementById('existingLoansDetails').style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('existingLoansNo').addEventListener('change', function() {
+            document.getElementById('existingLoansDetails').style.display = 'none';
+        });
+
+        // Form submission
+        document.getElementById('fundForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted successfully! (This is a demo - form data would be processed here)');
+        });
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fund Application Form - Contractor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 16px;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #000;
+            font-size: 14px;
+        }
+
+        textarea {
+            min-height: 60px;
+        }
+
+        .checkbox-group,
+        .radio-group {
+            margin-top: 5px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            margin-bottom: 5px;
+        }
+
+        .signature-section {
+            margin-top: 15px;
+        }
+
+        .signature-section .form-group {
+            display: inline-block;
+            width: 30%;
+            margin-right: 3%;
+        }
+
+        .declaration {
+            border: 1px solid #000;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .declaration-item {
+            margin-bottom: 10px;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            border: 1px solid #000;
+            background: #fff;
+            font-size: 14px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧾 Fund Application Form (Contractor)</h1>
+
+        <form id="fundForm">
+            <!-- Section 1: Applicant Details -->
+            <div class="section">
+                <div class="section-title">1️⃣ Applicant Details (Contractor Info)</div>
+                
+                <div class="form-group">
+                    <label for="companyName">Company Name</label>
+                    <input type="text" id="companyName" name="companyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="crNumber">Commercial Registration (CR) Number</label>
+                    <input type="text" id="crNumber" name="crNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vatNumber">VAT Number</label>
+                    <input type="text" id="vatNumber" name="vatNumber">
+                </div>
+
+                <div class="form-group">
+                    <label for="companyAddress">Company Address</label>
+                    <textarea id="companyAddress" name="companyAddress" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="cityCountry">City / Country</label>
+                    <input type="text" id="cityCountry" name="cityCountry" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contactPerson">Contact Person Name</label>
+                    <input type="text" id="contactPerson" name="contactPerson" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="designation">Designation</label>
+                    <input type="text" id="designation" name="designation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile">Mobile Number</label>
+                    <input type="tel" id="mobile" name="mobile" required>
+                </div>
+            </div>
+
+            <!-- Section 2: Business & Project Information -->
+            <div class="section">
+                <div class="section-title">2️⃣ Business & Project Information</div>
+                
+                <div class="form-group">
+                    <label>Business Type</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="contractor" name="businessType" value="Contractor">
+                            <label for="contractor">Contractor</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="subContractor" name="businessType" value="Sub-Contractor">
+                            <label for="subContractor">Sub-Contractor</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="supplier" name="businessType" value="Supplier">
+                            <label for="supplier">Supplier</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectName">Project Name</label>
+                    <input type="text" id="projectName" name="projectName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectLocation">Project Location</label>
+                    <input type="text" id="projectLocation" name="projectLocation" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="clientName">Client Name (End Client)</label>
+                    <input type="text" id="clientName" name="clientName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectStartDate">Project Start Date</label>
+                    <input type="date" id="projectStartDate" name="projectStartDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="projectCompletionDate">Project Expected Completion Date</label>
+                    <input type="date" id="projectCompletionDate" name="projectCompletionDate" required>
+                </div>
+            </div>
+
+            <!-- Section 3: Supplier Quotation Details -->
+            <div class="section">
+                <div class="section-title">3️⃣ Supplier Quotation Details (QTN)</div>
+                
+                <div class="form-group">
+                    <label for="supplierCompanyName">Supplier Company Name</label>
+                    <input type="text" id="supplierCompanyName" name="supplierCompanyName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quotationNumber">Quotation Number</label>
+                    <input type="text" id="quotationNumber" name="quotationNumber" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quotationDate">Quotation Date</label>
+                    <input type="date" id="quotationDate" name="quotationDate" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="quotationAmount">Quotation Total Amount</label>
+                    <input type="number" id="quotationAmount" name="quotationAmount" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="currency">Currency</label>
+                    <select id="currency" name="currency" required>
+                        <option value="">Select Currency</option>
+                        <option value="SAR">SAR</option>
+                        <option value="USD">USD</option>
+                        <option value="EUR">EUR</option>
+                        <option value="AED">AED</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentTerms">Payment Terms (from supplier)</label>
+                    <input type="text" id="paymentTerms" name="paymentTerms" placeholder="e.g. 30 days, 60 days, milestone-based" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="supplierQuotation">Upload Supplier Quotation (PDF/Image) ⬆️ Required</label>
+                    <input type="file" id="supplierQuotation" name="supplierQuotation" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+            </div>
+
+            <!-- Section 4: Funding Request Details -->
+            <div class="section">
+                <div class="section-title">4️⃣ Funding Request Details</div>
+                
+                <div class="form-group">
+                    <label for="fundingAmount">Funding Amount Requested</label>
+                    <input type="number" id="fundingAmount" name="fundingAmount" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Funding Purpose</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeMaterial" name="fundingPurpose" value="Material Purchase">
+                            <label for="purposeMaterial">Material Purchase</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeEquipment" name="fundingPurpose" value="Equipment">
+                            <label for="purposeEquipment">Equipment</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeManpower" name="fundingPurpose" value="Manpower">
+                            <label for="purposeManpower">Manpower</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeCashFlow" name="fundingPurpose" value="Project Cash Flow">
+                            <label for="purposeCashFlow">Project Cash Flow</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="purposeOther" name="fundingPurpose" value="Other">
+                            <label for="purposeOther">Other (Specify)</label>
+                        </div>
+                    </div>
+                    <input type="text" id="purposeOtherSpecify" name="purposeOtherSpecify" placeholder="Please specify" style="margin-top: 10px; display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Preferred Funding Duration</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="duration30" name="fundingDuration" value="30 Days">
+                            <label for="duration30">30 Days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="duration60" name="fundingDuration" value="60 Days">
+                            <label for="duration60">60 Days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="duration90" name="fundingDuration" value="90 Days">
+                            <label for="duration90">90 Days</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="durationCustom" name="fundingDuration" value="Custom">
+                            <label for="durationCustom">Custom (Specify)</label>
+                        </div>
+                    </div>
+                    <input type="text" id="durationCustomSpecify" name="durationCustomSpecify" placeholder="Please specify" style="margin-top: 10px; display: none;">
+                </div>
+
+                <div class="form-group">
+                    <label>Expected Repayment Source</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="repaymentClient" name="repaymentSource" value="Client Payment">
+                            <label for="repaymentClient">Client Payment</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="repaymentMilestone" name="repaymentSource" value="Project Milestone">
+                            <label for="repaymentMilestone">Project Milestone</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="repaymentRetention" name="repaymentSource" value="Retention Release">
+                            <label for="repaymentRetention">Retention Release</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Financial & Eligibility Information -->
+            <div class="section">
+                <div class="section-title">5️⃣ Financial & Eligibility Information</div>
+                
+                <div class="form-group">
+                    <label for="monthlyRevenue">Monthly Average Revenue</label>
+                    <input type="number" id="monthlyRevenue" name="monthlyRevenue" step="0.01" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Existing Loans or Funding</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" id="existingLoansYes" name="existingLoans" value="Yes">
+                            <label for="existingLoansYes">Yes</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="existingLoansNo" name="existingLoans" value="No">
+                            <label for="existingLoansNo">No</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="existingLoansDetails" style="display: none;">
+                    <div class="form-group">
+                        <label for="fundingCompanyName">Funding Company Name</label>
+                        <input type="text" id="fundingCompanyName" name="fundingCompanyName">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="outstandingAmount">Outstanding Amount</label>
+                        <input type="number" id="outstandingAmount" name="outstandingAmount" step="0.01">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="bankName">Bank Name</label>
+                    <input type="text" id="bankName" name="bankName" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="iban">IBAN / Account Number</label>
+                    <input type="text" id="iban" name="iban" required>
+                </div>
+            </div>
+
+            <!-- Section 6: Supporting Documents Upload -->
+            <div class="section">
+                <div class="section-title">6️⃣ Supporting Documents Upload</div>
+                
+                <div class="form-group">
+                    <label for="crDocument">⬆️ Commercial Registration (CR)</label>
+                    <input type="file" id="crDocument" name="crDocument" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="vatCertificate">⬆️ VAT Certificate</label>
+                    <input type="file" id="vatCertificate" name="vatCertificate" accept=".pdf,.jpg,.jpeg,.png">
+                </div>
+
+                <div class="form-group">
+                    <label for="bankStatement">⬆️ Bank Statement (Last 3–6 Months)</label>
+                    <input type="file" id="bankStatement" name="bankStatement" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="signatoryId">⬆️ Authorized Signatory ID</label>
+                    <input type="file" id="signatoryId" name="signatoryId" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="supplierQuotationDoc">⬆️ Supplier Quotation (mandatory)</label>
+                    <input type="file" id="supplierQuotationDoc" name="supplierQuotationDoc" accept=".pdf,.jpg,.jpeg,.png" required>
+                </div>
+            </div>
+
+            <!-- Section 7: Declaration & Consent -->
+            <div class="section">
+                <div class="section-title">7️⃣ Declaration & Consent</div>
+                
+                <div class="declaration">
+                    <div class="declaration-item">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="declaration1" name="declaration1" required>
+                            <label for="declaration1">I confirm that all information provided is true and accurate.</label>
+                        </div>
+                    </div>
+
+                    <div class="declaration-item">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="declaration2" name="declaration2" required>
+                            <label for="declaration2">I authorize the funding company to verify my company details and financial information.</label>
+                        </div>
+                    </div>
+
+                    <div class="signature-section">
+                        <div class="form-group">
+                            <label for="applicantName">Applicant Name:</label>
+                            <input type="text" id="applicantName" name="applicantName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="signature">Signature:</label>
+                            <input type="text" id="signature" name="signature" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="date">Date:</label>
+                            <input type="date" id="date" name="date" required>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+    </div>
+
+    <script>
+        // Show/hide conditional fields
+        document.getElementById('purposeOther').addEventListener('change', function() {
+            document.getElementById('purposeOtherSpecify').style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('durationCustom').addEventListener('change', function() {
+            document.getElementById('durationCustomSpecify').style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('existingLoansYes').addEventListener('change', function() {
+            document.getElementById('existingLoansDetails').style.display = this.checked ? 'block' : 'none';
+        });
+
+        document.getElementById('existingLoansNo').addEventListener('change', function() {
+            document.getElementById('existingLoansDetails').style.display = 'none';
+        });
+
+        // Form submission
+        document.getElementById('fundForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Form submitted successfully! (This is a demo - form data would be processed here)');
+        });
+    </script>
+</body>
+</html>
