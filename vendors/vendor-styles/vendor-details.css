@@ -1160,103 +1160,6 @@
   color: white;
 }
 
-<<<<<<< HEAD
-=======
-/* Social Accounts & E-commerce Styling */
-.social-card,
-.ecommerce-card {
-  grid-column: 1 / -1;
-}
-
-.social-accounts,
-.ecommerce-accounts {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-}
-
-.social-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px;
-  background: #f8fafc;
-  border-radius: 8px;
-  border: 1px solid #e5e7eb;
-  transition: all 0.3s ease;
-  flex: 1;
-  min-width: 250px;
-}
-
-.social-item:hover {
-  background: #f1f5f9;
-  box-shadow: 0 4px 12px rgba(152, 133, 209, 0.1);
-}
-
-.social-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 16px;
-}
-
-.social-icon.linkedin {
-  background: linear-gradient(135deg, #0077b5 0%, #005885 100%);
-}
-
-.social-icon.twitter {
-  background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%);
-}
-
-.social-icon.facebook {
-  background: linear-gradient(135deg, #4267b2 0%, #365899 100%);
-}
-
-.social-icon.instagram {
-  background: linear-gradient(135deg, #e4405f 0%, #c13584 100%);
-}
-
-.social-icon.whatsapp {
-  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
-}
-
-.social-details {
-  flex: 1;
-}
-
-.social-label {
-  font-size: 11px;
-  font-weight: 600;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 2px;
-}
-
-.social-value {
-  font-size: 13px;
-  font-weight: 500;
-  color: #1e293b;
-}
-
-.social-link {
-  color: #9885d1;
-  text-decoration: none;
-  padding: 8px;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.social-link:hover {
-  background: #9885d1;
-  color: white;
-}
-
->>>>>>> 6ff2d41ea13c926605df2d6e72a957527044292e
 /* E-commerce Accounts Styling */
 .ecommerce-item {
   display: flex;
@@ -1917,12 +1820,6 @@
     padding: 20px;
   }
   
-<<<<<<< HEAD
-=======
-  .social-item {
-    padding: 12px;
-  }
->>>>>>> 6ff2d41ea13c926605df2d6e72a957527044292e
 }
 
 /* Mobile responsive for products table */
