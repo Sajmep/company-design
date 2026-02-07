@@ -199,7 +199,7 @@
 /* ==================== List View Styles (TikTok Style) ==================== */
 .gallery-list-view {
   width: 100%;
-  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   background: #ffffff;
   overflow: hidden;
 }
@@ -322,7 +322,7 @@
   width: 100%;
   max-width: 600px;
   height: 100%;
-  max-height: calc(100vh - 40px);
+  max-height: calc(var(--vh, 1vh) * 100 - 40px);
   background: #ffffff;
   display: flex;
   flex-direction: column;
@@ -344,7 +344,7 @@
   width: 100%;
   height: 100%;
   min-height: 100%;
-  max-height: calc(100vh - 40px);
+  max-height: calc(var(--vh, 1vh) * 100 - 40px);
   display: flex;
   position: relative;
   justify-content: center;
@@ -535,7 +535,7 @@
 @media (max-width: 992px) {
   .gallery-list-view {
     height: auto;
-    min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100);
     overflow: visible;
   }
   .gallery-list-view .gallery-list-view-container {
@@ -615,6 +615,10 @@
   }
 }
 @media (max-width: 768px) {
+  .gallery-list-view {
+    height: calc(var(--vh, 1vh) * 100);
+    position: relative;
+  }
   .gallery-list-view .gallery-list-view-container .gallery-list-left-column .gallery-list-actions-box {
     padding: 0 8px;
   }
@@ -632,7 +636,7 @@
     left: auto;
     min-width: 180px;
     max-width: calc(100vw - 32px);
-    max-height: calc(100vh - 200px);
+    max-height: calc(var(--vh, 1vh) * 100 - 200px);
   }
   .gallery-list-view .gallery-list-view-container .gallery-list-left-column .gallery-list-actions-box .gallery-list-nav-menu .gallery-list-nav-item {
     padding: 10px 14px;
@@ -653,7 +657,7 @@
   }
   .gallery-list-view .gallery-list-view-container .gallery-list-middle-column .gallery-list-media-box {
     max-width: none;
-    max-height: calc(100vh - 80px);
+    max-height: calc(var(--vh, 1vh) * 100 - 80px);
     border-radius: 0;
   }
   .gallery-list-view .gallery-list-view-container .gallery-list-middle-column {
