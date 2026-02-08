@@ -7,7 +7,8 @@
     <title>Gallery</title>
 
     <link rel="stylesheet" href="../styles/scrollbar.css">
-    <link rel="stylesheet" href="css/views-container.css">
+    <link rel="stylesheet" href="css/quick-view.css">
+    <link rel="stylesheet" href="css/card-view.css">
     <link rel="stylesheet" href="css/image-preview.css">
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/toolbar.css">
@@ -384,41 +385,41 @@
         <!-- Card View End -->
 
         <!-- List View -->
-        <div class="gallery-list-view">
-            <div class="gallery-list-view-container">
+        <div class="quick-view">
+            <div class="quick-view-container">
                 <!-- Left Column - Action Buttons -->
-                <div class="gallery-list-left-column">
-                    <div class="gallery-list-actions-box">
+                <div class="quick-view-list-left-column">
+                    <div class="quick-view-list-actions-box">
                         <!-- Dropdown Toggle Button (Mobile) -->
-                        <button class="gallery-list-nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-label="Toggle navigation menu">
+                        <button class="quick-view-list-nav-dropdown-toggle" onclick="toggleNavDropdown()" aria-label="Toggle navigation menu">
                             <i class="fa fa-ellipsis-v"></i>
                         </button>
-                        <div class="gallery-list-nav-menu" id="galleryNavMenu">
-                            <div class="gallery-list-nav-item active">
+                        <div class="quick-view-list-nav-menu" id="quickViewNavMenu">
+                            <div class="quick-view-list-nav-item active">
                                 <i class="fa fa-home"></i>
                                 <span>Quick View</span>
                             </div>
-                            <div class="gallery-list-nav-item" onclick="switchView('card')">
+                            <div class="quick-view-list-nav-item" onclick="switchView('card')">
                                 <i class="fa fa-compass"></i>
                                 <span>Explore</span>
                             </div>
-                            <div class="gallery-list-nav-item">
+                            <div class="quick-view-list-nav-item">
                                 <i class="fa fa-image"></i>
                                 <span>Images</span>
                             </div>
-                            <div class="gallery-list-nav-item">
+                            <div class="quick-view-list-nav-item">
                                 <i class="fa fa-tv"></i>
                                 <span>Videos</span>
                             </div>
-                            <div class="gallery-list-nav-item">
+                            <div class="quick-view-list-nav-item">
                                 <i class="fa fa-users"></i>
                                 <span>Following</span>
                             </div>
-                            <div class="gallery-list-nav-item">
+                            <div class="quick-view-list-nav-item">
                                 <i class="fa fa-users"></i>
                                 <span>Profiles</span>
                             </div>
-                            <div class="gallery-list-nav-item">
+                            <div class="quick-view-list-nav-item">
                                 <i class="fa fa-ellipsis-h"></i>
                                 <span>More</span>
                             </div>
@@ -427,23 +428,30 @@
                 </div>
                 
                 <!-- Middle Column - Media Showcase -->
-                <div class="gallery-list-middle-column">
-                    <div class="gallery-list-media-box">
+                <div class="quick-view-list-middle-column">
+                    <div class="quick-view-list-media-box">
 
                         <!-- Post Container -->
-                        <div class="gallery-list-view-post">
+                        <div class="quick-view-post">
 
-                            <div class="gallery-list-view-post-container">
-                                <div class="gallery-list-view-post-player">
+                            <div class="quick-view-post-container">
+                                <div class="quick-view-post-player">
                                     <!-- Video will be displayed here -->
                                     <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
-                                    <video src="images/aaa.mp4" alt="Video" controls autoplay muted loop   playsinline class="gallery-list-view-post-video"></video>
+                                    <video src="images/aaa.mp4" alt="Video" controls autoplay muted loop   playsinline class="quick-view-post-video"></video>
                                 </div>
                                 
+                                <!-- Find Similar Button -->
+                                <button class="quick-view-find-similar-btn">
+                                    <i class="fa fa-search"></i>
+                                    <span>Find similar</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                                
                                 <!-- Overlay Info - Company Name and Caption -->
-                                <div class="gallery-list-view-post-overlay-info">
-                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
-                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                <div class="quick-view-post-overlay-info">
+                                    <div class="quick-view-post-username-overlay">Company Name</div>
+                                    <div class="quick-view-post-caption-overlay">Video description or caption will appear here...</div>
                                 </div>
                             </div>
                             
@@ -485,19 +493,26 @@
                         </div>
                         
                         <!-- Post Container -->
-                        <div class="gallery-list-view-post">
+                        <div class="quick-view-post">
 
-                            <div class="gallery-list-view-post-container">
-                                <div class="gallery-list-view-post-player">
+                            <div class="quick-view-post-container">
+                                <div class="quick-view-post-player">
                                     <!-- Video will be displayed here -->
                                     <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
-                                    <video src="images/123.mp4" alt="Video" controls autoplay muted loop class="gallery-list-view-post-video"></video>
+                                    <video src="images/123.mp4" alt="Video" controls autoplay muted loop class="quick-view-post-video"></video>
                                 </div>
                                 
+                                <!-- Find Similar Button -->
+                                <button class="quick-view-find-similar-btn">
+                                    <i class="fa fa-search"></i>
+                                    <span>Find similar</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                                
                                 <!-- Overlay Info - Company Name and Caption -->
-                                <div class="gallery-list-view-post-overlay-info">
-                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
-                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                <div class="quick-view-post-overlay-info">
+                                    <div class="quick-view-post-username-overlay">Company Name</div>
+                                    <div class="quick-view-post-caption-overlay">Video description or caption will appear here...</div>
                                 </div>
                             </div>
                             
@@ -539,19 +554,26 @@
                         </div>
                         
                         <!-- Post Container -->
-                        <div class="gallery-list-view-post">
+                        <div class="quick-view-post">
 
-                            <div class="gallery-list-view-post-container">
-                                <div class="gallery-list-view-post-player">
+                            <div class="quick-view-post-container">
+                                <div class="quick-view-post-player">
                                     <!-- Video will be displayed here -->
                                     <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
-                                    <video src="images/111.mp4" alt="Video" controls autoplay muted loop class="gallery-list-view-post-video"></video>
+                                    <video src="images/111.mp4" alt="Video" controls autoplay muted loop class="quick-view-post-video"></video>
                                 </div>
                                 
+                                <!-- Find Similar Button -->
+                                <button class="quick-view-find-similar-btn">
+                                    <i class="fa fa-search"></i>
+                                    <span>Find similar</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                                
                                 <!-- Overlay Info - Company Name and Caption -->
-                                <div class="gallery-list-view-post-overlay-info">
-                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
-                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                <div class="quick-view-post-overlay-info">
+                                    <div class="quick-view-post-username-overlay">Company Name</div>
+                                    <div class="quick-view-post-caption-overlay">Video description or caption will appear here...</div>
                                 </div>
                             </div>
                             
@@ -593,19 +615,26 @@
                         </div>
 
                         <!-- Post Container -->
-                        <div class="gallery-list-view-post">
+                        <div class="quick-view-post">
 
-                            <div class="gallery-list-view-post-container">
-                                <div class="gallery-list-view-post-player">
+                            <div class="quick-view-post-container">
+                                <div class="quick-view-post-player">
                                     <!-- Video will be displayed here -->
                                     <!-- <img src="images/Screenshot 2026-01-04 092540.png" alt="Video" class="gallery-video-image"> -->
-                                    <img src="images/gallery1.jpg" alt="Image" class="gallery-list-view-post-image">
+                                    <img src="images/gallery1.jpg" alt="Image" class="quick-view-post-image">
                                 </div>
                                 
+                                <!-- Find Similar Button -->
+                                <button class="quick-view-find-similar-btn">
+                                    <i class="fa fa-search"></i>
+                                    <span>Find similar</span>
+                                    <i class="fa fa-chevron-right"></i>
+                                </button>
+                                
                                 <!-- Overlay Info - Company Name and Caption -->
-                                <div class="gallery-list-view-post-overlay-info">
-                                    <div class="gallery-list-view-post-username-overlay">Company Name</div>
-                                    <div class="gallery-list-view-post-caption-overlay">Video description or caption will appear here...</div>
+                                <div class="quick-view-post-overlay-info">
+                                    <div class="quick-view-post-username-overlay">Company Name</div>
+                                    <div class="quick-view-post-caption-overlay">Video description or caption will appear here...</div>
                                 </div>
                             </div>
                             
@@ -649,18 +678,18 @@
                     </div>
                 </div>
                 
-                <div class="gallery-list-navigation-buttons">
-                    <button class="gallery-list-navigation-button">
+                <div class="quick-view-list-navigation-buttons">
+                    <button class="quick-view-list-navigation-button">
                         <i class="fa fa-chevron-up"></i>
                     </button>
-                    <button class="gallery-list-navigation-button">
+                    <button class="quick-view-list-navigation-button">
                         <i class="fa fa-chevron-down"></i>
                     </button>
                 </div>
                 
                 <!-- Right Column - Comments -->
-                <div class="gallery-list-right-column">
-                    <div class="gallery-list-comments-box">
+                <div class="quick-view-list-right-column">
+                    <div class="quick-view-list-comments-box">
                         <!-- Comments will go here -->
                     </div>
                 </div>
@@ -804,46 +833,101 @@
     <script src="scripts/views-container.js"></script>
     <script src="scripts/image-preview-modal.js"></script>
     <script src="scripts/share-popup.js"></script>
-    <script>
-        // Set actual viewport height to handle mobile browser address bar
-        function setViewportHeight() {
-            const vh = window.innerHeight * 0.01;
-            document.documentElement.style.setProperty('--vh', `${vh}px`);
-        }
+    <script src="scripts/list-view.js"></script>
 
-        // Set on load and resize
-        setViewportHeight();
-        window.addEventListener('resize', setViewportHeight);
-        window.addEventListener('orientationchange', setViewportHeight);
-
-        let lastScrollTop = 0;
-        window.addEventListener('scroll', function() {
-            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (Math.abs(scrollTop - lastScrollTop) > 5) {
-                setViewportHeight();
-                lastScrollTop = scrollTop;
-            }
-        }, false);
-
-        function toggleNavDropdown() {
-            const menu = document.getElementById('galleryNavMenu');
-            const toggle = document.querySelector('.gallery-list-nav-dropdown-toggle');
-            if (menu && toggle) {
-                menu.classList.toggle('gallery-nav-menu-open');
-                toggle.classList.toggle('gallery-nav-toggle-active');
-            }
-        }
-
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(event) {
-            const menu = document.getElementById('galleryNavMenu');
-            const toggle = document.querySelector('.gallery-list-nav-dropdown-toggle');
-            if (menu && toggle && !menu.contains(event.target) && !toggle.contains(event.target)) {
-                menu.classList.remove('gallery-nav-menu-open');
-                toggle.classList.remove('gallery-nav-toggle-active');
-            }
-        });
-    </script>
+    <!-- Find Similar Offcanvas -->
+    <div class="gallery-find-similar-offcanvas" id="gallery-find-similar-offcanvas">
+        <div class="gallery-find-similar-offcanvas-backdrop"></div>
+        <div class="gallery-find-similar-offcanvas-content">
+            <div class="gallery-find-similar-offcanvas-header">
+                <h3>Find Similar</h3>
+                <button class="gallery-find-similar-offcanvas-close" aria-label="Close">
+                    <i class="fa fa-times"></i>
+                </button>
+            </div>
+            <div class="gallery-find-similar-offcanvas-body">
+                <div class="gallery-find-similar-grid">
+                    <div class="gallery-find-similar-item">
+                        <div class="gallery-find-similar-item-image">
+                            <img src="images/gallery1.jpg" alt="Similar Image">
+                            <div class="gallery-find-similar-item-overlay">
+                                <i class="fa fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-find-similar-item-info">
+                            <div class="gallery-find-similar-item-title">Similar Project 1</div>
+                            <div class="gallery-find-similar-item-company">Company Name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-find-similar-item">
+                        <div class="gallery-find-similar-item-image">
+                            <img src="images/gallery2.jpg" alt="Similar Image">
+                            <div class="gallery-find-similar-item-overlay">
+                                <i class="fa fa-image"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-find-similar-item-info">
+                            <div class="gallery-find-similar-item-title">Similar Project 2</div>
+                            <div class="gallery-find-similar-item-company">Company Name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-find-similar-item">
+                        <div class="gallery-find-similar-item-image">
+                            <img src="images/gallery3.jpg" alt="Similar Image">
+                            <div class="gallery-find-similar-item-overlay">
+                                <i class="fa fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-find-similar-item-info">
+                            <div class="gallery-find-similar-item-title">Similar Project 3</div>
+                            <div class="gallery-find-similar-item-company">Company Name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-find-similar-item">
+                        <div class="gallery-find-similar-item-image">
+                            <img src="images/gallery4.jpg" alt="Similar Image">
+                            <div class="gallery-find-similar-item-overlay">
+                                <i class="fa fa-image"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-find-similar-item-info">
+                            <div class="gallery-find-similar-item-title">Similar Project 4</div>
+                            <div class="gallery-find-similar-item-company">Company Name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-find-similar-item">
+                        <div class="gallery-find-similar-item-image">
+                            <img src="images/gallery5.jpg" alt="Similar Image">
+                            <div class="gallery-find-similar-item-overlay">
+                                <i class="fa fa-play-circle"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-find-similar-item-info">
+                            <div class="gallery-find-similar-item-title">Similar Project 5</div>
+                            <div class="gallery-find-similar-item-company">Company Name</div>
+                        </div>
+                    </div>
+                    
+                    <div class="gallery-find-similar-item">
+                        <div class="gallery-find-similar-item-image">
+                            <img src="images/gallery1.jpg" alt="Similar Image">
+                            <div class="gallery-find-similar-item-overlay">
+                                <i class="fa fa-image"></i>
+                            </div>
+                        </div>
+                        <div class="gallery-find-similar-item-info">
+                            <div class="gallery-find-similar-item-title">Similar Project 6</div>
+                            <div class="gallery-find-similar-item-company">Company Name</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

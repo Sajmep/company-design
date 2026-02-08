@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const views = {
         dashboard: { element: document.querySelector('.gallery-dashboard-view'), display: 'block' },
         card: { element: document.querySelector('.gallery-card-view'), display: 'flex' },
-        list: { element: document.querySelector('.gallery-list-view'), display: 'flex' },
+        list: { element: document.querySelector('.quick-view'), display: 'flex' },
         calendar: { element: document.querySelector('.gallery-calendar-view'), display: 'block' },
         map: { element: document.querySelector('.gallery-map-view'), display: 'block' }
     };
@@ -34,9 +34,9 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     // Gallery List View Post Navigation (Reels Style)
-    const mediaBox = document.querySelector('.gallery-list-media-box');
-    const posts = document.querySelectorAll('.gallery-list-view-post');
-    const buttons = document.querySelectorAll('.gallery-list-navigation-button');
+    const mediaBox = document.querySelector('.quick-view-list-media-box');
+    const posts = document.querySelectorAll('.quick-view-post');
+    const buttons = document.querySelectorAll('.quick-view-list-navigation-button');
     
     if (mediaBox && posts.length > 0) {
         const getCurrentIndex = () => {
