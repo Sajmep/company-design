@@ -46,7 +46,7 @@
 .inquiries-cards .inquiry-card .header .title {
   font-weight: 700;
   color: var(--text);
-  font-size: 15px;
+  font-size: 14px;
   flex: 1;
 }
 .inquiries-cards .inquiry-card .header .status-badge {
@@ -55,12 +55,12 @@
   font-weight: 600;
   padding: 6px 10px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 11px;
   border: 1px solid #eef0f2;
 }
 .inquiries-cards .inquiry-card .desc {
   color: var(--muted);
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.6;
   margin-bottom: 14px;
 }
@@ -94,14 +94,14 @@
 .inquiries-cards .inquiry-card .meta .user .username {
   font-weight: 600;
   color: var(--text);
-  font-size: 14px;
+  font-size: 12px;
 }
 .inquiries-cards .inquiry-card .meta .date {
   display: flex;
   align-items: center;
   gap: 8px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 11px;
 }
 .inquiries-cards .inquiry-card .buttons {
   display: flex;
@@ -119,7 +119,7 @@
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 12px;
 }
 .inquiries-cards .inquiry-card .buttons .btn.btn-details {
   background: #eaecee;

@@ -4,6 +4,11 @@
   height: calc(var(--vh, 1vh) * 100); // Use dynamic viewport height for mobile
   background: #ffffff;
   overflow: hidden;
+  transition: padding-bottom 0.3s ease;
+
+  &.offcanvas-open {
+    padding-bottom: 55vh;
+  }
 
   .quick-view-container {
     display: flex;
@@ -137,7 +142,12 @@
         max-width: 600px;
         height: 100%;
         max-height: calc(calc(var(--vh, 1vh) * 100) - 40px);
+        transition: max-height 0.3s ease;
         background: #ffffff;
+
+        .quick-view.offcanvas-open & {
+          max-height: calc(calc(var(--vh, 1vh) * 100) - 55vh - 40px);
+        }
         display: flex;
         flex-direction: column;
         position: relative;
@@ -531,6 +541,10 @@
     height: calc(var(--vh, 1vh) * 100);
     position: relative;
 
+    &.offcanvas-open {
+      padding-bottom: 50vh;
+    }
+
     .quick-view-container {
       .quick-view-list-left-column {
         .quick-view-list-actions-box {
@@ -579,6 +593,11 @@
           max-width: none;
           max-height: calc(calc(var(--vh, 1vh) * 100) - 80px);
           border-radius: 0;
+          transition: max-height 0.3s ease;
+
+          .quick-view.offcanvas-open & {
+            max-height: calc(calc(var(--vh, 1vh) * 100) - 50vh - 80px);
+          }
         }
 
         /* Right actions overlay on the media */

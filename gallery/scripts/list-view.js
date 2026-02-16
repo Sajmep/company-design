@@ -57,18 +57,25 @@ document.addEventListener('click', function(event) {
 // Open offcanvas when clicking "Find similar" button
 function openFindSimilarOffcanvas() {
     const offcanvas = document.getElementById('gallery-find-similar-offcanvas');
+    const quickView = document.querySelector('.quick-view');
     if (offcanvas) {
         offcanvas.classList.add('show');
-        document.body.style.overflow = 'hidden';
+        if (quickView) {
+            quickView.classList.add('offcanvas-open');
+        }
+        // Don't prevent body scroll, allow both to be visible
     }
 }
 
 // Close offcanvas
 function closeFindSimilarOffcanvas() {
     const offcanvas = document.getElementById('gallery-find-similar-offcanvas');
+    const quickView = document.querySelector('.quick-view');
     if (offcanvas) {
         offcanvas.classList.remove('show');
-        document.body.style.overflow = '';
+        if (quickView) {
+            quickView.classList.remove('offcanvas-open');
+        }
     }
 }
 

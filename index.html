@@ -441,6 +441,111 @@
 
     <nav class="menu" role="menu" aria-label="Primary">
 
+      
+      <div class="item has-submenu" id="communicationsItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- organization icon -->
+            <img src="images/communications.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Communications</span>
+        </button>
+        <!-- Submenu (full-height) -->
+        <div class="submenu" role="menu" aria-label="Organization submenu">
+          <div class="submenu-top">
+            <button class="btn" style="margin:0;font-size:16px;padding:8px 16px;cursor:pointer;border:none;background-color:#007bff;color:#fff;border-radius:4px;width:100%;text-align:center; flex-direction: row; align-items: center; gap: 8px;"><i class="fa fa-plus"></i> Compose</button>
+          </div>
+
+          <div class="form-grid">
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/inbox.png" alt="" width="28px">
+                  Inbox
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Sent
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Promotions
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Leads
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  To Do
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/governance.png" alt="" width="28px">
+                Discussions
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Live Chat</a></li>
+                  <li><a href="#">Group Chat</a></li>
+                </ul>
+              </div>
+            </div>
+
+            
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Announcements
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/governance.png" alt="" width="28px">
+                Appointments
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Online Meetings</a></li>
+                  <li><a href="#">Schedual visits</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
       <div class="item has-submenu" id="orgItem">
         <button class="btn" aria-haspopup="true" aria-expanded="false">
           <span class="icon" aria-hidden>
@@ -480,6 +585,65 @@
               </div>
             </div>
 
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/assets-icon.png" alt="" width="28px">
+                  Assets
+                </h2>
+              </a>
+            </div>
+  
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/financial-icon.png" alt="" width="28px">
+                Finance
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Bills & Invoices</a></li>
+                  <li><a href="#">Payment & Received</a></li>
+                  <li><a href="#">Finance Settings</a></li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/business-straegy-icon.png" alt="" width="28px">
+                Business & Strategy
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Business Model</a></li>
+                  <li><a href="#">SWOT analysis</a></li>
+                  <li><a href="#">Audit</a></li>
+                  <li><a href="#">Risk Management</a></li>
+                  <li><a href="#">RCA</a></li>
+                </ul>
+              </div>
+            </div>
+  
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/hr-icon.png" alt="" width="28px">
+                HR & Workforce
+              </h2>
+  
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">HR Management</a></li>
+                  <li><a href="#">Payroll</a></li>
+                  <li><a href="#">Recruitments</a></li>
+                  <li><a href="#">Resource Allocation</a></li>
+                  <li><a href="#">Training</a></li>
+                  <li><a href="#">Compliance</a></li>
+                </ul>
+              </div>
+            </div>
+
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/sales-operations-icon.png" alt="" width="28px">
@@ -514,8 +678,21 @@
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/business-info-icon.png" alt="" width="28px">
+                Business Development
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Company Pre-qualification</a></li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/our-products-icon.png" alt="" width="28px">
-                Offering
+                Areas of Expertise
               </h2>
 
               <div class="checkbox-group collapsed ">
@@ -530,95 +707,64 @@
               </div>
             </div>
 
-            <div class="form-section submenu-uncollapsed">
-              <a href="#">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/marketing-icon.png" alt="" width="28px">
-                  Marketing
-                </h2>
-              </a>
-            </div>
+          </div>
 
-            <div class="form-section submenu-uncollapsed">
-              <a href="#">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/assets-icon.png" alt="" width="28px">
-                  Assets
-                </h2>
-              </a>
-            </div>
+        </div>
+      </div>
 
+      <div class="item has-submenu" id="appsItem">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <span class="icon" aria-hidden>
+            <!-- apps icon -->
+            <img src="images/myapps.png" alt="" class="sidebar-icons">
+          </span>
+          <span class="label">Apps</span>
+        </button>
+
+        <div class="submenu" role="menu" aria-label="Apps submenu">
+          <div class="submenu-top">
+            <h3 style="margin:0;font-size:16px">Apps</h3>
+          </div>
+
+          <div class="form-grid">
+  
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/financial-icon.png" alt="" width="28px">
-                Finance
+                <img src="images/marketing-icon.png" alt="" width="28px">
+                Marketing & Growth
               </h2>
-
+  
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
-                  <li><a href="#">Bills & Invoices</a></li>
-                  <li><a href="#">Payment & Received</a></li>
-                  <li><a href="#">Finance Settings</a></li>
+                  <li><a href="#">Gallery </a></li>
+                  <li><a href="#">SEO </a></li>
+                  <li><a href="#">Company Profile</a></li>
                 </ul>
               </div>
             </div>
-
-            <div class="form-section">
-              <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/business-straegy-icon.png" alt="" width="28px">
-                Business & Strategy
-              </h2>
-
-              <div class="checkbox-group collapsed ">
-                <ul class="subsubmenu">
-                  <li><a href="#">Business Model</a></li>
-                  <li><a href="#">SWOT analysis</a></li>
-                  <li><a href="#">Audit</a></li>
-                  <li><a href="#">Risk Management</a></li>
-                  <li><a href="#">RCA</a></li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="form-section">
-              <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/hr-icon.png" alt="" width="28px">
-                HR & Workforce
-              </h2>
-
-              <div class="checkbox-group collapsed ">
-                <ul class="subsubmenu">
-                  <li><a href="#">HR Management</a></li>
-                  <li><a href="#">Payroll</a></li>
-                  <li><a href="#">Recruitments</a></li>
-                  <li><a href="#">Resource Allocation</a></li>
-                  <li><a href="#">Training</a></li>
-                  <li><a href="#">Compliance</a></li>
-                </ul>
-              </div>
-            </div>
-
+  
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/crm-icon.png" alt="" width="28px">
                 CRM
               </h2>
-
+  
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
                   <li><a href="#">Leads</a></li>
+                  <li><a href="#">Customers</a></li>
                   <li><a href="#">Opportunities</a></li>
                   <li><a href="#">Visits</a></li>
                 </ul>
               </div>
             </div>
-
+  
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
                 <img src="images/sales-icon.png" alt="" width="28px">
                 Sales
               </h2>
-
+  
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
                   <li><a href="#">Quotations</a></li>
@@ -627,20 +773,119 @@
               </div>
             </div>
 
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  Project Management
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  Property Management
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  Task Management
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  Contract 
+                </h2>
+              </a>
+            </div>
+
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/marketing-icon.png" alt="" width="28px">
+                  Time Management 
+                </h2>
+              </a>
+            </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/marketing-icon.png" alt="" width="28px">
+                    Facility 
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/marketing-icon.png" alt="" width="28px">
+                    Risk 
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/marketing-icon.png" alt="" width="28px">
+                    Issue Management 
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/marketing-icon.png" alt="" width="28px">
+                    Quality Management
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/marketing-icon.png" alt="" width="28px">
+                    Events Management
+                  </h2>
+                </a>
+              </div>
+
+              <div class="form-section submenu-uncollapsed">
+                <a href="#">
+                  <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                    <img src="images/marketing-icon.png" alt="" width="28px">
+                    Tenders Management
+                  </h2>
+                </a>
+              </div>
+  
             <div class="form-section">
-
+  
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-
+  
                 <img src="images/procurement.png" alt="" width="28px">
-
+  
                 Procurements
               </h2>
               <!-- Company Name Box -->
-
+  
               <div class="checkbox-group collapsed">
-
+  
                 <ul class="subsubmenu">
-
+  
                   <li>
                     <a href="#" class="purchase-main-link" onclick="switchPurchaseTab('pr')">
                       <i class="fa fa-shopping-cart"></i>
@@ -665,33 +910,19 @@
                     </ul>
                   </li>
                   <li><a href="#">Tenders</a></li>
-
+                  <li><a href="#">Vendors</a></li>
+  
                 </ul>
-
+  
               </div>
-
+  
             </div>
 
           </div>
 
-        </div>
-      </div>
-
-      <div class="item has-submenu" id="appsItem">
-        <button class="btn" aria-haspopup="true" aria-expanded="false">
-          <span class="icon" aria-hidden>
-            <!-- apps icon -->
-            <img src="images/myapps.png" alt="" class="sidebar-icons">
-          </span>
-          <span class="label">Apps</span>
-        </button>
-
-        <div class="submenu" role="menu" aria-label="Apps submenu">
-          <div class="submenu-top">
-            <h3 style="margin:0;font-size:16px">Apps Hub</h3>
-          </div>
 
         </div>
+
       </div>
 
       <div class="item has-submenu" id="directoryItem">
@@ -702,7 +933,7 @@
           </span>
           <span class="label">Directory</span>
         </button>
-        <div class="submenu" role="menu" aria-label="Apps submenu">
+        <div class="submenu" role="menu" aria-label="Directory submenu">
           <div class="submenu-top">
             <h3 style="margin:0;font-size:16px">Directory</h3>
           </div>
@@ -862,71 +1093,114 @@
     </nav>
 
     <div class="bottom-area">
+      
       <div class="item has-submenu" id="supportItem">
         <button class="btn" id="settingsBtn">
           <span class="icon" aria-hidden>
             <!-- settings icon -->
             <img src="images/bmh-club.png" alt="" class="sidebar-icons">
           </span>
-          <span class="label">BMH Club</span>
+          <span class="label">Club</span>
         </button>
 
-        <!-- Submenu (full-height) -->
-        <div class="submenu" role="menu" aria-label="Organization submenu">
+         <!-- Submenu (full-height) -->
+         <div class="submenu" role="menu" aria-label="Organization submenu">
           <div class="submenu-top">
-            <h3 style="margin:0;font-size:16px">BMH Club</h3>
+            <h3 style="margin:0;font-size:16px">Club</h3>
           </div>
 
           <div class="form-grid">
 
-            <div class="form-section submenu-uncollapsed">
-              <a href="index.html">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/membership.png" alt="" width="28px">
-                  Membership
-                </h2>
-              </a>
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/governance.png" alt="" width="28px">
+                Memberships
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Seller Dashboard</a></li>
+                </ul>
+              </div>
             </div>
 
             <div class="form-section submenu-uncollapsed">
               <a href="#">
                 <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/subscription.png" alt="" width="28px">
-                  Subscription
-                </h2>
-              </a>
-            </div>
-
-            <div class="form-section submenu-uncollapsed">
-              <a href="#">
-                <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                  <img src="images/competition.png" alt="" width="28px">
-                  Competitions
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Competition
                 </h2>
               </a>
             </div>
 
             <div class="form-section">
               <h2 class="section-title collapsed " onclick="toggleSection(this)">
-                <img src="images/media-center.png" alt="" width="28px">
+                <img src="images/governance.png" alt="" width="28px">
                 Media Center
               </h2>
 
               <div class="checkbox-group collapsed ">
                 <ul class="subsubmenu">
                   <li><a href="#">Gallery</a></li>
-                  <li><a href="#">Blogs</a></li>
-                  <li><a href="#">e-Learning</a></li>
-                  <li><a href="#">Newsletters</a></li>
+                </ul>
+              </div>
+            </div>
+
+            
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  My affiliates
+                </h2>
+              </a>
+            </div>
+            
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Loyalty
+                </h2>
+              </a>
+            </div>
+            
+            <div class="form-section submenu-uncollapsed">
+              <a href="#">
+                <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                  <img src="images/overview-icon.png" alt="" width="28px">
+                  Entertainments
+                </h2>
+              </a>
+            </div>
+
+            
+            <div class="form-section">
+              <h2 class="section-title collapsed " onclick="toggleSection(this)">
+                <img src="images/governance.png" alt="" width="28px">
+                Games
+              </h2>
+
+              <div class="checkbox-group collapsed ">
+                <ul class="subsubmenu">
+                  <li><a href="#">Chess</a></li>
+                  <li><a href="#">Roulette</a></li>
+                  <li><a href="#">Slots</a></li>
+                  <li><a href="#">Table Games</a></li>
+                  <li><a href="#">Live Games</a></li>
+                  <li><a href="#">Virtual Games</a></li>
+                  <li><a href="#">Sports Betting</a></li>
+                  <li><a href="#">Lottery</a></li>
                 </ul>
               </div>
             </div>
 
           </div>
 
-
         </div>
       </div>
+
+
       <div class="item has-submenu" id="supportItem">
         <button class="btn" id="settingsBtn">
           <span class="icon" aria-hidden>

@@ -48,7 +48,7 @@
     .title {
       font-weight: 700;
       color: var(--text);
-      font-size: 15px;
+      font-size: 14px;
       flex: 1;
     }
 
@@ -58,14 +58,14 @@
       font-weight: 600;
       padding: 6px 10px;
       border-radius: 8px;
-      font-size: 13px;
+      font-size: 11px;
       border: 1px solid #eef0f2;
     }
   }
 
   .desc {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.6;
     margin-bottom: 14px;
   }
@@ -102,7 +102,7 @@
       .username {
         font-weight: 600;
         color: var(--text);
-        font-size: 14px;
+        font-size: 12px;
       }
     }
 
@@ -111,7 +111,7 @@
       align-items: center;
       gap: 8px;
       color: var(--muted);
-      font-size: 13px;
+      font-size: 11px;
     }
   }
 
@@ -131,7 +131,7 @@
       border-radius: 10px;
       font-weight: 600;
       cursor: pointer;
-      font-size: 13px;
+      font-size: 12px;
 
       &.btn-details {
         background: #eaecee;

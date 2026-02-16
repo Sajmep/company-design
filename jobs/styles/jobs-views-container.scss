@@ -1,0 +1,221 @@
+// Variables
+$primary-color: #012f6d;
+$yellow-color: #e6bb01;
+$red-color: #db0000;
+$text-color: #0f172a;
+$text-muted: #64748b;
+$border-color: #e2e8f0;
+$bg-light: #f8fafc;
+$bg-white: #ffffff;
+$bg-hover: #f0f4f9;
+$border-radius: 8px;
+$border-radius-lg: 12px;
+$shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+$transition: all 0.2s ease;
+
+// Font Sizes (following guidelines)
+$font-toolbar-heading: 18px;
+$font-item-title: 14px;
+$font-button-text: 12px;
+$font-description: 12px;
+$font-icon: 14px;
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.views-container {
+  background: #ffffff;
+  padding: 0 5%;
+  height: 88%;
+  overflow-y: auto;
+}
+
+/* ==================== Card View Styles ==================== */
+.bmh-jobs-card-view {
+  padding: 20px;
+  padding-top: 8px;
+  background: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+
+  .job-card {
+    background: $bg-white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 20px;
+    width: 100%;
+    max-width: 360px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: $transition;
+
+    &:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .job-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+
+
+      .job-card-company-logo {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #f1f5f9;
+        border: 1px solid $border-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        flex-shrink: 0;
+
+        img {
+          width: 28px;
+          height: 28px;
+          object-fit: contain;
+        }
+      }
+
+      .job-card-save-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 14px;
+        border: 1px solid $border-color;
+        background: $bg-white;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 500;
+        color: $text-color;
+        cursor: pointer;
+        transition: $transition;
+
+        &:hover {
+          border-color: #cbd5e1;
+          background: $bg-light;
+        }
+
+        &.saved {
+          background: $text-color;
+          border-color: $text-color;
+          color: $bg-white;
+        }
+      }
+
+      .job-card-save-icon {
+        font-size: 14px;
+      }
+    }
+
+    .job-card-company-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+
+
+      .job-card-company-name {
+        font-size: 14px;
+        font-weight: 700;
+        color: $text-color;
+      }
+
+      .job-card-time {
+        font-size: 12px;
+        color: $text-muted;
+      }
+
+    }
+
+    .job-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: $text-color;
+      line-height: 1.3;
+      margin: 0;
+    }
+
+    .job-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+
+
+      .job-card-tag {
+        display: inline-block;
+        padding: 4px 10px;
+        background: #f1f5f9;
+        border-radius: 6px;
+        font-size: 12px;
+        color: $text-color;
+        font-weight: 500;
+      }
+
+    }
+
+    .job-card-footer {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: auto;
+      padding-top: 4px;
+
+
+      .job-card-compensation-block {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+
+        .job-card-compensation {
+          font-size: 15px;
+          font-weight: 700;
+          color: $text-color;
+        }
+
+        .job-card-location {
+          font-size: 12px;
+          color: $text-muted;
+        }
+
+      }
+
+      .job-card-apply-btn {
+        padding: 10px 20px;
+        background: $text-color;
+        color: $bg-white;
+        border: none;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: $transition;
+        flex-shrink: 0;
+
+        &:hover {
+          background: #1e293b;
+        }
+      }
+    }
+  }
+}
+
+/* ==================== List View Styles ==================== */

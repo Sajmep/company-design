@@ -4,6 +4,10 @@
   height: calc(var(--vh, 1vh) * 100);
   background: #ffffff;
   overflow: hidden;
+  transition: padding-bottom 0.3s ease;
+}
+.quick-view.offcanvas-open {
+  padding-bottom: 55vh;
 }
 .quick-view .quick-view-container {
   display: flex;
@@ -125,7 +129,13 @@
   max-width: 600px;
   height: 100%;
   max-height: calc(var(--vh, 1vh) * 100 - 40px);
+  transition: max-height 0.3s ease;
   background: #ffffff;
+}
+.quick-view.offcanvas-open .quick-view .quick-view-container .quick-view-list-middle-column .quick-view-list-media-box {
+  max-height: calc(var(--vh, 1vh) * 100 - 55vh - 40px);
+}
+.quick-view .quick-view-container .quick-view-list-middle-column .quick-view-list-media-box {
   display: flex;
   flex-direction: column;
   position: relative;
@@ -470,6 +480,9 @@
     height: calc(var(--vh, 1vh) * 100);
     position: relative;
   }
+  .quick-view.offcanvas-open {
+    padding-bottom: 50vh;
+  }
   .quick-view .quick-view-container .quick-view-list-left-column .quick-view-list-actions-box {
     padding: 0 8px;
   }
@@ -510,6 +523,10 @@
     max-width: none;
     max-height: calc(var(--vh, 1vh) * 100 - 80px);
     border-radius: 0;
+    transition: max-height 0.3s ease;
+  }
+  .quick-view.offcanvas-open .quick-view .quick-view-container .quick-view-list-middle-column .quick-view-list-media-box {
+    max-height: calc(var(--vh, 1vh) * 100 - 50vh - 80px);
   }
   .quick-view .quick-view-container .quick-view-list-middle-column {
     /* Right actions overlay on the media */
