@@ -158,8 +158,8 @@
 .apply-popup .apply-popup-body .apply-popup-form .apply-popup-actions .apply-popup-next-btn:hover {
   background: #004182;
 }
-.apply-popup .apply-popup-body .apply-popup-step-2 .apply-popup-section-heading {
-  margin-top: 0;
+.apply-popup .apply-popup-body {
+  /* Step 2: CV / Resume */
 }
 .apply-popup .apply-popup-body .apply-popup-step-desc {
   font-size: 14px;
@@ -193,50 +193,50 @@
 .apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-radio:checked + .apply-popup-cv-option-content {
   color: #012f6d;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-option-content {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content {
   display: flex;
   flex-direction: column;
   gap: 2px;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-icon {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content .apply-popup-cv-icon {
   font-size: 18px;
   color: #64748b;
   margin-bottom: 4px;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) {
   border-color: #012f6d;
   background: rgba(1, 47, 109, 0.06);
 }
-.apply-popup .apply-popup-body .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) .apply-popup-cv-icon {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) .apply-popup-cv-icon {
   color: #012f6d;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) .apply-popup-cv-label {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) .apply-popup-cv-label {
   font-weight: 600;
   color: #012f6d;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-label {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content .apply-popup-cv-label {
   font-size: 15px;
   font-weight: 500;
   color: #0f172a;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-hint {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-option-content .apply-popup-cv-hint {
   font-size: 13px;
   color: #64748b;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-existing-select,
-.apply-popup .apply-popup-body .apply-popup-cv-upload-wrap {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-existing-select,
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-upload-wrap {
   margin-left: 28px;
   margin-bottom: 8px;
 }
-.apply-popup .apply-popup-body .apply-popup-cv-select-label,
-.apply-popup .apply-popup-body .apply-popup-cv-upload-label {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-select-label,
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-cv-upload-label {
   display: block;
   font-size: 13px;
   font-weight: 500;
   color: #475569;
   margin-bottom: 6px;
 }
-.apply-popup .apply-popup-body .apply-popup-select {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-select {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #e2e8f0;
@@ -246,17 +246,17 @@
   background: #fff;
   box-sizing: border-box;
 }
-.apply-popup .apply-popup-body .apply-popup-select:focus {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-select:focus {
   outline: none;
   border-color: #012f6d;
 }
-.apply-popup .apply-popup-body .apply-popup-file {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-file {
   width: 100%;
   padding: 8px 0;
   font-size: 14px;
   color: #475569;
 }
-.apply-popup .apply-popup-body .apply-popup-file-name {
+.apply-popup .apply-popup-body .apply-popup-cv-option .apply-popup-file-name {
   display: block;
   font-size: 13px;
   color: #64748b;
@@ -268,7 +268,7 @@
   flex-wrap: wrap;
   gap: 12px;
 }
-.apply-popup .apply-popup-body .apply-popup-back-btn {
+.apply-popup .apply-popup-body .apply-popup-actions--step2 .apply-popup-back-btn {
   padding: 10px 20px;
   background: transparent;
   color: #64748b;
@@ -279,11 +279,11 @@
   cursor: pointer;
   transition: border-color 0.2s ease, color 0.2s ease;
 }
-.apply-popup .apply-popup-body .apply-popup-back-btn:hover {
+.apply-popup .apply-popup-body .apply-popup-actions--step2 .apply-popup-back-btn:hover {
   border-color: #cbd5e1;
   color: #0f172a;
 }
-.apply-popup .apply-popup-body .apply-popup-submit-btn {
+.apply-popup .apply-popup-body .apply-popup-actions--step2 .apply-popup-submit-btn {
   padding: 10px 24px;
   background: #012f6d;
   color: #fff;
@@ -294,7 +294,7 @@
   cursor: pointer;
   transition: background 0.2s ease;
 }
-.apply-popup .apply-popup-body .apply-popup-submit-btn:hover {
+.apply-popup .apply-popup-body .apply-popup-actions--step2 .apply-popup-submit-btn:hover {
   background: #004182;
 }
 

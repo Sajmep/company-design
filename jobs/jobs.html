@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/jobs-views-container.css">
+    <link rel="stylesheet" href="css/toolbar.css">
+    <link rel="stylesheet" href="css/apply-popup.css">
+
+    <link rel="stylesheet" href="styles/scrollbar.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <title>Jobs</title>
+</head>
+
+<body>
+
+    <div class="toolbar">
+
+        <div class="toolbar-title">
+            <h2>Jobs</h2>
+        </div>
+        <div class="toolbar-controls">
+            <div class="toolbar-search">
+                <input type="text" class="toolbar-search-input" placeholder="Search brands...">
+                <i class="fa fa-search toolbar-search-icon"></i>
+                <i class="fa fa-times toolbar-search-close"></i>
+            </div>
+
+            <div class="toolbar-actions">
+           
+                <div class="views-toggle">
+                    <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+                        <i class="fa fa-th-large views-toggle-icon"></i>
+                        <i class="fa fa-chevron-down views-toggle-arrow"></i>
+                    </button>
+                    <div class="views-toggle-dropdown" id="viewsDropdown">
+                        <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard View</span>
+                        </div>
+                        <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                            <i class="fa fa-th-large"></i>
+                            <span>Card View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                            <i class="fa fa-list"></i>
+                            <span>List View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                            <i class="fa fa-calendar"></i>
+                            <span>Calendar View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                            <i class="fa fa-map"></i>
+                            <span>Map View</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toolbar-group-by">
+                    <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                        <i class="fa fa-sitemap"></i>
+                        <span class="btn-text">Group By</span>
+                    </button>
+                    <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+                        <!-- <div class="toolbar-group-by-item" data-value="status">
+                  <i class="fa fa-flag"></i>
+                  Status
+                </div>
+                <div class="toolbar-group-by-item" data-value="category">
+                  <i class="fa fa-tags"></i>
+                  Category
+                </div>
+                <div class="toolbar-group-by-item" data-value="location">
+                  <i class="fa fa-map-marker"></i>
+                  Location
+                </div> -->
+                    </div>
+                </div>
+
+                <button class="toolbar-filter-btn" title="Filter">
+                    <i class="fa fa-filter"></i>
+                    <span class="btn-text">Filter</span>
+                </button>
+
+
+                <button class="toolbar-primary-btn" title="Add Brand">
+                    <i class="fa fa-plus"></i>
+                    <span class="btn-text">Add</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="views-container">
+        <!-- Card View -->
+        <div class="bmh-jobs-card-view">
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-card-company-logo">
+                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep">
+                    </div>
+                    <button type="button" class="job-card-save-btn" aria-label="Save job">
+                        <i class="fa fa-bookmark-o job-card-save-icon"></i>
+                        <span class="job-card-save-text">Save</span>
+                    </button>
+                </div>
+                <div class="job-card-company-row">
+                    <span class="job-card-company-name">Sajmep</span>
+                    <span class="job-card-time">5 days ago</span>
+                </div>
+                <h3 class="job-card-title">Senior UI/UX Designer</h3>
+                <div class="job-card-tags">
+                    <span class="job-card-tag">Part-time</span>
+                    <span class="job-card-tag">Senior level</span>
+                    <span class="job-card-tag">Remote</span>
+                </div>
+                <div class="job-card-footer">
+                    <div class="job-card-compensation-block">
+                        <span class="job-card-compensation">$120/hr</span>
+                        <span class="job-card-location">Riyadh, Saudi Arabia</span>
+                    </div>
+                    <button type="button" class="job-card-apply-btn">Apply now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-card-company-logo">
+                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep">
+                    </div>
+                    <button type="button" class="job-card-save-btn" aria-label="Save job">
+                        <i class="fa fa-bookmark-o job-card-save-icon"></i>
+                        <span class="job-card-save-text">Save</span>
+                    </button>
+                </div>
+                <div class="job-card-company-row">
+                    <span class="job-card-company-name">Sajmep</span>
+                    <span class="job-card-time">5 days ago</span>
+                </div>
+                <h3 class="job-card-title">Senior UI/UX Designer</h3>
+                <div class="job-card-tags">
+                    <span class="job-card-tag">Part-time</span>
+                    <span class="job-card-tag">Senior level</span>
+                    <span class="job-card-tag">Remote</span>
+                </div>
+                <div class="job-card-footer">
+                    <div class="job-card-compensation-block">
+                        <span class="job-card-compensation">$120/hr</span>
+                        <span class="job-card-location">Riyadh, Saudi Arabia</span>
+                    </div>
+                    <button type="button" class="job-card-apply-btn">Apply now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-card-company-logo">
+                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep">
+                    </div>
+                    <button type="button" class="job-card-save-btn" aria-label="Save job">
+                        <i class="fa fa-bookmark-o job-card-save-icon"></i>
+                        <span class="job-card-save-text">Save</span>
+                    </button>
+                </div>
+                <div class="job-card-company-row">
+                    <span class="job-card-company-name">Sajmep</span>
+                    <span class="job-card-time">5 days ago</span>
+                </div>
+                <h3 class="job-card-title">Senior UI/UX Designer</h3>
+                <div class="job-card-tags">
+                    <span class="job-card-tag">Part-time</span>
+                    <span class="job-card-tag">Senior level</span>
+                    <span class="job-card-tag">Remote</span>
+                </div>
+                <div class="job-card-footer">
+                    <div class="job-card-compensation-block">
+                        <span class="job-card-compensation">$120/hr</span>
+                        <span class="job-card-location">Riyadh, Saudi Arabia</span>
+                    </div>
+                    <button type="button" class="job-card-apply-btn">Apply now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-card-company-logo">
+                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep">
+                    </div>
+                    <button type="button" class="job-card-save-btn" aria-label="Save job">
+                        <i class="fa fa-bookmark-o job-card-save-icon"></i>
+                        <span class="job-card-save-text">Save</span>
+                    </button>
+                </div>
+                <div class="job-card-company-row">
+                    <span class="job-card-company-name">Sajmep</span>
+                    <span class="job-card-time">5 days ago</span>
+                </div>
+                <h3 class="job-card-title">Senior UI/UX Designer</h3>
+                <div class="job-card-tags">
+                    <span class="job-card-tag">Part-time</span>
+                    <span class="job-card-tag">Senior level</span>
+                    <span class="job-card-tag">Remote</span>
+                </div>
+                <div class="job-card-footer">
+                    <div class="job-card-compensation-block">
+                        <span class="job-card-compensation">$120/hr</span>
+                        <span class="job-card-location">Riyadh, Saudi Arabia</span>
+                    </div>
+                    <button type="button" class="job-card-apply-btn">Apply now</button>
+                </div>
+            </div>
+
+            <div class="job-card">
+                <div class="job-card-header">
+                    <div class="job-card-company-logo">
+                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep">
+                    </div>
+                    <button type="button" class="job-card-save-btn" aria-label="Save job">
+                        <i class="fa fa-bookmark-o job-card-save-icon"></i>
+                        <span class="job-card-save-text">Save</span>
+                    </button>
+                </div>
+                <div class="job-card-company-row">
+                    <span class="job-card-company-name">Techultra Solutions</span>
+                    <span class="job-card-time">5 days ago</span>
+                </div>
+                <h3 class="job-card-title">Senior UI/UX Designer</h3>
+                <div class="job-card-tags">
+                    <span class="job-card-tag">Part-time</span>
+                    <span class="job-card-tag">Senior level</span>
+                    <span class="job-card-tag">Remote</span>
+                </div>
+                <div class="job-card-footer">
+                    <div class="job-card-compensation-block">
+                        <span class="job-card-compensation">$120/hr</span>
+                        <span class="job-card-location">Riyadh, Saudi Arabia</span>
+                    </div>
+                    <button type="button" class="job-card-apply-btn">Apply now</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- List View -->
+        <div class="bmh-jobs-list-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span>
+            </h2>
+        </div>
+
+        <!-- Dashboard View -->
+        <div class="bmh-jobs-dashboard-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span>
+            </h2>
+        </div>
+
+        <!-- Calendar View -->
+        <div class="bmh-jobs-calendar-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span></h2>
+        </div>
+
+        <!-- Map View -->
+        <div class="bmh-jobs-map-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+        </div>
+
+    </div>
+
+    <!-- Apply popup -->
+    <div class="apply-popup-overlay" id="applyPopupOverlay" aria-hidden="true">
+        <div class="apply-popup">
+            <button type="button" class="apply-popup-close" id="applyPopupClose" aria-label="Close">
+                <i class="fa fa-times"></i>
+            </button>
+            <div class="apply-popup-body">
+                <h2 class="apply-popup-title" id="applyPopupTitle">Apply to Sajmep</h2>
+
+                <!-- Step 1: Contact info -->
+                <div class="apply-popup-step apply-popup-step-1" id="applyPopupStep1">
+                    <section class="apply-popup-contact">
+                        <h3 class="apply-popup-section-heading">Contact info</h3>
+                        <div class="apply-popup-profile">
+                            <div class="apply-popup-photo">
+                                <img src="images/job-seekers/mike.png" alt="" id="applyPopupPhoto">
+                            </div>
+                            <div class="apply-popup-info">
+                                <div class="apply-popup-name" id="applyPopupName">Fazli Elahi</div>
+                                <div class="apply-popup-job-title" id="applyPopupJobTitle">Full-Stack Web Developer</div>
+                                <div class="apply-popup-location" id="applyPopupLocation">Riyadh, Saudi Arabia</div>
+                            </div>
+                        </div>
+                    </section>
+                    <form class="apply-popup-form" id="applyPopupForm">
+                        <div class="apply-popup-field">
+                            <label for="applyPopupEmail">Email address <span class="apply-popup-required">*</span></label>
+                            <input type="email" id="applyPopupEmail" name="email" placeholder="your@email.com" required value="fazli@gmail.com">
+                        </div>
+                        <div class="apply-popup-field">
+                            <label for="applyPopupMobile">Mobile <span class="apply-popup-required">*</span></label>
+                            <input type="tel" id="applyPopupMobile" name="mobile" placeholder="e.g. +966 510 568 962" required value="+966 510 568 962">
+                        </div>
+                        <div class="apply-popup-actions">
+                            <button type="button" class="apply-popup-next-btn" id="applyPopupNextBtn">Next</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 2: CV / Resume -->
+                <div class="apply-popup-step apply-popup-step-2" id="applyPopupStep2" hidden>
+                    <h3 class="apply-popup-section-heading">Resume / CV</h3>
+                    <p class="apply-popup-step-desc">Choose how you want to submit your CV.</p>
+                    <div class="apply-popup-cv-options">
+                        <label class="apply-popup-cv-option apply-popup-cv-option--existing">
+                            <input type="radio" name="cvSource" value="existing" class="apply-popup-cv-radio">
+                            <span class="apply-popup-cv-option-content">
+                                <i class="fa fa-folder-open apply-popup-cv-icon"></i>
+                                <span class="apply-popup-cv-label">Select from existing</span>
+                                <span class="apply-popup-cv-hint">Use a CV you’ve saved before</span>
+                            </span>
+                        </label>
+                        <div class="apply-popup-cv-existing-select" id="applyPopupExistingWrap" hidden>
+                            <label for="applyPopupExistingCV" class="apply-popup-cv-select-label">Choose a CV</label>
+                            <select id="applyPopupExistingCV" class="apply-popup-select">
+                                <option value="">— Select —</option>
+                                <option value="1">Fazli Elahi – Web Developer (2024)</option>
+                                <option value="2">Fazli Elahi – Full-Stack (2023)</option>
+                            </select>
+                        </div>
+                        <label class="apply-popup-cv-option apply-popup-cv-option--create">
+                            <input type="radio" name="cvSource" value="create" class="apply-popup-cv-radio">
+                            <span class="apply-popup-cv-option-content">
+                                <i class="fa fa-pencil apply-popup-cv-icon"></i>
+                                <span class="apply-popup-cv-label">Create new</span>
+                                <span class="apply-popup-cv-hint">Build a new CV in the editor</span>
+                            </span>
+                        </label>
+                        <label class="apply-popup-cv-option apply-popup-cv-option--upload">
+                            <input type="radio" name="cvSource" value="upload" class="apply-popup-cv-radio">
+                            <span class="apply-popup-cv-option-content">
+                                <i class="fa fa-upload apply-popup-cv-icon"></i>
+                                <span class="apply-popup-cv-label">Upload PDF</span>
+                                <span class="apply-popup-cv-hint">Upload a PDF file from your device</span>
+                            </span>
+                        </label>
+                        <div class="apply-popup-cv-upload-wrap" id="applyPopupUploadWrap" hidden>
+                            <label for="applyPopupPdf" class="apply-popup-cv-upload-label">Choose PDF file</label>
+                            <input type="file" id="applyPopupPdf" class="apply-popup-file" accept=".pdf">
+                            <span class="apply-popup-file-name" id="applyPopupFileName"></span>
+                        </div>
+                    </div>
+                    <div class="apply-popup-actions apply-popup-actions--step2">
+                        <button type="button" class="apply-popup-back-btn" id="applyPopupBackBtn">Back</button>
+                        <button type="button" class="apply-popup-submit-btn" id="applyPopupSubmitBtn">Submit application</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/toolbar.js"></script>
+    <script src="scripts/views-container.js"></script>
+    <script src="scripts/apply-popup.js"></script>
+
+</body>
+
+</html>

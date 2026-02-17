@@ -182,12 +182,7 @@
       }
     }
 
-    // Step 2: CV options
-    .apply-popup-step-2 {
-      .apply-popup-section-heading {
-        margin-top: 0;
-      }
-    }
+    /* Step 2: CV / Resume */
 
     .apply-popup-step-desc {
       font-size: 14px;
@@ -222,91 +217,93 @@
         flex-shrink: 0;
       }
 
-      .apply-popup-cv-radio:checked + .apply-popup-cv-option-content {
-        color: #012f6d;
-      }
-    }
-
-    .apply-popup-cv-option-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-    }
-
-    .apply-popup-cv-icon {
-      font-size: 18px;
-      color: #64748b;
-      margin-bottom: 4px;
-    }
-
-    .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) {
-      border-color: #012f6d;
-      background: rgba(1, 47, 109, 0.06);
-
-      .apply-popup-cv-icon {
+      .apply-popup-cv-radio:checked+.apply-popup-cv-option-content {
         color: #012f6d;
       }
 
-      .apply-popup-cv-label {
-        font-weight: 600;
-        color: #012f6d;
+      .apply-popup-cv-option-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+
+        .apply-popup-cv-icon {
+          font-size: 18px;
+          color: #64748b;
+          margin-bottom: 4px;
+        }
+
+        .apply-popup-cv-option:has(.apply-popup-cv-radio:checked) {
+          border-color: #012f6d;
+          background: rgba(1, 47, 109, 0.06);
+
+          .apply-popup-cv-icon {
+            color: #012f6d;
+          }
+
+          .apply-popup-cv-label {
+            font-weight: 600;
+            color: #012f6d;
+          }
+        }
+
+        .apply-popup-cv-label {
+          font-size: 15px;
+          font-weight: 500;
+          color: #0f172a;
+        }
+
+        .apply-popup-cv-hint {
+          font-size: 13px;
+          color: #64748b;
+        }
+
       }
-    }
 
-    .apply-popup-cv-label {
-      font-size: 15px;
-      font-weight: 500;
-      color: #0f172a;
-    }
-
-    .apply-popup-cv-hint {
-      font-size: 13px;
-      color: #64748b;
-    }
-
-    .apply-popup-cv-existing-select,
-    .apply-popup-cv-upload-wrap {
-      margin-left: 28px;
-      margin-bottom: 8px;
-    }
-
-    .apply-popup-cv-select-label,
-    .apply-popup-cv-upload-label {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
-      color: #475569;
-      margin-bottom: 6px;
-    }
-
-    .apply-popup-select {
-      width: 100%;
-      padding: 10px 12px;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      font-size: 14px;
-      color: #0f172a;
-      background: #fff;
-      box-sizing: border-box;
-
-      &:focus {
-        outline: none;
-        border-color: #012f6d;
+      .apply-popup-cv-existing-select,
+      .apply-popup-cv-upload-wrap {
+        margin-left: 28px;
+        margin-bottom: 8px;
       }
-    }
 
-    .apply-popup-file {
-      width: 100%;
-      padding: 8px 0;
-      font-size: 14px;
-      color: #475569;
-    }
+      .apply-popup-cv-select-label,
+      .apply-popup-cv-upload-label {
+        display: block;
+        font-size: 13px;
+        font-weight: 500;
+        color: #475569;
+        margin-bottom: 6px;
+      }
 
-    .apply-popup-file-name {
-      display: block;
-      font-size: 13px;
-      color: #64748b;
-      margin-top: 4px;
+      .apply-popup-select {
+        width: 100%;
+        padding: 10px 12px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        font-size: 14px;
+        color: #0f172a;
+        background: #fff;
+        box-sizing: border-box;
+
+        &:focus {
+          outline: none;
+          border-color: #012f6d;
+        }
+      }
+
+      .apply-popup-file {
+        width: 100%;
+        padding: 8px 0;
+        font-size: 14px;
+        color: #475569;
+      }
+
+      .apply-popup-file-name {
+        display: block;
+        font-size: 13px;
+        color: #64748b;
+        margin-top: 4px;
+      }
     }
 
     .apply-popup-actions--step2 {
@@ -314,38 +311,39 @@
       justify-content: space-between;
       flex-wrap: wrap;
       gap: 12px;
-    }
 
-    .apply-popup-back-btn {
-      padding: 10px 20px;
-      background: transparent;
-      color: #64748b;
-      border: 1px solid #e2e8f0;
-      border-radius: 24px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: border-color 0.2s ease, color 0.2s ease;
 
-      &:hover {
-        border-color: #cbd5e1;
-        color: #0f172a;
+      .apply-popup-back-btn {
+        padding: 10px 20px;
+        background: transparent;
+        color: #64748b;
+        border: 1px solid #e2e8f0;
+        border-radius: 24px;
+        font-size: 15px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: border-color 0.2s ease, color 0.2s ease;
+
+        &:hover {
+          border-color: #cbd5e1;
+          color: #0f172a;
+        }
       }
-    }
 
-    .apply-popup-submit-btn {
-      padding: 10px 24px;
-      background: #012f6d;
-      color: #fff;
-      border: none;
-      border-radius: 24px;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s ease;
+      .apply-popup-submit-btn {
+        padding: 10px 24px;
+        background: #012f6d;
+        color: #fff;
+        border: none;
+        border-radius: 24px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s ease;
 
-      &:hover {
-        background: #004182;
+        &:hover {
+          background: #004182;
+        }
       }
     }
   }
