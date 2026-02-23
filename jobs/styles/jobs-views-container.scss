@@ -152,6 +152,16 @@ body {
       margin: 0;
     }
 
+    .job-card-title-link {
+      color: inherit;
+      text-decoration: none;
+
+      &:hover {
+        color: $primary-color;
+        text-decoration: underline;
+      }
+    }
+
     .job-card-tags {
       display: flex;
       flex-wrap: wrap;
