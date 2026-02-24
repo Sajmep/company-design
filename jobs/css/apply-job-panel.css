@@ -1,22 +1,3 @@
-// Job Details page – uses project colors
-$primary: #012f6d;
-$primary-hover: #004182;
-$text: #0f172a;
-$text-muted: #64748b;
-$border: #e2e8f0;
-$bg-light: #f8fafc;
-$bg-white: #fff;
-
-// Font Sizes 
-$font-toolbar-heading: 18px;
-$font-item-title: 14px;
-$font-button-text: 12px;
-$font-description: 12px;
-$font-icon: 14px;
-
-
-
-// Apply offcanvas (right side)
 .job-details-offcanvas-overlay {
   position: fixed;
   inset: 0;
@@ -25,11 +6,10 @@ $font-icon: 14px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.25s ease, visibility 0.25s ease;
-
-  &.is-open {
-    opacity: 1;
-    visibility: visible;
-  }
+}
+.job-details-offcanvas-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
 }
 
 .job-details-offcanvas-panel {
@@ -39,7 +19,7 @@ $font-icon: 14px;
   width: 100%;
   max-width: 480px;
   height: 100%;
-  background: $bg-white;
+  background: #fff;
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
@@ -47,11 +27,10 @@ $font-icon: 14px;
   transition: transform 0.25s ease;
   z-index: 1001;
   pointer-events: none;
-
-  .job-details-offcanvas-overlay.is-open + & {
-    transform: translateX(0);
-    pointer-events: auto;
-  }
+}
+.job-details-offcanvas-overlay.is-open + .job-details-offcanvas-panel {
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .job-details-offcanvas-header {
@@ -59,14 +38,14 @@ $font-icon: 14px;
   align-items: center;
   justify-content: space-between;
   padding: 20px 24px;
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid #e2e8f0;
   flex-shrink: 0;
 }
 
 .job-details-offcanvas-title {
-  font-size: $font-toolbar-heading;
+  font-size: 18px;
   font-weight: 700;
-  color: $text;
+  color: #0f172a;
   margin: 0;
 }
 
@@ -75,7 +54,7 @@ $font-icon: 14px;
   height: 36px;
   border: none;
   background: transparent;
-  color: $text-muted;
+  color: #64748b;
   cursor: pointer;
   border-radius: 8px;
   display: flex;
@@ -83,11 +62,10 @@ $font-icon: 14px;
   justify-content: center;
   font-size: 18px;
   transition: background 0.2s ease, color 0.2s ease;
-
-  &:hover {
-    background: $bg-light;
-    color: $text;
-  }
+}
+.job-details-offcanvas-close:hover {
+  background: #f8fafc;
+  color: #0f172a;
 }
 
 .job-details-offcanvas-body {
@@ -97,7 +75,9 @@ $font-icon: 14px;
 }
 
 .job-details-offcanvas-job {
-  font-size: $font-item-title;
-  color: $text-muted;
+  font-size: 14px;
+  color: #64748b;
   margin: 0 0 20px;
 }
+
+/*# sourceMappingURL=apply-job-panel.css.map */

@@ -60,17 +60,48 @@ body {
     overflow: hidden;
     position: relative;
 
-    /* Left area with logo */
+    /* Left area with logo + event banner */
     &-left {
         width: 46%;
         min-width: 320px;
         padding: 36px 0px;
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
+        gap: 16px;
         position: relative;
         border-right: 1px solid rgba(0, 0, 0, 0.04);
         background: linear-gradient(180deg, #fff, #fbfbfb);
+
+        .event-banner {
+            width: 95%;
+            max-width: 280px;
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            flex-shrink: 0;
+
+            .event-banner-img {
+                width: 100%;
+                height: auto;
+                max-height: 140px;
+                object-fit: cover;
+                display: block;
+                vertical-align: middle;
+            }
+
+            .event-banner-label {
+                display: block;
+                text-align: center;
+                font-size: 15px;
+                font-weight: 700;
+                color: #12202b;
+                padding: 10px 12px;
+                background: rgba(255, 255, 255, 0.95);
+                letter-spacing: 0.02em;
+            }
+        }
 
         .brand-box {
             width: 95%;
@@ -485,6 +516,12 @@ body {
             width: 100%;
             border-right: 0;
             padding: 0;
+
+            .event-banner {
+                max-width: 200px;
+                .event-banner-img { max-height: 100px; }
+                .event-banner-label { font-size: 13px; padding: 8px; }
+            }
 
             .brand-box {
                 width: 170px;
