@@ -21,6 +21,10 @@ body {
     justify-content: center;
     padding: 40px;
     color: #12202b;
+
+    @media (max-width: 768px) {
+        padding: 12px 0;
+    }
 }
 
 /* Open button */
@@ -47,6 +51,13 @@ body {
 
     &.show {
         display: flex;
+    }
+
+    @media (max-width: 768px) {
+        align-items: flex-start;
+        background: none;
+        position: absolute;
+        padding: 12px 0;
     }
 }
 
@@ -508,25 +519,53 @@ body {
         }
     }
 
-    /* Responsive */
+    /* Responsive – mobile: compact row for event + logo, then form */
     @media (max-width: 760px) {
         flex-direction: column;
 
         &-left {
             width: 100%;
             border-right: 0;
-            padding: 0;
+            padding: 16px 12px 12px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            min-width: unset;
 
             .event-banner {
-                max-width: 200px;
-                .event-banner-img { max-height: 100px; }
-                .event-banner-label { font-size: 13px; padding: 8px; }
+                max-width: 120px;
+                flex-shrink: 0;
+
+                .event-banner-img {
+                    max-height: 72px;
+                    min-height: 56px;
+                    object-fit: cover;
+                }
+
+                .event-banner-label {
+                    font-size: 12px;
+                    font-weight: 700;
+                    padding: 6px 8px;
+                }
             }
 
             .brand-box {
-                width: 170px;
-                height: 170px;
+                width: 137px;
+                height: auto;
+                min-height: 100px;
+                padding: 8px;
+                gap: 8px;
                 justify-content: center;
+
+                img {
+                    max-width: 64px;
+                }
+
+                .brand-name {
+                    font-size: 13px;
+                    line-height: 1.2;
+                }
             }
         }
 

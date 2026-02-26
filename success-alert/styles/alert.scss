@@ -1,0 +1,60 @@
+// Success alert – project colors
+$primary: #012f6d;
+$primary-hover: #004182;
+$text: #0f172a;
+$text-muted: #64748b;
+$border: #e2e8f0;
+$bg-light: #f8fafc;
+$bg-white: #fff;
+$red: #db0000;
+$yellow: #e6bb01;
+$black: #000000;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, $bg-light, darken($bg-light, 4%));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.success-alert-popup {
+    background: $bg-white;
+    width: 340px;
+    padding: 45px 30px;
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba($primary, 0.12);
+
+    .success-alert-popup-icon {
+        margin-bottom: 20px;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            max-width: 128px;
+            height: auto;
+            object-fit: contain;
+        }
+    }
+
+    .success-alert-popup-title {
+        font-size: 22px;
+        font-weight: 600;
+        color: $primary;
+        margin-bottom: 8px;
+    }
+
+    .success-alert-popup-description {
+        font-size: 14px;
+        font-weight: 400;
+        color: $text-muted;
+    }
+}

@@ -23,6 +23,11 @@ body {
   padding: 40px;
   color: #12202b;
 }
+@media (max-width: 768px) {
+  body {
+    padding: 12px 0;
+  }
+}
 
 /* Open button */
 .open-btn {
@@ -48,6 +53,14 @@ body {
 }
 .overlay.show {
   display: flex;
+}
+@media (max-width: 768px) {
+  .overlay {
+    align-items: flex-start;
+    background: none;
+    position: absolute;
+    padding: 12px 0;
+  }
 }
 
 .login-modal {
@@ -449,7 +462,7 @@ body {
   color: #1d4ed8;
 }
 .login-modal {
-  /* Responsive */
+  /* Responsive – mobile: compact row for event + logo, then form */
 }
 @media (max-width: 760px) {
   .login-modal {
@@ -458,22 +471,41 @@ body {
   .login-modal-left {
     width: 100%;
     border-right: 0;
-    padding: 0;
+    padding: 16px 12px 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    min-width: unset;
   }
   .login-modal-left .event-banner {
-    max-width: 200px;
+    max-width: 120px;
+    flex-shrink: 0;
   }
   .login-modal-left .event-banner .event-banner-img {
-    max-height: 100px;
+    max-height: 72px;
+    min-height: 56px;
+    object-fit: cover;
   }
   .login-modal-left .event-banner .event-banner-label {
-    font-size: 13px;
-    padding: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 8px;
   }
   .login-modal-left .brand-box {
-    width: 170px;
-    height: 170px;
+    width: 137px;
+    height: auto;
+    min-height: 100px;
+    padding: 8px;
+    gap: 8px;
     justify-content: center;
+  }
+  .login-modal-left .brand-box img {
+    max-width: 64px;
+  }
+  .login-modal-left .brand-box .brand-name {
+    font-size: 13px;
+    line-height: 1.2;
   }
   .login-modal-right {
     padding: 22px;
