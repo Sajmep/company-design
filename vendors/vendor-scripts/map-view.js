@@ -68,8 +68,12 @@ function initializeMap() {
         });
     }
 
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '&copy; OpenStreetMap contributors'
+    // Use CARTO Voyager for English (Latin) labels; standard OSM shows local script (e.g. Arabic in KSA)
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+        subdomains: 'abcd',
+        maxZoom: 20,
+        maxNativeZoom: 19
     }).addTo(map);
 
     vendors.forEach(function (vendor) {
