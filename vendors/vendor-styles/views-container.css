@@ -31,6 +31,7 @@ body {
   flex-wrap: wrap;
   gap: 16px;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .bmh-card-view .bmh-card {
@@ -286,6 +287,26 @@ body {
   .views-container{
     padding: 0 0%;
   }
+  .bmh-card-view .bmh-card{
+    max-width: 320px;
+  }
+}
+
+
+@media (max-width: 1250px) {
+ 
+  .bmh-card-view .bmh-card{
+    max-width: 280px;
+  }
+
+}
+
+@media (max-width: 1100px) {
+ 
+  .bmh-card-view .bmh-card{
+    max-width: 320px;
+  }
+
 }
 
 /* Responsive Design */
