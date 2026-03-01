@@ -693,22 +693,16 @@
       <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
           soon!</span></h2>
     </div>
-    <!-- Dashboard View End -->
 
     <!-- Calendar View -->
     <div class="bmh-calendar-view">
       <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
           soon!</span></h2>
     </div>
-    <!-- Calendar View End -->
 
     <!-- Map View -->
     <div class="bmh-map-view">
-      <div class="bmh-map-container" id="map">
-        <!-- Map Search -->
-        <div class="bmh-map-search">
-          <input type="text" class="bmh-map-search-input" placeholder="Search vendors by location...">
-        </div>
+      <div class="bmh-map-container" id="map" style="width: 100%;">
 
         <!-- Map Controls -->
         <div class="bmh-map-controls">
@@ -742,40 +736,32 @@
         <div class="bmh-map-legend">
           <h4>Vendor Status</h4>
           <div class="bmh-map-legend-item">
-            <div class="bmh-map-legend-marker online"></div>
-            <span>online</span>
+            <div class="bmh-map-legend-marker open"></div>
+            <span>open</span>
           </div>
           <div class="bmh-map-legend-item">
-            <div class="bmh-map-legend-marker offline"></div>
-            <span>offline</span>
-          </div>
-          <div class="bmh-map-legend-item">
-            <div class="bmh-map-legend-marker busy"></div>
-            <span>busy</span>
-          </div>
-          <div class="bmh-map-legend-item">
-            <div class="bmh-map-legend-marker vacation"></div>
-            <span>vacation</span>
+            <div class="bmh-map-legend-marker closed"></div>
+            <span>closed</span>
           </div>
         </div>
 
         <!-- Map Markers -->
-        <div class="bmh-map-marker online" data-vendor="Sakhrat Al Janoub">
+        <div class="bmh-map-marker open" data-vendor="Sakhrat Al Janoub">
           <div class="bmh-map-marker-tooltip">Sakhrat Al Janoub Contracting Co.</div>
         </div>
-        <div class="bmh-map-marker busy" data-vendor="Al-Mansour">
+        <div class="bmh-map-marker closed" data-vendor="Al-Mansour">
           <div class="bmh-map-marker-tooltip">Al-Mansour Engineering Group</div>
         </div>
-        <div class="bmh-map-marker online" data-vendor="Gulf Construction">
+        <div class="bmh-map-marker open" data-vendor="Gulf Construction">
           <div class="bmh-map-marker-tooltip">Gulf Construction Solutions</div>
         </div>
-        <div class="bmh-map-marker vacation" data-vendor="TechBuild">
+        <div class="bmh-map-marker closed" data-vendor="TechBuild">
           <div class="bmh-map-marker-tooltip">TechBuild Industries</div>
         </div>
-        <div class="bmh-map-marker online" data-vendor="Royal Builders">
+        <div class="bmh-map-marker open" data-vendor="Royal Builders">
           <div class="bmh-map-marker-tooltip">Royal Builders Ltd</div>
         </div>
-        <div class="bmh-map-marker offline" data-vendor="Future Construction">
+        <div class="bmh-map-marker closed" data-vendor="Future Construction">
           <div class="bmh-map-marker-tooltip">Future Construction Co.</div>
         </div>
 
@@ -1126,6 +1112,7 @@
   </div>
   <!-- Vendor Overview Sidebar End -->
 
+  <script src="vendor-scripts/map-view.js"></script>
   <script src="vendor-scripts/views-container.js"></script>
   <script src="vendor-scripts/vendor.js"></script>
   <script src="../script/common-table.js"></script>

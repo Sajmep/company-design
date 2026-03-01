@@ -1,0 +1,215 @@
+/* Compose Modal - New mail popup */
+.compose-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: "Inter", sans-serif;
+}
+.compose-modal-content {
+  background: #ffffff;
+  width: 820px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+  font-family: "Inter", sans-serif;
+}
+.compose-modal-content hr {
+  border: none;
+  height: 1px;
+  background: #eee;
+  margin: 20px 0;
+}
+.compose-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.compose-modal-header h3 {
+  font-weight: 600;
+  margin: 0;
+}
+.compose-modal-header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.compose-modal-email-type {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+}
+.compose-modal-close {
+  cursor: pointer;
+  color: #777;
+  font-size: 16px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.compose-modal-form-group {
+  margin-bottom: 20px;
+}
+.compose-modal-form-group label {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 8px;
+  display: block;
+}
+.compose-modal-recipients {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.compose-modal-avatar {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.compose-modal-chip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #f1f3f7;
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.compose-modal-chip .compose-modal-chip-remove {
+  font-size: 10px;
+  cursor: pointer;
+  margin-left: 2px;
+  opacity: 0.7;
+}
+.compose-modal-chip .compose-modal-chip-remove:hover {
+  opacity: 1;
+}
+.compose-modal-cc-bcc {
+  margin-left: auto;
+}
+.compose-modal-cc-bcc button {
+  background: #f1f3f7;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 15px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.compose-modal-subject input {
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #eee;
+  padding: 12px 0;
+  font-size: 15px;
+  outline: none;
+}
+.compose-modal-message textarea {
+  width: 100%;
+  height: 180px;
+  border: none;
+  resize: none;
+  padding: 15px 0;
+  font-size: 14px;
+  outline: none;
+}
+.compose-modal-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.compose-modal-footer-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.compose-modal-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.compose-modal-toggle-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.compose-modal-toggle-track {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background: #fff;
+  transition: border-color 0.2s, background 0.2s;
+}
+.compose-modal-toggle-track::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  transition: left 0.2s, background 0.2s;
+}
+.compose-modal-toggle-input:checked + .compose-modal-toggle-track {
+  border-color: #22c55e;
+  background: #fff;
+}
+.compose-modal-toggle-input:checked + .compose-modal-toggle-track::after {
+  left: calc(100% - 20px);
+  background: #eab308;
+}
+.compose-modal-toggle-label {
+  font-size: 14px;
+  color: #374151;
+}
+.compose-modal-attachment {
+  font-size: 14px;
+  color: #555;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.compose-modal-footer-right {
+  display: flex;
+  gap: 10px;
+}
+.compose-modal-schedule, .compose-modal-send {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.compose-modal-schedule {
+  background: #f1f3f7;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.compose-modal-send {
+  background: #ff6a3d;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}

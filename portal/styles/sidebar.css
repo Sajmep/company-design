@@ -676,21 +676,22 @@ body {
 
 .submenu .subsubmenu {
   margin-left: 13px;
-  padding-left: 8px;
+  padding-left: 0px;
   max-width: 640px;
   font-family: var(--font);
   color: var(--text);
   border-left: 1px solid #d1d5db;
   font-size: 12px;
+  list-style: none;
 }
 
 /* list item */
 .submenu .subsubmenu li {
   position: relative;
   padding: calc(var(--bullet-size) / 4) calc(var(--gap) * 1.5) calc(var(--bullet-size) / 4) 10px;
-  margin: 0px 0 0 14px;
+  margin: -1px 0 0 0px;
   border-radius: 0;
-  /* background: rgb(47 114 135 / 5%); */
+  background: rgb(47 114 135 / 5%);
   transition: transform 220ms cubic-bezier(.2, .9, .3, 1), box-shadow 220ms;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.02) inset;
   color: #474747;

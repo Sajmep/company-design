@@ -91,9 +91,10 @@ function switchView(viewType) {
     if (dropdown) dropdown.classList.remove('show');
     if (button) button.classList.remove('active');
     
-    // Here you can add logic to actually switch views
-    // For example: show/hide different view containers
-    console.log('Switched to:', viewType);
+    // Show the selected view (showView is defined in views-container.js)
+    if (typeof showView === 'function') {
+        showView(viewType);
+    }
 }
 
 // Close dropdown when clicking outside
