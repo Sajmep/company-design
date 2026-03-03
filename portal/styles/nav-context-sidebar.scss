@@ -1,0 +1,115 @@
+// Colors (from search-details)
+$blue: #012f6d;
+$black: #000000;
+$white: #ffffff;
+$gray-light: #f5f5f5;
+$gray-medium: #e0e0e0;
+$gray-dark: #666666;
+$yellow: #e6bb01;
+
+.content.page {
+  display: flex;
+  padding: 0;
+}
+
+.nav-context-sidebar {
+  width: 84px;
+  flex-shrink: 0;
+  background: $white;
+  border-right: 1px solid $gray-medium;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+  gap: 4px;
+}
+
+.nav-context-sidebar__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 8px;
+  gap: 6px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: $gray-dark;
+  font-size: 11px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $black;
+  }
+
+  &.is-active {
+    color: $blue;
+
+    .nav-context-sidebar__icon {
+      background: $blue;
+      color: $white;
+    }
+  }
+}
+
+.nav-context-sidebar__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gray-dark;
+  transition: background 0.15s ease, color 0.15s ease;
+
+  svg {
+    display: block;
+  }
+}
+
+.page-body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.page-contents-tabs {
+  flex-shrink: 0;
+  min-height: 48px;
+  padding: 8px 20px;
+  background: $white;
+  border-bottom: 1px solid $gray-medium;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-contents-tabs__item {
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid $gray-medium;
+  background: $gray-light;
+  color: $gray-dark;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background: $gray-medium;
+    color: $black;
+  }
+
+  &.is-active {
+    background: $blue;
+    border-color: $blue;
+    color: $white;
+
+    &:hover {
+      background: #011a42;
+      border-color: #011a42;
+    }
+  }
+}

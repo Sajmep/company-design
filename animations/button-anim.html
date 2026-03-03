@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Order Button Animation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+        :root {
+            --blue: #012f6d;
+            --blue-light: #034a9e;
+            --black: #000000;
+            --white: #ffffff;
+            --gray-light: #f5f5f5;
+            --gray-medium: #e0e0e0;
+            --gray-dark: #666666;
+            --yellow: #e6bb01;
+            --green: #2e7d32;
+        }
+
+        body {
+            background: var(--white);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            font-family: Arial, Helvetica, sans-serif;
+            gap: 20px;
+        }
+
+        /* Main Order Button */
+        .order-btn .fa-cart-shopping {
+            margin-right: 8px;
+            opacity: 0.95;
+        }
+        .order-btn {
+            position: relative;
+            width: 280px;
+            height: 56px;
+            border: 2px solid var(--blue);
+            border-radius: 28px;
+            background: linear-gradient(135deg, var(--blue) 0%, var(--blue-light) 100%);
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+            box-shadow: 0 4px 14px rgba(1, 47, 109, 0.35);
+        }
+        .order-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(1, 47, 109, 0.45);
+        }
+        .order-btn:active:not(:disabled) {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(1, 47, 109, 0.3);
+        }
+        .order-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.95;
+        }
+
+        /* Truck */
+        .truck {
+            position: absolute;
+            left: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+        }
+        .truck img {
+            width: 45px;
+            height: 45px;
+            display: block;
+            object-fit: contain;
+        }
+
+        /* Animation: fast in from -60 → 20, hold 1s, then move out */
+        .move {
+            animation: truckMove 2.85s forwards;
+        }
+
+        @keyframes truckMove {
+            0% {
+                left: -60px;
+                opacity: 1;
+            }
+            12% {
+                left: 20px;
+                opacity: 1;
+            }
+            47% {
+                left: 20px;
+                opacity: 1;
+            }
+            100% {
+                left: 300px;
+                opacity: 1;
+            }
+        }
+/* Success State Button */
+.success{
+    background: linear-gradient(45deg,#22c55e,#16a34a) !important;
+    box-shadow: 0 8px 25px rgba(34,197,94,0.4);
+    border: 2px solid rgba(0, 128, 0, 0);
+}
+
+/* Success Text Container */
+.success-text{
+    display:none;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+/* Show Success */
+.show-success{
+    display:flex;
+}
+
+/* Circle Check Icon */
+.check-icon{
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:#ffffff30;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+}
+        /* Reset Button */
+        .reset-btn {
+            padding: 10px 22px;
+            border: 1px solid var(--gray-medium);
+            border-radius: 24px;
+            background: var(--white);
+            color: var(--gray-dark);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+        }
+
+        .reset-btn:hover {
+            background: var(--gray-light);
+            border-color: var(--gray-dark);
+            color: var(--black);
+        }
+
+        .reset-btn:active {
+            background: var(--gray-medium);
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="order-btn" id="orderBtn">
+        <span id="btnText"><i class="fa-solid fa-cart-shopping"></i> ORDER NOW</span>
+        <span class="truck" id="truck"><img src="images/delivery-truck (1).png" alt="Delivery truck"></span>
+        <span class="success-text" id="successText">
+            <span class="check-icon">✔</span>
+            ORDER PLACED!
+        </span>
+    </button>
+
+    <button class="reset-btn" id="resetBtn">Reset</button>
+
+    <script>
+        const btn = document.getElementById("orderBtn");
+        const truck = document.getElementById("truck");
+        const btnText = document.getElementById("btnText");
+        const successText = document.getElementById("successText");
+        const resetBtn = document.getElementById("resetBtn");
+
+        btn.addEventListener("click", function () {
+
+            btn.disabled = true;
+
+            btnText.style.display = "none";
+            truck.style.opacity = "1";
+            truck.classList.add("move");
+
+            setTimeout(() => {
+                btn.classList.add("success");
+                truck.style.display = "none";
+                successText.classList.add("show-success");
+            }, 2850);
+        });
+
+        /* RESET FUNCTION */
+        resetBtn.addEventListener("click", function () {
+
+            btn.disabled = false;
+            btn.classList.remove("success");
+
+            // Reset text
+            btnText.style.display = "block";
+            successText.classList.remove("show-success");
+
+            // Reset truck
+            truck.classList.remove("move");
+            truck.style.display = "inline";
+            truck.style.opacity = "0";
+            truck.style.left = "-60px";
+
+        });
+    </script>
+
+</body>
+
+</html>

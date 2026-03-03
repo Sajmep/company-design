@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>3D Card Hover</title>
+
+<style>
+  body {
+    background: #111;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+
+  .wrapper {
+    perspective: 1000px; /* important for 3D */
+  }
+
+  .card {
+    width: 260px;
+    padding: 25px;
+    background: #1e1e1e;
+    color: white;
+    border-radius: 16px;
+    transition: transform 0.4s ease;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+  }
+
+  .card h2 {
+    margin: 0 0 10px;
+    transition: transform 0.3s ease;
+    /* Match card tilt: bottom-left forward → origin left bottom; top-right forward → right top */
+    transform-origin: left bottom;
+  }
+
+  .card p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .card:hover {
+    transform:
+     rotate3d(0.5, 1, 0, 30deg);
+  }
+
+  .card h2:hover {
+    /* transform: scale(1.12); */
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="wrapper">
+    <div class="card">
+      <h2>Card Title</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Quisque euismod.
+      </p>
+    </div>
+  </div>
+
+</body>
+</html>
