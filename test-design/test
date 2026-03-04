@@ -1,76 +1,3 @@
-  <!-- Report Modal End -->
-
-  <!-- Login First Modal -->
-  <div id="loginFirstModal" class="login-first-modal">
-    <div class="login-first-modal-content">
-      <button class="login-first-close" onclick="closeLoginFirstModal()" aria-label="Close modal">
-        <i class="fa fa-times"></i>
-      </button>
-      <div class="login-first-icon">
-        <img src="images/bmh-logo.png" alt="Login First Icon">
-      </div>
-      <p class="login-first-text">
-        This is a convincing piece of copy to<br>
-        describe and sell your product. Make<br>
-        it as convincing as possible!
-      </p>
-      <div class="login-first-buttons">
-        <button class="login-first-btn signup-btn" onclick="window.location.href='#'">SIGN UP</button>
-        <button class="login-first-btn login-btn" onclick="window.location.href='#'">LOGIN</button>
-      </div>
-    </div>
-  </div>
-  <!-- Login First Modal End -->
-
-
-  
-// Pagination Input Dynamic Resizing
-// document.addEventListener('DOMContentLoaded', function() {
-//     const paginationInputs = document.querySelectorAll('.pagination-input');
-    
-//     function resizeInput(input) {
-//         // Create a temporary span to measure text width
-//         const tempSpan = document.createElement('span');
-//         tempSpan.style.visibility = 'hidden';
-//         tempSpan.style.position = 'absolute';
-//         tempSpan.style.whiteSpace = 'pre';
-//         tempSpan.style.fontSize = window.getComputedStyle(input).fontSize;
-//         tempSpan.style.fontWeight = window.getComputedStyle(input).fontWeight;
-//         tempSpan.style.fontFamily = window.getComputedStyle(input).fontFamily;
-//         tempSpan.textContent = input.value || input.placeholder || '0';
-        
-//         document.body.appendChild(tempSpan);
-//         const textWidth = tempSpan.offsetWidth;
-//         document.body.removeChild(tempSpan);
-        
-//         // Add some padding (approximately 8px total for left/right padding)
-//         const padding = 8;
-//         const newWidth = Math.max(30, Math.min(60, textWidth + padding));
-        
-//         input.style.width = newWidth + 'px';
-//     }
-    
-//     paginationInputs.forEach(function(input) {
-//         // Initial resize
-//         resizeInput(input);
-        
-//         // Resize on input
-//         input.addEventListener('input', function() {
-//             resizeInput(input);
-//         });
-        
-//         // Resize on change (for programmatic changes)
-//         input.addEventListener('change', function() {
-//             resizeInput(input);
-//         });
-        
-//         // Resize on focus (in case value changed externally)
-//         input.addEventListener('focus', function() {
-//             resizeInput(input);
-//         });
-//     });
-// });
-
 
 
 
@@ -105,3 +32,88 @@
   </div>
 </main>
 <!-- Main Content End -->
+
+
+
+
+<div class="compose-modal" id="composeModal">
+  <div class="compose-modal-content">
+
+    <!-- HEADER -->
+    <div class="compose-modal-header">
+      <h3>Compose Message</h3>
+
+      <div class="compose-modal-header-right">
+        <select class="compose-modal-email-type">
+          <option disabled selected>Select Message Type</option>
+          <option>Marketing</option>
+          <option>Follow Up</option>
+          <option>Announcement</option>
+        </select>
+
+        <span class="compose-modal-close"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+    </div>
+
+    <!-- TO FIELD -->
+    <div class="compose-modal-form-group">
+      <label>To</label>
+      <div class="compose-modal-recipients">
+        <div class="compose-modal-chip">
+          <img class="compose-modal-avatar" src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="">
+          Sakhrat Al Janoub Contracting Co. - SAJMEP <i class="fa-solid fa-xmark compose-modal-chip-remove"></i>
+        </div>
+        <div class="compose-modal-chip">
+          <img class="compose-modal-avatar"
+            src="https://ui-avatars.com/api/?name=Fazli&size=44&background=6c9cff&color=fff" alt="">
+          Fazli <i class="fa-solid fa-xmark compose-modal-chip-remove"></i>
+        </div>
+
+        <div class="compose-modal-cc-bcc">
+          <button>CC</button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <!-- SUBJECT -->
+    <div class="compose-modal-subject">
+      <input type="text" placeholder="Subject">
+    </div>
+
+    <!-- MESSAGE -->
+    <div class="compose-modal-message">
+      <textarea placeholder="Type your message here..."></textarea>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="compose-modal-footer">
+      <div class="compose-modal-footer-left">
+        <label class="compose-modal-toggle">
+          <input type="checkbox" class="compose-modal-toggle-input" checked>
+          <span class="compose-modal-toggle-track"></span>
+          <span class="compose-modal-toggle-label">Send by email</span>
+        </label>
+        <span class="compose-modal-attachment"><i class="fa-solid fa-paperclip"></i> Attachment</span>
+      </div>
+
+      <div class="compose-modal-footer-right">
+        <button class="compose-modal-schedule"><i class="fa-regular fa-clock"></i> Schedule</button>
+        <button class="compose-modal-send"><i class="fa-solid fa-paper-plane"></i> Send email</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  (function () {
+    var m = document.getElementById('composeModal');
+    var btn = document.getElementById('composeBtn');
+    if (!m || !btn) return;
+    btn.addEventListener('click', function (e) { e.stopPropagation(); m.style.display = 'flex'; });
+    m.querySelector('.compose-modal-close').addEventListener('click', function () { m.style.display = 'none'; });
+    m.addEventListener('click', function (e) { if (e.target === m) m.style.display = 'none'; });
+  })();
+</script>

@@ -113,55 +113,55 @@ function initializeMap() {
 
     var activeStates = ['Gaza Strip']; // test with one active
 
-    // fetch('palestine-states.json')
-    // .then(response => response.json())
-    // .then(data => {
+    fetch('palestine-states.json')
+    .then(response => response.json())
+    .then(data => {
     
-    //     L.geoJSON(data, {
+        L.geoJSON(data, {
     
-    //         style: function (feature) {
-    //             var stateName = feature.properties.name;
+            style: function (feature) {
+                var stateName = feature.properties.name;
     
-    //             // ACTIVE (has vendors)
-    //             if (activeStates.includes(stateName)) {
-    //                 return {
-    //                     color: "#16a34a",
-    //                     fillColor: "#86efac",
-    //                     fillOpacity: 0.6,
-    //                     weight: 2
-    //                 };
-    //             }
+                // ACTIVE (has vendors)
+                if (activeStates.includes(stateName)) {
+                    return {
+                        color: "#16a34a",
+                        fillColor: "#86efac",
+                        fillOpacity: 0.6,
+                        weight: 2
+                    };
+                }
     
-    //             // OCCUPIED (clouded)
-    //             return {
-    //                 color: "#9ca3af",
-    //                 fillColor: "#d1d5db",
-    //                 fillOpacity: 0.8,
-    //                 weight: 1,
-    //                 dashArray: "4"
-    //             };
-    //         },
+                // OCCUPIED (clouded)
+                return {
+                    color: "#9ca3af",
+                    fillColor: "#d1d5db",
+                    fillOpacity: 0.8,
+                    weight: 1,
+                    dashArray: "4"
+                };
+            },
     
-    //         onEachFeature: function (feature, layer) {
-    //             var stateName = feature.properties.name;
+            onEachFeature: function (feature, layer) {
+                var stateName = feature.properties.name;
     
-    //             if (!activeStates.includes(stateName)) {
+                if (!activeStates.includes(stateName)) {
     
-    //                 // Add centered "Coming Soon" label
-    //                 layer.bindTooltip("Coming Soon", {
-    //                     permanent: true,
-    //                     direction: "center",
-    //                     className: "coming-soon-label"
-    //                 });
+                    // Add centered "Coming Soon" label
+                    layer.bindTooltip("Coming Soon", {
+                        permanent: true,
+                        direction: "center",
+                        className: "coming-soon-label"
+                    });
     
-    //                 // Disable clicking
-    //                 layer.off('click');
-    //             }
-    //         }
+                    // Disable clicking
+                    layer.off('click');
+                }
+            }
     
-    //     }).addTo(map);
+        }).addTo(map);
     
-    // });
+    });
 
 }
 

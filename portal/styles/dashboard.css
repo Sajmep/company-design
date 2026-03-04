@@ -191,12 +191,13 @@
   }
 
   .dashboard-tabs {
-    flex-direction: column;
     border-radius: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
   
   .dashboard-tab-btn {
-    min-width: auto;
     border-bottom: 1px solid #e5e7eb;
     border-radius: 0;
   }
