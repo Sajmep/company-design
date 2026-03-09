@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Vendors Details</title>
 
-  <link rel="stylesheet" href="../styles/scrollbar.css">
-  <link rel="stylesheet" href="../styles/common-page-header.css">
+  <link rel="stylesheet" href="../portal/styles/scrollbar.css">
+  <link rel="stylesheet" href="../portal/styles/common-page-header.css">
   <link rel="stylesheet" href="vendor-styles/vendor-details.css">
   <link rel="stylesheet" href="vendor-styles/vendor-gallery.css">
   <link rel="stylesheet" href="vendor-styles/social-accounts-style.css">
   <link rel="stylesheet" href="css/image-preview.css">
-  <link rel="stylesheet" href="../styles/common-table.css">
+  <link rel="stylesheet" href="../portal/styles/common-table.css">
   <link rel="stylesheet" href="vendor-styles/login-first-popup.css">
   <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
 </head>
@@ -51,9 +51,9 @@
       <div class="vendor-banner-content">
         <div class="vendor-banner-left">
           <div class="vendor-banner-image">
-            <img src="../images/vendor.png" alt="Company Image">
+            <img src="../portal/images/vendor.png" alt="Company Image">
             <div class="vendor-company-logo">
-              <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
+              <img src="../portal/images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Logo">
             </div>
           </div>
 
@@ -79,7 +79,22 @@
                 <span>Est. 2015</span>
               </div>
             </div>
- 
+
+            <div class="vendor-banner-reviews">
+              <div class="vendor-review-stars" aria-label="Rating: 4.5 out of 5">
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star"></i>
+                <i class="fa fa-star-half-o"></i>
+              </div>
+              <span class="vendor-review-summary">4.5 <span class="vendor-review-count">(128 reviews)</span></span>
+              <button type="button" class="vendor-write-review-btn" title="Write a review">
+                <i class="fa fa-pencil"></i>
+                <span>Write a review</span>
+              </button>
+            </div>
+
             <div class="vendor-banner-status">
               <span class="vendor-status-badge online">Online</span>
               <button class="vendor-save-btn" id="vendorSaveBtn" title="Save as favorite">
@@ -212,12 +227,10 @@
       <div class="vendor-details-content">
 
         <div class="vendor-tab-content active" id="about">
-          <h2>About Sakhrat Al Janoub Contracting Co.</h2>
 
           <div class="about-hero-section">
             <div class="about-hero-content">
               <div class="about-hero-text">
-                <h3>"Your Trusted Construction Partner"</h3>
                 <p class="about-description">
                   Sakhrat Al Janoub Contracting Co. is a leading construction company specializing in road
                   infrastructure,
@@ -236,15 +249,6 @@
                   <div class="highlight-item">
                     <i class="fa fa-map-marker"></i>
                     <span>Riyadh, Saudi Arabia</span>
-                  </div>
-                </div>
-              </div>
-              <div class="about-hero-image">
-                <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Company Overview">
-                <div class="about-image-overlay">
-                  <div class="about-status-indicator online">
-                    <i class="fa fa-circle"></i>
-                    <span>Active</span>
                   </div>
                 </div>
               </div>

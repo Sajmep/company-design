@@ -111,9 +111,9 @@ function initializeMap() {
         if (map) map.invalidateSize();
     }, 100);
 
-    var activeStates = ['Gaza Strip']; // test with one active
+    var activeStates = []; // test with one active
 
-    fetch('palestine-states.json')
+    fetch('occupied-palestine.json')
     .then(response => response.json())
     .then(data => {
     

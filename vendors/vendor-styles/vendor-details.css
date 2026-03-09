@@ -69,6 +69,74 @@
   object-fit: cover;
 }
 
+/* Vendor banner reviews (stars + write review button) */
+.vendor-banner-reviews {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0 12px 0;
+  flex-wrap: wrap;
+}
+
+.vendor-review-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.vendor-review-stars .fa-star,
+.vendor-review-stars .fa-star-half-o {
+  color: #f59e0b;
+  font-size: 16px;
+}
+
+.vendor-review-stars .fa-star-o {
+  color: #d1d5db;
+  font-size: 16px;
+}
+
+.vendor-review-summary {
+  font-size: 14px;
+  color: #374151;
+  font-weight: 600;
+}
+
+.vendor-review-count {
+  font-weight: 400;
+  color: #6b7280;
+}
+
+.vendor-write-review-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.vendor-write-review-btn:hover {
+  background: #fff;
+  border-color: #d1d5db;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+  color: #111827;
+}
+
+.vendor-write-review-btn i {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.vendor-write-review-btn:hover i {
+  color: #374151;
+}
+
 .vendor-banner-status {
   margin: 12px 0;
   display: flex;
