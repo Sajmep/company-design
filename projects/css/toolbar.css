@@ -1,0 +1,1207 @@
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  background: #ffffff;
+  margin-bottom: 0;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.toolbar .toolbar-title {
+  min-width: 100px;
+  max-width: 140px;
+}
+.toolbar .toolbar-title h2 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #012f6d;
+  line-height: 1.2;
+}
+.toolbar .toolbar-title p {
+  margin: 0;
+  font-size: 14px;
+  color: #6b7280;
+  line-height: 1.4;
+}
+.toolbar .toolbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  flex: 1;
+  justify-content: flex-end;
+}
+.toolbar .toolbar-controls .toolbar-search {
+  position: relative;
+  flex: 1;
+  max-width: 430px;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input {
+  width: 100%;
+  padding: 10px 47px 10px 40px;
+  border: 1px solid #d1d5db;
+  border-radius: 25px;
+  font-size: 14px;
+  color: #374151;
+  background: #ffffff;
+  transition: all 0.2s ease;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input::placeholder {
+  color: #9ca3af;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input:focus {
+  outline: none;
+  border-color: #012f6d;
+  box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-input:hover {
+  border-color: #9ca3af;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-close {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #9ca3af;
+  font-size: 14px;
+  pointer-events: none;
+  transition: color 0.2s ease;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 0;
+  z-index: 1;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn i,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn i {
+  font-size: 14px;
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn:hover i,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn:hover i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn:active,
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn:active {
+  transform: translateY(-50%) scale(0.95);
+}
+.toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn {
+  right: 7px;
+}
+.toolbar .toolbar-controls .toolbar-search:focus-within .toolbar-search-icon {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #374151;
+  white-space: nowrap;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn i {
+  font-size: 14px;
+  color: #6b7280;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn .btn-text,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .btn-text {
+  color: #000000;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn:hover,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover {
+  background: #f9fafb;
+  border-color: #012f6d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn:hover i,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn:active,
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i {
+  color: #db0000 !important;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-group-by .toolbar-group-by-btn {
+  position: relative;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn i {
+  color: #6b7280;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn:hover i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn {
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover {
+  background: #012f6d;
+  color: #ffffff;
+  border: none;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .btn-text {
+  color: #ffffff;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn i {
+  color: #ffffff;
+}
+.toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn:hover i {
+  color: #ffffff;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle {
+  position: relative;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 25px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: #ffffff;
+  color: #374151;
+  white-space: nowrap;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-icon {
+  font-size: 16px;
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-arrow {
+  font-size: 10px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn:hover {
+  background: #f9fafb;
+  border-color: #012f6d;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(1, 47, 109, 0.1);
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn:hover .views-toggle-arrow {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  color: #374151;
+  font-size: 14px;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item i {
+  font-size: 16px;
+  color: #6b7280;
+  width: 20px;
+  text-align: center;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item span {
+  flex: 1;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:hover {
+  background: #f9fafb;
+  color: #000000;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:hover i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:active {
+  background: #f3f4f6;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item.active {
+  background: rgba(1, 47, 109, 0.1);
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item.active i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown .views-toggle-item:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn.active .views-toggle-arrow {
+  transform: rotate(180deg);
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle {
+  position: relative;
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle .toolbar-sort-by-btn {
+  gap: 6px;
+  padding: 10px 14px;
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle .toolbar-sort-by-btn i {
+  color: #012f6d;
+}
+.toolbar .toolbar-controls .toolbar-actions .sort-by-toggle .toolbar-sort-by-btn .toolbar-sort-by-arrow {
+  font-size: 10px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+.toolbar .toolbar-pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.toolbar .toolbar-pagination .pagination-btn {
+  width: 21px;
+  height: 21px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+}
+.toolbar .toolbar-pagination .pagination-btn.prev {
+  position: absolute;
+  left: -9px;
+}
+.toolbar .toolbar-pagination .pagination-btn.next {
+  position: absolute;
+  right: -9px;
+}
+.toolbar .toolbar-pagination .pagination-btn i {
+  font-size: 10px;
+  margin-top: 3px;
+  color: #6b7280;
+}
+.toolbar .toolbar-pagination .pagination-btn:hover {
+  background: #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.toolbar .toolbar-pagination .pagination-btn:hover i {
+  color: #374151;
+}
+.toolbar .toolbar-pagination .pagination-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.toolbar .toolbar-pagination .pagination-range {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 25px;
+  background: #ffffff;
+  height: 36px;
+}
+.toolbar .toolbar-pagination .pagination-range .pagination-input {
+  max-width: 45px;
+  border: none;
+  outline: none;
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  background: transparent;
+  text-align: center;
+}
+.toolbar .toolbar-pagination .pagination-range .pagination-input:focus {
+  outline: none;
+}
+.toolbar .toolbar-pagination .pagination-range .pagination-sep {
+  color: #9ca3af;
+  font-size: 12px;
+}
+.toolbar .toolbar-pagination .pagination-range .pagination-total {
+  color: #6b7280;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.toolbar .toolbar-pagination .pagination-range .pagination-total .pagination-total-value {
+  color: #374151;
+  font-weight: 600;
+}
+.toolbar .toolbar-applied-controls {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 25px 18px 25px;
+  background: #ffffff;
+  flex-wrap: wrap;
+}
+.toolbar .toolbar-applied-controls .applied-groupby,
+.toolbar .toolbar-applied-controls .applied-filters {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.toolbar .toolbar-applied-controls .applied-groupby {
+  flex: 1;
+  max-width: 303px;
+}
+.toolbar .toolbar-applied-controls .applied-filters {
+  justify-content: flex-end;
+}
+.toolbar .toolbar-applied-controls .applied-groupby-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+  background: #ffffff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  color: #111827;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.toolbar .toolbar-applied-controls .applied-groupby-tab i {
+  color: #012f6d;
+  font-size: 14px;
+}
+.toolbar .toolbar-applied-controls .applied-groupby-tab .applied-groupby-tab-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.toolbar .toolbar-applied-controls .applied-groupby-tab .applied-groupby-tab-item {
+  font-weight: 500;
+  color: #111827;
+}
+.toolbar .toolbar-applied-controls .applied-groupby-tab .applied-groupby-tab-sep {
+  color: #9ca3af;
+  font-weight: 600;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select {
+  padding: 8px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  background-color: #ffffff;
+  font-size: 12px;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 140px;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select:hover {
+  border-color: #9ca3af;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select:focus {
+  outline: none;
+  border-color: #012f6d;
+  box-shadow: 0 0 0 3px rgba(1, 47, 109, 0.1);
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select option {
+  padding: 8px;
+  color: #333;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select option:disabled {
+  color: #9ca3af;
+  font-style: italic;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-applied-items {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  width: 430px;
+  overflow-x: auto;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid #dbeafe;
+  background: #eff6ff;
+  color: #012f6d;
+  font-size: 12px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-label {
+  color: #012f6d;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-value {
+  font-weight: 600;
+  color: #012f6d;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(1, 47, 109, 0.1);
+  color: #012f6d;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+  padding: 0;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove i {
+  font-size: 9px;
+  color: #012f6d;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove:hover {
+  background: rgba(1, 47, 109, 0.2);
+  transform: scale(1.1);
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove:active {
+  transform: scale(0.95);
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn i {
+  font-size: 12px;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn:hover {
+  background: #f9fafb;
+  border-color: #9ca3af;
+  transform: translateY(-1px);
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn:active {
+  transform: translateY(0);
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  background: #ffc107;
+  color: #212529;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn i {
+  font-size: 12px;
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn:hover {
+  background: #e0a800;
+  transform: translateY(-1px);
+}
+.toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 1501px) {
+  .toolbar {
+    align-items: flex-start;
+  }
+  .toolbar .toolbar-controls .toolbar-actions {
+    gap: 3px;
+  }
+  .toolbar .toolbar-applied-controls {
+    padding: 10px 20px 14px 20px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab {
+    font-size: 13px;
+    max-width: 100%;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text {
+    gap: 5px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside {
+    gap: 10px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select {
+    min-width: 130px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-applied-items {
+    gap: 7px;
+  }
+}
+@media (max-width: 1212px) {
+  .toolbar {
+    padding: 12px 16px 20px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 1000;
+    background: transparent;
+    justify-content: flex-start;
+    gap: 13px;
+  }
+  .toolbar .toolbar-title {
+    max-width: 216px;
+    position: relative;
+  }
+  .toolbar .toolbar-controls {
+    width: 96%;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    position: fixed;
+    bottom: 0;
+    margin: 10px auto;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  .toolbar .toolbar-controls .toolbar-search {
+    position: relative;
+    min-width: auto;
+    max-width: none;
+    width: auto;
+    flex: 0 0 auto;
+    order: 2;
+    margin-left: auto;
+    cursor: pointer;
+    z-index: 1002;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    background: transparent;
+    border-radius: 3rem;
+    overflow: hidden;
+    box-shadow: 0 6px 6px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 7px;
+  }
+  .toolbar .toolbar-controls .toolbar-search::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    filter: saturate(120%) brightness(1.15);
+    border-radius: inherit;
+  }
+  .toolbar .toolbar-controls .toolbar-search::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: inherit;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
+  }
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-input {
+    width: 0;
+    padding: 10px 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    border: none;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-icon {
+    position: relative;
+    transform: none;
+    pointer-events: auto !important;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    display: inline-flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    color: #012f6d;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 27px;
+    flex-shrink: 0;
+    z-index: 3;
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-icon:hover {
+    color: #012f6d;
+    transform: translateY(-1px);
+  }
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-icon:active {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(0.96) translateY(0);
+  }
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-close {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-voice-btn,
+  .toolbar .toolbar-controls .toolbar-search .toolbar-search-image-btn {
+    display: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded {
+    position: absolute;
+    right: 16px;
+    left: 16px;
+    z-index: 1001;
+    width: auto;
+    max-width: none;
+    cursor: default;
+    padding: 11px;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-input {
+    width: 100%;
+    padding: 10px 128px 10px 40px;
+    opacity: 1;
+    visibility: visible;
+    position: relative;
+    z-index: 3;
+    border-radius: 12px;
+    background: transparent;
+    transform: none;
+    pointer-events: auto;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-input:focus {
+    border: none;
+    box-shadow: none;
+    outline: none;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn {
+    display: inline-flex;
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    z-index: 4;
+    cursor: pointer;
+    touch-action: manipulation;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn i,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn i {
+    font-size: 16px;
+    color: #012f6d;
+    transition: all 0.2s ease;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn:hover i,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn:hover i {
+    color: #012f6d;
+    transform: scale(1.1);
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn:active,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn:active {
+    transform: translateY(-50%) scale(0.95);
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn:active i,
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn:active i {
+    transform: scale(0.9);
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-voice-btn {
+    right: 78px;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-image-btn {
+    right: 46px;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-close {
+    display: flex;
+    opacity: 1;
+    visibility: visible;
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    cursor: pointer;
+    color: #012f6d;
+    font-size: 16px;
+    width: 28px;
+    height: 28px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    pointer-events: auto;
+    touch-action: manipulation;
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-close:hover {
+    background: rgba(1, 47, 109, 0.1);
+    transform: translateY(-50%) scale(1.08);
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-close:active {
+    background: rgba(1, 47, 109, 0.2);
+    transform: translateY(-50%) scale(0.95);
+  }
+  .toolbar .toolbar-controls .toolbar-search.expanded .toolbar-search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    height: auto;
+    border: none;
+    pointer-events: none;
+    color: #012f6d;
+    z-index: 3;
+  }
+  .toolbar .toolbar-controls .toolbar-actions {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    flex: 1;
+    order: 1;
+    transition: opacity 0.3s ease;
+    position: relative;
+    background: rgba(255, 255, 255, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 2rem;
+    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.75), inset 0 0 5px rgba(255, 255, 255, 0.75);
+    padding: 4px;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(1, 47, 109, 0.4) transparent;
+    padding-bottom: 6px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+  .toolbar .toolbar-controls .toolbar-actions::-webkit-scrollbar {
+    height: 6px;
+  }
+  .toolbar .toolbar-controls .toolbar-actions::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .toolbar .toolbar-controls .toolbar-actions::-webkit-scrollbar-thumb {
+    background: rgba(1, 47, 109, 0.2);
+    border-radius: 999px;
+  }
+  .toolbar .toolbar-controls .toolbar-actions::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    filter: saturate(120%) brightness(1.15);
+    border-radius: inherit;
+    background: none;
+    box-shadow: none;
+  }
+  .toolbar .toolbar-controls .toolbar-actions::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: none;
+    border-radius: inherit;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn {
+    flex-direction: column;
+    padding: 7px 8px;
+    font-size: 11px;
+    border: none !important;
+    gap: 0px;
+    justify-content: center;
+    align-items: center;
+    min-height: 48px;
+    min-width: 48px;
+    flex: 0 0 auto;
+    background: transparent !important;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    z-index: 3;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn .btn-text,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn .btn-text {
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 2px;
+    color: #000000;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn i,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn i {
+    font-size: 26px;
+    margin: 0;
+    display: block;
+    color: #012f6d;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-sort-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-filter-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-actions-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-time-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-clear-group-by-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-primary-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .toolbar-expand-btn .toolbar-sort-by-arrow,
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle-btn .toolbar-sort-by-arrow {
+    display: none;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-dropdown {
+    top: auto;
+    bottom: calc(100% + 8px);
+    right: auto;
+    left: 0;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn {
+    padding: 0;
+    gap: 0px;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-arrow {
+    display: none;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn .views-toggle-icon {
+    font-size: 24px !important;
+  }
+  .toolbar .toolbar-controls .toolbar-actions .views-toggle .views-toggle-btn::after {
+    content: "Views";
+    display: block;
+    font-size: 10px;
+    line-height: 1.2;
+    text-align: center;
+    margin-top: 2px;
+    color: #000000;
+  }
+  .toolbar .toolbar-applied-controls {
+    padding: 10px 16px 12px 16px;
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 12px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby {
+    min-width: 0;
+    width: 100%;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    padding: 6px 8px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab i {
+    font-size: 12px;
+    flex-shrink: 0;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    gap: 4px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text .applied-groupby-tab-item {
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text .applied-groupby-tab-sep {
+    font-size: 10px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside {
+    width: 100%;
+    gap: 8px;
+    padding: 0;
+    flex-direction: row-reverse;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select {
+    min-width: 120px;
+    font-size: 11px;
+    padding: 6px 10px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-applied-items {
+    width: 100%;
+    gap: 6px;
+    order: 3;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item {
+    font-size: 11px;
+    padding: 6px 8px;
+    gap: 3px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove {
+    width: 16px;
+    height: 16px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove i {
+    font-size: 9px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn,
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn {
+    font-size: 11px;
+    padding: 6px 10px;
+    gap: 4px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn i,
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn i {
+    font-size: 11px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn {
+    order: 1;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn {
+    order: 2;
+  }
+  .toolbar .toolbar-pagination {
+    position: absolute;
+    top: 11px;
+    right: 10px;
+    z-index: 1001;
+    justify-content: center;
+    margin: 0 auto;
+    width: fit-content;
+  }
+  .toolbar .toolbar-search.expanded ~ .toolbar-actions {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+@media (max-width: 910px) {
+  .filters-section-outside .filter-applied-items {
+    width: 430px;
+    overflow-x: auto;
+  }
+}
+@media (max-width: 390px) {
+  .toolbar {
+    align-items: flex-start;
+  }
+  .toolbar .views-toggle {
+    padding: 0;
+  }
+  .toolbar .toolbar-title h2 {
+    margin-top: 5px;
+  }
+  .toolbar .toolbar-applied-controls {
+    padding: 8px 12px 10px 12px;
+    gap: 10px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab {
+    font-size: 11px;
+    padding: 5px 6px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab i {
+    font-size: 11px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text {
+    gap: 3px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text .applied-groupby-tab-item {
+    font-size: 11px;
+  }
+  .toolbar .toolbar-applied-controls .applied-groupby .applied-groupby-tab .applied-groupby-tab-text .applied-groupby-tab-sep {
+    font-size: 9px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside {
+    gap: 6px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside select {
+    width: 100%;
+    min-width: 0;
+    font-size: 11px;
+    padding: 6px 8px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-applied-items {
+    order: 3;
+    gap: 5px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item {
+    font-size: 10px;
+    padding: 5px 7px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove {
+    width: 14px;
+    height: 14px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .applied-filter-item .applied-filter-item-remove i {
+    font-size: 8px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn,
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 11px;
+    padding: 7px 10px;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-clear-all-btn {
+    order: 1;
+  }
+  .toolbar .toolbar-applied-controls .applied-filters .filters-section-outside .filter-save-favorite-btn {
+    order: 2;
+  }
+}
+
+/*# sourceMappingURL=toolbar.css.map */

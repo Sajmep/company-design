@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Apps Hub</title>
+
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="css/projects-cards.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
+
+    <link rel="stylesheet" href="css/toolbar.css">
+    <link rel="stylesheet" href="css/views-container.css">
+
+</head>
+
+<body>
+
+    <div class="toolbar">
+        <div class="toolbar-title">
+            <h2>Projects</h2>
+        </div>
+
+        <div class="toolbar-controls">
+            <div class="toolbar-search">
+                <input type="text" class="toolbar-search-input" placeholder="Search Projects...">
+                <i class="fa fa-search toolbar-search-icon"></i>
+                <button class="toolbar-search-voice-btn" type="button" title="Voice Search">
+                    <i class="fa fa-microphone"></i>
+                </button>
+                <button class="toolbar-search-image-btn" type="button" title="Image Search">
+                    <i class="fa fa-camera"></i>
+                </button>
+                <i class="fa fa-times toolbar-search-close"></i>
+            </div>
+
+            <div class="toolbar-actions">
+
+                <div class="views-toggle">
+                    <button class="views-toggle-btn" onclick="toggleViewsDropdown()" title="View Options">
+                        <i class="fa fa-th-large views-toggle-icon"></i>
+                        <i class="fa fa-chevron-down views-toggle-arrow"></i>
+                    </button>
+                    <div class="views-toggle-dropdown" id="viewsDropdown">
+                        <div class="views-toggle-item" data-view="dashboard" onclick="switchView('dashboard')">
+                            <i class="fa fa-dashboard"></i>
+                            <span>Dashboard View</span>
+                        </div>
+                        <div class="views-toggle-item active" data-view="card" onclick="switchView('card')">
+                            <i class="fa fa-th-large"></i>
+                            <span>Card View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="list" onclick="switchView('list')">
+                            <i class="fa fa-list"></i>
+                            <span>List View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="calendar" onclick="switchView('calendar')">
+                            <i class="fa fa-calendar"></i>
+                            <span>Calendar View</span>
+                        </div>
+                        <div class="views-toggle-item" data-view="map" onclick="switchView('map')">
+                            <i class="fa fa-map"></i>
+                            <span>Map View</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- sort by -->
+                <div class="sort-by-toggle">
+                    <button class="toolbar-sort-by-btn" onclick="toggleSortByDropdown()" title="Sort by">
+                        <i class="fa fa-sort-alpha-asc"></i>
+                        <i class="fa fa-chevron-down toolbar-sort-by-arrow"></i>
+                    </button>
+                    <!-- <div class="sort-by-dropdown" id="sortByDropdown">
+                <div class="sort-by-item" data-value="name">
+                  <i class="fa fa-sort-alpha-asc"></i>
+                  Name
+                </div>
+                <div class="sort-by-item" data-value="created_at">
+                  <i class="fa fa-sort-amount-asc"></i>
+                  Created At
+                </div>
+              </div> -->
+                </div>
+
+                <div class="toolbar-group-by">
+                    <button class="toolbar-group-by-btn" onclick="toggleGroupByDropdown()" title="Group By">
+                        <i class="fa fa-sitemap"></i>
+                        <span class="btn-text">Group By</span>
+                    </button>
+                    <div class="toolbar-group-by-dropdown" id="groupByDropdown">
+                        <!-- <div class="toolbar-group-by-item" data-value="status">
+                  <i class="fa fa-flag"></i>
+                  Status
+                </div>
+                <div class="toolbar-group-by-item" data-value="category">
+                  <i class="fa fa-tags"></i>
+                  Category
+                </div>
+                <div class="toolbar-group-by-item" data-value="location">
+                  <i class="fa fa-map-marker"></i>
+                  Location
+                </div> -->
+                    </div>
+                    <button class="toolbar-time-group-by-btn" title="Time Group By">
+                        <i class="fa fa-calendar"></i>
+                        <span class="btn-text">Time</span>
+                    </button>
+                    <button class="toolbar-clear-group-by-btn" onclick="clearGroupBy()" title="Clear Group By">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+
+                <button class="toolbar-actions-btn" title="Actions">
+                    <i class="fa fa-gear"></i>
+                    <span class="btn-text">Actions</span>
+                </button>
+
+                <button class="toolbar-filter-btn" title="Filter">
+                    <i class="fa fa-filter"></i>
+                    <span class="btn-text">Filter</span>
+                </button>
+
+                <button class="toolbar-expand-btn" title="Expand">
+                    <i class="fa fa-expand"></i>
+                </button>
+
+                <button class="toolbar-primary-btn" id="addProjectBtn" title="Add RFQ" aria-expanded="false" aria-controls="addProjectOffcanvas">
+                    <i class="fa fa-plus"></i>
+                    <span class="btn-text">Add</span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="toolbar-pagination" aria-label="Pagination">
+            <button class="pagination-btn prev" type="button" title="Previous">
+                <i class="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <div class="pagination-range">
+
+                <input class="pagination-input" type="text" value="1-80" aria-label="Current range">
+
+                <span class="pagination-sep" aria-hidden="true">/</span>
+                <span class="pagination-total">Tot. <span class="pagination-total-value">3322+</span></span>
+
+            </div>
+
+            <button class="pagination-btn next" type="button" title="Next">
+                <i class="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="views-container">
+        <!-- Card View -->
+        <div class="bmh-card-view">
+
+            <div class="bmh-project-card" role="article" aria-label="Project card">
+                <div class="bmh-project-card_top">
+                    <button class="bmh-project-card_icon-btn bmh-project-card_star" type="button"
+                        aria-label="Star project" title="Star">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="bmh-project-card_menu-wrap">
+                        <button class="bmh-project-card_icon-btn bmh-project-card_menu" type="button"
+                            aria-label="Project options" title="Options" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="bmh-project-card_dropdown" role="menu" aria-hidden="true">
+                            <div class="bmh-project-card_dropdown-body">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Duplicate</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                    <span>Archive</span>
+                                </button>
+                            </div>
+                            <div class="bmh-project-card_dropdown-footer">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Setting</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_body">
+                    <div class="bmh-project-card_title">Industrial Warehouse (Steel Structure)</div>
+                    <div class="bmh-project-card_meta">
+                        <span class="bmh-project-card_pill bmh-project-card_pill_status">At risk</span>
+                        <span class="bmh-project-card_dot" aria-hidden="true"></span>
+                        <span class="bmh-project-card_sub">Start: 05 Apr 2026</span>
+                    </div>
+
+                    <div class="bmh-project-card_desc">
+                        Finalizing vendor selections for steel, cladding, and cranes. Shop drawings review in progress.
+                    </div>
+
+                    <div class="bmh-project-card_row">
+                        <div class="bmh-project-card_tags" aria-label="Project tags">
+                            <span class="bmh-project-card_tag">Steel</span>
+                            <span class="bmh-project-card_tag">Shop Drawings</span>
+                            <span class="bmh-project-card_tag">Procurement</span>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-card_progress" aria-label="Progress 28%">
+                        <div class="bmh-project-card_progress_top">
+                            <span class="bmh-project-card_progress_label">Progress</span>
+                            <span class="bmh-project-card_progress_value">28%</span>
+                        </div>
+                        <div class="bmh-project-card_bar" aria-hidden="true">
+                            <div class="bmh-project-card_bar_fill" style="width: 28%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_footer">
+                    <div class="bmh-project-card_owner" aria-label="Owner">
+                        <span class="bmh-project-card_avatar" aria-hidden="true">QS</span>
+                        <span class="bmh-project-card_owner_name">Quantity Surveyor</span>
+                    </div>
+
+                    <div class="bmh-project-card_stats" aria-label="Project stats">
+                        <span class="bmh-project-card_stat" title="RFQs">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>9</span>
+                        </span>
+                        <span class="bmh-project-card_stat" title="Submittals">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            <span>14</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bmh-project-card" role="article" aria-label="Project card">
+                <div class="bmh-project-card_top">
+                    <button class="bmh-project-card_icon-btn bmh-project-card_star" type="button"
+                        aria-label="Star project" title="Star">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="bmh-project-card_menu-wrap">
+                        <button class="bmh-project-card_icon-btn bmh-project-card_menu" type="button"
+                            aria-label="Project options" title="Options" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="bmh-project-card_dropdown" role="menu" aria-hidden="true">
+                            <div class="bmh-project-card_dropdown-body">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Duplicate</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                    <span>Archive</span>
+                                </button>
+                            </div>
+                            <div class="bmh-project-card_dropdown-footer">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Setting</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_body">
+                    <div class="bmh-project-card_title">City Road Rehabilitation (Section B)</div>
+                    <div class="bmh-project-card_meta">
+                        <span class="bmh-project-card_pill bmh-project-card_pill_status">Behind schedule</span>
+                        <span class="bmh-project-card_dot" aria-hidden="true"></span>
+                        <span class="bmh-project-card_sub">Completion: 18 May 2026</span>
+                    </div>
+
+                    <div class="bmh-project-card_desc">
+                        Milling + asphalt overlay with traffic management plan. Utility crossings and drainage fixes.
+                    </div>
+
+                    <div class="bmh-project-card_row">
+                        <div class="bmh-project-card_tags" aria-label="Project tags">
+                            <span class="bmh-project-card_tag">Roadworks</span>
+                            <span class="bmh-project-card_tag">Asphalt</span>
+                            <span class="bmh-project-card_tag">Traffic</span>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-card_progress" aria-label="Progress 74%">
+                        <div class="bmh-project-card_progress_top">
+                            <span class="bmh-project-card_progress_label">Progress</span>
+                            <span class="bmh-project-card_progress_value">74%</span>
+                        </div>
+                        <div class="bmh-project-card_bar" aria-hidden="true">
+                            <div class="bmh-project-card_bar_fill" style="width: 74%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_footer">
+                    <div class="bmh-project-card_owner" aria-label="Owner">
+                        <span class="bmh-project-card_avatar" aria-hidden="true">TM</span>
+                        <span class="bmh-project-card_owner_name">Traffic Manager</span>
+                    </div>
+
+                    <div class="bmh-project-card_stats" aria-label="Project stats">
+                        <span class="bmh-project-card_stat" title="Closures">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>6</span>
+                        </span>
+                        <span class="bmh-project-card_stat" title="Inspections">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            <span>11</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bmh-project-card" role="article" aria-label="Project card">
+                <div class="bmh-project-card_top">
+                    <button class="bmh-project-card_icon-btn bmh-project-card_star" type="button"
+                        aria-label="Star project" title="Star">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="bmh-project-card_menu-wrap">
+                        <button class="bmh-project-card_icon-btn bmh-project-card_menu" type="button"
+                            aria-label="Project options" title="Options" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="bmh-project-card_dropdown" role="menu" aria-hidden="true">
+                            <div class="bmh-project-card_dropdown-body">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Duplicate</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                    <span>Archive</span>
+                                </button>
+                            </div>
+                            <div class="bmh-project-card_dropdown-footer">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Setting</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_body">
+                    <div class="bmh-project-card_title">Residential Tower (Finishing Works)</div>
+                    <div class="bmh-project-card_meta">
+                        <span class="bmh-project-card_pill bmh-project-card_pill_status">On track</span>
+                        <span class="bmh-project-card_dot" aria-hidden="true"></span>
+                        <span class="bmh-project-card_sub">Move-in: 10 Apr 2026</span>
+                    </div>
+
+                    <div class="bmh-project-card_desc">
+                        Final painting, doors/ironmongery, and common-area lighting. Punch list closure tracking.
+                    </div>
+
+                    <div class="bmh-project-card_row">
+                        <div class="bmh-project-card_tags" aria-label="Project tags">
+                            <span class="bmh-project-card_tag">Finishes</span>
+                            <span class="bmh-project-card_tag">Punch List</span>
+                            <span class="bmh-project-card_tag">Handover</span>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-card_progress" aria-label="Progress 91%">
+                        <div class="bmh-project-card_progress_top">
+                            <span class="bmh-project-card_progress_label">Progress</span>
+                            <span class="bmh-project-card_progress_value">91%</span>
+                        </div>
+                        <div class="bmh-project-card_bar" aria-hidden="true">
+                            <div class="bmh-project-card_bar_fill" style="width: 91%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_footer">
+                    <div class="bmh-project-card_owner" aria-label="Owner">
+                        <span class="bmh-project-card_avatar" aria-hidden="true">QC</span>
+                        <span class="bmh-project-card_owner_name">QA/QC</span>
+                    </div>
+
+                    <div class="bmh-project-card_stats" aria-label="Project stats">
+                        <span class="bmh-project-card_stat" title="Snags">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>24</span>
+                        </span>
+                        <span class="bmh-project-card_stat" title="Closed">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            <span>18</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bmh-project-card" role="article" aria-label="Project card">
+                <div class="bmh-project-card_top">
+                    <button class="bmh-project-card_icon-btn bmh-project-card_star" type="button"
+                        aria-label="Star project" title="Star">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="bmh-project-card_menu-wrap">
+                        <button class="bmh-project-card_icon-btn bmh-project-card_menu" type="button"
+                            aria-label="Project options" title="Options" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="bmh-project-card_dropdown" role="menu" aria-hidden="true">
+                            <div class="bmh-project-card_dropdown-body">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Duplicate</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                    <span>Archive</span>
+                                </button>
+                            </div>
+                            <div class="bmh-project-card_dropdown-footer">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Setting</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_body">
+                    <div class="bmh-project-card_title">Water Treatment Plant Upgrade</div>
+                    <div class="bmh-project-card_meta">
+                        <span class="bmh-project-card_pill bmh-project-card_pill_status">Pending approval</span>
+                        <span class="bmh-project-card_dot" aria-hidden="true"></span>
+                        <span class="bmh-project-card_sub">IFC: 02 May 2026</span>
+                    </div>
+
+                    <div class="bmh-project-card_desc">
+                        Process layout validation, pump sizing, and instrument list finalization with the consultant.
+                    </div>
+
+                    <div class="bmh-project-card_row">
+                        <div class="bmh-project-card_tags" aria-label="Project tags">
+                            <span class="bmh-project-card_tag">Utilities</span>
+                            <span class="bmh-project-card_tag">P&ID</span>
+                            <span class="bmh-project-card_tag">Instrumentation</span>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-card_progress" aria-label="Progress 45%">
+                        <div class="bmh-project-card_progress_top">
+                            <span class="bmh-project-card_progress_label">Progress</span>
+                            <span class="bmh-project-card_progress_value">45%</span>
+                        </div>
+                        <div class="bmh-project-card_bar" aria-hidden="true">
+                            <div class="bmh-project-card_bar_fill" style="width: 45%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_footer">
+                    <div class="bmh-project-card_owner" aria-label="Owner">
+                        <span class="bmh-project-card_avatar" aria-hidden="true">PM</span>
+                        <span class="bmh-project-card_owner_name">Project Manager</span>
+                    </div>
+
+                    <div class="bmh-project-card_stats" aria-label="Project stats">
+                        <span class="bmh-project-card_stat" title="Comments">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>31</span>
+                        </span>
+                        <span class="bmh-project-card_stat" title="Approvals">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            <span>8</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bmh-project-card" role="article" aria-label="Project card">
+                <div class="bmh-project-card_top">
+                    <button class="bmh-project-card_icon-btn bmh-project-card_star" type="button"
+                        aria-label="Star project" title="Star">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="bmh-project-card_menu-wrap">
+                        <button class="bmh-project-card_icon-btn bmh-project-card_menu" type="button"
+                            aria-label="Project options" title="Options" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="bmh-project-card_dropdown" role="menu" aria-hidden="true">
+                            <div class="bmh-project-card_dropdown-body">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Duplicate</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                    <span>Archive</span>
+                                </button>
+                            </div>
+                            <div class="bmh-project-card_dropdown-footer">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Setting</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_body">
+                    <div class="bmh-project-card_title">Mall HVAC Retrofit</div>
+                    <div class="bmh-project-card_meta">
+                        <span class="bmh-project-card_pill bmh-project-card_pill_status">Delayed</span>
+                        <span class="bmh-project-card_dot" aria-hidden="true"></span>
+                        <span class="bmh-project-card_sub">Shutdown: 22 Mar 2026</span>
+                    </div>
+
+                    <div class="bmh-project-card_desc">
+                        Chiller replacement plan, duct modifications, and commissioning schedule aligned with tenant hours.
+                    </div>
+
+                    <div class="bmh-project-card_row">
+                        <div class="bmh-project-card_tags" aria-label="Project tags">
+                            <span class="bmh-project-card_tag">HVAC</span>
+                            <span class="bmh-project-card_tag">Commissioning</span>
+                            <span class="bmh-project-card_tag">Shutdown</span>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-card_progress" aria-label="Progress 58%">
+                        <div class="bmh-project-card_progress_top">
+                            <span class="bmh-project-card_progress_label">Progress</span>
+                            <span class="bmh-project-card_progress_value">58%</span>
+                        </div>
+                        <div class="bmh-project-card_bar" aria-hidden="true">
+                            <div class="bmh-project-card_bar_fill" style="width: 58%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_footer">
+                    <div class="bmh-project-card_owner" aria-label="Owner">
+                        <span class="bmh-project-card_avatar" aria-hidden="true">ME</span>
+                        <span class="bmh-project-card_owner_name">MEP Engineer</span>
+                    </div>
+
+                    <div class="bmh-project-card_stats" aria-label="Project stats">
+                        <span class="bmh-project-card_stat" title="Work Orders">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>8</span>
+                        </span>
+                        <span class="bmh-project-card_stat" title="Tests">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            <span>3</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bmh-project-card" role="article" aria-label="Project card">
+                <div class="bmh-project-card_top">
+                    <button class="bmh-project-card_icon-btn bmh-project-card_star" type="button"
+                        aria-label="Star project" title="Star">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                    </button>
+
+                    <div class="bmh-project-card_menu-wrap">
+                        <button class="bmh-project-card_icon-btn bmh-project-card_menu" type="button"
+                            aria-label="Project options" title="Options" aria-expanded="false" aria-haspopup="true">
+                            <i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+                        </button>
+                        <div class="bmh-project-card_dropdown" role="menu" aria-hidden="true">
+                            <div class="bmh-project-card_dropdown-body">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-copy" aria-hidden="true"></i>
+                                    <span>Duplicate</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-archive" aria-hidden="true"></i>
+                                    <span>Archive</span>
+                                </button>
+                            </div>
+                            <div class="bmh-project-card_dropdown-footer">
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
+                                    <i class="fa fa-cog" aria-hidden="true"></i>
+                                    <span>Setting</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_body">
+                    <div class="bmh-project-card_title">BMH HQ Building Construction</div>
+                    <div class="bmh-project-card_meta">
+                        <span class="bmh-project-card_pill bmh-project-card_pill_status">In progress</span>
+                        <span class="bmh-project-card_dot" aria-hidden="true"></span>
+                        <span class="bmh-project-card_sub">Handover: 30 Jun 2026</span>
+                    </div>
+
+                    <div class="bmh-project-card_desc">
+                        RCC structure + MEP coordination, weekly progress tracking, RFIs, and material approvals.
+                    </div>
+
+                    <div class="bmh-project-card_row">
+                        <div class="bmh-project-card_tags" aria-label="Project tags">
+                            <span class="bmh-project-card_tag">Civil</span>
+                            <span class="bmh-project-card_tag">MEP</span>
+                            <span class="bmh-project-card_tag">BOQ</span>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-card_progress" aria-label="Progress 62%">
+                        <div class="bmh-project-card_progress_top">
+                            <span class="bmh-project-card_progress_label">Progress</span>
+                            <span class="bmh-project-card_progress_value">62%</span>
+                        </div>
+                        <div class="bmh-project-card_bar" aria-hidden="true">
+                            <div class="bmh-project-card_bar_fill" style="width: 62%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bmh-project-card_footer">
+                    <div class="bmh-project-card_owner" aria-label="Owner">
+                        <span class="bmh-project-card_avatar" aria-hidden="true">SE</span>
+                        <span class="bmh-project-card_owner_name">Site Engineer</span>
+                    </div>
+
+                    <div class="bmh-project-card_stats" aria-label="Project stats">
+                        <span class="bmh-project-card_stat" title="RFIs">
+                            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+                            <span>12</span>
+                        </span>
+                        <span class="bmh-project-card_stat" title="Approvals">
+                            <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+                            <span>5</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- List View -->
+        <div class="bmh-list-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span></h2>
+        </div>
+
+        <!-- Dashboard View -->
+        <div class="bmh-dashboard-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span>
+            </h2>
+        </div>
+
+        <!-- Calendar View -->
+        <div class="bmh-calendar-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+                    soon!</span></h2>
+        </div>
+
+        <!-- Map View -->
+        <div class="bmh-map-view">
+            <h2>We’re working on something exciting. <span style="color: #9885d1;text-decoration: underline;"> Coming
+        </div>
+
+    </div>
+
+    <!-- Add Project Offcanvas Side Panel -->
+    <div class="bmh-offcanvas-wrapper" id="addProjectOffcanvas">
+        <div class="bmh-offcanvas-backdrop"></div>
+        <aside class="bmh-offcanvas" role="dialog" aria-modal="true" aria-labelledby="addProjectOffcanvasTitle">
+            <div class="bmh-offcanvas_header">
+                <h2 class="bmh-offcanvas_title" id="addProjectOffcanvasTitle">Add Project</h2>
+                <button class="bmh-offcanvas_close" type="button" aria-label="Close panel">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="bmh-offcanvas_body">
+                <!-- Empty for now -->
+            </div>
+        </aside>
+    </div>
+
+    <script src="scripts/toolbar.js"></script>
+    <script src="scripts/views-container.js"></script>
+    <script src="scripts/add-project.js"></script>
+</body>
+
+</html>
