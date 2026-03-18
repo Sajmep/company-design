@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../styles/scrollbar.css">
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <link rel="stylesheet" href="css/bmh-header.css">
+    <link rel="stylesheet" href="css/contact-profile.css">
+    <title>Vendors - Contact Profile</title>
+</head>
+
+<body>
+    <header class="bmh-header">
+        <div class="company-selector" id="companySelector">
+            <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
+                <div class="selected-logo" id="selectedLogo">
+                    <img src="../portal/images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+                </div>
+                <div class="selected-text">
+                    <span class="selected-title">Sakhrat Al...</span>
+                </div>
+                <div class="caret" id="caret">
+                    <i class="fa fa-chevron-down"
+                        style="color: #000000d6;font-size: 12px; margin: 3px; cursor: pointer;"></i>
+                </div>
+            </button>
+        </div>
+        <div class="header-right-section">
+            <div class="header-login-button">
+                <button class="header-login-btn">Login</button>
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-profile-container">
+        <main class="contact-profile-layout">
+            <section class="contact-card" aria-label="Contact profile">
+                <div class="contact-card-top">
+
+                    <div class="contact-card-avatar-wrap">
+                        <div class="contact-card-avatar" aria-hidden="true">
+                            <img src="../portal/images/avatar.png" alt="" onerror="this.style.display='none'; this.parentElement.classList.add('contact-card-avatar--fallback');">
+                        </div>
+                        <span class="contact-card-status contact-card-status--online" aria-label="Online" title="Online"></span>
+                    </div>
+                    <span class="contact-card-status-label contact-card-status-label--online">Online</span>
+
+                    <h2 class="contact-card-name">Muhammed Al-Qahtani</h2>
+                    <p class="contact-card-designation"> Project Manager</p>
+
+                </div>
+
+                <div class="contact-card-details">
+                    <div class="detail-info-panel" id="detail-info-panel" aria-hidden="true">
+                        <div class="detail-row">
+                            <span class="detail-row-icon" aria-hidden="true"><i class="fa fa-clock-o"></i></span>
+                            <span class="detail-row-text">Member since 2020</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-icon" aria-hidden="true"><i class="fa fa-map-marker"></i></span>
+                            <span class="detail-row-text">Riyadh, Saudi Arabia</span>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-icon" aria-hidden="true"><i class="fa fa-envelope"></i></span>
+                            <a class="detail-row-link" href="mailto:john.smith@emailhost.com">muhammed.al-qahtani@sajmep.com</a>
+                        </div>
+                        <div class="detail-row">
+                            <span class="detail-row-icon" aria-hidden="true"><i class="fa fa-phone"></i></span>
+                            <a class="detail-row-link" href="tel:+966569400876">+966 56 940 0876</a>
+                        </div>
+                    </div>
+
+                    <div class="social-row" aria-label="Quick actions">
+                        <button type="button" class="social-btn social-btn--info" id="info-toggle-btn" aria-label="Information" aria-expanded="false" aria-controls="detail-info-panel">
+                            <i class="fa fa-info-circle" aria-hidden="true"></i>
+                            <span class="social-btn-label">Information</span>
+                        </button>
+                        <a class="social-btn social-btn--call" href="tel:+966569400876" aria-label="Call">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span class="social-btn-label">Call</span>
+                        </a>
+                        <a class="social-btn social-btn--whatsapp" href="https://wa.me/966569400876" aria-label="WhatsApp">
+                            <i class="fa fa-whatsapp" aria-hidden="true"></i>
+                            <span class="social-btn-label">WhatsApp</span>
+                        </a>
+                        <a class="social-btn social-btn--chat" href="#" aria-label="Chat">
+                            <i class="fa fa-comments" aria-hidden="true"></i>
+                            <span class="social-btn-label">Chat</span>
+                        </a>
+                    </div>
+
+                    <div class="qr-block" aria-label="QR code">
+                        <div class="qr-block-title">Scan QR</div>
+                        <div class="qr-block-sub">Quick call / save contact</div>
+                        <img class="qr-block-img"
+                            src="https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=tel%3A%2B447950124223"
+                            alt="QR code for calling this contact">
+                    </div>
+
+                    <a class="primary-cta" href="mailto:john.smith@emailhost.com">Send Email</a>
+                </div>
+            </section>
+
+            <aside class="other-contacts" aria-label="Other contacts">
+                <div class="other-contacts-header">
+                    <h3 class="other-contacts-title">Other contacts</h3>
+                    <div class="other-contacts-actions">
+                        <button class="mini-btn" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                        <button class="mini-btn" type="button"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+
+                <div class="contact-list" role="list">
+                    <a class="contact-list-item" href="#" role="listitem" aria-label="Open profile for Sarah Khan">
+                        <div class="contact-list-avatar">SK</div>
+                        <div class="contact-list-main">
+                            <div class="contact-list-name">Sarah Khan</div>
+                            <div class="contact-list-sub">Procurement • Riyadh</div>
+                        </div>
+                        <span class="contact-list-chev" aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                    <a class="contact-list-item" href="#" role="listitem" aria-label="Open profile for Ahmed Ali">
+                        <div class="contact-list-avatar">AA</div>
+                        <div class="contact-list-main">
+                            <div class="contact-list-name">Ahmed Ali</div>
+                            <div class="contact-list-sub">Site Eng. • Jeddah</div>
+                        </div>
+                        <span class="contact-list-chev" aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                    <a class="contact-list-item" href="#" role="listitem" aria-label="Open profile for Maria Gomez">
+                        <div class="contact-list-avatar">MG</div>
+                        <div class="contact-list-main">
+                            <div class="contact-list-name">Maria Gomez</div>
+                            <div class="contact-list-sub">Accounts • Dubai</div>
+                        </div>
+                        <span class="contact-list-chev" aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                    <a class="contact-list-item" href="#" role="listitem" aria-label="Open profile for Paul Brown">
+                        <div class="contact-list-avatar">PB</div>
+                        <div class="contact-list-main">
+                            <div class="contact-list-name">Paul Brown</div>
+                            <div class="contact-list-sub">Sales • London</div>
+                        </div>
+                        <span class="contact-list-chev" aria-hidden="true"><i class="fa fa-chevron-right"></i></span>
+                    </a>
+                </div>
+            </aside>
+        </main>
+    </div>
+    <script>
+        (function () {
+            var btn = document.getElementById('info-toggle-btn');
+            var panel = document.getElementById('detail-info-panel');
+            if (btn && panel) {
+                btn.addEventListener('click', function () {
+                    var open = panel.classList.toggle('is-visible');
+                    btn.setAttribute('aria-expanded', open);
+                    panel.setAttribute('aria-hidden', !open);
+                });
+            }
+        })();
+    </script>
+</body>
+
+</html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Apps Hub</title>
+    <title>Projects</title>
 
     <link rel="stylesheet" href="../styles/scrollbar.css">
     <link rel="stylesheet" href="css/projects-cards.css">
@@ -13,6 +13,7 @@
 
     <link rel="stylesheet" href="css/toolbar.css">
     <link rel="stylesheet" href="css/views-container.css">
+    <link rel="stylesheet" href="css/project-create.css">
 
 </head>
 
@@ -180,6 +181,10 @@
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     <span>Archive</span>
                                 </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button" data-open-workspace>
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span>Add to workspace</span>
+                                </button>
                             </div>
                             <div class="bmh-project-card_dropdown-footer">
                                 <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
@@ -262,6 +267,10 @@
                                 <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     <span>Archive</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button" data-open-workspace>
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span>Add to workspace</span>
                                 </button>
                             </div>
                             <div class="bmh-project-card_dropdown-footer">
@@ -346,6 +355,10 @@
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     <span>Archive</span>
                                 </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button" data-open-workspace>
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span>Add to workspace</span>
+                                </button>
                             </div>
                             <div class="bmh-project-card_dropdown-footer">
                                 <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
@@ -428,6 +441,10 @@
                                 <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     <span>Archive</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button" data-open-workspace>
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span>Add to workspace</span>
                                 </button>
                             </div>
                             <div class="bmh-project-card_dropdown-footer">
@@ -512,6 +529,10 @@
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     <span>Archive</span>
                                 </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button" data-open-workspace>
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span>Add to workspace</span>
+                                </button>
                             </div>
                             <div class="bmh-project-card_dropdown-footer">
                                 <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
@@ -594,6 +615,10 @@
                                 <button class="bmh-project-card_dropdown-item" role="menuitem" type="button">
                                     <i class="fa fa-archive" aria-hidden="true"></i>
                                     <span>Archive</span>
+                                </button>
+                                <button class="bmh-project-card_dropdown-item" role="menuitem" type="button" data-open-workspace>
+                                    <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    <span>Add to workspace</span>
                                 </button>
                             </div>
                             <div class="bmh-project-card_dropdown-footer">
@@ -688,21 +713,320 @@
     <div class="bmh-offcanvas-wrapper" id="addProjectOffcanvas">
         <div class="bmh-offcanvas-backdrop"></div>
         <aside class="bmh-offcanvas" role="dialog" aria-modal="true" aria-labelledby="addProjectOffcanvasTitle">
-            <div class="bmh-offcanvas_header">
-                <h2 class="bmh-offcanvas_title" id="addProjectOffcanvasTitle">Add Project</h2>
-                <button class="bmh-offcanvas_close" type="button" aria-label="Close panel">
-                    <i class="fa fa-times" aria-hidden="true"></i>
-                </button>
+            <div class="bmh-offcanvas_header bmh-offcanvas_header_with-staging">
+                <div class="bmh-offcanvas_header-top">
+                    <h2 class="bmh-offcanvas_title" id="addProjectOffcanvasTitle">New Project</h2>
+                    
+                    <button class="bmh-offcanvas_close" type="button" aria-label="Close panel">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="bmh-offcanvas_header-tags project-create-action-buttons">
+                    <button class="project-create-btn project-create-btn-submit" type="button" title="Send">
+                        <i class="fa fa-paper-plane"></i>
+                        <span>Send</span>
+                    </button>
+                    <div class="project-create-staging-section bmh-offcanvas_header-staging">
+                        <div class="project-create-staging-arrow">
+                            <div class="project-create-stage project-create-stage-active">
+                                <div class="project-create-stage-content">
+                                    <div class="project-create-stage-label">Draft</div>
+                                </div>
+                            </div>
+                            <div class="project-create-arrow-connector"></div>
+                            <div class="project-create-stage">
+                                <div class="project-create-stage-content">
+                                    <div class="project-create-stage-label">Published</div>
+                                </div>
+                            </div>
+                            <div class="project-create-arrow-connector"></div>
+                            <div class="project-create-stage">
+                                <div class="project-create-stage-content">
+                                    <div class="project-create-stage-label">In Progress</div>
+                                </div>
+                            </div>
+                            <div class="project-create-arrow-connector"></div>
+                            <div class="project-create-stage">
+                                <div class="project-create-stage-content">
+                                    <div class="project-create-stage-label">Completed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="bmh-offcanvas_body">
-                <!-- Empty for now -->
+                <form class="bmh-project-create" id="addProjectForm" novalidate>
+                    <div class="project-create-tabs" role="tablist" aria-label="Project details sections">
+                        <button type="button" class="project-create-tab-btn is-active" data-tab="general" role="tab" aria-selected="true">
+                            General info
+                        </button>
+                        <button type="button" class="project-create-tab-btn" data-tab="area" role="tab" aria-selected="false">
+                            Area of work
+                        </button>
+                        <button type="button" class="project-create-tab-btn" data-tab="documents" role="tab" aria-selected="false">
+                            Documents
+                        </button>
+                        <button type="button" class="project-create-tab-btn" data-tab="scope" role="tab" aria-selected="false">
+                            Scope of work
+                        </button>
+                    </div>
+
+                    <div class="project-create-tab-panels">
+                        <div class="project-create-tab-panel is-active" data-tab-panel="general" role="tabpanel">
+                            <div class="bmh-project-create_field">
+                                <label class="bmh-project-create_label" for="projectName">Project name</label>
+                                <input type="text" id="projectName" name="name" class="bmh-project-create_input" placeholder="e.g. BMH HQ Building" required autocomplete="off">
+                            </div>
+                            <div class="bmh-project-create_field">
+                                <label class="bmh-project-create_label" for="projectStatus">Status</label>
+                                <select id="projectStatus" name="status" class="bmh-project-create_select">
+                                    <option value="planning">Planning</option>
+                                    <option value="on_site">On Site</option>
+                                    <option value="at_risk">At risk</option>
+                                    <option value="behind_schedule">Behind schedule</option>
+                                    <option value="completed">Completed</option>
+                                </select>
+                            </div>
+                            <div class="bmh-project-create_row">
+                                <div class="bmh-project-create_field">
+                                    <label class="bmh-project-create_label" for="projectStart">Start date</label>
+                                    <input type="date" id="projectStart" name="startDate" class="bmh-project-create_input">
+                                </div>
+                                <div class="bmh-project-create_field">
+                                    <label class="bmh-project-create_label" for="projectHandover">Handover date</label>
+                                    <input type="date" id="projectHandover" name="handoverDate" class="bmh-project-create_input">
+                                </div>
+                            </div>
+                            <div class="bmh-project-create_field">
+                                <label class="bmh-project-create_label" for="projectDesc">Description</label>
+                                <textarea id="projectDesc" name="description" class="bmh-project-create_textarea" rows="3" placeholder="Brief project description..."></textarea>
+                            </div>
+                            <div class="bmh-project-create_field">
+                                <label class="bmh-project-create_label" for="projectTags">Tags <span class="bmh-project-create_hint">(comma-separated)</span></label>
+                                <input type="text" id="projectTags" name="tags" class="bmh-project-create_input" placeholder="e.g. Civil, MEP, BOQ" autocomplete="off">
+                            </div>
+                        </div>
+
+                        <div class="project-create-tab-panel" data-tab-panel="area" role="tabpanel" aria-hidden="true">
+                            <div class="project-area">
+                                <div class="project-area_title">BUILDINGS</div>
+                                <div class="project-area_table-wrap">
+                                    <table class="project-area_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Building Name</th>
+                                                <th>Building Type</th>
+                                                <th>Project</th>
+                                                <th>Contract</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>BMH HQ</td>
+                                                <td>Office</td>
+                                                <td>Main Project</td>
+                                                <td>Contract A</td>
+                                            </tr>
+                                            <tr class="project-area_add-row">
+                                                <td colspan="4">
+                                                    <button type="button" class="project-area_add-btn" data-open-area-line data-area-kind="Buildings">Add a line</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br>
+                            <br>
+
+                            <div class="project-area">
+                                <div class="project-area_title">FLOORS</div>
+                                <div class="project-area_table-wrap">
+                                    <table class="project-area_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Name</th>
+                                                <th>Floor</th>
+                                                <th>Building</th>
+                                                <th>Project</th>
+                                                <th>Contract</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="project-area_add-row">
+                                                <td colspan="5">
+                                                    <button type="button" class="project-area_add-btn" data-open-area-line data-area-kind="Floors">Add a line</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <br>
+                            <br>
+                            <div class="project-area">
+                                <div class="project-area_title">SPACES</div>
+                                <div class="project-area_table-wrap">
+                                    <table class="project-area_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Space Name</th>
+                                                <th>Space Type</th>
+                                                <th>Zones</th>
+                                                <th>Floor</th>
+                                                <th>Building</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="project-area_add-row">
+                                                <td colspan="5">
+                                                    <button type="button" class="project-area_add-btn" data-open-area-line data-area-kind="Spaces">Add a line</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-create-tab-panel" data-tab-panel="documents" role="tabpanel" aria-hidden="true">
+                            <div class="project-docs">
+                                <div class="project-docs_top">
+                                    <div class="project-docs_title">Upload documents</div>
+                                    <div class="project-docs_actions">
+                                        <button type="button" class="project-docs_albums-btn" data-open-albums>
+                                            <i class="fa fa-picture-o" aria-hidden="true"></i>
+                                            <span>Folders</span>
+                                        </button>
+                                        <label class="project-docs_upload-btn" for="projectDocsInput">
+                                            <i class="fa fa-upload" aria-hidden="true"></i>
+                                            <span>Upload</span>
+                                        </label>
+                                    </div>
+                                    <input id="projectDocsInput" class="project-docs_input" type="file" multiple>
+                                </div>
+
+                                <div class="project-docs_help">
+                                    <div class="project-docs_help-title">Instructions</div>
+                                    <div class="project-docs_chips" aria-label="Document types">
+                                        <span class="project-docs_chip">DWG</span>
+                                        <span class="project-docs_chip">Specs</span>
+                                        <span class="project-docs_chip">BOQ</span>
+                                        <span class="project-docs_chip">Others</span>
+                                    </div>
+                                    <div class="project-docs_help-text">Keep file names clear (e.g. <span class="project-docs_code">Structural_DWG_RevA.pdf</span>).</div>
+                                </div>
+
+                                <div class="project-docs_files" aria-label="Selected files (demo)">
+                                    <div class="project-docs_files-title">Files</div>
+                                    <div class="project-docs_file">
+                                        <div class="project-docs_file-name">Architectural_DWG_RevB.pdf</div>
+                                        <button type="button" class="project-docs_file-remove" aria-label="Remove file">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <div class="project-docs_file">
+                                        <div class="project-docs_file-name">Project_Specs_v1.docx</div>
+                                        <button type="button" class="project-docs_file-remove" aria-label="Remove file">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                    <div class="project-docs_file">
+                                        <div class="project-docs_file-name">BOQ_Final.xlsx</div>
+                                        <button type="button" class="project-docs_file-remove" aria-label="Remove file">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="project-create-tab-panel" data-tab-panel="scope" role="tabpanel" aria-hidden="true">
+                            <p class="project-create-coming-soon">Scope of work details coming soon.</p>
+                        </div>
+                    </div>
+
+                    <div class="bmh-project-create_actions">
+                        <button type="button" class="bmh-project-create_btn bmh-project-create_btn_secondary bmh-offcanvas_close">Cancel</button>
+                        <button type="submit" class="bmh-project-create_btn bmh-project-create_btn_primary">Save</button>
+                    </div>
+                </form>
             </div>
         </aside>
     </div>
 
     <script src="scripts/toolbar.js"></script>
     <script src="scripts/views-container.js"></script>
+    <script src="scripts/project-create-tabs.js"></script>
     <script src="scripts/add-project.js"></script>
+
+    <div class="bmh-basic-modal" id="projectAlbumsModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="projectAlbumsModalTitle">
+        <div class="bmh-basic-modal__backdrop" data-close-albums></div>
+        <div class="bmh-basic-modal__panel" role="document">
+            <div class="bmh-basic-modal__header">
+                <div class="bmh-basic-modal__title" id="projectAlbumsModalTitle">Folders</div>
+                <button type="button" class="bmh-basic-modal__close" data-close-albums aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="bmh-basic-modal__body">
+                <p class="bmh-basic-modal__hint">Basic placeholder popup, will improve the UI/flow later.</p>
+                <div class="bmh-basic-modal__actions">
+                    <button type="button" class="bmh-basic-modal__btn" data-close-albums>Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bmh-basic-modal" id="projectAreaLineModal" aria-hidden="true">
+        <div class="bmh-basic-modal__backdrop" data-close-area-line></div>
+        <div class="bmh-basic-modal__panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                <strong id="projectAreaLineModalTitle">Add line</strong>
+                <button type="button" data-close-area-line>×</button>
+            </div>
+            <div style="margin-top:10px;display:grid;gap:8px;">
+                <label>
+                    Name<br>
+                    <input type="text" style="width:100%;" placeholder="e.g. BMH HQ">
+                </label>
+                <label>
+                    Type<br>
+                    <input type="text" style="width:100%;" placeholder="e.g. Office">
+                </label>
+                <label>
+                    Notes<br>
+                    <input type="text" style="width:100%;" placeholder="optional">
+                </label>
+                <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:4px;">
+                    <button type="button" data-close-area-line>Close</button>
+                    <button type="button" data-close-area-line>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bmh-basic-modal" id="projectWorkspaceModal" aria-hidden="true">
+        <div class="bmh-basic-modal__backdrop" data-close-workspace></div>
+        <div class="bmh-basic-modal__panel">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+                <strong>Add to workspace</strong>
+                <button type="button" data-close-workspace>×</button>
+            </div>
+            <div style="margin-top:10px;display:grid;gap:6px;">
+                <button type="button">Workspace A</button>
+                <button type="button">Workspace B</button>
+                <button type="button">Workspace C</button>
+            </div>
+            <div style="margin-top:10px;display:flex;justify-content:flex-end;gap:8px;">
+                <button type="button" data-close-workspace>Create new</button>
+                <button type="button" data-close-workspace>Close</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>
