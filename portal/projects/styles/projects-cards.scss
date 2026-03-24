@@ -2,12 +2,11 @@
 .bmh-card-view {
     padding: 20px;
     padding-top: 8px;
-    background: #ffffff;
     display: flex;
     flex-wrap: wrap;
     gap: 16px;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
  
     .bmh-project-card {
         

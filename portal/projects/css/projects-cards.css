@@ -1,0 +1,270 @@
+/* ==================== Card View Styles ==================== */
+.bmh-card-view {
+  padding: 20px;
+  padding-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.bmh-card-view .bmh-project-card {
+  width: 360px;
+  max-width: 100%;
+  position: relative;
+  background: #fff;
+  border: 1px solid #e8eef9;
+  border-radius: 16px;
+  overflow: visible;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.06);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.bmh-card-view .bmh-project-card:hover {
+  transform: translateY(-2px);
+  border-color: #dbe6fb;
+  box-shadow: 0 16px 40px rgba(16, 24, 40, 0.1);
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_top {
+  position: absolute;
+  inset: 10px 10px auto 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  pointer-events: none;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_icon-btn {
+  pointer-events: auto;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  border: 1px solid rgba(232, 238, 249, 0.9);
+  background: rgba(255, 255, 255, 0.86);
+  color: #334155;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_icon-btn:hover {
+  background: #fff;
+  border-color: #dbe6fb;
+  transform: translateY(-1px);
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_icon-btn:active {
+  transform: translateY(0);
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_star {
+  color: #d69e2e;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_menu-wrap {
+  position: relative;
+  pointer-events: auto;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 200px;
+  background: #fff;
+  border: 1px solid #e8eef9;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(16, 24, 40, 0.12);
+  z-index: 50;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px);
+  transition: opacity 140ms ease, visibility 140ms ease, transform 140ms ease;
+  overflow: hidden;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown.is-open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown-body {
+  padding: 6px 0;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown-footer {
+  border-top: 1px solid #eef2f7;
+  padding: 6px 0;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown-item {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+  padding: 10px 14px;
+  border: none;
+  background: transparent;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms ease;
+  text-align: left;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown-item i {
+  width: 18px;
+  color: #64748b;
+  flex-shrink: 0;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dropdown-item:hover {
+  background: #f1f5fb;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_body {
+  padding: 18px 16px 14px 16px;
+  padding-top: 54px;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-bottom: 8px;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  color: #64748b;
+  font-size: 12px;
+  flex-wrap: wrap;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 12px;
+  border: 1px solid #e8eef9;
+  background: #f7faff;
+  color: #2b63d9;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_pill_status {
+  background: #f1fff6;
+  border-color: #c7f0d6;
+  color: #16794c;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_dot {
+  width: 4px;
+  height: 4px;
+  border-radius: 999px;
+  background: #cbd5e1;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_sub {
+  font-weight: 600;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_desc {
+  font-size: 13px;
+  line-height: 1.45;
+  color: #475569;
+  margin-bottom: 12px;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_tag {
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #e8eef9;
+  background: #ffffff;
+  color: #334155;
+  font-weight: 600;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_progress {
+  margin-top: 10px;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_progress_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #64748b;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_bar {
+  height: 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  overflow: hidden;
+  border: 1px solid #e8eef9;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_bar_fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #3b82f6 0%, #7c3aed 100%);
+  width: 0%;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_footer {
+  padding: 12px 16px 14px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #eef2f7;
+  background: #fbfdff;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_owner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 12px;
+  color: #0f172a;
+  background: #e9efff;
+  border: 1px solid #dbe6fb;
+  flex: 0 0 auto;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_owner_name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0f172a;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+  flex: 0 0 auto;
+}
+.bmh-card-view .bmh-project-card .bmh-project-card_stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  border: 1px solid #e8eef9;
+  background: #fff;
+  color: #334155;
+}
+
+/*# sourceMappingURL=projects-cards.css.map */

@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Details</title>
+    <link rel="stylesheet" href="../lib/fontawesome/css/font-awesome.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            color: #111;
+        }
+
+        .page {
+            max-width: 980px;
+            margin: 20px auto;
+            padding: 0 12px 24px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 12px;
+        }
+
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .title {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .muted {
+            color: #666;
+            margin-top: 6px;
+            font-size: 14px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .box {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 10px;
+            background: #fff;
+        }
+
+        .label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .value {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        ul {
+            margin: 8px 0 0;
+            padding-left: 18px;
+        }
+
+        .back-link {
+            text-decoration: none;
+        }
+
+        @media (max-width: 700px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page">
+        <div class="card">
+            <div class="top">
+                <a class="back-link" href="projects.html"><i class="fa fa-arrow-left"></i> Back to Projects</a>
+                <button type="button">Edit</button>
+            </div>
+            <h1 class="title">Industrial Warehouse (Steel Structure)</h1>
+            <div class="muted">Project ID: PRJ-2026-014</div>
+        </div>
+
+        <div class="grid">
+            <div class="box">
+                <div class="label">Status</div>
+                <div class="value">At Risk</div>
+            </div>
+            <div class="box">
+                <div class="label">Start Date</div>
+                <div class="value">05 Apr 2026</div>
+            </div>
+            <div class="box">
+                <div class="label">Handover</div>
+                <div class="value">20 Jan 2027</div>
+            </div>
+            <div class="box">
+                <div class="label">Progress</div>
+                <div class="value">28%</div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Description</h3>
+            <p>Finalizing vendor selections for steel, cladding, and cranes. Shop drawings review is in progress.</p>
+        </div>
+
+        <div class="card">
+            <h3>Tags</h3>
+            <ul>
+                <li>Steel</li>
+                <li>Shop Drawings</li>
+                <li>Procurement</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Area Of Work - Buildings</h3>
+            <table width="100%" border="1" cellspacing="0" cellpadding="8">
+                <thead>
+                    <tr>
+                        <th align="left">Building Name</th>
+                        <th align="left">Building Type</th>
+                        <th align="left">Project</th>
+                        <th align="left">Contract</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BMH HQ</td>
+                        <td>Office</td>
+                        <td>Main Project</td>
+                        <td>Contract A</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Area Of Work - Floors</h3>
+            <table width="100%" border="1" cellspacing="0" cellpadding="8">
+                <thead>
+                    <tr>
+                        <th align="left">Name</th>
+                        <th align="left">Floor</th>
+                        <th align="left">Building</th>
+                        <th align="left">Project</th>
+                        <th align="left">Contract</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Level 1</td>
+                        <td>01</td>
+                        <td>BMH HQ</td>
+                        <td>Main Project</td>
+                        <td>Contract A</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Area Of Work - Spaces</h3>
+            <table width="100%" border="1" cellspacing="0" cellpadding="8">
+                <thead>
+                    <tr>
+                        <th align="left">Space Name</th>
+                        <th align="left">Space Type</th>
+                        <th align="left">Zones</th>
+                        <th align="left">Floor</th>
+                        <th align="left">Building</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Reception</td>
+                        <td>Public</td>
+                        <td>Zone A</td>
+                        <td>01</td>
+                        <td>BMH HQ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h3>Documents</h3>
+            <ul>
+                <li>Architectural_DWG_RevB.pdf</li>
+                <li>Project_Specs_v1.docx</li>
+                <li>BOQ_Final.xlsx</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Folders</h3>
+            <ul>
+                <li>Tender Package</li>
+                <li>Shop Drawings</li>
+                <li>Site Photos</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Scope Of Work</h3>
+            <p>Scope of work details coming soon.</p>
+        </div>
+
+        <div class="card">
+            <h3>Milestones</h3>
+            <ul>
+                <li>Site mobilization completed</li>
+                <li>Foundation works in progress</li>
+                <li>Steel procurement under review</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h3>Team</h3>
+            <ul>
+                <li>Project Manager - Abdul Rahman</li>
+                <li>Quantity Surveyor - Sara Malik</li>
+                <li>Site Engineer - Hadi Karim</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
