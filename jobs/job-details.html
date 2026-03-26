@@ -24,7 +24,7 @@
         <div class="company-selector" id="companySelector">
             <button class="selector" id="selector" aria-haspopup="listbox" aria-expanded="false">
                 <div class="selected-logo" id="selectedLogo">
-                    <img src="../images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
+                    <img src="../portal/images/Sakhrat Al Janoub Contracting Co. - SAJMEP.png" alt="Logo" width="100%">
                 </div>
                 <div class="selected-text">
                     <span class="selected-title">Sakhrat Al...</span>
@@ -46,12 +46,10 @@
         <main class="job-details-main">
             <!-- Header: company + actions -->
             <header class="job-details-header">
-                <div class="job-details-company">
-                    <div class="job-details-company-logo">
-                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep">
-                    </div>
-                    <div class="job-details-company-name">Sajmep</div>
-                </div>
+                <breadcrumb class="job-details-breadcrumb">
+                    <a href="jobs.html">Jobs ></a>
+                    <a>Web Designer & Developer</a>
+                </breadcrumb>
                 <div class="job-details-header-actions">
                     <button type="button" class="job-details-icon-btn" title="Share"><i class="fa fa-share-alt"></i></button>
                     <button type="button" class="job-details-icon-btn" title="More"><i class="fa fa-ellipsis-h"></i></button>
@@ -76,23 +74,6 @@
                     <i class="fa fa-bookmark-o"></i> Save
                 </button>
             </div>
-
-            <!-- Meet the hiring team -->
-            <section class="job-details-section">
-                <h2 class="job-details-section-title">Meet the hiring team</h2>
-                <div class="job-details-recruiter-card">
-                    <div class="job-details-recruiter-photo">
-                        <img src="images/job-seekers/mike.png" alt="">
-                    </div>
-                    <div class="job-details-recruiter-info">
-                        <div class="job-details-recruiter-name">Manar Mohammed</div>
-                        <div class="job-details-recruiter-titles">Human Resources Coordinator</div>
-                    </div>
-                    <button type="button" class="job-details-btn job-details-btn-outline job-details-message-btn">
-                        <i class="fa fa-paper-plane"></i> Message
-                    </button>
-                </div>
-            </section>
 
             <!-- About the job -->
             <section class="job-details-section">
@@ -127,8 +108,69 @@
                 </ul>
             </section>
 
-            <!-- Job Timeline -->
+            <!-- Compensation & Benefits -->
             <section class="job-details-section">
+                <h2 class="job-details-section-title">Compensation & Benefits</h2>
+                <div class="job-details-compensation">
+                    <div class="job-details-compensation-amount">$120/hr · Full-time</div>
+                    <p class="job-details-compensation-note">Competitive salary based on experience. Benefits include:</p>
+                </div>
+                <ul class="job-details-list">
+                    <li>Health, dental, and vision insurance</li>
+                    <li>Flexible working hours and remote options</li>
+                    <li>Annual learning budget for courses and conferences</li>
+                    <li>Paid time off and public holidays</li>
+                </ul>
+            </section>
+
+        </main>
+
+        <!-- Company details -->
+        <aside class="job-details-similar">
+            <h2 class="job-details-section-title">Company details</h2>
+            <div class="job-details-company-card">
+                <div class="job-details-company-card-header">
+                    <div class="job-details-company-card-logo">
+                        <img src="images/recruiters/sajmep-logo.png" alt="Sajmep logo">
+                    </div>
+                    <div class="job-details-company-card-info">
+                        <div class="job-details-company-card-name">Sajmep</div>
+                        <div class="job-details-company-card-tagline">Building modern digital experiences</div>
+                    </div>
+                </div>
+
+                <ul class="job-details-company-meta">
+                    <li><span>Industry</span><strong>Technology</strong></li>
+                    <li><span>Company size</span><strong>51-200 employees</strong></li>
+                    <li><span>Headquarters</span><strong>Riyadh, Saudi Arabia</strong></li>
+                    <li><span>Type</span><strong>Private company</strong></li>
+                </ul>
+
+                <p class="job-details-company-about">
+                    Sajmep is a product-focused team helping businesses design, build, and scale reliable web
+                    platforms with strong UX and modern engineering practices.
+                </p>
+
+                <a href="#" class="job-details-company-link">Visit company page</a>
+            </div>
+
+            <section class="job-details-hiring-section">
+                <h2 class="job-details-section-title">Meet the hiring team</h2>
+                <div class="job-details-recruiter-card">
+                    <div class="job-details-recruiter-photo">
+                        <img src="images/job-seekers/mike.png" alt="">
+                    </div>
+                    <div class="job-details-recruiter-info">
+                        <div class="job-details-recruiter-name">Manar Mohammed</div>
+                        <div class="job-details-recruiter-titles">Human Resources Coordinator</div>
+                    </div>
+                    <button type="button" class="job-details-btn job-details-btn-outline job-details-message-btn">
+                        <i class="fa fa-paper-plane"></i> Message
+                    </button>
+                </div>
+            </section>
+
+            <section class="job-details-sidebar-section">
                 <h2 class="job-details-section-title">Job Timeline</h2>
                 <div class="job-details-timeline">
                     <div class="job-details-timeline-item">
@@ -146,8 +188,7 @@
                 </div>
             </section>
 
-            <!-- Attachments -->
-            <section class="job-details-section">
+            <section class="job-details-sidebar-section">
                 <h2 class="job-details-section-title">Attachments</h2>
                 <ul class="job-details-attachments">
                     <li>
@@ -159,23 +200,7 @@
                 </ul>
             </section>
 
-            <!-- Compensation & Benefits -->
-            <section class="job-details-section">
-                <h2 class="job-details-section-title">Compensation & Benefits</h2>
-                <div class="job-details-compensation">
-                    <div class="job-details-compensation-amount">$120/hr · Full-time</div>
-                    <p class="job-details-compensation-note">Competitive salary based on experience. Benefits include:</p>
-                </div>
-                <ul class="job-details-list">
-                    <li>Health, dental, and vision insurance</li>
-                    <li>Flexible working hours and remote options</li>
-                    <li>Annual learning budget for courses and conferences</li>
-                    <li>Paid time off and public holidays</li>
-                </ul>
-            </section>
-
-            <!-- Preferences -->
-            <section class="job-details-section">
+            <section class="job-details-sidebar-section">
                 <h2 class="job-details-section-title">Preferences</h2>
                 <div class="job-details-preferences">
                     <div class="job-details-pref-item">
@@ -192,44 +217,6 @@
                     </div>
                 </div>
             </section>
-        </main>
-
-        <!-- Similar / Top jobs -->
-        <aside class="job-details-similar">
-            <h2 class="job-details-section-title">More jobs for you</h2>
-            <p class="job-details-similar-desc">Based on your profile and recent activity</p>
-            <div class="job-details-similar-list">
-                <a href="job-details.html" class="job-details-similar-card">
-                    <div class="job-details-similar-card-logo">
-                        <img src="images/recruiters/sajmep-logo.png" alt="">
-                    </div>
-                    <div class="job-details-similar-card-body">
-                        <div class="job-details-similar-card-title">Senior UI/UX Designer</div>
-                        <div class="job-details-similar-card-company">Sajmep</div>
-                        <div class="job-details-similar-card-meta">Riyadh · Full-time</div>
-                    </div>
-                </a>
-                <a href="job-details.html" class="job-details-similar-card">
-                    <div class="job-details-similar-card-logo">
-                        <img src="images/recruiters/sajmep-logo.png" alt="">
-                    </div>
-                    <div class="job-details-similar-card-body">
-                        <div class="job-details-similar-card-title">Front-End Developer</div>
-                        <div class="job-details-similar-card-company">Sajmep</div>
-                        <div class="job-details-similar-card-meta">Riyadh · Remote</div>
-                    </div>
-                </a>
-                <a href="job-details.html" class="job-details-similar-card">
-                    <div class="job-details-similar-card-logo">
-                        <img src="images/recruiters/sajmep-logo.png" alt="">
-                    </div>
-                    <div class="job-details-similar-card-body">
-                        <div class="job-details-similar-card-title">Product Designer</div>
-                        <div class="job-details-similar-card-company">Sajmep</div>
-                        <div class="job-details-similar-card-meta">Riyadh · Part-time</div>
-                    </div>
-                </a>
-            </div>
         </aside>
     </div>
 
