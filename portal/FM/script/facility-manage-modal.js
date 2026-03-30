@@ -1,12 +1,37 @@
 (function () {
+  var tabButtons = document.querySelectorAll('.facility-manage-tabs__btn');
+  var panels = document.querySelectorAll('.facility-manage-panel');
+
+  function setTab(panelId) {
+    tabButtons.forEach(function (btn) {
+      var id = btn.getAttribute('aria-controls');
+      var on = id === panelId;
+      btn.setAttribute('aria-selected', on ? 'true' : 'false');
+    });
+    panels.forEach(function (panel) {
+      var on = panel.id === panelId;
+      panel.classList.toggle('is-active', on);
+      panel.hidden = !on;
+    });
+  }
+
+  if (tabButtons.length && panels.length) {
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var panelId = btn.getAttribute('aria-controls');
+        if (panelId) setTab(panelId);
+      });
+    });
+  }
+
   var openBtn = document.getElementById('facilityManageOpen');
   var backdrop = document.getElementById('facilityManageBackdrop');
   var dialog = document.getElementById('facilityManageDialog');
   var closeBtn = document.getElementById('facilityManageClose');
-  var tabButtons = document.querySelectorAll('.facility-manage-tabs__btn');
-  var panels = document.querySelectorAll('.facility-manage-panel');
 
-  if (!openBtn || !backdrop || !dialog) return;
+  if (!openBtn || !backdrop || !dialog || !closeBtn) {
+    return;
+  }
 
   var lastFocus = null;
 
@@ -23,19 +48,6 @@
     if (lastFocus && typeof lastFocus.focus === 'function') {
       lastFocus.focus();
     }
-  }
-
-  function setTab(panelId) {
-    tabButtons.forEach(function (btn) {
-      var id = btn.getAttribute('aria-controls');
-      var on = id === panelId;
-      btn.setAttribute('aria-selected', on ? 'true' : 'false');
-    });
-    panels.forEach(function (panel) {
-      var on = panel.id === panelId;
-      panel.classList.toggle('is-active', on);
-      panel.hidden = !on;
-    });
   }
 
   openBtn.addEventListener('click', function (e) {
@@ -55,12 +67,5 @@
     if (e.key === 'Escape' && !backdrop.hidden) {
       closeModal();
     }
-  });
-
-  tabButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var panelId = btn.getAttribute('aria-controls');
-      if (panelId) setTab(panelId);
-    });
   });
 })();

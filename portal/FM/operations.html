@@ -4,21 +4,113 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Al Nakheel Residential Block — Facility overview</title>
+  <title>Al Nakheel Residential Block - Operations</title>
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="../styles/sidebar.css">
   <link rel="stylesheet" href="../styles/header.css">
   <link rel="stylesheet" href="../css/toolbar.css">
-  <link rel="stylesheet" href="css/views-container.css">
-  <link rel="stylesheet" href="css/projects-cards.css">
-  <link rel="stylesheet" href="css/facility-cards.css">
-  <link rel="stylesheet" href="css/facility-details.css">
   <link rel="stylesheet" href="../css/nav-context-sidebar.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
+  <style>
+    /* Operations tabs — alignment only (flow) */
+    .ops-tabs-wrap {
+      padding: 25px;
+    }
+
+    .ops-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px 12px;
+      margin-bottom: 10px;
+    }
+
+    .ops-header__title {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .ops-primary-btn {
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f7f7f7;
+    }
+
+    .breadcrumb {
+      margin: 25px;
+      margin-bottom: 0; 
+    }
+
+    .ops-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin: 0 0 12px;
+    }
+
+    .ops-tab-btn {
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: #f7f7f7;
+    }
+
+    .ops-tab-btn[aria-selected="true"] {
+      background: #e9e9e9;
+      border-color: #999;
+    }
+
+    .ops-panel {
+      display: none;
+    }
+
+    .ops-panel.is-active {
+      display: block;
+    }
+
+    .ops-table-wrap {
+      overflow-x: auto;
+    }
+
+    .ops-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .ops-table th,
+    .ops-table td {
+      text-align: left;
+      padding: 8px 10px 8px 0;
+      border-bottom: 1px solid #e6e6e6;
+      vertical-align: top;
+    }
+
+    .ops-table th {
+      font-weight: 600;
+      border-bottom-color: #d8d8d8;
+    }
+
+    .ops-list {
+      margin: 0;
+      padding-left: 1.2em;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+  </style>
 
   <script async src="https://cse.google.com/cse.js?cx=a03357156e839496f"></script>
 
@@ -1156,7 +1248,7 @@
   <!-- Main Content Dashboard -->
   <main class="content page" id="page">
     <nav class="nav-context-sidebar" aria-label="Context">
-      <a href="facility-details.html" class="nav-context-sidebar__item is-active">
+      <a href="facility-details.html" class="nav-context-sidebar__item">
         <span class="nav-context-sidebar__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5">
             <rect x="3" y="3" width="18" height="18" rx="2" />
@@ -1164,7 +1256,7 @@
           </svg></span>
         <span>Dashboard</span>
       </a>
-      <a href="operations.html" class="nav-context-sidebar__item ">
+      <a href="operations.html" class="nav-context-sidebar__item is-active">
         <span class="nav-context-sidebar__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5">
             <rect x="3" y="3" width="7" height="7" />
@@ -1174,7 +1266,8 @@
           </svg></span>
         <span>Operations</span>
       </a>
-      <a href="manage.html" class="nav-context-sidebar__item">
+      <a href="manage.html" class="nav-context-sidebar__item" id="facilityManageOpen" aria-haspopup="dialog"
+        aria-controls="facilityManageDialog">
         <span class="nav-context-sidebar__icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
             stroke="currentColor" stroke-width="1.5">
             <path
@@ -1190,192 +1283,139 @@
         <span class="breadcrumb-current">Al Nakheel Residential Block</span>
       </div>
 
-      <section class="facility-overview" aria-labelledby="facility-overview-heading">
-        <h1 id="facility-overview-heading" class="facility-overview__title">Al Nakheel Residential Block</h1>
-        <p class="facility-overview__id">Facility ID: <strong>FAC-2024-00891</strong></p>
+      
+  <section class="ops-tabs-wrap" aria-label="Operations">
+    <div class="ops-header">
+      <h2 class="ops-header__title">Operations</h2>
+      <button type="button" class="ops-primary-btn">Create request</button>
+    </div>
+    <div class="ops-tabs" role="tablist" aria-label="Operations tabs">
+      <button type="button" class="ops-tab-btn" role="tab" aria-selected="true" data-tab="ops-requests"
+        aria-controls="ops-requests" id="ops-tab-requests">Requests</button>
+      <button type="button" class="ops-tab-btn" role="tab" aria-selected="false" data-tab="ops-workorders"
+        aria-controls="ops-workorders" id="ops-tab-workorders">Work orders</button>
+      <button type="button" class="ops-tab-btn" role="tab" aria-selected="false" data-tab="ops-tasks"
+        aria-controls="ops-tasks" id="ops-tab-tasks">Tasks</button>
+    </div>
 
-        <h2 class="facility-overview__section-title">Facility profile</h2>
-        <dl class="facility-overview__fields">
-          <div>
-            <dt>Facility type</dt>
-            <dd>Residential - multiple units / duplex</dd>
-          </div>
-          <div>
-            <dt>Address</dt>
-            <dd>Al Nakheel St., Riyadh 12345</dd>
-          </div>
-          <div>
-            <dt>Primary use</dt>
-            <dd>Housing (multi-unit)</dd>
-          </div>
-        </dl>
+    <div class="ops-panels">
+      <div class="ops-panel is-active" id="ops-requests" role="tabpanel" aria-labelledby="ops-tab-requests">
+        <div class="ops-table-wrap">
+          <table class="ops-table">
+            <thead>
+              <tr>
+                <th scope="col">Request</th>
+                <th scope="col">Priority</th>
+                <th scope="col">Status</th>
+                <th scope="col">Created</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>REQ-1203 · Water leakage in Block B</td>
+                <td>High</td>
+                <td>Open</td>
+                <td>Today</td>
+              </tr>
+              <tr>
+                <td>REQ-1198 · AC not cooling (Unit 2-14)</td>
+                <td>Medium</td>
+                <td>Assigned</td>
+                <td>Yesterday</td>
+              </tr>
+              <tr>
+                <td>REQ-1181 · Lighting issue in corridor</td>
+                <td>Low</td>
+                <td>Closed</td>
+                <td>2 days ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        <h2 class="facility-overview__section-title">Summary</h2>
-        <p class="facility-overview__text">Managed residential compound with duplex-style units. FM scope covers common
-          areas, MEP services, and shared amenities. Use other tabs for areas, scope, assets, and team when available.</p>
+      <div class="ops-panel" id="ops-workorders" role="tabpanel" aria-labelledby="ops-tab-workorders" hidden>
+        <div class="ops-table-wrap">
+          <table class="ops-table">
+            <thead>
+              <tr>
+                <th scope="col">WO</th>
+                <th scope="col">Type</th>
+                <th scope="col">SLA</th>
+                <th scope="col">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>WO-234</td>
+                <td>Reactive</td>
+                <td>2h left</td>
+                <td>In progress</td>
+              </tr>
+              <tr>
+                <td>WO-198</td>
+                <td>Preventive</td>
+                <td>—</td>
+                <td>Scheduled</td>
+              </tr>
+              <tr>
+                <td>WO-176</td>
+                <td>Inspection</td>
+                <td>—</td>
+                <td>Completed</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        <h2 class="facility-overview__section-title">At a glance</h2>
-        <ul class="facility-overview__stats">
-          <li><span class="facility-overview__stat-label">Units</span> 48</li>
-          <li><span class="facility-overview__stat-label">Built area (approx.)</span> 12,400 m²</li>
-          <li><span class="facility-overview__stat-label">Site manager</span> H. Al-Otaibi</li>
+      <div class="ops-panel" id="ops-tasks" role="tabpanel" aria-labelledby="ops-tab-tasks" hidden>
+        <ul class="ops-list">
+          <li>Check pump room pressure gauge (today)</li>
+          <li>Replace corridor light bulbs (Block A) (this week)</li>
+          <li>Monthly fire alarm test (scheduled)</li>
         </ul>
-      </section>
+      </div>
+    </div>
+  </section>
+
 
     </div>
   </main>
 
-  <div class="facility-manage-backdrop" id="facilityManageBackdrop" hidden>
-    <div class="facility-manage-modal" role="dialog" aria-modal="true" aria-labelledby="facilityManageTitle"
-      id="facilityManageDialog" tabindex="-1">
-      <header class="facility-manage-modal__header">
-        <h2 id="facilityManageTitle" class="facility-manage-modal__title">Manage facility</h2>
-        <button type="button" class="facility-manage-modal__close" id="facilityManageClose"
-          aria-label="Close dialog">&times;</button>
-      </header>
-      <nav class="facility-manage-tabs" role="tablist" aria-label="Manage sections">
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-area" aria-selected="true"
-          aria-controls="fm-panel-area">Area of work</button>
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-scope" aria-selected="false"
-          aria-controls="fm-panel-scope">Scope of work</button>
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-assets" aria-selected="false"
-          aria-controls="fm-panel-assets">Assets</button>
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-team" aria-selected="false"
-          aria-controls="fm-panel-team">Team</button>
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-contracts" aria-selected="false"
-          aria-controls="fm-panel-contracts">Contracts</button>
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-plans" aria-selected="false"
-          aria-controls="fm-panel-plans">Plans</button>
-        <button type="button" class="facility-manage-tabs__btn" role="tab" id="fm-tab-docs" aria-selected="false"
-          aria-controls="fm-panel-docs">Documents</button>
-      </nav>
-      <div class="facility-manage-panels">
-        <section class="facility-manage-panel is-active" id="fm-panel-area" role="tabpanel" aria-labelledby="fm-tab-area">
-          <p class="facility-manage-panel__intro">Buildings, floors, and spaces covered by FM for this facility.</p>
-
-          <div class="facility-aow-block">
-            <h3 class="facility-aow-block__title">Buildings</h3>
-            <div class="facility-aow-table-wrap">
-              <table class="facility-aow-table">
-                <thead>
-                  <tr>
-                    <th scope="col">Building name</th>
-                    <th scope="col">Building type</th>
-                    <th scope="col">Project</th>
-                    <th scope="col">Contract</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>BMH HQ</td>
-                    <td>Office</td>
-                    <td>Main project</td>
-                    <td>Contract A</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="facility-aow-add"><a href="#">Add a line</a></p>
-          </div>
-
-          <div class="facility-aow-block">
-            <h3 class="facility-aow-block__title">Floors</h3>
-            <div class="facility-aow-table-wrap">
-              <table class="facility-aow-table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                    <th scope="col">Floor</th>
-                    <th scope="col">Building</th>
-                    <th scope="col">Project</th>
-                    <th scope="col">Contract</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Ground level</td>
-                    <td>G</td>
-                    <td>BMH HQ</td>
-                    <td>Main project</td>
-                    <td>Contract A</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="facility-aow-add"><a href="#">Add a line</a></p>
-          </div>
-
-          <div class="facility-aow-block">
-            <h3 class="facility-aow-block__title">Spaces</h3>
-            <div class="facility-aow-table-wrap">
-              <table class="facility-aow-table">
-                <thead>
-                  <tr>
-                    <th scope="col">Space name</th>
-                    <th scope="col">Space type</th>
-                    <th scope="col">Zones</th>
-                    <th scope="col">Floor</th>
-                    <th scope="col">Building</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Reception lobby</td>
-                    <td>Common area</td>
-                    <td>Public</td>
-                    <td>G</td>
-                    <td>BMH HQ</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="facility-aow-add"><a href="#">Add a line</a></p>
-          </div>
-        </section>
-        <section class="facility-manage-panel" id="fm-panel-scope" role="tabpanel" aria-labelledby="fm-tab-scope" hidden>
-          <p class="facility-manage-panel__intro">High-level scope: MEP maintenance, cleaning, landscaping, security
-            coordination.</p>
-          <ul class="facility-manage-panel__list">
-            <li>Preventive MEP per SLA</li>
-            <li>Reactive repairs (tenant vs landlord split as per contract)</li>
-          </ul>
-        </section>
-        <section class="facility-manage-panel" id="fm-panel-assets" role="tabpanel" aria-labelledby="fm-tab-assets"
-          hidden>
-          <p class="facility-manage-panel__intro">Link or register assets tied to this facility.</p>
-          <p class="facility-manage-panel__placeholder">Asset register (placeholder).</p>
-        </section>
-        <section class="facility-manage-panel" id="fm-panel-team" role="tabpanel" aria-labelledby="fm-tab-team" hidden>
-          <p class="facility-manage-panel__intro">Facility team and roles.</p>
-          <ul class="facility-manage-panel__list">
-            <li>Site manager — H. Al-Otaibi</li>
-            <li>MEP lead — (assign)</li>
-          </ul>
-        </section>
-        <section class="facility-manage-panel" id="fm-panel-contracts" role="tabpanel" aria-labelledby="fm-tab-contracts"
-          hidden>
-          <p class="facility-manage-panel__intro">Active contracts covering this facility.</p>
-          <p class="facility-manage-panel__placeholder">Contract list (placeholder).</p>
-        </section>
-        <section class="facility-manage-panel" id="fm-panel-plans" role="tabpanel" aria-labelledby="fm-tab-plans" hidden>
-          <p class="facility-manage-panel__intro">Maintenance and inspection plans.</p>
-          <p class="facility-manage-panel__placeholder">Plan schedule (placeholder).</p>
-        </section>
-        <section class="facility-manage-panel" id="fm-panel-docs" role="tabpanel" aria-labelledby="fm-tab-docs" hidden>
-          <p class="facility-manage-panel__intro">Manuals, drawings, and compliance documents.</p>
-          <ul class="facility-manage-panel__list">
-            <li><a href="#">OM manual — HVAC (PDF)</a></li>
-            <li><a href="#">As-built folder (DWG/PDF)</a></li>
-          </ul>
-        </section>
-      </div>
-    </div>
-  </div>
 
   <script src="../script/sidebar.js"></script>
   <script src="../script/script.js"></script>
   <script src="script/views-container.js"></script>
   <script src="script/facility-manage-modal.js"></script>
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll('.ops-tab-btn');
+      var panels = document.querySelectorAll('.ops-panel');
+      if (!buttons.length || !panels.length) return;
+
+      function activate(id) {
+        buttons.forEach(function (b) {
+          var on = b.getAttribute('data-tab') === id;
+          b.setAttribute('aria-selected', on ? 'true' : 'false');
+        });
+        panels.forEach(function (p) {
+          var on = p.id === id;
+          p.classList.toggle('is-active', on);
+          p.hidden = !on;
+        });
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          var id = b.getAttribute('data-tab');
+          if (id) activate(id);
+        });
+      });
+
+      activate('ops-requests');
+    })();
+  </script>
 
 </body>
 

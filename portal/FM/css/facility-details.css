@@ -79,6 +79,11 @@
   margin-bottom: 2px;
 }
 
+.breadcrumb {
+  margin: 25px;
+  margin-bottom: 0;
+}
+
 .breadcrumb-sep {
   margin: 0 6px;
   color: #888;
@@ -86,6 +91,27 @@
 
 .breadcrumb-current {
   color: #333;
+}
+
+/* Manage facility — full page (manage.html) */
+
+.facility-manage-page {
+  padding: 25px;
+  scroll-margin-top: 16px;
+}
+
+.facility-manage-page__heading {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.facility-manage-page .facility-manage-tabs {
+  margin-top: 4px;
+}
+
+.facility-manage-page .facility-manage-panels {
+  padding: 16px 0 0;
 }
 
 /* Manage facility modal — layout only */
@@ -265,5 +291,82 @@
 }
 
 .facility-aow-add a:hover {
+  text-decoration: underline;
+}
+
+/* Documents tab (manage.html) — alignment only */
+
+.facility-docs-upload {
+  margin: 12px 0 14px;
+}
+
+.facility-docs-upload__label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+.facility-docs-upload__controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.facility-docs-upload__controls input[type="file"] {
+  max-width: 100%;
+}
+
+.facility-docs-upload__btn {
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #f7f7f7;
+}
+
+.facility-docs-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facility-docs-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #bbb8b8;
+  ;
+}
+
+.facility-docs-item__name {
+  font-size: 0.85rem;
+}
+
+.facility-docs-item__actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.facility-docs-item__btn {
+  display: inline-block;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+}
+
+.facility-docs-item__btn:hover {
   text-decoration: underline;
 }
