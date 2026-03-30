@@ -1,0 +1,420 @@
+/* Asset details — alignment / flow only (no visual design system) */
+
+.asset-detail-page {
+  padding: 10px 30px 32px;
+  max-width: 100%;
+}
+
+.toolbar .toolbar-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 10px;
+}
+
+.toolbar .toolbar-breadcrumb .toolbar-breadcrumb-item a {
+  color: #6b7280;
+  text-decoration: none;
+}
+/* ----- Hero ----- */
+.asset-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #ccc;
+}
+
+.asset-hero__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px 16px;
+}
+
+.asset-hero__title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.asset-hero__meta {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.asset-hero__location {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.asset-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  padding-top: 4px;
+}
+
+.asset-hero__actions button {
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+/* Status badge (minimal: color + alignment) */
+.asset-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.asset-badge--active {
+  background: #e8f5e9;
+}
+
+.asset-badge--fault {
+  background: #ffebee;
+}
+
+.asset-badge--maint {
+  background: #fff8e1;
+}
+
+/* ----- Main + sidebar ----- */
+.asset-detail-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (min-width: 960px) {
+  .asset-detail-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .asset-detail-main {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .asset-detail-sidebar {
+    flex: 0 0 260px;
+    position: sticky;
+    top: 8px;
+    align-self: flex-start;
+  }
+}
+
+/* ----- Sticky tabs ----- */
+.asset-tabs-wrap {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: #fff;
+  padding: 8px 0;
+  margin: 0 -4px 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.asset-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+}
+
+.asset-tabs__btn {
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  background: #f5f5f5;
+  border-radius: 4px;
+}
+
+.asset-tabs__btn[aria-selected="true"] {
+  background: #e0e0e0;
+  border-color: #999;
+}
+
+/* ----- Tab panels ----- */
+.asset-tab-panel {
+  display: none;
+}
+
+.asset-tab-panel.is-active {
+  display: block;
+}
+
+.asset-tab-panel h2 {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.asset-tab-panel h3 {
+  margin: 16px 0 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.asset-tab-panel h3:first-child {
+  margin-top: 0;
+}
+
+/* ----- Grids / rows ----- */
+.asset-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 10px;
+}
+
+@media (min-width: 900px) {
+  .asset-grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.asset-info-card {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.asset-info-card__label {
+  margin: 0 0 4px;
+  font-size: 0.7rem;
+  color: #555;
+}
+
+.asset-info-card__value {
+  margin: 0;
+  font-size: 0.875rem;
+}
+
+.asset-kpi-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin: 12px 0;
+  font-size: 0.875rem;
+}
+
+.asset-maint-summary {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* ----- Tables (alignment only) ----- */
+.asset-table-wrap {
+  overflow-x: auto;
+  margin: 8px 0;
+}
+
+.asset-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.asset-table th,
+.asset-table td {
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #ddd;
+}
+
+.asset-table th {
+  font-weight: 600;
+  background: #f5f5f5;
+}
+
+/* ----- Filter chips ----- */
+.asset-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.asset-filters button {
+  padding: 4px 10px;
+  font: inherit;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+/* ----- Status summary cards (WO tab) ----- */
+.asset-wo-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.asset-wo-stat {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.asset-wo-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.asset-wo-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.85rem;
+}
+
+/* ----- IoT ----- */
+.asset-iot-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+}
+
+.asset-chart-placeholder {
+  min-height: 120px;
+  margin: 8px 0;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.asset-alerts {
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: 0.85rem;
+}
+
+/* ----- Financial chart placeholder ----- */
+.asset-fin-chart-placeholder {
+  min-height: 100px;
+  margin-top: 12px;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #666;
+}
+
+/* ----- Calendar placeholder ----- */
+.asset-cal-placeholder {
+  min-height: 160px;
+  border: 1px dashed #bbb;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  color: #666;
+  text-align: center;
+  padding: 12px;
+}
+
+/* ----- Sidebar smart panel ----- */
+.asset-detail-sidebar {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+.asset-detail-sidebar h2 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.asset-detail-sidebar section + section {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+}
+
+.asset-detail-sidebar ul {
+  margin: 0;
+  padding-left: 1.1em;
+}
+
+.asset-detail-sidebar p {
+  margin: 0 0 6px;
+}
+
+/* ----- Specs list (technical) ----- */
+.asset-spec-list {
+  margin: 0;
+  padding: 0;
+  font-size: 0.85rem;
+}
+
+.asset-spec-list > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 4px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.asset-spec-list dt {
+  margin: 0;
+  min-width: 100px;
+  font-weight: 500;
+}
+
+.asset-spec-list dd {
+  margin: 0;
+}
+
+/* ----- Documents ----- */
+.asset-doc-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+.asset-doc-list li {
+  padding: 4px 0;
+}
+
+/* ----- Lists in tabs ----- */
+.asset-plain-list {
+  margin: 0;
+  padding-left: 1.2em;
+  font-size: 0.85rem;
+}
+
+.asset-tab-panel .asset-inline-note {
+  font-size: 0.75rem;
+  color: #555;
+  margin-top: 4px;
+}

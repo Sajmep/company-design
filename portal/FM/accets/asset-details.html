@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Asset details — Chiller Unit A-102</title>
+  <link rel="stylesheet" href="../styles/style.css">
+  <link rel="stylesheet" href="../styles/scrollbar.css">
+  <link rel="stylesheet" href="../css/toolbar.css">
+  <link rel="stylesheet" href="css/asset-details.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    .toolbar { margin: 8px; }
+  </style>
+</head>
+
+<body>
+
+  <main class="content page" id="page">
+    <div class="page-body asset-detail-page">
+
+      <div class="toolbar">
+        <nav class="toolbar-breadcrumb" aria-label="Breadcrumb">
+          <span class="toolbar-breadcrumb-item"><a href="index.html">Assets &amp; equipment</a></span>
+          <span class="toolbar-breadcrumb-sep">/</span>
+          <span class="toolbar-breadcrumb-item toolbar-breadcrumb-current">A-102</span>
+        </nav>
+      </div>
+
+      <div class="asset-detail-layout">
+
+        <div class="asset-detail-main">
+
+          <header class="asset-hero">
+            <div class="asset-hero__top">
+              <h1 class="asset-hero__title">Asset: Chiller Unit A-102</h1>
+              <span class="asset-badge asset-badge--active" title="Operational status">Active</span>
+            </div>
+            <p class="asset-hero__meta">ID: AST-000234</p>
+            <p class="asset-hero__location">Building A → Floor 2 → Room 205</p>
+            <div class="asset-hero__actions">
+              <button type="button">Create work order</button>
+              <button type="button">Schedule</button>
+              <button type="button">Contract</button>
+              <button type="button">Live</button>
+            </div>
+          </header>
+
+          <div class="asset-tabs-wrap">
+            <nav class="asset-tabs" role="tablist" aria-label="Asset sections">
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="true" aria-controls="tab-overview"
+                id="tab-btn-overview">Overview</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-technical"
+                id="tab-btn-technical">Technical</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false"
+                aria-controls="tab-maintenance" id="tab-btn-maintenance">Maintenance</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false"
+                aria-controls="tab-work-orders" id="tab-btn-work-orders">Work orders</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-plans"
+                id="tab-btn-plans">Plans</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false"
+                aria-controls="tab-spare-parts" id="tab-btn-spare-parts">Spare parts</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false" aria-controls="tab-iot"
+                id="tab-btn-iot">IoT</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false"
+                aria-controls="tab-financial" id="tab-btn-financial">Financial</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false"
+                aria-controls="tab-sustainability" id="tab-btn-sustainability">Sustainability</button>
+              <button type="button" class="asset-tabs__btn" role="tab" aria-selected="false"
+                aria-controls="tab-calendar" id="tab-btn-calendar">Calendar</button>
+            </nav>
+          </div>
+
+          <div class="asset-tab-panels">
+
+            <section class="asset-tab-panel is-active" id="tab-overview" role="tabpanel" aria-labelledby="tab-btn-overview">
+              <h2>Overview</h2>
+              <div class="asset-grid-4">
+                <div class="asset-info-card">
+                  <p class="asset-info-card__label">Model</p>
+                  <p class="asset-info-card__value">Chiller X200</p>
+                </div>
+                <div class="asset-info-card">
+                  <p class="asset-info-card__label">Serial</p>
+                  <p class="asset-info-card__value">SN-88372</p>
+                </div>
+                <div class="asset-info-card">
+                  <p class="asset-info-card__label">Capacity</p>
+                  <p class="asset-info-card__value">1200L</p>
+                </div>
+                <div class="asset-info-card">
+                  <p class="asset-info-card__label">Health score</p>
+                  <p class="asset-info-card__value">87%</p>
+                </div>
+              </div>
+              <h3>KPIs</h3>
+              <div class="asset-kpi-row">
+                <span>Downtime: 12 hrs</span>
+                <span>Cost: $2,400</span>
+                <span>Efficiency: 92%</span>
+              </div>
+              <h3>Maintenance</h3>
+              <p class="asset-maint-summary">Last maintenance: 12 Feb 2026<br>
+                Next scheduled: 15 Apr 2026</p>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-technical" role="tabpanel" aria-labelledby="tab-btn-technical" hidden>
+              <h2>Technical details</h2>
+              <h3>Specifications</h3>
+              <dl class="asset-spec-list">
+                <div><dt>Voltage</dt><dd>220V</dd></div>
+                <div><dt>Power</dt><dd>5 kW</dd></div>
+                <div><dt>Flow rate</dt><dd>300 L/min</dd></div>
+              </dl>
+              <h3>Installation &amp; warranty</h3>
+              <p class="asset-maint-summary">Installed: Jan 2023<br>
+                Warranty: 2 years (active)<br>
+                Expected life: 10 years</p>
+              <h3>Documents</h3>
+              <ul class="asset-doc-list">
+                <li><a href="#">Manual.pdf</a></li>
+                <li><a href="#">Datasheet.pdf</a></li>
+                <li><a href="#">Drawing.dwg</a></li>
+              </ul>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-maintenance" role="tabpanel" aria-labelledby="tab-btn-maintenance"
+              hidden>
+              <h2>Maintenance history</h2>
+              <div class="asset-filters">
+                <button type="button">All</button>
+                <button type="button">Preventive</button>
+                <button type="button">Reactive</button>
+                <button type="button">Emergency</button>
+              </div>
+              <div class="asset-table-wrap">
+                <table class="asset-table">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Technician</th>
+                      <th>Type</th>
+                      <th>Cost</th>
+                      <th>Duration</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>12 Feb</td>
+                      <td>Ali Khan</td>
+                      <td>Preventive</td>
+                      <td>$120</td>
+                      <td>2 hrs</td>
+                    </tr>
+                    <tr>
+                      <td>05 Jan</td>
+                      <td>Ahmed</td>
+                      <td>Emergency</td>
+                      <td>$500</td>
+                      <td>5 hrs</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-work-orders" role="tabpanel" aria-labelledby="tab-btn-work-orders"
+              hidden>
+              <h2>Work orders</h2>
+              <div class="asset-wo-stats">
+                <div class="asset-wo-stat">Active (3)</div>
+                <div class="asset-wo-stat">Pending (2)</div>
+                <div class="asset-wo-stat">Completed (25)</div>
+              </div>
+              <h3>Open work orders</h3>
+              <ul class="asset-wo-list">
+                <li>WO-234 · High priority · SLA: 2h left</li>
+                <li>WO-198 · Medium · In progress</li>
+              </ul>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-plans" role="tabpanel" aria-labelledby="tab-btn-plans" hidden>
+              <h2>Maintenance plans</h2>
+              <h3>Recurring tasks</h3>
+              <ul class="asset-plain-list">
+                <li>Monthly inspection</li>
+                <li>Oil change</li>
+              </ul>
+              <h3>Trigger rules</h3>
+              <ul class="asset-plain-list">
+                <li>Every 500 hours</li>
+                <li>Temperature &gt; 80°C</li>
+              </ul>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-spare-parts" role="tabpanel" aria-labelledby="tab-btn-spare-parts"
+              hidden>
+              <h2>Spare parts</h2>
+              <div class="asset-table-wrap">
+                <table class="asset-table">
+                  <thead>
+                    <tr>
+                      <th>Part</th>
+                      <th>Stock</th>
+                      <th>Notes</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Filter A</td>
+                      <td>In stock (12)</td>
+                      <td>Auto reorder ON · <em>Alternative:</em> Filter A-ALT</td>
+                    </tr>
+                    <tr>
+                      <td>Motor B</td>
+                      <td>Low (2)</td>
+                      <td><em>Alternative available</em> (Motor B-X)</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="asset-inline-note">Alternatives highlighted for procurement.</p>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-iot" role="tabpanel" aria-labelledby="tab-btn-iot" hidden>
+              <h2>IoT &amp; readings</h2>
+              <div class="asset-iot-metrics">
+                <span>Temperature: 72°C</span>
+                <span>Pressure: 1.2 bar</span>
+                <span>Energy: 4.8 kWh</span>
+              </div>
+              <p class="asset-maint-summary">Historical: 24h / 7d / 30d (toggle)</p>
+              <div class="asset-chart-placeholder" role="img" aria-label="Chart placeholder">Real-time line chart (placeholder)</div>
+              <h3>Alerts</h3>
+              <ul class="asset-alerts">
+                <li>Overheating detected</li>
+                <li>Efficiency drop</li>
+              </ul>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-financial" role="tabpanel" aria-labelledby="tab-btn-financial"
+              hidden>
+              <h2>Financial &amp; ROI</h2>
+              <dl class="asset-spec-list">
+                <div><dt>Purchase cost</dt><dd>$12,000</dd></div>
+                <div><dt>Maintenance cost</dt><dd>$4,500</dd></div>
+                <div><dt>Running cost</dt><dd>$300/month</dd></div>
+                <div><dt>ROI</dt><dd>78%</dd></div>
+              </dl>
+              <h3>Chart</h3>
+              <div class="asset-fin-chart-placeholder" role="img" aria-label="Chart placeholder">Cost vs performance (placeholder)</div>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-sustainability" role="tabpanel"
+              aria-labelledby="tab-btn-sustainability" hidden>
+              <h2>Sustainability</h2>
+              <dl class="asset-spec-list">
+                <div><dt>Energy usage</dt><dd>320 kWh/month</dd></div>
+                <div><dt>Water usage</dt><dd>1200L</dd></div>
+                <div><dt>Leakage</dt><dd>None</dd></div>
+                <div><dt>Savings</dt><dd>$200/month</dd></div>
+              </dl>
+            </section>
+
+            <section class="asset-tab-panel" id="tab-calendar" role="tabpanel" aria-labelledby="tab-btn-calendar"
+              hidden>
+              <h2>Calendar &amp; scheduling</h2>
+              <div class="asset-cal-placeholder">Calendar view: upcoming maintenance, technician bookings, SLA deadlines
+                (placeholder)</div>
+            </section>
+
+          </div>
+        </div>
+
+        <aside class="asset-detail-sidebar" aria-label="Smart features">
+          <section>
+            <h2>Alerts</h2>
+            <ul>
+              <li>Efficiency dropped by 15%</li>
+              <li>Filter replacement in 3 days</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Smart dispatch</h2>
+            <p>Nearest technician: Ali Khan (12 min)</p>
+          </section>
+          <section>
+            <h2>Auto actions</h2>
+            <p>Auto-create WO on:</p>
+            <ul>
+              <li>Sensor trigger</li>
+              <li>SLA breach</li>
+            </ul>
+          </section>
+          <section>
+            <h2>AI recommendations</h2>
+            <ul>
+              <li>Replace instead of repair (ROI)</li>
+              <li>Use alternative spare part</li>
+            </ul>
+          </section>
+        </aside>
+
+      </div>
+
+    </div>
+  </main>
+
+  <script src="../script/sidebar.js"></script>
+  <script src="../script/script.js"></script>
+  <script src="script/asset-details-tabs.js"></script>
+</body>
+
+</html>
