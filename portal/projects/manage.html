@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="../styles/header.css">
   <link rel="stylesheet" href="../css/nav-context-sidebar.css">
   <link rel="stylesheet" href="css/project-details-hero.css">
-  <link rel="stylesheet" href="css/project-details-insights.css">
   <link rel="stylesheet" href="css/project-details-sections.css">
   <link rel="stylesheet" href="css/project-details-tables.css">
+  <link rel="stylesheet" href="css/manage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -31,355 +31,6 @@
       overflow-y: auto;
       padding: 0 12px 24px;
     }
-
-    .project-details-card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 12px;
-    }
-
-    ul {
-      margin: 8px 0 0;
-      padding-left: 18px;
-    }
-
-    .project-details-section-toggle {
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin: 0;
-    }
-
-    .project-details-section-toggle::after {
-      content: "-";
-      font-weight: 700;
-      color: #666;
-    }
-
-    .project-details-section-toggle[aria-expanded="false"]::after {
-      content: "+";
-    }
-
-    .project-details-card.is-collapsed > *:not(.project-details-section-toggle) {
-      display: none;
-    }
-
-    .project-details-modal {
-      position: fixed;
-      inset: 0;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 2000;
-    }
-
-    .project-details-modal.is-open {
-      display: flex;
-    }
-
-    .project-details-modal-backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.35);
-    }
-
-    .project-details-modal-panel {
-      position: relative;
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 14px;
-      width: min(760px, calc(100% - 24px));
-      max-height: calc(100vh - 40px);
-      overflow-y: auto;
-    }
-
-    .project-details-stages .project-create-staging-section {
-      padding: 8px;
-      background: #f8fafc;
-      border-radius: 6px;
-      border: 1px solid #e2e8f0;
-    }
-
-    .project-details-stages .project-create-staging-arrow {
-      display: flex;
-      align-items: center;
-      overflow: hidden;
-    }
-
-    .project-details-stages .project-create-stage {
-      flex: 1;
-    }
-
-    .project-details-stages .project-create-stage-content {
-      display: flex;
-      justify-content: center;
-      padding: 6px 10px;
-      background: #fff;
-      clip-path: polygon(0% 0%, calc(100% - 8px) 0%, 100% 50%, calc(100% - 8px) 100%, 0% 100%);
-    }
-
-    .project-details-stages .project-create-stage:last-child .project-create-stage-content {
-      clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-    }
-
-    .project-details-stages .project-create-stage-label {
-      font-size: 11px;
-      color: #6b7280;
-      white-space: nowrap;
-    }
-
-    .project-details-stages .project-create-stage-active .project-create-stage-content {
-      background: #3b82f6;
-    }
-
-    .project-details-stages .project-create-stage-active .project-create-stage-label {
-      color: #fff;
-      font-weight: 600;
-    }
-
-    .project-details-stages .project-create-arrow-connector {
-      height: 1px;
-      flex: 1;
-      background: #e5e7eb;
-      margin: 0 -1px;
-    }
-
-    .project-details-modal .project-create-tabs {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 4px;
-      background: #f3f4f6;
-      border-radius: 999px;
-      margin: 14px 0;
-    }
-
-    .project-details-modal .project-create-tab-btn {
-      border: none;
-      background: transparent;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 12px;
-      color: #6b7280;
-      cursor: pointer;
-    }
-
-    .project-details-modal .project-create-tab-btn.is-active {
-      background: #111827;
-      color: #f9fafb;
-    }
-
-    .project-details-modal .project-create-tab-panel {
-      display: none;
-    }
-
-    .project-details-modal .project-create-tab-panel.is-active {
-      display: block;
-    }
-
-    .project-details-modal .project-create-coming-soon {
-      margin: 0;
-      padding: 12px;
-      font-size: 13px;
-      color: #6b7280;
-      background: #f9fafb;
-      border: 1px dashed #e5e7eb;
-      border-radius: 8px;
-    }
-
-    .project-details-modal .project-area_title {
-      font-size: 12px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 8px;
-    }
-
-    .project-details-modal .project-area_table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-
-    .project-details-modal .project-area_table th,
-    .project-details-modal .project-area_table td {
-      text-align: left;
-      padding: 10px 12px;
-      border-top: 1px solid #e5e7eb;
-      font-size: 12px;
-    }
-
-    .project-details-modal .project-area_add-btn {
-      border: none;
-      background: transparent;
-      padding: 0;
-      color: #2563eb;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .project-details-modal .project-docs {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .project-details-modal .project-docs_top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 12px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-    }
-
-    .project-details-modal .project-docs_title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #0f172a;
-    }
-
-    .project-details-modal .project-docs_actions {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .project-details-modal .project-docs_input {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-
-    .project-details-modal .project-docs_upload-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
-      border-radius: 10px;
-      background: #111827;
-      color: #f9fafb;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .project-details-modal .project-docs_albums-btn {
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      background: #fff;
-      cursor: pointer;
-      font-size: 12px;
-    }
-
-    .project-details-modal .project-docs_help {
-      padding: 12px;
-      background: #f9fafb;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-    }
-
-    .project-details-modal .project-docs_help-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 8px;
-    }
-
-    .project-details-modal .project-docs_chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .project-details-modal .project-docs_chip {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #e2e8f0;
-      background: #fff;
-      color: #475569;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    .project-details-modal .project-docs_help-text {
-      font-size: 12px;
-      color: #64748b;
-    }
-
-    .project-details-modal .project-docs_code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      font-size: 11px;
-      color: #0f172a;
-    }
-
-    .project-details-modal .project-docs_files {
-      padding: 12px;
-      background: #fff;
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-    }
-
-    .project-details-modal .project-docs_files-title {
-      font-size: 12px;
-      font-weight: 700;
-      color: #334155;
-      margin-bottom: 10px;
-    }
-
-    .project-details-modal .project-docs_file {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px;
-      border: 1px solid #eef2f7;
-      border-radius: 10px;
-      background: #f9fafb;
-    }
-
-    .project-details-modal .project-docs_file + .project-docs_file {
-      margin-top: 8px;
-    }
-
-    .project-details-modal .project-docs_file-name {
-      font-size: 12px;
-      font-weight: 600;
-      color: #0f172a;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .project-details-modal .project-docs_file-remove {
-      width: 32px;
-      height: 32px;
-      border: none;
-      border-radius: 10px;
-      background: #fff;
-      color: #64748b;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
   </style>
 
 </head>
@@ -1608,380 +1259,306 @@
       </a>
     </nav>
     <div class="page-body">
-      <div class="project-details-page">
-        <section class="pd-hero" aria-label="Project overview">
-          <div class="pd-hero__accent" aria-hidden="true"></div>
-          <div class="pd-hero__inner">
-            <div class="pd-hero__top">
-              <nav class="pd-breadcrumb" aria-label="Breadcrumb">
-                <a href="index.html">Projects</a>
-                <span class="pd-breadcrumb__sep" aria-hidden="true">/</span>
-                <span class="pd-breadcrumb__current">Industrial Warehouse</span>
-              </nav>
-              <div class="pd-hero__actions">
-              
-                <button type="button" class="pd-btn pd-btn--primary" data-open-publish-modal>
-                  <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                  Publish
+      <div class="manage-page">
+        <div class="pd-hero__top">
+          <nav class="pd-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html">Projects</a>
+            <span class="pd-breadcrumb__sep" aria-hidden="true">/</span>
+            <span class="pd-breadcrumb__current">Industrial Warehouse</span>
+          </nav>
+          <div class="pd-hero__actions">
+            <button type="button" class="pd-btn pd-btn--primary" data-open-publish-modal>
+              <i class="fa fa-paper-plane" aria-hidden="true"></i>
+              Publish
+            </button>
+          </div>
+        </div>
+        <div class="manage-tabs" role="tablist" aria-label="Project setup sections">
+          <button type="button" class="manage-tab-btn is-active" data-manage-tab="area" role="tab" aria-selected="true">
+            <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+            Area of work
+          </button>
+          <button type="button" class="manage-tab-btn" data-manage-tab="scope" role="tab" aria-selected="false">
+            <i class="fa-solid fa-list-check" aria-hidden="true"></i>
+            Scope of work
+          </button>
+          <button type="button" class="manage-tab-btn" data-manage-tab="documents" role="tab" aria-selected="false">
+            <i class="fa-solid fa-folder-tree" aria-hidden="true"></i>
+            Documents
+          </button>
+          <button type="button" class="manage-tab-btn" data-manage-tab="team" role="tab" aria-selected="false">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            Team
+          </button>
+        </div>
+
+        <div class="manage-tab-panels">
+          <section class="manage-tab-panel is-active" data-manage-panel="area" role="tabpanel" aria-hidden="false">
+            <div class="project-details-card pd-detail-card pd-detail-card--aow">
+              <h3 class="pd-detail-card__heading">
+                <span class="pd-detail-card__heading-label">
+                  <i class="fa fa-building" aria-hidden="true"></i>
+                  Area of work — Buildings
+                </span>
+              </h3>
+              <div class="pd-detail-card__body pd-detail-card__body--table">
+                <div class="pd-table-wrap">
+                  <table class="pd-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Building name</th>
+                        <th scope="col">Building type</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Contract</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>BMH HQ</td>
+                        <td>Office</td>
+                        <td>Main Project</td>
+                        <td>Contract A</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-floors">
+              <h3 class="pd-detail-card__heading">
+                <span class="pd-detail-card__heading-label">
+                  <i class="fa fa-layer-group" aria-hidden="true"></i>
+                  Area of work — Floors
+                </span>
+              </h3>
+              <div class="pd-detail-card__body pd-detail-card__body--table">
+                <div class="pd-table-wrap">
+                  <table class="pd-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Floor</th>
+                        <th scope="col">Building</th>
+                        <th scope="col">Project</th>
+                        <th scope="col">Contract</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Level 1</td>
+                        <td>01</td>
+                        <td>BMH HQ</td>
+                        <td>Main Project</td>
+                        <td>Contract A</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-spaces">
+              <h3 class="pd-detail-card__heading">
+                <span class="pd-detail-card__heading-label">
+                  <i class="fa fa-vector-square" aria-hidden="true"></i>
+                  Area of work — Spaces
+                </span>
+              </h3>
+              <div class="pd-detail-card__body pd-detail-card__body--table">
+                <div class="pd-table-wrap">
+                  <table class="pd-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Space name</th>
+                        <th scope="col">Space type</th>
+                        <th scope="col">Zones</th>
+                        <th scope="col">Floor</th>
+                        <th scope="col">Building</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Reception</td>
+                        <td>Public</td>
+                        <td>Zone A</td>
+                        <td>01</td>
+                        <td>BMH HQ</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="manage-tab-panel" data-manage-panel="scope" role="tabpanel" aria-hidden="true">
+            <p class="manage-coming-soon">Scope of work content coming soon.</p>
+          </section>
+          <section class="manage-tab-panel" data-manage-panel="documents" role="tabpanel" aria-hidden="true">
+
+            <div class="manage-docs">
+              <div class="manage-docs_header">
+                <div>
+                  <div class="manage-docs_title">Documents</div>
+                  <div class="manage-docs_subtitle">Upload and organize drawings, specs, and BOQ.</div>
+                </div>
+                <label class="manage-docs_upload" for="manageDocsInput">
+                  <i class="fa-solid fa-upload" aria-hidden="true"></i>
+                  <span>Upload</span>
+                </label>
+                <input id="manageDocsInput" class="manage-docs_input" type="file" multiple>
+              </div>
+
+              <div class="manage-docs_grid">
+                <section class="manage-card" aria-label="Files">
+                  <div class="manage-card_head">
+                    <span class="manage-card_title"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>
+                      Files</span>
+                  </div>
+                  <div class="manage-card_body">
+                    <div class="manage-file">
+                      <div class="manage-file_left">
+                        <span class="manage-file_icon" aria-hidden="true"><i class="fa-solid fa-file-pdf"></i></span>
+                        <span class="manage-file_name">Architectural_DWG_RevB.pdf</span>
+                      </div>
+                      <span class="manage-file_meta">DWG</span>
+                    </div>
+                    <div class="manage-file">
+                      <div class="manage-file_left">
+                        <span class="manage-file_icon" aria-hidden="true"><i class="fa-solid fa-file-word"></i></span>
+                        <span class="manage-file_name">Project_Specs_v1.docx</span>
+                      </div>
+                      <span class="manage-file_meta">Specs</span>
+                    </div>
+                    <div class="manage-file">
+                      <div class="manage-file_left">
+                        <span class="manage-file_icon" aria-hidden="true"><i class="fa-solid fa-file-excel"></i></span>
+                        <span class="manage-file_name">BOQ_Final.xlsx</span>
+                      </div>
+                      <span class="manage-file_meta">BOQ</span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="manage-card" aria-label="Folders">
+                  <div class="manage-card_head">
+                    <span class="manage-card_title"><i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+                      Folders</span>
+                    <button type="button" class="manage-docs_btn" title="Create folder">
+                      <i class="fa-solid fa-folder-plus" aria-hidden="true"></i>
+                      <span>Create folder</span>
+                    </button>
+                  </div>
+                  <div class="manage-card_body">
+                    <div class="manage-folders">
+                      <div class="manage-folder">
+                        <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                        <span>Tender Package</span>
+                      </div>
+                      <div class="manage-folder">
+                        <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                        <span>Shop Drawings</span>
+                      </div>
+                      <div class="manage-folder">
+                        <i class="fa-solid fa-folder" aria-hidden="true"></i>
+                        <span>Site Photos</span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+          <section class="manage-tab-panel" data-manage-panel="team" role="tabpanel" aria-hidden="true">
+
+            <div class="manage-team">
+              <div class="manage-team_header">
+                <div>
+                  <div class="manage-team_title">Team</div>
+                  <div class="manage-team_subtitle">People involved in this project.</div>
+                </div>
+                <button type="button" class="manage-docs_btn" title="Add member">
+                  <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+                  <span>Add member</span>
                 </button>
               </div>
-            </div>
 
-            <div class="pd-hero__headline">
-              <h1 class="pd-hero__title">Industrial Warehouse (Steel Structure)</h1>
-              <div class="pd-hero__meta">
-                <div class="pd-hero__id"><span>ID</span>PRJ-2026-014</div>
-                <span class="pd-pill pd-pill--risk">At risk</span>
-              </div>
-            </div>
+              <div class="manage-team_grid" role="list" aria-label="Team members">
+                <div class="manage-member" role="listitem">
+                  <div class="manage-member_avatar" aria-hidden="true">AR</div>
+                  <div class="manage-member_main">
+                    <div class="manage-member_name">Abdul Rahman</div>
+                    <div class="manage-member_role">Project Manager</div>
+                  </div>
+                  <div class="manage-member_meta">
+                    <span class="manage-member_pill">Owner</span>
+                  </div>
+                </div>
 
-            <div class="pd-hero__stages project-details-stages">
-              <div class="project-create-staging-section">
-                <div class="project-create-staging-arrow">
-                  <div class="project-create-stage project-create-stage-active">
-                    <div class="project-create-stage-content">
-                      <div class="project-create-stage-label">Draft</div>
-                    </div>
+                <div class="manage-member" role="listitem">
+                  <div class="manage-member_avatar manage-member_avatar--slate" aria-hidden="true">SM</div>
+                  <div class="manage-member_main">
+                    <div class="manage-member_name">Sara Malik</div>
+                    <div class="manage-member_role">Quantity Surveyor</div>
                   </div>
-                  <div class="project-create-arrow-connector"></div>
-                  <div class="project-create-stage">
-                    <div class="project-create-stage-content">
-                      <div class="project-create-stage-label">Published</div>
-                    </div>
+                  <div class="manage-member_meta">
+                    <span class="manage-member_pill manage-member_pill--neutral">QS</span>
                   </div>
-                  <div class="project-create-arrow-connector"></div>
-                  <div class="project-create-stage">
-                    <div class="project-create-stage-content">
-                      <div class="project-create-stage-label">In Progress</div>
-                    </div>
+                </div>
+
+                <div class="manage-member" role="listitem">
+                  <div class="manage-member_avatar manage-member_avatar--emerald" aria-hidden="true">HK</div>
+                  <div class="manage-member_main">
+                    <div class="manage-member_name">Hadi Karim</div>
+                    <div class="manage-member_role">Site Engineer</div>
                   </div>
-                  <div class="project-create-arrow-connector"></div>
-                  <div class="project-create-stage">
-                    <div class="project-create-stage-content">
-                      <div class="project-create-stage-label">Completed</div>
-                    </div>
+                  <div class="manage-member_meta">
+                    <span class="manage-member_pill manage-member_pill--neutral">SE</span>
+                  </div>
+                </div>
+
+                <div class="manage-member" role="listitem">
+                  <div class="manage-member_avatar manage-member_avatar--slate" aria-hidden="true">LA</div>
+                  <div class="manage-member_main">
+                    <div class="manage-member_name">Laila Ahmed</div>
+                    <div class="manage-member_role">Planning Engineer</div>
+                  </div>
+                  <div class="manage-member_meta">
+                    <span class="manage-member_pill manage-member_pill--neutral">PE</span>
+                  </div>
+                </div>
+
+                <div class="manage-member" role="listitem">
+                  <div class="manage-member_avatar" aria-hidden="true">MO</div>
+                  <div class="manage-member_main">
+                    <div class="manage-member_name">Mohanad Omar</div>
+                    <div class="manage-member_role">QA/QC Engineer</div>
+                  </div>
+                  <div class="manage-member_meta">
+                    <span class="manage-member_pill manage-member_pill--neutral">QA</span>
+                  </div>
+                </div>
+
+                <div class="manage-member" role="listitem">
+                  <div class="manage-member_avatar manage-member_avatar--emerald" aria-hidden="true">FN</div>
+                  <div class="manage-member_main">
+                    <div class="manage-member_name">Farah Nasser</div>
+                    <div class="manage-member_role">Document Controller</div>
+                  </div>
+                  <div class="manage-member_meta">
+                    <span class="manage-member_pill manage-member_pill--neutral">DC</span>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="pd-hero__stats" role="group" aria-label="Key project metrics">
-            <div class="pd-stat">
-              <div class="pd-stat__icon pd-stat__icon--amber" aria-hidden="true"><i class="fa fa-triangle-exclamation"></i></div>
-              <div class="pd-stat__content">
-                <div class="pd-stat__label">Status</div>
-                <div class="pd-stat__value pd-stat__value--risk">At risk</div>
-              </div>
-            </div>
-            <div class="pd-stat">
-              <div class="pd-stat__icon pd-stat__icon--blue" aria-hidden="true"><i class="fa fa-calendar"></i></div>
-              <div class="pd-stat__content">
-                <div class="pd-stat__label">Start date</div>
-                <div class="pd-stat__value">05 Apr 2026</div>
-              </div>
-            </div>
-            <div class="pd-stat">
-              <div class="pd-stat__icon pd-stat__icon--slate" aria-hidden="true"><i class="fa fa-flag-checkered"></i></div>
-              <div class="pd-stat__content">
-                <div class="pd-stat__label">Handover</div>
-                <div class="pd-stat__value">20 Jan 2027</div>
-              </div>
-            </div>
-            <div class="pd-stat pd-stat--progress">
-              <div class="pd-stat__icon pd-stat__icon--emerald" aria-hidden="true"><i class="fa fa-chart-line"></i></div>
-              <div class="pd-stat__content">
-                <div class="pd-stat__label">Progress</div>
-                <div class="pd-stat__value">28%</div>
-                <div class="pd-stat__bar" role="img" aria-label="Overall progress 28 percent">
-                  <div class="pd-stat__bar-fill" style="width:28%"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section class="pd-insights" aria-labelledby="pd-insights-heading">
-          <div class="pd-insights__head">
-            <div>
-              <h2 id="pd-insights-heading" class="pd-insights__title">Insights</h2>
-              <p class="pd-insights__subtitle">Key signals and trends for this project — procurement, schedule, and documents.</p>
-            </div>
-            <span class="pd-insights__badge"><i class="fa fa-clock" aria-hidden="true"></i> Updated 28 Mar 2026</span>
-          </div>
-
-          <div class="pd-insights__grid">
-            <article class="pd-insight-card">
-              <div class="pd-insight-card__icon pd-insight-card__icon--blue" aria-hidden="true">
-                <i class="fa fa-file-circle-question"></i>
-              </div>
-              <div class="pd-insight-card__label">Open RFIs</div>
-              <div class="pd-insight-card__value">9</div>
-              <div class="pd-insight-card__meta">
-                <span class="pd-insight-card__delta pd-insight-card__delta--down"><i class="fa fa-arrow-down" aria-hidden="true"></i> 2 overdue</span>
-                <span>avg. response 6d</span>
-              </div>
-            </article>
-
-            <article class="pd-insight-card">
-              <div class="pd-insight-card__icon pd-insight-card__icon--amber" aria-hidden="true">
-                <i class="fa fa-calendar-days"></i>
-              </div>
-              <div class="pd-insight-card__label">Schedule variance</div>
-              <div class="pd-insight-card__value">−12 <small>days</small></div>
-              <div class="pd-insight-card__meta">
-                <span class="pd-insight-card__delta pd-insight-card__delta--down"><i class="fa fa-triangle-exclamation" aria-hidden="true"></i> Behind baseline</span>
-              </div>
-            </article>
-
-            <article class="pd-insight-card">
-              <div class="pd-insight-card__icon pd-insight-card__icon--emerald" aria-hidden="true">
-                <i class="fa fa-file-signature"></i>
-              </div>
-              <div class="pd-insight-card__label">Submittals</div>
-              <div class="pd-insight-card__value">14 <small>pending</small></div>
-              <div class="pd-insight-card__meta">
-                <span class="pd-insight-card__delta pd-insight-card__delta--neutral"><i class="fa fa-minus" aria-hidden="true"></i> steady</span>
-                <span>3 awaiting review</span>
-              </div>
-            </article>
-
-            <article class="pd-insight-card">
-              <div class="pd-insight-card__icon pd-insight-card__icon--slate" aria-hidden="true">
-                <i class="fa fa-hard-hat"></i>
-              </div>
-              <div class="pd-insight-card__label">Site observations</div>
-              <div class="pd-insight-card__value">5</div>
-              <div class="pd-insight-card__meta">
-                <span class="pd-insight-card__delta pd-insight-card__delta--up"><i class="fa fa-arrow-up" aria-hidden="true"></i> 1 closed this week</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="pd-insights__split">
-            <div class="pd-insight-panel">
-              <h3 class="pd-insight-panel__title">Progress by work package</h3>
-              <div class="pd-bar-row">
-                <span class="pd-bar-row__label">Steel</span>
-                <div class="pd-bar-row__track" role="img" aria-label="Steel 42 percent"><div class="pd-bar-row__fill" style="width:42%"></div></div>
-                <span class="pd-bar-row__pct">42%</span>
-              </div>
-              <div class="pd-bar-row">
-                <span class="pd-bar-row__label">Cladding</span>
-                <div class="pd-bar-row__track" aria-label="Cladding 18 percent"><div class="pd-bar-row__fill" style="width:18%"></div></div>
-                <span class="pd-bar-row__pct">18%</span>
-              </div>
-              <div class="pd-bar-row">
-                <span class="pd-bar-row__label">MEP rough-in</span>
-                <div class="pd-bar-row__track" aria-label="MEP rough-in 65 percent"><div class="pd-bar-row__fill" style="width:65%"></div></div>
-                <span class="pd-bar-row__pct">65%</span>
-              </div>
-              <div class="pd-bar-row">
-                <span class="pd-bar-row__label">Cranes &amp; logistics</span>
-                <div class="pd-bar-row__track" aria-label="Cranes and logistics 31 percent"><div class="pd-bar-row__fill" style="width:31%"></div></div>
-                <span class="pd-bar-row__pct">31%</span>
-              </div>
-            </div>
-
-            <div class="pd-insight-panel">
-              <h3 class="pd-insight-panel__title">Watch list</h3>
-              <ul class="pd-watch-list">
-                <li>
-                  <span class="pd-watch-list__dot pd-watch-list__dot--high" aria-hidden="true"></span>
-                  <div>
-                    <span class="pd-watch-list__title">Steel delivery window</span>
-                    <span class="pd-watch-list__sub">Vendor confirmation pending — may impact erection sequence.</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="pd-watch-list__dot pd-watch-list__dot--med" aria-hidden="true"></span>
-                  <div>
-                    <span class="pd-watch-list__title">Shop drawing review</span>
-                    <span class="pd-watch-list__sub">Revision B submitted; awaiting consultant sign-off.</span>
-                  </div>
-                </li>
-                <li>
-                  <span class="pd-watch-list__dot pd-watch-list__dot--low" aria-hidden="true"></span>
-                  <div>
-                    <span class="pd-watch-list__title">BOQ clarifications</span>
-                    <span class="pd-watch-list__sub">3 items need alignment with procurement package.</span>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <div class="project-details-card pd-detail-card pd-detail-card--description">
-            <h3 class="pd-detail-card__heading">
-              <span class="pd-detail-card__heading-label">
-                <i class="fa fa-align-left" aria-hidden="true"></i>
-                Description
-              </span>
-            </h3>
-            <div class="pd-detail-card__body">
-              <p class="pd-detail-card__text">Finalizing vendor selections for steel, cladding, and cranes. Shop drawings review is in progress.</p>
-            </div>
+          </section>
         </div>
 
-        <div class="project-details-card pd-detail-card pd-detail-card--tags">
-            <h3 class="pd-detail-card__heading">
-              <span class="pd-detail-card__heading-label">
-                <i class="fa fa-tags" aria-hidden="true"></i>
-                Tags
-              </span>
-            </h3>
-            <div class="pd-detail-card__body">
-              <ul class="pd-tags" aria-label="Project tags">
-                <li><span class="pd-tag">Steel</span></li>
-                <li><span class="pd-tag">Shop drawings</span></li>
-                <li><span class="pd-tag">Procurement</span></li>
-              </ul>
-            </div>
-        </div>
-
-        <div class="project-details-card pd-detail-card pd-detail-card--aow">
-            <h3 class="pd-detail-card__heading">
-              <span class="pd-detail-card__heading-label">
-                <i class="fa fa-building" aria-hidden="true"></i>
-                Area of work — Buildings
-              </span>
-            </h3>
-            <div class="pd-detail-card__body pd-detail-card__body--table">
-              <div class="pd-table-wrap">
-                <table class="pd-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Building name</th>
-                      <th scope="col">Building type</th>
-                      <th scope="col">Project</th>
-                      <th scope="col">Contract</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>BMH HQ</td>
-                      <td>Office</td>
-                      <td>Main Project</td>
-                      <td>Contract A</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-        </div>
-
-        <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-floors">
-            <h3 class="pd-detail-card__heading">
-              <span class="pd-detail-card__heading-label">
-                <i class="fa fa-layer-group" aria-hidden="true"></i>
-                Area of work — Floors
-              </span>
-            </h3>
-            <div class="pd-detail-card__body pd-detail-card__body--table">
-              <div class="pd-table-wrap">
-                <table class="pd-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Name</th>
-                      <th scope="col">Floor</th>
-                      <th scope="col">Building</th>
-                      <th scope="col">Project</th>
-                      <th scope="col">Contract</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Level 1</td>
-                      <td>01</td>
-                      <td>BMH HQ</td>
-                      <td>Main Project</td>
-                      <td>Contract A</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-        </div>
-
-        <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-spaces">
-            <h3 class="pd-detail-card__heading">
-              <span class="pd-detail-card__heading-label">
-                <i class="fa fa-vector-square" aria-hidden="true"></i>
-                Area of work — Spaces
-              </span>
-            </h3>
-            <div class="pd-detail-card__body pd-detail-card__body--table">
-              <div class="pd-table-wrap">
-                <table class="pd-table">
-                  <thead>
-                    <tr>
-                      <th scope="col">Space name</th>
-                      <th scope="col">Space type</th>
-                      <th scope="col">Zones</th>
-                      <th scope="col">Floor</th>
-                      <th scope="col">Building</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>Reception</td>
-                      <td>Public</td>
-                      <td>Zone A</td>
-                      <td>01</td>
-                      <td>BMH HQ</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-        </div>
-
-        <div class="project-details-card">
-            <h3>Documents</h3>
-            <ul>
-                <li>Architectural_DWG_RevB.pdf</li>
-                <li>Project_Specs_v1.docx</li>
-                <li>BOQ_Final.xlsx</li>
-            </ul>
-        </div>
-
-        <div class="project-details-card">
-            <h3>Folders</h3>
-            <ul>
-                <li>Tender Package</li>
-                <li>Shop Drawings</li>
-                <li>Site Photos</li>
-            </ul>
-        </div>
-
-        <div class="project-details-card">
-            <h3>Scope Of Work</h3>
-            <p>Scope of work details coming soon.</p>
-        </div>
-
-        <div class="project-details-card">
-            <h3>Milestones</h3>
-            <ul>
-                <li>Site mobilization completed</li>
-                <li>Foundation works in progress</li>
-                <li>Steel procurement under review</li>
-            </ul>
-        </div>
-
-        <div class="project-details-card">
-            <h3>Team</h3>
-            <ul>
-                <li>Project Manager - Abdul Rahman</li>
-                <li>Quantity Surveyor - Sara Malik</li>
-                <li>Site Engineer - Hadi Karim</li>
-            </ul>
-        </div>
-    </div>
+      </div>
 
     </div>
   </main>
-
+  <!-- 
   <div class="project-details-modal" id="setupModal" aria-hidden="true">
     <div class="project-details-modal-backdrop" data-close-setup-modal></div>
     <div class="project-details-modal-panel">
@@ -2202,7 +1779,7 @@
         <button type="button" data-close-publish-modal>Publish</button>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <script src="../script/sidebar.js"></script>
   <script src="../script/script.js"></script>
@@ -2285,6 +1862,27 @@
 
       panels.forEach(function (panel) {
         const isActive = panel.getAttribute('data-setup-panel') === name;
+        panel.classList.toggle('is-active', isActive);
+        panel.setAttribute('aria-hidden', String(!isActive));
+      });
+    });
+
+    // Manage page tabs (Area / Scope / Documents / Team)
+    document.addEventListener('click', function (e) {
+      const btn = e.target.closest('.manage-tab-btn[data-manage-tab]');
+      if (!btn) return;
+
+      const name = btn.getAttribute('data-manage-tab');
+      if (!name) return;
+
+      document.querySelectorAll('.manage-tab-btn[data-manage-tab]').forEach(function (tabBtn) {
+        const isActive = tabBtn.getAttribute('data-manage-tab') === name;
+        tabBtn.classList.toggle('is-active', isActive);
+        tabBtn.setAttribute('aria-selected', String(isActive));
+      });
+
+      document.querySelectorAll('.manage-tab-panel[data-manage-panel]').forEach(function (panel) {
+        const isActive = panel.getAttribute('data-manage-panel') === name;
         panel.classList.toggle('is-active', isActive);
         panel.setAttribute('aria-hidden', String(!isActive));
       });
