@@ -4,15 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Details</title>
+  <title>Building Details</title>
   <link rel="stylesheet" href="../styles/style.css">
   <link rel="stylesheet" href="../styles/scrollbar.css">
   <link rel="stylesheet" href="../styles/sidebar.css">
   <link rel="stylesheet" href="../styles/header.css">
   <link rel="stylesheet" href="../css/nav-context-sidebar.css">
   <link rel="stylesheet" href="css/project-details-hero.css">
-  <link rel="stylesheet" href="css/project-details-sections.css">
-  <link rel="stylesheet" href="css/project-details-tables.css">
   <link rel="stylesheet" href="css/manage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -1271,850 +1269,236 @@
      
     </nav>
     <div class="page-body">
-      <div class="manage-page">
-        <div class="pd-hero__top">
-          <nav class="pd-breadcrumb" aria-label="Breadcrumb">
-            <a href="index.html">Projects</a>
-            <span class="pd-breadcrumb__sep" aria-hidden="true">/</span>
-            <span class="pd-breadcrumb__current">Industrial Warehouse</span>
-          </nav>
-          <div class="pd-hero__actions">
-            <div class="manage-switch" data-project-switch>
-              <button
-                type="button"
-                class="pd-btn pd-btn--primary manage-switch__btn"
-                data-project-switch-btn
-                aria-haspopup="menu"
-                aria-expanded="false"
-              >
-                <i class="fa-solid fa-right-left" aria-hidden="true"></i>
-                Switch project
-              </button>
-              <div class="manage-switch__menu" data-project-switch-menu role="menu" aria-hidden="true">
-                <a class="manage-switch__item" role="menuitem" href="manage.html">Industrial Warehouse</a>
-                <a class="manage-switch__item" role="menuitem" href="manage.html">BMH HQ Fit-out</a>
-                <a class="manage-switch__item" role="menuitem" href="manage.html">Logistics Hub Expansion</a>
+      <div class="project-details-page">
+        <section class="pd-hero" aria-label="Building overview">
+          <div class="pd-hero__accent" aria-hidden="true"></div>
+          <div class="pd-hero__inner">
+            <div class="pd-hero__top">
+              <nav class="pd-breadcrumb" aria-label="Breadcrumb">
+                <a href="project-details.html">Project</a>
+                <span class="pd-breadcrumb__sep" aria-hidden="true">/</span>
+                <a href="manage.html#area">Area of work</a>
+                <span class="pd-breadcrumb__sep" aria-hidden="true">/</span>
+                <span class="pd-breadcrumb__current">BMH HQ</span>
+              </nav>
+
+              <div class="pd-hero__actions">
+                <a class="pd-btn pd-btn--ghost" href="manage.html#area">
+                  <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                  Back to Area of work
+                </a>
+                <button type="button" class="pd-btn pd-btn--primary">
+                  <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+                  Edit building
+                </button>
+              </div>
+            </div>
+
+            <div class="pd-hero__headline">
+              <h1 class="pd-hero__title">BMH HQ</h1>
+              <div class="pd-hero__meta">
+                <span class="pd-hero__meta-id">BLD-001</span>
+                <span class="pd-pill pd-pill--warning">At risk</span>
+                <span class="pd-pill pd-pill--neutral">Office</span>
+              </div>
+            </div>
+
+            <div class="pd-hero__stats" role="list" aria-label="Building KPIs">
+              <div class="pd-stat" role="listitem">
+                <div class="pd-stat__icon pd-stat__icon--status">
+                  <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
+                </div>
+                <div class="pd-stat__main">
+                  <div class="pd-stat__label">Status</div>
+                  <div class="pd-stat__value">In Progress</div>
+                </div>
+              </div>
+
+              <div class="pd-stat" role="listitem">
+                <div class="pd-stat__icon pd-stat__icon--date">
+                  <i class="fa-solid fa-calendar-day" aria-hidden="true"></i>
+                </div>
+                <div class="pd-stat__main">
+                  <div class="pd-stat__label">Start date</div>
+                  <div class="pd-stat__value">12 Feb 2026</div>
+                </div>
+              </div>
+
+              <div class="pd-stat" role="listitem">
+                <div class="pd-stat__icon pd-stat__icon--handover">
+                  <i class="fa-solid fa-flag-checkered" aria-hidden="true"></i>
+                </div>
+                <div class="pd-stat__main">
+                  <div class="pd-stat__label">Handover</div>
+                  <div class="pd-stat__value">30 Sep 2026</div>
+                </div>
+              </div>
+
+              <div class="pd-stat" role="listitem">
+                <div class="pd-stat__icon pd-stat__icon--progress">
+                  <i class="fa-solid fa-chart-line" aria-hidden="true"></i>
+                </div>
+                <div class="pd-stat__main">
+                  <div class="pd-stat__label">Progress</div>
+                  <div class="pd-stat__value">62%</div>
+                  <div class="pd-stat__bar" aria-hidden="true">
+                    <span class="pd-stat__bar-fill" style="width: 62%"></span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="manage-tab-panels">
-          <section class="manage-tab-panel is-active" data-manage-panel="area" role="tabpanel" aria-hidden="false">
-            <div class="manage-subtabs" role="tablist" aria-label="Area of work sections">
-              <button type="button" class="manage-subtab-btn is-active" data-area-tab="all" role="tab" aria-selected="true">All</button>
-              <button type="button" class="manage-subtab-btn" data-area-tab="buildings" role="tab" aria-selected="false">Buildings</button>
-              <button type="button" class="manage-subtab-btn" data-area-tab="floors" role="tab" aria-selected="false">Floors</button>
-              <button type="button" class="manage-subtab-btn" data-area-tab="spaces" role="tab" aria-selected="false">Spaces</button>
-            </div>
+        </section>
 
-            <div class="manage-area-panels">
-              <div class="manage-area-panel is-active" data-area-panel="all" data-aow-view="table" role="tabpanel" aria-hidden="false">
-                <div class="manage-view-switch" role="group" aria-label="Area of work view">
-                  <button type="button" class="manage-view-btn is-active" data-aow-view-btn="table" aria-pressed="true">
-                    <i class="fa-solid fa-table" aria-hidden="true"></i>
-                    List
-                  </button>
-                  <button type="button" class="manage-view-btn" data-aow-view-btn="cards" aria-pressed="false">
-                    <i class="fa-solid fa-grid-2" aria-hidden="true"></i>
-                    Cards
-                  </button>
-                </div>
-
-                <div class="manage-aow-table">
-                  <div class="project-details-card pd-detail-card pd-detail-card--aow">
-                  <h3 class="pd-detail-card__heading">
-                    <span class="pd-detail-card__heading-label">
-                      <i class="fa fa-building" aria-hidden="true"></i>
-                      Area of work — Buildings
-                    </span>
-                  </h3>
-                  <div class="pd-detail-card__body pd-detail-card__body--table">
-                    <div class="pd-table-wrap">
-                      <table class="pd-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Building name</th>
-                            <th scope="col">Building type</th>
-                            <th scope="col">Project</th>
-                            <th scope="col">Contract</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">BMH HQ</a></td>
-                            <td>Office</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">Steel Warehouse</a></td>
-                            <td>Industrial</td>
-                            <td>Main Project</td>
-                            <td>Contract B</td>
-                          </tr>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">Admin Block</a></td>
-                            <td>Office</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">Utilities Yard</a></td>
-                            <td>Infrastructure</td>
-                            <td>Main Project</td>
-                            <td>Contract C</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-
-                  <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-floors">
-                  <h3 class="pd-detail-card__heading">
-                    <span class="pd-detail-card__heading-label">
-                      <i class="fa fa-layer-group" aria-hidden="true"></i>
-                      Area of work — Floors
-                    </span>
-                  </h3>
-                  <div class="pd-detail-card__body pd-detail-card__body--table">
-                    <div class="pd-table-wrap">
-                      <table class="pd-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Floor</th>
-                            <th scope="col">Building</th>
-                            <th scope="col">Project</th>
-                            <th scope="col">Contract</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Level 1</td>
-                            <td>01</td>
-                            <td>BMH HQ</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td>Level 2</td>
-                            <td>02</td>
-                            <td>BMH HQ</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td>Mezzanine</td>
-                            <td>M1</td>
-                            <td>Steel Warehouse</td>
-                            <td>Main Project</td>
-                            <td>Contract B</td>
-                          </tr>
-                          <tr>
-                            <td>Ground</td>
-                            <td>00</td>
-                            <td>Admin Block</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-
-                  <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-spaces">
-                  <h3 class="pd-detail-card__heading">
-                    <span class="pd-detail-card__heading-label">
-                      <i class="fa fa-vector-square" aria-hidden="true"></i>
-                      Area of work — Spaces
-                    </span>
-                  </h3>
-                  <div class="pd-detail-card__body pd-detail-card__body--table">
-                    <div class="pd-table-wrap">
-                      <table class="pd-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Space name</th>
-                            <th scope="col">Space type</th>
-                            <th scope="col">Zones</th>
-                            <th scope="col">Floor</th>
-                            <th scope="col">Building</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Reception</td>
-                            <td>Public</td>
-                            <td>Zone A</td>
-                            <td>01</td>
-                            <td>BMH HQ</td>
-                          </tr>
-                          <tr>
-                            <td>Open Office</td>
-                            <td>Work</td>
-                            <td>Zone B</td>
-                            <td>02</td>
-                            <td>BMH HQ</td>
-                          </tr>
-                          <tr>
-                            <td>Loading Bay</td>
-                            <td>Operational</td>
-                            <td>Zone W</td>
-                            <td>00</td>
-                            <td>Steel Warehouse</td>
-                          </tr>
-                          <tr>
-                            <td>Electrical Room</td>
-                            <td>MEP</td>
-                            <td>Zone U</td>
-                            <td>00</td>
-                            <td>Utilities Yard</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
-                <div class="manage-aow-cards">
-                  <div class="manage-aow-cards__section">
-                    <div class="manage-aow-cards__title">
-                      <i class="fa-solid fa-building" aria-hidden="true"></i>
-                      Buildings
-                    </div>
-                    <div class="manage-card-grid">
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">BMH HQ</a></div>
-                          <span class="manage-aow-pill">Office</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Project</span><strong>Main Project</strong></div>
-                          <div><span>Contract</span><strong>Contract A</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">Steel Warehouse</a></div>
-                          <span class="manage-aow-pill">Industrial</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Project</span><strong>Main Project</strong></div>
-                          <div><span>Contract</span><strong>Contract B</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">Admin Block</a></div>
-                          <span class="manage-aow-pill">Office</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Project</span><strong>Main Project</strong></div>
-                          <div><span>Contract</span><strong>Contract A</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">Utilities Yard</a></div>
-                          <span class="manage-aow-pill">Infrastructure</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Project</span><strong>Main Project</strong></div>
-                          <div><span>Contract</span><strong>Contract C</strong></div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <div class="manage-aow-cards__section">
-                    <div class="manage-aow-cards__title">
-                      <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
-                      Floors
-                    </div>
-                    <div class="manage-card-grid">
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Level 1</div>
-                          <span class="manage-aow-pill">Floor 01</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Building</span><strong>BMH HQ</strong></div>
-                          <div><span>Contract</span><strong>Contract A</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Level 2</div>
-                          <span class="manage-aow-pill">Floor 02</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Building</span><strong>BMH HQ</strong></div>
-                          <div><span>Contract</span><strong>Contract A</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Mezzanine</div>
-                          <span class="manage-aow-pill">Floor M1</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Building</span><strong>Steel Warehouse</strong></div>
-                          <div><span>Contract</span><strong>Contract B</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Ground</div>
-                          <span class="manage-aow-pill">Floor 00</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Building</span><strong>Admin Block</strong></div>
-                          <div><span>Contract</span><strong>Contract A</strong></div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-
-                  <div class="manage-aow-cards__section">
-                    <div class="manage-aow-cards__title">
-                      <i class="fa-solid fa-vector-square" aria-hidden="true"></i>
-                      Spaces
-                    </div>
-                    <div class="manage-card-grid">
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Reception</div>
-                          <span class="manage-aow-pill">Public</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Zone</span><strong>Zone A</strong></div>
-                          <div><span>Floor</span><strong>01 — BMH HQ</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Open Office</div>
-                          <span class="manage-aow-pill">Work</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Zone</span><strong>Zone B</strong></div>
-                          <div><span>Floor</span><strong>02 — BMH HQ</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Loading Bay</div>
-                          <span class="manage-aow-pill">Operational</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Zone</span><strong>Zone W</strong></div>
-                          <div><span>Floor</span><strong>00 — Steel Warehouse</strong></div>
-                        </div>
-                      </article>
-                      <article class="manage-aow-card">
-                        <div class="manage-aow-card__top">
-                          <div class="manage-aow-card__name">Electrical Room</div>
-                          <span class="manage-aow-pill">MEP</span>
-                        </div>
-                        <div class="manage-aow-card__meta">
-                          <div><span>Zone</span><strong>Zone U</strong></div>
-                          <div><span>Floor</span><strong>00 — Utilities Yard</strong></div>
-                        </div>
-                      </article>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="manage-area-panel" data-area-panel="buildings" data-aow-view="table" role="tabpanel" aria-hidden="true">
-                <div class="manage-view-switch" role="group" aria-label="Buildings view">
-                  <button type="button" class="manage-view-btn is-active" data-aow-view-btn="table" aria-pressed="true">
-                    <i class="fa-solid fa-table" aria-hidden="true"></i>
-                    Table
-                  </button>
-                  <button type="button" class="manage-view-btn" data-aow-view-btn="cards" aria-pressed="false">
-                    <i class="fa-solid fa-grid-2" aria-hidden="true"></i>
-                    Cards
-                  </button>
-                </div>
-
-                <div class="manage-aow-table">
-                  <div class="project-details-card pd-detail-card pd-detail-card--aow">
-                
-                  <div class="pd-detail-card__body pd-detail-card__body--table">
-                    <div class="pd-table-wrap">
-                      <table class="pd-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Building name</th>
-                            <th scope="col">Building type</th>
-                            <th scope="col">Project</th>
-                            <th scope="col">Contract</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">BMH HQ</a></td>
-                            <td>Office</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">Steel Warehouse</a></td>
-                            <td>Industrial</td>
-                            <td>Main Project</td>
-                            <td>Contract B</td>
-                          </tr>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">Admin Block</a></td>
-                            <td>Office</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td><a class="manage-aow-link" href="building-details.html">Utilities Yard</a></td>
-                            <td>Infrastructure</td>
-                            <td>Main Project</td>
-                            <td>Contract C</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
-                <div class="manage-aow-cards">
-                  <div class="manage-card-grid">
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">BMH HQ</a></div>
-                        <span class="manage-aow-pill">Office</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Project</span><strong>Main Project</strong></div>
-                        <div><span>Contract</span><strong>Contract A</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">Steel Warehouse</a></div>
-                        <span class="manage-aow-pill">Industrial</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Project</span><strong>Main Project</strong></div>
-                        <div><span>Contract</span><strong>Contract B</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">Admin Block</a></div>
-                        <span class="manage-aow-pill">Office</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Project</span><strong>Main Project</strong></div>
-                        <div><span>Contract</span><strong>Contract A</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name"><a class="manage-aow-link" href="building-details.html">Utilities Yard</a></div>
-                        <span class="manage-aow-pill">Infrastructure</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Project</span><strong>Main Project</strong></div>
-                        <div><span>Contract</span><strong>Contract C</strong></div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-
-              <div class="manage-area-panel" data-area-panel="floors" data-aow-view="table" role="tabpanel" aria-hidden="true">
-                <div class="manage-view-switch" role="group" aria-label="Floors view">
-                  <button type="button" class="manage-view-btn is-active" data-aow-view-btn="table" aria-pressed="true">
-                    <i class="fa-solid fa-table" aria-hidden="true"></i>
-                    List
-                  </button>
-                  <button type="button" class="manage-view-btn" data-aow-view-btn="cards" aria-pressed="false">
-                    <i class="fa-solid fa-grid-2" aria-hidden="true"></i>
-                    Cards
-                  </button>
-                </div>
-
-                <div class="manage-aow-table">
-                  <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-floors">
-                
-                  <div class="pd-detail-card__body pd-detail-card__body--table">
-                    <div class="pd-table-wrap">
-                      <table class="pd-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Name</th>
-                            <th scope="col">Floor</th>
-                            <th scope="col">Building</th>
-                            <th scope="col">Project</th>
-                            <th scope="col">Contract</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Level 1</td>
-                            <td>01</td>
-                            <td>BMH HQ</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td>Level 2</td>
-                            <td>02</td>
-                            <td>BMH HQ</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                          <tr>
-                            <td>Mezzanine</td>
-                            <td>M1</td>
-                            <td>Steel Warehouse</td>
-                            <td>Main Project</td>
-                            <td>Contract B</td>
-                          </tr>
-                          <tr>
-                            <td>Ground</td>
-                            <td>00</td>
-                            <td>Admin Block</td>
-                            <td>Main Project</td>
-                            <td>Contract A</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
-                <div class="manage-aow-cards">
-                  <div class="manage-card-grid">
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Level 1</div>
-                        <span class="manage-aow-pill">Floor 01</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Building</span><strong>BMH HQ</strong></div>
-                        <div><span>Contract</span><strong>Contract A</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Level 2</div>
-                        <span class="manage-aow-pill">Floor 02</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Building</span><strong>BMH HQ</strong></div>
-                        <div><span>Contract</span><strong>Contract A</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Mezzanine</div>
-                        <span class="manage-aow-pill">Floor M1</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Building</span><strong>Steel Warehouse</strong></div>
-                        <div><span>Contract</span><strong>Contract B</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Ground</div>
-                        <span class="manage-aow-pill">Floor 00</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Building</span><strong>Admin Block</strong></div>
-                        <div><span>Contract</span><strong>Contract A</strong></div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-
-              <div class="manage-area-panel" data-area-panel="spaces" data-aow-view="table" role="tabpanel" aria-hidden="true">
-                <div class="manage-view-switch" role="group" aria-label="Spaces view">
-                  <button type="button" class="manage-view-btn is-active" data-aow-view-btn="table" aria-pressed="true">
-                    <i class="fa-solid fa-table" aria-hidden="true"></i>
-                    List
-                  </button>
-                  <button type="button" class="manage-view-btn" data-aow-view-btn="cards" aria-pressed="false">
-                    <i class="fa-solid fa-grid-2" aria-hidden="true"></i>
-                    Cards
-                  </button>
-                </div>
-
-                <div class="manage-aow-table">
-                  <div class="project-details-card pd-detail-card pd-detail-card--aow pd-detail-card--aow-spaces">
-                  
-                  <div class="pd-detail-card__body pd-detail-card__body--table">
-                    <div class="pd-table-wrap">
-                      <table class="pd-table">
-                        <thead>
-                          <tr>
-                            <th scope="col">Space name</th>
-                            <th scope="col">Space type</th>
-                            <th scope="col">Zones</th>
-                            <th scope="col">Floor</th>
-                            <th scope="col">Building</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td>Reception</td>
-                            <td>Public</td>
-                            <td>Zone A</td>
-                            <td>01</td>
-                            <td>BMH HQ</td>
-                          </tr>
-                          <tr>
-                            <td>Open Office</td>
-                            <td>Work</td>
-                            <td>Zone B</td>
-                            <td>02</td>
-                            <td>BMH HQ</td>
-                          </tr>
-                          <tr>
-                            <td>Loading Bay</td>
-                            <td>Operational</td>
-                            <td>Zone W</td>
-                            <td>00</td>
-                            <td>Steel Warehouse</td>
-                          </tr>
-                          <tr>
-                            <td>Electrical Room</td>
-                            <td>MEP</td>
-                            <td>Zone U</td>
-                            <td>00</td>
-                            <td>Utilities Yard</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
-                </div>
-                </div>
-
-                <div class="manage-aow-cards">
-                  <div class="manage-card-grid">
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Reception</div>
-                        <span class="manage-aow-pill">Public</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Zone</span><strong>Zone A</strong></div>
-                        <div><span>Floor</span><strong>01 — BMH HQ</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Open Office</div>
-                        <span class="manage-aow-pill">Work</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Zone</span><strong>Zone B</strong></div>
-                        <div><span>Floor</span><strong>02 — BMH HQ</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Loading Bay</div>
-                        <span class="manage-aow-pill">Operational</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Zone</span><strong>Zone W</strong></div>
-                        <div><span>Floor</span><strong>00 — Steel Warehouse</strong></div>
-                      </div>
-                    </article>
-                    <article class="manage-aow-card">
-                      <div class="manage-aow-card__top">
-                        <div class="manage-aow-card__name">Electrical Room</div>
-                        <span class="manage-aow-pill">MEP</span>
-                      </div>
-                      <div class="manage-aow-card__meta">
-                        <div><span>Zone</span><strong>Zone U</strong></div>
-                        <div><span>Floor</span><strong>00 — Utilities Yard</strong></div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-          <section class="manage-tab-panel" data-manage-panel="scope" role="tabpanel" aria-hidden="true">
-            <p class="manage-coming-soon">Scope of work content coming soon.</p>
-          </section>
-          <section class="manage-tab-panel" data-manage-panel="documents" role="tabpanel" aria-hidden="true">
-
-            <div class="manage-docs">
-              <div class="manage-docs_header">
-                <div>
-                  <div class="manage-docs_title">Documents</div>
-                  <div class="manage-docs_subtitle">Upload and organize drawings, specs, and BOQ.</div>
-                </div>
-                <label class="manage-docs_upload" for="manageDocsInput">
-                  <i class="fa-solid fa-upload" aria-hidden="true"></i>
-                  <span>Upload</span>
-                </label>
-                <input id="manageDocsInput" class="manage-docs_input" type="file" multiple>
-              </div>
-
-              <div class="manage-docs_grid">
-                <section class="manage-card" aria-label="Files">
-                  <div class="manage-card_head">
-                    <span class="manage-card_title"><i class="fa-solid fa-file-lines" aria-hidden="true"></i>
-                      Files</span>
-                  </div>
-                  <div class="manage-card_body">
-                    <div class="manage-file">
-                      <div class="manage-file_left">
-                        <span class="manage-file_icon" aria-hidden="true"><i class="fa-solid fa-file-pdf"></i></span>
-                        <span class="manage-file_name">Architectural_DWG_RevB.pdf</span>
-                      </div>
-                      <span class="manage-file_meta">DWG</span>
-                    </div>
-                    <div class="manage-file">
-                      <div class="manage-file_left">
-                        <span class="manage-file_icon" aria-hidden="true"><i class="fa-solid fa-file-word"></i></span>
-                        <span class="manage-file_name">Project_Specs_v1.docx</span>
-                      </div>
-                      <span class="manage-file_meta">Specs</span>
-                    </div>
-                    <div class="manage-file">
-                      <div class="manage-file_left">
-                        <span class="manage-file_icon" aria-hidden="true"><i class="fa-solid fa-file-excel"></i></span>
-                        <span class="manage-file_name">BOQ_Final.xlsx</span>
-                      </div>
-                      <span class="manage-file_meta">BOQ</span>
-                    </div>
-                  </div>
-                </section>
-
-                <section class="manage-card" aria-label="Folders">
-                  <div class="manage-card_head">
-                    <span class="manage-card_title"><i class="fa-solid fa-folder-open" aria-hidden="true"></i>
-                      Folders</span>
-                    <button type="button" class="manage-docs_btn" title="Create folder">
-                      <i class="fa-solid fa-folder-plus" aria-hidden="true"></i>
-                      <span>Create folder</span>
-                    </button>
-                  </div>
-                  <div class="manage-card_body">
-                    <div class="manage-folders">
-                      <div class="manage-folder">
-                        <i class="fa-solid fa-folder" aria-hidden="true"></i>
-                        <span>Tender Package</span>
-                      </div>
-                      <div class="manage-folder">
-                        <i class="fa-solid fa-folder" aria-hidden="true"></i>
-                        <span>Shop Drawings</span>
-                      </div>
-                      <div class="manage-folder">
-                        <i class="fa-solid fa-folder" aria-hidden="true"></i>
-                        <span>Site Photos</span>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </section>
-          <section class="manage-tab-panel" data-manage-panel="team" role="tabpanel" aria-hidden="true">
-
-            <div class="manage-team">
-              <div class="manage-team_header">
-                <div>
-                  <div class="manage-team_title">Team</div>
-                  <div class="manage-team_subtitle">People involved in this project.</div>
-                </div>
-                <button type="button" class="manage-docs_btn" title="Add member">
-                  <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
-                  <span>Add member</span>
-                </button>
-              </div>
-
-              <div class="manage-team_grid" role="list" aria-label="Team members">
-                <div class="manage-member" role="listitem">
-                  <div class="manage-member_avatar" aria-hidden="true">AR</div>
-                  <div class="manage-member_main">
-                    <div class="manage-member_name">Abdul Rahman</div>
-                    <div class="manage-member_role">Project Manager</div>
-                  </div>
-                  <div class="manage-member_meta">
-                    <span class="manage-member_pill">Owner</span>
-                  </div>
-                </div>
-
-                <div class="manage-member" role="listitem">
-                  <div class="manage-member_avatar manage-member_avatar--slate" aria-hidden="true">SM</div>
-                  <div class="manage-member_main">
-                    <div class="manage-member_name">Sara Malik</div>
-                    <div class="manage-member_role">Quantity Surveyor</div>
-                  </div>
-                  <div class="manage-member_meta">
-                    <span class="manage-member_pill manage-member_pill--neutral">QS</span>
-                  </div>
-                </div>
-
-                <div class="manage-member" role="listitem">
-                  <div class="manage-member_avatar manage-member_avatar--emerald" aria-hidden="true">HK</div>
-                  <div class="manage-member_main">
-                    <div class="manage-member_name">Hadi Karim</div>
-                    <div class="manage-member_role">Site Engineer</div>
-                  </div>
-                  <div class="manage-member_meta">
-                    <span class="manage-member_pill manage-member_pill--neutral">SE</span>
-                  </div>
-                </div>
-
-                <div class="manage-member" role="listitem">
-                  <div class="manage-member_avatar manage-member_avatar--slate" aria-hidden="true">LA</div>
-                  <div class="manage-member_main">
-                    <div class="manage-member_name">Laila Ahmed</div>
-                    <div class="manage-member_role">Planning Engineer</div>
-                  </div>
-                  <div class="manage-member_meta">
-                    <span class="manage-member_pill manage-member_pill--neutral">PE</span>
-                  </div>
-                </div>
-
-                <div class="manage-member" role="listitem">
-                  <div class="manage-member_avatar" aria-hidden="true">MO</div>
-                  <div class="manage-member_main">
-                    <div class="manage-member_name">Mohanad Omar</div>
-                    <div class="manage-member_role">QA/QC Engineer</div>
-                  </div>
-                  <div class="manage-member_meta">
-                    <span class="manage-member_pill manage-member_pill--neutral">QA</span>
-                  </div>
-                </div>
-
-                <div class="manage-member" role="listitem">
-                  <div class="manage-member_avatar manage-member_avatar--emerald" aria-hidden="true">FN</div>
-                  <div class="manage-member_main">
-                    <div class="manage-member_name">Farah Nasser</div>
-                    <div class="manage-member_role">Document Controller</div>
-                  </div>
-                  <div class="manage-member_meta">
-                    <span class="manage-member_pill manage-member_pill--neutral">DC</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
+        <div class="bd-tabs" role="tablist" aria-label="Building sections">
+          <button type="button" class="bd-tab-btn is-active" data-bd-tab="overview" role="tab" aria-selected="true">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Overview
+          </button>
+          <button type="button" class="bd-tab-btn" data-bd-tab="floors" role="tab" aria-selected="false">
+            <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+            Floors
+          </button>
+          <button type="button" class="bd-tab-btn" data-bd-tab="spaces" role="tab" aria-selected="false">
+            <i class="fa-solid fa-vector-square" aria-hidden="true"></i>
+            Spaces
+          </button>
+          <button type="button" class="bd-tab-btn" data-bd-tab="documents" role="tab" aria-selected="false">
+            <i class="fa-solid fa-folder-open" aria-hidden="true"></i>
+            Documents
+          </button>
+          <button type="button" class="bd-tab-btn" data-bd-tab="team" role="tab" aria-selected="false">
+            <i class="fa-solid fa-users" aria-hidden="true"></i>
+            Team
+          </button>
         </div>
 
+        <div class="bd-tab-panels">
+          <section class="bd-tab-panel is-active" data-bd-panel="overview" role="tabpanel" aria-hidden="false">
+            <div class="manage-card">
+              <div class="manage-card_head">
+                <div class="manage-card_title">
+                  <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                  Overview
+                </div>
+              </div>
+              <div class="manage-card_body">
+                <div class="manage-card-grid" style="margin:0;">
+                  <article class="manage-aow-card" style="grid-column: span 12;">
+                    <div class="manage-aow-card__top">
+                      <div class="manage-aow-card__name">Building information</div>
+                      <span class="manage-aow-pill">BLD-001</span>
+                    </div>
+                    <div class="manage-aow-card__meta">
+                      <div><span>Type</span><strong>Office</strong></div>
+                      <div><span>Location</span><strong>Zone A</strong></div>
+                      <div><span>Gross area</span><strong>8,420 m²</strong></div>
+                      <div><span>Contract</span><strong>Contract A</strong></div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="bd-tab-panel" data-bd-panel="floors" role="tabpanel" aria-hidden="true">
+            <div class="manage-card">
+              <div class="manage-card_head">
+                <div class="manage-card_title">
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i>
+                  Floors
+                </div>
+              </div>
+              <div class="manage-card_body">
+                <div class="pd-table-wrap">
+                  <table class="pd-table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Level</th>
+                        <th scope="col">Progress</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Ground</td>
+                        <td>F-00</td>
+                        <td>00</td>
+                        <td>78%</td>
+                      </tr>
+                      <tr>
+                        <td>Level 1</td>
+                        <td>F-01</td>
+                        <td>01</td>
+                        <td>65%</td>
+                      </tr>
+                      <tr>
+                        <td>Level 2</td>
+                        <td>F-02</td>
+                        <td>02</td>
+                        <td>44%</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="bd-tab-panel" data-bd-panel="spaces" role="tabpanel" aria-hidden="true">
+            <div class="manage-card">
+              <div class="manage-card_head">
+                <div class="manage-card_title">
+                  <i class="fa-solid fa-vector-square" aria-hidden="true"></i>
+                  Spaces
+                </div>
+              </div>
+              <div class="manage-card_body">
+                <div class="manage-card-grid">
+                  <article class="manage-aow-card">
+                    <div class="manage-aow-card__top">
+                      <div class="manage-aow-card__name">Reception</div>
+                      <span class="manage-aow-pill">Public</span>
+                    </div>
+                    <div class="manage-aow-card__meta">
+                      <div><span>Zone</span><strong>Zone A</strong></div>
+                      <div><span>Floor</span><strong>01</strong></div>
+                    </div>
+                  </article>
+                  <article class="manage-aow-card">
+                    <div class="manage-aow-card__top">
+                      <div class="manage-aow-card__name">Open Office</div>
+                      <span class="manage-aow-pill">Work</span>
+                    </div>
+                    <div class="manage-aow-card__meta">
+                      <div><span>Zone</span><strong>Zone B</strong></div>
+                      <div><span>Floor</span><strong>02</strong></div>
+                    </div>
+                  </article>
+                  <article class="manage-aow-card">
+                    <div class="manage-aow-card__top">
+                      <div class="manage-aow-card__name">Meeting Room</div>
+                      <span class="manage-aow-pill">Collaboration</span>
+                    </div>
+                    <div class="manage-aow-card__meta">
+                      <div><span>Zone</span><strong>Zone B</strong></div>
+                      <div><span>Floor</span><strong>02</strong></div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="bd-tab-panel" data-bd-panel="documents" role="tabpanel" aria-hidden="true">
+            <p class="manage-coming-soon">Documents content coming soon.</p>
+          </section>
+
+          <section class="bd-tab-panel" data-bd-panel="team" role="tabpanel" aria-hidden="true">
+            <p class="manage-coming-soon">Team content coming soon.</p>
+          </section>
+        </div>
       </div>
 
     </div>
@@ -2125,6 +1509,7 @@
   <script src="../script/script.js"></script>
   <script src="script/views-container.js"></script>
   <script src="script/manage.js"></script>
+  <script src="script/building-details.js"></script>
 
 </body>
 

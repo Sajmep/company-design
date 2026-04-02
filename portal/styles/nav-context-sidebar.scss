@@ -13,7 +13,7 @@ $yellow: #e6bb01;
 }
 
 .nav-context-sidebar {
-  width: 84px;
+  width: 110px;
   flex-shrink: 0;
   background: $white;
   border-right: 1px solid $gray-medium;
@@ -28,7 +28,7 @@ $yellow: #e6bb01;
   flex-direction: column;
   align-items: center;
   padding: 10px 8px;
-  gap: 6px;
+  gap: 0px;
   border: none;
   background: none;
   cursor: pointer;
